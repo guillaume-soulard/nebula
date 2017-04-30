@@ -1,0 +1,52 @@
+[uml,file="core.png"]
+--
+class Nebula {
+    {static} newModel() : Model
+}
+
+Nebula --> Model : create
+
+class Model {
+    name : String
+    types : Type[]
+}
+
+class Entity {
+    GeneratedObject generate (ctx : GenerationContext)
+}
+Model *-- "*" Entity : types
+
+class IntegerType
+Type <|-down- IntegerType
+
+class DateType
+Type <|-down- DateType
+
+class StringType
+Type <|-down- StringType
+
+class BooleanType
+Type <|-down- BooleanType
+
+class Property {
+    name : String
+    type : Type
+    generator : Generator
+}
+Property "*" -down-* Entity : properties
+
+class Generator {
+    -seed: long
+    GenerationResult generate(ctx : GenerationContext)    
+}
+
+class RandomGenerator {
+    
+}
+Generator <|-up- RandomGenerator
+
+class SequanceGenerator {
+    
+}
+Generator <|-down- SequanceGenerator
+--
