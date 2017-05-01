@@ -37,7 +37,7 @@ public class RandomGeneratorTest {
 		NebulaRandom nebulaRandom = mock(NebulaRandom.class);
 		RandomGenerator generator = new RandomGenerator();
 		generator.init(nebulaRandom);
-		Type type = NebulaTypes.number().withMin(1).withMax(1).build();
+		Type type = NebulaTypes.integer().withMin(1).withMax(1).build();
 
 		// WHEN
 		GeneratedObject result = generator.generate(type);
@@ -53,7 +53,7 @@ public class RandomGeneratorTest {
 		NebulaRandom nebulaRandom = mock(NebulaRandom.class);
 		RandomGenerator generator = new RandomGenerator();
 		generator.init(nebulaRandom);
-		Type type = NebulaTypes.number().withMin(10).withMax(10).build();
+		Type type = NebulaTypes.integer().withMin(10).withMax(10).build();
 
 		// WHEN
 		GeneratedObject result = generator.generate(type);
@@ -69,7 +69,7 @@ public class RandomGeneratorTest {
 		NebulaRandom nebulaRandom = new NebulaRandom(0l);
 		RandomGenerator generator = new RandomGenerator();
 		generator.init(nebulaRandom);
-		Type type = NebulaTypes.number().withMin(0).withMax(10).build();
+		Type type = NebulaTypes.integer().withMin(0).withMax(10).build();
 
 		// WHEN
 		List<GeneratedObject> result = new ArrayList<GeneratedObject>();
@@ -101,7 +101,7 @@ public class RandomGeneratorTest {
 
 		// GIVEN
 		RandomGenerator generator = new RandomGenerator();
-		Type type = NebulaTypes.number().build();
+		Type type = NebulaTypes.integer().build();
 
 		// WHEN
 		catchException(generator).generate(type);

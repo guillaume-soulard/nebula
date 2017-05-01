@@ -47,7 +47,7 @@ public class ModelTest {
 		long seed = 1l;
 		Model model = Nebula.newModel();
 		Entity entity = Nebula.newEntity("test", 10);
-		entity.addProperty("number", NebulaTypes.number(), NebulaGenerators.random());
+		entity.addProperty("number", NebulaTypes.integer(), NebulaGenerators.random());
 		model.addEntity(entity);
 
 		// WHEN
@@ -66,7 +66,7 @@ public class ModelTest {
 		long seed = 1l;
 		Model model = Nebula.newModel();
 		Entity entity = Nebula.newEntity("test", 100000);
-		entity.addProperty("number", NebulaTypes.number().withMin(-2).withMax(2), NebulaGenerators.random());
+		entity.addProperty("number", NebulaTypes.integer().withMin(-2).withMax(2), NebulaGenerators.random());
 		model.addEntity(entity);
 
 		// WHEN

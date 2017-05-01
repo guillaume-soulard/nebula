@@ -1,11 +1,15 @@
 package com.nebula.core;
 
-import com.nebula.core.types.number.NumberTypeBuilder;
+import com.nebula.core.types.number.DoubleTypeBuilder;
+import com.nebula.core.types.number.LongTypeBuilder;
 
 public final class NebulaTypes {
 
-	public static NumberTypeBuilder number() throws NebulaException {
+	public static LongTypeBuilder integer() {
+		return new LongTypeBuilder();
+	}
 
-		return new NumberTypeBuilder();
+	public static DoubleTypeBuilder decimal() {
+		return new DoubleTypeBuilder();
 	}
 }

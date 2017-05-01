@@ -1,5 +1,7 @@
 package com.nebula.core.types.number;
 
+import static com.googlecode.catchexception.CatchException.catchException;
+import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
@@ -7,16 +9,17 @@ import org.junit.Test;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaException;
 import com.nebula.core.NebulaTypes;
+import com.nebula.core.types.Range;
 
-public class NumberTypeTest {
+public class LongTypeTest {
 
 	@Test
 	public void integer_should_return_a_new_instance_of_IntegerType() throws NebulaException {
 		// GIVEN
-		NumberType type = null;
+		LongType type = null;
 
 		// WHEN
-		type = (NumberType) NebulaTypes.number().build();
+		type = (LongType) NebulaTypes.integer().build();
 
 		// THEN
 		assertThat(type).isNotNull();
@@ -25,10 +28,10 @@ public class NumberTypeTest {
 	@Test
 	public void integer_should_return_IntegerType_with_IntegerMin_and_IntegerMax_as_range() throws NebulaException {
 		// GIVEN
-		NumberType type = null;
+		LongType type = null;
 
 		// WHEN
-		type = (NumberType) NebulaTypes.number().build();
+		type = (LongType) NebulaTypes.integer().build();
 
 		// THEN
 		assertThat(type.getMinRange()).isEqualTo(Long.MIN_VALUE);
@@ -38,10 +41,10 @@ public class NumberTypeTest {
 	@Test
 	public void integerRange_should_return_IntegerType_with_given_min_and_max_value() throws NebulaException {
 		// GIVEN
-		NumberType type = null;
+		LongType type = null;
 
 		// WHEN
-		type = (NumberType) NebulaTypes.number().withMin(10).build();
+		type = (LongType) NebulaTypes.integer().withMin(10).build();
 
 		// THEN
 		assertThat(type.getMinRange()).isEqualTo(10l);
@@ -51,10 +54,10 @@ public class NumberTypeTest {
 	@Test
 	public void integer_should_return_IntegerType_with_min_0_and_max_Integer_max() throws NebulaException {
 		// GIVEN
-		NumberType type = null;
+		LongType type = null;
 
 		// WHEN
-		type = (NumberType) NebulaTypes.number().withMin(0).build();
+		type = (LongType) NebulaTypes.integer().withMin(0).build();
 
 		// THEN
 		assertThat(type.getMinRange()).isEqualTo(0l);
@@ -64,7 +67,7 @@ public class NumberTypeTest {
 	@Test
 	public void getMinRange_should_return_min_integer_value() throws NebulaException {
 		// GIVEN
-		NumberType type = (NumberType) NebulaTypes.number().build();
+		LongType type = (LongType) NebulaTypes.integer().build();
 
 		// WHEN
 		Object result = type.getMinRange();
@@ -76,7 +79,7 @@ public class NumberTypeTest {
 	@Test
 	public void getMaxRange_should_return_max_integer_value() throws NebulaException {
 		// GIVEN
-		NumberType type = (NumberType) NebulaTypes.number().build();
+		LongType type = (LongType) NebulaTypes.integer().build();
 
 		// WHEN
 		Object result = type.getMaxRange();
@@ -88,7 +91,7 @@ public class NumberTypeTest {
 	@Test
 	public void generateObject_should_return_10_when_object_index_0_is_passed() throws NebulaException {
 		// GIVEN
-		NumberType type = (NumberType) NebulaTypes.number().withMin(10).build();
+		LongType type = (LongType) NebulaTypes.integer().withMin(10).build();
 
 		// WHEN
 		GeneratedObject result = type.generateObject(0l);
@@ -100,12 +103,27 @@ public class NumberTypeTest {
 	@Test
 	public void generateObject_should_return_35_when_object_index_12_is_passed() throws NebulaException {
 		// GIVEN
-		NumberType type = (NumberType) NebulaTypes.number().withMin(23).build();
+		LongType type = (LongType) NebulaTypes.integer().withMin(23).build();
 
 		// WHEN
 		GeneratedObject result = type.generateObject(12l);
 
 		// THEN
 		assertThat(result.getObject()).isEqualTo(35l);
+	}
+
+	@Test
+	public void should_throw_exception_when_requested_index_is_out_of_range() throws NebulaException {
+
+		// GIVEN
+		Range<Long> range = new Range<Long>(0l, 1l);
+		LongType LongType = new LongType(range);
+
+		// WHEN
+		catchException(LongType).generateObject(10l);
+
+		// THEN
+		assertThat(caughtException()).isInstanceOf(NebulaException.class)
+				.hasMessage("requested object is out of range");
 	}
 }

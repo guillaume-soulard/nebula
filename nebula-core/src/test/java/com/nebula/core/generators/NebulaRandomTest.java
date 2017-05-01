@@ -21,7 +21,7 @@ public class NebulaRandomTest {
 
 		// GIVEN
 		NebulaRandom nebulaRandom = new NebulaRandom(0l);
-		Type range = NebulaTypes.number().withMin(0).withMax(0).build();
+		Type range = NebulaTypes.integer().withMin(0).withMax(0).build();
 
 		// WHEN
 		Long result = nebulaRandom.nextIndex(range);
@@ -35,7 +35,7 @@ public class NebulaRandomTest {
 
 		// GIVEN
 		NebulaRandom nebulaRandom = new NebulaRandom(0l);
-		Type range = NebulaTypes.number().withMin(10).withMax(10).build();
+		Type range = NebulaTypes.integer().withMin(10).withMax(10).build();
 
 		// WHEN
 		Long result = nebulaRandom.nextIndex(range);
@@ -50,7 +50,7 @@ public class NebulaRandomTest {
 
 		// GIVEN
 		NebulaRandom nebulaRandom = new NebulaRandom(0l);
-		Type range = NebulaTypes.number().withMin(-1000).withMax(-990).build();
+		Type range = NebulaTypes.integer().withMin(-1000).withMax(-990).build();
 
 		// WHEN
 		List<Long> result = new ArrayList<Long>();
