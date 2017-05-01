@@ -78,7 +78,7 @@ public class ModelTest {
 	}
 
 	private List<Object> extractPropertiesValues(List<GeneratedObject> generatedObjects) {
-		List<Object> objects = new ArrayList<>();
+		List<Object> objects = new ArrayList<Object>();
 		for (GeneratedObject generatedObject : generatedObjects) {
 			for (GeneratedProperty generatedProperty : generatedObject.getGeneratedProperties()) {
 				objects.add(generatedProperty.getPropertyValue().getObject());
