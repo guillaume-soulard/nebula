@@ -1,11 +1,11 @@
 package com.nebula.core;
 
-import com.nebula.core.types.integer.IntegerTypeBuilder;
+import com.nebula.core.types.number.NumberTypeBuilder;
 
 public final class NebulaTypes {
 
-	public static IntegerTypeBuilder integer() throws NebulaException {
+	public static NumberTypeBuilder number() throws NebulaException {
 
-		return new IntegerTypeBuilder();
+		return new NumberTypeBuilder();
 	}
 }

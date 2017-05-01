@@ -47,7 +47,7 @@ public class ModelTest {
 		long seed = 1l;
 		Model model = Nebula.newModel();
 		Entity entity = Nebula.newEntity("test", 10);
-		entity.addProperty("number", NebulaTypes.integer(), NebulaGenerators.random());
+		entity.addProperty("number", NebulaTypes.number(), NebulaGenerators.random());
 		model.addEntity(entity);
 
 		// WHEN
@@ -66,7 +66,7 @@ public class ModelTest {
 		long seed = 1l;
 		Model model = Nebula.newModel();
 		Entity entity = Nebula.newEntity("test", 100000);
-		entity.addProperty("number", NebulaTypes.integer().withMin(-2).withMax(2), NebulaGenerators.random());
+		entity.addProperty("number", NebulaTypes.number().withMin(-2).withMax(2), NebulaGenerators.random());
 		model.addEntity(entity);
 
 		// WHEN
@@ -74,7 +74,7 @@ public class ModelTest {
 
 		// THEN
 		assertThat(result.get(entity)).hasSize(100000);
-		assertThat(extractPropertiesValues(result.get(entity))).containsOnly(-2, -1, 0, 1, 2);
+		assertThat(extractPropertiesValues(result.get(entity))).containsOnly(-2l, -1l, 0l, 1l, 2l);
 	}
 
 	private List<Object> extractPropertiesValues(List<GeneratedObject> generatedObjects) {

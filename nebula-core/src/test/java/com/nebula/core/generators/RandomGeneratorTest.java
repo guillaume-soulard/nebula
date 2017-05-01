@@ -37,13 +37,13 @@ public class RandomGeneratorTest {
 		NebulaRandom nebulaRandom = mock(NebulaRandom.class);
 		RandomGenerator generator = new RandomGenerator();
 		generator.init(nebulaRandom);
-		Type type = NebulaTypes.integer().withMin(1).withMax(1).build();
+		Type type = NebulaTypes.number().withMin(1).withMax(1).build();
 
 		// WHEN
 		GeneratedObject result = generator.generate(type);
 
 		// THEN
-		assertThat(result.getObject()).isInstanceOf(Integer.class).isEqualTo(1);
+		assertThat(result.getObject()).isInstanceOf(Long.class).isEqualTo(1l);
 	}
 
 	@Test
@@ -53,13 +53,13 @@ public class RandomGeneratorTest {
 		NebulaRandom nebulaRandom = mock(NebulaRandom.class);
 		RandomGenerator generator = new RandomGenerator();
 		generator.init(nebulaRandom);
-		Type type = NebulaTypes.integer().withMin(10).withMax(10).build();
+		Type type = NebulaTypes.number().withMin(10).withMax(10).build();
 
 		// WHEN
 		GeneratedObject result = generator.generate(type);
 
 		// THEN
-		assertThat(result.getObject()).isInstanceOf(Integer.class).isEqualTo(10);
+		assertThat(result.getObject()).isInstanceOf(Long.class).isEqualTo(10l);
 	}
 
 	@Test
@@ -69,7 +69,7 @@ public class RandomGeneratorTest {
 		NebulaRandom nebulaRandom = new NebulaRandom(0l);
 		RandomGenerator generator = new RandomGenerator();
 		generator.init(nebulaRandom);
-		Type type = NebulaTypes.integer().withMin(0).withMax(10).build();
+		Type type = NebulaTypes.number().withMin(0).withMax(10).build();
 
 		// WHEN
 		List<GeneratedObject> result = new ArrayList<GeneratedObject>();
@@ -79,7 +79,7 @@ public class RandomGeneratorTest {
 		}
 
 		// THEN
-		assertThat(result).extracting("object").containsAll(Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+		assertThat(result).extracting("object").containsAll(Arrays.asList(0l, 1l, 2l, 3l, 4l, 5l, 6l, 7l, 8l, 9l, 10l));
 	}
 
 	@Test
@@ -101,7 +101,7 @@ public class RandomGeneratorTest {
 
 		// GIVEN
 		RandomGenerator generator = new RandomGenerator();
-		Type type = NebulaTypes.integer().build();
+		Type type = NebulaTypes.number().build();
 
 		// WHEN
 		catchException(generator).generate(type);

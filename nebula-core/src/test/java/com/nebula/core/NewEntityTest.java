@@ -18,7 +18,7 @@ public class NewEntityTest {
 
 		// THEN
 		assertThat(entity).isNotNull().hasFieldOrPropertyWithValue("name", entityName)
-				.hasFieldOrPropertyWithValue("amount", 1);
+				.hasFieldOrPropertyWithValue("amount", 1l);
 	}
 
 	@Test

@@ -13,9 +13,9 @@ public class Entity implements Type {
 	private PropertyBuilder propertyBuilder = null;
 	private List<Property> properties = new ArrayList<Property>();
 	private String name;
-	private int amount;
+	private Long amount;
 
-	public Entity(String name, int amount, PropertyBuilder propertyBuilder) throws NebulaException {
+	public Entity(String name, Long amount, PropertyBuilder propertyBuilder) throws NebulaException {
 		this.amount = amount;
 		this.propertyBuilder = propertyBuilder;
 		this.name = name;
@@ -49,7 +49,7 @@ public class Entity implements Type {
 		}
 	}
 
-	public GeneratedObject generateObject(int objectIndex) throws NebulaException {
+	public GeneratedObject generateObject(Long objectIndex) throws NebulaException {
 		List<GeneratedProperty> generatedProperties = new ArrayList<GeneratedProperty>();
 
 		for (Property property : properties) {
@@ -61,19 +61,19 @@ public class Entity implements Type {
 		return new GeneratedObject(generatedProperties);
 	}
 
-	public Integer getMaxRange() {
+	public Long getMaxRange() {
 		return amount;
 	}
 
-	public Integer getMinRange() {
-		return 1;
+	public Long getMinRange() {
+		return 1l;
 	}
 
 	public void setPropertyBuilder(PropertyBuilder propertyBuilder) {
 		this.propertyBuilder = propertyBuilder;
 	}
 
-	public int getAmount() {
+	public Long getAmount() {
 		return amount;
 	}
 }

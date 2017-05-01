@@ -13,11 +13,11 @@ public class NebulaRandom {
 		random = new Random(seed);
 	}
 
-	public Integer nextIndex(Type type) {
+	public Long nextIndex(Type type) {
 
-		int min = 0;
-		int max = Integer.MAX_VALUE;
-		int newMax = type.getMaxRange() - type.getMinRange();
+		long min = 0;
+		long max = Integer.MAX_VALUE;
+		long newMax = type.getMaxRange() - type.getMinRange();
 
 		if (newMax >= 0) {
 			max = newMax;
@@ -27,6 +27,6 @@ public class NebulaRandom {
 			max++;
 		}
 
-		return random.ints(MAX_INT_TO_GENERATE, min, max).toArray()[0];
+		return random.longs(MAX_INT_TO_GENERATE, min, max).toArray()[0];
 	}
 }

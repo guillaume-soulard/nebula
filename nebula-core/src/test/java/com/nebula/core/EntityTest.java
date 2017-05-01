@@ -16,7 +16,7 @@ import org.junit.Test;
 import com.nebula.core.generators.Generator;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.TypeBuilder;
-import com.nebula.core.types.integer.IntegerType;
+import com.nebula.core.types.number.NumberType;
 
 public class EntityTest {
 
@@ -25,7 +25,7 @@ public class EntityTest {
 		// GIVEN
 		Entity entity = Nebula.newEntity("test", 1);
 		String propertyName = "name";
-		TypeBuilder propertyType = NebulaTypes.integer();
+		TypeBuilder propertyType = NebulaTypes.number();
 		Generator propertyGenerator = NebulaGenerators.random();
 
 		// WHEN
@@ -34,7 +34,7 @@ public class EntityTest {
 		// THEN
 		assertThat(entity.getProperties()).hasSize(1);
 		assertThat(entity.getProperties().get(0).getName()).isEqualTo(propertyName);
-		assertThat(entity.getProperties().get(0).getType()).isInstanceOf(IntegerType.class);
+		assertThat(entity.getProperties().get(0).getType()).isInstanceOf(NumberType.class);
 		assertThat(entity.getProperties().get(0).getGenerator()).isEqualTo(propertyGenerator);
 	}
 
@@ -44,7 +44,7 @@ public class EntityTest {
 		// GIVEN
 		Entity entity = Nebula.newEntity("test", 1);
 		Generator propertyGenerator = NebulaGenerators.random();
-		TypeBuilder propertyType = NebulaTypes.integer();
+		TypeBuilder propertyType = NebulaTypes.number();
 		String propertyName = "property name test";
 		entity.addProperty(propertyName, propertyType, propertyGenerator);
 
@@ -63,7 +63,7 @@ public class EntityTest {
 		Entity entity = Nebula.newEntity("test", 1);
 
 		// WHEN
-		GeneratedObject result = entity.generateObject(1);
+		GeneratedObject result = entity.generateObject(1l);
 
 		// THEN
 		assertThat(result).isNotNull();
@@ -74,11 +74,11 @@ public class EntityTest {
 
 		Entity entity = Nebula.newEntity("test", 1);
 		String propertyName = "property";
-		entity.addProperty(propertyName, NebulaTypes.integer(), NebulaGenerators.random());
+		entity.addProperty(propertyName, NebulaTypes.number(), NebulaGenerators.random());
 		entity.init(new NebulaRandom(1l));
 
 		// WHEN
-		GeneratedObject result = entity.generateObject(1);
+		GeneratedObject result = entity.generateObject(1l);
 
 		// THEN
 		assertThat(result.getGeneratedProperties()).hasSize(1);
@@ -91,16 +91,16 @@ public class EntityTest {
 		// GIVEN
 		Entity entity = Nebula.newEntity("test", 1);
 		String propertyName = "property";
-		entity.addProperty(propertyName, NebulaTypes.integer().withMin(1).withMax(1), NebulaGenerators.random());
+		entity.addProperty(propertyName, NebulaTypes.number().withMin(1).withMax(1), NebulaGenerators.random());
 		entity.init(new NebulaRandom(1l));
 
 		// WHEN
-		GeneratedObject result = entity.generateObject(1);
+		GeneratedObject result = entity.generateObject(1l);
 
 		// THEN
 		assertThat(result.getGeneratedProperties()).hasSize(1);
 		assertThat(result.getGeneratedProperties().get(0).getPropertyName()).isEqualTo(propertyName);
-		assertThat(result.getGeneratedProperties().get(0).getPropertyValue().getObject()).isEqualTo(1);
+		assertThat(result.getGeneratedProperties().get(0).getPropertyValue().getObject()).isEqualTo(1l);
 	}
 
 	@Test
@@ -111,19 +111,19 @@ public class EntityTest {
 		Entity entity = Nebula.newEntity("test", 1);
 		String property1Name = "property1";
 		String property2Name = "property2";
-		entity.addProperty(property1Name, NebulaTypes.integer().withMin(1).withMax(1), NebulaGenerators.random());
-		entity.addProperty(property2Name, NebulaTypes.integer().withMin(5).withMax(5), NebulaGenerators.random());
+		entity.addProperty(property1Name, NebulaTypes.number().withMin(1).withMax(1), NebulaGenerators.random());
+		entity.addProperty(property2Name, NebulaTypes.number().withMin(5).withMax(5), NebulaGenerators.random());
 		entity.init(new NebulaRandom(1l));
 
 		// WHEN
-		GeneratedObject result = entity.generateObject(1);
+		GeneratedObject result = entity.generateObject(1l);
 
 		// THEN
 		assertThat(result.getGeneratedProperties()).hasSize(2);
 		assertThat(result.getGeneratedProperties().get(0).getPropertyName()).isEqualTo(property1Name);
-		assertThat(result.getGeneratedProperties().get(0).getPropertyValue().getObject()).isEqualTo(1);
+		assertThat(result.getGeneratedProperties().get(0).getPropertyValue().getObject()).isEqualTo(1l);
 		assertThat(result.getGeneratedProperties().get(1).getPropertyName()).isEqualTo(property2Name);
-		assertThat(result.getGeneratedProperties().get(1).getPropertyValue().getObject()).isEqualTo(5);
+		assertThat(result.getGeneratedProperties().get(1).getPropertyValue().getObject()).isEqualTo(5l);
 	}
 
 	@Test
@@ -136,7 +136,7 @@ public class EntityTest {
 		when(property.getGenerator()).thenReturn(generator);
 		when(propertyBuilder.newProperty(anyString(), any(TypeBuilder.class), any(Generator.class)))
 				.thenReturn(property);
-		Entity entity = new Entity("test", 1, propertyBuilder);
+		Entity entity = new Entity("test", 1l, propertyBuilder);
 		NebulaRandom nebulaRandom = mock(NebulaRandom.class);
 		entity.addProperty(null, null, null);
 

@@ -8,9 +8,9 @@ public interface Type {
 
 	void init(NebulaRandom nebulaRandom) throws NebulaException;
 
-	GeneratedObject generateObject(int objectIndex) throws NebulaException;
+	GeneratedObject generateObject(Long objectIndex) throws NebulaException;
 
-	Integer getMinRange();
+	Long getMinRange();
 
-	Integer getMaxRange();
+	Long getMaxRange();
 }
