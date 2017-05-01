@@ -15,7 +15,8 @@ import org.junit.Test;
 
 import com.nebula.core.generators.Generator;
 import com.nebula.core.generators.NebulaRandom;
-import com.nebula.core.types.Type;
+import com.nebula.core.types.TypeBuilder;
+import com.nebula.core.types.integer.IntegerType;
 
 public class EntityTest {
 
@@ -24,7 +25,7 @@ public class EntityTest {
 		// GIVEN
 		Entity entity = Nebula.newEntity("test", 1);
 		String propertyName = "name";
-		Type propertyType = NebulaTypes.integer();
+		TypeBuilder propertyType = NebulaTypes.integer();
 		Generator propertyGenerator = NebulaGenerators.random();
 
 		// WHEN
@@ -33,7 +34,7 @@ public class EntityTest {
 		// THEN
 		assertThat(entity.getProperties()).hasSize(1);
 		assertThat(entity.getProperties().get(0).getName()).isEqualTo(propertyName);
-		assertThat(entity.getProperties().get(0).getType()).isEqualTo(propertyType);
+		assertThat(entity.getProperties().get(0).getType()).isInstanceOf(IntegerType.class);
 		assertThat(entity.getProperties().get(0).getGenerator()).isEqualTo(propertyGenerator);
 	}
 
@@ -43,7 +44,7 @@ public class EntityTest {
 		// GIVEN
 		Entity entity = Nebula.newEntity("test", 1);
 		Generator propertyGenerator = NebulaGenerators.random();
-		Type propertyType = NebulaTypes.integer();
+		TypeBuilder propertyType = NebulaTypes.integer();
 		String propertyName = "property name test";
 		entity.addProperty(propertyName, propertyType, propertyGenerator);
 
@@ -73,7 +74,7 @@ public class EntityTest {
 
 		Entity entity = Nebula.newEntity("test", 1);
 		String propertyName = "property";
-		entity.addProperty(propertyName, NebulaTypes.integerRange(1, 1), NebulaGenerators.random());
+		entity.addProperty(propertyName, NebulaTypes.integer(), NebulaGenerators.random());
 		entity.init(new NebulaRandom(1l));
 
 		// WHEN
@@ -90,7 +91,7 @@ public class EntityTest {
 		// GIVEN
 		Entity entity = Nebula.newEntity("test", 1);
 		String propertyName = "property";
-		entity.addProperty(propertyName, NebulaTypes.integerRange(1, 1), NebulaGenerators.random());
+		entity.addProperty(propertyName, NebulaTypes.integer().withMin(1).withMax(1), NebulaGenerators.random());
 		entity.init(new NebulaRandom(1l));
 
 		// WHEN
@@ -110,8 +111,8 @@ public class EntityTest {
 		Entity entity = Nebula.newEntity("test", 1);
 		String property1Name = "property1";
 		String property2Name = "property2";
-		entity.addProperty(property1Name, NebulaTypes.integerRange(1, 1), NebulaGenerators.random());
-		entity.addProperty(property2Name, NebulaTypes.integerRange(5, 5), NebulaGenerators.random());
+		entity.addProperty(property1Name, NebulaTypes.integer().withMin(1).withMax(1), NebulaGenerators.random());
+		entity.addProperty(property2Name, NebulaTypes.integer().withMin(5).withMax(5), NebulaGenerators.random());
 		entity.init(new NebulaRandom(1l));
 
 		// WHEN
@@ -133,7 +134,8 @@ public class EntityTest {
 		Property property = mock(Property.class);
 		Generator generator = mock(Generator.class);
 		when(property.getGenerator()).thenReturn(generator);
-		when(propertyBuilder.newProperty(anyString(), any(Type.class), any(Generator.class))).thenReturn(property);
+		when(propertyBuilder.newProperty(anyString(), any(TypeBuilder.class), any(Generator.class)))
+				.thenReturn(property);
 		Entity entity = new Entity("test", 1, propertyBuilder);
 		NebulaRandom nebulaRandom = mock(NebulaRandom.class);
 		entity.addProperty(null, null, null);

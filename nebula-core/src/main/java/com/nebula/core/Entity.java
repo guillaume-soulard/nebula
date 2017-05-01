@@ -6,6 +6,7 @@ import java.util.List;
 import com.nebula.core.generators.Generator;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.Type;
+import com.nebula.core.types.TypeBuilder;
 
 public class Entity implements Type {
 
@@ -28,7 +29,7 @@ public class Entity implements Type {
 		return properties;
 	}
 
-	public void addProperty(String propertyName, Type propertyType, Generator propertyGenerator)
+	public void addProperty(String propertyName, TypeBuilder propertyType, Generator propertyGenerator)
 			throws NebulaException {
 		checkIfPropertyAlreadyExists(propertyName);
 		properties.add(propertyBuilder.newProperty(propertyName, propertyType, propertyGenerator));

@@ -1,7 +1,9 @@
-package com.nebula.core.types;
+package com.nebula.core.types.integer;
 
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.generators.NebulaRandom;
+import com.nebula.core.types.Range;
+import com.nebula.core.types.Type;
 
 public class IntegerType implements Type {
 
@@ -28,7 +30,6 @@ public class IntegerType implements Type {
 	}
 
 	public void init(NebulaRandom nebulaRandom) {
-		// TODO Auto-generated method stub
 
 	}
 }

@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.Test;
 
 import com.nebula.core.generators.Generator;
-import com.nebula.core.types.Type;
+import com.nebula.core.types.TypeBuilder;
 
 public class PropertyBuilderTest {
 
@@ -16,7 +16,7 @@ public class PropertyBuilderTest {
 		// GIVEN
 		PropertyBuilder propertyBuilder = new PropertyBuilder();
 		String propertyName = null;
-		Type propertyType = NebulaTypes.integer();
+		TypeBuilder propertyType = NebulaTypes.integer();
 		Generator propertyGenerator = NebulaGenerators.random();
 
 		// WHEN
@@ -31,7 +31,7 @@ public class PropertyBuilderTest {
 		// GIVEN
 		PropertyBuilder propertyBuilder = new PropertyBuilder();
 		String propertyName = "name";
-		Type propertyType = null;
+		TypeBuilder propertyType = null;
 		Generator propertyGenerator = NebulaGenerators.random();
 
 		// WHEN
@@ -46,7 +46,7 @@ public class PropertyBuilderTest {
 		// GIVEN
 		PropertyBuilder propertyBuilder = new PropertyBuilder();
 		String propertyName = "name";
-		Type propertyType = NebulaTypes.integer();
+		TypeBuilder propertyType = NebulaTypes.integer();
 		Generator propertyGenerator = null;
 
 		// WHEN

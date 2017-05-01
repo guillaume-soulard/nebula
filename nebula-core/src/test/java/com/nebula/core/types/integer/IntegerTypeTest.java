@@ -1,4 +1,4 @@
-package com.nebula.core.types;
+package com.nebula.core.types.integer;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -16,7 +16,7 @@ public class IntegerTypeTest {
 		IntegerType type = null;
 
 		// WHEN
-		type = NebulaTypes.integer();
+		type = (IntegerType) NebulaTypes.integer().build();
 
 		// THEN
 		assertThat(type).isNotNull();
@@ -28,7 +28,7 @@ public class IntegerTypeTest {
 		IntegerType type = null;
 
 		// WHEN
-		type = NebulaTypes.integer();
+		type = (IntegerType) NebulaTypes.integer().build();
 
 		// THEN
 		assertThat(type.getRange()).hasFieldOrPropertyWithValue("min", Integer.MIN_VALUE);
@@ -41,11 +41,11 @@ public class IntegerTypeTest {
 		IntegerType type = null;
 
 		// WHEN
-		type = NebulaTypes.integerRange(10, 20);
+		type = (IntegerType) NebulaTypes.integer().withMin(10).build();
 
 		// THEN
 		assertThat(type.getRange()).hasFieldOrPropertyWithValue("min", 10);
-		assertThat(type.getRange()).hasFieldOrPropertyWithValue("max", 20);
+		assertThat(type.getRange()).hasFieldOrPropertyWithValue("max", Integer.MAX_VALUE);
 	}
 
 	@Test
@@ -54,7 +54,7 @@ public class IntegerTypeTest {
 		IntegerType type = null;
 
 		// WHEN
-		type = NebulaTypes.unsignedInteger();
+		type = (IntegerType) NebulaTypes.integer().withMin(0).build();
 
 		// THEN
 		assertThat(type.getRange()).hasFieldOrPropertyWithValue("min", 0);
@@ -64,7 +64,7 @@ public class IntegerTypeTest {
 	@Test
 	public void getMinRange_should_return_min_integer_value() throws NebulaException {
 		// GIVEN
-		IntegerType type = NebulaTypes.integer();
+		IntegerType type = (IntegerType) NebulaTypes.integer().build();
 
 		// WHEN
 		Object result = type.getMinRange();
@@ -76,7 +76,7 @@ public class IntegerTypeTest {
 	@Test
 	public void getMaxRange_should_return_max_integer_value() throws NebulaException {
 		// GIVEN
-		IntegerType type = NebulaTypes.integer();
+		IntegerType type = (IntegerType) NebulaTypes.integer().build();
 
 		// WHEN
 		Object result = type.getMaxRange();
@@ -88,7 +88,7 @@ public class IntegerTypeTest {
 	@Test
 	public void generateObject_should_return_10_when_object_index_0_is_passed() throws NebulaException {
 		// GIVEN
-		IntegerType type = NebulaTypes.integerRange(10, 20);
+		IntegerType type = (IntegerType) NebulaTypes.integer().withMin(10).build();
 
 		// WHEN
 		GeneratedObject result = type.generateObject(0);
@@ -100,7 +100,7 @@ public class IntegerTypeTest {
 	@Test
 	public void generateObject_should_return_35_when_object_index_12_is_passed() throws NebulaException {
 		// GIVEN
-		IntegerType type = NebulaTypes.integerRange(23, 49);
+		IntegerType type = (IntegerType) NebulaTypes.integer().withMin(23).build();
 
 		// WHEN
 		GeneratedObject result = type.generateObject(12);
