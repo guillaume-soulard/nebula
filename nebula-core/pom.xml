@@ -8,7 +8,6 @@
 	<packaging>jar</packaging>
 
 	<name>nebula-core</name>
-	<url>http://maven.apache.org</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -34,12 +33,6 @@
 			<artifactId>catch-exception</artifactId>
 			<version>1.2.0</version>
 			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>3.0</version>
 		</dependency>
 
 		<dependency>
