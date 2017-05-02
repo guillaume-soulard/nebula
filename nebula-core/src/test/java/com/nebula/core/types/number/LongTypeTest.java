@@ -126,4 +126,19 @@ public class LongTypeTest {
 		assertThat(caughtException()).isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
+
+	@Test
+	public void generateObject_should_throw_exception_when_negative_index_is_passed() throws NebulaException {
+
+		// GIVEN
+		Range<Long> range = new Range<Long>(0l, 1l);
+		LongType longType = new LongType(range);
+
+		// WHEN
+		catchException(longType).generateObject(-1l);
+
+		// THEN
+		assertThat(caughtException()).isInstanceOf(NebulaException.class)
+				.hasMessage("requested object is out of range");
+	}
 }

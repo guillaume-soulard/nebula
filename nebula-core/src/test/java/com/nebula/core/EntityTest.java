@@ -146,4 +146,18 @@ public class EntityTest {
 		// THEN
 		verify(generator, times(1)).init(eq(nebulaRandom));
 	}
+
+	@Test
+	public void setPropertyBuilder_should_set_propertyBuilder_filed_in_given_entity() throws NebulaException {
+
+		// GIVEN
+		Entity entity = Nebula.newEntity("test", 1);
+		PropertyBuilder propertyBuilder = new PropertyBuilder();
+
+		// WHEN
+		entity.setPropertyBuilder(propertyBuilder);
+
+		// THEN
+		assertThat(entity).hasFieldOrPropertyWithValue("propertyBuilder", propertyBuilder);
+	}
 }

@@ -89,4 +89,20 @@ public class DoubleTypeTest {
 		// THEN
 		assertThat(result).isEqualTo(1l);
 	}
+
+	@Test
+	public void generateObject_should_throw_exception_when_negative_index_is_passed() throws NebulaException {
+
+		// GIVEN
+		Range<Double> range = new Range<Double>(0d, 10d);
+		int precision = 1;
+		DoubleType doubleType = new DoubleType(range, precision);
+
+		// WHEN
+		catchException(doubleType).generateObject(-1l);
+
+		// THEN
+		assertThat(caughtException()).isInstanceOf(NebulaException.class)
+				.hasMessage("requested object is out of range");
+	}
 }
