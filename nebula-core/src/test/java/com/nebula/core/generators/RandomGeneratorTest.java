@@ -87,7 +87,6 @@ public class RandomGeneratorTest {
 
 		// GIVEN
 		RandomGenerator generator = new RandomGenerator();
-		Exception ex = null;
 
 		// WHEN
 		catchException(generator).init(null);

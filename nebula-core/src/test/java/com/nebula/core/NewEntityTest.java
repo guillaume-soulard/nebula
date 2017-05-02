@@ -39,7 +39,6 @@ public class NewEntityTest {
 	public void newEntity_should_throw_NebulaException_when_null_name_is_passed() {
 
 		// GIVEN
-		Entity entity = null;
 		String entityName = null;
 		Throwable exception = null;
 
