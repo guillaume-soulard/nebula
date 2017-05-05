@@ -7,28 +7,27 @@ import java.util.List;
 import java.util.Map;
 
 import com.nebula.core.generators.NebulaRandom;
-import com.nebula.core.types.Type;
 
 public class Model {
 
 	private List<Entity> entities = new ArrayList<Entity>();
 
-	public void addEntity(Entity type) throws NebulaException {
+	public void addEntity(Entity entity) throws NebulaException {
 
-		if (type == null) {
+		if (entity == null) {
 			throw new NebulaException("type is null");
 		}
-		entities.add(type);
+		entities.add(entity);
 	}
 
 	public List<Entity> getEntities() {
 		return entities;
 	}
 
-	public Map<Type, List<GeneratedObject>> generate(long seed) throws NebulaException {
+	public Map<Entity, List<GeneratedObject>> generate(long seed) throws NebulaException {
 
 		NebulaRandom nebulaRandom = new NebulaRandom(seed);
-		Map<Type, List<GeneratedObject>> result = new HashMap<Type, List<GeneratedObject>>();
+		Map<Entity, List<GeneratedObject>> result = new HashMap<Entity, List<GeneratedObject>>();
 
 		for (Entity entity : entities) {
 			entity.init(nebulaRandom);

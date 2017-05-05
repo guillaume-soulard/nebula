@@ -10,8 +10,6 @@ import java.util.Map;
 
 import org.junit.Test;
 
-import com.nebula.core.types.Type;
-
 public class ModelTest {
 
 	@Test
@@ -51,7 +49,7 @@ public class ModelTest {
 		model.addEntity(entity);
 
 		// WHEN
-		Map<Type, List<GeneratedObject>> result = model.generate(seed);
+		Map<Entity, List<GeneratedObject>> result = model.generate(seed);
 
 		// THEN
 		assertThat(result).containsOnlyKeys(entity);
@@ -70,7 +68,7 @@ public class ModelTest {
 		model.addEntity(entity);
 
 		// WHEN
-		Map<Type, List<GeneratedObject>> result = model.generate(seed);
+		Map<Entity, List<GeneratedObject>> result = model.generate(seed);
 
 		// THEN
 		assertThat(result.get(entity)).hasSize(100000);
