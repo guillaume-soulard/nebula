@@ -51,13 +51,11 @@ public class Entity implements Type {
 
 	public GeneratedObject generateObject(Long objectIndex) throws NebulaException {
 		List<GeneratedProperty> generatedProperties = new ArrayList<GeneratedProperty>();
-
 		for (Property property : properties) {
 
 			generatedProperties.add(
 					new GeneratedProperty(property.getName(), property.getGenerator().generate(property.getType())));
 		}
-
 		return new GeneratedObject(generatedProperties);
 	}
 

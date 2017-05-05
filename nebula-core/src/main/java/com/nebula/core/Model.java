@@ -24,21 +24,42 @@ public class Model {
 		return entities;
 	}
 
-	public Map<Entity, List<GeneratedObject>> generate(long seed) throws NebulaException {
-
-		NebulaRandom nebulaRandom = new NebulaRandom(seed);
+	public Map<Entity, List<GeneratedObject>> generateAll(long seed) throws NebulaException {
 		Map<Entity, List<GeneratedObject>> result = new HashMap<Entity, List<GeneratedObject>>();
-
 		for (Entity entity : entities) {
-			entity.init(nebulaRandom);
-			List<GeneratedObject> generatedObjects = new LinkedList<GeneratedObject>();
-			for (int i = 1; i <= entity.getAmount(); i++) {
-				generatedObjects.add(entity.generateObject(nebulaRandom.nextIndex(entity)));
-			}
+			result.put(entity, generateEntity(entity, seed));
+		}
+		return result;
+	}
 
-			result.put(entity, generatedObjects);
+	public List<GeneratedObject> generateEntity(Entity entity, long seed) throws NebulaException {
+		List<GeneratedObject> generatedObjects = new LinkedList<GeneratedObject>();
+
+		for (int index = 0; index < entity.getAmount(); index++) {
+			generatedObjects.add(generateEntity(entity, index, seed));
 		}
 
-		return result;
+		return generatedObjects;
+	}
+
+	public Entity getEntityByName(String entityName) {
+		for (Entity entity : entities) {
+			if (entity.getName().equals(entityName)) {
+				return entity;
+			}
+		}
+		return null;
+	}
+
+	public GeneratedObjectIterator iterator(String entityName, long seed) {
+		return new GeneratedObjectIterator(this, getEntityByName(entityName), seed);
+	}
+
+	public GeneratedObject generateEntity(Entity entity, long entityIndex, long seed) throws NebulaException {
+		NebulaRandom nebulaRandom = new NebulaRandom(seed + entityIndex);
+		entity.init(nebulaRandom);
+		GeneratedObject generateObject = entity.generateObject(nebulaRandom.nextIndex(entity));
+		generateObject.getGeneratedProperties().add(new GeneratedProperty("_id", new GeneratedObject(entityIndex)));
+		return generateObject;
 	}
 }
