@@ -113,6 +113,25 @@ public class ModelTest {
 	}
 
 	@Test
+	public void iterator_should_get_same_objects_than_all_entities() throws NebulaException {
+
+		// GIVEN
+		Model model = new Model();
+		int amount = 10;
+		Entity entity = Nebula.newEntity("test", amount);
+		entity.addProperty("number", NebulaTypes.integer().withMin(-2).withMax(2), NebulaGenerators.random());
+		model.addEntity(entity);
+		long seed = 1l;
+		List<GeneratedObject> allObjects = model.generateEntity(entity, seed);
+
+		// WHEN
+		GeneratedObjectIterator result = model.iterator("test", seed);
+
+		// THEN
+		assertThat(result).hasSameElementsAs(allObjects);
+	}
+
+	@Test
 	public void getEntityByName_should_return_entity() throws NebulaException {
 
 		// GIVEN
