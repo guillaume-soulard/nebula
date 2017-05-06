@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -21,7 +22,7 @@ public class NebulaRandomTest {
 
 		// GIVEN
 		NebulaRandom nebulaRandom = new NebulaRandom(0l);
-		Type range = NebulaTypes.integer().withMin(0).withMax(0).build();
+		Type range = NebulaTypes.number().withMin(BigDecimal.ZERO).withMax(BigDecimal.ZERO).build();
 
 		// WHEN
 		Long result = nebulaRandom.nextIndex(range);
@@ -35,7 +36,7 @@ public class NebulaRandomTest {
 
 		// GIVEN
 		NebulaRandom nebulaRandom = new NebulaRandom(0l);
-		Type range = NebulaTypes.integer().withMin(10).withMax(10).build();
+		Type range = NebulaTypes.number().withMin(BigDecimal.TEN).withMax(BigDecimal.TEN).build();
 
 		// WHEN
 		Long result = nebulaRandom.nextIndex(range);
@@ -50,7 +51,7 @@ public class NebulaRandomTest {
 
 		// GIVEN
 		NebulaRandom nebulaRandom = new NebulaRandom(0l);
-		Type range = NebulaTypes.integer().withMin(-1000).withMax(-990).build();
+		Type range = NebulaTypes.number().withMin(BigDecimal.valueOf(-1000)).withMax(BigDecimal.valueOf(-990)).build();
 
 		// WHEN
 		List<Long> result = new ArrayList<Long>();

@@ -5,6 +5,7 @@ import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -37,13 +38,13 @@ public class RandomGeneratorTest {
 		NebulaRandom nebulaRandom = mock(NebulaRandom.class);
 		RandomGenerator generator = new RandomGenerator();
 		generator.init(nebulaRandom);
-		Type type = NebulaTypes.integer().withMin(1).withMax(1).build();
+		Type type = NebulaTypes.number().withMin(BigDecimal.ONE).withMax(BigDecimal.ONE).build();
 
 		// WHEN
 		GeneratedObject result = generator.generate(type);
 
 		// THEN
-		assertThat(result.getObject()).isInstanceOf(Long.class).isEqualTo(1l);
+		assertThat(result.getObject()).isInstanceOf(BigDecimal.class).isEqualTo(BigDecimal.ONE);
 	}
 
 	@Test
@@ -53,13 +54,13 @@ public class RandomGeneratorTest {
 		NebulaRandom nebulaRandom = mock(NebulaRandom.class);
 		RandomGenerator generator = new RandomGenerator();
 		generator.init(nebulaRandom);
-		Type type = NebulaTypes.integer().withMin(10).withMax(10).build();
+		Type type = NebulaTypes.number().withMin(BigDecimal.TEN).withMax(BigDecimal.TEN).build();
 
 		// WHEN
 		GeneratedObject result = generator.generate(type);
 
 		// THEN
-		assertThat(result.getObject()).isInstanceOf(Long.class).isEqualTo(10l);
+		assertThat(result.getObject()).isInstanceOf(BigDecimal.class).isEqualTo(BigDecimal.TEN);
 	}
 
 	@Test
@@ -69,7 +70,7 @@ public class RandomGeneratorTest {
 		NebulaRandom nebulaRandom = new NebulaRandom(0l);
 		RandomGenerator generator = new RandomGenerator();
 		generator.init(nebulaRandom);
-		Type type = NebulaTypes.integer().withMin(0).withMax(10).build();
+		Type type = NebulaTypes.number().withMin(BigDecimal.ZERO).withMax(BigDecimal.TEN).build();
 
 		// WHEN
 		List<GeneratedObject> result = new ArrayList<GeneratedObject>();
@@ -79,7 +80,10 @@ public class RandomGeneratorTest {
 		}
 
 		// THEN
-		assertThat(result).extracting("object").containsAll(Arrays.asList(0l, 1l, 2l, 3l, 4l, 5l, 6l, 7l, 8l, 9l, 10l));
+		assertThat(result).extracting("object")
+				.containsAll(Arrays.asList(BigDecimal.valueOf(0), BigDecimal.valueOf(1), BigDecimal.valueOf(2),
+						BigDecimal.valueOf(3), BigDecimal.valueOf(4), BigDecimal.valueOf(5), BigDecimal.valueOf(6),
+						BigDecimal.valueOf(7), BigDecimal.valueOf(8), BigDecimal.valueOf(9), BigDecimal.valueOf(10)));
 	}
 
 	@Test
@@ -100,7 +104,7 @@ public class RandomGeneratorTest {
 
 		// GIVEN
 		RandomGenerator generator = new RandomGenerator();
-		Type type = NebulaTypes.integer().build();
+		Type type = NebulaTypes.number().build();
 
 		// WHEN
 		catchException(generator).generate(type);

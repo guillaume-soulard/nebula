@@ -8,30 +8,33 @@ import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.Range;
 import com.nebula.core.types.Type;
 
-public class DoubleType implements Type {
+public class NumberType implements Type {
 
-	private Range<Double> range;
+	private Range<BigDecimal> range;
 	private int precision;
+	private BigDecimal increment;
 
-	public DoubleType(Range<Double> range, int precision) {
+	public NumberType(Range<BigDecimal> range, int precision) {
 		this.range = range;
 		this.precision = precision;
+		increment = BigDecimal.ONE.divide(BigDecimal.TEN.pow(precision));
 	}
 
 	public GeneratedObject generateObject(Long objectIndex) throws NebulaException {
-		double increment = 1 / (Math.pow(10, precision));
-		if (objectIndex < 0d || range.getMin() + (objectIndex * increment) > range.getMax()) {
+		BigDecimal result = range.getMin().add(new BigDecimal(objectIndex).multiply(increment)).setScale(precision);
+
+		if (objectIndex < 0d || result.compareTo(range.getMax()) > 0) {
 			throw new NebulaException("requested object is out of range");
 		}
-		return new GeneratedObject(range.getMin() + (objectIndex * increment));
+		return new GeneratedObject(result);
 	}
 
 	public Long getMinRange() {
-		return new BigDecimal(range.getMin()).longValue();
+		return range.getMin().longValue();
 	}
 
 	public Long getMaxRange() {
-		return new BigDecimal(range.getMax()).longValue();
+		return range.getMax().longValue();
 	}
 
 	@Override

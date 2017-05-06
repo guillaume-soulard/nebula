@@ -16,7 +16,7 @@ public class PropertyBuilderTest {
 		// GIVEN
 		PropertyBuilder propertyBuilder = new PropertyBuilder();
 		String propertyName = null;
-		TypeBuilder propertyType = NebulaTypes.integer();
+		TypeBuilder propertyType = NebulaTypes.number();
 		Generator propertyGenerator = NebulaGenerators.random();
 
 		// WHEN
@@ -46,7 +46,7 @@ public class PropertyBuilderTest {
 		// GIVEN
 		PropertyBuilder propertyBuilder = new PropertyBuilder();
 		String propertyName = "name";
-		TypeBuilder propertyType = NebulaTypes.integer();
+		TypeBuilder propertyType = NebulaTypes.number();
 		Generator propertyGenerator = null;
 
 		// WHEN

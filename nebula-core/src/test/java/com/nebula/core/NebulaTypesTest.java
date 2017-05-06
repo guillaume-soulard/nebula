@@ -5,8 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.Test;
 
 import com.nebula.core.types.date.DateTimeTypeBuilder;
-import com.nebula.core.types.number.DoubleTypeBuilder;
-import com.nebula.core.types.number.LongTypeBuilder;
+import com.nebula.core.types.number.NumberTypeBuilder;
 
 public class NebulaTypesTest {
 
@@ -16,19 +15,7 @@ public class NebulaTypesTest {
 		// GIVEN
 
 		// WHEN
-		LongTypeBuilder result = NebulaTypes.integer();
-
-		// THEN
-		assertThat(result).isNotNull();
-	}
-
-	@Test
-	public void decimal_should_return_a_new_instance_of_DoubleTypeBuilder() {
-
-		// GIVEN
-
-		// WHEN
-		DoubleTypeBuilder result = NebulaTypes.decimal();
+		NumberTypeBuilder result = NebulaTypes.number();
 
 		// THEN
 		assertThat(result).isNotNull();

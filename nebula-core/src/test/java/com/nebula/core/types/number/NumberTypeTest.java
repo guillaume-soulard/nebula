@@ -4,28 +4,30 @@ import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.math.BigDecimal;
+
 import org.junit.Test;
 
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaException;
 import com.nebula.core.types.Range;
 
-public class DoubleTypeTest {
+public class NumberTypeTest {
 
 	@Test
 	public void generateObject_should_return_0_dot_5_when_min_0_and_max_1_and_precision_1_for_index_5()
 			throws NebulaException {
 
 		// GIVEN
-		Range<Double> range = new Range<Double>(0d, 1d);
+		Range<BigDecimal> range = new Range<BigDecimal>(BigDecimal.valueOf(0d), BigDecimal.valueOf(1d));
 		int precision = 1;
-		DoubleType doubleType = new DoubleType(range, precision);
+		NumberType doubleType = new NumberType(range, precision);
 
 		// WHEN
 		GeneratedObject result = doubleType.generateObject(5l);
 
 		// THEN
-		assertThat(result.getObject()).isEqualTo(0.5);
+		assertThat(result.getObject()).isEqualTo(BigDecimal.valueOf(0.5));
 	}
 
 	@Test
@@ -33,24 +35,24 @@ public class DoubleTypeTest {
 			throws NebulaException {
 
 		// GIVEN
-		Range<Double> range = new Range<Double>(0d, 10d);
+		Range<BigDecimal> range = new Range<BigDecimal>(BigDecimal.valueOf(0d), BigDecimal.valueOf(10d));
 		int precision = 2;
-		DoubleType doubleType = new DoubleType(range, precision);
+		NumberType doubleType = new NumberType(range, precision);
 
 		// WHEN
 		GeneratedObject result = doubleType.generateObject(5l);
 
 		// THEN
-		assertThat(result.getObject()).isEqualTo(0.05);
+		assertThat(result.getObject()).isEqualTo(BigDecimal.valueOf(0.05));
 	}
 
 	@Test
 	public void generateObject_should_throw_exception_when_index_is_out_of_range() throws NebulaException {
 
 		// GIVEN
-		Range<Double> range = new Range<Double>(0d, 1d);
+		Range<BigDecimal> range = new Range<BigDecimal>(BigDecimal.valueOf(0), BigDecimal.valueOf(1));
 		int precision = 1;
-		DoubleType doubleType = new DoubleType(range, precision);
+		NumberType doubleType = new NumberType(range, precision);
 
 		// WHEN
 		catchException(doubleType).generateObject(100l);
@@ -64,9 +66,9 @@ public class DoubleTypeTest {
 	public void getMinRange_should_return_0() throws NebulaException {
 
 		// GIVEN
-		Range<Double> range = new Range<Double>(0d, 1d);
+		Range<BigDecimal> range = new Range<BigDecimal>(BigDecimal.valueOf(0d), BigDecimal.valueOf(1d));
 		int precision = 1;
-		DoubleType doubleType = new DoubleType(range, precision);
+		NumberType doubleType = new NumberType(range, precision);
 
 		// WHEN
 		Long result = doubleType.getMinRange();
@@ -79,9 +81,9 @@ public class DoubleTypeTest {
 	public void getMaxRange_should_return_1() throws NebulaException {
 
 		// GIVEN
-		Range<Double> range = new Range<Double>(0d, 1d);
+		Range<BigDecimal> range = new Range<BigDecimal>(BigDecimal.valueOf(0d), BigDecimal.valueOf(1d));
 		int precision = 1;
-		DoubleType doubleType = new DoubleType(range, precision);
+		NumberType doubleType = new NumberType(range, precision);
 
 		// WHEN
 		Long result = doubleType.getMaxRange();
@@ -94,9 +96,9 @@ public class DoubleTypeTest {
 	public void generateObject_should_throw_exception_when_negative_index_is_passed() throws NebulaException {
 
 		// GIVEN
-		Range<Double> range = new Range<Double>(0d, 10d);
+		Range<BigDecimal> range = new Range<BigDecimal>(BigDecimal.valueOf(0d), BigDecimal.valueOf(10d));
 		int precision = 1;
-		DoubleType doubleType = new DoubleType(range, precision);
+		NumberType doubleType = new NumberType(range, precision);
 
 		// WHEN
 		catchException(doubleType).generateObject(-1l);

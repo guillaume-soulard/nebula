@@ -4,6 +4,7 @@ import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -45,7 +46,7 @@ public class ModelTest {
 		long seed = 1l;
 		Model model = new Model();
 		Entity entity = Nebula.newEntity("test", 10);
-		entity.addProperty("number", NebulaTypes.integer(), NebulaGenerators.random());
+		entity.addProperty("number", NebulaTypes.number(), NebulaGenerators.random());
 		model.addEntity(entity);
 
 		// WHEN
@@ -63,7 +64,7 @@ public class ModelTest {
 		long seed = 1l;
 		Model model = new Model();
 		Entity entity = Nebula.newEntity("test", 10);
-		entity.addProperty("number", NebulaTypes.integer(), NebulaGenerators.random());
+		entity.addProperty("number", NebulaTypes.number(), NebulaGenerators.random());
 		model.addEntity(entity);
 
 		// WHEN
@@ -83,7 +84,9 @@ public class ModelTest {
 		int amount = 100;
 		Entity entity = Nebula.newEntity("test", amount);
 		String propertyName = "number";
-		entity.addProperty(propertyName, NebulaTypes.integer().withMin(-2).withMax(2), NebulaGenerators.random());
+		entity.addProperty(propertyName,
+				NebulaTypes.number().withMin(BigDecimal.valueOf(-2)).withMax(BigDecimal.valueOf(2)),
+				NebulaGenerators.random());
 		model.addEntity(entity);
 
 		// WHEN
@@ -91,7 +94,8 @@ public class ModelTest {
 
 		// THEN
 		assertThat(result.get(entity)).hasSize(amount);
-		assertThat(extractValuesForProperty(propertyName, result.get(entity))).containsOnly(-2l, -1l, 0l, 1l, 2l);
+		assertThat(extractValuesForProperty(propertyName, result.get(entity))).containsOnly(BigDecimal.valueOf(-2),
+				BigDecimal.valueOf(-1), BigDecimal.valueOf(0), BigDecimal.valueOf(1), BigDecimal.valueOf(2));
 	}
 
 	@Test
@@ -101,7 +105,9 @@ public class ModelTest {
 		Model model = new Model();
 		int amount = 10;
 		Entity entity = Nebula.newEntity("test", amount);
-		entity.addProperty("number", NebulaTypes.integer().withMin(-2).withMax(2), NebulaGenerators.random());
+		entity.addProperty("number",
+				NebulaTypes.number().withMin(BigDecimal.valueOf(-2)).withMax(BigDecimal.valueOf(2)),
+				NebulaGenerators.random());
 		model.addEntity(entity);
 		long seed = 1l;
 
@@ -119,7 +125,9 @@ public class ModelTest {
 		Model model = new Model();
 		int amount = 10;
 		Entity entity = Nebula.newEntity("test", amount);
-		entity.addProperty("number", NebulaTypes.integer().withMin(-2).withMax(2), NebulaGenerators.random());
+		entity.addProperty("number",
+				NebulaTypes.number().withMin(BigDecimal.valueOf(-2)).withMax(BigDecimal.valueOf(2)),
+				NebulaGenerators.random());
 		model.addEntity(entity);
 		long seed = 1l;
 		List<GeneratedObject> allObjects = model.generateEntity(entity, seed);
