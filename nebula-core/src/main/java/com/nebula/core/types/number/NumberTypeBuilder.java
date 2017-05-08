@@ -15,10 +15,16 @@ public class NumberTypeBuilder implements TypeBuilder {
 
 	@Override
 	public Type build() throws NebulaException {
+		if (min.compareTo(max) > 0) {
+			throw new NebulaException("max must be greater than min");
+		}
 		return new NumberType(new Range<BigDecimal>(min, max), precision);
 	}
 
 	public NumberTypeBuilder withPrecision(int value) {
+		if (value < 0) {
+			throw new NebulaException("precision is negative");
+		}
 		precision = value;
 		return this;
 	}

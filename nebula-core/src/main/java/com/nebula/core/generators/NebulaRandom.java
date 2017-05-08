@@ -16,17 +16,19 @@ public class NebulaRandom {
 	public Long nextIndex(Type type) {
 
 		long min = 0;
-		long max = Integer.MAX_VALUE;
+		long max = Long.MAX_VALUE;
 		long newMax = type.getMaxRange() - type.getMinRange();
 
 		if (newMax >= 0) {
 			max = newMax;
 		}
+		return randomBetween(min, max);
+	}
 
-		if (Integer.MAX_VALUE != max) {
+	public Long randomBetween(long min, long max) {
+		if (Long.MAX_VALUE != max) {
 			max++;
 		}
-
 		return random.longs(MAX_INT_TO_GENERATE, min, max).toArray()[0];
 	}
 }

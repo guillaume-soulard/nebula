@@ -1,5 +1,7 @@
 package com.nebula.core.types.number;
 
+import static com.googlecode.catchexception.CatchException.catchException;
+import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.math.BigDecimal;
@@ -100,5 +102,47 @@ public class NumberTypeBuilderTest {
 
 		// THEN
 		assertThat(result).hasFieldOrPropertyWithValue("range.max", BigDecimal.valueOf(456));
+	}
+
+	@Test
+	public void withMin_and_withMax_should_not_throw_exception_for_the_same_value() throws NebulaException {
+
+		// GIVEN
+		NumberTypeBuilder builder = new NumberTypeBuilder();
+		BigDecimal value = BigDecimal.valueOf(456);
+
+		// WHEN
+		builder.withMin(value).withMax(value);
+
+		// THEN
+		assertThat(builder).hasFieldOrPropertyWithValue("min", value).hasFieldOrPropertyWithValue("max", value);
+	}
+
+	@Test
+	public void withMin_should_throw_exception_when_min_is_greater_than_max() throws NebulaException {
+
+		// GIVEN
+		NumberTypeBuilder builder = new NumberTypeBuilder();
+		BigDecimal min = BigDecimal.valueOf(456);
+		BigDecimal max = BigDecimal.ZERO;
+
+		// WHEN
+		catchException(builder.withMin(min).withMax(max)).build();
+
+		// THEN
+		assertThat(caughtException()).isInstanceOf(NebulaException.class).hasMessage("max must be greater than min");
+	}
+
+	@Test
+	public void withPrecision_should_throw_exception_when_precision_is_negative() throws NebulaException {
+
+		// GIVEN
+		NumberTypeBuilder builder = new NumberTypeBuilder();
+
+		// WHEN
+		catchException(builder).withPrecision(-1);
+
+		// THEN
+		assertThat(caughtException()).isInstanceOf(NebulaException.class).hasMessage("precision is negative");
 	}
 }

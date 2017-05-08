@@ -110,4 +110,30 @@ public class NebulaRandomTest {
 		// THEN
 		assertThat(result).isEqualTo(0);
 	}
+
+	@Test
+	public void randomBetween_should_return_0() {
+
+		// GIVEN
+		NebulaRandom nebulaRandom = new NebulaRandom(1l);
+
+		// WHEN
+		Long result = nebulaRandom.randomBetween(0l, 0l);
+
+		// THEN
+		assertThat(result).isEqualTo(0l);
+	}
+
+	@Test
+	public void randomBetween_should_return_1() {
+
+		// GIVEN
+		NebulaRandom nebulaRandom = new NebulaRandom(1l);
+
+		// WHEN
+		Long result = nebulaRandom.randomBetween(1l, 1l);
+
+		// THEN
+		assertThat(result).isEqualTo(1l);
+	}
 }
