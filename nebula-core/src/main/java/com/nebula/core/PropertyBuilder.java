@@ -6,8 +6,7 @@ import com.nebula.core.types.TypeBuilder;
 
 public class PropertyBuilder {
 
-	public Property newProperty(String propertyName, TypeBuilder propertyType, Generator propertyGenerator)
-			throws NebulaException {
+	public Property newProperty(String propertyName, TypeBuilder propertyType, Generator propertyGenerator) {
 		checkIfPropertyNameIsNotNull(propertyName);
 		checkIfPropertyTyapeIsNotNull(propertyType);
 		checkIfPropertyGeneratorIsNotNull(propertyGenerator);
@@ -15,23 +14,23 @@ public class PropertyBuilder {
 		return property;
 	}
 
-	private Type buildType(TypeBuilder propertyType) throws NebulaException {
+	private Type buildType(TypeBuilder propertyType) {
 		return propertyType.build();
 	}
 
-	private void checkIfPropertyGeneratorIsNotNull(Generator propertyGenerator) throws NebulaException {
+	private void checkIfPropertyGeneratorIsNotNull(Generator propertyGenerator) {
 		if (propertyGenerator == null) {
 			throw new NebulaException("property generator is null");
 		}
 	}
 
-	private void checkIfPropertyTyapeIsNotNull(TypeBuilder propertyType) throws NebulaException {
+	private void checkIfPropertyTyapeIsNotNull(TypeBuilder propertyType) {
 		if (propertyType == null) {
 			throw new NebulaException("property type is null");
 		}
 	}
 
-	private void checkIfPropertyNameIsNotNull(String propertyName) throws NebulaException {
+	private void checkIfPropertyNameIsNotNull(String propertyName) {
 		if (propertyName == null) {
 			throw new NebulaException("property name is null");
 		}

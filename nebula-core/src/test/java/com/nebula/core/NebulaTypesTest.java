@@ -11,7 +11,7 @@ import com.nebula.core.types.string.StringTypeBuilder;
 public class NebulaTypesTest {
 
 	@Test
-	public void integer_should_return_a_new_instance_of_LongTypeBuilder() throws NebulaException {
+	public void integer_should_return_a_new_instance_of_LongTypeBuilder() {
 
 		// GIVEN
 

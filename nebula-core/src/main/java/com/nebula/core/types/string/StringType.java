@@ -20,12 +20,12 @@ public class StringType implements Type {
 	}
 
 	@Override
-	public void init(NebulaRandom nebulaRandom) throws NebulaException {
+	public void init(NebulaRandom nebulaRandom) {
 		generex = new Generex(pattern, nebulaRandom.getRandom());
 	}
 
 	@Override
-	public GeneratedObject generateObject(Long objectIndex) throws NebulaException {
+	public GeneratedObject generateObject(Long objectIndex) {
 		return new GeneratedObject(generex.random());
 	}
 

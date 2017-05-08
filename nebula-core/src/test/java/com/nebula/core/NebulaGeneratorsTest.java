@@ -10,7 +10,7 @@ import com.nebula.core.generators.RandomGenerator;
 public class NebulaGeneratorsTest {
 
 	@Test
-	public void random_should_return_a_new_instance_of_RandomGenerator() throws NebulaException {
+	public void random_should_return_a_new_instance_of_RandomGenerator() {
 		// GIVEN
 		Generator generator;
 

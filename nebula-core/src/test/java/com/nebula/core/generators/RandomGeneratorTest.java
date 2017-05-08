@@ -20,7 +20,7 @@ import com.nebula.core.types.Type;
 public class RandomGeneratorTest {
 
 	@Test
-	public void random_should_return_a_new_instance_of_RandomGenerator() throws NebulaException {
+	public void random_should_return_a_new_instance_of_RandomGenerator() {
 
 		// GIVEN
 
@@ -32,7 +32,7 @@ public class RandomGeneratorTest {
 	}
 
 	@Test
-	public void generate_should_return_one() throws NebulaException {
+	public void generate_should_return_one() {
 
 		// GIVEN
 		NebulaRandom nebulaRandom = mock(NebulaRandom.class);
@@ -48,7 +48,7 @@ public class RandomGeneratorTest {
 	}
 
 	@Test
-	public void generate_should_return_ten() throws NebulaException {
+	public void generate_should_return_ten() {
 
 		// GIVEN
 		NebulaRandom nebulaRandom = mock(NebulaRandom.class);
@@ -64,7 +64,7 @@ public class RandomGeneratorTest {
 	}
 
 	@Test
-	public void generate_should_return_a_number_between_0_and_10() throws NebulaException {
+	public void generate_should_return_a_number_between_0_and_10() {
 
 		// GIVEN
 		NebulaRandom nebulaRandom = new NebulaRandom(0l);
@@ -87,7 +87,7 @@ public class RandomGeneratorTest {
 	}
 
 	@Test
-	public void init_should_throw_exception_when_nebulaRandom_is_null() throws NebulaException {
+	public void init_should_throw_exception_when_nebulaRandom_is_null() {
 
 		// GIVEN
 		RandomGenerator generator = new RandomGenerator();
@@ -100,7 +100,7 @@ public class RandomGeneratorTest {
 	}
 
 	@Test
-	public void generate_should_throw_exception_when_nebula_random_is_null() throws NebulaException {
+	public void generate_should_throw_exception_when_nebula_random_is_null() {
 
 		// GIVEN
 		RandomGenerator generator = new RandomGenerator();

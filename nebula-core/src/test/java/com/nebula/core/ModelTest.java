@@ -14,7 +14,7 @@ import org.junit.Test;
 public class ModelTest {
 
 	@Test
-	public void add_should_add_given_type_in_model() throws NebulaException {
+	public void add_should_add_given_type_in_model() {
 		// GIVEN
 		Entity entity = Nebula.newEntity("test", 1);
 		Model model = new Model();
@@ -27,7 +27,7 @@ public class ModelTest {
 	}
 
 	@Test
-	public void add_should_throw_nubula_exception_when_null_type_is_passed() throws NebulaException {
+	public void add_should_throw_nubula_exception_when_null_type_is_passed() {
 		// GIVEN
 		Entity entity = null;
 		Model model = new Model();
@@ -40,7 +40,7 @@ public class ModelTest {
 	}
 
 	@Test
-	public void generateAll_should_generate_10_objects() throws NebulaException {
+	public void generateAll_should_generate_10_objects() {
 
 		// GIVEN
 		long seed = 1l;
@@ -58,7 +58,7 @@ public class ModelTest {
 	}
 
 	@Test
-	public void generateEntity_should_generate_10_objects() throws NebulaException {
+	public void generateEntity_should_generate_10_objects() {
 
 		// GIVEN
 		long seed = 1l;
@@ -75,8 +75,7 @@ public class ModelTest {
 	}
 
 	@Test
-	public void generateAll_should_return_only_numbers_between_minus2_and_2_over_100_generated_entities()
-			throws NebulaException {
+	public void generateAll_should_return_only_numbers_between_minus2_and_2_over_100_generated_entities() {
 
 		// GIVEN
 		long seed = 1l;
@@ -99,7 +98,7 @@ public class ModelTest {
 	}
 
 	@Test
-	public void iterator_should_return_a_new_iterator() throws NebulaException {
+	public void iterator_should_return_a_new_iterator() {
 
 		// GIVEN
 		Model model = new Model();
@@ -119,7 +118,7 @@ public class ModelTest {
 	}
 
 	@Test
-	public void iterator_should_get_same_objects_than_all_entities() throws NebulaException {
+	public void iterator_should_get_same_objects_than_all_entities() {
 
 		// GIVEN
 		Model model = new Model();
@@ -140,7 +139,7 @@ public class ModelTest {
 	}
 
 	@Test
-	public void getEntityByName_should_return_entity() throws NebulaException {
+	public void getEntityByName_should_return_entity() {
 
 		// GIVEN
 		Model model = new Model();
@@ -157,7 +156,7 @@ public class ModelTest {
 	}
 
 	@Test
-	public void getEntityByName_should_return_null() throws NebulaException {
+	public void getEntityByName_should_return_null() {
 
 		// GIVEN
 		Model model = new Model();
@@ -173,7 +172,7 @@ public class ModelTest {
 	}
 
 	@Test
-	public void generateEntity_should_generate_entity_for_index_0() throws NebulaException {
+	public void generateEntity_should_generate_entity_for_index_0() {
 
 		// GIVEN
 		Model model = new Model();
@@ -191,7 +190,7 @@ public class ModelTest {
 	}
 
 	@Test
-	public void generateEntity_should_generate_10_different_objects() throws NebulaException {
+	public void generateEntity_should_generate_10_different_objects() {
 
 		// GIVEN
 		Model model = new Model();
@@ -208,7 +207,7 @@ public class ModelTest {
 	}
 
 	@Test
-	public void generateEntity_should_generate_the_same_entity_for_index_0() throws NebulaException {
+	public void generateEntity_should_generate_the_same_entity_for_index_0() {
 
 		// GIVEN
 		Model model = new Model();
@@ -227,8 +226,7 @@ public class ModelTest {
 	}
 
 	@Test
-	public void generateEntity_should_generate_the_same_entity_for_index_0_comparing_to_generate_all_entities()
-			throws NebulaException {
+	public void generateEntity_should_generate_the_same_entity_for_index_0_comparing_to_generate_all_entities() {
 
 		// GIVEN
 		Model model = new Model();

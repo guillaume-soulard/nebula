@@ -5,7 +5,7 @@ import com.nebula.core.generators.RandomGenerator;
 
 public class NebulaGenerators {
 
-	public static Generator random() throws NebulaException {
+	public static Generator random() {
 		return new RandomGenerator();
 	}
 }

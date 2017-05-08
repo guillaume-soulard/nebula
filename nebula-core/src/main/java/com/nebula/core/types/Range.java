@@ -8,7 +8,7 @@ public class Range<T extends Comparable<T>> {
 
 	private T max;
 
-	public Range(T min, T max) throws NebulaException {
+	public Range(T min, T max) {
 		checkMin(min);
 		checkMax(max);
 		checkInterval(min, max);
@@ -16,21 +16,21 @@ public class Range<T extends Comparable<T>> {
 		this.max = max;
 	}
 
-	public void checkInterval(T min, T max) throws NebulaException {
+	public void checkInterval(T min, T max) {
 		if (min.compareTo(max) > 0) {
 
 			throw new NebulaException("range [" + min + ";" + max + "] is invalid");
 		}
 	}
 
-	public void checkMax(T max) throws NebulaException {
+	public void checkMax(T max) {
 		if (max == null) {
 
 			throw new NebulaException("max is null");
 		}
 	}
 
-	public void checkMin(T min) throws NebulaException {
+	public void checkMin(T min) {
 		if (min == null) {
 
 			throw new NebulaException("min is null");

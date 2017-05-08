@@ -20,7 +20,7 @@ public class ModelGenerationIT {
 	private static final String ID_PROPERTY_NAME = "_id";
 
 	@Test
-	public void generate_should_generate_100000_entities_with_correct_properties_values() throws NebulaException {
+	public void generate_should_generate_100000_entities_with_correct_properties_values() {
 
 		// GIVEN
 		long seed = 10l;

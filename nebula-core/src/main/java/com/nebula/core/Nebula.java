@@ -7,7 +7,7 @@ public final class Nebula {
 		return new Model();
 	}
 
-	public static Entity newEntity(String entityName, long amount) throws NebulaException {
+	public static Entity newEntity(String entityName, long amount) {
 
 		if (entityName == null) {
 			throw new NebulaException("entity name is null");

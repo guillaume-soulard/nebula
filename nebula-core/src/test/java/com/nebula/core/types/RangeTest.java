@@ -10,8 +10,7 @@ import com.nebula.core.NebulaException;
 public class RangeTest {
 
 	@Test
-	public void newRange_should_return_a_new_instance_of_Range_with_both_min_and_max_value_specified()
-			throws NebulaException {
+	public void newRange_should_return_a_new_instance_of_Range_with_both_min_and_max_value_specified() {
 		// GIVEN
 		Range<Integer> range = null;
 
@@ -24,7 +23,7 @@ public class RangeTest {
 	}
 
 	@Test
-	public void newRange_should_throw_exception_when_inverted_range_is_passed() throws NebulaException {
+	public void newRange_should_throw_exception_when_inverted_range_is_passed() {
 		// GIVEN
 
 		// WHEN

@@ -14,7 +14,7 @@ public class NumberTypeBuilder implements TypeBuilder {
 	private BigDecimal max = BigDecimal.valueOf(Long.MAX_VALUE);
 
 	@Override
-	public Type build() throws NebulaException {
+	public Type build() {
 		if (min.compareTo(max) > 0) {
 			throw new NebulaException("max must be greater than min");
 		}

@@ -9,7 +9,7 @@ public class StringTypeBuilder implements TypeBuilder {
 	private String pattern;
 
 	@Override
-	public Type build() throws NebulaException {
+	public Type build() {
 		return new StringType(pattern);
 	}
 

@@ -12,7 +12,7 @@ import com.nebula.core.types.TypeBuilder;
 public class PropertyBuilderTest {
 
 	@Test
-	public void newProperty_should_throw_NebulaException_when_property_name_is_null() throws NebulaException {
+	public void newProperty_should_throw_NebulaException_when_property_name_is_null() {
 		// GIVEN
 		PropertyBuilder propertyBuilder = new PropertyBuilder();
 		String propertyName = null;
@@ -27,7 +27,7 @@ public class PropertyBuilderTest {
 	}
 
 	@Test
-	public void newProperty_should_throw_NebulaException_when_property_type_is_null() throws NebulaException {
+	public void newProperty_should_throw_NebulaException_when_property_type_is_null() {
 		// GIVEN
 		PropertyBuilder propertyBuilder = new PropertyBuilder();
 		String propertyName = "name";
@@ -42,7 +42,7 @@ public class PropertyBuilderTest {
 	}
 
 	@Test
-	public void newProperty_should_throw_NebulaException_when_property_generator_is_null() throws NebulaException {
+	public void newProperty_should_throw_NebulaException_when_property_generator_is_null() {
 		// GIVEN
 		PropertyBuilder propertyBuilder = new PropertyBuilder();
 		String propertyName = "name";

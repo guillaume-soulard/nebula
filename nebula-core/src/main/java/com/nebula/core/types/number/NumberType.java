@@ -20,7 +20,7 @@ public class NumberType implements Type {
 		increment = BigDecimal.ONE.divide(BigDecimal.TEN.pow(precision));
 	}
 
-	public GeneratedObject generateObject(Long objectIndex) throws NebulaException {
+	public GeneratedObject generateObject(Long objectIndex) {
 		BigDecimal result = range.getMin().add(new BigDecimal(objectIndex).multiply(increment)).setScale(precision);
 
 		if (objectIndex < 0d || result.compareTo(range.getMax()) > 0) {
@@ -38,7 +38,7 @@ public class NumberType implements Type {
 	}
 
 	@Override
-	public void init(NebulaRandom nebulaRandom) throws NebulaException {
+	public void init(NebulaRandom nebulaRandom) {
 
 	}
 }

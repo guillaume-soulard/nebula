@@ -7,7 +7,7 @@ import org.junit.Test;
 public class NewEntityTest {
 
 	@Test
-	public void newEntity_should_create_new_instance_of_entity_with_test_as_name() throws NebulaException {
+	public void newEntity_should_create_new_instance_of_entity_with_test_as_name() {
 
 		// GIVEN
 		Entity entity = null;
@@ -22,7 +22,7 @@ public class NewEntityTest {
 	}
 
 	@Test
-	public void newEntity_should_create_new_instance_of_entity_with_an_other_entity_as_name() throws NebulaException {
+	public void newEntity_should_create_new_instance_of_entity_with_an_other_entity_as_name() {
 
 		// GIVEN
 		Entity entity = null;

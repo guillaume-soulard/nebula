@@ -18,7 +18,7 @@ import com.nebula.core.types.Type;
 public class NebulaRandomTest {
 
 	@Test
-	public void nextIndex_should_return_0_with_integer_range_0_0() throws NebulaException {
+	public void nextIndex_should_return_0_with_integer_range_0_0() {
 
 		// GIVEN
 		NebulaRandom nebulaRandom = new NebulaRandom(0l);
@@ -32,7 +32,7 @@ public class NebulaRandomTest {
 	}
 
 	@Test
-	public void nextIndex_should_return_0_with_integer_range_10_10() throws NebulaException {
+	public void nextIndex_should_return_0_with_integer_range_10_10() {
 
 		// GIVEN
 		NebulaRandom nebulaRandom = new NebulaRandom(0l);
@@ -46,8 +46,7 @@ public class NebulaRandomTest {
 	}
 
 	@Test
-	public void nextIndex_should_return_index_between_0_and_10_with_integer_range_minus_1000_and_minus_990()
-			throws NebulaException {
+	public void nextIndex_should_return_index_between_0_and_10_with_integer_range_minus_1000_and_minus_990() {
 
 		// GIVEN
 		NebulaRandom nebulaRandom = new NebulaRandom(0l);

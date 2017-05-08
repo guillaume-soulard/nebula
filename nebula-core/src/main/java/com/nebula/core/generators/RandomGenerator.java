@@ -8,17 +8,17 @@ public class RandomGenerator implements Generator {
 
 	private NebulaRandom nebulaRandom;
 
-	public GeneratedObject generate(Type type) throws NebulaException {
+	public GeneratedObject generate(Type type) {
 		throwExceptionIfNebulaRandomIsNull(nebulaRandom);
 		return type.generateObject(nebulaRandom.nextIndex(type));
 	}
 
-	public void init(NebulaRandom nebulaRandom) throws NebulaException {
+	public void init(NebulaRandom nebulaRandom) {
 		throwExceptionIfNebulaRandomIsNull(nebulaRandom);
 		this.nebulaRandom = nebulaRandom;
 	}
 
-	public void throwExceptionIfNebulaRandomIsNull(NebulaRandom nebulaRandom) throws NebulaException {
+	public void throwExceptionIfNebulaRandomIsNull(NebulaRandom nebulaRandom) {
 		if (nebulaRandom == null) {
 			throw new NebulaException("nebulaRandom is null");
 		}

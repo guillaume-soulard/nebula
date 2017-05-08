@@ -12,7 +12,7 @@ public class Model {
 
 	private List<Entity> entities = new ArrayList<Entity>();
 
-	public void addEntity(Entity entity) throws NebulaException {
+	public void addEntity(Entity entity) {
 
 		if (entity == null) {
 			throw new NebulaException("type is null");
@@ -24,7 +24,7 @@ public class Model {
 		return entities;
 	}
 
-	public Map<Entity, List<GeneratedObject>> generateAll(long seed) throws NebulaException {
+	public Map<Entity, List<GeneratedObject>> generateAll(long seed) {
 		Map<Entity, List<GeneratedObject>> result = new HashMap<Entity, List<GeneratedObject>>();
 		for (Entity entity : entities) {
 			result.put(entity, generateEntity(entity, seed));
@@ -32,7 +32,7 @@ public class Model {
 		return result;
 	}
 
-	public List<GeneratedObject> generateEntity(Entity entity, long seed) throws NebulaException {
+	public List<GeneratedObject> generateEntity(Entity entity, long seed) {
 		List<GeneratedObject> generatedObjects = new LinkedList<GeneratedObject>();
 
 		for (int index = 0; index < entity.getAmount(); index++) {
@@ -55,7 +55,7 @@ public class Model {
 		return new GeneratedObjectIterator(this, getEntityByName(entityName), seed);
 	}
 
-	public GeneratedObject generateEntity(Entity entity, long entityIndex, long seed) throws NebulaException {
+	public GeneratedObject generateEntity(Entity entity, long entityIndex, long seed) {
 		NebulaRandom nebulaRandom = new NebulaRandom(seed + entityIndex);
 		entity.init(nebulaRandom);
 		GeneratedObject generateObject = entity.generateObject(nebulaRandom.nextIndex(entity));

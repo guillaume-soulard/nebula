@@ -6,7 +6,7 @@ import com.nebula.core.types.Type;
 
 public interface Generator {
 
-	void init(NebulaRandom nebulaRandom) throws NebulaException;
+	void init(NebulaRandom nebulaRandom);
 
-	GeneratedObject generate(Type type) throws NebulaException;
+	GeneratedObject generate(Type type);
 }

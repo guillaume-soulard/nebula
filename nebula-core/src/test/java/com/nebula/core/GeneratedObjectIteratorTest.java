@@ -35,7 +35,7 @@ public class GeneratedObjectIteratorTest {
 	}
 
 	@Test
-	public void hasNext_should_return_true_when_entity_amount_is_1() throws NebulaException {
+	public void hasNext_should_return_true_when_entity_amount_is_1() {
 
 		// GIVEN
 		Model model = new Model();
@@ -51,7 +51,7 @@ public class GeneratedObjectIteratorTest {
 	}
 
 	@Test
-	public void hasNext_should_return_true_when_entity_amount_is_strictly_positive() throws NebulaException {
+	public void hasNext_should_return_true_when_entity_amount_is_strictly_positive() {
 
 		// GIVEN
 		Model model = new Model();
@@ -67,7 +67,7 @@ public class GeneratedObjectIteratorTest {
 	}
 
 	@Test
-	public void hasNext_should_return_false_when_entity_amount_is_0() throws NebulaException {
+	public void hasNext_should_return_false_when_entity_amount_is_0() {
 
 		// GIVEN
 		Model model = new Model();
@@ -83,7 +83,7 @@ public class GeneratedObjectIteratorTest {
 	}
 
 	@Test
-	public void hasNext_should_return_true_when_next_calls_not_exceed_total_amount_of_entity() throws NebulaException {
+	public void hasNext_should_return_true_when_next_calls_not_exceed_total_amount_of_entity() {
 
 		// GIVEN
 		Model model = new Model();
@@ -100,7 +100,7 @@ public class GeneratedObjectIteratorTest {
 	}
 
 	@Test
-	public void hasNext_should_return_false_when_next_calls_equal_total_amount_of_entity() throws NebulaException {
+	public void hasNext_should_return_false_when_next_calls_equal_total_amount_of_entity() {
 
 		// GIVEN
 		Model model = new Model();
@@ -118,7 +118,7 @@ public class GeneratedObjectIteratorTest {
 	}
 
 	@Test
-	public void next_should_return_the_first_entity() throws NebulaException {
+	public void next_should_return_the_first_entity() {
 
 		// GIVEN
 		GeneratedObject expectedGeneratedObject = new GeneratedObject(null);
@@ -139,8 +139,7 @@ public class GeneratedObjectIteratorTest {
 	}
 
 	@Test
-	public void next_should_throw_NoSuchElementException_when_iterator_has_no_more_generated_objects()
-			throws NebulaException {
+	public void next_should_throw_NoSuchElementException_when_iterator_has_no_more_generated_objects() {
 
 		// GIVEN
 		Model model = mock(Model.class);
@@ -160,7 +159,7 @@ public class GeneratedObjectIteratorTest {
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void next_should_throw_NebulaException_when_model_throw_exception() throws NebulaException {
+	public void next_should_throw_NebulaException_when_model_throw_exception() {
 
 		// GIVEN
 		Model model = mock(Model.class);

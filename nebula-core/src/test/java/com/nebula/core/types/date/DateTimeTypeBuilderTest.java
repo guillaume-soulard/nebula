@@ -12,7 +12,7 @@ import com.nebula.core.types.TypeBuilder;
 public class DateTimeTypeBuilderTest {
 
 	@Test
-	public void build_should_return_a_new_instance_of_DateTimeType() throws NebulaException {
+	public void build_should_return_a_new_instance_of_DateTimeType() {
 
 		// GIVEN
 		TypeBuilder builder = new DateTimeTypeBuilder();
@@ -25,7 +25,7 @@ public class DateTimeTypeBuilderTest {
 	}
 
 	@Test
-	public void build_should_set_default_values_in_DateTimeBuilder() throws NebulaException {
+	public void build_should_set_default_values_in_DateTimeBuilder() {
 
 		// GIVEN
 		TypeBuilder builder = new DateTimeTypeBuilder();
@@ -40,7 +40,7 @@ public class DateTimeTypeBuilderTest {
 	}
 
 	@Test
-	public void withMin_should_set_min_date_in_new_instance_of_DateTimeType() throws NebulaException {
+	public void withMin_should_set_min_date_in_new_instance_of_DateTimeType() {
 
 		// GIVEN
 		DateTimeTypeBuilder builder = new DateTimeTypeBuilder();
@@ -54,7 +54,7 @@ public class DateTimeTypeBuilderTest {
 	}
 
 	@Test
-	public void withMax_should_set_max_date_in_new_instance_of_DateTimeType() throws NebulaException {
+	public void withMax_should_set_max_date_in_new_instance_of_DateTimeType() {
 
 		// GIVEN
 		DateTimeTypeBuilder builder = new DateTimeTypeBuilder();
@@ -68,7 +68,7 @@ public class DateTimeTypeBuilderTest {
 	}
 
 	@Test
-	public void withINterval_should_set_ths_interval_in_new_instance_of_DateTimeType() throws NebulaException {
+	public void withINterval_should_set_ths_interval_in_new_instance_of_DateTimeType() {
 
 		// GIVEN
 		DateTimeTypeBuilder builder = new DateTimeTypeBuilder();

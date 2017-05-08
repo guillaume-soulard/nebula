@@ -15,7 +15,7 @@ public class Entity implements Type {
 	private String name;
 	private Long amount;
 
-	public Entity(String name, Long amount, PropertyBuilder propertyBuilder) throws NebulaException {
+	public Entity(String name, Long amount, PropertyBuilder propertyBuilder) {
 		this.amount = amount;
 		this.propertyBuilder = propertyBuilder;
 		this.name = name;
@@ -29,13 +29,12 @@ public class Entity implements Type {
 		return properties;
 	}
 
-	public void addProperty(String propertyName, TypeBuilder propertyType, Generator propertyGenerator)
-			throws NebulaException {
+	public void addProperty(String propertyName, TypeBuilder propertyType, Generator propertyGenerator) {
 		checkIfPropertyAlreadyExists(propertyName);
 		properties.add(propertyBuilder.newProperty(propertyName, propertyType, propertyGenerator));
 	}
 
-	private void checkIfPropertyAlreadyExists(String propertyName) throws NebulaException {
+	private void checkIfPropertyAlreadyExists(String propertyName) {
 		for (Property property : properties) {
 			if (property.getName().equals(propertyName)) {
 				throw new NebulaException("duplicate property '" + propertyName + "' in entity '" + name + "'");
@@ -43,13 +42,13 @@ public class Entity implements Type {
 		}
 	}
 
-	public void init(NebulaRandom nebulaRandom) throws NebulaException {
+	public void init(NebulaRandom nebulaRandom) {
 		for (Property property : properties) {
 			property.getGenerator().init(nebulaRandom);
 		}
 	}
 
-	public GeneratedObject generateObject(Long objectIndex) throws NebulaException {
+	public GeneratedObject generateObject(Long objectIndex) {
 		List<GeneratedProperty> generatedProperties = new ArrayList<GeneratedProperty>();
 		for (Property property : properties) {
 

@@ -15,7 +15,7 @@ public class DateTimeTypeBuilder implements TypeBuilder {
 	private DateTimeTypeIntervals interval;
 
 	@Override
-	public Type build() throws NebulaException {
+	public Type build() {
 		return new DateTimeType(new Range<ReadableInstant>(min, max), interval);
 	}
 

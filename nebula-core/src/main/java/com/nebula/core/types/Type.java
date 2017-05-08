@@ -6,9 +6,9 @@ import com.nebula.core.generators.NebulaRandom;
 
 public interface Type {
 
-	void init(NebulaRandom nebulaRandom) throws NebulaException;
+	void init(NebulaRandom nebulaRandom);
 
-	GeneratedObject generateObject(Long objectIndex) throws NebulaException;
+	GeneratedObject generateObject(Long objectIndex);
 
 	Long getMinRange();
 

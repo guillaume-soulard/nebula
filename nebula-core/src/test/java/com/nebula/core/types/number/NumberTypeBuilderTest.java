@@ -14,7 +14,7 @@ import com.nebula.core.types.Type;
 public class NumberTypeBuilderTest {
 
 	@Test
-	public void build_should_return_a_new_instance_of_DoubleType_with_defaults() throws NebulaException {
+	public void build_should_return_a_new_instance_of_DoubleType_with_defaults() {
 
 		// GIVEN
 		NumberTypeBuilder builder = new NumberTypeBuilder();
@@ -27,7 +27,7 @@ public class NumberTypeBuilderTest {
 	}
 
 	@Test
-	public void build_should_set_0_as_default_precision_in_double_type_object() throws NebulaException {
+	public void build_should_set_0_as_default_precision_in_double_type_object() {
 
 		// GIVEN
 		NumberTypeBuilder builder = new NumberTypeBuilder();
@@ -40,7 +40,7 @@ public class NumberTypeBuilderTest {
 	}
 
 	@Test
-	public void build_should_set_precision_in_double_type_object() throws NebulaException {
+	public void build_should_set_precision_in_double_type_object() {
 
 		// GIVEN
 		NumberTypeBuilder builder = new NumberTypeBuilder();
@@ -53,7 +53,7 @@ public class NumberTypeBuilderTest {
 	}
 
 	@Test
-	public void build_should_set_min_in_number_type_object() throws NebulaException {
+	public void build_should_set_min_in_number_type_object() {
 
 		// GIVEN
 		NumberTypeBuilder builder = new NumberTypeBuilder();
@@ -66,7 +66,7 @@ public class NumberTypeBuilderTest {
 	}
 
 	@Test
-	public void build_should_set_Long_MIN_VALUE_as_default_min_in_number_type_object() throws NebulaException {
+	public void build_should_set_Long_MIN_VALUE_as_default_min_in_number_type_object() {
 
 		// GIVEN
 		NumberTypeBuilder builder = new NumberTypeBuilder();
@@ -79,7 +79,7 @@ public class NumberTypeBuilderTest {
 	}
 
 	@Test
-	public void build_should_set_Long_MAX_VALUE_as_default_max_in_number_type_object() throws NebulaException {
+	public void build_should_set_Long_MAX_VALUE_as_default_max_in_number_type_object() {
 
 		// GIVEN
 		NumberTypeBuilder builder = new NumberTypeBuilder();
@@ -92,7 +92,7 @@ public class NumberTypeBuilderTest {
 	}
 
 	@Test
-	public void build_should_set_max_in_number_type_object() throws NebulaException {
+	public void build_should_set_max_in_number_type_object() {
 
 		// GIVEN
 		NumberTypeBuilder builder = new NumberTypeBuilder();
@@ -105,7 +105,7 @@ public class NumberTypeBuilderTest {
 	}
 
 	@Test
-	public void withMin_and_withMax_should_not_throw_exception_for_the_same_value() throws NebulaException {
+	public void withMin_and_withMax_should_not_throw_exception_for_the_same_value() {
 
 		// GIVEN
 		NumberTypeBuilder builder = new NumberTypeBuilder();
@@ -119,7 +119,7 @@ public class NumberTypeBuilderTest {
 	}
 
 	@Test
-	public void withMin_should_throw_exception_when_min_is_greater_than_max() throws NebulaException {
+	public void withMin_should_throw_exception_when_min_is_greater_than_max() {
 
 		// GIVEN
 		NumberTypeBuilder builder = new NumberTypeBuilder();
@@ -134,7 +134,7 @@ public class NumberTypeBuilderTest {
 	}
 
 	@Test
-	public void withPrecision_should_throw_exception_when_precision_is_negative() throws NebulaException {
+	public void withPrecision_should_throw_exception_when_precision_is_negative() {
 
 		// GIVEN
 		NumberTypeBuilder builder = new NumberTypeBuilder();

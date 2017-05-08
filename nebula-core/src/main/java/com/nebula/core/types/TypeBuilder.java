@@ -4,5 +4,5 @@ import com.nebula.core.NebulaException;
 
 public interface TypeBuilder {
 
-	Type build() throws NebulaException;
+	Type build();
 }

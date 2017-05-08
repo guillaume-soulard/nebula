@@ -40,7 +40,7 @@ public class DateTimeMinuteStrategyTest {
 	}
 
 	@Test
-	public void getMaxIndex_should_return_10() throws NebulaException {
+	public void getMaxIndex_should_return_10() {
 
 		// GIVEN
 		DateTimeStrategy strategy = new DateTimeMinuteStrategy();
@@ -55,7 +55,7 @@ public class DateTimeMinuteStrategyTest {
 	}
 
 	@Test
-	public void getMaxIndex_should_return_1() throws NebulaException {
+	public void getMaxIndex_should_return_1() {
 
 		// GIVEN
 		DateTimeStrategy strategy = new DateTimeMinuteStrategy();

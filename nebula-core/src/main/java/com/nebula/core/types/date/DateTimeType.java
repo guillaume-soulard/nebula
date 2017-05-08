@@ -44,12 +44,12 @@ public class DateTimeType implements Type {
 	}
 
 	@Override
-	public void init(NebulaRandom nebulaRandom) throws NebulaException {
+	public void init(NebulaRandom nebulaRandom) {
 
 	}
 
 	@Override
-	public GeneratedObject generateObject(Long objectIndex) throws NebulaException {
+	public GeneratedObject generateObject(Long objectIndex) {
 
 		DateTime requestedDate = dateTimestrategy.get(interval).getByDateAndIndexAndInterval((DateTime) range.getMin(),
 				objectIndex);

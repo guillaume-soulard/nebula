@@ -25,7 +25,7 @@ import com.nebula.core.types.date.strategy.DateTimeYearStrategy;
 public class DateTimeTypeTest {
 
 	@Test
-	public void generateObject_should_return_a_non_null_object() throws NebulaException {
+	public void generateObject_should_return_a_non_null_object() {
 
 		// GIVEN
 		DateTime dateTime = new DateTime(2017, 1, 1, 0, 0);
@@ -40,7 +40,7 @@ public class DateTimeTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_return_2017_1_1() throws NebulaException {
+	public void generateObject_should_return_2017_1_1() {
 
 		// GIVEN
 		DateTime dateTime = new DateTime(2017, 1, 1, 0, 0);
@@ -55,7 +55,7 @@ public class DateTimeTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_return_2017_1_2() throws NebulaException {
+	public void generateObject_should_return_2017_1_2() {
 
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0);
@@ -72,7 +72,7 @@ public class DateTimeTypeTest {
 	}
 
 	@Test
-	public void newDateType_should_set_DateTypeInterval_to_DAY_when_null_is_passed() throws NebulaException {
+	public void newDateType_should_set_DateTypeInterval_to_DAY_when_null_is_passed() {
 
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0);
@@ -88,8 +88,7 @@ public class DateTimeTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_return_2017_1_1_10_hours_and_00_minutes_for_interval_hours()
-			throws NebulaException {
+	public void generateObject_should_return_2017_1_1_10_hours_and_00_minutes_for_interval_hours() {
 
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0);
@@ -107,7 +106,7 @@ public class DateTimeTypeTest {
 	}
 
 	@Test
-	public void newDateTypeType_should_set_all_DateTimeIntervals_in_map() throws NebulaException {
+	public void newDateTypeType_should_set_all_DateTimeIntervals_in_map() {
 
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0);
@@ -134,7 +133,7 @@ public class DateTimeTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_throw_exception_when_reequested_date_is_out_of_range() throws NebulaException {
+	public void generateObject_should_throw_exception_when_reequested_date_is_out_of_range() {
 
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0);
@@ -152,7 +151,7 @@ public class DateTimeTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_throw_exception_when_index_is_negative() throws NebulaException {
+	public void generateObject_should_throw_exception_when_index_is_negative() {
 
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0);
@@ -170,7 +169,7 @@ public class DateTimeTypeTest {
 	}
 
 	@Test
-	public void getMinRange_should_return_0() throws NebulaException {
+	public void getMinRange_should_return_0() {
 
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0);
@@ -187,7 +186,7 @@ public class DateTimeTypeTest {
 	}
 
 	@Test
-	public void getMaxRange_should_return_1000() throws NebulaException {
+	public void getMaxRange_should_return_1000() {
 
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0, 0, 0);
@@ -204,7 +203,7 @@ public class DateTimeTypeTest {
 	}
 
 	@Test
-	public void getMaxRange_should_return_10() throws NebulaException {
+	public void getMaxRange_should_return_10() {
 
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0, 0, 0);
@@ -221,7 +220,7 @@ public class DateTimeTypeTest {
 	}
 
 	@Test
-	public void getMaxRange_should_return_36() throws NebulaException {
+	public void getMaxRange_should_return_36() {
 
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0, 0, 0);
@@ -238,7 +237,7 @@ public class DateTimeTypeTest {
 	}
 
 	@Test
-	public void getMaxRange_should_return_24() throws NebulaException {
+	public void getMaxRange_should_return_24() {
 
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0, 0, 0);
@@ -255,7 +254,7 @@ public class DateTimeTypeTest {
 	}
 
 	@Test
-	public void getMaxRange_should_return_31() throws NebulaException {
+	public void getMaxRange_should_return_31() {
 
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0, 0, 0);
@@ -272,7 +271,7 @@ public class DateTimeTypeTest {
 	}
 
 	@Test
-	public void getMaxRange_should_return_2() throws NebulaException {
+	public void getMaxRange_should_return_2() {
 
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0, 0, 0);
@@ -289,7 +288,7 @@ public class DateTimeTypeTest {
 	}
 
 	@Test
-	public void getMaxRange_should_return_6() throws NebulaException {
+	public void getMaxRange_should_return_6() {
 
 		// GIVEN
 		DateTime startDateTime = new DateTime(2000, 1, 1, 0, 0, 0, 0);
@@ -306,8 +305,7 @@ public class DateTimeTypeTest {
 	}
 
 	@Test
-	public void getMaxRange_should_return_2_for_interval_minutes_and_for_an_interval_of_2_minutes_and_30_seconds()
-			throws NebulaException {
+	public void getMaxRange_should_return_2_for_interval_minutes_and_for_an_interval_of_2_minutes_and_30_seconds() {
 
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0, 0, 0);
