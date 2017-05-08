@@ -5,8 +5,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.joda.time.DateTime;
 import org.junit.Test;
 
-import com.nebula.core.NebulaException;
-
 public class DateTimeMinuteStrategyTest {
 
 	@Test

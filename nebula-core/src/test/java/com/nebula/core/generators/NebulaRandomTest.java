@@ -11,7 +11,6 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.nebula.core.NebulaException;
 import com.nebula.core.NebulaTypes;
 import com.nebula.core.types.Type;
 

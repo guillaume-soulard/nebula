@@ -2,7 +2,6 @@ package com.nebula.core.types.string;
 
 import com.mifmif.common.regex.Generex;
 import com.nebula.core.GeneratedObject;
-import com.nebula.core.NebulaException;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.Type;
 
