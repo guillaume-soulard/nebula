@@ -31,4 +31,8 @@ public class NebulaRandom {
 		}
 		return random.longs(MAX_INT_TO_GENERATE, min, max).toArray()[0];
 	}
+
+	public Random getRandom() {
+		return random;
+	}
 }
