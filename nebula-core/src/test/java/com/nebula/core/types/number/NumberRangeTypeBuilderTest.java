@@ -11,26 +11,26 @@ import org.junit.Test;
 import com.nebula.core.NebulaException;
 import com.nebula.core.types.Type;
 
-public class NumberTypeBuilderTest {
+public class NumberRangeTypeBuilderTest {
 
 	@Test
 	public void build_should_return_a_new_instance_of_DoubleType_with_defaults() {
 
 		// GIVEN
-		NumberTypeBuilder builder = new NumberTypeBuilder();
+		NumberRangeTypeBuilder builder = new NumberRangeTypeBuilder();
 
 		// WHEN
 		Type result = builder.build();
 
 		// THEN
-		assertThat(result).isInstanceOf(NumberType.class);
+		assertThat(result).isInstanceOf(NumberRangeType.class);
 	}
 
 	@Test
 	public void build_should_set_0_as_default_precision_in_double_type_object() {
 
 		// GIVEN
-		NumberTypeBuilder builder = new NumberTypeBuilder();
+		NumberRangeTypeBuilder builder = new NumberRangeTypeBuilder();
 
 		// WHEN
 		Type result = builder.build();
@@ -43,7 +43,7 @@ public class NumberTypeBuilderTest {
 	public void build_should_set_precision_in_double_type_object() {
 
 		// GIVEN
-		NumberTypeBuilder builder = new NumberTypeBuilder();
+		NumberRangeTypeBuilder builder = new NumberRangeTypeBuilder();
 
 		// WHEN
 		Type result = builder.withPrecision(1).build();
@@ -56,7 +56,7 @@ public class NumberTypeBuilderTest {
 	public void build_should_set_min_in_number_type_object() {
 
 		// GIVEN
-		NumberTypeBuilder builder = new NumberTypeBuilder();
+		NumberRangeTypeBuilder builder = new NumberRangeTypeBuilder();
 
 		// WHEN
 		Type result = builder.withMin(BigDecimal.valueOf(10)).build();
@@ -69,7 +69,7 @@ public class NumberTypeBuilderTest {
 	public void build_should_set_Long_MIN_VALUE_as_default_min_in_number_type_object() {
 
 		// GIVEN
-		NumberTypeBuilder builder = new NumberTypeBuilder();
+		NumberRangeTypeBuilder builder = new NumberRangeTypeBuilder();
 
 		// WHEN
 		Type result = builder.build();
@@ -82,7 +82,7 @@ public class NumberTypeBuilderTest {
 	public void build_should_set_Long_MAX_VALUE_as_default_max_in_number_type_object() {
 
 		// GIVEN
-		NumberTypeBuilder builder = new NumberTypeBuilder();
+		NumberRangeTypeBuilder builder = new NumberRangeTypeBuilder();
 
 		// WHEN
 		Type result = builder.build();
@@ -95,7 +95,7 @@ public class NumberTypeBuilderTest {
 	public void build_should_set_max_in_number_type_object() {
 
 		// GIVEN
-		NumberTypeBuilder builder = new NumberTypeBuilder();
+		NumberRangeTypeBuilder builder = new NumberRangeTypeBuilder();
 
 		// WHEN
 		Type result = builder.withMax(BigDecimal.valueOf(456)).build();
@@ -108,7 +108,7 @@ public class NumberTypeBuilderTest {
 	public void withMin_and_withMax_should_not_throw_exception_for_the_same_value() {
 
 		// GIVEN
-		NumberTypeBuilder builder = new NumberTypeBuilder();
+		NumberRangeTypeBuilder builder = new NumberRangeTypeBuilder();
 		BigDecimal value = BigDecimal.valueOf(456);
 
 		// WHEN
@@ -122,7 +122,7 @@ public class NumberTypeBuilderTest {
 	public void withMin_should_throw_exception_when_min_is_greater_than_max() {
 
 		// GIVEN
-		NumberTypeBuilder builder = new NumberTypeBuilder();
+		NumberRangeTypeBuilder builder = new NumberRangeTypeBuilder();
 		BigDecimal min = BigDecimal.valueOf(456);
 		BigDecimal max = BigDecimal.ZERO;
 
@@ -137,7 +137,7 @@ public class NumberTypeBuilderTest {
 	public void withPrecision_should_throw_exception_when_precision_is_negative() {
 
 		// GIVEN
-		NumberTypeBuilder builder = new NumberTypeBuilder();
+		NumberRangeTypeBuilder builder = new NumberRangeTypeBuilder();
 
 		// WHEN
 		catchException(builder).withPrecision(-1);

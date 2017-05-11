@@ -8,13 +8,13 @@ import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.Range;
 import com.nebula.core.types.Type;
 
-public class NumberType implements Type {
+public class NumberRangeType implements Type {
 
 	private Range<BigDecimal> range;
 	private int precision;
 	private BigDecimal increment;
 
-	public NumberType(Range<BigDecimal> range, int precision) {
+	public NumberRangeType(Range<BigDecimal> range, int precision) {
 		this.range = range;
 		this.precision = precision;
 		increment = BigDecimal.ONE.divide(BigDecimal.TEN.pow(precision));

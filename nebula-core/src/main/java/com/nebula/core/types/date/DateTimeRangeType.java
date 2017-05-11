@@ -20,13 +20,13 @@ import com.nebula.core.types.date.strategy.DateTimeSecondStrategy;
 import com.nebula.core.types.date.strategy.DateTimeStrategy;
 import com.nebula.core.types.date.strategy.DateTimeYearStrategy;
 
-public class DateTimeType implements Type {
+public class DateTimeRangeType implements Type {
 
 	private Range<ReadableInstant> range;
 	private DateTimeTypeIntervals interval;
 	private Map<DateTimeTypeIntervals, DateTimeStrategy> dateTimestrategy = new HashMap<DateTimeTypeIntervals, DateTimeStrategy>();
 
-	public DateTimeType(Range<ReadableInstant> range, DateTimeTypeIntervals interval) {
+	public DateTimeRangeType(Range<ReadableInstant> range, DateTimeTypeIntervals interval) {
 		this.range = range;
 		if (interval == null) {
 			this.interval = DateTimeTypeIntervals.DAY;

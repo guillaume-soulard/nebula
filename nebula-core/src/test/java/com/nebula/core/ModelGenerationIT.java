@@ -28,10 +28,10 @@ public class ModelGenerationIT {
 		int entityAmount = 100000;
 		Entity entity = Nebula.newEntity("test", entityAmount);
 		entity.addProperty(INTEGER_PROPERTY_NAME,
-				NebulaTypes.number().withMin(BigDecimal.ZERO).withMax(BigDecimal.valueOf(100)),
+				NebulaGenerationTypes.number().range().withMin(BigDecimal.ZERO).withMax(BigDecimal.valueOf(100)),
 				NebulaGenerators.random());
-		entity.addProperty(
-				DATE_TIME_PROPERTY_NAME, NebulaTypes.dateTime().withInterval(DateTimeTypeIntervals.DAY)
+		entity.addProperty(DATE_TIME_PROPERTY_NAME,
+				NebulaGenerationTypes.dateTime().range().withInterval(DateTimeTypeIntervals.DAY)
 						.withMin(new DateTime(2017, 1, 1, 0, 0)).withMax(new DateTime(2017, 1, 31, 0, 0)),
 				NebulaGenerators.random());
 		model.addEntity(entity);

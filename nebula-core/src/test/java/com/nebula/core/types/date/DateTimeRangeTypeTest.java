@@ -2,9 +2,8 @@ package com.nebula.core.types.date;
 
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
+import static com.nebula.core.types.date.DateTimeAdderConsumer.isInstanceOf;
 import static org.assertj.core.api.Assertions.assertThat;
-
-import java.util.function.Consumer;
 
 import org.joda.time.DateTime;
 import org.joda.time.ReadableInstant;
@@ -19,10 +18,9 @@ import com.nebula.core.types.date.strategy.DateTimeMillisecondStrategy;
 import com.nebula.core.types.date.strategy.DateTimeMinuteStrategy;
 import com.nebula.core.types.date.strategy.DateTimeMonthStrategy;
 import com.nebula.core.types.date.strategy.DateTimeSecondStrategy;
-import com.nebula.core.types.date.strategy.DateTimeStrategy;
 import com.nebula.core.types.date.strategy.DateTimeYearStrategy;
 
-public class DateTimeTypeTest {
+public class DateTimeRangeTypeTest {
 
 	@Test
 	public void generateObject_should_return_a_non_null_object() {
@@ -30,7 +28,7 @@ public class DateTimeTypeTest {
 		// GIVEN
 		DateTime dateTime = new DateTime(2017, 1, 1, 0, 0);
 		Range<ReadableInstant> range = new Range<ReadableInstant>(dateTime, dateTime);
-		DateTimeType dateType = new DateTimeType(range, DateTimeTypeIntervals.DAY);
+		DateTimeRangeType dateType = new DateTimeRangeType(range, DateTimeTypeIntervals.DAY);
 
 		// WHEN
 		GeneratedObject result = dateType.generateObject(0l);
@@ -45,7 +43,7 @@ public class DateTimeTypeTest {
 		// GIVEN
 		DateTime dateTime = new DateTime(2017, 1, 1, 0, 0);
 		Range<ReadableInstant> range = new Range<ReadableInstant>(dateTime, dateTime);
-		DateTimeType dateType = new DateTimeType(range, DateTimeTypeIntervals.DAY);
+		DateTimeRangeType dateType = new DateTimeRangeType(range, DateTimeTypeIntervals.DAY);
 
 		// WHEN
 		GeneratedObject generatedObject = dateType.generateObject(0l);
@@ -61,7 +59,7 @@ public class DateTimeTypeTest {
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0);
 		DateTime endDateTime = new DateTime(2017, 1, 31, 0, 0);
 		Range<ReadableInstant> range = new Range<ReadableInstant>(startDateTime, endDateTime);
-		DateTimeType dateType = new DateTimeType(range, DateTimeTypeIntervals.DAY);
+		DateTimeRangeType dateType = new DateTimeRangeType(range, DateTimeTypeIntervals.DAY);
 
 		// WHEN
 		GeneratedObject generatedObject = dateType.generateObject(1l);
@@ -78,10 +76,10 @@ public class DateTimeTypeTest {
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0);
 		DateTime endDateTime = new DateTime(2017, 1, 31, 0, 0);
 		Range<ReadableInstant> range = new Range<ReadableInstant>(startDateTime, endDateTime);
-		DateTimeType dateType = null;
+		DateTimeRangeType dateType = null;
 
 		// WHEN
-		dateType = new DateTimeType(range, null);
+		dateType = new DateTimeRangeType(range, null);
 
 		// THEN
 		assertThat(dateType).hasFieldOrPropertyWithValue("interval", DateTimeTypeIntervals.DAY);
@@ -95,7 +93,7 @@ public class DateTimeTypeTest {
 		DateTime endDateTime = new DateTime(2017, 1, 31, 0, 0);
 		Range<ReadableInstant> range = new Range<ReadableInstant>(startDateTime, endDateTime);
 		DateTimeTypeIntervals interval = DateTimeTypeIntervals.HOUR;
-		DateTimeType dateType = new DateTimeType(range, interval);
+		DateTimeRangeType dateType = new DateTimeRangeType(range, interval);
 
 		// WHEN
 		GeneratedObject generatedObject = dateType.generateObject(9l);
@@ -113,10 +111,10 @@ public class DateTimeTypeTest {
 		DateTime endDateTime = new DateTime(2017, 1, 31, 0, 0);
 		Range<ReadableInstant> range = new Range<ReadableInstant>(startDateTime, endDateTime);
 		DateTimeTypeIntervals interval = DateTimeTypeIntervals.DAY;
-		DateTimeType dateType = null;
+		DateTimeRangeType dateType = null;
 
 		// WHEN
-		dateType = new DateTimeType(range, interval);
+		dateType = new DateTimeRangeType(range, interval);
 
 		// THEN
 		assertThat(dateType.getDateTimeAdders())
@@ -140,7 +138,7 @@ public class DateTimeTypeTest {
 		DateTime endDateTime = new DateTime(2017, 1, 31, 0, 0);
 		Range<ReadableInstant> range = new Range<ReadableInstant>(startDateTime, endDateTime);
 		DateTimeTypeIntervals interval = DateTimeTypeIntervals.DAY;
-		DateTimeType dateType = new DateTimeType(range, interval);
+		DateTimeRangeType dateType = new DateTimeRangeType(range, interval);
 
 		// WHEN
 		catchException(dateType).generateObject(1000l);
@@ -158,7 +156,7 @@ public class DateTimeTypeTest {
 		DateTime endDateTime = new DateTime(2017, 1, 31, 0, 0);
 		Range<ReadableInstant> range = new Range<ReadableInstant>(startDateTime, endDateTime);
 		DateTimeTypeIntervals interval = DateTimeTypeIntervals.DAY;
-		DateTimeType dateType = new DateTimeType(range, interval);
+		DateTimeRangeType dateType = new DateTimeRangeType(range, interval);
 
 		// WHEN
 		catchException(dateType).generateObject(-1l);
@@ -176,7 +174,7 @@ public class DateTimeTypeTest {
 		DateTime endDateTime = new DateTime(2017, 1, 31, 0, 0);
 		Range<ReadableInstant> range = new Range<ReadableInstant>(startDateTime, endDateTime);
 		DateTimeTypeIntervals interval = DateTimeTypeIntervals.DAY;
-		DateTimeType dateType = new DateTimeType(range, interval);
+		DateTimeRangeType dateType = new DateTimeRangeType(range, interval);
 
 		// WHEN
 		Long result = dateType.getMinRange();
@@ -193,7 +191,7 @@ public class DateTimeTypeTest {
 		DateTime endDateTime = new DateTime(2017, 1, 1, 0, 0, 1, 0);
 		Range<ReadableInstant> range = new Range<ReadableInstant>(startDateTime, endDateTime);
 		DateTimeTypeIntervals interval = DateTimeTypeIntervals.MILLISECOND;
-		DateTimeType dateType = new DateTimeType(range, interval);
+		DateTimeRangeType dateType = new DateTimeRangeType(range, interval);
 
 		// WHEN
 		Long result = dateType.getMaxRange();
@@ -210,7 +208,7 @@ public class DateTimeTypeTest {
 		DateTime endDateTime = new DateTime(2017, 1, 1, 0, 0, 10, 0);
 		Range<ReadableInstant> range = new Range<ReadableInstant>(startDateTime, endDateTime);
 		DateTimeTypeIntervals interval = DateTimeTypeIntervals.SECOND;
-		DateTimeType dateType = new DateTimeType(range, interval);
+		DateTimeRangeType dateType = new DateTimeRangeType(range, interval);
 
 		// WHEN
 		Long result = dateType.getMaxRange();
@@ -227,7 +225,7 @@ public class DateTimeTypeTest {
 		DateTime endDateTime = new DateTime(2017, 1, 1, 0, 36, 0, 0);
 		Range<ReadableInstant> range = new Range<ReadableInstant>(startDateTime, endDateTime);
 		DateTimeTypeIntervals interval = DateTimeTypeIntervals.MINUTE;
-		DateTimeType dateType = new DateTimeType(range, interval);
+		DateTimeRangeType dateType = new DateTimeRangeType(range, interval);
 
 		// WHEN
 		Long result = dateType.getMaxRange();
@@ -244,7 +242,7 @@ public class DateTimeTypeTest {
 		DateTime endDateTime = new DateTime(2017, 1, 2, 0, 0, 0, 0);
 		Range<ReadableInstant> range = new Range<ReadableInstant>(startDateTime, endDateTime);
 		DateTimeTypeIntervals interval = DateTimeTypeIntervals.HOUR;
-		DateTimeType dateType = new DateTimeType(range, interval);
+		DateTimeRangeType dateType = new DateTimeRangeType(range, interval);
 
 		// WHEN
 		Long result = dateType.getMaxRange();
@@ -261,7 +259,7 @@ public class DateTimeTypeTest {
 		DateTime endDateTime = new DateTime(2017, 1, 31, 0, 0, 0, 0);
 		Range<ReadableInstant> range = new Range<ReadableInstant>(startDateTime, endDateTime);
 		DateTimeTypeIntervals interval = DateTimeTypeIntervals.DAY;
-		DateTimeType dateType = new DateTimeType(range, interval);
+		DateTimeRangeType dateType = new DateTimeRangeType(range, interval);
 
 		// WHEN
 		Long result = dateType.getMaxRange();
@@ -278,7 +276,7 @@ public class DateTimeTypeTest {
 		DateTime endDateTime = new DateTime(2017, 3, 1, 0, 0, 0, 0);
 		Range<ReadableInstant> range = new Range<ReadableInstant>(startDateTime, endDateTime);
 		DateTimeTypeIntervals interval = DateTimeTypeIntervals.MONTH;
-		DateTimeType dateType = new DateTimeType(range, interval);
+		DateTimeRangeType dateType = new DateTimeRangeType(range, interval);
 
 		// WHEN
 		Long result = dateType.getMaxRange();
@@ -295,7 +293,7 @@ public class DateTimeTypeTest {
 		DateTime endDateTime = new DateTime(2006, 1, 1, 0, 0, 0, 0);
 		Range<ReadableInstant> range = new Range<ReadableInstant>(startDateTime, endDateTime);
 		DateTimeTypeIntervals interval = DateTimeTypeIntervals.YEAR;
-		DateTimeType dateType = new DateTimeType(range, interval);
+		DateTimeRangeType dateType = new DateTimeRangeType(range, interval);
 
 		// WHEN
 		Long result = dateType.getMaxRange();
@@ -312,7 +310,7 @@ public class DateTimeTypeTest {
 		DateTime endDateTime = new DateTime(2017, 1, 1, 0, 2, 30, 0);
 		Range<ReadableInstant> range = new Range<ReadableInstant>(startDateTime, endDateTime);
 		DateTimeTypeIntervals interval = DateTimeTypeIntervals.MINUTE;
-		DateTimeType dateType = new DateTimeType(range, interval);
+		DateTimeRangeType dateType = new DateTimeRangeType(range, interval);
 
 		// WHEN
 		Long result = dateType.getMaxRange();
@@ -320,24 +318,4 @@ public class DateTimeTypeTest {
 		// THEN
 		assertThat(result).isEqualTo(2l);
 	}
-
-	private Consumer<DateTimeStrategy> isInstanceOf(Class<? extends DateTimeStrategy> expectedClass) {
-
-		return new DateTimeAdderConsumer(expectedClass);
-	}
-}
-
-class DateTimeAdderConsumer implements Consumer<DateTimeStrategy> {
-
-	private Class<? extends DateTimeStrategy> clazz;
-
-	public DateTimeAdderConsumer(Class<? extends DateTimeStrategy> clazz) {
-		this.clazz = clazz;
-	}
-
-	@Override
-	public void accept(DateTimeStrategy t) {
-		assertThat(t).isInstanceOf(clazz);
-	}
-
 }

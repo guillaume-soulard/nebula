@@ -8,26 +8,26 @@ import org.junit.Test;
 import com.nebula.core.types.Type;
 import com.nebula.core.types.TypeBuilder;
 
-public class DateTimeTypeBuilderTest {
+public class DateTimeRangeTypeBuilderTest {
 
 	@Test
 	public void build_should_return_a_new_instance_of_DateTimeType() {
 
 		// GIVEN
-		TypeBuilder builder = new DateTimeTypeBuilder();
+		TypeBuilder builder = new DateTimeRangeTypeBuilder();
 
 		// WHEN
 		Type result = builder.build();
 
 		// THEN
-		assertThat(result).isInstanceOf(DateTimeType.class);
+		assertThat(result).isInstanceOf(DateTimeRangeType.class);
 	}
 
 	@Test
 	public void build_should_set_default_values_in_DateTimeBuilder() {
 
 		// GIVEN
-		TypeBuilder builder = new DateTimeTypeBuilder();
+		TypeBuilder builder = new DateTimeRangeTypeBuilder();
 
 		// WHEN
 		Type result = builder.build();
@@ -42,7 +42,7 @@ public class DateTimeTypeBuilderTest {
 	public void withMin_should_set_min_date_in_new_instance_of_DateTimeType() {
 
 		// GIVEN
-		DateTimeTypeBuilder builder = new DateTimeTypeBuilder();
+		DateTimeRangeTypeBuilder builder = new DateTimeRangeTypeBuilder();
 		DateTime min = new DateTime(2017, 1, 1, 0, 0);
 
 		// WHEN
@@ -56,7 +56,7 @@ public class DateTimeTypeBuilderTest {
 	public void withMax_should_set_max_date_in_new_instance_of_DateTimeType() {
 
 		// GIVEN
-		DateTimeTypeBuilder builder = new DateTimeTypeBuilder();
+		DateTimeRangeTypeBuilder builder = new DateTimeRangeTypeBuilder();
 		DateTime max = new DateTime(2017, 1, 1, 0, 0);
 
 		// WHEN
@@ -70,7 +70,7 @@ public class DateTimeTypeBuilderTest {
 	public void withINterval_should_set_ths_interval_in_new_instance_of_DateTimeType() {
 
 		// GIVEN
-		DateTimeTypeBuilder builder = new DateTimeTypeBuilder();
+		DateTimeRangeTypeBuilder builder = new DateTimeRangeTypeBuilder();
 		DateTimeTypeIntervals interval = DateTimeTypeIntervals.MONTH;
 
 		// WHEN
