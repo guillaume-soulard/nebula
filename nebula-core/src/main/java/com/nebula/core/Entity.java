@@ -29,7 +29,7 @@ public class Entity implements Type {
 		return properties;
 	}
 
-	public void addProperty(String propertyName, TypeBuilder propertyType, Generator propertyGenerator) {
+	public void addProperty(String propertyName, Generator propertyGenerator, TypeBuilder propertyType) {
 		checkIfPropertyAlreadyExists(propertyName);
 		properties.add(propertyBuilder.newProperty(propertyName, propertyType, propertyGenerator));
 	}

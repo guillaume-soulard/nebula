@@ -31,7 +31,7 @@ public class EntityTest {
 		Generator propertyGenerator = NebulaGenerators.random();
 
 		// WHEN
-		entity.addProperty(propertyName, propertyType, propertyGenerator);
+		entity.addProperty(propertyName, propertyGenerator, propertyType);
 
 		// THEN
 		assertThat(entity.getProperties()).hasSize(1);
@@ -48,10 +48,10 @@ public class EntityTest {
 		Generator propertyGenerator = NebulaGenerators.random();
 		TypeBuilder propertyType = NebulaGenerationTypes.number().range();
 		String propertyName = "property name test";
-		entity.addProperty(propertyName, propertyType, propertyGenerator);
+		entity.addProperty(propertyName, propertyGenerator, propertyType);
 
 		// WHEN
-		catchException(entity).addProperty(propertyName, propertyType, propertyGenerator);
+		catchException(entity).addProperty(propertyName, propertyGenerator, propertyType);
 
 		// THEN
 		assertThat(caughtException()).isInstanceOf(NebulaException.class)
@@ -76,7 +76,7 @@ public class EntityTest {
 
 		Entity entity = Nebula.newEntity("test", 1);
 		String propertyName = "property";
-		entity.addProperty(propertyName, NebulaGenerationTypes.number().range(), NebulaGenerators.random());
+		entity.addProperty(propertyName, NebulaGenerators.random(), NebulaGenerationTypes.number().range());
 		entity.init(new NebulaRandom(1l));
 
 		// WHEN
@@ -92,9 +92,8 @@ public class EntityTest {
 		// GIVEN
 		Entity entity = Nebula.newEntity("test", 1);
 		String propertyName = "property";
-		entity.addProperty(propertyName,
-				NebulaGenerationTypes.number().range().withMin(BigDecimal.ONE).withMax(BigDecimal.ONE),
-				NebulaGenerators.random());
+		entity.addProperty(propertyName, NebulaGenerators.random(),
+				NebulaGenerationTypes.number().range().withMin(BigDecimal.ONE).withMax(BigDecimal.ONE));
 		entity.init(new NebulaRandom(1l));
 
 		// WHEN
@@ -113,12 +112,10 @@ public class EntityTest {
 		Entity entity = Nebula.newEntity("test", 1);
 		String property1Name = "property1";
 		String property2Name = "property2";
-		entity.addProperty(property1Name,
-				NebulaGenerationTypes.number().range().withMin(BigDecimal.ONE).withMax(BigDecimal.ONE),
-				NebulaGenerators.random());
-		entity.addProperty(property2Name,
-				NebulaGenerationTypes.number().range().withMin(BigDecimal.valueOf(5)).withMax(BigDecimal.valueOf(5)),
-				NebulaGenerators.random());
+		entity.addProperty(property1Name, NebulaGenerators.random(),
+				NebulaGenerationTypes.number().range().withMin(BigDecimal.ONE).withMax(BigDecimal.ONE));
+		entity.addProperty(property2Name, NebulaGenerators.random(),
+				NebulaGenerationTypes.number().range().withMin(BigDecimal.valueOf(5)).withMax(BigDecimal.valueOf(5)));
 		entity.init(new NebulaRandom(1l));
 
 		// WHEN

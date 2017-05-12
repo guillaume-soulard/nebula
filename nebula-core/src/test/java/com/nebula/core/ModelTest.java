@@ -46,7 +46,7 @@ public class ModelTest {
 		long seed = 1l;
 		Model model = new Model();
 		Entity entity = Nebula.newEntity("test", 10);
-		entity.addProperty("number", NebulaGenerationTypes.number().range(), NebulaGenerators.random());
+		entity.addProperty("number", NebulaGenerators.random(), NebulaGenerationTypes.number().range());
 		model.addEntity(entity);
 
 		// WHEN
@@ -64,7 +64,7 @@ public class ModelTest {
 		long seed = 1l;
 		Model model = new Model();
 		Entity entity = Nebula.newEntity("test", 10);
-		entity.addProperty("number", NebulaGenerationTypes.number().range(), NebulaGenerators.random());
+		entity.addProperty("number", NebulaGenerators.random(), NebulaGenerationTypes.number().range());
 		model.addEntity(entity);
 
 		// WHEN
@@ -83,9 +83,8 @@ public class ModelTest {
 		int amount = 100;
 		Entity entity = Nebula.newEntity("test", amount);
 		String propertyName = "number";
-		entity.addProperty(propertyName,
-				NebulaGenerationTypes.number().range().withMin(BigDecimal.valueOf(-2)).withMax(BigDecimal.valueOf(2)),
-				NebulaGenerators.random());
+		entity.addProperty(propertyName, NebulaGenerators.random(),
+				NebulaGenerationTypes.number().range().withMin(BigDecimal.valueOf(-2)).withMax(BigDecimal.valueOf(2)));
 		model.addEntity(entity);
 
 		// WHEN
@@ -104,9 +103,8 @@ public class ModelTest {
 		Model model = new Model();
 		int amount = 10;
 		Entity entity = Nebula.newEntity("test", amount);
-		entity.addProperty("number",
-				NebulaGenerationTypes.number().range().withMin(BigDecimal.valueOf(-2)).withMax(BigDecimal.valueOf(2)),
-				NebulaGenerators.random());
+		entity.addProperty("number", NebulaGenerators.random(),
+				NebulaGenerationTypes.number().range().withMin(BigDecimal.valueOf(-2)).withMax(BigDecimal.valueOf(2)));
 		model.addEntity(entity);
 		long seed = 1l;
 
@@ -124,9 +122,8 @@ public class ModelTest {
 		Model model = new Model();
 		int amount = 10;
 		Entity entity = Nebula.newEntity("test", amount);
-		entity.addProperty("number",
-				NebulaGenerationTypes.number().range().withMin(BigDecimal.valueOf(-2)).withMax(BigDecimal.valueOf(2)),
-				NebulaGenerators.random());
+		entity.addProperty("number", NebulaGenerators.random(),
+				NebulaGenerationTypes.number().range().withMin(BigDecimal.valueOf(-2)).withMax(BigDecimal.valueOf(2)));
 		model.addEntity(entity);
 		long seed = 1l;
 		List<GeneratedObject> allObjects = model.generateEntity(entity, seed);
