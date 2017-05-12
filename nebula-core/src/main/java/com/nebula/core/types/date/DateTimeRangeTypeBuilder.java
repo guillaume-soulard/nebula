@@ -33,11 +33,11 @@ public class DateTimeRangeTypeBuilder extends RangeTypeBuilder<ReadableInstant> 
 
 	@Override
 	protected ReadableInstant getDefaultMin() {
-		return new DateTime(Long.MIN_VALUE);
+		return new DateTime(0l);
 	}
 
 	@Override
 	protected ReadableInstant getDefaultMax() {
-		return new DateTime(Long.MAX_VALUE);
+		return new DateTime(9999, 12, 31, 0, 0);
 	}
 }
