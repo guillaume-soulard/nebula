@@ -8,6 +8,7 @@ public class NebulaRandom {
 
 	private static final int MAX_INT_TO_GENERATE = 1;
 	private Random random;
+	private long seed;
 
 	public NebulaRandom(long seed) {
 		random = new Random(seed);
@@ -29,5 +30,9 @@ public class NebulaRandom {
 
 	public Random getRandom() {
 		return random;
+	}
+
+	public long getSeed() {
+		return new Long(seed);
 	}
 }

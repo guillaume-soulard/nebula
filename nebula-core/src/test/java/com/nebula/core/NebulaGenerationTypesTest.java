@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import com.nebula.core.types.bool.BooleanTypeBuilder;
 import com.nebula.core.types.date.DateTimeTypeBuilderChooser;
+import com.nebula.core.types.list.ListTypeBuilder;
 import com.nebula.core.types.number.NumberTypeBuilderChooser;
 import com.nebula.core.types.string.StringTypeBuilder;
 
@@ -54,6 +55,18 @@ public class NebulaGenerationTypesTest {
 
 		// WHEN
 		BooleanTypeBuilder result = NebulaGenerationTypes.bool();
+
+		// THEN
+		assertThat(result).isNotNull();
+	}
+
+	@Test
+	public void list_should_return_a_new_instance_of_ListTypeBuilder() {
+
+		// GIVEN
+
+		// WHEN
+		ListTypeBuilder result = NebulaGenerationTypes.list();
 
 		// THEN
 		assertThat(result).isNotNull();
