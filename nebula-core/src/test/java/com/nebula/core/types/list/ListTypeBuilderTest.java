@@ -19,10 +19,10 @@ public class ListTypeBuilderTest {
 	public void build_should_return_a_non_null_type() {
 
 		// GIVEN
-		TypeBuilder builder = new ListTypeBuilder();
+		ListTypeBuilder builder = new ListTypeBuilder();
 
 		// WHEN
-		Type result = builder.build();
+		Type result = builder.of(NebulaGenerators.random(), NebulaGenerationTypes.bool()).build();
 
 		// THEN
 		assertThat(result).isInstanceOf(ListType.class);
@@ -135,7 +135,7 @@ public class ListTypeBuilderTest {
 
 		// GIVEN
 		ListTypeBuilder builder = new ListTypeBuilder();
-		builder.withMaxSize(1).withMinSize(10);
+		builder.of(NebulaGenerators.random(), NebulaGenerationTypes.bool()).withMaxSize(1).withMinSize(10);
 
 		// WHEN
 		catchException(builder).build();

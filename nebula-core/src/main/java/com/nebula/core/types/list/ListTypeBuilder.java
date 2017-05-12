@@ -14,21 +14,26 @@ public class ListTypeBuilder implements TypeBuilder {
 
 	@Override
 	public Type build() {
+		checkGeneratorAndType();
 		if (minSize > maxSize) {
 			throw new NebulaException("maxSize must be greater than minSize");
 		}
 		return new ListType(minSize, maxSize, generator, typeBuilder.build());
 	}
 
-	public ListTypeBuilder of(Generator generator, TypeBuilder typeBuilder) {
+	private void checkGeneratorAndType() {
 		if (generator == null) {
 			throw new NebulaException("generator is null");
 		}
 		if (typeBuilder == null) {
 			throw new NebulaException("typeBuilder is null");
 		}
+	}
+
+	public ListTypeBuilder of(Generator generator, TypeBuilder typeBuilder) {
 		this.generator = generator;
 		this.typeBuilder = typeBuilder;
+		checkGeneratorAndType();
 		return this;
 	}
 
