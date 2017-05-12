@@ -66,7 +66,7 @@ public class NumberRangeTypeBuilderTest {
 	}
 
 	@Test
-	public void build_should_set_Long_MIN_VALUE_as_default_min_in_number_type_object() {
+	public void build_should_set_Integer_MIN_VALUE_as_default_min_in_number_type_object() {
 
 		// GIVEN
 		NumberRangeTypeBuilder builder = new NumberRangeTypeBuilder();
@@ -75,11 +75,11 @@ public class NumberRangeTypeBuilderTest {
 		Type result = builder.build();
 
 		// THEN
-		assertThat(result).hasFieldOrPropertyWithValue("range.min", BigDecimal.valueOf(Long.MIN_VALUE));
+		assertThat(result).hasFieldOrPropertyWithValue("range.min", BigDecimal.valueOf(Integer.MIN_VALUE));
 	}
 
 	@Test
-	public void build_should_set_Long_MAX_VALUE_as_default_max_in_number_type_object() {
+	public void build_should_set_Integer_MAX_VALUE_as_default_max_in_number_type_object() {
 
 		// GIVEN
 		NumberRangeTypeBuilder builder = new NumberRangeTypeBuilder();
@@ -88,7 +88,7 @@ public class NumberRangeTypeBuilderTest {
 		Type result = builder.build();
 
 		// THEN
-		assertThat(result).hasFieldOrPropertyWithValue("range.max", BigDecimal.valueOf(Long.MAX_VALUE));
+		assertThat(result).hasFieldOrPropertyWithValue("range.max", BigDecimal.valueOf(Integer.MAX_VALUE));
 	}
 
 	@Test

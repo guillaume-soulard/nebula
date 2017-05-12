@@ -5,9 +5,8 @@ import java.util.List;
 
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaException;
-import com.nebula.core.generators.NebulaRandom;
 
-public abstract class AbstractAmongType<T extends Comparable<T>> implements Type {
+public abstract class AbstractAmongType<T extends Comparable<T>> extends AbstractTypeWithIndexCheck implements Type {
 
 	private List<T> items;
 
@@ -16,20 +15,6 @@ public abstract class AbstractAmongType<T extends Comparable<T>> implements Type
 			throw new NebulaException("items is null");
 		}
 		this.items = Collections.unmodifiableList(items);
-	}
-
-	@Override
-	public void init(NebulaRandom nebulaRandom) {
-
-	}
-
-	@Override
-	public GeneratedObject generateObject(Long objectIndex) {
-		Integer index = Integer.valueOf(Long.toString(objectIndex));
-		if (index < 0 || index > items.size() - 1) {
-			throw new NebulaException("requested object is out of range");
-		}
-		return new GeneratedObject(items.get(index));
 	}
 
 	@Override
@@ -44,5 +29,10 @@ public abstract class AbstractAmongType<T extends Comparable<T>> implements Type
 
 	public List<T> getItems() {
 		return items;
+	}
+
+	@Override
+	protected GeneratedObject generatedObjectAtIndex(Long index) {
+		return new GeneratedObject(items.get(Integer.valueOf(Long.toString(index))));
 	}
 }

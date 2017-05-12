@@ -3,12 +3,10 @@ package com.nebula.core.types.number;
 import java.math.BigDecimal;
 
 import com.nebula.core.GeneratedObject;
-import com.nebula.core.NebulaException;
-import com.nebula.core.generators.NebulaRandom;
+import com.nebula.core.types.AbstractTypeWithIndexCheck;
 import com.nebula.core.types.Range;
-import com.nebula.core.types.Type;
 
-public class NumberRangeType implements Type {
+public class NumberRangeType extends AbstractTypeWithIndexCheck {
 
 	private Range<BigDecimal> range;
 	private int precision;
@@ -20,25 +18,20 @@ public class NumberRangeType implements Type {
 		increment = BigDecimal.ONE.divide(BigDecimal.TEN.pow(precision));
 	}
 
-	public GeneratedObject generateObject(Long objectIndex) {
-		BigDecimal result = range.getMin().add(new BigDecimal(objectIndex).multiply(increment)).setScale(precision);
-
-		if (objectIndex < 0d || result.compareTo(range.getMax()) > 0) {
-			throw new NebulaException("requested object is out of range");
-		}
-		return new GeneratedObject(result);
-	}
-
 	public Long getMinRange() {
-		return range.getMin().longValue();
+		return 0l;
 	}
 
 	public Long getMaxRange() {
-		return range.getMax().longValue();
+		return BigDecimal.TEN.pow(precision).multiply(range.getMax().subtract(range.getMin())).longValue();
 	}
 
 	@Override
-	public void init(NebulaRandom nebulaRandom) {
+	protected GeneratedObject generatedObjectAtIndex(Long index) {
+		return new GeneratedObject(calculateRequestedNumber(index));
+	}
 
+	public BigDecimal calculateRequestedNumber(Long index) {
+		return range.getMin().add(new BigDecimal(index).multiply(increment)).setScale(precision);
 	}
 }

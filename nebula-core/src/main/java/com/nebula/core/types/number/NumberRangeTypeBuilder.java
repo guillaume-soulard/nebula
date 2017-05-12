@@ -39,11 +39,11 @@ public class NumberRangeTypeBuilder extends RangeTypeBuilder<BigDecimal> {
 
 	@Override
 	protected BigDecimal getDefaultMin() {
-		return BigDecimal.valueOf(Long.MIN_VALUE);
+		return BigDecimal.valueOf(Integer.MIN_VALUE);
 	}
 
 	@Override
 	protected BigDecimal getDefaultMax() {
-		return BigDecimal.valueOf(Long.MAX_VALUE);
+		return BigDecimal.valueOf(Integer.MAX_VALUE);
 	}
 }

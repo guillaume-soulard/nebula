@@ -7,10 +7,8 @@ import org.joda.time.DateTime;
 import org.joda.time.ReadableInstant;
 
 import com.nebula.core.GeneratedObject;
-import com.nebula.core.NebulaException;
-import com.nebula.core.generators.NebulaRandom;
+import com.nebula.core.types.AbstractTypeWithIndexCheck;
 import com.nebula.core.types.Range;
-import com.nebula.core.types.Type;
 import com.nebula.core.types.date.strategy.DateTimeDayStrategy;
 import com.nebula.core.types.date.strategy.DateTimeHourStrategy;
 import com.nebula.core.types.date.strategy.DateTimeMillisecondStrategy;
@@ -20,7 +18,7 @@ import com.nebula.core.types.date.strategy.DateTimeSecondStrategy;
 import com.nebula.core.types.date.strategy.DateTimeStrategy;
 import com.nebula.core.types.date.strategy.DateTimeYearStrategy;
 
-public class DateTimeRangeType implements Type {
+public class DateTimeRangeType extends AbstractTypeWithIndexCheck {
 
 	private Range<ReadableInstant> range;
 	private DateTimeTypeIntervals interval;
@@ -44,24 +42,6 @@ public class DateTimeRangeType implements Type {
 	}
 
 	@Override
-	public void init(NebulaRandom nebulaRandom) {
-
-	}
-
-	@Override
-	public GeneratedObject generateObject(Long objectIndex) {
-
-		DateTime requestedDate = dateTimestrategy.get(interval).getByDateAndIndexAndInterval((DateTime) range.getMin(),
-				objectIndex);
-
-		if (requestedDate.isAfter(range.getMax()) || objectIndex < 0) {
-			throw new NebulaException("requested object is out of range");
-		}
-
-		return new GeneratedObject(requestedDate);
-	}
-
-	@Override
 	public Long getMinRange() {
 		return 0l;
 	}
@@ -76,6 +56,15 @@ public class DateTimeRangeType implements Type {
 
 	public Map<DateTimeTypeIntervals, DateTimeStrategy> getDateTimeAdders() {
 		return new HashMap<DateTimeTypeIntervals, DateTimeStrategy>(dateTimestrategy);
+	}
+
+	@Override
+	protected GeneratedObject generatedObjectAtIndex(Long index) {
+		return new GeneratedObject(calculateRequestedDate(index));
+	}
+
+	public DateTime calculateRequestedDate(Long index) {
+		return dateTimestrategy.get(interval).getByDateAndIndexAndInterval((DateTime) range.getMin(), index);
 	}
 
 }

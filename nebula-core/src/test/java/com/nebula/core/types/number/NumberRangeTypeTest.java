@@ -76,11 +76,26 @@ public class NumberRangeTypeTest {
 	}
 
 	@Test
+	public void getMaxRange_should_return_0() {
+
+		// GIVEN
+		Range<BigDecimal> range = new Range<BigDecimal>(BigDecimal.valueOf(0), BigDecimal.valueOf(0));
+		int precision = 0;
+		NumberRangeType doubleType = new NumberRangeType(range, precision);
+
+		// WHEN
+		Long result = doubleType.getMaxRange();
+
+		// THEN
+		assertThat(result).isEqualTo(0l);
+	}
+
+	@Test
 	public void getMaxRange_should_return_1() {
 
 		// GIVEN
 		Range<BigDecimal> range = new Range<BigDecimal>(BigDecimal.valueOf(0d), BigDecimal.valueOf(1d));
-		int precision = 1;
+		int precision = 0;
 		NumberRangeType doubleType = new NumberRangeType(range, precision);
 
 		// WHEN
@@ -88,6 +103,36 @@ public class NumberRangeTypeTest {
 
 		// THEN
 		assertThat(result).isEqualTo(1l);
+	}
+
+	@Test
+	public void getMaxRange_should_return_1000000() {
+
+		// GIVEN
+		Range<BigDecimal> range = new Range<BigDecimal>(BigDecimal.valueOf(10), BigDecimal.valueOf(20d));
+		int precision = 5;
+		NumberRangeType doubleType = new NumberRangeType(range, precision);
+
+		// WHEN
+		Long result = doubleType.getMaxRange();
+
+		// THEN
+		assertThat(result).isEqualTo(1000000);
+	}
+
+	@Test
+	public void getMaxRange_should_return_5000() {
+
+		// GIVEN
+		Range<BigDecimal> range = new Range<BigDecimal>(BigDecimal.valueOf(12), BigDecimal.valueOf(17d));
+		int precision = 3;
+		NumberRangeType doubleType = new NumberRangeType(range, precision);
+
+		// WHEN
+		Long result = doubleType.getMaxRange();
+
+		// THEN
+		assertThat(result).isEqualTo(5000l);
 	}
 
 	@Test

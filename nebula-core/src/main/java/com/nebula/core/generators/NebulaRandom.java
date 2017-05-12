@@ -15,13 +15,8 @@ public class NebulaRandom {
 
 	public Long nextIndex(Type type) {
 
-		long min = 0;
-		long max = Long.MAX_VALUE;
-		long newMax = type.getMaxRange() - type.getMinRange();
-
-		if (newMax >= 0) {
-			max = newMax;
-		}
+		long min = type.getMinRange();
+		long max = type.getMaxRange();
 		return randomBetween(min, max);
 	}
 

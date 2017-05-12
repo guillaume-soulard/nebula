@@ -68,46 +68,16 @@ public class NebulaRandomTest {
 		// GIVEN
 		NebulaRandom nebulaRandom = new NebulaRandom(1l);
 		Type type = mock(Type.class);
-		when(type.getMinRange()).thenReturn(Long.MIN_VALUE);
-		when(type.getMaxRange()).thenReturn(Long.MAX_VALUE);
+		long min = 0l;
+		long max = 10l;
+		when(type.getMinRange()).thenReturn(min);
+		when(type.getMaxRange()).thenReturn(max);
 
 		// WHEN
 		Long result = nebulaRandom.nextIndex(type);
 
 		// THEN
-		assertThat(result).isBetween(Long.MIN_VALUE, Long.MAX_VALUE);
-	}
-
-	@Test
-	public void nextIndex_should_return_0_when_range_is_integer_max_as_min_and_integer_max_as_max() {
-
-		// GIVEN
-		NebulaRandom nebulaRandom = new NebulaRandom(1l);
-		Type type = mock(Type.class);
-		when(type.getMinRange()).thenReturn(Long.MAX_VALUE);
-		when(type.getMaxRange()).thenReturn(Long.MAX_VALUE);
-
-		// WHEN
-		Long result = nebulaRandom.nextIndex(type);
-
-		// THEN
-		assertThat(result).isEqualTo(0);
-	}
-
-	@Test
-	public void nextIndex_should_return_0_when_range_is_integer_min_as_min_and_integer_min_as_max() {
-
-		// GIVEN
-		NebulaRandom nebulaRandom = new NebulaRandom(1l);
-		Type type = mock(Type.class);
-		when(type.getMinRange()).thenReturn(Long.MIN_VALUE);
-		when(type.getMaxRange()).thenReturn(Long.MIN_VALUE);
-
-		// WHEN
-		Long result = nebulaRandom.nextIndex(type);
-
-		// THEN
-		assertThat(result).isEqualTo(0);
+		assertThat(result).isBetween(min, max);
 	}
 
 	@Test
