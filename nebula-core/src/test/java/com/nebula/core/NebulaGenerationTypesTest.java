@@ -2,9 +2,14 @@ package com.nebula.core;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.math.BigDecimal;
+import java.util.Date;
+
+import org.joda.time.DateTime;
 import org.junit.Test;
 
 import com.nebula.core.types.bool.BooleanTypeBuilder;
+import com.nebula.core.types.constant.ConstantTypeBuilder;
 import com.nebula.core.types.date.DateTimeTypeBuilderChooser;
 import com.nebula.core.types.list.ListTypeBuilder;
 import com.nebula.core.types.number.NumberTypeBuilderChooser;
@@ -70,5 +75,57 @@ public class NebulaGenerationTypesTest {
 
 		// THEN
 		assertThat(result).isNotNull();
+	}
+
+	@Test
+	public void constant_should_return_a_new_instance_of_ConstantTypeBuilder_with_String() {
+
+		// GIVEN
+		String value = "test";
+
+		// WHEN
+		ConstantTypeBuilder result = NebulaGenerationTypes.constant(value);
+
+		// THEN
+		assertThat(result).isNotNull().hasFieldOrPropertyWithValue("value", value);
+	}
+
+	@Test
+	public void constant_should_return_a_new_instance_of_ConstantTypeBuilder_with_Date() {
+
+		// GIVEN
+		Date value = new DateTime(2017, 1, 1, 0, 0).toDate();
+
+		// WHEN
+		ConstantTypeBuilder result = NebulaGenerationTypes.constant(value);
+
+		// THEN
+		assertThat(result).isNotNull().hasFieldOrPropertyWithValue("value", value);
+	}
+
+	@Test
+	public void constant_should_return_a_new_instance_of_ConstantTypeBuilder_with_BigDecimal() {
+
+		// GIVEN
+		BigDecimal value = BigDecimal.ZERO;
+
+		// WHEN
+		ConstantTypeBuilder result = NebulaGenerationTypes.constant(value);
+
+		// THEN
+		assertThat(result).isNotNull().hasFieldOrPropertyWithValue("value", value);
+	}
+
+	@Test
+	public void constant_should_return_a_new_instance_of_ConstantTypeBuilder_with_Boolean() {
+
+		// GIVEN
+		Boolean value = Boolean.FALSE;
+
+		// WHEN
+		ConstantTypeBuilder result = NebulaGenerationTypes.constant(value);
+
+		// THEN
+		assertThat(result).isNotNull().hasFieldOrPropertyWithValue("value", value);
 	}
 }
