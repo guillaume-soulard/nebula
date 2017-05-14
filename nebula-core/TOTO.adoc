@@ -1,5 +1,5 @@
 = Todos
 
-* Add generator builders
+* Add generator builders 
 * Rework generators by adding type as attribute and remove type attribute from properties
 * Add entity type
