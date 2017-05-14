@@ -1,4 +1,4 @@
 = Todos
 
-* Rework generators by adding type as attribute and remove type attribute from properties
 * Add entity type
+* Rework generators by adding type as attribute and remove type attribute from properties
