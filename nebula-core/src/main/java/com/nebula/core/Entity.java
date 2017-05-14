@@ -3,7 +3,7 @@ package com.nebula.core;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.nebula.core.generators.Generator;
+import com.nebula.core.generators.GeneratorBuilder;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.Type;
 import com.nebula.core.types.TypeBuilder;
@@ -29,9 +29,9 @@ public class Entity implements Type {
 		return properties;
 	}
 
-	public void addProperty(String propertyName, Generator propertyGenerator, TypeBuilder propertyType) {
+	public void addProperty(String propertyName, GeneratorBuilder propertyGeneratorBuilder, TypeBuilder propertyType) {
 		checkIfPropertyAlreadyExists(propertyName);
-		properties.add(propertyBuilder.newProperty(propertyName, propertyType, propertyGenerator));
+		properties.add(propertyBuilder.newProperty(propertyName, propertyType, propertyGeneratorBuilder));
 	}
 
 	private void checkIfPropertyAlreadyExists(String propertyName) {

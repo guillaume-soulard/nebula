@@ -22,7 +22,7 @@ public class ListTypeTest {
 		// GIVEN
 		int minSize = 0;
 		int maxSize = 0;
-		Generator generator = NebulaGenerators.random();
+		Generator generator = NebulaGenerators.random().build();
 		Type type = NebulaGenerationTypes.bool().build();
 		ListType listType = null;
 
@@ -41,7 +41,7 @@ public class ListTypeTest {
 		// GIVEN
 		int minSize = 0;
 		int maxSize = 0;
-		Generator generator = NebulaGenerators.random();
+		Generator generator = NebulaGenerators.random().build();
 		Type type = NebulaGenerationTypes.bool().build();
 		ListType listType = new ListType(minSize, maxSize, generator, type);
 
@@ -58,7 +58,7 @@ public class ListTypeTest {
 		// GIVEN
 		int minSize = 0;
 		int maxSize = 0;
-		Generator generator = NebulaGenerators.random();
+		Generator generator = NebulaGenerators.random().build();
 		Type type = NebulaGenerationTypes.bool().build();
 		ListType listType = new ListType(minSize, maxSize, generator, type);
 
@@ -75,7 +75,7 @@ public class ListTypeTest {
 		// GIVEN
 		int minSize = 0;
 		int maxSize = 1;
-		Generator generator = NebulaGenerators.random();
+		Generator generator = NebulaGenerators.random().build();
 		Type type = NebulaGenerationTypes.bool().build();
 		ListType listType = new ListType(minSize, maxSize, generator, type);
 
@@ -92,7 +92,7 @@ public class ListTypeTest {
 		// GIVEN
 		int minSize = 7;
 		int maxSize = 22;
-		Generator generator = NebulaGenerators.random();
+		Generator generator = NebulaGenerators.random().build();
 		Type type = NebulaGenerationTypes.bool().build();
 		ListType listType = new ListType(minSize, maxSize, generator, type);
 
@@ -109,7 +109,7 @@ public class ListTypeTest {
 		// GIVEN
 		int minSize = 7;
 		int maxSize = 22;
-		Generator generator = NebulaGenerators.random();
+		Generator generator = NebulaGenerators.random().build();
 		Type type = NebulaGenerationTypes.bool().build();
 		ListType listType = new ListType(minSize, maxSize, generator, type);
 		NebulaRandom nebulaRandom = new NebulaRandom(1l);
@@ -127,7 +127,7 @@ public class ListTypeTest {
 		// GIVEN
 		int minSize = 0;
 		int maxSize = 0;
-		Generator generator = NebulaGenerators.random();
+		Generator generator = NebulaGenerators.random().build();
 		Type type = NebulaGenerationTypes.bool().build();
 		ListType listType = new ListType(minSize, maxSize, generator, type);
 		NebulaRandom nebulaRandom = new NebulaRandom(1l);
@@ -146,7 +146,7 @@ public class ListTypeTest {
 		// GIVEN
 		int minSize = 0;
 		int maxSize = 0;
-		Generator generator = NebulaGenerators.random();
+		Generator generator = NebulaGenerators.random().build();
 		Type type = NebulaGenerationTypes.bool().build();
 		ListType listType = new ListType(minSize, maxSize, generator, type);
 		NebulaRandom nebulaRandom = new NebulaRandom(1l);
@@ -165,7 +165,7 @@ public class ListTypeTest {
 		// GIVEN
 		int minSize = 0;
 		int maxSize = 0;
-		Generator generator = NebulaGenerators.random();
+		Generator generator = NebulaGenerators.random().build();
 		Type type = NebulaGenerationTypes.bool().build();
 		ListType listType = new ListType(minSize, maxSize, generator, type);
 		NebulaRandom nebulaRandom = new NebulaRandom(1l);
@@ -184,7 +184,7 @@ public class ListTypeTest {
 		// GIVEN
 		int minSize = 1;
 		int maxSize = 1;
-		Generator generator = NebulaGenerators.random();
+		Generator generator = NebulaGenerators.random().build();
 		Type type = NebulaGenerationTypes.bool().build();
 		ListType listType = new ListType(minSize, maxSize, generator, type);
 		NebulaRandom nebulaRandom = new NebulaRandom(1l);
@@ -197,13 +197,14 @@ public class ListTypeTest {
 		assertThat(result.getObject()).asList().hasSize(1);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void generateObject_should_return_a_list_with_different_size_at_index_0_and_1() {
 
 		// GIVEN
 		int minSize = 0;
 		int maxSize = 100;
-		Generator generator = NebulaGenerators.random();
+		Generator generator = NebulaGenerators.random().build();
 		Type type = NebulaGenerationTypes.bool().build();
 		ListType listType = new ListType(minSize, maxSize, generator, type);
 		NebulaRandom nebulaRandom = new NebulaRandom(1l);
@@ -218,13 +219,14 @@ public class ListTypeTest {
 				.isNotEqualTo(((List<Object>) resultAtIndex0.getObject()).size());
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void generateObject_should_return_a_the_same_list_size_with_same_index() {
 
 		// GIVEN
 		int minSize = 0;
 		int maxSize = 10;
-		Generator generator = NebulaGenerators.random();
+		Generator generator = NebulaGenerators.random().build();
 		Type type = NebulaGenerationTypes.bool().build();
 		ListType listType = new ListType(minSize, maxSize, generator, type);
 		NebulaRandom nebulaRandom = new NebulaRandom(1l);

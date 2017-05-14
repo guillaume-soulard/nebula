@@ -16,7 +16,9 @@ import java.math.BigDecimal;
 import org.junit.Test;
 
 import com.nebula.core.generators.Generator;
+import com.nebula.core.generators.GeneratorBuilder;
 import com.nebula.core.generators.NebulaRandom;
+import com.nebula.core.generators.random.RandomGenerator;
 import com.nebula.core.types.TypeBuilder;
 import com.nebula.core.types.number.NumberRangeType;
 
@@ -28,7 +30,7 @@ public class EntityTest {
 		Entity entity = Nebula.newEntity("test", 1);
 		String propertyName = "name";
 		TypeBuilder propertyType = NebulaGenerationTypes.number().range();
-		Generator propertyGenerator = NebulaGenerators.random();
+		GeneratorBuilder propertyGenerator = NebulaGenerators.random();
 
 		// WHEN
 		entity.addProperty(propertyName, propertyGenerator, propertyType);
@@ -37,7 +39,7 @@ public class EntityTest {
 		assertThat(entity.getProperties()).hasSize(1);
 		assertThat(entity.getProperties().get(0).getName()).isEqualTo(propertyName);
 		assertThat(entity.getProperties().get(0).getType()).isInstanceOf(NumberRangeType.class);
-		assertThat(entity.getProperties().get(0).getGenerator()).isEqualTo(propertyGenerator);
+		assertThat(entity.getProperties().get(0).getGenerator()).isInstanceOf(RandomGenerator.class);
 	}
 
 	@Test
@@ -45,7 +47,7 @@ public class EntityTest {
 
 		// GIVEN
 		Entity entity = Nebula.newEntity("test", 1);
-		Generator propertyGenerator = NebulaGenerators.random();
+		GeneratorBuilder propertyGenerator = NebulaGenerators.random();
 		TypeBuilder propertyType = NebulaGenerationTypes.number().range();
 		String propertyName = "property name test";
 		entity.addProperty(propertyName, propertyGenerator, propertyType);
@@ -138,7 +140,7 @@ public class EntityTest {
 		Property property = mock(Property.class);
 		Generator generator = mock(Generator.class);
 		when(property.getGenerator()).thenReturn(generator);
-		when(propertyBuilder.newProperty(anyString(), any(TypeBuilder.class), any(Generator.class)))
+		when(propertyBuilder.newProperty(anyString(), any(TypeBuilder.class), any(GeneratorBuilder.class)))
 				.thenReturn(property);
 		Entity entity = new Entity("test", 1l, propertyBuilder);
 		NebulaRandom nebulaRandom = mock(NebulaRandom.class);

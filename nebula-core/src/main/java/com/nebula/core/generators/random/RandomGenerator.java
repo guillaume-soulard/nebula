@@ -1,7 +1,9 @@
-package com.nebula.core.generators;
+package com.nebula.core.generators.random;
 
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaException;
+import com.nebula.core.generators.Generator;
+import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.Type;
 
 public class RandomGenerator implements Generator {

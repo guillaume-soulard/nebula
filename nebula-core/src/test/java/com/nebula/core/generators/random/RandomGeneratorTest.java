@@ -1,4 +1,4 @@
-package com.nebula.core.generators;
+package com.nebula.core.generators.random;
 
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
@@ -15,6 +15,8 @@ import org.junit.Test;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaException;
 import com.nebula.core.NebulaGenerationTypes;
+import com.nebula.core.generators.NebulaRandom;
+import com.nebula.core.generators.random.RandomGenerator;
 import com.nebula.core.types.Type;
 
 public class RandomGeneratorTest {

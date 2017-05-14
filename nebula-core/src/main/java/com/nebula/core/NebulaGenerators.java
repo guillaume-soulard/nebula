@@ -1,15 +1,15 @@
 package com.nebula.core;
 
-import com.nebula.core.generators.RandomGenerator;
-import com.nebula.core.generators.SequanceGenerator;
+import com.nebula.core.generators.random.RandomGeneratorBuilder;
+import com.nebula.core.generators.sequance.SequanceGeneratorBuilder;
 
 public class NebulaGenerators {
 
-	public static RandomGenerator random() {
-		return new RandomGenerator();
+	public static RandomGeneratorBuilder random() {
+		return new RandomGeneratorBuilder();
 	}
 
-	public static SequanceGenerator sequance() {
-		return new SequanceGenerator();
+	public static SequanceGeneratorBuilder sequance() {
+		return new SequanceGeneratorBuilder();
 	}
 }

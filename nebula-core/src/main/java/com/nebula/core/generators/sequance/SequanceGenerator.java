@@ -1,15 +1,21 @@
-package com.nebula.core.generators;
+package com.nebula.core.generators.sequance;
 
 import java.util.concurrent.atomic.AtomicLong;
 
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaException;
+import com.nebula.core.generators.Generator;
+import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.Type;
 
 public class SequanceGenerator implements Generator {
 
 	private AtomicLong index = null;
-	private boolean allowCycle = false;
+	private boolean allowCycle;
+
+	public SequanceGenerator(boolean allowCycle) {
+		this.allowCycle = allowCycle;
+	}
 
 	@Override
 	public void init(NebulaRandom nebulaRandom) {
@@ -41,10 +47,5 @@ public class SequanceGenerator implements Generator {
 		if (index == null) {
 			index = new AtomicLong(type.getMinRange());
 		}
-	}
-
-	public SequanceGenerator cycle() {
-		this.allowCycle = true;
-		return this;
 	}
 }

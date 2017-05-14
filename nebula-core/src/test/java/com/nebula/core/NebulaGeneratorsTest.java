@@ -4,8 +4,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
 
-import com.nebula.core.generators.RandomGenerator;
-import com.nebula.core.generators.SequanceGenerator;
+import com.nebula.core.generators.random.RandomGeneratorBuilder;
+import com.nebula.core.generators.sequance.SequanceGeneratorBuilder;
 
 public class NebulaGeneratorsTest {
 
@@ -14,7 +14,7 @@ public class NebulaGeneratorsTest {
 		// GIVEN
 
 		// WHEN
-		RandomGenerator result = NebulaGenerators.random();
+		RandomGeneratorBuilder result = NebulaGenerators.random();
 
 		// THEN
 		assertThat(result).isNotNull();
@@ -25,9 +25,9 @@ public class NebulaGeneratorsTest {
 		// GIVEN
 
 		// WHEN
-		SequanceGenerator result = NebulaGenerators.sequance();
+		SequanceGeneratorBuilder result = NebulaGenerators.sequance();
 
 		// THEN
-		assertThat(result).isInstanceOf(SequanceGenerator.class);
+		assertThat(result).isInstanceOf(SequanceGeneratorBuilder.class);
 	}
 }
