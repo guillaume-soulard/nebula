@@ -1,13 +1,13 @@
 package com.nebula.core.types.list;
 
 import com.nebula.core.NebulaException;
-import com.nebula.core.generators.Generator;
+import com.nebula.core.generators.GeneratorBuilder;
 import com.nebula.core.types.Type;
 import com.nebula.core.types.TypeBuilder;
 
 public class ListTypeBuilder implements TypeBuilder {
 
-	private Generator generator;
+	private GeneratorBuilder generator;
 	private TypeBuilder typeBuilder;
 	private int minSize = 0;
 	private int maxSize = 10;
@@ -18,7 +18,7 @@ public class ListTypeBuilder implements TypeBuilder {
 		if (minSize > maxSize) {
 			throw new NebulaException("maxSize must be greater than minSize");
 		}
-		return new ListType(minSize, maxSize, generator, typeBuilder.build());
+		return new ListType(minSize, maxSize, generator.build(), typeBuilder.build());
 	}
 
 	private void checkGeneratorAndType() {
@@ -30,7 +30,7 @@ public class ListTypeBuilder implements TypeBuilder {
 		}
 	}
 
-	public ListTypeBuilder of(Generator generator, TypeBuilder typeBuilder) {
+	public ListTypeBuilder of(GeneratorBuilder generator, TypeBuilder typeBuilder) {
 		this.generator = generator;
 		this.typeBuilder = typeBuilder;
 		checkGeneratorAndType();

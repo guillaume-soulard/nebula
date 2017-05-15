@@ -28,7 +28,7 @@ public class GeneratedObjectIterator implements Iterator<GeneratedObject> {
 			throw new NoSuchElementException("Iteration has no more elements");
 		}
 
-		GeneratedObject generatedObject = model.generateEntity(entity, nextIndexToGenerate, seed);
+		GeneratedObject generatedObject = model.generateEntityObject(entity, nextIndexToGenerate, seed);
 		nextIndexToGenerate++;
 
 		return generatedObject;

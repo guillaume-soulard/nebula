@@ -2,15 +2,14 @@ package com.nebula.core.types;
 
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaException;
-import com.nebula.core.generators.NebulaRandom;
 
 public abstract class AbstractTypeWithIndexCheck implements Type {
 
-	protected NebulaRandom nebulaRandom;
+	protected GenerationContext context;
 
 	@Override
-	public void init(NebulaRandom nebulaRandom) {
-		this.nebulaRandom = nebulaRandom;
+	public void init(GenerationContext context) {
+		this.context = context;
 	}
 
 	@Override

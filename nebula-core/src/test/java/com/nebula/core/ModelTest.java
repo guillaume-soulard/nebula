@@ -50,7 +50,7 @@ public class ModelTest {
 		model.addEntity(entity);
 
 		// WHEN
-		Map<Entity, List<GeneratedObject>> result = model.generateAll(seed);
+		Map<Entity, List<GeneratedObject>> result = model.generateEntitiesObjectsAll(seed);
 
 		// THEN
 		assertThat(result).containsOnlyKeys(entity);
@@ -68,7 +68,7 @@ public class ModelTest {
 		model.addEntity(entity);
 
 		// WHEN
-		List<GeneratedObject> result = model.generateEntity(entity, seed);
+		List<GeneratedObject> result = model.generateEntityObjects(entity, seed);
 
 		// THEN
 		assertThat(result).hasSize(10);
@@ -88,7 +88,7 @@ public class ModelTest {
 		model.addEntity(entity);
 
 		// WHEN
-		Map<Entity, List<GeneratedObject>> result = model.generateAll(seed);
+		Map<Entity, List<GeneratedObject>> result = model.generateEntitiesObjectsAll(seed);
 
 		// THEN
 		assertThat(result.get(entity)).hasSize(amount);
@@ -126,7 +126,7 @@ public class ModelTest {
 				NebulaGenerationTypes.number().range().withMin(BigDecimal.valueOf(-2)).withMax(BigDecimal.valueOf(2)));
 		model.addEntity(entity);
 		long seed = 1l;
-		List<GeneratedObject> allObjects = model.generateEntity(entity, seed);
+		List<GeneratedObject> allObjects = model.generateEntityObjects(entity, seed);
 
 		// WHEN
 		GeneratedObjectIterator result = model.iterator("test", seed);
@@ -180,7 +180,7 @@ public class ModelTest {
 		long entityIndex = 0l;
 
 		// WHEN
-		GeneratedObject result = model.generateEntity(entity, entityIndex, seed);
+		GeneratedObject result = model.generateEntityObject(entity, entityIndex, seed);
 
 		// THEN
 		assertThat(result).isNotNull();
@@ -197,7 +197,7 @@ public class ModelTest {
 		long seed = 1l;
 
 		// WHEN
-		List<GeneratedObject> result = model.generateEntity(entity, seed);
+		List<GeneratedObject> result = model.generateEntityObjects(entity, seed);
 
 		// THEN
 		assertThat(result).doesNotHaveDuplicates();
@@ -215,8 +215,8 @@ public class ModelTest {
 		long entityIndex = 0l;
 
 		// WHEN
-		GeneratedObject object1 = model.generateEntity(entity, entityIndex, seed);
-		GeneratedObject object2 = model.generateEntity(entity, entityIndex, seed);
+		GeneratedObject object1 = model.generateEntityObject(entity, entityIndex, seed);
+		GeneratedObject object2 = model.generateEntityObject(entity, entityIndex, seed);
 
 		// THEN
 		assertThat(object1).isEqualTo(object2);
@@ -232,10 +232,10 @@ public class ModelTest {
 		model.addEntity(entity);
 		long seed = 1l;
 		long entityIndex = 0l;
-		GeneratedObject genratedObjectAtIndex0 = model.generateEntity(entity, seed).get(0);
+		GeneratedObject genratedObjectAtIndex0 = model.generateEntityObjects(entity, seed).get(0);
 
 		// WHEN
-		GeneratedObject result = model.generateEntity(entity, entityIndex, seed);
+		GeneratedObject result = model.generateEntityObject(entity, entityIndex, seed);
 
 		// THEN
 		assertThat(result).isEqualTo(genratedObjectAtIndex0);

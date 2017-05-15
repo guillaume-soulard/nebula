@@ -19,6 +19,7 @@ import com.nebula.core.generators.Generator;
 import com.nebula.core.generators.GeneratorBuilder;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.generators.random.RandomGenerator;
+import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.TypeBuilder;
 import com.nebula.core.types.number.NumberRangeType;
 
@@ -79,7 +80,7 @@ public class EntityTest {
 		Entity entity = Nebula.newEntity("test", 1);
 		String propertyName = "property";
 		entity.addProperty(propertyName, NebulaGenerators.random(), NebulaGenerationTypes.number().range());
-		entity.init(new NebulaRandom(1l));
+		entity.init(new GenerationContext(new NebulaRandom(1l), null));
 
 		// WHEN
 		GeneratedObject result = entity.generateObject(1l);
@@ -96,7 +97,7 @@ public class EntityTest {
 		String propertyName = "property";
 		entity.addProperty(propertyName, NebulaGenerators.random(),
 				NebulaGenerationTypes.number().range().withMin(BigDecimal.ONE).withMax(BigDecimal.ONE));
-		entity.init(new NebulaRandom(1l));
+		entity.init(new GenerationContext(new NebulaRandom(1l), null));
 
 		// WHEN
 		GeneratedObject result = entity.generateObject(1l);
@@ -118,7 +119,7 @@ public class EntityTest {
 				NebulaGenerationTypes.number().range().withMin(BigDecimal.ONE).withMax(BigDecimal.ONE));
 		entity.addProperty(property2Name, NebulaGenerators.random(),
 				NebulaGenerationTypes.number().range().withMin(BigDecimal.valueOf(5)).withMax(BigDecimal.valueOf(5)));
-		entity.init(new NebulaRandom(1l));
+		entity.init(new GenerationContext(new NebulaRandom(1l), null));
 
 		// WHEN
 		GeneratedObject result = entity.generateObject(1l);
@@ -145,12 +146,13 @@ public class EntityTest {
 		Entity entity = new Entity("test", 1l, propertyBuilder);
 		NebulaRandom nebulaRandom = mock(NebulaRandom.class);
 		entity.addProperty(null, null, null);
+		GenerationContext context = new GenerationContext(nebulaRandom, null);
 
 		// WHEN
-		entity.init(nebulaRandom);
+		entity.init(context);
 
 		// THEN
-		verify(generator, times(1)).init(eq(nebulaRandom));
+		verify(generator, times(1)).init(eq(context));
 	}
 
 	@Test

@@ -5,25 +5,27 @@ import java.util.concurrent.atomic.AtomicLong;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaException;
 import com.nebula.core.generators.Generator;
-import com.nebula.core.generators.NebulaRandom;
+import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.Type;
 
 public class SequanceGenerator implements Generator {
 
 	private AtomicLong index = null;
 	private boolean allowCycle;
+	private GenerationContext context;
 
 	public SequanceGenerator(boolean allowCycle) {
 		this.allowCycle = allowCycle;
 	}
 
 	@Override
-	public void init(NebulaRandom nebulaRandom) {
-
+	public void init(GenerationContext context) {
+		this.context = context;
 	}
 
 	@Override
 	public GeneratedObject generate(Type type) {
+		type.init(context);
 		initIndexIfItsFirstTime(type);
 		reInitIndexIfIndexReachMaxTypeIndexAndCycleIsAllow(type);
 		throwExceptionWhenIndexReachMaxIndexIfNeeded(type);

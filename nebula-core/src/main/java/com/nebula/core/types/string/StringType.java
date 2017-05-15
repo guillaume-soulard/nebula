@@ -2,7 +2,7 @@ package com.nebula.core.types.string;
 
 import com.mifmif.common.regex.Generex;
 import com.nebula.core.GeneratedObject;
-import com.nebula.core.generators.NebulaRandom;
+import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.Type;
 
 public class StringType implements Type {
@@ -19,8 +19,8 @@ public class StringType implements Type {
 	}
 
 	@Override
-	public void init(NebulaRandom nebulaRandom) {
-		generex = new Generex(pattern, nebulaRandom.getRandom());
+	public void init(GenerationContext context) {
+		generex = new Generex(pattern, context.getNebulaRandom().getRandom());
 	}
 
 	@Override

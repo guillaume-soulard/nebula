@@ -128,14 +128,14 @@ public class GeneratedObjectIteratorTest {
 		long seed = 1l;
 		GeneratedObjectIterator iterator = new GeneratedObjectIterator(model, entity, seed);
 		long index = 0l;
-		when(model.generateEntity(eq(entity), eq(index), eq(seed))).thenReturn(expectedGeneratedObject);
+		when(model.generateEntityObject(eq(entity), eq(index), eq(seed))).thenReturn(expectedGeneratedObject);
 
 		// WHEN
 		GeneratedObject result = iterator.next();
 
 		// THEN
 		assertThat(result).isEqualTo(expectedGeneratedObject);
-		verify(model, times(1)).generateEntity(eq(entity), eq(index), eq(seed));
+		verify(model, times(1)).generateEntityObject(eq(entity), eq(index), eq(seed));
 	}
 
 	@Test
@@ -167,7 +167,7 @@ public class GeneratedObjectIteratorTest {
 		Entity entity = new Entity(entityName, 2l, new PropertyBuilder());
 		long seed = 1l;
 		GeneratedObjectIterator iterator = new GeneratedObjectIterator(model, entity, seed);
-		when(model.generateEntity(any(Entity.class), anyLong(), anyLong())).thenThrow(NebulaException.class);
+		when(model.generateEntityObject(any(Entity.class), anyLong(), anyLong())).thenThrow(NebulaException.class);
 
 		// WHEN
 		catchException(iterator).next();

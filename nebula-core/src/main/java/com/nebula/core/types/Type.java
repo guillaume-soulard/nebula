@@ -1,11 +1,10 @@
 package com.nebula.core.types;
 
 import com.nebula.core.GeneratedObject;
-import com.nebula.core.generators.NebulaRandom;
 
 public interface Type {
 
-	void init(NebulaRandom nebulaRandom);
+	void init(GenerationContext context);
 
 	GeneratedObject generateObject(Long objectIndex);
 

@@ -6,6 +6,7 @@ import java.util.Date;
 import com.nebula.core.types.bool.BooleanTypeBuilder;
 import com.nebula.core.types.constant.ConstantTypeBuilder;
 import com.nebula.core.types.date.DateTimeTypeBuilderChooser;
+import com.nebula.core.types.entity.EntityTypeBuilder;
 import com.nebula.core.types.list.ListTypeBuilder;
 import com.nebula.core.types.number.NumberTypeBuilderChooser;
 import com.nebula.core.types.string.StringTypeBuilder;
@@ -46,5 +47,9 @@ public final class NebulaGenerationTypes {
 
 	public static ConstantTypeBuilder constant(Boolean value) {
 		return new ConstantTypeBuilder(value);
+	}
+
+	public static EntityTypeBuilder entity(String entityName) {
+		return new EntityTypeBuilder().withName(entityName);
 	}
 }

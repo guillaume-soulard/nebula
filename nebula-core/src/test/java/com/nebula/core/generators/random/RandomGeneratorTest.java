@@ -16,7 +16,7 @@ import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaException;
 import com.nebula.core.NebulaGenerationTypes;
 import com.nebula.core.generators.NebulaRandom;
-import com.nebula.core.generators.random.RandomGenerator;
+import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.Type;
 
 public class RandomGeneratorTest {
@@ -37,9 +37,8 @@ public class RandomGeneratorTest {
 	public void generate_should_return_one() {
 
 		// GIVEN
-		NebulaRandom nebulaRandom = mock(NebulaRandom.class);
 		RandomGenerator generator = new RandomGenerator();
-		generator.init(nebulaRandom);
+		generator.init(new GenerationContext(mock(NebulaRandom.class), null));
 		Type type = NebulaGenerationTypes.number().range().withMin(BigDecimal.ONE).withMax(BigDecimal.ONE).build();
 
 		// WHEN
@@ -53,9 +52,8 @@ public class RandomGeneratorTest {
 	public void generate_should_return_ten() {
 
 		// GIVEN
-		NebulaRandom nebulaRandom = mock(NebulaRandom.class);
 		RandomGenerator generator = new RandomGenerator();
-		generator.init(nebulaRandom);
+		generator.init(new GenerationContext(mock(NebulaRandom.class), null));
 		Type type = NebulaGenerationTypes.number().range().withMin(BigDecimal.TEN).withMax(BigDecimal.TEN).build();
 
 		// WHEN
@@ -69,9 +67,8 @@ public class RandomGeneratorTest {
 	public void generate_should_return_a_number_between_0_and_10() {
 
 		// GIVEN
-		NebulaRandom nebulaRandom = new NebulaRandom(0l);
 		RandomGenerator generator = new RandomGenerator();
-		generator.init(nebulaRandom);
+		generator.init(new GenerationContext(new NebulaRandom(0l), null));
 		Type type = NebulaGenerationTypes.number().range().withMin(BigDecimal.ZERO).withMax(BigDecimal.TEN).build();
 
 		// WHEN

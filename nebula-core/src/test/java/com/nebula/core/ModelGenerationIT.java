@@ -1,5 +1,14 @@
 package com.nebula.core;
 
+import static com.nebula.core.NebulaGenerationTypes.bool;
+import static com.nebula.core.NebulaGenerationTypes.constant;
+import static com.nebula.core.NebulaGenerationTypes.dateTime;
+import static com.nebula.core.NebulaGenerationTypes.entity;
+import static com.nebula.core.NebulaGenerationTypes.list;
+import static com.nebula.core.NebulaGenerationTypes.number;
+import static com.nebula.core.NebulaGenerationTypes.string;
+import static com.nebula.core.NebulaGenerators.random;
+import static com.nebula.core.NebulaGenerators.sequance;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.math.BigDecimal;
@@ -15,42 +24,78 @@ import com.nebula.core.types.date.DateTimeTypeIntervals;
 
 public class ModelGenerationIT {
 
+	private static final String ENTITY_PROPERTY_NAME = "entity";
+	private static final int ANOTHER_ENTITY_AMOUNT = 10;
+	private static final String ANOTHER_ENTITY_NAME = "another entity";
+	private static final int TEST_ENTITY_AMOUNT = 1000;
+	private static final String ENTITY_TEST_NAME = "test";
+	private static final String STRING_PATTERN = "[A-Z]{1}[a-z]{24}";
+	private static final DateTime MAX_DATE = new DateTime(2017, 1, 31, 0, 0);
+	private static final DateTime MIN_DATE = new DateTime(2017, 1, 1, 0, 0);
+	private static final String STRING_PROPERTY_NAME = "string";
+	private static final String LIST_PROPERTY_NAME = "list";
+	private static final String CONSTANT_PROPERTY_NAME = "constant";
+	private static final String BOOLEAN_PROPERTY_NAME = "boolean";
 	private static final String DATE_TIME_PROPERTY_NAME = "dateTime";
 	private static final String INTEGER_PROPERTY_NAME = "number";
 	private static final String ID_PROPERTY_NAME = "_id";
 
 	@Test
-	public void generate_should_generate_100000_entities_with_correct_properties_values() {
+	public void generate_should_generate_1000_entities_with_correct_properties_values() {
 
 		// GIVEN
 		long seed = 10l;
 		Model model = Nebula.newModel();
-		int entityAmount = 100000;
-		Entity entity = Nebula.newEntity("test", entityAmount);
-		entity.addProperty(INTEGER_PROPERTY_NAME, NebulaGenerators.random(),
-				NebulaGenerationTypes.number().range().withMin(BigDecimal.ZERO).withMax(BigDecimal.valueOf(100)));
-		entity.addProperty(DATE_TIME_PROPERTY_NAME, NebulaGenerators.random(),
-				NebulaGenerationTypes.dateTime().range().withInterval(DateTimeTypeIntervals.DAY)
-						.withMin(new DateTime(2017, 1, 1, 0, 0)).withMax(new DateTime(2017, 1, 31, 0, 0)));
-		model.addEntity(entity);
+		Entity testEntity = buildTestEntity();
+		Entity anotherEntity = buildAnotherEntity();
+		model.addEntity(testEntity);
+		model.addEntity(anotherEntity);
 
 		// WHEN
-		Map<Entity, List<GeneratedObject>> result = model.generateAll(seed);
+		Map<Entity, List<GeneratedObject>> result = model.generateEntitiesObjectsAll(seed);
 
-		Predicate<GeneratedObject> predicate = new Predicate<GeneratedObject>() {
+		// THEN
+		List<GeneratedObject> generatedTestEntity = result.get(testEntity);
+		List<GeneratedObject> generatedAnotherEntity = result.get(anotherEntity);
+		assertThat(generatedTestEntity).hasSize(TEST_ENTITY_AMOUNT).allMatch(expected(generatedAnotherEntity));
+		assertThat(generatedAnotherEntity).hasSize(ANOTHER_ENTITY_AMOUNT);
+	}
+
+	private Predicate<GeneratedObject> expected(final List<GeneratedObject> generatedAnotherEntity) {
+		return new Predicate<GeneratedObject>() {
 
 			private List<String> propertyNames = Arrays.asList(ID_PROPERTY_NAME, INTEGER_PROPERTY_NAME,
-					DATE_TIME_PROPERTY_NAME);
+					DATE_TIME_PROPERTY_NAME, BOOLEAN_PROPERTY_NAME, CONSTANT_PROPERTY_NAME, LIST_PROPERTY_NAME,
+					STRING_PROPERTY_NAME, ENTITY_PROPERTY_NAME);
 
+			@SuppressWarnings("unchecked")
 			@Override
 			public boolean test(GeneratedObject t) {
 
 				assertThat(t.getGeneratedProperties()).extracting("propertyName").containsOnlyElementsOf(propertyNames);
+
 				assertThat((BigDecimal) getPropertyByName(t.getGeneratedProperties(), INTEGER_PROPERTY_NAME)
 						.getPropertyValue().getObject()).isBetween(BigDecimal.valueOf(0d), BigDecimal.valueOf(100d));
+
 				assertThat((DateTime) getPropertyByName(t.getGeneratedProperties(), DATE_TIME_PROPERTY_NAME)
-						.getPropertyValue().getObject()).isBetween(new DateTime(2017, 1, 1, 0, 0),
-								new DateTime(2017, 1, 31, 0, 0));
+						.getPropertyValue().getObject()).isBetween(MIN_DATE, MAX_DATE);
+
+				assertThat((Boolean) getPropertyByName(t.getGeneratedProperties(), BOOLEAN_PROPERTY_NAME)
+						.getPropertyValue().getObject()).isIn(Boolean.TRUE, Boolean.FALSE);
+
+				assertThat((String) getPropertyByName(t.getGeneratedProperties(), CONSTANT_PROPERTY_NAME)
+						.getPropertyValue().getObject()).isEqualTo(ENTITY_TEST_NAME);
+
+				assertThat((List<GeneratedObject>) getPropertyByName(t.getGeneratedProperties(), LIST_PROPERTY_NAME)
+						.getPropertyValue().getObject()).contains(new GeneratedObject(Boolean.TRUE),
+								new GeneratedObject(Boolean.FALSE));
+
+				assertThat(getPropertyByName(t.getGeneratedProperties(), STRING_PROPERTY_NAME).getPropertyValue()
+						.getObject()).asString().matches(STRING_PATTERN);
+
+				assertThat(getPropertyByName(t.getGeneratedProperties(), ENTITY_PROPERTY_NAME).getPropertyValue())
+						.isIn(generatedAnotherEntity);
+
 				return true;
 			}
 
@@ -65,7 +110,24 @@ public class ModelGenerationIT {
 				return null;
 			}
 		};
-		// THEN
-		assertThat(result.get(entity)).hasSize(entityAmount).allMatch(predicate);
+	}
+
+	private Entity buildTestEntity() {
+		Entity entity = Nebula.newEntity(ENTITY_TEST_NAME, 1000);
+		entity.addProperty(INTEGER_PROPERTY_NAME, random(),
+				number().range().withMin(BigDecimal.ZERO).withMax(BigDecimal.valueOf(100)));
+		entity.addProperty(DATE_TIME_PROPERTY_NAME, random(),
+				dateTime().range().withInterval(DateTimeTypeIntervals.DAY).withMin(MIN_DATE).withMax(MAX_DATE));
+		entity.addProperty(BOOLEAN_PROPERTY_NAME, sequance().cycle(), bool());
+		entity.addProperty(CONSTANT_PROPERTY_NAME, sequance().cycle(), constant(ENTITY_TEST_NAME));
+		entity.addProperty(LIST_PROPERTY_NAME, sequance().cycle(),
+				list().of(random(), bool()).withMinSize(100).withMaxSize(200));
+		entity.addProperty(STRING_PROPERTY_NAME, sequance().cycle(), string().withPattern(STRING_PATTERN));
+		entity.addProperty(ENTITY_PROPERTY_NAME, sequance().cycle(), entity(ANOTHER_ENTITY_NAME));
+		return entity;
+	}
+
+	private Entity buildAnotherEntity() {
+		return Nebula.newEntity(ANOTHER_ENTITY_NAME, ANOTHER_ENTITY_AMOUNT);
 	}
 }

@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.generators.NebulaRandom;
+import com.nebula.core.types.GenerationContext;
 
 public class StringTypeTest {
 
@@ -15,8 +16,7 @@ public class StringTypeTest {
 		// GIVEN
 		String pattern = "[a]{1}";
 		StringType stringType = new StringType(pattern);
-		NebulaRandom nebulaRandom = new NebulaRandom(1l);
-		stringType.init(nebulaRandom);
+		stringType.init(new GenerationContext(new NebulaRandom(1l), null));
 
 		// WHEN
 		GeneratedObject result = stringType.generateObject(0l);
@@ -31,8 +31,7 @@ public class StringTypeTest {
 		// GIVEN
 		String pattern = "[a]{1}";
 		StringType stringType = new StringType(pattern);
-		NebulaRandom nebulaRandom = new NebulaRandom(1l);
-		stringType.init(nebulaRandom);
+		stringType.init(new GenerationContext(new NebulaRandom(1l), null));
 
 		// WHEN
 		GeneratedObject result = stringType.generateObject(0l);
@@ -46,8 +45,7 @@ public class StringTypeTest {
 
 		// GIVEN
 		StringType stringType = new StringType("test");
-		NebulaRandom nebulaRandom = new NebulaRandom(1l);
-		stringType.init(nebulaRandom);
+		stringType.init(new GenerationContext(new NebulaRandom(1l), null));
 
 		// WHEN
 		GeneratedObject result = stringType.generateObject(0l);
@@ -61,7 +59,7 @@ public class StringTypeTest {
 
 		// GIVEN
 		StringType stringType = new StringType(null);
-		stringType.init(new NebulaRandom(1l));
+		stringType.init(new GenerationContext(new NebulaRandom(1l), null));
 		GeneratedObject resultIndex0 = stringType.generateObject(0l);
 
 		// WHEN

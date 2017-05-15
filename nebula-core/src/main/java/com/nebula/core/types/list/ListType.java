@@ -6,6 +6,7 @@ import java.util.List;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.generators.Generator;
 import com.nebula.core.generators.NebulaRandom;
+import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.Type;
 
 public class ListType implements Type {
@@ -14,7 +15,7 @@ public class ListType implements Type {
 	private Generator generator;
 	private int maxSize;
 	private int minSize;
-	private NebulaRandom nebulaRandom;
+	private GenerationContext context;
 
 	public ListType(int minSize, int maxSize, Generator generator, Type type) {
 		this.minSize = minSize;
@@ -24,14 +25,15 @@ public class ListType implements Type {
 	}
 
 	@Override
-	public void init(NebulaRandom nebulaRandom) {
-		this.nebulaRandom = nebulaRandom;
+	public void init(GenerationContext context) {
+		this.context = context;
 	}
 
 	@Override
 	public GeneratedObject generateObject(Long objectIndex) {
-		NebulaRandom localNebulaRandom = new NebulaRandom(nebulaRandom.getSeed() + objectIndex);
-		generator.init(localNebulaRandom);
+		NebulaRandom localNebulaRandom = new NebulaRandom(context.getNebulaRandom().getSeed() + objectIndex);
+		GenerationContext localContext = new GenerationContext(localNebulaRandom, context.getModel());
+		generator.init(localContext);
 		long listSize = localNebulaRandom.randomBetween(minSize, maxSize);
 		List<Object> list = new ArrayList<>(Integer.valueOf(Long.toString(listSize)));
 		for (int elementIndex = 0; elementIndex < listSize; elementIndex++) {

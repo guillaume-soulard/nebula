@@ -6,11 +6,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import com.nebula.core.generators.NebulaRandom;
-
 public class Model {
 
 	private List<Entity> entities = new ArrayList<Entity>();
+	private EntityGenerator entityGenerator = new EntityGenerator();
 
 	public void addEntity(Entity entity) {
 
@@ -24,19 +23,19 @@ public class Model {
 		return entities;
 	}
 
-	public Map<Entity, List<GeneratedObject>> generateAll(long seed) {
+	public Map<Entity, List<GeneratedObject>> generateEntitiesObjectsAll(long seed) {
 		Map<Entity, List<GeneratedObject>> result = new HashMap<Entity, List<GeneratedObject>>();
 		for (Entity entity : entities) {
-			result.put(entity, generateEntity(entity, seed));
+			result.put(entity, generateEntityObjects(entity, seed));
 		}
 		return result;
 	}
 
-	public List<GeneratedObject> generateEntity(Entity entity, long seed) {
+	public List<GeneratedObject> generateEntityObjects(Entity entity, long seed) {
 		List<GeneratedObject> generatedObjects = new LinkedList<GeneratedObject>();
 
 		for (int index = 0; index < entity.getAmount(); index++) {
-			generatedObjects.add(generateEntity(entity, index, seed));
+			generatedObjects.add(generateEntityObject(entity, index, seed));
 		}
 
 		return generatedObjects;
@@ -55,11 +54,7 @@ public class Model {
 		return new GeneratedObjectIterator(this, getEntityByName(entityName), seed);
 	}
 
-	public GeneratedObject generateEntity(Entity entity, long entityIndex, long seed) {
-		NebulaRandom nebulaRandom = new NebulaRandom(seed + entityIndex);
-		entity.init(nebulaRandom);
-		GeneratedObject generateObject = entity.generateObject(nebulaRandom.nextIndex(entity));
-		generateObject.getGeneratedProperties().add(new GeneratedProperty("_id", new GeneratedObject(entityIndex)));
-		return generateObject;
+	public GeneratedObject generateEntityObject(Entity entity, long entityIndex, long seed) {
+		return entityGenerator.generateEntityObject(this, entity, entityIndex, seed);
 	}
 }

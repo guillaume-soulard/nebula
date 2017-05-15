@@ -12,6 +12,7 @@ import com.nebula.core.NebulaGenerationTypes;
 import com.nebula.core.NebulaGenerators;
 import com.nebula.core.generators.Generator;
 import com.nebula.core.generators.NebulaRandom;
+import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.Type;
 
 public class ListTypeTest {
@@ -112,13 +113,13 @@ public class ListTypeTest {
 		Generator generator = NebulaGenerators.random().build();
 		Type type = NebulaGenerationTypes.bool().build();
 		ListType listType = new ListType(minSize, maxSize, generator, type);
-		NebulaRandom nebulaRandom = new NebulaRandom(1l);
+		GenerationContext context = new GenerationContext(new NebulaRandom(1l), null);
 
 		// WHEN
-		listType.init(nebulaRandom);
+		listType.init(context);
 
 		// THEN
-		assertThat(listType).hasFieldOrPropertyWithValue("nebulaRandom", nebulaRandom);
+		assertThat(listType).hasFieldOrPropertyWithValue("context", context);
 	}
 
 	@Test
@@ -130,8 +131,8 @@ public class ListTypeTest {
 		Generator generator = NebulaGenerators.random().build();
 		Type type = NebulaGenerationTypes.bool().build();
 		ListType listType = new ListType(minSize, maxSize, generator, type);
-		NebulaRandom nebulaRandom = new NebulaRandom(1l);
-		listType.init(nebulaRandom);
+		GenerationContext context = new GenerationContext(new NebulaRandom(1l), null);
+		listType.init(context);
 
 		// WHEN
 		GeneratedObject result = listType.generateObject(0l);
@@ -149,8 +150,8 @@ public class ListTypeTest {
 		Generator generator = NebulaGenerators.random().build();
 		Type type = NebulaGenerationTypes.bool().build();
 		ListType listType = new ListType(minSize, maxSize, generator, type);
-		NebulaRandom nebulaRandom = new NebulaRandom(1l);
-		listType.init(nebulaRandom);
+		GenerationContext context = new GenerationContext(new NebulaRandom(1l), null);
+		listType.init(context);
 
 		// WHEN
 		GeneratedObject result = listType.generateObject(0l);
@@ -168,9 +169,8 @@ public class ListTypeTest {
 		Generator generator = NebulaGenerators.random().build();
 		Type type = NebulaGenerationTypes.bool().build();
 		ListType listType = new ListType(minSize, maxSize, generator, type);
-		NebulaRandom nebulaRandom = new NebulaRandom(1l);
-		listType.init(nebulaRandom);
-
+		GenerationContext context = new GenerationContext(new NebulaRandom(1l), null);
+		listType.init(context);
 		// WHEN
 		GeneratedObject result = listType.generateObject(0l);
 
@@ -187,9 +187,8 @@ public class ListTypeTest {
 		Generator generator = NebulaGenerators.random().build();
 		Type type = NebulaGenerationTypes.bool().build();
 		ListType listType = new ListType(minSize, maxSize, generator, type);
-		NebulaRandom nebulaRandom = new NebulaRandom(1l);
-		listType.init(nebulaRandom);
-
+		GenerationContext context = new GenerationContext(new NebulaRandom(1l), null);
+		listType.init(context);
 		// WHEN
 		GeneratedObject result = listType.generateObject(0l);
 
@@ -207,8 +206,8 @@ public class ListTypeTest {
 		Generator generator = NebulaGenerators.random().build();
 		Type type = NebulaGenerationTypes.bool().build();
 		ListType listType = new ListType(minSize, maxSize, generator, type);
-		NebulaRandom nebulaRandom = new NebulaRandom(1l);
-		listType.init(nebulaRandom);
+		GenerationContext context = new GenerationContext(new NebulaRandom(1l), null);
+		listType.init(context);
 		GeneratedObject resultAtIndex0 = listType.generateObject(0l);
 
 		// WHEN
@@ -229,8 +228,8 @@ public class ListTypeTest {
 		Generator generator = NebulaGenerators.random().build();
 		Type type = NebulaGenerationTypes.bool().build();
 		ListType listType = new ListType(minSize, maxSize, generator, type);
-		NebulaRandom nebulaRandom = new NebulaRandom(1l);
-		listType.init(nebulaRandom);
+		GenerationContext context = new GenerationContext(new NebulaRandom(1l), null);
+		listType.init(context);
 		GeneratedObject firstResult = listType.generateObject(0l);
 
 		// WHEN

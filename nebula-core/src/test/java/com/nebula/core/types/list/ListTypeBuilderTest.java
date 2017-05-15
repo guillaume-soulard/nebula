@@ -9,7 +9,7 @@ import org.junit.Test;
 import com.nebula.core.NebulaException;
 import com.nebula.core.NebulaGenerationTypes;
 import com.nebula.core.NebulaGenerators;
-import com.nebula.core.generators.Generator;
+import com.nebula.core.generators.GeneratorBuilder;
 import com.nebula.core.types.Type;
 import com.nebula.core.types.TypeBuilder;
 
@@ -22,7 +22,7 @@ public class ListTypeBuilderTest {
 		ListTypeBuilder builder = new ListTypeBuilder();
 
 		// WHEN
-		Type result = builder.of(NebulaGenerators.random().build(), NebulaGenerationTypes.bool()).build();
+		Type result = builder.of(NebulaGenerators.random(), NebulaGenerationTypes.bool()).build();
 
 		// THEN
 		assertThat(result).isInstanceOf(ListType.class);
@@ -34,7 +34,7 @@ public class ListTypeBuilderTest {
 		// GIVEN
 		ListTypeBuilder builder = new ListTypeBuilder();
 		TypeBuilder type = NebulaGenerationTypes.bool();
-		Generator generator = NebulaGenerators.random().build();
+		GeneratorBuilder generator = NebulaGenerators.random();
 
 		// WHEN
 		ListTypeBuilder result = builder.of(generator, type);
@@ -50,7 +50,7 @@ public class ListTypeBuilderTest {
 		// GIVEN
 		ListTypeBuilder builder = new ListTypeBuilder();
 		TypeBuilder type = NebulaGenerationTypes.bool();
-		Generator generator = null;
+		GeneratorBuilder generator = null;
 
 		// WHEN
 		catchException(builder).of(generator, type);
@@ -65,7 +65,7 @@ public class ListTypeBuilderTest {
 		// GIVEN
 		ListTypeBuilder builder = new ListTypeBuilder();
 		TypeBuilder type = null;
-		Generator generator = NebulaGenerators.random().build();
+		GeneratorBuilder generator = NebulaGenerators.random();
 
 		// WHEN
 		catchException(builder).of(generator, type);
@@ -135,7 +135,7 @@ public class ListTypeBuilderTest {
 
 		// GIVEN
 		ListTypeBuilder builder = new ListTypeBuilder();
-		builder.of(NebulaGenerators.random().build(), NebulaGenerationTypes.bool()).withMaxSize(1).withMinSize(10);
+		builder.of(NebulaGenerators.random(), NebulaGenerationTypes.bool()).withMaxSize(1).withMinSize(10);
 
 		// WHEN
 		catchException(builder).build();

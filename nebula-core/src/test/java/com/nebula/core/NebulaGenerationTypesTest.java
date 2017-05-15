@@ -11,6 +11,7 @@ import org.junit.Test;
 import com.nebula.core.types.bool.BooleanTypeBuilder;
 import com.nebula.core.types.constant.ConstantTypeBuilder;
 import com.nebula.core.types.date.DateTimeTypeBuilderChooser;
+import com.nebula.core.types.entity.EntityTypeBuilder;
 import com.nebula.core.types.list.ListTypeBuilder;
 import com.nebula.core.types.number.NumberTypeBuilderChooser;
 import com.nebula.core.types.string.StringTypeBuilder;
@@ -127,5 +128,18 @@ public class NebulaGenerationTypesTest {
 
 		// THEN
 		assertThat(result).isNotNull().hasFieldOrPropertyWithValue("value", value);
+	}
+
+	@Test
+	public void entity_should_return_a_new_instance_of_EntityTypeBuilder() {
+
+		// GIVEN
+		String entityName = "test";
+
+		// WHEN
+		EntityTypeBuilder result = NebulaGenerationTypes.entity(entityName);
+
+		// THEN
+		assertThat(result).isNotNull();
 	}
 }

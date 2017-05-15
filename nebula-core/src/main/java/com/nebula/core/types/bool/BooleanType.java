@@ -2,13 +2,13 @@ package com.nebula.core.types.bool;
 
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaException;
-import com.nebula.core.generators.NebulaRandom;
+import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.Type;
 
 public class BooleanType implements Type {
 
 	@Override
-	public void init(NebulaRandom nebulaRandom) {
+	public void init(GenerationContext context) {
 
 	}
 
