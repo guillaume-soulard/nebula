@@ -1,3 +1,1 @@
 = Todos
-
-* Rework generators by adding type as attribute and remove type attribute from properties
