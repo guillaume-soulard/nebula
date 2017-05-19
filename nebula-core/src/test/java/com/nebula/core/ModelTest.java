@@ -36,7 +36,7 @@ public class ModelTest {
 		catchException(model).addEntity(entity);
 
 		// THEN
-		assertThat(caughtException()).isInstanceOf(NebulaException.class).hasMessage("type is null");
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("type is null");
 	}
 
 	@Test

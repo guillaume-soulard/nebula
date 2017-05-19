@@ -72,7 +72,7 @@ public class SequanceGeneratorTest {
 		catchException(generator).generate(type);
 
 		// THEN
-		assertThat(caughtException()).isInstanceOf(NebulaException.class)
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
 				.hasMessage("sequance reach the maximum index of type (0). Use cycle() to allow sequance to restart");
 	}
 

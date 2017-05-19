@@ -86,7 +86,7 @@ public class BooleanTypeTest {
 		catchException(booleanType).generateObject(-1l);
 
 		// THEN
-		assertThat(caughtException()).isInstanceOf(NebulaException.class)
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
 
@@ -100,7 +100,7 @@ public class BooleanTypeTest {
 		catchException(booleanType).generateObject(2l);
 
 		// THEN
-		assertThat(caughtException()).isInstanceOf(NebulaException.class)
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
 
@@ -114,7 +114,7 @@ public class BooleanTypeTest {
 		catchException(booleanType).generateObject(null);
 
 		// THEN
-		assertThat(caughtException()).isInstanceOf(NebulaException.class)
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
 }

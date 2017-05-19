@@ -154,7 +154,7 @@ public class EntityTypeTest {
 		catchException(entityType).generateObject(-1l);
 
 		// THEN
-		assertThat(caughtException()).isInstanceOf(NebulaException.class)
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
 
@@ -168,7 +168,7 @@ public class EntityTypeTest {
 		catchException(entityType).generateObject(1l);
 
 		// THEN
-		assertThat(caughtException()).isInstanceOf(NebulaException.class)
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
 
@@ -182,7 +182,7 @@ public class EntityTypeTest {
 		catchException(entityType).generateObject(1l);
 
 		// THEN
-		assertThat(caughtException()).isInstanceOf(NebulaException.class)
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
 				.hasMessage("entity 'unknown entity' is not defined in model");
 	}
 
@@ -196,7 +196,7 @@ public class EntityTypeTest {
 		catchException(entityType).getMaxRange();
 
 		// THEN
-		assertThat(caughtException()).isInstanceOf(NebulaException.class)
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
 				.hasMessage("entity 'unknown entity' is not defined in model");
 	}
 

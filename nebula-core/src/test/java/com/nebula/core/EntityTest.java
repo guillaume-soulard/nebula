@@ -57,7 +57,7 @@ public class EntityTest {
 		catchException(entity).addProperty(propertyName, propertyGenerator, propertyType);
 
 		// THEN
-		assertThat(caughtException()).isInstanceOf(NebulaException.class)
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
 				.hasMessage("duplicate property 'property name test' in entity 'test'");
 	}
 

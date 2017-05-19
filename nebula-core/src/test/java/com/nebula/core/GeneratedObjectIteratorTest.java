@@ -153,7 +153,7 @@ public class GeneratedObjectIteratorTest {
 		catchException(iterator).next();
 
 		// THEN
-		assertThat(caughtException()).isInstanceOf(NoSuchElementException.class)
+		assertThat((Exception) caughtException()).isInstanceOf(NoSuchElementException.class)
 				.hasMessage("Iteration has no more elements");
 	}
 
@@ -173,6 +173,6 @@ public class GeneratedObjectIteratorTest {
 		catchException(iterator).next();
 
 		// THEN
-		assertThat(caughtException()).isInstanceOf(NebulaException.class);
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class);
 	}
 }

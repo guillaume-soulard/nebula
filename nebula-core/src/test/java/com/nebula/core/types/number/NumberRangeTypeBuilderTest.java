@@ -130,7 +130,7 @@ public class NumberRangeTypeBuilderTest {
 		catchException(builder.withMin(min).withMax(max)).build();
 
 		// THEN
-		assertThat(caughtException()).isInstanceOf(NebulaException.class).hasMessage("max must be greater than min");
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("max must be greater than min");
 	}
 
 	@Test
@@ -143,6 +143,6 @@ public class NumberRangeTypeBuilderTest {
 		catchException(builder).withPrecision(-1);
 
 		// THEN
-		assertThat(caughtException()).isInstanceOf(NebulaException.class).hasMessage("precision is negative");
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("precision is negative");
 	}
 }

@@ -80,7 +80,7 @@ public class NumberAmongTypeBuilderTest {
 		catchException(builder).items(null);
 
 		// THEN
-		assertThat(caughtException()).isInstanceOf(NebulaException.class).hasMessage("items is null");
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("items is null");
 	}
 
 	@Test
@@ -93,7 +93,7 @@ public class NumberAmongTypeBuilderTest {
 		catchException(builder).items(new BigDecimal[] {});
 
 		// THEN
-		assertThat(caughtException()).isInstanceOf(NebulaException.class).hasMessage("items is empty");
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("items is empty");
 	}
 
 	@Test

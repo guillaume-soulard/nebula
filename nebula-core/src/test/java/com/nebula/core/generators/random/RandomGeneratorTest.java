@@ -95,7 +95,7 @@ public class RandomGeneratorTest {
 		catchException(generator).init(null);
 
 		// THEN
-		assertThat(caughtException()).isInstanceOf(NebulaException.class).hasMessage("nebulaRandom is null");
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("nebulaRandom is null");
 	}
 
 	@Test
@@ -109,6 +109,6 @@ public class RandomGeneratorTest {
 		catchException(generator).generate(type);
 
 		// THEN
-		assertThat(caughtException()).isInstanceOf(NebulaException.class).hasMessage("nebulaRandom is null");
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("nebulaRandom is null");
 	}
 }

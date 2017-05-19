@@ -68,7 +68,7 @@ public class NumberAmongTypeTest {
 		catchException(numberAmongType).generateObject(10l);
 
 		// THEN
-		assertThat(caughtException()).isInstanceOf(NebulaException.class)
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
 
@@ -83,7 +83,7 @@ public class NumberAmongTypeTest {
 		catchException(numberAmongType).generateObject(3l);
 
 		// THEN
-		assertThat(caughtException()).isInstanceOf(NebulaException.class)
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
 
@@ -98,7 +98,7 @@ public class NumberAmongTypeTest {
 		catchException(numberAmongType).generateObject(-1l);
 
 		// THEN
-		assertThat(caughtException()).isInstanceOf(NebulaException.class)
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
 

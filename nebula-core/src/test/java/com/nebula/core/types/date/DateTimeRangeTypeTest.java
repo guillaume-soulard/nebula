@@ -144,7 +144,7 @@ public class DateTimeRangeTypeTest {
 		catchException(dateType).generateObject(1000l);
 
 		// THEN
-		assertThat(caughtException()).isInstanceOf(NebulaException.class)
+		assertThat((Exception) (Exception) caughtException()).isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
 
@@ -162,7 +162,7 @@ public class DateTimeRangeTypeTest {
 		catchException(dateType).generateObject(-1l);
 
 		// THEN
-		assertThat(caughtException()).isInstanceOf(NebulaException.class)
+		assertThat((Exception) (Exception) caughtException()).isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
 

@@ -56,7 +56,7 @@ public class NumberRangeTypeTest {
 		catchException(doubleType).generateObject(100l);
 
 		// THEN
-		assertThat(caughtException()).isInstanceOf(NebulaException.class)
+		assertThat((Exception) (Exception) caughtException()).isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
 
@@ -147,7 +147,7 @@ public class NumberRangeTypeTest {
 		catchException(doubleType).generateObject(-1l);
 
 		// THEN
-		assertThat(caughtException()).isInstanceOf(NebulaException.class)
+		assertThat((Exception) (Exception) caughtException()).isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
 }

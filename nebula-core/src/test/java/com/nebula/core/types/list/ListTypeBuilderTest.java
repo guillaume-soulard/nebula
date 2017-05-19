@@ -56,7 +56,7 @@ public class ListTypeBuilderTest {
 		catchException(builder).of(generator, type);
 
 		// THEN
-		assertThat(caughtException()).isInstanceOf(NebulaException.class).hasMessage("generator is null");
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("generator is null");
 	}
 
 	@Test
@@ -71,7 +71,7 @@ public class ListTypeBuilderTest {
 		catchException(builder).of(generator, type);
 
 		// THEN
-		assertThat(caughtException()).isInstanceOf(NebulaException.class).hasMessage("typeBuilder is null");
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("typeBuilder is null");
 	}
 
 	@Test
@@ -99,7 +99,7 @@ public class ListTypeBuilderTest {
 		catchException(builder).withMinSize(value);
 
 		// THEN
-		assertThat(caughtException()).isInstanceOf(NebulaException.class).hasMessage("minSize is negative");
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("minSize is negative");
 	}
 
 	@Test
@@ -141,7 +141,7 @@ public class ListTypeBuilderTest {
 		catchException(builder).build();
 
 		// THEN
-		assertThat(caughtException()).isInstanceOf(NebulaException.class)
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
 				.hasMessage("maxSize must be greater than minSize");
 	}
 }

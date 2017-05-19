@@ -57,7 +57,7 @@ public class DateTimeAmongTypeTest {
 		catchException(dateType).generateObject(10l);
 
 		// THEN
-		assertThat(caughtException()).isInstanceOf(NebulaException.class)
+		assertThat((Exception) (Exception) caughtException()).isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
 

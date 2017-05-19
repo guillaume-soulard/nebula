@@ -48,6 +48,6 @@ public class EntityTypeBuilderTest {
 		catchException(builder).withName(null);
 
 		// THEN
-		assertThat(caughtException()).isInstanceOf(NebulaException.class).hasMessage("entityName is null");
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("entityName is null");
 	}
 }
