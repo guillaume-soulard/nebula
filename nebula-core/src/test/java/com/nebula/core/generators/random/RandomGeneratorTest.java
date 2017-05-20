@@ -95,7 +95,8 @@ public class RandomGeneratorTest {
 		catchException(generator).init(null);
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("nebulaRandom is null");
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
+				.hasMessage("generationContext is null");
 	}
 
 	@Test
@@ -109,6 +110,7 @@ public class RandomGeneratorTest {
 		catchException(generator).generate(type);
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("nebulaRandom is null");
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
+				.hasMessage("generationContext is null");
 	}
 }
