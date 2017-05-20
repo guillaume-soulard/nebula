@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.nebula</groupId>
 	<artifactId>nebula-parent</artifactId>
-	<version>${nebula.version}</version>
+	<version>0.0.1-SNAPSHOT</version>
 
 	<packaging>pom</packaging>
 
@@ -16,8 +16,6 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<junit.version>4.11</junit.version>
-		<nebula.version>0.0.1-SNAPSHOT</nebula.version>
 	</properties>
 
 </project>

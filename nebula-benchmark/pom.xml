@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>com.nebula</groupId>
 		<artifactId>nebula-parent</artifactId>
-		<version>${nebula.version}</version>
+		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>nebula-benchmark</artifactId>
@@ -21,7 +21,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>${junit.version}</version>
+			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
 

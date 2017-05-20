@@ -31,7 +31,7 @@ import com.nebula.core.NebulaGenerators;
 @BenchmarkMode(Mode.Throughput)
 @OutputTimeUnit(TimeUnit.SECONDS)
 @Warmup(time = 1, timeUnit = TimeUnit.SECONDS, iterations = 2)
-@Measurement(time = 1, timeUnit = TimeUnit.SECONDS, iterations = 10)
+@Measurement(time = 1, timeUnit = TimeUnit.SECONDS, iterations = 3)
 @Threads(1)
 @Fork(1)
 public class NebulaBenchmark {
