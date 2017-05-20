@@ -1,4 +1,4 @@
-package com.nebula.core;
+package com.nebula.benchmark;
 
 import java.util.concurrent.TimeUnit;
 
@@ -20,6 +20,12 @@ import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
+
+import com.nebula.core.Entity;
+import com.nebula.core.Model;
+import com.nebula.core.Nebula;
+import com.nebula.core.NebulaGenerationTypes;
+import com.nebula.core.NebulaGenerators;
 
 @State(Scope.Benchmark)
 @BenchmarkMode(Mode.Throughput)
