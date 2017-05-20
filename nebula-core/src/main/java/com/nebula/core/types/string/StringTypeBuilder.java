@@ -10,7 +10,7 @@ public class StringTypeBuilder implements TypeBuilder {
 
 	@Override
 	public Type build() {
-		return new StringType(pattern);
+		return new StringType(StringGenerator.newStringGenerator(pattern));
 	}
 
 	public StringTypeBuilder withPattern(String value) {

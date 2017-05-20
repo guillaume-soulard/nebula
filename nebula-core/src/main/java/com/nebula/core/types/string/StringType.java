@@ -1,31 +1,25 @@
 package com.nebula.core.types.string;
 
-import com.mifmif.common.regex.Generex;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.Type;
 
 public class StringType implements Type {
 
-	private Generex generex;
-	private String pattern;
+	private StringGenerator stringGenerator;
 
-	public StringType(String pattern) {
-		if (pattern == null) {
-			this.pattern = "[a-zA-Z_0-9]{10}";
-		} else {
-			this.pattern = pattern;
-		}
+	public StringType(StringGenerator stringGenerator) {
+		this.stringGenerator = stringGenerator;
 	}
 
 	@Override
 	public void init(GenerationContext context) {
-		generex = new Generex(pattern, context.getNebulaRandom().getRandom());
+		stringGenerator.setSeed(context.getNebulaRandom().getSeed());
 	}
 
 	@Override
 	public GeneratedObject generateObject(Long objectIndex) {
-		return new GeneratedObject(generex.random());
+		return new GeneratedObject(stringGenerator.generateString());
 	}
 
 	@Override
@@ -37,5 +31,4 @@ public class StringType implements Type {
 	public Long getMaxRange() {
 		return 0l;
 	}
-
 }
