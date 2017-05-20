@@ -20,6 +20,7 @@ import com.nebula.core.generators.GeneratorBuilder;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.generators.random.RandomGenerator;
 import com.nebula.core.types.GenerationContext;
+import com.nebula.core.types.Type;
 import com.nebula.core.types.TypeBuilder;
 import com.nebula.core.types.number.NumberRangeType;
 
@@ -140,6 +141,7 @@ public class EntityTest {
 		PropertyBuilder propertyBuilder = mock(PropertyBuilder.class);
 		Property property = mock(Property.class);
 		Generator generator = mock(Generator.class);
+		when(property.getType()).thenReturn(mock(Type.class));
 		when(property.getGenerator()).thenReturn(generator);
 		when(propertyBuilder.newProperty(anyString(), any(TypeBuilder.class), any(GeneratorBuilder.class)))
 				.thenReturn(property);
@@ -153,6 +155,29 @@ public class EntityTest {
 
 		// THEN
 		verify(generator, times(1)).init(eq(context));
+	}
+
+	@Test
+	public void init_should_init_property_type() {
+
+		// GIVEN
+		PropertyBuilder propertyBuilder = mock(PropertyBuilder.class);
+		Property property = mock(Property.class);
+		Type type = mock(Type.class);
+		when(property.getGenerator()).thenReturn(mock(Generator.class));
+		when(property.getType()).thenReturn(type);
+		when(propertyBuilder.newProperty(anyString(), any(TypeBuilder.class), any(GeneratorBuilder.class)))
+				.thenReturn(property);
+		Entity entity = new Entity("test", 1l, propertyBuilder);
+		NebulaRandom nebulaRandom = mock(NebulaRandom.class);
+		entity.addProperty(null, null, null);
+		GenerationContext context = new GenerationContext(nebulaRandom, null);
+
+		// WHEN
+		entity.init(context);
+
+		// THEN
+		verify(type, times(1)).init(eq(context));
 	}
 
 	@Test

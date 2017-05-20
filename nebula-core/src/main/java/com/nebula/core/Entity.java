@@ -45,6 +45,7 @@ public class Entity implements Type {
 	public void init(GenerationContext context) {
 		for (Property property : properties) {
 			property.getGenerator().init(context);
+			property.getType().init(context);
 		}
 	}
 
