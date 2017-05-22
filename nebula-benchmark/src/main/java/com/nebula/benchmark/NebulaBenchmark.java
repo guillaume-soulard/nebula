@@ -32,14 +32,23 @@ public class NebulaBenchmark {
 	}
 
 	private void runBenchmark() throws RunnerException {
-		Options options = new OptionsBuilder().include(getBenchmarkClassesRegexp()).shouldDoGC(true).shouldFailOnError(true)
+		Options options = new OptionsBuilder().output(getOuputFileName()).result(getResultFileName())
+				.include(getBenchmarkClassesRegexp()).shouldDoGC(true).shouldFailOnError(true)
 				.jvmArgs("-Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n").build();
 		new Runner(options).run();
 	}
 
+	private String getResultFileName() {
+		return "result.txt";
+	}
+
+	private String getOuputFileName() {
+		return "logs.txt";
+	}
+
 	private String getBenchmarkClassesRegexp() {
 		return benchmarkClasses.stream().map(clazz -> clazz.getSimpleName()).distinct().collect(Collectors.toList())
-				.stream().reduce("", (a, b) -> a + "|" + b);
+				.stream().reduce(getOuputFileName(), (a, b) -> a + "|" + b);
 
 	}
 }
