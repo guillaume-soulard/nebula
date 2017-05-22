@@ -1,5 +1,9 @@
 package com.nebula.benchmark;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
@@ -10,27 +14,32 @@ import com.nebula.benchmark.types.ListOfTypeBenchmark;
 
 public class NebulaBenchmark {
 
+	private List<Class<?>> benchmarkClasses;
+
+	private NebulaBenchmark() {
+		benchmarkClasses = new ArrayList<Class<?>>();
+		benchmarkClasses.add(OnePropertyOnEntityBenchmark.class);
+		benchmarkClasses.add(TwoPropertyOnEntityBenchmark.class);
+		benchmarkClasses.add(ThreePropertyOnEntityBenchmark.class);
+		benchmarkClasses.add(FourPropertyOnEntityBenchmark.class);
+		benchmarkClasses.add(FivePropertyOnEntityBenchmark.class);
+		benchmarkClasses.add(ListOfTypeBenchmark.class);
+		benchmarkClasses.add(ListAmongItemsBenchmark.class);
+	}
+
 	public static void main(String[] args) throws RunnerException {
-		Options options = new OptionsBuilder().include(benchmarkClasses()).shouldDoGC(true).shouldFailOnError(true)
+		new NebulaBenchmark().runBenchmark();
+	}
+
+	private void runBenchmark() throws RunnerException {
+		Options options = new OptionsBuilder().include(getBenchmarkClassesRegexp()).shouldDoGC(true).shouldFailOnError(true)
 				.jvmArgs("-Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n").build();
 		new Runner(options).run();
 	}
 
-	private static String benchmarkClasses() {
-		StringBuilder builder = new StringBuilder();
-		builder.append(OnePropertyOnEntityBenchmark.class.getSimpleName());
-		builder.append("|");
-		builder.append(TwoPropertyOnEntityBenchmark.class.getSimpleName());
-		builder.append("|");
-		builder.append(ThreePropertyOnEntityBenchmark.class.getSimpleName());
-		builder.append("|");
-		builder.append(FourPropertyOnEntityBenchmark.class.getSimpleName());
-		builder.append("|");
-		builder.append(FivePropertyOnEntityBenchmark.class.getSimpleName());
-		builder.append("|");
-		builder.append(ListOfTypeBenchmark.class.getSimpleName());
-		builder.append("|");
-		builder.append(ListAmongItemsBenchmark.class.getSimpleName());
-		return builder.toString();
+	private String getBenchmarkClassesRegexp() {
+		return benchmarkClasses.stream().map(clazz -> clazz.getSimpleName()).distinct().collect(Collectors.toList())
+				.stream().reduce("", (a, b) -> a + "|" + b);
+
 	}
 }
