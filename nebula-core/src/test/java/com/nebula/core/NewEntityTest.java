@@ -14,7 +14,7 @@ public class NewEntityTest {
 		String entityName = "test";
 
 		// WHEN
-		entity = Nebula.newEntity(entityName, 1);
+		entity = NebulaCore.newEntity(entityName, 1);
 
 		// THEN
 		assertThat(entity).isNotNull().hasFieldOrPropertyWithValue("name", entityName)
@@ -29,7 +29,7 @@ public class NewEntityTest {
 		String entityName = "an other_entity";
 
 		// WHEN
-		entity = Nebula.newEntity(entityName, 1);
+		entity = NebulaCore.newEntity(entityName, 1);
 
 		// THEN
 		assertThat(entity).isNotNull().hasFieldOrPropertyWithValue("name", entityName);
@@ -44,7 +44,7 @@ public class NewEntityTest {
 
 		// WHEN
 		try {
-			Nebula.newEntity(entityName, 1);
+			NebulaCore.newEntity(entityName, 1);
 		} catch (Throwable e) {
 			exception = e;
 		}

@@ -45,7 +45,7 @@ public class ModelGenerationIT {
 
 		// GIVEN
 		long seed = 10l;
-		Model model = Nebula.newModel();
+		Model model = NebulaCore.newModel();
 		Entity testEntity = buildTestEntity();
 		Entity anotherEntity = buildAnotherEntity();
 		model.addEntity(testEntity);
@@ -113,7 +113,7 @@ public class ModelGenerationIT {
 	}
 
 	private Entity buildTestEntity() {
-		Entity entity = Nebula.newEntity(ENTITY_TEST_NAME, 1000);
+		Entity entity = NebulaCore.newEntity(ENTITY_TEST_NAME, 1000);
 		entity.addProperty(INTEGER_PROPERTY_NAME, random(),
 				number().range().withMin(BigDecimal.ZERO).withMax(BigDecimal.valueOf(100)));
 		entity.addProperty(DATE_TIME_PROPERTY_NAME, random(),
@@ -128,6 +128,6 @@ public class ModelGenerationIT {
 	}
 
 	private Entity buildAnotherEntity() {
-		return Nebula.newEntity(ANOTHER_ENTITY_NAME, ANOTHER_ENTITY_AMOUNT);
+		return NebulaCore.newEntity(ANOTHER_ENTITY_NAME, ANOTHER_ENTITY_AMOUNT);
 	}
 }

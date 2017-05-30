@@ -29,7 +29,7 @@ public class EntityTest {
 	@Test
 	public void addProperty_should_add_new_property_in_entity_properties() {
 		// GIVEN
-		Entity entity = Nebula.newEntity("test", 1);
+		Entity entity = NebulaCore.newEntity("test", 1);
 		String propertyName = "name";
 		TypeBuilder propertyType = NebulaGenerationTypes.number().range();
 		GeneratorBuilder propertyGenerator = NebulaGenerators.random();
@@ -48,7 +48,7 @@ public class EntityTest {
 	public void addProperty_should_throw_exception_when_duplicate_property_name_is_added() {
 
 		// GIVEN
-		Entity entity = Nebula.newEntity("test", 1);
+		Entity entity = NebulaCore.newEntity("test", 1);
 		GeneratorBuilder propertyGenerator = NebulaGenerators.random();
 		TypeBuilder propertyType = NebulaGenerationTypes.number().range();
 		String propertyName = "property name test";
@@ -66,7 +66,7 @@ public class EntityTest {
 	public void generateObject_should_generate_a_non_null_object() {
 
 		// GIVEN
-		Entity entity = Nebula.newEntity("test", 1);
+		Entity entity = NebulaCore.newEntity("test", 1);
 
 		// WHEN
 		GeneratedObject result = entity.generateObject(1l);
@@ -78,7 +78,7 @@ public class EntityTest {
 	@Test
 	public void generateObject_should_return_the_correct_amount_of_properties() {
 
-		Entity entity = Nebula.newEntity("test", 1);
+		Entity entity = NebulaCore.newEntity("test", 1);
 		String propertyName = "property";
 		entity.addProperty(propertyName, NebulaGenerators.random(), NebulaGenerationTypes.number().range());
 		entity.init(new GenerationContext(new NebulaRandom(1l), null));
@@ -94,7 +94,7 @@ public class EntityTest {
 	public void generateObject_should_return_a_generated_object_with_one_generated_property_equal_to_1() {
 
 		// GIVEN
-		Entity entity = Nebula.newEntity("test", 1);
+		Entity entity = NebulaCore.newEntity("test", 1);
 		String propertyName = "property";
 		entity.addProperty(propertyName, NebulaGenerators.random(),
 				NebulaGenerationTypes.number().range().withMin(BigDecimal.ONE).withMax(BigDecimal.ONE));
@@ -113,7 +113,7 @@ public class EntityTest {
 	public void generateObject_should_return_a_generated_object_with_two_properties_first_equal_to_1_and_second_equal_to_5() {
 
 		// GIVEN
-		Entity entity = Nebula.newEntity("test", 1);
+		Entity entity = NebulaCore.newEntity("test", 1);
 		String property1Name = "property1";
 		String property2Name = "property2";
 		entity.addProperty(property1Name, NebulaGenerators.random(),
@@ -184,7 +184,7 @@ public class EntityTest {
 	public void setPropertyBuilder_should_set_propertyBuilder_filed_in_given_entity() {
 
 		// GIVEN
-		Entity entity = Nebula.newEntity("test", 1);
+		Entity entity = NebulaCore.newEntity("test", 1);
 		PropertyBuilder propertyBuilder = new PropertyBuilder();
 
 		// WHEN

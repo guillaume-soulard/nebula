@@ -13,7 +13,7 @@ public class NewModelTest {
 		Model model = null;
 
 		// WHEN
-		model = Nebula.newModel();
+		model = NebulaCore.newModel();
 
 		// THEN
 		assertThat(model).isNotNull();
@@ -26,7 +26,7 @@ public class NewModelTest {
 		Model model = null;
 
 		// WHEN
-		model = Nebula.newModel();
+		model = NebulaCore.newModel();
 
 		// THEN
 		assertThat(model.getEntities()).isEmpty();

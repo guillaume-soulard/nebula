@@ -16,7 +16,7 @@ public class ModelTest {
 	@Test
 	public void add_should_add_given_type_in_model() {
 		// GIVEN
-		Entity entity = Nebula.newEntity("test", 1);
+		Entity entity = NebulaCore.newEntity("test", 1);
 		Model model = new Model();
 
 		// WHEN
@@ -45,7 +45,7 @@ public class ModelTest {
 		// GIVEN
 		long seed = 1l;
 		Model model = new Model();
-		Entity entity = Nebula.newEntity("test", 10);
+		Entity entity = NebulaCore.newEntity("test", 10);
 		entity.addProperty("number", NebulaGenerators.random(), NebulaGenerationTypes.number().range());
 		model.addEntity(entity);
 
@@ -63,7 +63,7 @@ public class ModelTest {
 		// GIVEN
 		long seed = 1l;
 		Model model = new Model();
-		Entity entity = Nebula.newEntity("test", 10);
+		Entity entity = NebulaCore.newEntity("test", 10);
 		entity.addProperty("number", NebulaGenerators.random(), NebulaGenerationTypes.number().range());
 		model.addEntity(entity);
 
@@ -81,7 +81,7 @@ public class ModelTest {
 		long seed = 1l;
 		Model model = new Model();
 		int amount = 100;
-		Entity entity = Nebula.newEntity("test", amount);
+		Entity entity = NebulaCore.newEntity("test", amount);
 		String propertyName = "number";
 		entity.addProperty(propertyName, NebulaGenerators.random(),
 				NebulaGenerationTypes.number().range().withMin(BigDecimal.valueOf(-2)).withMax(BigDecimal.valueOf(2)));
@@ -102,7 +102,7 @@ public class ModelTest {
 		// GIVEN
 		Model model = new Model();
 		int amount = 10;
-		Entity entity = Nebula.newEntity("test", amount);
+		Entity entity = NebulaCore.newEntity("test", amount);
 		entity.addProperty("number", NebulaGenerators.random(),
 				NebulaGenerationTypes.number().range().withMin(BigDecimal.valueOf(-2)).withMax(BigDecimal.valueOf(2)));
 		model.addEntity(entity);
@@ -121,7 +121,7 @@ public class ModelTest {
 		// GIVEN
 		Model model = new Model();
 		int amount = 10;
-		Entity entity = Nebula.newEntity("test", amount);
+		Entity entity = NebulaCore.newEntity("test", amount);
 		entity.addProperty("number", NebulaGenerators.random(),
 				NebulaGenerationTypes.number().range().withMin(BigDecimal.valueOf(-2)).withMax(BigDecimal.valueOf(2)));
 		model.addEntity(entity);
@@ -142,7 +142,7 @@ public class ModelTest {
 		Model model = new Model();
 		int amount = 10;
 		String entityName = "test";
-		Entity entity = Nebula.newEntity(entityName, amount);
+		Entity entity = NebulaCore.newEntity(entityName, amount);
 		model.addEntity(entity);
 
 		// WHEN
@@ -158,7 +158,7 @@ public class ModelTest {
 		// GIVEN
 		Model model = new Model();
 		int amount = 10;
-		Entity entity = Nebula.newEntity("test", amount);
+		Entity entity = NebulaCore.newEntity("test", amount);
 		model.addEntity(entity);
 
 		// WHEN
@@ -174,7 +174,7 @@ public class ModelTest {
 		// GIVEN
 		Model model = new Model();
 		int amount = 10;
-		Entity entity = Nebula.newEntity("test", amount);
+		Entity entity = NebulaCore.newEntity("test", amount);
 		model.addEntity(entity);
 		long seed = 1l;
 		long entityIndex = 0l;
@@ -192,7 +192,7 @@ public class ModelTest {
 		// GIVEN
 		Model model = new Model();
 		int amount = 10;
-		Entity entity = Nebula.newEntity("test", amount);
+		Entity entity = NebulaCore.newEntity("test", amount);
 		model.addEntity(entity);
 		long seed = 1l;
 
@@ -209,7 +209,7 @@ public class ModelTest {
 		// GIVEN
 		Model model = new Model();
 		int amount = 10;
-		Entity entity = Nebula.newEntity("test", amount);
+		Entity entity = NebulaCore.newEntity("test", amount);
 		model.addEntity(entity);
 		long seed = 1l;
 		long entityIndex = 0l;
@@ -228,7 +228,7 @@ public class ModelTest {
 		// GIVEN
 		Model model = new Model();
 		int amount = 10;
-		Entity entity = Nebula.newEntity("test", amount);
+		Entity entity = NebulaCore.newEntity("test", amount);
 		model.addEntity(entity);
 		long seed = 1l;
 		long entityIndex = 0l;

@@ -9,8 +9,8 @@ import java.math.BigDecimal;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
-import static com.nebula.core.Nebula.newEntity;
-import static com.nebula.core.Nebula.newModel;
+import static com.nebula.core.NebulaCore.newEntity;
+import static com.nebula.core.NebulaCore.newModel;
 import static com.nebula.core.NebulaGenerationTypes.number;
 import static com.nebula.core.NebulaGenerators.random;
 

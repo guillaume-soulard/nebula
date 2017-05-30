@@ -1,6 +1,6 @@
 package com.nebula.core;
 
-public final class Nebula {
+public final class NebulaCore {
 
 	public static Model newModel() {
 

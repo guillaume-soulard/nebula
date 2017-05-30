@@ -19,12 +19,9 @@ import org.openjdk.jmh.infra.Blackhole;
 
 import com.nebula.core.Entity;
 import com.nebula.core.Model;
-import com.nebula.core.Nebula;
-import com.nebula.core.NebulaGenerationTypes;
-import com.nebula.core.NebulaGenerators;
 
-import static com.nebula.core.Nebula.newEntity;
-import static com.nebula.core.Nebula.newModel;
+import static com.nebula.core.NebulaCore.newEntity;
+import static com.nebula.core.NebulaCore.newModel;
 import static com.nebula.core.NebulaGenerationTypes.constant;
 import static com.nebula.core.NebulaGenerationTypes.list;
 import static com.nebula.core.NebulaGenerators.random;
