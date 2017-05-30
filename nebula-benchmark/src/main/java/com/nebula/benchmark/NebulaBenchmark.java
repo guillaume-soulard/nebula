@@ -4,27 +4,30 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.nebula.benchmark.types.constant.ConstantTypeBenchmark;
+import com.nebula.benchmark.types.list.ListTypeAmongItemsBenchmark;
+import com.nebula.benchmark.types.list.ListTypeOfTypeBenchmark;
+import com.nebula.benchmark.types.number.NumberAmongTypeBenchmark;
+import com.nebula.benchmark.types.number.NumberRangeTypeBenchmark;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 
-import com.nebula.benchmark.types.ListAmongItemsBenchmark;
-import com.nebula.benchmark.types.ListOfTypeBenchmark;
+import com.nebula.benchmark.types.bool.BoolTypeBenchmark;
 
 public class NebulaBenchmark {
 
 	private List<Class<?>> benchmarkClasses;
 
 	private NebulaBenchmark() {
-		benchmarkClasses = new ArrayList<Class<?>>();
-		benchmarkClasses.add(OnePropertyOnEntityBenchmark.class);
-		benchmarkClasses.add(TwoPropertyOnEntityBenchmark.class);
-		benchmarkClasses.add(ThreePropertyOnEntityBenchmark.class);
-		benchmarkClasses.add(FourPropertyOnEntityBenchmark.class);
-		benchmarkClasses.add(FivePropertyOnEntityBenchmark.class);
-		benchmarkClasses.add(ListOfTypeBenchmark.class);
-		benchmarkClasses.add(ListAmongItemsBenchmark.class);
+		benchmarkClasses = new ArrayList<>();
+		benchmarkClasses.add(ListTypeOfTypeBenchmark.class);
+		benchmarkClasses.add(ListTypeAmongItemsBenchmark.class);
+		benchmarkClasses.add(BoolTypeBenchmark.class);
+		benchmarkClasses.add(ConstantTypeBenchmark.class);
+		benchmarkClasses.add(NumberRangeTypeBenchmark.class);
+		benchmarkClasses.add(NumberAmongTypeBenchmark.class);
 	}
 
 	public static void main(String[] args) throws RunnerException {
@@ -32,10 +35,15 @@ public class NebulaBenchmark {
 	}
 
 	private void runBenchmark() throws RunnerException {
-		Options options = new OptionsBuilder().output(getOuputFileName()).result(getResultFileName())
-				.include(getBenchmarkClassesRegexp()).shouldDoGC(true).shouldFailOnError(true)
-				.jvmArgs("-Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n").build();
-		new Runner(options).run();
+		try {
+			Options options = new OptionsBuilder()
+					// .output(getOuputFileName()).result(getResultFileName())
+					.include(getBenchmarkClassesRegexp()).shouldDoGC(true).shouldFailOnError(true)
+					.jvmArgs("-Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n").build();
+			new Runner(options).run();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	private String getResultFileName() {
@@ -47,8 +55,12 @@ public class NebulaBenchmark {
 	}
 
 	private String getBenchmarkClassesRegexp() {
-		return benchmarkClasses.stream().map(clazz -> clazz.getSimpleName()).distinct().collect(Collectors.toList())
-				.stream().reduce(getOuputFileName(), (a, b) -> a + "|" + b);
+		if (benchmarkClasses.size() == 1) {
+			return benchmarkClasses.get(0).getSimpleName();
+		} else {
+			return benchmarkClasses.stream().map(clazz -> clazz.getSimpleName()).distinct().collect(Collectors.toList())
+					.stream().reduce("", (a, b) -> a + "|" + b);
+		}
 
 	}
 }

@@ -24,7 +24,7 @@ public class ListTypeOfType extends AbstractListType {
 
 	@Override
 	protected List<Object> generateList(int listSize, NebulaRandom nebulaRandom) {
-		List<Object> list = new ArrayList<>(Integer.valueOf(Long.toString(listSize)));
+		List<Object> list = new ArrayList<>(listSize);
 		fillList(listSize, nebulaRandom, list);
 		return list;
 	}

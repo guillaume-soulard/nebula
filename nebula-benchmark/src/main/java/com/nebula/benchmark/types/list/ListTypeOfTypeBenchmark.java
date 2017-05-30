@@ -1,4 +1,4 @@
-package com.nebula.benchmark.types;
+package com.nebula.benchmark.types.list;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
@@ -23,6 +23,11 @@ import com.nebula.core.Nebula;
 import com.nebula.core.NebulaGenerationTypes;
 import com.nebula.core.NebulaGenerators;
 
+import static com.nebula.core.Nebula.newEntity;
+import static com.nebula.core.Nebula.newModel;
+import static com.nebula.core.NebulaGenerationTypes.number;
+import static com.nebula.core.NebulaGenerators.random;
+
 @State(Scope.Benchmark)
 @BenchmarkMode(Mode.Throughput)
 @OutputTimeUnit(TimeUnit.SECONDS)
@@ -30,7 +35,7 @@ import com.nebula.core.NebulaGenerators;
 @Measurement(time = 3, timeUnit = TimeUnit.SECONDS, iterations = 3)
 @Threads(1)
 @Fork(1)
-public class ListAmongItemsBenchmark {
+public class ListTypeOfTypeBenchmark {
 
 	private AtomicLong index;
 	private Model model;
@@ -43,10 +48,10 @@ public class ListAmongItemsBenchmark {
 
 	@Setup(Level.Iteration)
 	public void setup() {
-		model = Nebula.newModel();
-		entity = Nebula.newEntity("test", 10000000);
-		entity.addProperty("property", NebulaGenerators.random(), NebulaGenerationTypes.list()
-				.of(NebulaGenerators.random()).amongItems(NebulaGenerationTypes.constant("value")));
+		model = newModel();
+		entity = newEntity("test", 10000000);
+		entity.addProperty("property", random(),
+				NebulaGenerationTypes.list().of(random(), number().range()));
 		model.addEntity(entity);
 		index = new AtomicLong(0l);
 	}
