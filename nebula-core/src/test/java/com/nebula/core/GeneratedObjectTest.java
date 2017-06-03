@@ -1,5 +1,7 @@
 package com.nebula.core;
 
+import static com.googlecode.catchexception.CatchException.catchException;
+import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.ArrayList;
@@ -133,5 +135,40 @@ public class GeneratedObjectTest {
 
 		// THEN
 		assertThat(result).isFalse();
+	}
+
+	@Test
+	public void getGeneratedPropertyValue_should_return_the_proeprty_value() {
+
+		// GIVEN
+		List<GeneratedProperty> properties = new ArrayList<>();
+		GeneratedObject value = new GeneratedObject("value");
+		String propertyName = "test";
+		GeneratedProperty generatedProperty = new GeneratedProperty(propertyName, value);
+		properties.add(generatedProperty);
+		GeneratedObject generatedObject = new GeneratedObject(properties);
+
+		// WHEN
+		GeneratedObject result = generatedObject.getGeneratedPropertyValue(propertyName);
+
+		// THEN
+		assertThat(result).isEqualTo(value);
+	}
+
+	@Test
+	public void getGeneratedPropertyValue_should_throw_exception_when_propertyName_is_unknown() {
+
+		// GIVEN
+		List<GeneratedProperty> properties = new ArrayList<>();
+		GeneratedObject value = new GeneratedObject("value");
+		GeneratedProperty generatedProperty = new GeneratedProperty("test", value);
+		properties.add(generatedProperty);
+		GeneratedObject generatedObject = new GeneratedObject(properties);
+
+		// WHEN
+		catchException(generatedObject).getGeneratedPropertyValue("unexisting");
+
+		// THEN
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("Property 'unexisting' is undefined");
 	}
 }

@@ -64,4 +64,17 @@ public class GeneratedObject {
 		}
 		return builder.toString();
 	}
+
+	public GeneratedObject getGeneratedPropertyValue(String propertyName) {
+
+		if (generatedProperties != null) {
+			for (GeneratedProperty generatedProperty : generatedProperties) {
+				if (generatedProperty.getPropertyName().equals(propertyName)) {
+					return generatedProperty.getPropertyValue();
+				}
+			}
+		}
+
+		throw new NebulaException("Property '" + propertyName + "' is undefined");
+	}
 }
