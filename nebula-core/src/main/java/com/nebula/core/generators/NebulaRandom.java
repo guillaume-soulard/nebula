@@ -11,6 +11,7 @@ public class NebulaRandom {
 	private long seed;
 
 	public NebulaRandom(long seed) {
+		this.seed = seed;
 		random = new Random(seed);
 	}
 
