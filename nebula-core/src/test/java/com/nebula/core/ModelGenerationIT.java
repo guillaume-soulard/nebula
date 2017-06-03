@@ -1,5 +1,7 @@
 package com.nebula.core;
 
+import static com.nebula.core.NebulaCore.newEntity;
+import static com.nebula.core.NebulaCore.newModel;
 import static com.nebula.core.NebulaGenerationTypes.bool;
 import static com.nebula.core.NebulaGenerationTypes.constant;
 import static com.nebula.core.NebulaGenerationTypes.dateTime;
@@ -45,7 +47,7 @@ public class ModelGenerationIT {
 
 		// GIVEN
 		long seed = 10l;
-		Model model = NebulaCore.newModel();
+		Model model = newModel();
 		Entity testEntity = buildTestEntity();
 		Entity anotherEntity = buildAnotherEntity();
 		model.addEntity(testEntity);
@@ -59,6 +61,25 @@ public class ModelGenerationIT {
 		List<GeneratedObject> generatedAnotherEntity = result.get(anotherEntity);
 		assertThat(generatedTestEntity).hasSize(TEST_ENTITY_AMOUNT).allMatch(expected(generatedAnotherEntity));
 		assertThat(generatedAnotherEntity).hasSize(ANOTHER_ENTITY_AMOUNT);
+	}
+
+	@Test
+	public void generateEntityObject_should_generate_two_properties_with_different_values_with_same_type() throws Exception {
+
+		// GIVEN
+		Model model = newModel();
+		Entity entity = newEntity("test", 1);
+		entity.addProperty("first", random(), string());
+		entity.addProperty("second", random(), string());
+		model.addEntity(entity);
+
+		// WHEN
+		GeneratedObject generatedObject = model.generateEntityObject(entity, 0l, 0l);
+
+		// THEN
+		Object firstValue = generatedObject.getGeneratedPropertyValue("first").getObject();
+		Object secondValue = generatedObject.getGeneratedPropertyValue("second").getObject();
+		assertThat(firstValue).isNotEqualTo(secondValue);
 	}
 
 	private Predicate<GeneratedObject> expected(final List<GeneratedObject> generatedAnotherEntity) {

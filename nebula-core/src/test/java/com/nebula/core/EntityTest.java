@@ -145,16 +145,18 @@ public class EntityTest {
 		when(property.getGenerator()).thenReturn(generator);
 		when(propertyBuilder.newProperty(anyString(), any(TypeBuilder.class), any(GeneratorBuilder.class)))
 				.thenReturn(property);
+		when(property.getName()).thenReturn("name");
 		Entity entity = new Entity("test", 1l, propertyBuilder);
 		NebulaRandom nebulaRandom = mock(NebulaRandom.class);
-		entity.addProperty(null, null, null);
+		when(nebulaRandom.getSeed()).thenReturn(0l);
+		entity.addProperty("name", null, null);
 		GenerationContext context = new GenerationContext(nebulaRandom, null);
 
 		// WHEN
 		entity.init(context);
 
 		// THEN
-		verify(generator, times(1)).init(eq(context));
+		verify(generator, times(1)).init(any(GenerationContext.class));
 	}
 
 	@Test
@@ -166,6 +168,7 @@ public class EntityTest {
 		Type type = mock(Type.class);
 		when(property.getGenerator()).thenReturn(mock(Generator.class));
 		when(property.getType()).thenReturn(type);
+		when(property.getName()).thenReturn("name");
 		when(propertyBuilder.newProperty(anyString(), any(TypeBuilder.class), any(GeneratorBuilder.class)))
 				.thenReturn(property);
 		Entity entity = new Entity("test", 1l, propertyBuilder);
@@ -177,7 +180,7 @@ public class EntityTest {
 		entity.init(context);
 
 		// THEN
-		verify(type, times(1)).init(eq(context));
+		verify(type, times(1)).init(any(GenerationContext.class));
 	}
 
 	@Test

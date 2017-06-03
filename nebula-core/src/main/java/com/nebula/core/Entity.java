@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.nebula.core.generators.GeneratorBuilder;
+import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.Type;
 import com.nebula.core.types.TypeBuilder;
@@ -44,9 +45,20 @@ public class Entity implements Type {
 
 	public void init(GenerationContext context) {
 		for (Property property : properties) {
-			property.getGenerator().init(context);
-			property.getType().init(context);
+			GenerationContext propertyGenerationContext = buildPropertyGenerationContext(context, property);
+			property.getGenerator().init(propertyGenerationContext);
+			property.getType().init(propertyGenerationContext);
 		}
+	}
+
+	private GenerationContext buildPropertyGenerationContext(GenerationContext context, Property property) {
+		return new GenerationContext(new NebulaRandom(getPropertySeed(context, property)), context.getModel());
+	}
+
+	private long getPropertySeed(GenerationContext context, Property property) {
+		long seed = context.getNebulaRandom().getSeed();
+		int propertyHashCode = property.getName().hashCode();
+		return seed + propertyHashCode;
 	}
 
 	public GeneratedObject generateObject(Long objectIndex) {
