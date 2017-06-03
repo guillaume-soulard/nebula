@@ -2,6 +2,8 @@ package com.nebula.core;
 
 public class GeneratedProperty {
 
+	public static final String QUOTE = "\"";
+	public static final String OBJECT_VALUE_SEPARATOR = ":";
 	private String propertyName;
 	private GeneratedObject propertyValue;
 
@@ -52,8 +54,8 @@ public class GeneratedProperty {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append(propertyName);
-		builder.append("=");
+		builder.append(QUOTE).append(propertyName).append(QUOTE);
+		builder.append(OBJECT_VALUE_SEPARATOR);
 		builder.append(propertyValue.toString());
 		return builder.toString();
 	}

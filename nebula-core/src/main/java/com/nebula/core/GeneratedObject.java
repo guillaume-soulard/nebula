@@ -4,6 +4,13 @@ import java.util.List;
 
 public class GeneratedObject {
 
+	public static final String QUOTE = "\"";
+	public static final String OBJECT_SEPARATOR = ",";
+	public static final String ARRAY_START = "[";
+	public static final String ARRAY_END = "]";
+	public static final String OBJECT_START = "{";
+	public static final String OBJECT_END = "}";
+	public static final String PROPERTY_VALUE_SEPARATOR = ":";
 	private List<GeneratedProperty> generatedProperties;
 	private Object object;
 
@@ -56,13 +63,65 @@ public class GeneratedObject {
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
 		if (object != null) {
-			builder.append(object.toString());
-		} else if (generatedProperties != null) {
-			builder.append(generatedProperties.toString());
+			return getObjectString();
+		} else {
+			return getPropertiesString();
 		}
-		return builder.toString();
+	}
+
+	private String getPropertiesString() {
+		StringBuilder builder = new StringBuilder(OBJECT_START);
+		for (GeneratedProperty generatedProperty : generatedProperties) {
+            if (isFirstItemOfList(generatedProperties, generatedProperty)) {
+                builder.append(OBJECT_SEPARATOR);
+            }
+            builder.append(generatedProperty.toString());
+        }
+		return builder.append(OBJECT_END).toString();
+	}
+
+	private String getObjectString() {
+		if (isString(object)) {
+			return getObjectAsString();
+		}
+		if (isList(object)) {
+			return getListAsString();
+        }
+		return object.toString();
+	}
+
+	private String getListAsString() {
+		List<?> list = (List<?>) object;
+		StringBuilder builder = new StringBuilder(ARRAY_START);
+		for (Object item : list) {
+            if (isFirstItemOfList(list, item)) {
+                builder.append(OBJECT_SEPARATOR);
+            }
+
+            if (item instanceof String) {
+                builder.append(QUOTE).append(item.toString()).append(QUOTE);
+            } else {
+                builder.append(item.toString());
+            }
+        }
+		return builder.append(ARRAY_END).toString();
+	}
+
+	private boolean isFirstItemOfList(List<?> list, Object item) {
+		return list.indexOf(item) != 0;
+	}
+
+	private String getObjectAsString() {
+		return QUOTE + object + QUOTE;
+	}
+
+	private boolean isList(Object objectToCheck) {
+		return objectToCheck instanceof List;
+	}
+
+	private boolean isString(Object objectToCheck) {
+		return objectToCheck instanceof String;
 	}
 
 	public GeneratedObject getGeneratedPropertyValue(String propertyName) {
