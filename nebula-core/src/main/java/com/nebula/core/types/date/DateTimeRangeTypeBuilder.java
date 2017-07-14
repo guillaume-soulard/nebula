@@ -7,7 +7,14 @@ import com.nebula.core.types.Range;
 import com.nebula.core.types.RangeTypeBuilder;
 import com.nebula.core.types.Type;
 
+import java.util.Date;
+
 public class DateTimeRangeTypeBuilder extends RangeTypeBuilder<ReadableInstant> {
+
+	public static final DateTime MIN_DEFAULT_DATE_TIME = new DateTime(0l);
+	public static final DateTime MAX_DEFAULT_DATE_TIME = new DateTime(9999, 12, 31, 0, 0);
+	public static final Date MIN_DEFAULT_DATE = MIN_DEFAULT_DATE_TIME.toDate();
+	public static final Date MAX_DEFAULT_DATE = MAX_DEFAULT_DATE_TIME.toDate();
 
 	private DateTimeTypeIntervals interval;
 
@@ -33,11 +40,11 @@ public class DateTimeRangeTypeBuilder extends RangeTypeBuilder<ReadableInstant> 
 
 	@Override
 	protected ReadableInstant getDefaultMin() {
-		return new DateTime(0l);
+		return MIN_DEFAULT_DATE_TIME;
 	}
 
 	@Override
 	protected ReadableInstant getDefaultMax() {
-		return new DateTime(9999, 12, 31, 0, 0);
+		return MAX_DEFAULT_DATE_TIME;
 	}
 }

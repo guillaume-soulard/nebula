@@ -22,7 +22,7 @@ public class DateTimeRangeType extends AbstractTypeWithIndexCheck {
 
 	private Range<ReadableInstant> range;
 	private DateTimeTypeIntervals interval;
-	private Map<DateTimeTypeIntervals, DateTimeStrategy> dateTimestrategy = new HashMap<DateTimeTypeIntervals, DateTimeStrategy>();
+	private Map<DateTimeTypeIntervals, DateTimeStrategy> dateTimeStrategy = new HashMap<DateTimeTypeIntervals, DateTimeStrategy>();
 
 	public DateTimeRangeType(Range<ReadableInstant> range, DateTimeTypeIntervals interval) {
 		this.range = range;
@@ -32,13 +32,13 @@ public class DateTimeRangeType extends AbstractTypeWithIndexCheck {
 			this.interval = interval;
 		}
 
-		dateTimestrategy.put(DateTimeTypeIntervals.DAY, new DateTimeDayStrategy());
-		dateTimestrategy.put(DateTimeTypeIntervals.HOUR, new DateTimeHourStrategy());
-		dateTimestrategy.put(DateTimeTypeIntervals.MILLISECOND, new DateTimeMillisecondStrategy());
-		dateTimestrategy.put(DateTimeTypeIntervals.MINUTE, new DateTimeMinuteStrategy());
-		dateTimestrategy.put(DateTimeTypeIntervals.MONTH, new DateTimeMonthStrategy());
-		dateTimestrategy.put(DateTimeTypeIntervals.SECOND, new DateTimeSecondStrategy());
-		dateTimestrategy.put(DateTimeTypeIntervals.YEAR, new DateTimeYearStrategy());
+		dateTimeStrategy.put(DateTimeTypeIntervals.DAY, new DateTimeDayStrategy());
+		dateTimeStrategy.put(DateTimeTypeIntervals.HOUR, new DateTimeHourStrategy());
+		dateTimeStrategy.put(DateTimeTypeIntervals.MILLISECOND, new DateTimeMillisecondStrategy());
+		dateTimeStrategy.put(DateTimeTypeIntervals.MINUTE, new DateTimeMinuteStrategy());
+		dateTimeStrategy.put(DateTimeTypeIntervals.MONTH, new DateTimeMonthStrategy());
+		dateTimeStrategy.put(DateTimeTypeIntervals.SECOND, new DateTimeSecondStrategy());
+		dateTimeStrategy.put(DateTimeTypeIntervals.YEAR, new DateTimeYearStrategy());
 	}
 
 	@Override
@@ -51,11 +51,11 @@ public class DateTimeRangeType extends AbstractTypeWithIndexCheck {
 		DateTime min = (DateTime) range.getMin();
 		DateTime max = (DateTime) range.getMax();
 
-		return dateTimestrategy.get(interval).getMaxIndex(min, max);
+		return dateTimeStrategy.get(interval).getMaxIndex(min, max);
 	}
 
 	public Map<DateTimeTypeIntervals, DateTimeStrategy> getDateTimeAdders() {
-		return new HashMap<DateTimeTypeIntervals, DateTimeStrategy>(dateTimestrategy);
+		return new HashMap<DateTimeTypeIntervals, DateTimeStrategy>(dateTimeStrategy);
 	}
 
 	@Override
@@ -64,7 +64,7 @@ public class DateTimeRangeType extends AbstractTypeWithIndexCheck {
 	}
 
 	public DateTime calculateRequestedDate(Long index) {
-		return dateTimestrategy.get(interval).getByDateAndIndexAndInterval((DateTime) range.getMin(), index);
+		return dateTimeStrategy.get(interval).getByDateAndIndexAndInterval((DateTime) range.getMin(), index);
 	}
 
 }

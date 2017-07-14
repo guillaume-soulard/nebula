@@ -73,9 +73,9 @@ public class GeneratedObjectTest {
 
 		// GIVEN
 		List<GeneratedProperty> propertiesOfObject1 = Arrays
-				.asList(new GeneratedProperty("test", new GeneratedObject("value")));
+				.asList(new GeneratedProperty("test", new GeneratedObject("value"), null));
 		List<GeneratedProperty> propertiesOfObject2 = Arrays
-				.asList(new GeneratedProperty("test", new GeneratedObject("value")));
+				.asList(new GeneratedProperty("test", new GeneratedObject("value"), null));
 		GeneratedObject object1 = new GeneratedObject(propertiesOfObject1);
 		GeneratedObject object2 = new GeneratedObject(propertiesOfObject2);
 
@@ -91,9 +91,9 @@ public class GeneratedObjectTest {
 
 		// GIVEN
 		List<GeneratedProperty> propertiesOfObject1 = Arrays
-				.asList(new GeneratedProperty("property1", new GeneratedObject("value")));
+				.asList(new GeneratedProperty("property1", new GeneratedObject("value"), null));
 		List<GeneratedProperty> propertiesOfObject2 = Arrays
-				.asList(new GeneratedProperty("property2", new GeneratedObject("value")));
+				.asList(new GeneratedProperty("property2", new GeneratedObject("value"), null));
 		GeneratedObject object1 = new GeneratedObject(propertiesOfObject1);
 		GeneratedObject object2 = new GeneratedObject(propertiesOfObject2);
 
@@ -109,9 +109,9 @@ public class GeneratedObjectTest {
 
 		// GIVEN
 		List<GeneratedProperty> propertiesOfObject1 = Arrays
-				.asList(new GeneratedProperty("property", new GeneratedObject("value1")));
+				.asList(new GeneratedProperty("property", new GeneratedObject("value1"), null));
 		List<GeneratedProperty> propertiesOfObject2 = Arrays
-				.asList(new GeneratedProperty("property", new GeneratedObject("value2")));
+				.asList(new GeneratedProperty("property", new GeneratedObject("value2"), null));
 		GeneratedObject object1 = new GeneratedObject(propertiesOfObject1);
 		GeneratedObject object2 = new GeneratedObject(propertiesOfObject2);
 
@@ -127,7 +127,7 @@ public class GeneratedObjectTest {
 
 		// GIVEN
 		List<GeneratedProperty> propertiesOfObject1 = Arrays
-				.asList(new GeneratedProperty("property", new GeneratedObject("value1")));
+				.asList(new GeneratedProperty("property", new GeneratedObject("value1"), null));
 		GeneratedObject object1 = new GeneratedObject(propertiesOfObject1);
 		GeneratedObject object2 = null;
 
@@ -145,7 +145,7 @@ public class GeneratedObjectTest {
 		List<GeneratedProperty> properties = new ArrayList<>();
 		GeneratedObject value = new GeneratedObject("value");
 		String propertyName = "test";
-		GeneratedProperty generatedProperty = new GeneratedProperty(propertyName, value);
+		GeneratedProperty generatedProperty = new GeneratedProperty(propertyName, value, null);
 		properties.add(generatedProperty);
 		GeneratedObject generatedObject = new GeneratedObject(properties);
 
@@ -162,7 +162,7 @@ public class GeneratedObjectTest {
 		// GIVEN
 		List<GeneratedProperty> properties = new ArrayList<>();
 		GeneratedObject value = new GeneratedObject("value");
-		GeneratedProperty generatedProperty = new GeneratedProperty("test", value);
+		GeneratedProperty generatedProperty = new GeneratedProperty("test", value, null);
 		properties.add(generatedProperty);
 		GeneratedObject generatedObject = new GeneratedObject(properties);
 
@@ -247,8 +247,8 @@ public class GeneratedObjectTest {
 		// GIVEN
 		GeneratedObject generatedObject;
 		List<GeneratedProperty> list = new ArrayList<>();
-		list.add(new GeneratedProperty("property 1", new GeneratedObject("value")));
-        list.add(new GeneratedProperty("property 2", new GeneratedObject(BigDecimal.TEN)));
+		list.add(new GeneratedProperty("property 1", new GeneratedObject("value"), null));
+        list.add(new GeneratedProperty("property 2", new GeneratedObject(BigDecimal.TEN), null));
 
 		// WHEN
 		generatedObject = new GeneratedObject(list);

@@ -66,7 +66,9 @@ public class Entity implements Type {
 		for (Property property : properties) {
 
 			generatedProperties.add(
-					new GeneratedProperty(property.getName(), property.getGenerator().generate(property.getType())));
+					new GeneratedProperty(property.getName(),
+							property.getGenerator().generate(property.getType()),
+							property.getType()));
 		}
 		return new GeneratedObject(generatedProperties);
 	}

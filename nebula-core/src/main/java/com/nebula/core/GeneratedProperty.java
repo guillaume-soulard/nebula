@@ -1,15 +1,19 @@
 package com.nebula.core;
 
+import com.nebula.core.types.Type;
+
 public class GeneratedProperty {
 
 	public static final String QUOTE = "\"";
 	public static final String OBJECT_VALUE_SEPARATOR = ":";
 	private String propertyName;
 	private GeneratedObject propertyValue;
+	private Type propertyType;
 
-	public GeneratedProperty(String propertyName, GeneratedObject propertyValue) {
+	public GeneratedProperty(String propertyName, GeneratedObject propertyValue, Type propertyType) {
 		this.propertyName = propertyName;
 		this.propertyValue = propertyValue;
+		this.propertyType = propertyType;
 	}
 
 	public String getPropertyName() {
@@ -18,6 +22,10 @@ public class GeneratedProperty {
 
 	public GeneratedObject getPropertyValue() {
 		return propertyValue;
+	}
+
+	public Type getPropertyType() {
+		return propertyType;
 	}
 
 	@Override
