@@ -10,7 +10,6 @@
 	<modules>
 		<module>nebula-core</module>
 		<module>nebula-benchmark</module>
-		<module>nebula-object</module>
 	</modules>
 
 	<properties>
