@@ -1,6 +1,8 @@
-package com.nebula.output;
+package com.nebula.output.stdout;
 
-public class StandardOutputOutput {
+import com.nebula.output.Output;
+
+public class StandardOutputOutput implements Output {
 
     public void write(String... formattedObjects) {
         for (String formattedObject : formattedObjects) {
