@@ -2,8 +2,9 @@ package com.nebula.formatter.csv;
 
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.GeneratedProperty;
+import com.nebula.formatter.Formatter;
 
-public class CsvFormatter {
+public class CsvFormatter implements Formatter {
     private final String separator;
     private final boolean header;
     private final String quote;
