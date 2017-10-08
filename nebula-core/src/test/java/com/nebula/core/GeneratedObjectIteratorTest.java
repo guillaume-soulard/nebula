@@ -13,6 +13,7 @@ import static org.mockito.Mockito.when;
 
 import java.util.NoSuchElementException;
 
+import com.nebula.Model;
 import org.junit.Test;
 
 public class GeneratedObjectIteratorTest {

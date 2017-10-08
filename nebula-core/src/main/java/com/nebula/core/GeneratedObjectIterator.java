@@ -1,5 +1,7 @@
 package com.nebula.core;
 
+import com.nebula.Model;
+
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -34,4 +36,7 @@ public class GeneratedObjectIterator implements Iterator<GeneratedObject> {
 		return generatedObject;
 	}
 
+	public Entity getEntity() {
+		return entity;
+	}
 }

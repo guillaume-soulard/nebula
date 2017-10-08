@@ -10,7 +10,7 @@ import org.junit.Test;
 
 import com.nebula.core.Entity;
 import com.nebula.core.GeneratedObject;
-import com.nebula.core.Model;
+import com.nebula.Model;
 import com.nebula.core.NebulaException;
 import com.nebula.core.PropertyBuilder;
 import com.nebula.core.generators.NebulaRandom;

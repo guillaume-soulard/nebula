@@ -1,5 +1,6 @@
 package com.nebula.core;
 
+import com.nebula.Model;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
 

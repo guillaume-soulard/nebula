@@ -12,7 +12,7 @@ import java.util.List;
 import org.junit.Test;
 
 import com.nebula.core.GeneratedObject;
-import com.nebula.core.Model;
+import com.nebula.Model;
 import com.nebula.core.NebulaGenerationTypes;
 import com.nebula.core.NebulaGenerators;
 import com.nebula.core.generators.Generator;

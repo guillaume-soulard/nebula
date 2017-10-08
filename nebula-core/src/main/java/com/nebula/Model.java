@@ -1,15 +1,21 @@
-package com.nebula.core;
+package com.nebula;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import com.nebula.core.*;
+import com.nebula.generationrule.GenerationRule;
+import com.nebula.generationrule.GenerationRuleBuilder;
+
+import java.util.*;
 
 public class Model {
 
+	private long seed;
 	private List<Entity> entities = new ArrayList<Entity>();
 	private EntityGenerator entityGenerator = new EntityGenerator();
+	private List<GenerationRule> generationRules = new ArrayList<>();
+
+	public Model() {
+		seed = new Random().nextLong();
+	}
 
 	public void addEntity(Entity entity) {
 
@@ -17,6 +23,10 @@ public class Model {
 			throw new NebulaException("type is null");
 		}
 		entities.add(entity);
+	}
+
+	public void addGenerationRule(GenerationRuleBuilder generationRuleBuilder) {
+		this.generationRules.add(generationRuleBuilder.build(this));
 	}
 
 	public List<Entity> getEntities() {
@@ -56,5 +66,13 @@ public class Model {
 
 	public GeneratedObject generateEntityObject(Entity entity, long entityIndex, long seed) {
 		return entityGenerator.generateEntityObject(this, entity, entityIndex, seed);
+	}
+
+	public long getSeed() {
+		return seed;
+	}
+
+	public void setSeed(long seed) {
+		this.seed = seed;
 	}
 }

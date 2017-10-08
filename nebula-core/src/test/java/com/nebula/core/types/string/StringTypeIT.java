@@ -6,8 +6,8 @@ import org.joda.time.DateTime;
 import org.junit.Test;
 
 import com.nebula.core.Entity;
-import com.nebula.core.Model;
-import com.nebula.core.NebulaCore;
+import com.nebula.Model;
+import com.nebula.Nebula;
 import com.nebula.core.NebulaGenerationTypes;
 import com.nebula.core.NebulaGenerators;
 import com.nebula.core.generators.NebulaRandom;
@@ -21,7 +21,7 @@ public class StringTypeIT {
 	public void generateEntityObject_should_take_less_than_1_second_to_generate_100000_strings() {
 
 		// GIVEN
-		Model model = NebulaCore.newModel();
+		Model model = Nebula.newModel();
 		Entity entity = createEntityInModel(model);
 		DateTime start = DateTime.now();
 
@@ -53,7 +53,7 @@ public class StringTypeIT {
 	}
 
 	private Entity createEntityInModel(Model model) {
-		Entity entity = NebulaCore.newEntity("entity", 1);
+		Entity entity = Nebula.newEntity("entity", 1);
 		entity.addProperty("property", NebulaGenerators.random(),
 				NebulaGenerationTypes.string().withPattern("[A-Z]{1}[a-z]{10,25}"));
 		model.addEntity(entity);

@@ -18,11 +18,11 @@ import org.openjdk.jmh.annotations.Warmup;
 import org.openjdk.jmh.infra.Blackhole;
 
 import com.nebula.core.Entity;
-import com.nebula.core.Model;
+import com.nebula.Model;
 import com.nebula.core.NebulaGenerationTypes;
 
-import static com.nebula.core.NebulaCore.newEntity;
-import static com.nebula.core.NebulaCore.newModel;
+import static com.nebula.Nebula.newEntity;
+import static com.nebula.Nebula.newModel;
 import static com.nebula.core.NebulaGenerationTypes.number;
 import static com.nebula.core.NebulaGenerators.random;
 

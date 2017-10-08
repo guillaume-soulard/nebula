@@ -1,7 +1,7 @@
 package com.nebula.benchmark.types.number;
 
 import com.nebula.core.Entity;
-import com.nebula.core.Model;
+import com.nebula.Model;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
 
@@ -9,8 +9,8 @@ import java.math.BigDecimal;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
-import static com.nebula.core.NebulaCore.newEntity;
-import static com.nebula.core.NebulaCore.newModel;
+import static com.nebula.Nebula.newEntity;
+import static com.nebula.Nebula.newModel;
 import static com.nebula.core.NebulaGenerationTypes.number;
 import static com.nebula.core.NebulaGenerators.random;
 

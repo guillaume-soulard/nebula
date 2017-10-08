@@ -1,5 +1,6 @@
 package com.nebula.benchmark.types.constant;
 
+import com.nebula.Model;
 import com.nebula.core.*;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
@@ -7,8 +8,8 @@ import org.openjdk.jmh.infra.Blackhole;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
-import static com.nebula.core.NebulaCore.newEntity;
-import static com.nebula.core.NebulaCore.newModel;
+import static com.nebula.Nebula.newEntity;
+import static com.nebula.Nebula.newModel;
 import static com.nebula.core.NebulaGenerationTypes.constant;
 import static com.nebula.core.NebulaGenerators.random;
 

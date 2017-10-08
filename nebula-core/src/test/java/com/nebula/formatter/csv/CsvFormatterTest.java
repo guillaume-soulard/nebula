@@ -1,8 +1,7 @@
 package com.nebula.formatter.csv;
 
-import com.nebula.core.GeneratedObject;
-import com.nebula.core.GeneratedProperty;
-import com.nebula.core.NebulaGenerationTypes;
+import com.nebula.Nebula;
+import com.nebula.core.*;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -11,21 +10,6 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CsvFormatterTest {
-
-    @Test
-    public void new_CsvFormatter_should_have_default_properties() throws Exception {
-
-        // GIVEN
-        CsvFormatter formatter;
-
-        // WHEN
-        formatter = new CsvFormatter();
-
-        // THEN
-        assertThat(formatter).hasFieldOrPropertyWithValue("separator", ",")
-            .hasFieldOrPropertyWithValue("header", true)
-            .hasFieldOrPropertyWithValue("quote", "");
-    }
 
     @Test
     public void formatGeneratedObject_should_return_durant() throws Exception {
@@ -94,13 +78,12 @@ public class CsvFormatterTest {
         boolean header = true;
         String quote = "";
         CsvFormatter formatter = new CsvFormatter(separator, quote, header);
-        List<GeneratedProperty> generatedProperties = new ArrayList<>();
-        generatedProperties.add(new GeneratedProperty("firstName", new GeneratedObject("jean"), NebulaGenerationTypes.string().build()));
-        generatedProperties.add(new GeneratedProperty("lastName", new GeneratedObject("durant"), NebulaGenerationTypes.string().build()));
-        GeneratedObject generatedObject = new GeneratedObject(generatedProperties);
+        Entity entity = Nebula.newEntity("test", Long.MAX_VALUE);
+        entity.addProperty("firstName", NebulaGenerators.random(), NebulaGenerationTypes.string());
+        entity.addProperty("lastName", NebulaGenerators.random(), NebulaGenerationTypes.string());
 
         // WHEN
-        String formattedHeader = formatter.formatHeader(generatedObject);
+        String formattedHeader = formatter.formatHeader(entity);
 
         // THEN
         assertThat(formattedHeader).isEqualTo("firstName;lastName");
@@ -114,13 +97,12 @@ public class CsvFormatterTest {
         boolean header = true;
         String quote = "";
         CsvFormatter formatter = new CsvFormatter(separator, quote, header);
-        List<GeneratedProperty> generatedProperties = new ArrayList<>();
-        generatedProperties.add(new GeneratedProperty("col1", new GeneratedObject("jean"), NebulaGenerationTypes.string().build()));
-        generatedProperties.add(new GeneratedProperty("col2", new GeneratedObject("durant"), NebulaGenerationTypes.string().build()));
-        GeneratedObject generatedObject = new GeneratedObject(generatedProperties);
+        Entity entity = Nebula.newEntity("test", Long.MAX_VALUE);
+        entity.addProperty("col1", NebulaGenerators.random(), NebulaGenerationTypes.string());
+        entity.addProperty("col2", NebulaGenerators.random(), NebulaGenerationTypes.string());
 
         // WHEN
-        String formattedHeader = formatter.formatHeader(generatedObject);
+        String formattedHeader = formatter.formatHeader(entity);
 
         // THEN
         assertThat(formattedHeader).isEqualTo("col1;col2");
@@ -134,13 +116,12 @@ public class CsvFormatterTest {
         boolean header = false;
         String quote = "";
         CsvFormatter formatter = new CsvFormatter(separator, quote, header);
-        List<GeneratedProperty> generatedProperties = new ArrayList<>();
-        generatedProperties.add(new GeneratedProperty("firstName", new GeneratedObject("jean"), NebulaGenerationTypes.string().build()));
-        generatedProperties.add(new GeneratedProperty("lastName", new GeneratedObject("durant"), NebulaGenerationTypes.string().build()));
-        GeneratedObject generatedObject = new GeneratedObject(generatedProperties);
+        Entity entity = Nebula.newEntity("test", Long.MAX_VALUE);
+        entity.addProperty("firstName", NebulaGenerators.random(), NebulaGenerationTypes.string());
+        entity.addProperty("lastName", NebulaGenerators.random(), NebulaGenerationTypes.string());
 
         // WHEN
-        String formattedHeader = formatter.formatHeader(generatedObject);
+        String formattedHeader = formatter.formatHeader(entity);
 
         // THEN
         assertThat(formattedHeader).isEmpty();
@@ -154,13 +135,12 @@ public class CsvFormatterTest {
         boolean header = true;
         String quote = "\"";
         CsvFormatter formatter = new CsvFormatter(separator, quote, header);
-        List<GeneratedProperty> generatedProperties = new ArrayList<>();
-        generatedProperties.add(new GeneratedProperty("firstName", new GeneratedObject("jean"), NebulaGenerationTypes.string().build()));
-        generatedProperties.add(new GeneratedProperty("lastName", new GeneratedObject("durant"), NebulaGenerationTypes.string().build()));
-        GeneratedObject generatedObject = new GeneratedObject(generatedProperties);
+        Entity entity = Nebula.newEntity("test", Long.MAX_VALUE);
+        entity.addProperty("firstName", NebulaGenerators.random(), NebulaGenerationTypes.string());
+        entity.addProperty("lastName", NebulaGenerators.random(), NebulaGenerationTypes.string());
 
         // WHEN
-        String formattedHeader = formatter.formatHeader(generatedObject);
+        String formattedHeader = formatter.formatHeader(entity);
 
         // THEN
         assertThat(formattedHeader).isEqualTo("\"firstName\";\"lastName\"");
@@ -174,13 +154,12 @@ public class CsvFormatterTest {
         boolean header = false;
         String quote = "";
         CsvFormatter formatter = new CsvFormatter(separator, quote, header);
-        List<GeneratedProperty> generatedProperties = new ArrayList<>();
-        generatedProperties.add(new GeneratedProperty("firstName", new GeneratedObject("jean"), NebulaGenerationTypes.string().build()));
-        generatedProperties.add(new GeneratedProperty("lastName", new GeneratedObject("durant"), NebulaGenerationTypes.string().build()));
-        GeneratedObject generatedObject = new GeneratedObject(generatedProperties);
+        Entity entity = Nebula.newEntity("test", Long.MAX_VALUE);
+        entity.addProperty("firstName", NebulaGenerators.random(), NebulaGenerationTypes.string());
+        entity.addProperty("lastName", NebulaGenerators.random(), NebulaGenerationTypes.string());
 
         // WHEN
-        String formattedHeader = formatter.formatFooter(generatedObject);
+        String formattedHeader = formatter.formatFooter(entity);
 
         // THEN
         assertThat(formattedHeader).isEmpty();

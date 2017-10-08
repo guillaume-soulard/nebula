@@ -2,6 +2,8 @@ package com.nebula.core;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.nebula.Model;
+import com.nebula.Nebula;
 import org.junit.Test;
 
 public class NewModelTest {
@@ -13,7 +15,7 @@ public class NewModelTest {
 		Model model = null;
 
 		// WHEN
-		model = NebulaCore.newModel();
+		model = Nebula.newModel();
 
 		// THEN
 		assertThat(model).isNotNull();
@@ -26,7 +28,7 @@ public class NewModelTest {
 		Model model = null;
 
 		// WHEN
-		model = NebulaCore.newModel();
+		model = Nebula.newModel();
 
 		// THEN
 		assertThat(model.getEntities()).isEmpty();

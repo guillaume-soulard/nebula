@@ -1,7 +1,7 @@
 package com.nebula.core;
 
-import static com.nebula.core.NebulaCore.newEntity;
-import static com.nebula.core.NebulaCore.newModel;
+import static com.nebula.Nebula.newEntity;
+import static com.nebula.Nebula.newModel;
 import static com.nebula.core.NebulaGenerationTypes.bool;
 import static com.nebula.core.NebulaGenerationTypes.constant;
 import static com.nebula.core.NebulaGenerationTypes.dateTime;
@@ -19,6 +19,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
 
+import com.nebula.Model;
+import com.nebula.Nebula;
 import org.joda.time.DateTime;
 import org.junit.Test;
 
@@ -134,7 +136,7 @@ public class ModelGenerationIT {
 	}
 
 	private Entity buildTestEntity() {
-		Entity entity = NebulaCore.newEntity(ENTITY_TEST_NAME, 1000);
+		Entity entity = Nebula.newEntity(ENTITY_TEST_NAME, 1000);
 		entity.addProperty(INTEGER_PROPERTY_NAME, random(),
 				number().range().withMin(BigDecimal.ZERO).withMax(BigDecimal.valueOf(100)));
 		entity.addProperty(DATE_TIME_PROPERTY_NAME, random(),
@@ -149,6 +151,6 @@ public class ModelGenerationIT {
 	}
 
 	private Entity buildAnotherEntity() {
-		return NebulaCore.newEntity(ANOTHER_ENTITY_NAME, ANOTHER_ENTITY_AMOUNT);
+		return Nebula.newEntity(ANOTHER_ENTITY_NAME, ANOTHER_ENTITY_AMOUNT);
 	}
 }
