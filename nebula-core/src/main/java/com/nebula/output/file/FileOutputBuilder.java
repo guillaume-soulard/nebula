@@ -5,7 +5,7 @@ import com.nebula.output.OutputBuilder;
 
 public class FileOutputBuilder implements OutputBuilder {
     private String path;
-    private String charset;
+    private String charset = "UTF-8";
 
     public FileOutputBuilder(String path) {
         this.path = path;

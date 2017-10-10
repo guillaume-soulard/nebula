@@ -10,6 +10,7 @@ import com.nebula.core.types.entity.EntityTypeBuilder;
 import com.nebula.core.types.list.ListTypeBuilder;
 import com.nebula.core.types.number.NumberTypeBuilderChooser;
 import com.nebula.core.types.string.StringTypeBuilder;
+import org.joda.time.DateTime;
 
 public final class NebulaGenerationTypes {
 
@@ -37,7 +38,7 @@ public final class NebulaGenerationTypes {
 		return new ConstantTypeBuilder(value);
 	}
 
-	public static ConstantTypeBuilder constant(Date value) {
+	public static ConstantTypeBuilder constant(DateTime value) {
 		return new ConstantTypeBuilder(value);
 	}
 

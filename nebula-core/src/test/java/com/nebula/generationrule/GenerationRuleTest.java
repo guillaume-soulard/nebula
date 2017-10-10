@@ -174,10 +174,11 @@ public class GenerationRuleTest {
         InOrder inOrder = inOrder(formatter, output, generatedObjectSource);
 
         inOrder.verify(formatter).formatHeader(entity);
+        inOrder.verify(output, times(2)).write(any(String.class));
         inOrder.verify(generatedObjectSource).hasNext();
         inOrder.verify(generatedObjectSource).next();
         inOrder.verify(formatter).formatGeneratedObject(generatedObject);
-        inOrder.verify(output).write(any(String.class));
+        inOrder.verify(output, times(2)).write(any(String.class));
         inOrder.verify(formatter).formatFooter(entity);
     }
 }

@@ -45,7 +45,7 @@ public class ConstantTypeBuilderTest {
 	public void new_ConstantTypeBuilder_should_set_Date_as_value() {
 
 		// GIVEN
-		Date value = new DateTime(2017, 1, 1, 0, 0).toDate();
+		DateTime value = new DateTime(2017, 1, 1, 0, 0);
 		TypeBuilder builder = null;
 
 		// WHEN

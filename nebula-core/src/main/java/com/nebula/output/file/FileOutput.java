@@ -3,6 +3,8 @@ package com.nebula.output.file;
 import com.nebula.core.NebulaException;
 import com.nebula.output.Output;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -12,17 +14,39 @@ import java.nio.file.StandardOpenOption;
 public class FileOutput implements Output {
     private final String charset;
     private Path filePath;
+    private FileOutputStream fileOutputStream;
 
     public FileOutput(String filePath, String charset) {
         this.filePath = Paths.get(filePath);
         this.charset = charset;
     }
 
-    public void write(String... formattedObjects) {
+    @Override
+    public void open() {
         try {
+            if (Files.isDirectory(filePath)) {
+                throw new NebulaException("'" + filePath.toFile().getPath() + "' is a directory");
+            }
             Files.deleteIfExists(filePath);
             createFileIfNotExists();
+            fileOutputStream = new FileOutputStream(filePath.toFile());
+        } catch (IOException e) {
+            throw new NebulaException(e.getMessage());
+        }
+    }
+
+    public void write(String... formattedObjects) {
+        try {
             writeFormattedObjectsToFile(formattedObjects);
+        } catch (IOException e) {
+            throw new NebulaException(e.getMessage());
+        }
+    }
+
+    @Override
+    public void close() {
+        try {
+            fileOutputStream.close();
         } catch (IOException e) {
             throw new NebulaException(e.getMessage());
         }
@@ -35,7 +59,8 @@ public class FileOutput implements Output {
     }
 
     private void writeFormattedObjectToFile(String formattedObject) throws IOException {
-        Files.write(filePath, formattedObject.getBytes(charset), StandardOpenOption.APPEND);
+        fileOutputStream.write(formattedObject.getBytes(charset));
+        fileOutputStream.flush();
     }
 
     private void createFileIfNotExists() throws IOException {

@@ -1,5 +1,8 @@
 package com.nebula.formatter;
 
+import com.nebula.Model;
+import com.nebula.formatter.csv.CsvFormatter;
+
 public interface FormatterBuilder {
-    Formatter build();
+    CsvFormatter build(Model model);
 }

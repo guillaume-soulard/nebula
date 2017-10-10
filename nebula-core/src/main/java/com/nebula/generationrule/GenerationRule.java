@@ -64,29 +64,46 @@ public class GenerationRule {
     }
 
     public void generate() {
+        openOutputs();
         generateHeader();
         generateObjects();
         generateFooter();
+        closeOutputs();
+    }
+
+    private void closeOutputs() {
+        for (Output output : outputsToWrite) {
+            output.close();
+        }
+
+    }
+
+    private void openOutputs() {
+        for (Output output : outputsToWrite) {
+            output.open();
+        }
     }
 
     private void generateFooter() {
-        writeFormatterObjectToOutputs(formatterToUse.formatFooter(entity));
+        writeToOutputs(formatterToUse.formatFooter(entity));
     }
 
     private void generateObjects() {
         while (generatedObjectSource.hasNext()) {
             GeneratedObject generatedObject = generatedObjectSource.next();
             if (isAcceptable(generatedObject)) {
-                writeFormatterObjectToOutputs(formatterToUse.formatGeneratedObject(generatedObject));
+                writeToOutputs(formatterToUse.formatGeneratedObject(generatedObject));
+                writeToOutputs(System.lineSeparator());
             }
         }
     }
 
     private void generateHeader() {
-        writeFormatterObjectToOutputs(formatterToUse.formatHeader(entity));
+        writeToOutputs(formatterToUse.formatHeader(entity));
+        writeToOutputs(System.lineSeparator());
     }
 
-    private void writeFormatterObjectToOutputs(String formattedGeneratedObject) {
+    private void writeToOutputs(String formattedGeneratedObject) {
         for (Output output : outputsToWrite) {
             output.write(formattedGeneratedObject);
         }

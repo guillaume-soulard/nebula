@@ -5,11 +5,11 @@ import com.nebula.output.stdout.StandardOutputOutputBuilder;
 
 public final class NebulaOutputs {
 
-    public StandardOutputOutputBuilder stdout() {
+    public static StandardOutputOutputBuilder stdout() {
         return new StandardOutputOutputBuilder();
     }
 
-    public FileOutputBuilder file(String path) {
+    public static FileOutputBuilder file(String path) {
         return new FileOutputBuilder(path);
     }
 }

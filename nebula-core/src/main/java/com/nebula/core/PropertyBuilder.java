@@ -10,7 +10,7 @@ public class PropertyBuilder {
 	public Property newProperty(String propertyName, TypeBuilder propertyType,
 			GeneratorBuilder propertyGeneratorBuilder) {
 		checkIfPropertyNameIsNotNull(propertyName);
-		checkIfPropertyTyapeIsNotNull(propertyType);
+		checkIfPropertyTypeIsNotNull(propertyType);
 		checkIfPropertyGeneratorIsNotNull(propertyGeneratorBuilder);
 		Property property = new Property(propertyName, buildType(propertyType),
 				buildGenerator(propertyGeneratorBuilder));
@@ -31,7 +31,7 @@ public class PropertyBuilder {
 		}
 	}
 
-	private void checkIfPropertyTyapeIsNotNull(TypeBuilder propertyType) {
+	private void checkIfPropertyTypeIsNotNull(TypeBuilder propertyType) {
 		if (propertyType == null) {
 			throw new NebulaException("property type is null");
 		}

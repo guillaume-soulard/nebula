@@ -95,7 +95,7 @@ public class NebulaGenerationTypesTest {
 	public void constant_should_return_a_new_instance_of_ConstantTypeBuilder_with_Date() {
 
 		// GIVEN
-		Date value = new DateTime(2017, 1, 1, 0, 0).toDate();
+		DateTime value = new DateTime(2017, 1, 1, 0, 0);
 
 		// WHEN
 		ConstantTypeBuilder result = NebulaGenerationTypes.constant(value);

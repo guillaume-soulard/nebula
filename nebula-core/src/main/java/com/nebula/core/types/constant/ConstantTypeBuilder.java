@@ -5,6 +5,7 @@ import java.util.Date;
 
 import com.nebula.core.types.Type;
 import com.nebula.core.types.TypeBuilder;
+import org.joda.time.DateTime;
 
 public class ConstantTypeBuilder implements TypeBuilder {
 
@@ -18,7 +19,7 @@ public class ConstantTypeBuilder implements TypeBuilder {
 		this.value = value;
 	}
 
-	public ConstantTypeBuilder(Date value) {
+	public ConstantTypeBuilder(DateTime value) {
 		this.value = value;
 	}
 

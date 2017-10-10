@@ -12,6 +12,9 @@ public class Model {
 	private List<Entity> entities = new ArrayList<Entity>();
 	private EntityGenerator entityGenerator = new EntityGenerator();
 	private List<GenerationRule> generationRules = new ArrayList<>();
+	private String dateFormat = "MM/dd/yyyy";
+	private char numberDecimalSeparator = '.';
+	private char numberThousandSeparator = ',';
 
 	public Model() {
 		seed = new Random().nextLong();
@@ -74,5 +77,35 @@ public class Model {
 
 	public void setSeed(long seed) {
 		this.seed = seed;
+	}
+
+	public void generate() {
+		for (GenerationRule generationRule : generationRules) {
+			generationRule.generate();
+		}
+	}
+
+	public String getDateFormat() {
+		return dateFormat;
+	}
+
+	public void setDateFormat(String dateFormat) {
+		this.dateFormat = dateFormat;
+	}
+
+	public char getNumberDecimalSeparator() {
+		return numberDecimalSeparator;
+	}
+
+	public void setNumberDecimalSeparator(char numberDecimalSeparator) {
+		this.numberDecimalSeparator = numberDecimalSeparator;
+	}
+
+	public char getNumberThousandSeparator() {
+		return numberThousandSeparator;
+	}
+
+	public void setNumberThousandSeparator(char numberThousandSeparator) {
+		this.numberThousandSeparator = numberThousandSeparator;
 	}
 }

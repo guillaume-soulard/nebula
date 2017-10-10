@@ -1,6 +1,6 @@
 package com.nebula.output.file;
 
-import com.nebula.output.file.FileOutput;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -22,6 +22,11 @@ public class FileOutputTest {
         temporaryFolder.create();
     }
 
+    @After
+    public void tearDown() throws Exception {
+        temporaryFolder.delete();
+    }
+
     @Test
     public void write_should_write_in_existing_file() throws Exception {
 
@@ -29,6 +34,7 @@ public class FileOutputTest {
         File fileToWrite = temporaryFolder.newFile();
         FileOutput fileOutput = new FileOutput(fileToWrite.getPath(), "UTF-8");
         String formattedObject = "content to write";
+        fileOutput.open();
 
         // WHEN
         fileOutput.write(formattedObject);
@@ -46,6 +52,7 @@ public class FileOutputTest {
         String line1 = "line 1";
         String lineSeparator = System.lineSeparator();
         String line2 = "line 2";
+        fileOutput.open();
 
         // WHEN
         fileOutput.write(line1, lineSeparator, line2);
@@ -61,6 +68,7 @@ public class FileOutputTest {
         File fileToWrite = new File(temporaryFolder.getRoot(), "nonExisting.tmp");
         FileOutput fileOutput = new FileOutput(fileToWrite.getPath(), "UTF-8");
         String formattedObject = "content to write";
+        fileOutput.open();
 
         // WHEN
         fileOutput.write(formattedObject);
@@ -77,6 +85,7 @@ public class FileOutputTest {
         String charset = "UTF-8";
         FileOutput fileOutput = new FileOutput(fileToWrite.getPath(), charset);
         String formattedObject = "content to write";
+        fileOutput.open();
 
         // WHEN
         fileOutput.write(formattedObject);
@@ -93,6 +102,7 @@ public class FileOutputTest {
         String charset = "ISO-8859-1";
         FileOutput fileOutput = new FileOutput(fileToWrite.getPath(), charset);
         String formattedObject = "content to write";
+        fileOutput.open();
 
         // WHEN
         fileOutput.write(formattedObject);
@@ -110,6 +120,7 @@ public class FileOutputTest {
         Files.write(Paths.get(fileToWrite.getPath()), existingContent.getBytes());
         FileOutput fileOutput = new FileOutput(fileToWrite.getPath(), "UTF-8");
         String newContent = "new content";
+        fileOutput.open();
 
         // WHEN
         fileOutput.write(newContent);
