@@ -1,0 +1,27 @@
+= Todos
+
+== Contant to add 
+
+. Add JDBC output
+. Add REST output
+. 
+. Add Json formatter
+. Add xml formatter
+. Add SQL formatter
+. Add word type
+. Add sentance type
+. Add human types
+.. firstName
+.. lastName
+.. address
+. Add time generation constraint
+. Add cron generation constraint
+
+== Fixes
+
+. Set default pattern on string type
+. Rework generation engine according following structure:
+.. generation rule call outputs
+.. Output call formatter
+.. Output call generation constraints and can stop generation if needed
+.. Formatter call generation core
