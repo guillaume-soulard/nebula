@@ -242,6 +242,32 @@ public class ModelTest {
 		assertThat(result).isEqualTo(genratedObjectAtIndex0);
 	}
 
+	@Test
+	public void setSeed_should_calculate_seed_with_test() throws Exception {
+
+		// GIVEN
+		Model model = Nebula.newModel();
+
+		// WHEN
+		model.setSeed("test");
+
+		// THEN
+		assertThat(model).hasFieldOrPropertyWithValue("seed", 13888l);
+	}
+
+	@Test
+	public void setSeed_should_calculate_seed_with_tests() throws Exception {
+
+		// GIVEN
+		Model model = Nebula.newModel();
+
+		// WHEN
+		model.setSeed("tests");
+
+		// THEN
+		assertThat(model).hasFieldOrPropertyWithValue("seed", 17453l);
+	}
+
 	private List<Object> extractValuesForProperty(String propertyName, List<GeneratedObject> generatedObjects) {
 		List<Object> values = new ArrayList<Object>();
 		for (GeneratedObject generatedObject : generatedObjects) {

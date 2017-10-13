@@ -108,4 +108,18 @@ public class Model {
 	public void setNumberThousandSeparator(char numberThousandSeparator) {
 		this.numberThousandSeparator = numberThousandSeparator;
 	}
+
+	public void setSeed(String seedString) {
+		if (seedString == null) {
+			throw new NebulaException("seed is null");
+		}
+
+		long longSeed = 0l;
+
+		for (byte seedByte : seedString.getBytes()) {
+			longSeed += 31 * seedByte;
+		}
+
+		this.seed = longSeed;
+	}
 }
