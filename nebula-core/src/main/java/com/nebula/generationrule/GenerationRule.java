@@ -5,6 +5,7 @@ import com.nebula.core.GeneratedObject;
 import com.nebula.core.GeneratedObjectIterator;
 import com.nebula.core.NebulaException;
 import com.nebula.formatter.Formatter;
+import com.nebula.generationconstraint.AcceptationResult;
 import com.nebula.generationconstraint.GenerationConstraint;
 import com.nebula.output.Output;
 
@@ -89,9 +90,12 @@ public class GenerationRule {
     }
 
     private void generateObjects() {
-        while (generatedObjectSource.hasNext()) {
+        AcceptationResult acceptationResult = AcceptationResult.ACCEPTABLE;
+        while (generatedObjectSource.hasNext()
+                && !AcceptationResult.STOP_GENERATION.equals(acceptationResult)) {
             GeneratedObject generatedObject = generatedObjectSource.next();
-            if (isAcceptable(generatedObject)) {
+            acceptationResult = getAcceptationResult(generatedObject);
+            if (AcceptationResult.ACCEPTABLE.equals(acceptationResult)) {
                 writeToOutputs(formatterToUse.formatGeneratedObject(generatedObject));
                 writeToOutputs(System.lineSeparator());
             }
@@ -109,11 +113,16 @@ public class GenerationRule {
         }
     }
 
-    private boolean isAcceptable(GeneratedObject generatedObject) {
-        boolean acceptable = true;
+    private AcceptationResult getAcceptationResult(GeneratedObject generatedObject) {
+        AcceptationResult acceptable = AcceptationResult.ACCEPTABLE;
         for (GenerationConstraint generationConstraint : generationConstraints) {
-            if (!generationConstraint.accept(generatedObject)) {
-                acceptable = false;
+            AcceptationResult generatedObjectAcceptationResult = generationConstraint.accept(generatedObject);
+            if (AcceptationResult.NON_ACCEPTABLE.equals(generatedObjectAcceptationResult)) {
+                acceptable = AcceptationResult.NON_ACCEPTABLE;
+            }
+
+            if (AcceptationResult.STOP_GENERATION.equals(generatedObjectAcceptationResult)) {
+                acceptable = AcceptationResult.STOP_GENERATION;
             }
         }
         return acceptable;
