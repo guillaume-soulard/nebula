@@ -24,4 +24,8 @@ public final class Nebula {
 	public static GenerationRuleBuilder newGenerationRule() {
 		return new GenerationRuleBuilder();
 	}
+
+	public static Entity newEntity(String entityName) {
+		return newEntity(entityName, Long.MAX_VALUE);
+	}
 }
