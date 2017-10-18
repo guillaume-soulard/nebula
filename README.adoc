@@ -56,8 +56,18 @@ public class CsvUsers {
         System.out.println("Done");
     }
 }
-----
 --
+
+== Concept
+
+The concept behind Nebula is data generation based on two elements : 
+
+* a seed
+* an index
+
+The most important thing is when an entity is declared, nubula works like an array which all items is a generated object that match entity declaration. All object can be accessible with an index (from 0 to 9223372036854775807). All objects are generated on demand when access via index is perform.
+
+Seed concept is very important. For a same seed nebula will generate the same dataset.
 
 == Model settings
 
