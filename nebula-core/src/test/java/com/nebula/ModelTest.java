@@ -154,7 +154,7 @@ public class ModelTest {
 	}
 
 	@Test
-	public void getEntityByName_should_return_null() {
+	public void getEntityByName_should_throw_exception_when_unexisting_entity_is_passed() {
 
 		// GIVEN
 		Model model = new Model();
@@ -163,10 +163,11 @@ public class ModelTest {
 		model.addEntity(entity);
 
 		// WHEN
-		Entity result = model.getEntityByName("unexisting");
+		catchException(model).getEntityByName("unexisting");
 
 		// THEN
-		assertThat(result).isNull();
+		assertThat((Throwable) caughtException()).isInstanceOf(NebulaException.class)
+				.hasMessage("entity 'unexisting' not exists in model");
 	}
 
 	@Test

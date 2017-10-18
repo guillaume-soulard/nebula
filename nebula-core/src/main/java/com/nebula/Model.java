@@ -60,7 +60,7 @@ public class Model {
 				return entity;
 			}
 		}
-		return null;
+		throw new NebulaException("entity '" + entityName + "' not exists in model");
 	}
 
 	public GeneratedObjectIterator iterator(String entityName, long seed) {
