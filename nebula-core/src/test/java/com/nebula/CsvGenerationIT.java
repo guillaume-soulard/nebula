@@ -57,7 +57,6 @@ public class CsvGenerationIT {
                 .withEntity(users)
                 .withFormatter(csv().withSeparator(";").withColumns("lastName", "firstName", "dayOfBirth"))
                 .addOutput(file(fileToGenerate.getPath()))
-                //.addOutput(stdout())
                 .addGenerationConstraint(NebulaConstraints.amount(10));
 
         model.addGenerationRule(generationRule);

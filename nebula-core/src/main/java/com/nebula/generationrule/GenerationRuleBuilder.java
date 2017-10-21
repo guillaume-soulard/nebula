@@ -57,6 +57,14 @@ public class GenerationRuleBuilder {
             throw new NebulaException("entity is not specified");
         }
 
+        if (formatterBuilder == null) {
+            throw new NebulaException("formatter is not specified");
+        }
+
+        if (outputs.isEmpty()) {
+            throw new NebulaException("any outputs specified");
+        }
+
         return new GenerationRule(outputs, formatterBuilder.build(model), model.iterator(entityNameToUse, model.getSeed()), generationConstraints);
     }
 }

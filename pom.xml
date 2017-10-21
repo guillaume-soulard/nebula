@@ -10,7 +10,8 @@
 	<modules>
 		<module>nebula-core</module>
 		<module>nebula-benchmark</module>
-	</modules>
+        <module>nebula-examples</module>
+    </modules>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
