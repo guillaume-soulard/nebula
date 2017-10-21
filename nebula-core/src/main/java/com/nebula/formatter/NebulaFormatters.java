@@ -1,6 +1,7 @@
 package com.nebula.formatter;
 
 import com.nebula.formatter.csv.CsvFormatterBuilder;
+import com.nebula.formatter.custom.CustomFormatterBuilder;
 import com.nebula.formatter.json.JsonFormatterBuilder;
 
 public final class NebulaFormatters {
@@ -11,5 +12,9 @@ public final class NebulaFormatters {
 
     public static JsonFormatterBuilder json() {
         return new JsonFormatterBuilder();
+    }
+
+    public static CustomFormatterBuilder custom() {
+        return new CustomFormatterBuilder();
     }
 }
