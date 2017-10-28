@@ -56,7 +56,7 @@ public class JsonGenerationIT {
 
         GenerationRuleBuilder generationRule = newGenerationRule()
                 .withEntity(users)
-                .withFormatter(json().pretty().quotedFields())
+                .withFormatter(json().pretty().quotedFields().addPropertyToIgnore("_id"))
                 .addOutput(file(fileToGenerate.getPath()))
                 .addGenerationConstraint(NebulaConstraints.amount(10));
 
@@ -71,62 +71,52 @@ public class JsonGenerationIT {
                 "{\n" +
                 "  \"firstName\": \"Zfjjm\",\n" +
                 "  \"lastName\": \"Iouh\",\n" +
-                "  \"dayOfBirth\": 22/03/1966,\n" +
-                "  \"_id\": 0\n" +
+                "  \"dayOfBirth\": 22/03/1966\n" +
                 "}\n" +
                 "{\n" +
                 "  \"firstName\": \"Ftwsy\",\n" +
                 "  \"lastName\": \"Ocjrj\",\n" +
-                "  \"dayOfBirth\": 08/09/1990,\n" +
-                "  \"_id\": 1\n" +
+                "  \"dayOfBirth\": 08/09/1990\n" +
                 "}\n" +
                 "{\n" +
                 "  \"firstName\": \"Nfftlu\",\n" +
                 "  \"lastName\": \"Wrfhvvv\",\n" +
-                "  \"dayOfBirth\": 23/08/1996,\n" +
-                "  \"_id\": 2\n" +
+                "  \"dayOfBirth\": 23/08/1996\n" +
                 "}\n" +
                 "{\n" +
                 "  \"firstName\": \"Ttuc\",\n" +
                 "  \"lastName\": \"Cftojvj\",\n" +
-                "  \"dayOfBirth\": 28/06/1951,\n" +
-                "  \"_id\": 3\n" +
+                "  \"dayOfBirth\": 28/06/1951\n" +
                 "}\n" +
                 "{\n" +
                 "  \"firstName\": \"Aupwkvnlk\",\n" +
                 "  \"lastName\": \"Irbqwqsdz\",\n" +
-                "  \"dayOfBirth\": 12/04/1986,\n" +
-                "  \"_id\": 4\n" +
+                "  \"dayOfBirth\": 12/04/1986\n" +
                 "}\n" +
                 "{\n" +
                 "  \"firstName\": \"Gicd\",\n" +
                 "  \"lastName\": \"Odqxhsh\",\n" +
-                "  \"dayOfBirth\": 29/11/1981,\n" +
-                "  \"_id\": 5\n" +
+                "  \"dayOfBirth\": 29/11/1981\n" +
                 "}\n" +
                 "{\n" +
                 "  \"firstName\": \"Mvlgltk\",\n" +
                 "  \"lastName\": \"Wsknwaazc\",\n" +
-                "  \"dayOfBirth\": 13/09/1966,\n" +
-                "  \"_id\": 6\n" +
+                "  \"dayOfBirth\": 13/09/1966\n" +
                 "}\n" +
                 "{\n" +
                 "  \"firstName\": \"Sianxvyif\",\n" +
                 "  \"lastName\": \"Cgzu\",\n" +
-                "  \"dayOfBirth\": 25/10/1961,\n" +
-                "  \"_id\": 7\n" +
+                "  \"dayOfBirth\": 25/10/1961\n" +
                 "}\n" +
                 "{\n" +
                 "  \"firstName\": \"Aywd\",\n" +
                 "  \"lastName\": \"Isix\",\n" +
-                "  \"dayOfBirth\": 09/08/1996,\n" +
-                "  \"_id\": 8\n" +
+                "  \"dayOfBirth\": 09/08/1996\n" +
                 "}\n" +
                 "{\n" +
                 "  \"firstName\": \"Gjjmw\",\n" +
                 "  \"lastName\": \"Ogxeiymwx\",\n" +
-                "  \"dayOfBirth\": 25/01/1971,\n" +
-                "  \"_id\": 9\n" +
+                "  \"dayOfBirth\": 25/01/1971\n" +
                 "}\n");
     }
 }

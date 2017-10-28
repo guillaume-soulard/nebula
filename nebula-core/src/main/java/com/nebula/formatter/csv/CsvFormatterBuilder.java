@@ -2,15 +2,15 @@ package com.nebula.formatter.csv;
 
 
 import com.nebula.Model;
+import com.nebula.formatter.AbstractFormatterBuilder;
 import com.nebula.formatter.FormatterBuilder;
 import com.nebula.formatter.ValueFormatter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
-public class CsvFormatterBuilder implements FormatterBuilder {
+public class CsvFormatterBuilder extends AbstractFormatterBuilder {
     private String separator = ",";
     private String quote = "";
     private boolean header = true;
@@ -38,7 +38,7 @@ public class CsvFormatterBuilder implements FormatterBuilder {
             columnNames = new ArrayList<>();
         }
 
-        return new CsvFormatter(separator, quote, header, columnNames, new ValueFormatter(dateFormat, numberDecimalSeparator, numberThousandSeparator));
+        return new CsvFormatter(separator, quote, header, columnNames, buildValueFormatter(model), propertiesToExclude);
     }
 
     public CsvFormatterBuilder withSeparator(String separator) {

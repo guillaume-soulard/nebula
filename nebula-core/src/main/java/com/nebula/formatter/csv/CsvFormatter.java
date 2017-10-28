@@ -3,30 +3,29 @@ package com.nebula.formatter.csv;
 import com.nebula.core.Entity;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.Property;
-import com.nebula.formatter.Formatter;
+import com.nebula.formatter.AbstractFormatter;
 import com.nebula.formatter.ValueFormatter;
 
 import java.util.List;
 
-public class CsvFormatter implements Formatter {
+public class CsvFormatter extends AbstractFormatter {
     private final String separator;
     private final boolean header;
     private final String quote;
     private final List<String> columnNames;
-    private final ValueFormatter valueFormatter;
 
-    public CsvFormatter(String separator, String quote, boolean header, List<String> columnNames, ValueFormatter valueFormatter) {
+    public CsvFormatter(String separator, String quote, boolean header, List<String> columnNames, ValueFormatter valueFormatter, List<String> propertiesToExclude) {
+        super(valueFormatter, propertiesToExclude);
         this.separator = separator;
         this.header = header;
         this.quote = quote;
         this.columnNames = columnNames;
-        this.valueFormatter = valueFormatter;
     }
 
     public String formatGeneratedObject(GeneratedObject generatedObject) {
         StringBuilder builder = new StringBuilder();
 
-        formatObject(generatedObject, builder);
+        formatObject(excludeFieldsOn(generatedObject), builder);
 
         return builder.toString();
     }

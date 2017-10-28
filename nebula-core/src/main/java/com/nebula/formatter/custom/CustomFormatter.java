@@ -2,19 +2,21 @@ package com.nebula.formatter.custom;
 
 import com.nebula.core.Entity;
 import com.nebula.core.GeneratedObject;
-import com.nebula.formatter.Formatter;
+import com.nebula.formatter.AbstractFormatter;
 import com.nebula.formatter.ValueFormatter;
 
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class CustomFormatter implements Formatter {
+public class CustomFormatter extends AbstractFormatter {
     private String headerFormat;
     private final String generatedObjectFormat;
     private String footerFormat;
     private final ValueFormatter valueFormatter;
 
-    public CustomFormatter(String headerFormat, String generatedObjectFormat, String footerFormat, ValueFormatter valueFormatter) {
+    public CustomFormatter(String headerFormat, String generatedObjectFormat, String footerFormat, ValueFormatter valueFormatter, List<String> propertiesToExclude) {
+        super(valueFormatter, propertiesToExclude);
         this.headerFormat = headerFormat;
         this.generatedObjectFormat = generatedObjectFormat;
         this.footerFormat = footerFormat;
@@ -28,6 +30,8 @@ public class CustomFormatter implements Formatter {
 
     @Override
     public String formatGeneratedObject(GeneratedObject generatedObject) {
+
+        generatedObject = excludeFieldsOn(generatedObject);
 
         String formattedString = generatedObjectFormat;
 

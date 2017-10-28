@@ -258,7 +258,8 @@ public class JsonFormatterTest {
         String dateFormat = "MM/dd/yyyy";
         boolean quotedFields = false;
         boolean prettyFormat = true;
-        return new JsonFormatter(prettyFormat, quotedFields, new ValueFormatter(dateFormat, numberDecimalSeparator, numberThousandSeparator));
+        List<String> propertiesToExclude = new ArrayList<>();
+        return new JsonFormatter(prettyFormat, quotedFields, new ValueFormatter(dateFormat, numberDecimalSeparator, numberThousandSeparator), propertiesToExclude);
     }
 
     private JsonFormatter newJsonFormatter() {
@@ -267,7 +268,8 @@ public class JsonFormatterTest {
         String dateFormat = "MM/dd/yyyy";
         boolean quotedFields = false;
         boolean prettyFormat = false;
-        return new JsonFormatter(prettyFormat, quotedFields, new ValueFormatter(dateFormat, numberDecimalSeparator, numberThousandSeparator));
+        List<String> propertiesToExclude = new ArrayList<>();
+        return new JsonFormatter(prettyFormat, quotedFields, new ValueFormatter(dateFormat, numberDecimalSeparator, numberThousandSeparator), propertiesToExclude);
     }
 
     private JsonFormatter newJsonFormatterWithQuotedFields() {
@@ -276,6 +278,7 @@ public class JsonFormatterTest {
         String dateFormat = "MM/dd/yyyy";
         boolean quotedFields = true;
         boolean prettyFormat = false;
-        return new JsonFormatter(prettyFormat, quotedFields, new ValueFormatter(dateFormat, numberDecimalSeparator, numberThousandSeparator));
+        List<String> propertiesToExclude = new ArrayList<>();
+        return new JsonFormatter(prettyFormat, quotedFields, new ValueFormatter(dateFormat, numberDecimalSeparator, numberThousandSeparator), propertiesToExclude);
     }
 }

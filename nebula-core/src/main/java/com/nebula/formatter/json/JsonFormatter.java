@@ -3,13 +3,13 @@ package com.nebula.formatter.json;
 import com.nebula.core.Entity;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.GeneratedProperty;
-import com.nebula.formatter.Formatter;
+import com.nebula.formatter.AbstractFormatter;
 import com.nebula.formatter.ValueFormatter;
 
 import java.util.Collection;
 import java.util.List;
 
-public class JsonFormatter implements Formatter {
+public class JsonFormatter extends AbstractFormatter {
 
     private static final String JSON_OBJECT_OPEN = "{";
     private static final String JSON_OBJECT_CLOSE = "}";
@@ -22,12 +22,11 @@ public class JsonFormatter implements Formatter {
 
     private boolean prettyFormat;
     private boolean quotedFields;
-    private ValueFormatter valueFormatter;
 
-    public JsonFormatter(boolean prettyFormat, boolean quotedFields, ValueFormatter valueFormatter) {
+    public JsonFormatter(boolean prettyFormat, boolean quotedFields, ValueFormatter valueFormatter, List<String> propertiesToExclude) {
+        super(valueFormatter, propertiesToExclude);
         this.prettyFormat = prettyFormat;
         this.quotedFields = quotedFields;
-        this.valueFormatter = valueFormatter;
     }
 
     @Override
@@ -37,7 +36,7 @@ public class JsonFormatter implements Formatter {
 
     @Override
     public String formatGeneratedObject(GeneratedObject generatedObject) {
-        return formatObject(generatedObject, 1);
+        return formatObject(excludeFieldsOn(generatedObject), 1);
     }
 
     private String formatObject(GeneratedObject generatedObject, int depth) {

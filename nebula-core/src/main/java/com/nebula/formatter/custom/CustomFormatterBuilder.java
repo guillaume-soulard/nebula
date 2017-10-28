@@ -1,11 +1,14 @@
 package com.nebula.formatter.custom;
 
 import com.nebula.Model;
+import com.nebula.formatter.AbstractFormatterBuilder;
 import com.nebula.formatter.Formatter;
 import com.nebula.formatter.FormatterBuilder;
 import com.nebula.formatter.ValueFormatter;
 
-public class CustomFormatterBuilder implements FormatterBuilder {
+import java.util.List;
+
+public class CustomFormatterBuilder extends AbstractFormatterBuilder {
 
     private String headerFormat;
     private String generatedObjectFormat;
@@ -29,7 +32,7 @@ public class CustomFormatterBuilder implements FormatterBuilder {
             numberThousandSeparator = model.getNumberThousandSeparator();
         }
 
-        return new CustomFormatter(headerFormat, generatedObjectFormat, footerFormat, new ValueFormatter(dateFormat, numberDecimalSeparator, numberThousandSeparator));
+        return new CustomFormatter(headerFormat, generatedObjectFormat, footerFormat, buildValueFormatter(model), propertiesToExclude);
     }
 
     public CustomFormatterBuilder withHeaderFormat(String headerFormat) {
@@ -44,21 +47,6 @@ public class CustomFormatterBuilder implements FormatterBuilder {
 
     public CustomFormatterBuilder withFooterFormat(String footerFormat) {
         this.footerFormat = footerFormat;
-        return this;
-    }
-
-    public CustomFormatterBuilder withDateFormat(String dateFormat) {
-        this.dateFormat = dateFormat;
-        return this;
-    }
-
-    public CustomFormatterBuilder withNumberDecimalSeparator(char numberDecimalSeparator) {
-        this.numberDecimalSeparator = numberDecimalSeparator;
-        return this;
-    }
-
-    public CustomFormatterBuilder withNumberThousandSeparator(char numberThousandSeparator) {
-        this.numberThousandSeparator = numberThousandSeparator;
         return this;
     }
 }

@@ -2,15 +2,12 @@ package com.nebula.formatter.csv;
 
 import com.nebula.Nebula;
 import com.nebula.core.*;
-import com.nebula.core.types.constant.ConstantType;
 import com.nebula.formatter.ValueFormatter;
-import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 import static com.nebula.core.NebulaGenerationTypes.*;
@@ -33,7 +30,8 @@ public class CsvFormatterTest {
         String separator = ";";
         boolean header = false;
         String quote = "";
-        CsvFormatter formatter = new CsvFormatter(separator, quote, header, Arrays.asList("lastName"), valueFormatter);
+        List<String> propertiesToExclude = new ArrayList<>();
+        CsvFormatter formatter = new CsvFormatter(separator, quote, header, Arrays.asList("lastName"), valueFormatter, propertiesToExclude);
         List<GeneratedProperty> generatedProperties = new ArrayList<>();
         generatedProperties.add(new GeneratedProperty("lastName", new GeneratedObject("durant"), string().build()));
         GeneratedObject generatedObject = new GeneratedObject(generatedProperties);
@@ -52,7 +50,8 @@ public class CsvFormatterTest {
         String separator = ";";
         boolean header = false;
         String quote = "";
-        CsvFormatter formatter = new CsvFormatter(separator, quote, header, Arrays.asList("firstName", "lastName"), valueFormatter);
+        List<String> propertiesToExclude = new ArrayList<>();
+        CsvFormatter formatter = new CsvFormatter(separator, quote, header, Arrays.asList("firstName", "lastName"), valueFormatter, propertiesToExclude);
         List<GeneratedProperty> generatedProperties = new ArrayList<>();
         generatedProperties.add(new GeneratedProperty("firstName", new GeneratedObject("jean"), string().build()));
         generatedProperties.add(new GeneratedProperty("lastName", new GeneratedObject("durant"), string().build()));
@@ -72,7 +71,8 @@ public class CsvFormatterTest {
         String separator = ";";
         boolean header = false;
         String quote = "\"";
-        CsvFormatter formatter = new CsvFormatter(separator, quote, header, Arrays.asList("firstName", "lastName"), valueFormatter);
+        List<String> propertiesToExclude = new ArrayList<>();
+        CsvFormatter formatter = new CsvFormatter(separator, quote, header, Arrays.asList("firstName", "lastName"), valueFormatter, propertiesToExclude);
         List<GeneratedProperty> generatedProperties = new ArrayList<>();
         generatedProperties.add(new GeneratedProperty("firstName", new GeneratedObject("jean"), string().build()));
         generatedProperties.add(new GeneratedProperty("lastName", new GeneratedObject("durant"), string().build()));
@@ -92,7 +92,8 @@ public class CsvFormatterTest {
         String separator = ";";
         boolean header = false;
         String quote = "";
-        CsvFormatter formatter = new CsvFormatter(separator, quote, header, Arrays.asList("col1"), valueFormatter);
+        List<String> propertiesToExclude = new ArrayList<>();
+        CsvFormatter formatter = new CsvFormatter(separator, quote, header, Arrays.asList("col1"), valueFormatter, propertiesToExclude);
         List<GeneratedProperty> generatedProperties = new ArrayList<>();
         generatedProperties.add(new GeneratedProperty("col1", new GeneratedObject("jean"), string().build()));
         generatedProperties.add(new GeneratedProperty("col2", new GeneratedObject("durant"), string().build()));
@@ -112,7 +113,8 @@ public class CsvFormatterTest {
         String separator = ";";
         boolean header = false;
         String quote = "";
-        CsvFormatter formatter = new CsvFormatter(separator, quote, header, new ArrayList<>(), valueFormatter);
+        List<String> propertiesToExclude = new ArrayList<>();
+        CsvFormatter formatter = new CsvFormatter(separator, quote, header, new ArrayList<>(), valueFormatter, propertiesToExclude);
         List<GeneratedProperty> generatedProperties = new ArrayList<>();
 
         Entity entity = Nebula.newEntity("test", Long.MAX_VALUE);
@@ -138,7 +140,8 @@ public class CsvFormatterTest {
         String separator = ";";
         boolean header = true;
         String quote = "";
-        CsvFormatter formatter = new CsvFormatter(separator, quote, header, Arrays.asList("firstName", "lastName"), valueFormatter);
+        List<String> propertiesToExclude = new ArrayList<>();
+        CsvFormatter formatter = new CsvFormatter(separator, quote, header, Arrays.asList("firstName", "lastName"), valueFormatter, propertiesToExclude);
         Entity entity = Nebula.newEntity("test", Long.MAX_VALUE);
         entity.addProperty("firstName", random(), string());
         entity.addProperty("lastName", random(), string());
@@ -157,7 +160,8 @@ public class CsvFormatterTest {
         String separator = ";";
         boolean header = true;
         String quote = "";
-        CsvFormatter formatter = new CsvFormatter(separator, quote, header, Arrays.asList("col1", "col2"), valueFormatter);
+        List<String> propertiesToExclude = new ArrayList<>();
+        CsvFormatter formatter = new CsvFormatter(separator, quote, header, Arrays.asList("col1", "col2"), valueFormatter, propertiesToExclude);
         Entity entity = Nebula.newEntity("test", Long.MAX_VALUE);
         entity.addProperty("col1", random(), string());
         entity.addProperty("col2", random(), string());
@@ -176,7 +180,8 @@ public class CsvFormatterTest {
         String separator = ";";
         boolean header = false;
         String quote = "";
-        CsvFormatter formatter = new CsvFormatter(separator, quote, header, Arrays.asList("firstName", "lastName"), valueFormatter);
+        List<String> propertiesToExclude = new ArrayList<>();
+        CsvFormatter formatter = new CsvFormatter(separator, quote, header, Arrays.asList("firstName", "lastName"), valueFormatter, propertiesToExclude);
         Entity entity = Nebula.newEntity("test", Long.MAX_VALUE);
         entity.addProperty("firstName", random(), string());
         entity.addProperty("lastName", random(), string());
@@ -195,7 +200,8 @@ public class CsvFormatterTest {
         String separator = ";";
         boolean header = true;
         String quote = "\"";
-        CsvFormatter formatter = new CsvFormatter(separator, quote, header, Arrays.asList("firstName", "lastName"), valueFormatter);
+        List<String> propertiesToExclude = new ArrayList<>();
+        CsvFormatter formatter = new CsvFormatter(separator, quote, header, Arrays.asList("firstName", "lastName"), valueFormatter, propertiesToExclude);
         Entity entity = Nebula.newEntity("test", Long.MAX_VALUE);
         entity.addProperty("firstName", random(), string());
         entity.addProperty("lastName", random(), string());
@@ -214,7 +220,8 @@ public class CsvFormatterTest {
         String separator = ";";
         boolean header = false;
         String quote = "";
-        CsvFormatter formatter = new CsvFormatter(separator, quote, header, Arrays.asList("firstName", "lastName"), valueFormatter);
+        List<String> propertiesToExclude = new ArrayList<>();
+        CsvFormatter formatter = new CsvFormatter(separator, quote, header, Arrays.asList("firstName", "lastName"), valueFormatter, propertiesToExclude);
         Entity entity = Nebula.newEntity("test", Long.MAX_VALUE);
         entity.addProperty("firstName", random(), string());
         entity.addProperty("lastName", random(), string());

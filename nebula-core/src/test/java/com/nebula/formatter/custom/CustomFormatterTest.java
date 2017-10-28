@@ -24,7 +24,8 @@ public class CustomFormatterTest {
         String format = "static format";
         String headerFormat = "test";
         String footerFormat = "test";
-        CustomFormatter customFormatter = new CustomFormatter(headerFormat, format, footerFormat, valueFormatter);
+        List<String> propertiesToExclude = new ArrayList<>();
+        CustomFormatter customFormatter = new CustomFormatter(headerFormat, format, footerFormat, valueFormatter, propertiesToExclude);
 
         // WHEN
         String result = customFormatter.formatGeneratedObject(null);
@@ -41,7 +42,8 @@ public class CustomFormatterTest {
         ValueFormatter valueFormatter = this.valueFormatter;
         String headerFormat = "MULTI";
         String footerFormat = "EXEC";
-        CustomFormatter customFormatter = new CustomFormatter(headerFormat, format, footerFormat, valueFormatter);
+        List<String> propertiesToExclude = new ArrayList<>();
+        CustomFormatter customFormatter = new CustomFormatter(headerFormat, format, footerFormat, valueFormatter, propertiesToExclude);
         List<GeneratedProperty> generatedProperties = new ArrayList<>();
         generatedProperties.add(new GeneratedProperty("firstName", new GeneratedObject("durant"), string().build()));
         generatedProperties.add(new GeneratedProperty("lastName", new GeneratedObject("jean"), string().build()));
@@ -61,7 +63,8 @@ public class CustomFormatterTest {
         String headerFormat = "MULTI";
         String bodyFormat = "";
         String footerFormat = "EXEC";
-        CustomFormatter customFormatter = new CustomFormatter(headerFormat, bodyFormat, footerFormat, valueFormatter);
+        List<String> propertiesToExclude = new ArrayList<>();
+        CustomFormatter customFormatter = new CustomFormatter(headerFormat, bodyFormat, footerFormat, valueFormatter, propertiesToExclude);
         Entity entity = Nebula.newEntity("test");
 
         // WHEN
@@ -78,7 +81,8 @@ public class CustomFormatterTest {
         String headerFormat = "MULTI";
         String bodyFormat = "";
         String footerFormat = "EXEC";
-        CustomFormatter customFormatter = new CustomFormatter(headerFormat, bodyFormat, footerFormat, valueFormatter);
+        List<String> propertiesToExclude = new ArrayList<>();
+        CustomFormatter customFormatter = new CustomFormatter(headerFormat, bodyFormat, footerFormat, valueFormatter, propertiesToExclude);
         Entity entity = Nebula.newEntity("test");
 
         // WHEN
