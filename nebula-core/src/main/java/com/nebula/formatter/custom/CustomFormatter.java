@@ -2,6 +2,7 @@ package com.nebula.formatter.custom;
 
 import com.nebula.core.Entity;
 import com.nebula.core.GeneratedObject;
+import com.nebula.core.GeneratedProperty;
 import com.nebula.formatter.AbstractFormatter;
 import com.nebula.formatter.ValueFormatter;
 
@@ -32,21 +33,34 @@ public class CustomFormatter extends AbstractFormatter {
     public String formatGeneratedObject(GeneratedObject generatedObject) {
 
         generatedObject = excludeFieldsOn(generatedObject);
-
         String formattedString = generatedObjectFormat;
-
         Pattern pattern = Pattern.compile("#[^#]*#");
-
         Matcher matcher = pattern.matcher(generatedObjectFormat);
 
         while (matcher.find()) {
             String propertyName = matcher.group();
             propertyName = propertyName.substring(1, propertyName.length() - 1);
-            String value = valueFormatter.formatValue(generatedObject.getGeneratedPropertyValue(propertyName).getObject());
+            String[] propertyPath = propertyName.split("\\.");
+            Object valueToFormat = getValue(generatedObject, propertyPath, 0);
+            String value = valueFormatter.formatValue(valueToFormat);
             formattedString = formattedString.replaceAll(matcher.group(), value);
         }
 
         return formattedString;
+    }
+
+    private Object getValue(GeneratedObject generatedObject, String[] propertyPath, int depth) {
+        String propertyName = propertyPath[depth];
+        Object object = generatedObject.getGeneratedPropertyValue(propertyName).getObject();
+        List<GeneratedProperty> properties = generatedObject.getGeneratedPropertyValue(propertyName).getGeneratedProperties();
+
+        if (object != null && properties == null) {
+            return object;
+        } else if (object == null && properties != null) {
+            return getValue(generatedObject.getGeneratedPropertyValue(propertyName), propertyPath, depth + 1);
+        } else {
+            return null;
+        }
     }
 
     @Override
