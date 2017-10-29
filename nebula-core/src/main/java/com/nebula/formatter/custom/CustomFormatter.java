@@ -16,7 +16,7 @@ public class CustomFormatter extends AbstractFormatter {
     private String footerFormat;
     private final ValueFormatter valueFormatter;
 
-    public CustomFormatter(String headerFormat, String generatedObjectFormat, String footerFormat, ValueFormatter valueFormatter, List<String> propertiesToExclude) {
+    CustomFormatter(String headerFormat, String generatedObjectFormat, String footerFormat, ValueFormatter valueFormatter, List<String> propertiesToExclude) {
         super(valueFormatter, propertiesToExclude);
         this.headerFormat = headerFormat;
         this.generatedObjectFormat = generatedObjectFormat;

@@ -16,7 +16,7 @@ public class FileOutput implements Output {
     private Path filePath;
     private FileOutputStream fileOutputStream;
 
-    public FileOutput(String filePath, String charset) {
+    FileOutput(String filePath, String charset) {
         this.filePath = Paths.get(filePath);
         this.charset = charset;
     }

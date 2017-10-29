@@ -20,10 +20,10 @@ public class GenerationRule {
     private List<GenerationConstraint> generationConstraints = new ArrayList<>();
     private Entity entity;
 
-    public GenerationRule(List<Output> outputsToWrite,
-                          Formatter formatterToUse,
-                          GeneratedObjectIterator generatedObjectSource,
-                          List<GenerationConstraint> generationConstraints) {
+    GenerationRule(List<Output> outputsToWrite,
+                   Formatter formatterToUse,
+                   GeneratedObjectIterator generatedObjectSource,
+                   List<GenerationConstraint> generationConstraints) {
         this.outputsToWrite = outputsToWrite;
         this.formatterToUse = formatterToUse;
         this.generatedObjectSource = generatedObjectSource;

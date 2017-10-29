@@ -23,7 +23,7 @@ public class JsonFormatter extends AbstractFormatter {
     private boolean prettyFormat;
     private boolean quotedFields;
 
-    public JsonFormatter(boolean prettyFormat, boolean quotedFields, ValueFormatter valueFormatter, List<String> propertiesToExclude) {
+    JsonFormatter(boolean prettyFormat, boolean quotedFields, ValueFormatter valueFormatter, List<String> propertiesToExclude) {
         super(valueFormatter, propertiesToExclude);
         this.prettyFormat = prettyFormat;
         this.quotedFields = quotedFields;

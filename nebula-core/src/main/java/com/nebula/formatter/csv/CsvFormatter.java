@@ -14,7 +14,7 @@ public class CsvFormatter extends AbstractFormatter {
     private final String quote;
     private final List<String> columnNames;
 
-    public CsvFormatter(String separator, String quote, boolean header, List<String> columnNames, ValueFormatter valueFormatter, List<String> propertiesToExclude) {
+    CsvFormatter(String separator, String quote, boolean header, List<String> columnNames, ValueFormatter valueFormatter, List<String> propertiesToExclude) {
         super(valueFormatter, propertiesToExclude);
         this.separator = separator;
         this.header = header;

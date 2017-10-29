@@ -14,7 +14,7 @@ public class AmountGenerationConstraint implements GenerationConstraint {
     private AtomicInteger amountOfAlreadyGeneratedObjects = new AtomicInteger(0);
 
 
-    public AmountGenerationConstraint(int maxAmountOfObjectsToGenerate) {
+    AmountGenerationConstraint(int maxAmountOfObjectsToGenerate) {
 
         if (maxAmountOfObjectsToGenerate < 0) {
             throw new NebulaException("maxAmountOfObjectsToGenerate is negative");

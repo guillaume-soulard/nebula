@@ -4,6 +4,10 @@ import com.nebula.output.Output;
 
 public class StandardOutputOutput implements Output {
 
+    StandardOutputOutput() {
+
+    }
+
     @Override
     public void open() {
     }
