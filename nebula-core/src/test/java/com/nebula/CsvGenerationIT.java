@@ -3,6 +3,8 @@ package com.nebula;
 import com.nebula.core.Entity;
 import com.nebula.generationconstraint.NebulaConstraints;
 import com.nebula.generationrule.GenerationRuleBuilder;
+import com.nebula.generationrule.GenerationRules;
+import com.nebula.generationrule.oneshoot.OneShootGenerationRuleBuilder;
 import org.joda.time.DateTime;
 import org.junit.After;
 import org.junit.Before;
@@ -13,13 +15,12 @@ import org.junit.rules.TemporaryFolder;
 import java.io.File;
 
 import static com.nebula.Nebula.*;
-import static com.nebula.Nebula.newGenerationRule;
-import static com.nebula.core.NebulaGenerationTypes.*;
-import static com.nebula.core.NebulaGenerators.*;
-import static com.nebula.formatter.NebulaFormatters.*;
-import static com.nebula.output.NebulaOutputs.*;
+import static com.nebula.core.NebulaGenerationTypes.dateTime;
+import static com.nebula.core.NebulaGenerationTypes.string;
+import static com.nebula.core.NebulaGenerators.random;
+import static com.nebula.formatter.NebulaFormatters.csv;
+import static com.nebula.output.NebulaOutputs.file;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.fail;
 
 public class CsvGenerationIT {
 
@@ -53,7 +54,7 @@ public class CsvGenerationIT {
 
         File fileToGenerate = new File(temporaryFolder.getRoot(), "users.csv");
 
-        GenerationRuleBuilder generationRule = newGenerationRule()
+        GenerationRuleBuilder generationRule = GenerationRules.newOneShootGenerationRule()
                 .withEntity(users)
                 .withFormatter(csv().withSeparator(";").withColumns("lastName", "firstName", "dayOfBirth"))
                 .addOutput(file(fileToGenerate.getPath()))

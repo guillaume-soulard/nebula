@@ -3,8 +3,7 @@ package com.nebula;
 import com.nebula.core.Entity;
 import com.nebula.core.NebulaException;
 import com.nebula.core.PropertyBuilder;
-import com.nebula.generationrule.GenerationRule;
-import com.nebula.generationrule.GenerationRuleBuilder;
+import com.nebula.generationrule.oneshoot.OneShootGenerationRuleBuilder;
 
 public final class Nebula {
 
@@ -19,10 +18,6 @@ public final class Nebula {
 			throw new NebulaException("entity name is null");
 		}
 		return new Entity(entityName, amount, new PropertyBuilder());
-	}
-
-	public static GenerationRuleBuilder newGenerationRule() {
-		return new GenerationRuleBuilder();
 	}
 
 	public static Entity newEntity(String entityName) {

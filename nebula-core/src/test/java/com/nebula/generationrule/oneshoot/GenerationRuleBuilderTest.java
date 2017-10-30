@@ -1,10 +1,13 @@
-package com.nebula.generationrule;
+package com.nebula.generationrule.oneshoot;
 
 import com.nebula.Model;
 import com.nebula.Nebula;
 import com.nebula.core.Entity;
 import com.nebula.core.NebulaException;
 import com.nebula.formatter.NebulaFormatters;
+import com.nebula.generationrule.GenerationRule;
+import com.nebula.generationrule.oneshoot.OneShootGenerationRule;
+import com.nebula.generationrule.oneshoot.OneShootGenerationRuleBuilder;
 import com.nebula.output.NebulaOutputs;
 import org.junit.Test;
 
@@ -18,7 +21,7 @@ public class GenerationRuleBuilderTest {
     public void build_should_throw_exception_when_entity_is_not_specified() throws Exception {
 
         // GIVEN
-        GenerationRuleBuilder generationRuleBuilder = new GenerationRuleBuilder();
+        OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();
         Model model = Nebula.newModel();
 
         // WHEN
@@ -33,7 +36,7 @@ public class GenerationRuleBuilderTest {
     public void build_should_throw_exception_when_formatter_is_not_specified() throws Exception {
 
         // GIVEN
-        GenerationRuleBuilder generationRuleBuilder = new GenerationRuleBuilder();
+        OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();
         Model model = Nebula.newModel();
         Entity entity = Nebula.newEntity("test");
         generationRuleBuilder.withEntity(entity);
@@ -50,7 +53,7 @@ public class GenerationRuleBuilderTest {
     public void build_should_throw_exception_when_any_outputs_are_specified() throws Exception {
 
         // GIVEN
-        GenerationRuleBuilder generationRuleBuilder = new GenerationRuleBuilder();
+        OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();
         Model model = Nebula.newModel();
         Entity entity = Nebula.newEntity("test");
         generationRuleBuilder.withEntity(entity);
@@ -68,7 +71,7 @@ public class GenerationRuleBuilderTest {
     public void build_should_throw_exception_when_entity_non_exists_in_model() throws Exception {
 
         // GIVEN
-        GenerationRuleBuilder generationRuleBuilder = new GenerationRuleBuilder();
+        OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();
         Model model = Nebula.newModel();
         Entity entity = Nebula.newEntity("test");
         generationRuleBuilder.withEntity(entity);
@@ -87,7 +90,7 @@ public class GenerationRuleBuilderTest {
     public void build_should_not_throw_exception_when_any_generation_constraints_are_specified() throws Exception {
 
         // GIVEN
-        GenerationRuleBuilder generationRuleBuilder = new GenerationRuleBuilder();
+        OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();
         Model model = Nebula.newModel();
         Entity entity = Nebula.newEntity("test");
         model.addEntity(entity);

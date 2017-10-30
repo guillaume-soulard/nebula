@@ -3,6 +3,8 @@ package com.nebula;
 import com.nebula.core.Entity;
 import com.nebula.generationconstraint.NebulaConstraints;
 import com.nebula.generationrule.GenerationRuleBuilder;
+import com.nebula.generationrule.GenerationRules;
+import com.nebula.generationrule.oneshoot.OneShootGenerationRuleBuilder;
 import org.joda.time.DateTime;
 import org.junit.After;
 import org.junit.Before;
@@ -16,10 +18,8 @@ import static com.nebula.Nebula.*;
 import static com.nebula.core.NebulaGenerationTypes.dateTime;
 import static com.nebula.core.NebulaGenerationTypes.string;
 import static com.nebula.core.NebulaGenerators.random;
-import static com.nebula.formatter.NebulaFormatters.csv;
 import static com.nebula.formatter.NebulaFormatters.json;
 import static com.nebula.output.NebulaOutputs.file;
-import static com.nebula.output.NebulaOutputs.stdout;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class JsonGenerationIT {
@@ -54,7 +54,7 @@ public class JsonGenerationIT {
 
         File fileToGenerate = new File(temporaryFolder.getRoot(), "users.json");
 
-        GenerationRuleBuilder generationRule = newGenerationRule()
+        GenerationRuleBuilder generationRule = GenerationRules.newOneShootGenerationRule()
                 .withEntity(users)
                 .withFormatter(json().pretty().quotedFields().addPropertyToIgnore("_id"))
                 .addOutput(file(fileToGenerate.getPath()))

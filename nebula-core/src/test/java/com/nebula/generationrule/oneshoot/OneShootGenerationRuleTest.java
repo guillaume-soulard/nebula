@@ -1,10 +1,11 @@
-package com.nebula.generationrule;
+package com.nebula.generationrule.oneshoot;
 
 import com.nebula.core.Entity;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.GeneratedObjectIterator;
 import com.nebula.core.NebulaException;
 import com.nebula.formatter.Formatter;
+import com.nebula.generationrule.oneshoot.OneShootGenerationRule;
 import com.nebula.output.Output;
 import org.junit.Test;
 import org.mockito.InOrder;
@@ -16,7 +17,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
-public class GenerationRuleTest {
+public class OneShootGenerationRuleTest {
 
     @Test
     public void new_GenerationRule_should_set_correctly_properties() throws Exception {
@@ -28,10 +29,10 @@ public class GenerationRuleTest {
         Formatter formatter = mock(Formatter.class);
         GeneratedObjectIterator generatedObjectSource = mock(GeneratedObjectIterator.class);
         when(generatedObjectSource.getEntity()).thenReturn(entity);
-        GenerationRule generationRule;
+        OneShootGenerationRule generationRule;
 
         // WHEN
-        generationRule = new GenerationRule(outputs, formatter, generatedObjectSource, new ArrayList<>());
+        generationRule = new OneShootGenerationRule(outputs, formatter, generatedObjectSource, new ArrayList<>());
 
         // THEN
         assertThat(generationRule).hasFieldOrPropertyWithValue("outputsToWrite", outputs)
@@ -54,7 +55,7 @@ public class GenerationRuleTest {
 
         // WHEN
         try {
-            new GenerationRule(outputs, formatter, generatedObjectSource, new ArrayList<>());
+            new OneShootGenerationRule(outputs, formatter, generatedObjectSource, new ArrayList<>());
         } catch (Exception e) {
             exception = e;
         }
@@ -76,7 +77,7 @@ public class GenerationRuleTest {
 
         // WHEN
         try {
-            new GenerationRule(outputs, formatter, generatedObjectSource, new ArrayList<>());
+            new OneShootGenerationRule(outputs, formatter, generatedObjectSource, new ArrayList<>());
         } catch (Exception e) {
             exception = e;
         }
@@ -99,7 +100,7 @@ public class GenerationRuleTest {
 
         // WHEN
         try {
-            new GenerationRule(outputs, formatter, generatedObjectSource, new ArrayList<>());
+            new OneShootGenerationRule(outputs, formatter, generatedObjectSource, new ArrayList<>());
         } catch (Exception e) {
             exception = e;
         }
@@ -122,7 +123,7 @@ public class GenerationRuleTest {
 
         // WHEN
         try {
-            new GenerationRule(outputs, formatter, generatedObjectSource, new ArrayList<>());
+            new OneShootGenerationRule(outputs, formatter, generatedObjectSource, new ArrayList<>());
         } catch (Exception e) {
             exception = e;
         }
@@ -143,7 +144,7 @@ public class GenerationRuleTest {
 
         // WHEN
         try {
-            new GenerationRule(outputs, formatter, generatedObjectSource, new ArrayList<>());
+            new OneShootGenerationRule(outputs, formatter, generatedObjectSource, new ArrayList<>());
         } catch (Exception e) {
             exception = e;
         }
@@ -165,7 +166,7 @@ public class GenerationRuleTest {
         GeneratedObject generatedObject = mock(GeneratedObject.class);
         when(generatedObjectSource.next()).thenReturn(generatedObject);
         when(generatedObjectSource.getEntity()).thenReturn(entity);
-        GenerationRule generationRule = new GenerationRule(outputs, formatter, generatedObjectSource, new ArrayList<>());
+        OneShootGenerationRule generationRule = new OneShootGenerationRule(outputs, formatter, generatedObjectSource, new ArrayList<>());
 
         // WHEN
         generationRule.generate();
