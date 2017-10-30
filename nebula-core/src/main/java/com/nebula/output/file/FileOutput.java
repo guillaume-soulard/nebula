@@ -35,9 +35,9 @@ public class FileOutput implements Output {
         }
     }
 
-    public void write(String... formattedObjects) {
+    public void write(String formattedObject) {
         try {
-            writeFormattedObjectsToFile(formattedObjects);
+            writeFormattedObjectToFile(formattedObject);
         } catch (IOException e) {
             throw new NebulaException(e.getMessage());
         }
@@ -49,12 +49,6 @@ public class FileOutput implements Output {
             fileOutputStream.close();
         } catch (IOException e) {
             throw new NebulaException(e.getMessage());
-        }
-    }
-
-    private void writeFormattedObjectsToFile(String[] formattedObjects) throws IOException {
-        for (String formattedObject : formattedObjects) {
-            writeFormattedObjectToFile(formattedObject);
         }
     }
 

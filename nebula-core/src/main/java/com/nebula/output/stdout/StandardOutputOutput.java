@@ -12,10 +12,8 @@ public class StandardOutputOutput implements Output {
     public void open() {
     }
 
-    public void write(String... formattedObjects) {
-        for (String formattedObject : formattedObjects) {
-            System.out.print(formattedObject);
-        }
+    public void write(String formattedObject) {
+        System.out.print(formattedObject);
         System.out.flush();
     }
 
