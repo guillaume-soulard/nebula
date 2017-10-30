@@ -35,20 +35,6 @@ public class StandardOutputOutputTest {
     }
 
     @Test
-    public void write_should_write_test_2_times_in_stdout() throws Exception {
-
-        // GIVEN
-        StandardOutputOutput output = new StandardOutputOutput();
-        String formattedObject = "test";
-
-        // WHEN
-        output.write(formattedObject, formattedObject);
-
-        // THEN
-        verify(printStream, times(2)).print(formattedObject);
-    }
-
-    @Test
     public void write_should_flush_stdout_after_writing_object() throws Exception {
 
         // GIVEN
@@ -60,21 +46,6 @@ public class StandardOutputOutputTest {
         // THEN
         InOrder inOrder = inOrder(printStream);
         inOrder.verify(printStream, times(1)).print(anyString());
-        inOrder.verify(printStream, times(1)).flush();
-    }
-
-    @Test
-    public void write_should_flush_stdout_after_writing_objects() throws Exception {
-
-        // GIVEN
-        StandardOutputOutput output = new StandardOutputOutput();
-
-        // WHEN
-        output.write("test", "test");
-
-        // THEN
-        InOrder inOrder = inOrder(printStream);
-        inOrder.verify(printStream, times(2)).print(anyString());
         inOrder.verify(printStream, times(1)).flush();
     }
 }

@@ -44,24 +44,6 @@ public class FileOutputTest {
     }
 
     @Test
-    public void write_should_write_two_lines_in_file() throws Exception {
-
-        // GIVEN
-        File fileToWrite = temporaryFolder.newFile();
-        FileOutput fileOutput = new FileOutput(fileToWrite.getPath(), "UTF-8");
-        String line1 = "line 1";
-        String lineSeparator = System.lineSeparator();
-        String line2 = "line 2";
-        fileOutput.open();
-
-        // WHEN
-        fileOutput.write(line1, lineSeparator, line2);
-
-        // THEN
-        assertThat(fileToWrite).exists().hasContent(line1 + lineSeparator + line2);
-    }
-
-    @Test
     public void write_should_write_in_non_existing_file() throws Exception {
 
         // GIVEN
