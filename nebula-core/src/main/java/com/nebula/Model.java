@@ -74,6 +74,10 @@ public class Model {
 		return entityGenerator.generateEntityObject(this, entity, entityIndex, seed);
 	}
 
+	public GeneratedObject generateEntityObject(String entityName, long entityIndex) {
+		return entityGenerator.generateEntityObject(this, getEntityByName(entityName), entityIndex, seed);
+	}
+
 	public long getSeed() {
 		return seed;
 	}

@@ -7,6 +7,7 @@ import com.nebula.core.NebulaGenerationTypes;
 import com.nebula.core.NebulaGenerators;
 import com.nebula.formatter.NebulaFormatters;
 import com.nebula.generationconstraint.NebulaConstraints;
+import com.nebula.generationrule.GenerationRules;
 import com.nebula.output.NebulaOutputs;
 import org.joda.time.DateTime;
 
@@ -31,7 +32,7 @@ public class CsvUsers {
         users.addProperty("dayOfBirth", NebulaGenerators.random(), NebulaGenerationTypes.dateTime().range().withMin(MIN_BIRTH_DATE).withMax(MAX_BIRTH_DATE));
         model.addEntity(users);
 
-        model.addGenerationRule(Nebula.newGenerationRule()
+        model.addGenerationRule(GenerationRules.newOneShootGenerationRule()
                 .withEntity(users)
                 .withFormatter(NebulaFormatters.csv().withSeparator(";").withColumns("lastName", "firstName", "dayOfBirth"))
                 .addOutput(NebulaOutputs.stdout())
