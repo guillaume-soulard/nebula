@@ -8,13 +8,13 @@ import com.nebula.core.generators.Generator;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.Type;
 
-public class SequanceGenerator implements Generator {
+public class SequenceGenerator implements Generator {
 
 	private AtomicLong index = null;
 	private boolean allowCycle;
 	private GenerationContext context;
 
-	public SequanceGenerator(boolean allowCycle) {
+	public SequenceGenerator(boolean allowCycle) {
 		this.allowCycle = allowCycle;
 	}
 
@@ -40,8 +40,8 @@ public class SequanceGenerator implements Generator {
 
 	private void throwExceptionWhenIndexReachMaxIndexIfNeeded(Type type) {
 		if (index.get() > type.getMaxRange()) {
-			throw new NebulaException("sequance reach the maximum index of type (" + type.getMaxRange()
-					+ "). Use cycle() to allow sequance to restart");
+			throw new NebulaException("sequence reach the maximum index of type (" + type.getMaxRange()
+					+ "). Use cycle() to allow sequence to restart");
 		}
 	}
 

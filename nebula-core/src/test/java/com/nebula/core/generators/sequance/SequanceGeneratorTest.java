@@ -19,7 +19,7 @@ public class SequanceGeneratorTest {
 	public void generate_should_return_non_null_object() {
 
 		// GIVEN
-		SequanceGenerator generator = new SequanceGenerator(false);
+		SequenceGenerator generator = new SequenceGenerator(false);
 		Type type = NebulaGenerationTypes.bool().build();
 
 		// WHEN
@@ -33,7 +33,7 @@ public class SequanceGeneratorTest {
 	public void generate_should_return_the_first_element_in_given_type() {
 
 		// GIVEN
-		SequanceGenerator generator = new SequanceGenerator(false);
+		SequenceGenerator generator = new SequenceGenerator(false);
 		Type type = NebulaGenerationTypes.number().among().items(BigDecimal.ZERO, BigDecimal.ONE, BigDecimal.TEN)
 				.build();
 
@@ -48,7 +48,7 @@ public class SequanceGeneratorTest {
 	public void generate_should_return_the_second_element_in_given_type() {
 
 		// GIVEN
-		SequanceGenerator generator = new SequanceGenerator(false);
+		SequenceGenerator generator = new SequenceGenerator(false);
 		Type type = NebulaGenerationTypes.number().among().items(BigDecimal.ZERO, BigDecimal.ONE, BigDecimal.TEN)
 				.build();
 		generator.generate(type);
@@ -64,7 +64,7 @@ public class SequanceGeneratorTest {
 	public void generate_should_throw_exception_when_sequance_index_limit_is_reach() {
 
 		// GIVEN
-		SequanceGenerator generator = new SequanceGenerator(false);
+		SequenceGenerator generator = new SequenceGenerator(false);
 		Type type = NebulaGenerationTypes.number().among().items(BigDecimal.ZERO).build();
 		generator.generate(type);
 
@@ -73,17 +73,17 @@ public class SequanceGeneratorTest {
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
-				.hasMessage("sequance reach the maximum index of type (0). Use cycle() to allow sequance to restart");
+				.hasMessage("sequence reach the maximum index of type (0). Use cycle() to allow sequence to restart");
 	}
 
 	@Test
 	public void new_SequanceGenerator_should_set_allowCycle() {
 
 		// GIVEN
-		SequanceGenerator generator = null;
+		SequenceGenerator generator = null;
 
 		// WHEN
-		generator = new SequanceGenerator(true);
+		generator = new SequenceGenerator(true);
 
 		// THEN
 		assertThat(generator).hasFieldOrPropertyWithValue("allowCycle", true);
@@ -93,7 +93,7 @@ public class SequanceGeneratorTest {
 	public void generate_should_return_first_item_after_sequance_reach_the_maximum_when_cycle_has_been_specified() {
 
 		// GIVEN
-		SequanceGenerator generator = new SequanceGenerator(true);
+		SequenceGenerator generator = new SequenceGenerator(true);
 		Type type = NebulaGenerationTypes.number().among().items(BigDecimal.ZERO, BigDecimal.ONE).build();
 		generator.generate(type);
 		generator.generate(type);

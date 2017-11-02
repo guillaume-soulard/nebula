@@ -41,7 +41,7 @@ public class ListTypeAmongItemsTest {
 		// THEN
 		assertThat(listType).hasFieldOrPropertyWithValue("minSize", minSize)
 				.hasFieldOrPropertyWithValue("maxSize", maxSize).hasFieldOrPropertyWithValue("generator", generator)
-				.hasFieldOrPropertyWithValue("items", items);
+				.hasFieldOrPropertyWithValue("items", new GeneratedObject[] { new GeneratedObject("test") });
 	}
 
 	@Test
@@ -279,7 +279,7 @@ public class ListTypeAmongItemsTest {
 		GeneratedObject result = listType.generateObject(0l);
 
 		// THEN
-		assertThat(result.getObject()).asList().hasSize(1).containsOnly(item);
+		assertThat(result.getObject()).asList().hasSize(1).containsOnly(new GeneratedObject("test"));
 	}
 
 	@Test
@@ -328,7 +328,12 @@ public class ListTypeAmongItemsTest {
 		GeneratedObject result = listType.generateObject(0l);
 
 		// THEN
-		assertThat(result.getObject()).asList().containsExactly(item1, item2, item3, item3, item2, item1);
+		assertThat(result.getObject()).asList().containsExactly(new GeneratedObject("test"),
+				new GeneratedObject("test"),
+				new GeneratedObject("test"),
+				new GeneratedObject("test"),
+				new GeneratedObject("test"),
+				new GeneratedObject("test"));
 	}
 
 	private ConstantTypeBuilder newConstant() {

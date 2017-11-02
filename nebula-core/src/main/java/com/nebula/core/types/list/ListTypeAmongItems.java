@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaGenerationTypes;
 import com.nebula.core.generators.Generator;
 import com.nebula.core.generators.NebulaRandom;
@@ -12,12 +13,16 @@ import com.nebula.core.types.number.NumberRangeType;
 
 public class ListTypeAmongItems extends AbstractListType {
 
-	private ConstantTypeBuilder[] items;
+	private GeneratedObject[] items;
 	private NumberRangeType numberRange;
 
-	public ListTypeAmongItems(int minSize, int maxSize, Generator generator, ConstantTypeBuilder[] items) {
+	public ListTypeAmongItems(int minSize, int maxSize, Generator generator, ConstantTypeBuilder[] builders) {
 		super(minSize, maxSize, generator);
-		this.items = items;
+		this.items = new GeneratedObject[builders.length];
+
+		for (int i = 0; i < builders.length; i++) {
+			items[i] = builders[i].build().generateObject(0L);
+		}
 	}
 
 	@Override
@@ -40,11 +45,11 @@ public class ListTypeAmongItems extends AbstractListType {
 		return items.length > 0;
 	}
 
-	protected ConstantTypeBuilder getItem(NebulaRandom localNebulaRandom) {
-		return items[getItemIndex(localNebulaRandom)];
+	protected Object getItem(NebulaRandom localNebulaRandom) {
+		return items[getItemIndex()];
 	}
 
-	private Integer getItemIndex(NebulaRandom localNebulaRandom) {
+	private Integer getItemIndex() {
 		BigDecimal index = (BigDecimal) generator.generate(numberRange).getObject();
 		return index.intValue();
 	}

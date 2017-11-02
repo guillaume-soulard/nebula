@@ -40,7 +40,7 @@ public class RestGenerationRuleIT {
         entity.addProperty("dayOfBirth", random(), dateTime().range().withMin(new DateTime(1940, 1, 1, 0, 0)).withMax(new DateTime(2017, 12, 31, 0, 0)));
         model.addEntity(entity);
         FormatterBuilder formatter = NebulaFormatters.json();
-        rest = new RestGenerationRule(model, formatter);
+        rest = new RestGenerationRule(model, formatter, "localhost", 8080);
 
         Thread thread = new Thread(new Runnable() {
             @Override

@@ -2,10 +2,9 @@
 
 == Content to add
 
+. Add itemAmong type (pick item in given list)
 . Add JDBC output
-. Add REST output
 . Add date parsing on date type
-. Add Json formatter
 . Add xml formatter
 . Add SQL formatter
 . Add word type

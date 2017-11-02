@@ -10,7 +10,7 @@ import static com.nebula.core.NebulaGenerationTypes.list;
 import static com.nebula.core.NebulaGenerationTypes.number;
 import static com.nebula.core.NebulaGenerationTypes.string;
 import static com.nebula.core.NebulaGenerators.random;
-import static com.nebula.core.NebulaGenerators.sequance;
+import static com.nebula.core.NebulaGenerators.sequence;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.math.BigDecimal;
@@ -141,12 +141,12 @@ public class ModelGenerationIT {
 				number().range().withMin(BigDecimal.ZERO).withMax(BigDecimal.valueOf(100)));
 		entity.addProperty(DATE_TIME_PROPERTY_NAME, random(),
 				dateTime().range().withInterval(DateTimeTypeIntervals.DAY).withMin(MIN_DATE).withMax(MAX_DATE));
-		entity.addProperty(BOOLEAN_PROPERTY_NAME, sequance().cycle(), bool());
-		entity.addProperty(CONSTANT_PROPERTY_NAME, sequance().cycle(), constant(ENTITY_TEST_NAME));
-		entity.addProperty(LIST_PROPERTY_NAME, sequance().cycle(),
+		entity.addProperty(BOOLEAN_PROPERTY_NAME, sequence().cycle(), bool());
+		entity.addProperty(CONSTANT_PROPERTY_NAME, sequence().cycle(), constant(ENTITY_TEST_NAME));
+		entity.addProperty(LIST_PROPERTY_NAME, sequence().cycle(),
 				list().of(random(), bool()).withMinSize(100).withMaxSize(200));
-		entity.addProperty(STRING_PROPERTY_NAME, sequance().cycle(), string().withPattern(STRING_PATTERN));
-		entity.addProperty(ENTITY_PROPERTY_NAME, sequance().cycle(), entity(ANOTHER_ENTITY_NAME));
+		entity.addProperty(STRING_PROPERTY_NAME, sequence().cycle(), string().withPattern(STRING_PATTERN));
+		entity.addProperty(ENTITY_PROPERTY_NAME, sequence().cycle(), entity(ANOTHER_ENTITY_NAME));
 		return entity;
 	}
 

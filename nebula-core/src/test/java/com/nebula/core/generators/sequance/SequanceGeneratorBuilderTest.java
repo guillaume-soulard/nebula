@@ -12,10 +12,10 @@ public class SequanceGeneratorBuilderTest {
 	public void new_SequanceGeneratorBuilder_should_set_allowCycle_to_false_by_default() {
 
 		// GIVEN
-		SequanceGeneratorBuilder builder = null;
+		SequenceGeneratorBuilder builder = null;
 
 		// WHEN
-		builder = new SequanceGeneratorBuilder();
+		builder = new SequenceGeneratorBuilder();
 
 		// THEN
 		assertThat(builder).hasFieldOrPropertyWithValue("allowCycle", false);
@@ -25,23 +25,23 @@ public class SequanceGeneratorBuilderTest {
 	public void build_should_return_a_new_instance_of_SequanceGenerator() {
 
 		// GIVEN
-		SequanceGeneratorBuilder builder = new SequanceGeneratorBuilder();
+		SequenceGeneratorBuilder builder = new SequenceGeneratorBuilder();
 
 		// WHEN
 		Generator result = builder.build();
 
 		// THEN
-		assertThat(result).isInstanceOf(SequanceGenerator.class);
+		assertThat(result).isInstanceOf(SequenceGenerator.class);
 	}
 
 	@Test
 	public void cycle_should_set_allowCycle_to_true() {
 
 		// GIVEN
-		SequanceGeneratorBuilder builder = new SequanceGeneratorBuilder();
+		SequenceGeneratorBuilder builder = new SequenceGeneratorBuilder();
 
 		// WHEN
-		SequanceGeneratorBuilder result = builder.cycle();
+		SequenceGeneratorBuilder result = builder.cycle();
 
 		// THEN
 		assertThat(result).hasFieldOrPropertyWithValue("allowCycle", true);

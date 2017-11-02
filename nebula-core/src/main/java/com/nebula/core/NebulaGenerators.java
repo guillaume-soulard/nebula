@@ -1,7 +1,7 @@
 package com.nebula.core;
 
 import com.nebula.core.generators.random.RandomGeneratorBuilder;
-import com.nebula.core.generators.sequance.SequanceGeneratorBuilder;
+import com.nebula.core.generators.sequance.SequenceGeneratorBuilder;
 
 public class NebulaGenerators {
 
@@ -9,7 +9,7 @@ public class NebulaGenerators {
 		return new RandomGeneratorBuilder();
 	}
 
-	public static SequanceGeneratorBuilder sequance() {
-		return new SequanceGeneratorBuilder();
+	public static SequenceGeneratorBuilder sequence() {
+		return new SequenceGeneratorBuilder();
 	}
 }

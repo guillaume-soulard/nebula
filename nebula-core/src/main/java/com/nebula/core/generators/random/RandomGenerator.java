@@ -12,6 +12,7 @@ public class RandomGenerator implements Generator {
 
 	public GeneratedObject generate(Type type) {
 		throwExceptionIfGenerationContextIsNull();
+		type.init(context);
 		return type.generateObject(context.getNebulaRandom().nextIndex(type));
 	}
 
@@ -20,7 +21,7 @@ public class RandomGenerator implements Generator {
 		throwExceptionIfGenerationContextIsNull();
 	}
 
-	public void throwExceptionIfGenerationContextIsNull() {
+	private void throwExceptionIfGenerationContextIsNull() {
 		if (context == null || context.getNebulaRandom() == null) {
 			throw new NebulaException("generationContext is null");
 		}

@@ -14,8 +14,7 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.protocol.HttpRequestHandler;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,12 +31,23 @@ class RequestHandler implements HttpRequestHandler {
 
     @Override
     public void handle(HttpRequest httpRequest, HttpResponse httpResponse, HttpContext httpContext) throws HttpException, IOException {
-
-        if (HttpGet.METHOD_NAME.equals(httpRequest.getRequestLine().getMethod())) {
-            sendGetQueryResult(httpRequest, httpResponse);
-        } else {
-            sendNotSupportedMethod(httpResponse, 405);
+        try {
+            if (HttpGet.METHOD_NAME.equals(httpRequest.getRequestLine().getMethod())) {
+                sendGetQueryResult(httpRequest, httpResponse);
+            } else {
+                sendNotSupportedMethod(httpResponse, 405);
+            }
+        } catch (Exception e) {
+            sendError(httpResponse, e);
         }
+    }
+
+    private void sendError(HttpResponse httpResponse, Exception e) throws UnsupportedEncodingException {
+        httpResponse.setStatusCode(500);
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+        e.printStackTrace(pw);
+        httpResponse.setEntity(new StringEntity("{\"error\":\"" + e.getMessage() + "\", \"trace\":\"" + sw.toString() + "\"}"));
     }
 
     private void sendGetQueryResult(HttpRequest httpRequest, HttpResponse httpResponse) throws UnsupportedEncodingException {
@@ -101,7 +111,7 @@ class RequestHandler implements HttpRequestHandler {
                     generatedObjects.add(model.generateEntityObject(request.getResource(), i));
                 }
             }
-            String formattedObject = NebulaFormatters.json().build(model).formatGeneratedObject(new GeneratedObject(generatedObjects));
+            String formattedObject = formatter.formatGeneratedObject(new GeneratedObject(generatedObjects));
             httpResponse.setStatusCode(200);
             httpResponse.setHeader("Accept", "text/javascript");
             httpResponse.setEntity(new StringEntity(formattedObject));

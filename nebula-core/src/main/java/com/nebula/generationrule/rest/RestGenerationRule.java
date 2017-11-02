@@ -15,16 +15,22 @@ import org.apache.http.protocol.HttpProcessor;
 import org.apache.http.protocol.HttpRequestHandler;
 
 import java.io.IOException;
+import java.net.Inet4Address;
+import java.net.InetAddress;
 import java.util.concurrent.TimeUnit;
 
 public class RestGenerationRule implements GenerationRule {
 
     private Model model;
+    private String host;
+    private int port;
     private Formatter formatter;
     private HttpServer server;
 
-    public RestGenerationRule(Model model, FormatterBuilder formatter) {
+    public RestGenerationRule(Model model, FormatterBuilder formatter, String host, int port) {
         this.model = model;
+        this.host = host;
+        this.port = port;
         this.formatter = formatter.build(model);
     }
 
@@ -49,7 +55,8 @@ public class RestGenerationRule implements GenerationRule {
                     .setSoReuseAddress(true)
                     .build();
             server = ServerBootstrap.bootstrap()
-                    .setListenerPort(8080)
+                    .setListenerPort(port)
+                    .setLocalAddress(InetAddress.getByName(host))
                     .setHttpProcessor(httpProcessor)
                     .setSocketConfig(socketConfig)
                     .registerHandler("*", requestHandler)
