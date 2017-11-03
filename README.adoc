@@ -1,3 +1,5 @@
+image::https://travis-ci.org/ogama/nebula.svg?branch=master[Build status]
+
 = Nebula
 
 Nebula is a generation tool written in java. Nebula provides simple tools for easy data generation.
