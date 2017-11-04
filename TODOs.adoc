@@ -15,8 +15,8 @@
 .. firstName
 .. lastName
 .. address
-. Add time generation constraint
-. Add cron generation constraint
+. Add time generation rule
+. Add cron generation rule
 
 == Fixes
 
