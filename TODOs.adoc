@@ -2,9 +2,11 @@
 
 == Content to add
 
-. Add itemAmong type (pick item in given list)
-. Add JDBC output
 . Add date parsing on date type
+. Add itemAmong type (pick item in given list)
+. Add static entity (entity with given generated objects)
+. Add JDBC output
+. Add socket output
 . Add xml formatter
 . Add SQL formatter
 . Add word type
