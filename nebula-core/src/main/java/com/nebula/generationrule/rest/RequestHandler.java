@@ -3,6 +3,7 @@ package com.nebula.generationrule.rest;
 import com.nebula.Model;
 import com.nebula.core.Entity;
 import com.nebula.core.GeneratedObject;
+import com.nebula.core.GeneratedProperty;
 import com.nebula.core.NebulaException;
 import com.nebula.formatter.Formatter;
 import com.nebula.formatter.NebulaFormatters;
@@ -18,6 +19,8 @@ import java.io.*;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.nebula.core.NebulaGenerationTypes.string;
 
 class RequestHandler implements HttpRequestHandler {
 
@@ -47,7 +50,15 @@ class RequestHandler implements HttpRequestHandler {
         StringWriter sw = new StringWriter();
         PrintWriter pw = new PrintWriter(sw);
         e.printStackTrace(pw);
-        httpResponse.setEntity(new StringEntity("{\"error\":\"" + e.getMessage() + "\", \"trace\":\"" + sw.toString() + "\"}"));
+        String error = getFormattedError(e.getMessage(), sw.toString());
+        httpResponse.setEntity(new StringEntity(error));
+    }
+
+    private String getFormattedError(String message, String detail) {
+        List<GeneratedProperty> generatedProperties = new ArrayList<>();
+        generatedProperties.add(new GeneratedProperty("error", new GeneratedObject(message), string().build()));
+        generatedProperties.add(new GeneratedProperty("detail", new GeneratedObject(detail), string().build()));
+        return formatter.formatGeneratedObject(new GeneratedObject(generatedProperties));
     }
 
     private void sendGetQueryResult(HttpRequest httpRequest, HttpResponse httpResponse) throws UnsupportedEncodingException {
@@ -80,7 +91,7 @@ class RequestHandler implements HttpRequestHandler {
             httpResponse.setEntity(new StringEntity(formattedObject));
         } else {
             httpResponse.setStatusCode(404);
-            httpResponse.setEntity(new StringEntity("{\"error\": \"Resource '" + request.getResource() + "' not found\"}"));
+            httpResponse.setEntity(new StringEntity(getFormattedError("Not found", "The resource '" + request.getResource() + "' is not found in current model")));
             httpResponse.setHeader("Accept", "text/javascript");
         }
     }
@@ -117,7 +128,7 @@ class RequestHandler implements HttpRequestHandler {
             httpResponse.setEntity(new StringEntity(formattedObject));
         } else {
             httpResponse.setStatusCode(404);
-            httpResponse.setEntity(new StringEntity("{\"error\": \"Resource '" + request.getResource() + "' not found\"}"));
+            httpResponse.setEntity(new StringEntity(getFormattedError("Not found", "The resource '" + request.getResource() + "' is not found in current model")));
             httpResponse.setHeader("Accept", "text/javascript");
         }
     }
