@@ -15,9 +15,6 @@ import static com.nebula.Nebula.*;
 
 public class CsvUsers {
 
-    private static DateTime MIN_BIRTH_DATE = new DateTime(1950, 1, 1, 0, 0);
-    private static DateTime MAX_BIRTH_DATE = new DateTime(2000, 1, 1, 0, 0);
-
     public static void main(String[] args) {
 
         System.out.println("Generate 10 Users");
@@ -29,7 +26,7 @@ public class CsvUsers {
         Entity users = model.newEntity("users", Long.MAX_VALUE);
         users.addProperty("firstName", NebulaGenerators.random(), NebulaGenerationTypes.string().withPattern("[A-Z]{1}[a-z]{3,25}"));
         users.addProperty("lastName", NebulaGenerators.random(), NebulaGenerationTypes.string().withPattern("[A-Z]{1}[a-z]{3,25}"));
-        users.addProperty("dayOfBirth", NebulaGenerators.random(), NebulaGenerationTypes.dateTime().range().withMin(MIN_BIRTH_DATE).withMax(MAX_BIRTH_DATE));
+        users.addProperty("dayOfBirth", NebulaGenerators.random(), NebulaGenerationTypes.dateTime().range().withMin("01/01/1950").withMax("01/01/2000"));
         model.addEntity(users);
 
         model.addGenerationRule(GenerationRules.newOneShootGenerationRule()
