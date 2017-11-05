@@ -2,8 +2,6 @@
 
 == Content to add
 
-. Add date parsing on date type
-. Add number parsing on number type
 . Add itemAmong type (pick item in given list)
 . Add static entity (entity with given generated objects)
 . Add JDBC output
