@@ -1,12 +1,13 @@
 package com.nebula.core.types.bool;
 
+import com.nebula.Model;
 import com.nebula.core.types.Type;
 import com.nebula.core.types.TypeBuilder;
 
 public class BooleanTypeBuilder implements TypeBuilder {
 
 	@Override
-	public Type build() {
+	public Type build(Model model) {
 		return new BooleanType();
 	}
 }

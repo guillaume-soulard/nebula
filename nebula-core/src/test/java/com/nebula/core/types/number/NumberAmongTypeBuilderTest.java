@@ -2,6 +2,7 @@ package com.nebula.core.types.number;
 
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
+import static com.nebula.Nebula.newModel;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.math.BigDecimal;
@@ -22,7 +23,7 @@ public class NumberAmongTypeBuilderTest {
 		NumberAmongTypeBuilder builder = new NumberAmongTypeBuilder();
 
 		// WHEN
-		Type result = builder.build();
+		Type result = builder.build(newModel());
 
 		// THEN
 		assertThat(result).isInstanceOf(NumberAmongType.class);
@@ -71,13 +72,26 @@ public class NumberAmongTypeBuilderTest {
 	}
 
 	@Test
-	public void items_should_throw_exception_when_null_items_is_passed() {
+	public void items_should_throw_exception_when_null_items_is_passed_for_big_decimal() {
 
 		// GIVEN
 		NumberAmongTypeBuilder builder = new NumberAmongTypeBuilder();
 
 		// WHEN
-		catchException(builder).items(null);
+		catchException(builder).items((BigDecimal[]) null);
+
+		// THEN
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("items is null");
+	}
+
+	@Test
+	public void items_should_throw_exception_when_null_items_is_passed_for_string() {
+
+		// GIVEN
+		NumberAmongTypeBuilder builder = new NumberAmongTypeBuilder();
+
+		// WHEN
+		catchException(builder).items((String[]) null);
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("items is null");
@@ -105,9 +119,11 @@ public class NumberAmongTypeBuilderTest {
 		BigDecimal item2 = BigDecimal.ONE;
 
 		// WHEN
-		Type result = builder.items(item1, item2).build();
+		Type result = builder.items(item1, item2).build(newModel());
 
 		// THEN
 		assertThat(result).hasFieldOrPropertyWithValue("items", Arrays.asList(item1, item2));
 	}
+
+
 }

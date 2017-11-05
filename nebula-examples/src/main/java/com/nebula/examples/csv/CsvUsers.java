@@ -26,7 +26,7 @@ public class CsvUsers {
         model.setSeed("a seed");
         model.setDateFormat("dd/MM/yyyy");
 
-        Entity users = newEntity("users", Long.MAX_VALUE);
+        Entity users = model.newEntity("users", Long.MAX_VALUE);
         users.addProperty("firstName", NebulaGenerators.random(), NebulaGenerationTypes.string().withPattern("[A-Z]{1}[a-z]{3,25}"));
         users.addProperty("lastName", NebulaGenerators.random(), NebulaGenerationTypes.string().withPattern("[A-Z]{1}[a-z]{3,25}"));
         users.addProperty("dayOfBirth", NebulaGenerators.random(), NebulaGenerationTypes.dateTime().range().withMin(MIN_BIRTH_DATE).withMax(MAX_BIRTH_DATE));

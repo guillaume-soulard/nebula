@@ -19,12 +19,12 @@ public class Rest {
         Model model = newModel();
         model.setSeed("users");
 
-        Entity users = newEntity("users");
+        Entity users = model.newEntity("users");
         users.addProperty("firstName", random(), string().withPattern("[A-Z]{1}[a-z]{10,25}"));
         users.addProperty("lastName", random(), string().withPattern("[A-Z]{1}[a-z]{10,25}"));
         users.addProperty("departments", random(), list().of(random(), entity("departments")).withMinSize(1).withMaxSize(3));
 
-        Entity departments = newEntity("departments", 10);
+        Entity departments = model.newEntity("departments", 10);
         departments.addProperty("name", random(), string().withPattern("[A-Z]{1}[a-z]{10,25}"));
 
         model.addEntity(users);

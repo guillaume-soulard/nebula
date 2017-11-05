@@ -17,7 +17,7 @@ public class SimpleGeneration {
     public static void main(String[] args) {
         Model model = Nebula.newModel();
 
-        Entity entity = Nebula.newEntity("test");
+        Entity entity = model.newEntity("test");
         entity.addProperty("string", NebulaGenerators.sequence().cycle(), NebulaGenerationTypes.number().range().withMin(BigDecimal.ZERO));
         model.addEntity(entity);
 

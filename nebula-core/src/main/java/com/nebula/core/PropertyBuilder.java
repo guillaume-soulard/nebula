@@ -1,5 +1,6 @@
 package com.nebula.core;
 
+import com.nebula.Model;
 import com.nebula.core.generators.Generator;
 import com.nebula.core.generators.GeneratorBuilder;
 import com.nebula.core.types.Type;
@@ -7,12 +8,12 @@ import com.nebula.core.types.TypeBuilder;
 
 public class PropertyBuilder {
 
-	public Property newProperty(String propertyName, TypeBuilder propertyType,
-			GeneratorBuilder propertyGeneratorBuilder) {
+	public Property newProperty(Model model, String propertyName, TypeBuilder propertyType,
+								GeneratorBuilder propertyGeneratorBuilder) {
 		checkIfPropertyNameIsNotNull(propertyName);
 		checkIfPropertyTypeIsNotNull(propertyType);
 		checkIfPropertyGeneratorIsNotNull(propertyGeneratorBuilder);
-		Property property = new Property(propertyName, buildType(propertyType),
+		Property property = new Property(propertyName, buildType(model, propertyType),
 				buildGenerator(propertyGeneratorBuilder));
 		return property;
 	}
@@ -21,8 +22,8 @@ public class PropertyBuilder {
 		return propertyGeneratorBuilder.build();
 	}
 
-	private Type buildType(TypeBuilder propertyType) {
-		return propertyType.build();
+	private Type buildType(Model model, TypeBuilder propertyType) {
+		return propertyType.build(model);
 	}
 
 	private void checkIfPropertyGeneratorIsNotNull(GeneratorBuilder propertyGeneratorBuilder) {

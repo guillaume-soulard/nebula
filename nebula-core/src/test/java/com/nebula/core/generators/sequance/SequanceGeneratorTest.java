@@ -2,6 +2,7 @@ package com.nebula.core.generators.sequance;
 
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
+import static com.nebula.Nebula.newModel;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.math.BigDecimal;
@@ -20,7 +21,7 @@ public class SequanceGeneratorTest {
 
 		// GIVEN
 		SequenceGenerator generator = new SequenceGenerator(false);
-		Type type = NebulaGenerationTypes.bool().build();
+		Type type = NebulaGenerationTypes.bool().build(newModel());
 
 		// WHEN
 		GeneratedObject result = generator.generate(type);
@@ -35,7 +36,7 @@ public class SequanceGeneratorTest {
 		// GIVEN
 		SequenceGenerator generator = new SequenceGenerator(false);
 		Type type = NebulaGenerationTypes.number().among().items(BigDecimal.ZERO, BigDecimal.ONE, BigDecimal.TEN)
-				.build();
+				.build(newModel());
 
 		// WHEN
 		GeneratedObject result = generator.generate(type);
@@ -50,7 +51,7 @@ public class SequanceGeneratorTest {
 		// GIVEN
 		SequenceGenerator generator = new SequenceGenerator(false);
 		Type type = NebulaGenerationTypes.number().among().items(BigDecimal.ZERO, BigDecimal.ONE, BigDecimal.TEN)
-				.build();
+				.build(newModel());
 		generator.generate(type);
 
 		// WHEN
@@ -65,7 +66,7 @@ public class SequanceGeneratorTest {
 
 		// GIVEN
 		SequenceGenerator generator = new SequenceGenerator(false);
-		Type type = NebulaGenerationTypes.number().among().items(BigDecimal.ZERO).build();
+		Type type = NebulaGenerationTypes.number().among().items(BigDecimal.ZERO).build(newModel());
 		generator.generate(type);
 
 		// WHEN
@@ -94,7 +95,7 @@ public class SequanceGeneratorTest {
 
 		// GIVEN
 		SequenceGenerator generator = new SequenceGenerator(true);
-		Type type = NebulaGenerationTypes.number().among().items(BigDecimal.ZERO, BigDecimal.ONE).build();
+		Type type = NebulaGenerationTypes.number().among().items(BigDecimal.ZERO, BigDecimal.ONE).build(newModel());
 		generator.generate(type);
 		generator.generate(type);
 

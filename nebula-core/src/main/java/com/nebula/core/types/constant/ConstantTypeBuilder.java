@@ -3,6 +3,7 @@ package com.nebula.core.types.constant;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import com.nebula.Model;
 import com.nebula.core.types.Type;
 import com.nebula.core.types.TypeBuilder;
 import org.joda.time.DateTime;
@@ -28,7 +29,7 @@ public class ConstantTypeBuilder implements TypeBuilder {
 	}
 
 	@Override
-	public Type build() {
+	public Type build(Model model) {
 		return new ConstantType(value);
 	}
 

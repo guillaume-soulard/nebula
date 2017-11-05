@@ -1,5 +1,6 @@
 package com.nebula.core.types.constant;
 
+import static com.nebula.Nebula.newModel;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.math.BigDecimal;
@@ -77,7 +78,7 @@ public class ConstantTypeBuilderTest {
 		ConstantTypeBuilder builder = new ConstantTypeBuilder(value);
 
 		// WHEN
-		Type result = builder.build();
+		Type result = builder.build(newModel());
 
 		// THEN
 		assertThat(result).isInstanceOf(ConstantType.class);

@@ -1,14 +1,13 @@
 package com.nebula.benchmark.types.constant;
 
 import com.nebula.Model;
-import com.nebula.core.*;
+import com.nebula.core.Entity;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
-import static com.nebula.Nebula.newEntity;
 import static com.nebula.Nebula.newModel;
 import static com.nebula.core.NebulaGenerationTypes.constant;
 import static com.nebula.core.NebulaGenerators.random;
@@ -34,7 +33,7 @@ public class ConstantTypeBenchmark {
 	@Setup(Level.Iteration)
 	public void setup() {
 		model = newModel();
-		entity = newEntity("test", 10000000);
+		entity = model.newEntity("test", 10000000);
 		entity.addProperty("property", random(), constant("test"));
 		model.addEntity(entity);
 		index = new AtomicLong(0l);

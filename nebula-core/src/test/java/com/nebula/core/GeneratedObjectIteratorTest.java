@@ -40,7 +40,7 @@ public class GeneratedObjectIteratorTest {
 
 		// GIVEN
 		Model model = new Model();
-		Entity entity = new Entity("test", 1l, new PropertyBuilder());
+		Entity entity = new Entity(model, "test", 1l, new PropertyBuilder());
 		long seed = 1l;
 		GeneratedObjectIterator iterator = new GeneratedObjectIterator(model, entity, seed);
 
@@ -56,7 +56,7 @@ public class GeneratedObjectIteratorTest {
 
 		// GIVEN
 		Model model = new Model();
-		Entity entity = new Entity("test", 67l, new PropertyBuilder());
+		Entity entity = new Entity(model, "test", 67l, new PropertyBuilder());
 		long seed = 1l;
 		GeneratedObjectIterator iterator = new GeneratedObjectIterator(model, entity, seed);
 
@@ -72,7 +72,7 @@ public class GeneratedObjectIteratorTest {
 
 		// GIVEN
 		Model model = new Model();
-		Entity entity = new Entity("test", 0l, new PropertyBuilder());
+		Entity entity = new Entity(model, "test", 0l, new PropertyBuilder());
 		long seed = 1l;
 		GeneratedObjectIterator iterator = new GeneratedObjectIterator(model, entity, seed);
 
@@ -88,7 +88,7 @@ public class GeneratedObjectIteratorTest {
 
 		// GIVEN
 		Model model = new Model();
-		Entity entity = new Entity("test", 2l, new PropertyBuilder());
+		Entity entity = new Entity(model, "test", 2l, new PropertyBuilder());
 		long seed = 1l;
 		GeneratedObjectIterator iterator = new GeneratedObjectIterator(model, entity, seed);
 		iterator.next();
@@ -105,7 +105,7 @@ public class GeneratedObjectIteratorTest {
 
 		// GIVEN
 		Model model = new Model();
-		Entity entity = new Entity("test", 2l, new PropertyBuilder());
+		Entity entity = new Entity(model ,"test", 2l, new PropertyBuilder());
 		long seed = 1l;
 		GeneratedObjectIterator iterator = new GeneratedObjectIterator(model, entity, seed);
 		iterator.next();
@@ -125,7 +125,7 @@ public class GeneratedObjectIteratorTest {
 		GeneratedObject expectedGeneratedObject = new GeneratedObject(null);
 		Model model = mock(Model.class);
 		String entityName = "test";
-		Entity entity = new Entity(entityName, 2l, new PropertyBuilder());
+		Entity entity = new Entity(model, entityName, 2l, new PropertyBuilder());
 		long seed = 1l;
 		GeneratedObjectIterator iterator = new GeneratedObjectIterator(model, entity, seed);
 		long index = 0l;
@@ -145,7 +145,7 @@ public class GeneratedObjectIteratorTest {
 		// GIVEN
 		Model model = mock(Model.class);
 		String entityName = "test";
-		Entity entity = new Entity(entityName, 1l, new PropertyBuilder());
+		Entity entity = new Entity(model, entityName, 1l, new PropertyBuilder());
 		long seed = 1l;
 		GeneratedObjectIterator iterator = new GeneratedObjectIterator(model, entity, seed);
 		iterator.next();
@@ -165,7 +165,7 @@ public class GeneratedObjectIteratorTest {
 		// GIVEN
 		Model model = mock(Model.class);
 		String entityName = "test";
-		Entity entity = new Entity(entityName, 2l, new PropertyBuilder());
+		Entity entity = new Entity(model, entityName, 2l, new PropertyBuilder());
 		long seed = 1l;
 		GeneratedObjectIterator iterator = new GeneratedObjectIterator(model, entity, seed);
 		when(model.generateEntityObject(any(Entity.class), anyLong(), anyLong())).thenThrow(NebulaException.class);

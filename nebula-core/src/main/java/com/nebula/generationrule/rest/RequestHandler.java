@@ -56,8 +56,8 @@ class RequestHandler implements HttpRequestHandler {
 
     private String getFormattedError(String message, String detail) {
         List<GeneratedProperty> generatedProperties = new ArrayList<>();
-        generatedProperties.add(new GeneratedProperty("error", new GeneratedObject(message), string().build()));
-        generatedProperties.add(new GeneratedProperty("detail", new GeneratedObject(detail), string().build()));
+        generatedProperties.add(new GeneratedProperty("error", new GeneratedObject(message), string().build(model)));
+        generatedProperties.add(new GeneratedProperty("detail", new GeneratedObject(detail), string().build(model)));
         return formatter.formatGeneratedObject(new GeneratedObject(generatedProperties));
     }
 

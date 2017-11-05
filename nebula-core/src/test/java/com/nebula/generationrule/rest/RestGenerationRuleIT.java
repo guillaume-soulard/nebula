@@ -17,7 +17,6 @@ import sun.misc.IOUtils;
 
 import java.io.IOException;
 
-import static com.nebula.Nebula.newEntity;
 import static com.nebula.Nebula.newModel;
 import static com.nebula.core.NebulaGenerationTypes.dateTime;
 import static com.nebula.core.NebulaGenerationTypes.string;
@@ -34,7 +33,7 @@ public class RestGenerationRuleIT {
         model.setDateFormat("dd/MM/yyyy");
         model.setSeed("users");
 
-        Entity entity = newEntity("user");
+        Entity entity = model.newEntity("user");
         entity.addProperty("firstName", random(), string().withPattern("[A-Aa-z]{10,25}"));
         entity.addProperty("lastName", random(), string().withPattern("[A-Aa-z]{10,25}"));
         entity.addProperty("dayOfBirth", random(), dateTime().range().withMin(new DateTime(1940, 1, 1, 0, 0)).withMax(new DateTime(2017, 12, 31, 0, 0)));

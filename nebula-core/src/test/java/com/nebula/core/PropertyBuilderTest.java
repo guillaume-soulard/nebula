@@ -1,13 +1,14 @@
 package com.nebula.core;
 
-import static com.googlecode.catchexception.CatchException.catchException;
-import static com.googlecode.catchexception.CatchException.caughtException;
-import static org.assertj.core.api.Assertions.assertThat;
-
-import org.junit.Test;
-
+import com.nebula.Model;
 import com.nebula.core.generators.GeneratorBuilder;
 import com.nebula.core.types.TypeBuilder;
+import org.junit.Test;
+
+import static com.googlecode.catchexception.CatchException.catchException;
+import static com.googlecode.catchexception.CatchException.caughtException;
+import static com.nebula.Nebula.newModel;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class PropertyBuilderTest {
 
@@ -18,9 +19,10 @@ public class PropertyBuilderTest {
 		String propertyName = null;
 		TypeBuilder propertyType = NebulaGenerationTypes.number().range();
 		GeneratorBuilder propertyGenerator = NebulaGenerators.random();
+		Model model = newModel();
 
 		// WHEN
-		catchException(propertyBuilder).newProperty(propertyName, propertyType, propertyGenerator);
+		catchException(propertyBuilder).newProperty(model, propertyName, propertyType, propertyGenerator);
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("property name is null");
@@ -33,9 +35,10 @@ public class PropertyBuilderTest {
 		String propertyName = "name";
 		TypeBuilder propertyType = null;
 		GeneratorBuilder propertyGenerator = NebulaGenerators.random();
+		Model model = newModel();
 
 		// WHEN
-		catchException(propertyBuilder).newProperty(propertyName, propertyType, propertyGenerator);
+		catchException(propertyBuilder).newProperty(model, propertyName, propertyType, propertyGenerator);
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("property type is null");
@@ -48,9 +51,10 @@ public class PropertyBuilderTest {
 		String propertyName = "name";
 		TypeBuilder propertyType = NebulaGenerationTypes.number().range();
 		GeneratorBuilder propertyGenerator = null;
+		Model model = newModel();
 
 		// WHEN
-		catchException(propertyBuilder).newProperty(propertyName, propertyType, propertyGenerator);
+		catchException(propertyBuilder).newProperty(model, propertyName, propertyType, propertyGenerator);
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("property generator is null");

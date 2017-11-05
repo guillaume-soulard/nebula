@@ -1,17 +1,10 @@
 package com.nebula.core;
 
-import static com.nebula.Nebula.newEntity;
-import static com.nebula.Nebula.newModel;
-import static com.nebula.core.NebulaGenerationTypes.bool;
-import static com.nebula.core.NebulaGenerationTypes.constant;
-import static com.nebula.core.NebulaGenerationTypes.dateTime;
-import static com.nebula.core.NebulaGenerationTypes.entity;
-import static com.nebula.core.NebulaGenerationTypes.list;
-import static com.nebula.core.NebulaGenerationTypes.number;
-import static com.nebula.core.NebulaGenerationTypes.string;
-import static com.nebula.core.NebulaGenerators.random;
-import static com.nebula.core.NebulaGenerators.sequence;
-import static org.assertj.core.api.Assertions.assertThat;
+import com.nebula.Model;
+import com.nebula.Nebula;
+import com.nebula.core.types.date.DateTimeTypeIntervals;
+import org.joda.time.DateTime;
+import org.junit.Test;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -19,12 +12,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
 
-import com.nebula.Model;
-import com.nebula.Nebula;
-import org.joda.time.DateTime;
-import org.junit.Test;
-
-import com.nebula.core.types.date.DateTimeTypeIntervals;
+import static com.nebula.Nebula.newModel;
+import static com.nebula.core.NebulaGenerationTypes.*;
+import static com.nebula.core.NebulaGenerators.random;
+import static com.nebula.core.NebulaGenerators.sequence;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class ModelGenerationIT {
 
@@ -50,8 +42,8 @@ public class ModelGenerationIT {
 		// GIVEN
 		long seed = 10l;
 		Model model = newModel();
-		Entity testEntity = buildTestEntity();
-		Entity anotherEntity = buildAnotherEntity();
+		Entity testEntity = buildTestEntity(model);
+		Entity anotherEntity = buildAnotherEntity(model);
 		model.addEntity(testEntity);
 		model.addEntity(anotherEntity);
 
@@ -70,7 +62,7 @@ public class ModelGenerationIT {
 
 		// GIVEN
 		Model model = newModel();
-		Entity entity = newEntity("test", 1);
+		Entity entity = model.newEntity("test", 1);
 		entity.addProperty("first", random(), string());
 		entity.addProperty("second", random(), string());
 		model.addEntity(entity);
@@ -135,8 +127,8 @@ public class ModelGenerationIT {
 		};
 	}
 
-	private Entity buildTestEntity() {
-		Entity entity = Nebula.newEntity(ENTITY_TEST_NAME, 1000);
+	private Entity buildTestEntity(Model model) {
+		Entity entity = model.newEntity(ENTITY_TEST_NAME, 1000);
 		entity.addProperty(INTEGER_PROPERTY_NAME, random(),
 				number().range().withMin(BigDecimal.ZERO).withMax(BigDecimal.valueOf(100)));
 		entity.addProperty(DATE_TIME_PROPERTY_NAME, random(),
@@ -150,7 +142,7 @@ public class ModelGenerationIT {
 		return entity;
 	}
 
-	private Entity buildAnotherEntity() {
-		return Nebula.newEntity(ANOTHER_ENTITY_NAME, ANOTHER_ENTITY_AMOUNT);
+	private Entity buildAnotherEntity(Model model) {
+		return model.newEntity(ANOTHER_ENTITY_NAME, ANOTHER_ENTITY_AMOUNT);
 	}
 }

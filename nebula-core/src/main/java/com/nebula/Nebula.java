@@ -1,26 +1,8 @@
 package com.nebula;
 
-import com.nebula.core.Entity;
-import com.nebula.core.NebulaException;
-import com.nebula.core.PropertyBuilder;
-import com.nebula.generationrule.oneshoot.OneShootGenerationRuleBuilder;
-
 public final class Nebula {
 
 	public static Model newModel() {
-
 		return new Model();
-	}
-
-	public static Entity newEntity(String entityName, long amount) {
-
-		if (entityName == null) {
-			throw new NebulaException("entity name is null");
-		}
-		return new Entity(entityName, amount, new PropertyBuilder());
-	}
-
-	public static Entity newEntity(String entityName) {
-		return newEntity(entityName, Long.MAX_VALUE);
 	}
 }

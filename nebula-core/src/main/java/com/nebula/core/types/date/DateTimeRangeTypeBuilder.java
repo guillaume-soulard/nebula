@@ -1,5 +1,7 @@
 package com.nebula.core.types.date;
 
+import com.nebula.Model;
+import com.nebula.parser.DateParser;
 import org.joda.time.DateTime;
 import org.joda.time.ReadableInstant;
 
@@ -17,9 +19,10 @@ public class DateTimeRangeTypeBuilder extends RangeTypeBuilder<ReadableInstant> 
 	public static final Date MAX_DEFAULT_DATE = MAX_DEFAULT_DATE_TIME.toDate();
 
 	private DateTimeTypeIntervals interval;
+	private DateParser dateParser = new DateParser();
 
 	@Override
-	public Type build() {
+	public Type buildImpl(Model model) {
 		return new DateTimeRangeType(new Range<ReadableInstant>(min, max), interval);
 	}
 
@@ -46,5 +49,10 @@ public class DateTimeRangeTypeBuilder extends RangeTypeBuilder<ReadableInstant> 
 	@Override
 	protected ReadableInstant getDefaultMax() {
 		return MAX_DEFAULT_DATE_TIME;
+	}
+
+	@Override
+	protected ReadableInstant parseItem(Model model, String itemString) {
+		return dateParser.parse(model, itemString);
 	}
 }

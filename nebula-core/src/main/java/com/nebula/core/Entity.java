@@ -3,6 +3,7 @@ package com.nebula.core;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.nebula.Model;
 import com.nebula.core.generators.GeneratorBuilder;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
@@ -15,11 +16,13 @@ public class Entity implements Type {
 	private List<Property> properties = new ArrayList<Property>();
 	private String name;
 	private Long amount;
+	private Model model;
 
-	public Entity(String name, Long amount, PropertyBuilder propertyBuilder) {
+	public Entity(Model model, String name, Long amount, PropertyBuilder propertyBuilder) {
 		this.amount = amount;
 		this.propertyBuilder = propertyBuilder;
 		this.name = name;
+		this.model = model;
 	}
 
 	public String getName() {
@@ -32,7 +35,7 @@ public class Entity implements Type {
 
 	public void addProperty(String propertyName, GeneratorBuilder propertyGeneratorBuilder, TypeBuilder propertyType) {
 		checkIfPropertyAlreadyExists(propertyName);
-		properties.add(propertyBuilder.newProperty(propertyName, propertyType, propertyGeneratorBuilder));
+		properties.add(propertyBuilder.newProperty(model, propertyName, propertyType, propertyGeneratorBuilder));
 	}
 
 	private void checkIfPropertyAlreadyExists(String propertyName) {

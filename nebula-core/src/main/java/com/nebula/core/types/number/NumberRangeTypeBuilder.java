@@ -1,22 +1,29 @@
 package com.nebula.core.types.number;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.ParseException;
 
+import com.nebula.Model;
+import com.nebula.Nebula;
 import com.nebula.core.NebulaException;
 import com.nebula.core.types.Range;
 import com.nebula.core.types.RangeTypeBuilder;
 import com.nebula.core.types.Type;
+import com.nebula.parser.NumberParser;
 
 public class NumberRangeTypeBuilder extends RangeTypeBuilder<BigDecimal> {
 
 	private int precision = 0;
+	private NumberParser numberParser = new NumberParser();
 
 	@Override
-	public Type build() {
+	protected Type buildImpl(Model model) {
 		if (min.compareTo(max) > 0) {
 			throw new NebulaException("max must be greater than min");
 		}
-		return new NumberRangeType(new Range<BigDecimal>(min, max), precision);
+		return new NumberRangeType(new Range<>(min, max), precision);
 	}
 
 	public NumberRangeTypeBuilder withPrecision(int value) {
@@ -45,5 +52,10 @@ public class NumberRangeTypeBuilder extends RangeTypeBuilder<BigDecimal> {
 	@Override
 	protected BigDecimal getDefaultMax() {
 		return BigDecimal.valueOf(Integer.MAX_VALUE);
+	}
+
+	@Override
+	protected BigDecimal parseItem(Model model, String itemString) {
+		return numberParser.parse(model, itemString);
 	}
 }

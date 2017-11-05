@@ -1,5 +1,6 @@
 package com.nebula.core.types.list;
 
+import com.nebula.Model;
 import com.nebula.core.generators.GeneratorBuilder;
 import com.nebula.core.types.Type;
 import com.nebula.core.types.constant.ConstantTypeBuilder;
@@ -14,9 +15,9 @@ public class ListTypeAmongItemsBuilder extends AbstractListTypeBuilder {
 	}
 
 	@Override
-	public Type build() {
+	public Type build(Model model) {
 		throwExceptionWhenMinMaxAreNotValid();
-		return new ListTypeAmongItems(minSize, maxSize, generator.build(), items);
+		return new ListTypeAmongItems(model, minSize, maxSize, generator.build(), items);
 	}
 
 	public ListTypeAmongItemsBuilder amongItems(ConstantTypeBuilder... items) {

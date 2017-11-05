@@ -1,5 +1,6 @@
 package com.nebula.core.types.date;
 
+import static com.nebula.Nebula.newModel;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.joda.time.DateTime;
@@ -17,7 +18,7 @@ public class DateTimeRangeTypeBuilderTest {
 		TypeBuilder builder = new DateTimeRangeTypeBuilder();
 
 		// WHEN
-		Type result = builder.build();
+		Type result = builder.build(newModel());
 
 		// THEN
 		assertThat(result).isInstanceOf(DateTimeRangeType.class);
@@ -30,7 +31,7 @@ public class DateTimeRangeTypeBuilderTest {
 		TypeBuilder builder = new DateTimeRangeTypeBuilder();
 
 		// WHEN
-		Type result = builder.build();
+		Type result = builder.build(newModel());
 
 		// THEN
 		assertThat(result).hasFieldOrPropertyWithValue("range.min", new DateTime(0l))
@@ -46,7 +47,7 @@ public class DateTimeRangeTypeBuilderTest {
 		DateTime min = new DateTime(2017, 1, 1, 0, 0);
 
 		// WHEN
-		Type result = builder.withMin(min).build();
+		Type result = builder.withMin(min).build(newModel());
 
 		// THEN
 		assertThat(result).hasFieldOrPropertyWithValue("range.min", min);
@@ -60,7 +61,7 @@ public class DateTimeRangeTypeBuilderTest {
 		DateTime max = new DateTime(2017, 1, 1, 0, 0);
 
 		// WHEN
-		Type result = builder.withMax(max).build();
+		Type result = builder.withMax(max).build(newModel());
 
 		// THEN
 		assertThat(result).hasFieldOrPropertyWithValue("range.max", max);
@@ -74,7 +75,7 @@ public class DateTimeRangeTypeBuilderTest {
 		DateTimeTypeIntervals interval = DateTimeTypeIntervals.MONTH;
 
 		// WHEN
-		Type result = builder.withInterval(interval).build();
+		Type result = builder.withInterval(interval).build(newModel());
 
 		// THEN
 		assertThat(result).hasFieldOrPropertyWithValue("interval", interval);

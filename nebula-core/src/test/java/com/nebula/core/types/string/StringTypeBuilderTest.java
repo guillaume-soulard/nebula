@@ -2,6 +2,7 @@ package com.nebula.core.types.string;
 
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
+import static com.nebula.Nebula.newModel;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
@@ -19,7 +20,7 @@ public class StringTypeBuilderTest {
 		TypeBuilder builder = new StringTypeBuilder();
 
 		// WHEN
-		Type result = builder.build();
+		Type result = builder.build(newModel());
 
 		// THEN
 		assertThat(result).isInstanceOf(StringType.class);

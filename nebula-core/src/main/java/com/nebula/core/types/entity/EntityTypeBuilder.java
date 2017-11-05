@@ -1,5 +1,6 @@
 package com.nebula.core.types.entity;
 
+import com.nebula.Model;
 import com.nebula.core.NebulaException;
 import com.nebula.core.types.Type;
 import com.nebula.core.types.TypeBuilder;
@@ -9,7 +10,7 @@ public class EntityTypeBuilder implements TypeBuilder {
 	private String entityName;
 
 	@Override
-	public Type build() {
+	public Type build(Model model) {
 		return new EntityType(entityName);
 	}
 

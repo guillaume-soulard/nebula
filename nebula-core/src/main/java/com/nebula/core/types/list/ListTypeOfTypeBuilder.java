@@ -1,5 +1,6 @@
 package com.nebula.core.types.list;
 
+import com.nebula.Model;
 import com.nebula.core.NebulaException;
 import com.nebula.core.generators.GeneratorBuilder;
 import com.nebula.core.types.Type;
@@ -16,9 +17,9 @@ public class ListTypeOfTypeBuilder extends AbstractListTypeBuilder {
 	}
 
 	@Override
-	public Type build() {
+	public Type build(Model model) {
 		throwExceptionWhenMinMaxAreNotValid();
-		return new ListTypeOfType(minSize, maxSize, generator.build(), type.build());
+		return new ListTypeOfType(minSize, maxSize, generator.build(), type.build(model));
 	}
 
 	private void throwExceptionWhenGeneratorOrTypeAreNull() {

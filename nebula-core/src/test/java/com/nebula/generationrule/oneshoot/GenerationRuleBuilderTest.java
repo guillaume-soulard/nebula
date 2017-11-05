@@ -38,7 +38,7 @@ public class GenerationRuleBuilderTest {
         // GIVEN
         OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();
         Model model = Nebula.newModel();
-        Entity entity = Nebula.newEntity("test");
+        Entity entity = model.newEntity("test");
         generationRuleBuilder.withEntity(entity);
 
         // WHEN
@@ -55,7 +55,7 @@ public class GenerationRuleBuilderTest {
         // GIVEN
         OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();
         Model model = Nebula.newModel();
-        Entity entity = Nebula.newEntity("test");
+        Entity entity = model.newEntity("test");
         generationRuleBuilder.withEntity(entity);
         generationRuleBuilder.withFormatter(NebulaFormatters.csv());
 
@@ -73,7 +73,7 @@ public class GenerationRuleBuilderTest {
         // GIVEN
         OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();
         Model model = Nebula.newModel();
-        Entity entity = Nebula.newEntity("test");
+        Entity entity = model.newEntity("test");
         generationRuleBuilder.withEntity(entity);
         generationRuleBuilder.withFormatter(NebulaFormatters.csv());
         generationRuleBuilder.addOutput(NebulaOutputs.stdout());
@@ -92,7 +92,7 @@ public class GenerationRuleBuilderTest {
         // GIVEN
         OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();
         Model model = Nebula.newModel();
-        Entity entity = Nebula.newEntity("test");
+        Entity entity = model.newEntity("test");
         model.addEntity(entity);
         generationRuleBuilder.withEntity(entity);
         generationRuleBuilder.withFormatter(NebulaFormatters.csv());

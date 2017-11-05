@@ -1,6 +1,7 @@
 package com.nebula.core.types;
 
-public interface TypeBuilder {
+import com.nebula.Model;
 
-	Type build();
+public interface TypeBuilder {
+	Type build(Model model);
 }

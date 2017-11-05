@@ -1,5 +1,6 @@
 package com.nebula.core.types.string;
 
+import static com.nebula.Nebula.newModel;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.joda.time.DateTime;
@@ -53,7 +54,7 @@ public class StringTypeIT {
 	}
 
 	private Entity createEntityInModel(Model model) {
-		Entity entity = Nebula.newEntity("entity", 1);
+		Entity entity = newModel().newEntity("entity", 1);
 		entity.addProperty("property", NebulaGenerators.random(),
 				NebulaGenerationTypes.string().withPattern("[A-Z]{1}[a-z]{10,25}"));
 		model.addEntity(entity);

@@ -23,6 +23,18 @@ public class Model {
 		seed = new Random().nextLong();
 	}
 
+	public Entity newEntity(String entityName, long amount) {
+
+		if (entityName == null) {
+			throw new NebulaException("entity name is null");
+		}
+		return new Entity(this, entityName, amount, new PropertyBuilder());
+	}
+
+	public Entity newEntity(String entityName) {
+		return newEntity(entityName, Long.MAX_VALUE);
+	}
+
 	public void addEntity(Entity entity) {
 
 		if (entity == null) {

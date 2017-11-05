@@ -1,5 +1,6 @@
 package com.nebula.core.types.string;
 
+import com.nebula.Model;
 import com.nebula.core.NebulaException;
 import com.nebula.core.types.Type;
 import com.nebula.core.types.TypeBuilder;
@@ -11,7 +12,7 @@ public class StringTypeBuilder implements TypeBuilder {
 	private String pattern;
 
 	@Override
-	public Type build() {
+	public Type build(Model model) {
 		return new StringType(newStringGenerator(pattern));
 	}
 

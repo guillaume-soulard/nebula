@@ -2,6 +2,7 @@ package com.nebula.core.generators.random;
 
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
+import static com.nebula.Nebula.newModel;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 
@@ -39,7 +40,7 @@ public class RandomGeneratorTest {
 		// GIVEN
 		RandomGenerator generator = new RandomGenerator();
 		generator.init(new GenerationContext(mock(NebulaRandom.class), null));
-		Type type = NebulaGenerationTypes.number().range().withMin(BigDecimal.ONE).withMax(BigDecimal.ONE).build();
+		Type type = NebulaGenerationTypes.number().range().withMin(BigDecimal.ONE).withMax(BigDecimal.ONE).build(newModel());
 
 		// WHEN
 		GeneratedObject result = generator.generate(type);
@@ -54,7 +55,7 @@ public class RandomGeneratorTest {
 		// GIVEN
 		RandomGenerator generator = new RandomGenerator();
 		generator.init(new GenerationContext(mock(NebulaRandom.class), null));
-		Type type = NebulaGenerationTypes.number().range().withMin(BigDecimal.TEN).withMax(BigDecimal.TEN).build();
+		Type type = NebulaGenerationTypes.number().range().withMin(BigDecimal.TEN).withMax(BigDecimal.TEN).build(newModel());
 
 		// WHEN
 		GeneratedObject result = generator.generate(type);
@@ -69,7 +70,7 @@ public class RandomGeneratorTest {
 		// GIVEN
 		RandomGenerator generator = new RandomGenerator();
 		generator.init(new GenerationContext(new NebulaRandom(0l), null));
-		Type type = NebulaGenerationTypes.number().range().withMin(BigDecimal.ZERO).withMax(BigDecimal.TEN).build();
+		Type type = NebulaGenerationTypes.number().range().withMin(BigDecimal.ZERO).withMax(BigDecimal.TEN).build(newModel());
 
 		// WHEN
 		List<GeneratedObject> result = new ArrayList<GeneratedObject>();
@@ -104,7 +105,7 @@ public class RandomGeneratorTest {
 
 		// GIVEN
 		RandomGenerator generator = new RandomGenerator();
-		Type type = NebulaGenerationTypes.number().range().build();
+		Type type = NebulaGenerationTypes.number().range().build(newModel());
 
 		// WHEN
 		catchException(generator).generate(type);

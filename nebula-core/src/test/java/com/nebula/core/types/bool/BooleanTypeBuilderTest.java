@@ -1,5 +1,6 @@
 package com.nebula.core.types.bool;
 
+import static com.nebula.Nebula.newModel;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
@@ -15,7 +16,7 @@ public class BooleanTypeBuilderTest {
 		BooleanTypeBuilder builder = new BooleanTypeBuilder();
 
 		// WHEN
-		Type result = builder.build();
+		Type result = builder.build(newModel());
 
 		// THEN
 		assertThat(result).isInstanceOf(BooleanType.class);

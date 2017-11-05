@@ -1,9 +1,6 @@
 package com.nebula.core.types.list;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-
+import com.nebula.Model;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaGenerationTypes;
 import com.nebula.core.generators.Generator;
@@ -11,17 +8,23 @@ import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.constant.ConstantTypeBuilder;
 import com.nebula.core.types.number.NumberRangeType;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+
 public class ListTypeAmongItems extends AbstractListType {
 
 	private GeneratedObject[] items;
 	private NumberRangeType numberRange;
+	private Model model;
 
-	public ListTypeAmongItems(int minSize, int maxSize, Generator generator, ConstantTypeBuilder[] builders) {
+	public ListTypeAmongItems(Model model, int minSize, int maxSize, Generator generator, ConstantTypeBuilder[] builders) {
 		super(minSize, maxSize, generator);
 		this.items = new GeneratedObject[builders.length];
+		this.model = model;
 
 		for (int i = 0; i < builders.length; i++) {
-			items[i] = builders[i].build().generateObject(0L);
+			items[i] = builders[i].build(model).generateObject(0L);
 		}
 	}
 
@@ -37,7 +40,7 @@ public class ListTypeAmongItems extends AbstractListType {
 
 	private void initNumberRange() {
 		numberRange = (NumberRangeType) NebulaGenerationTypes.number().range().withMin(BigDecimal.ZERO)
-				.withMax(BigDecimal.valueOf(items.length - 1)).build();
+				.withMax(BigDecimal.valueOf(items.length - 1)).build(model);
 		numberRange.init(context);
 	}
 
