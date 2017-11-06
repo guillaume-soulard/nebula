@@ -3,6 +3,7 @@
 == Content to add
 
 . Add itemAmong type (pick item in given list)
+. Set Nebula API fluent (entity, outputs, formatters, generation rules, constraints).
 . Add static entity (entity with given generated objects)
 . Add JDBC output
 . Add socket output
@@ -16,12 +17,9 @@
 .. address
 . Add time generation rule
 . Add cron generation rule
+. Add Index
+. Add expression generation constraints ("<propertyName> = 'foo' AND (<otherPropertyName> LIKE '%bar%' OR <property> BETWEEN 0 AND 9)")
 
 == Fixes
 
 . Set default pattern on string type
-. Rework generation engine according following structure:
-.. generation rule call outputs
-.. Output call formatter
-.. Output call generation constraints and can stop generation if needed
-.. Formatter call generation core
