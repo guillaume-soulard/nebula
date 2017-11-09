@@ -3,10 +3,14 @@ package com.nebula.examples.rest;
 import com.nebula.Model;
 import com.nebula.core.Entity;
 import com.nebula.generationrule.GenerationRules;
+import org.apache.http.entity.ContentType;
+
+import java.math.BigDecimal;
 
 import static com.nebula.Nebula.*;
 import static com.nebula.core.NebulaGenerationTypes.*;
 import static com.nebula.core.NebulaGenerators.random;
+import static com.nebula.core.NebulaGenerators.sequence;
 import static com.nebula.formatter.NebulaFormatters.json;
 
 public class Rest {
@@ -16,6 +20,7 @@ public class Rest {
         model.setSeed("users");
 
         Entity users = model.newEntity("users");
+        users.addProperty("id", sequence(), number().range().withMin(BigDecimal.ZERO));
         users.addProperty("firstName", random(), string().withPattern("[A-Z]{1}[a-z]{10,25}"));
         users.addProperty("lastName", random(), string().withPattern("[A-Z]{1}[a-z]{10,25}"));
         users.addProperty("departments", random(), list().of(random(), entity("departments")).withMinSize(1).withMaxSize(3));
@@ -27,7 +32,7 @@ public class Rest {
         model.addEntity(departments);
 
         model.addGenerationRule(GenerationRules.newRestGenerationRule()
-                .addContentTypeFormatter(json().pretty())
+                .addContentTypeFormatter(ContentType.APPLICATION_JSON, json().pretty())
                 .withHost("localhost")
                 .withPort(3000));
 
