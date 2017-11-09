@@ -2,10 +2,12 @@ package com.nebula.formatter.csv;
 
 import com.nebula.core.Entity;
 import com.nebula.core.GeneratedObject;
+import com.nebula.core.GeneratedProperty;
 import com.nebula.core.Property;
 import com.nebula.formatter.AbstractFormatter;
 import com.nebula.formatter.ValueFormatter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CsvFormatter extends AbstractFormatter {
@@ -33,7 +35,15 @@ public class CsvFormatter extends AbstractFormatter {
     private void formatObject(GeneratedObject generatedObject, StringBuilder builder) {
         boolean isFirst = true;
 
-        for (String columnName : columnNames) {
+        List<String> columnNamesToUse = null;
+
+        if (columnNames == null || columnNames.isEmpty()) {
+            columnNamesToUse = getAllColumnsOfGeneratedObject(generatedObject);
+        } else {
+            columnNamesToUse = columnNames;
+        }
+
+        for (String columnName : columnNamesToUse) {
             if (isFirst) {
                 isFirst = false;
             } else {
@@ -44,6 +54,16 @@ public class CsvFormatter extends AbstractFormatter {
             appendValueWithQuotesToStringBuilder(builder, formattedValue);
         }
 
+    }
+
+    private List<String> getAllColumnsOfGeneratedObject(GeneratedObject generatedObject) {
+        List<String> columns = new ArrayList<>();
+
+        for (GeneratedProperty generatedProperty : generatedObject.getGeneratedProperties()) {
+            columns.add(generatedProperty.getPropertyName());
+        }
+
+        return columns;
     }
 
     private void appendValueWithQuotesToStringBuilder(StringBuilder builder, Object value) {
