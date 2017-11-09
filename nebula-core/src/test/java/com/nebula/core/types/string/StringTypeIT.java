@@ -1,18 +1,17 @@
 package com.nebula.core.types.string;
 
-import static com.nebula.Nebula.newModel;
-import static org.assertj.core.api.Assertions.assertThat;
-
-import org.joda.time.DateTime;
-import org.junit.Test;
-
-import com.nebula.core.Entity;
 import com.nebula.Model;
 import com.nebula.Nebula;
+import com.nebula.core.Entity;
 import com.nebula.core.NebulaGenerationTypes;
 import com.nebula.core.NebulaGenerators;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
+import org.joda.time.DateTime;
+import org.junit.Test;
+
+import static com.nebula.Nebula.newModel;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class StringTypeIT {
 
@@ -40,7 +39,8 @@ public class StringTypeIT {
 
 		// GIVEN
 		StringType stringType = new StringType(StringGenerator.newStringGenerator("[A-Z]{1}[a-z]{10,25}"));
-		GenerationContext context = new GenerationContext(new NebulaRandom(0l), new Model());
+		long entityIndex = 0L;
+		GenerationContext context = new GenerationContext(new NebulaRandom(0l), new Model(), entityIndex);
 		stringType.init(context);
 		DateTime start = DateTime.now();
 

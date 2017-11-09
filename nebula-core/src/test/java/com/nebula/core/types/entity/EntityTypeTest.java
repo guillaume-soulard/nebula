@@ -94,7 +94,8 @@ public class EntityTypeTest {
 		NebulaRandom nebulaRandom = new NebulaRandom(1l);
 		Model model = mock(Model.class);
 		when(model.getEntityByName(ENTITY_NAME)).thenReturn(entityWithAmount(1l));
-		entityType.init(new GenerationContext(nebulaRandom, model));
+		long entityIndex = 0L;
+		entityType.init(new GenerationContext(nebulaRandom, model, entityIndex));
 
 		// WHEN
 		Long result = entityType.getMaxRange();
@@ -209,7 +210,8 @@ public class EntityTypeTest {
 		Model model = mock(Model.class);
 		when(model.getEntityByName(ENTITY_NAME)).thenReturn(entityWithAmount(entityAmount));
 		NebulaRandom nebulaRandom = new NebulaRandom(1l);
-		GenerationContext context = new GenerationContext(nebulaRandom, model);
+		long entityIndex = 0L;
+		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex);
 		type.init(context);
 		return context;
 	}

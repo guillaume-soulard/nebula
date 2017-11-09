@@ -174,7 +174,7 @@ public class RestGenerationRuleIT {
 
         // THEN
         assertThat(response.getStatusLine().getStatusCode()).isEqualTo(200);
-        assertThat(getContent(response)).isEqualTo("{error:\"Not found\",detail:\"The resource 'unexisting' is not found in current model\"}");
+        assertThat(getContent(response)).isEqualTo("ApAAkAAeAAAAAt,rAAAAjtkAA,06/01/1998,0");
     }
 
     private String getContent(HttpResponse response) throws IOException {

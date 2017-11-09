@@ -24,7 +24,7 @@ public abstract class AbstractListType implements Type {
 	@Override
 	public GeneratedObject generateObject(Long objectIndex) {
 		NebulaRandom localNebulaRandom = new NebulaRandom(context.getNebulaRandom().getSeed() + objectIndex);
-		GenerationContext localContext = new GenerationContext(localNebulaRandom, context.getModel());
+		GenerationContext localContext = new GenerationContext(localNebulaRandom, context.getModel(), objectIndex);
 		generator.init(localContext);
 		int listSize = Integer.valueOf(Long.toString(localNebulaRandom.randomBetween(minSize, maxSize)));
 		return new GeneratedObject(generateList(listSize, localNebulaRandom));

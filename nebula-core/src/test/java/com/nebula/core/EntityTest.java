@@ -1,23 +1,6 @@
 package com.nebula.core;
 
-import static com.googlecode.catchexception.CatchException.catchException;
-import static com.googlecode.catchexception.CatchException.caughtException;
-import static com.nebula.Nebula.newModel;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.anyString;
-import static org.mockito.Matchers.eq;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
-import java.math.BigDecimal;
-
 import com.nebula.Model;
-import com.nebula.Nebula;
-import org.junit.Test;
-
 import com.nebula.core.generators.Generator;
 import com.nebula.core.generators.GeneratorBuilder;
 import com.nebula.core.generators.NebulaRandom;
@@ -26,6 +9,17 @@ import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.Type;
 import com.nebula.core.types.TypeBuilder;
 import com.nebula.core.types.number.NumberRangeType;
+import org.junit.Test;
+
+import java.math.BigDecimal;
+
+import static com.googlecode.catchexception.CatchException.catchException;
+import static com.googlecode.catchexception.CatchException.caughtException;
+import static com.nebula.Nebula.newModel;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.*;
 
 public class EntityTest {
 
@@ -84,7 +78,8 @@ public class EntityTest {
 		Entity entity = newModel().newEntity("test", 1);
 		String propertyName = "property";
 		entity.addProperty(propertyName, NebulaGenerators.random(), NebulaGenerationTypes.number().range());
-		entity.init(new GenerationContext(new NebulaRandom(1l), null));
+		long entityIndex = 0L;
+		entity.init(new GenerationContext(new NebulaRandom(1l), null, entityIndex));
 
 		// WHEN
 		GeneratedObject result = entity.generateObject(1l);
@@ -101,7 +96,8 @@ public class EntityTest {
 		String propertyName = "property";
 		entity.addProperty(propertyName, NebulaGenerators.random(),
 				NebulaGenerationTypes.number().range().withMin(BigDecimal.ONE).withMax(BigDecimal.ONE));
-		entity.init(new GenerationContext(new NebulaRandom(1l), null));
+		long entityIndex = 0L;
+		entity.init(new GenerationContext(new NebulaRandom(1l), null, entityIndex));
 
 		// WHEN
 		GeneratedObject result = entity.generateObject(1l);
@@ -123,7 +119,8 @@ public class EntityTest {
 				NebulaGenerationTypes.number().range().withMin(BigDecimal.ONE).withMax(BigDecimal.ONE));
 		entity.addProperty(property2Name, NebulaGenerators.random(),
 				NebulaGenerationTypes.number().range().withMin(BigDecimal.valueOf(5)).withMax(BigDecimal.valueOf(5)));
-		entity.init(new GenerationContext(new NebulaRandom(1l), null));
+		long entityIndex = 0L;
+		entity.init(new GenerationContext(new NebulaRandom(1l), null, entityIndex));
 
 		// WHEN
 		GeneratedObject result = entity.generateObject(1l);
@@ -153,7 +150,8 @@ public class EntityTest {
 		NebulaRandom nebulaRandom = mock(NebulaRandom.class);
 		when(nebulaRandom.getSeed()).thenReturn(0l);
 		entity.addProperty("name", null, null);
-		GenerationContext context = new GenerationContext(nebulaRandom, null);
+		long entityIndex = 0L;
+		GenerationContext context = new GenerationContext(nebulaRandom, null, entityIndex);
 
 		// WHEN
 		entity.init(context);
@@ -177,7 +175,8 @@ public class EntityTest {
 		Entity entity = new Entity(newModel(), "test", 1l, propertyBuilder);
 		NebulaRandom nebulaRandom = mock(NebulaRandom.class);
 		entity.addProperty(null, null, null);
-		GenerationContext context = new GenerationContext(nebulaRandom, null);
+		long entityIndex = 0L;
+		GenerationContext context = new GenerationContext(nebulaRandom, null, entityIndex);
 
 		// WHEN
 		entity.init(context);

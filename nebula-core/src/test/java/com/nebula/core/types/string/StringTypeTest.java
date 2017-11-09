@@ -20,7 +20,8 @@ public class StringTypeTest {
 		// GIVEN
 		String pattern = "[a]{1}";
 		StringType stringType = new StringType(newStringGenerator(pattern));
-		stringType.init(new GenerationContext(new NebulaRandom(1l), null));
+		long entityIndex = 0L;
+		stringType.init(new GenerationContext(new NebulaRandom(1l), null, entityIndex));
 
 		// WHEN
 		GeneratedObject result = stringType.generateObject(0l);
@@ -35,7 +36,8 @@ public class StringTypeTest {
 		// GIVEN
 		String pattern = "[a]{1}";
 		StringType stringType = new StringType(newStringGenerator(pattern));
-		stringType.init(new GenerationContext(new NebulaRandom(1l), null));
+		long entityIndex = 0L;
+		stringType.init(new GenerationContext(new NebulaRandom(1l), null, entityIndex));
 
 		// WHEN
 		GeneratedObject result = stringType.generateObject(0l);
@@ -49,7 +51,8 @@ public class StringTypeTest {
 
 		// GIVEN
 		StringType stringType = new StringType(newStringGenerator("test"));
-		stringType.init(new GenerationContext(new NebulaRandom(1l), null));
+		long entityIndex = 0L;
+		stringType.init(new GenerationContext(new NebulaRandom(1l), null, entityIndex));
 
 		// WHEN
 		GeneratedObject result = stringType.generateObject(0l);
@@ -63,7 +66,8 @@ public class StringTypeTest {
 
 		// GIVEN
 		StringType stringType = new StringType(newStringGenerator(null));
-		stringType.init(new GenerationContext(new NebulaRandom(1l), null));
+		long entityIndex = 0L;
+		stringType.init(new GenerationContext(new NebulaRandom(1l), null, entityIndex));
 		GeneratedObject resultIndex0 = stringType.generateObject(0l);
 
 		// WHEN
@@ -151,7 +155,8 @@ public class StringTypeTest {
 		StringType stringType = new StringType(stringGenerator);
 		NebulaRandom nebulaRandom = new NebulaRandom(0l);
 		Model model = new Model();
-		GenerationContext context = new GenerationContext(nebulaRandom, model);
+		long entityIndex = 0L;
+		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex);
 
 		// WHEN
 		stringType.init(context);

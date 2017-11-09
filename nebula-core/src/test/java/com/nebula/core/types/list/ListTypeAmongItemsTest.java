@@ -142,7 +142,8 @@ public class ListTypeAmongItemsTest {
 		ListTypeAmongItems listType = new ListTypeAmongItems(newModel(), minSize, maxSize, generator, items);
 		NebulaRandom nebulaRandom = new NebulaRandom(0l);
 		Model model = new Model();
-		GenerationContext context = new GenerationContext(nebulaRandom, model);
+		long entityIndex = 0L;
+		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex);
 		listType.init(context);
 
 		// WHEN
@@ -163,7 +164,8 @@ public class ListTypeAmongItemsTest {
 		ListTypeAmongItems listType = new ListTypeAmongItems(newModel(), minSize, maxSize, generator, items);
 		NebulaRandom nebulaRandom = new NebulaRandom(0l);
 		Model model = new Model();
-		GenerationContext context = new GenerationContext(nebulaRandom, model);
+		long entityIndex = 0L;
+		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex);
 		listType.init(context);
 
 		// WHEN
@@ -184,7 +186,8 @@ public class ListTypeAmongItemsTest {
 		ListTypeAmongItems listType = new ListTypeAmongItems(newModel(), minSize, maxSize, generator, items);
 		NebulaRandom nebulaRandom = new NebulaRandom(0l);
 		Model model = new Model();
-		GenerationContext context = new GenerationContext(nebulaRandom, model);
+		long entityIndex = 0L;
+		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex);
 		listType.init(context);
 
 		// WHEN
@@ -205,7 +208,8 @@ public class ListTypeAmongItemsTest {
 		ListTypeAmongItems listType = new ListTypeAmongItems(newModel(), minSize, maxSize, generator, items);
 		NebulaRandom nebulaRandom = new NebulaRandom(0l);
 		Model model = new Model();
-		GenerationContext context = new GenerationContext(nebulaRandom, model);
+		long entityIndex = 0L;
+		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex);
 		listType.init(context);
 
 		// WHEN
@@ -227,7 +231,8 @@ public class ListTypeAmongItemsTest {
 		ListTypeAmongItems listType = new ListTypeAmongItems(newModel(), minSize, maxSize, generator, items);
 		NebulaRandom nebulaRandom = new NebulaRandom(0l);
 		Model model = new Model();
-		GenerationContext context = new GenerationContext(nebulaRandom, model);
+		long entityIndex = 0L;
+		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex);
 		listType.init(context);
 		GeneratedObject resultAtindex0 = listType.generateObject(0l);
 
@@ -249,7 +254,8 @@ public class ListTypeAmongItemsTest {
 		ListTypeAmongItems listType = new ListTypeAmongItems(newModel(), minSize, maxSize, generator, items);
 		NebulaRandom nebulaRandom = new NebulaRandom(0l);
 		Model model = new Model();
-		GenerationContext context = new GenerationContext(nebulaRandom, model);
+		long entityIndex = 0L;
+		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex);
 		listType.init(context);
 		GeneratedObject resultAtindex0 = listType.generateObject(0l);
 
@@ -272,7 +278,8 @@ public class ListTypeAmongItemsTest {
 		ListTypeAmongItems listType = new ListTypeAmongItems(newModel(), minSize, maxSize, generator, items);
 		NebulaRandom nebulaRandom = new NebulaRandom(0l);
 		Model model = new Model();
-		GenerationContext context = new GenerationContext(nebulaRandom, model);
+		long entityIndex = 0L;
+		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex);
 		listType.init(context);
 
 		// WHEN
@@ -293,7 +300,8 @@ public class ListTypeAmongItemsTest {
 		ListTypeAmongItems listType = new ListTypeAmongItems(newModel(), minSize, maxSize, generator, items);
 		NebulaRandom nebulaRandom = new NebulaRandom(0l);
 		Model model = new Model();
-		GenerationContext context = new GenerationContext(nebulaRandom, model);
+		long entityIndex = 0L;
+		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex);
 		listType.init(context);
 
 		// WHEN
@@ -317,7 +325,8 @@ public class ListTypeAmongItemsTest {
 		ListTypeAmongItems listType = new ListTypeAmongItems(newModel(), minSize, maxSize, generator, items);
 		NebulaRandom nebulaRandom = new NebulaRandom(0l);
 		Model model = new Model();
-		GenerationContext context = new GenerationContext(nebulaRandom, model);
+		long entityIndex = 0L;
+		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex);
 		listType.init(context);
 		GeneratedObject index0 = new GeneratedObject(BigDecimal.ZERO);
 		GeneratedObject index1 = new GeneratedObject(BigDecimal.ONE);

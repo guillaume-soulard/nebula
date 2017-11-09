@@ -7,10 +7,12 @@ public class GenerationContext {
 
 	private NebulaRandom nebulaRandom;
 	private Model model;
+	private long entityIndex;
 
-	public GenerationContext(NebulaRandom nebulaRandom, Model model) {
+	public GenerationContext(NebulaRandom nebulaRandom, Model model, long entityIndex) {
 		this.nebulaRandom = nebulaRandom;
 		this.model = model;
+		this.entityIndex = entityIndex;
 	}
 
 	public NebulaRandom getNebulaRandom() {
@@ -19,5 +21,9 @@ public class GenerationContext {
 
 	public Model getModel() {
 		return model;
+	}
+
+	public long getEntityIndex() {
+		return entityIndex;
 	}
 }
