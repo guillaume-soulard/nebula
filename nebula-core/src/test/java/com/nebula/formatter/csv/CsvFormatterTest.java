@@ -69,6 +69,29 @@ public class CsvFormatterTest {
     }
 
     @Test
+    public void formatGeneratedObject_should_return_jean_durant_if_no_coluns_are_specified() throws Exception {
+
+        // GIVEN
+        Model model = newModel();
+        String separator = ";";
+        boolean header = false;
+        String quote = "";
+        List<String> propertiesToExclude = new ArrayList<>();
+        List<String> columnNames = new ArrayList<>();
+        CsvFormatter formatter = new CsvFormatter(separator, quote, header, columnNames, valueFormatter, propertiesToExclude);
+        List<GeneratedProperty> generatedProperties = new ArrayList<>();
+        generatedProperties.add(new GeneratedProperty("firstName", new GeneratedObject("jean"), string().build(model)));
+        generatedProperties.add(new GeneratedProperty("lastName", new GeneratedObject("durant"), string().build(model)));
+        GeneratedObject generatedObject = new GeneratedObject(generatedProperties);
+
+        // WHEN
+        String formattedObject = formatter.formatGeneratedObject(generatedObject);
+
+        // THEN
+        assertThat(formattedObject).isEqualTo("jean;durant");
+    }
+
+    @Test
     public void formatGeneratedObject_should_return_quotted_values() throws Exception {
 
         // GIVEN

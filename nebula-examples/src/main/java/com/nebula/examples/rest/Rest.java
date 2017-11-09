@@ -2,15 +2,11 @@ package com.nebula.examples.rest;
 
 import com.nebula.Model;
 import com.nebula.core.Entity;
-import com.nebula.core.NebulaGenerationTypes;
 import com.nebula.generationrule.GenerationRules;
-
-import java.math.BigDecimal;
 
 import static com.nebula.Nebula.*;
 import static com.nebula.core.NebulaGenerationTypes.*;
 import static com.nebula.core.NebulaGenerators.random;
-import static com.nebula.core.NebulaGenerators.sequence;
 import static com.nebula.formatter.NebulaFormatters.json;
 
 public class Rest {
@@ -31,7 +27,7 @@ public class Rest {
         model.addEntity(departments);
 
         model.addGenerationRule(GenerationRules.newRestGenerationRule()
-                .withFormatter(json().pretty())
+                .addContentTypeFormatter(json().pretty())
                 .withHost("localhost")
                 .withPort(3000));
 

@@ -4,10 +4,13 @@ import com.nebula.Model;
 import com.nebula.core.Entity;
 import com.nebula.formatter.FormatterBuilder;
 import com.nebula.formatter.NebulaFormatters;
+import org.apache.http.HttpHeaders;
 import org.apache.http.HttpHost;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.protocol.HttpClientContext;
+import org.apache.http.entity.ContentType;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.joda.time.DateTime;
 import org.junit.AfterClass;
@@ -16,6 +19,8 @@ import org.junit.Test;
 import sun.misc.IOUtils;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.nebula.Nebula.newModel;
 import static com.nebula.core.NebulaGenerationTypes.dateTime;
@@ -38,8 +43,10 @@ public class RestGenerationRuleIT {
         entity.addProperty("lastName", random(), string().withPattern("[A-Aa-z]{10,25}"));
         entity.addProperty("dayOfBirth", random(), dateTime().range().withMin(new DateTime(1940, 1, 1, 0, 0)).withMax(new DateTime(2017, 12, 31, 0, 0)));
         model.addEntity(entity);
-        FormatterBuilder formatter = NebulaFormatters.json();
-        rest = new RestGenerationRule(model, formatter, "localhost", 8080);
+        Map<String, FormatterBuilder> formatterMap = new HashMap<>();
+        formatterMap.put(ContentType.APPLICATION_JSON.getMimeType(), NebulaFormatters.json());
+        formatterMap.put(ContentType.TEXT_PLAIN.getMimeType(), NebulaFormatters.csv());
+        rest = new RestGenerationRule(model, formatterMap, ContentType.APPLICATION_JSON.getMimeType(), "localhost", 8080);
 
         Thread thread = new Thread(new Runnable() {
             @Override
@@ -151,6 +158,22 @@ public class RestGenerationRuleIT {
 
         // THEN
         assertThat(response.getStatusLine().getStatusCode()).isEqualTo(404);
+        assertThat(getContent(response)).isEqualTo("{error:\"Not found\",detail:\"The resource 'unexisting' is not found in current model\"}");
+    }
+
+    @Test
+    public void execute_should_return_entity_as_csv_format() throws Exception {
+
+        // GIVEN
+        HttpClient client = HttpClientBuilder.create().build();
+        HttpGet request = new HttpGet("/user/0");
+        request.addHeader(HttpHeaders.ACCEPT, ContentType.TEXT_PLAIN.getMimeType());
+
+        // WHEN
+        HttpResponse response = client.execute(new HttpHost("localhost", 8080), request);
+
+        // THEN
+        assertThat(response.getStatusLine().getStatusCode()).isEqualTo(200);
         assertThat(getContent(response)).isEqualTo("{error:\"Not found\",detail:\"The resource 'unexisting' is not found in current model\"}");
     }
 

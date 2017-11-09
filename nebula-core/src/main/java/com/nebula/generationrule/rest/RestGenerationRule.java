@@ -15,8 +15,9 @@ import org.apache.http.protocol.HttpProcessor;
 import org.apache.http.protocol.HttpRequestHandler;
 
 import java.io.IOException;
-import java.net.Inet4Address;
 import java.net.InetAddress;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class RestGenerationRule implements GenerationRule {
@@ -24,20 +25,25 @@ public class RestGenerationRule implements GenerationRule {
     private Model model;
     private String host;
     private int port;
-    private Formatter formatter;
+    private Map<String, Formatter> contentTypeFormatterMap = new HashMap<>();
     private HttpServer server;
+    private String defaultContentType;
 
-    public RestGenerationRule(Model model, FormatterBuilder formatter, String host, int port) {
+    public RestGenerationRule(Model model, Map<String, FormatterBuilder> contentTypeFormatterMap, String defaultContentType, String host, int port) {
         this.model = model;
         this.host = host;
         this.port = port;
-        this.formatter = formatter.build(model);
+        this.defaultContentType = defaultContentType;
+
+        for (Map.Entry<String, FormatterBuilder> contentTypeFormatter : contentTypeFormatterMap.entrySet()) {
+            this.contentTypeFormatterMap.put(contentTypeFormatter.getKey(), contentTypeFormatter.getValue().build(model));
+        }
     }
 
     @Override
     public void generate() {
         try {
-            HttpRequestHandler requestHandler = new RequestHandler(model, formatter);
+            HttpRequestHandler requestHandler = new RequestHandler(model, contentTypeFormatterMap, defaultContentType);
             HttpProcessor httpProcessor = new HttpProcessor() {
                 @Override
                 public void process(HttpRequest httpRequest, HttpContext httpContext) throws HttpException, IOException {
