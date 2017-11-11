@@ -22,4 +22,3 @@
 
 == Fixes
 
-. Set default pattern on string type
