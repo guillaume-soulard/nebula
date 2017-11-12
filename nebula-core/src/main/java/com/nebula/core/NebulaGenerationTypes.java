@@ -9,6 +9,7 @@ import com.nebula.core.types.date.DateTimeTypeBuilderChooser;
 import com.nebula.core.types.entity.EntityTypeBuilder;
 import com.nebula.core.types.list.ListTypeBuilder;
 import com.nebula.core.types.number.NumberTypeBuilderChooser;
+import com.nebula.core.types.picker.PickerTypeBuilder;
 import com.nebula.core.types.string.StringTypeBuilder;
 import org.joda.time.DateTime;
 
@@ -53,4 +54,12 @@ public final class NebulaGenerationTypes {
 	public static EntityTypeBuilder entity(String entityName) {
 		return new EntityTypeBuilder().withName(entityName);
 	}
+
+	public static PickerTypeBuilder picker(String item) { return new PickerTypeBuilder().addItem(item); }
+
+	public static PickerTypeBuilder picker(DateTime item) { return new PickerTypeBuilder().addItem(item); }
+
+	public static PickerTypeBuilder picker(BigDecimal item) { return new PickerTypeBuilder().addItem(item); }
+
+	public static PickerTypeBuilder picker(Boolean item) { return new PickerTypeBuilder().addItem(item); }
 }
