@@ -8,11 +8,11 @@ import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.Type;
 
-public class ListTypeOfType extends AbstractListType {
+class ListTypeOfType extends AbstractListType {
 
 	private Type type;
 
-	public ListTypeOfType(int minSize, int maxSize, Generator generator, Type type) {
+	ListTypeOfType(int minSize, int maxSize, Generator generator, Type type) {
 		super(minSize, maxSize, generator);
 		this.type = type;
 	}

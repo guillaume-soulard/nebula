@@ -13,7 +13,7 @@ import com.nebula.output.Output;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OneShootGenerationRule implements GenerationRule {
+class OneShootGenerationRule implements GenerationRule {
 
     private List<Output> outputsToWrite = new ArrayList<>();
     private Formatter formatterToUse;

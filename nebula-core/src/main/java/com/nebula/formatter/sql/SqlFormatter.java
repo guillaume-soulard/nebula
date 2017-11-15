@@ -9,11 +9,11 @@ import org.joda.time.DateTime;
 
 import java.util.List;
 
-public class SqlFormatter extends AbstractFormatter {
+class SqlFormatter extends AbstractFormatter {
 
     private String tableName;
 
-    public SqlFormatter(ValueFormatter valueFormatter, List<String> propertiesToExclude) {
+    SqlFormatter(ValueFormatter valueFormatter, List<String> propertiesToExclude) {
         super(valueFormatter, propertiesToExclude);
     }
 

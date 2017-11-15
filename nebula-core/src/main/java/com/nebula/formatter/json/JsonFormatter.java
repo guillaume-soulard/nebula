@@ -9,7 +9,7 @@ import com.nebula.formatter.ValueFormatter;
 import java.util.Collection;
 import java.util.List;
 
-public class JsonFormatter extends AbstractFormatter {
+class JsonFormatter extends AbstractFormatter {
 
     private static final String JSON_OBJECT_OPEN = "{";
     private static final String JSON_OBJECT_CLOSE = "}";

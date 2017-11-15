@@ -4,11 +4,9 @@ import com.nebula.Model;
 import com.nebula.core.generators.Generator;
 import com.nebula.core.generators.GeneratorBuilder;
 import com.nebula.core.generators.NebulaRandom;
-import com.nebula.core.generators.random.RandomGenerator;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.Type;
 import com.nebula.core.types.TypeBuilder;
-import com.nebula.core.types.number.NumberRangeType;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -37,8 +35,8 @@ public class EntityTest {
 		// THEN
 		assertThat(entity.getProperties()).hasSize(1);
 		assertThat(entity.getProperties().get(0).getName()).isEqualTo(propertyName);
-		assertThat(entity.getProperties().get(0).getType()).isInstanceOf(NumberRangeType.class);
-		assertThat(entity.getProperties().get(0).getGenerator()).isInstanceOf(RandomGenerator.class);
+		assertThat(entity.getProperties().get(0).getType()).isInstanceOf(Type.class);
+		assertThat(entity.getProperties().get(0).getGenerator()).isInstanceOf(Generator.class);
 	}
 
 	@Test

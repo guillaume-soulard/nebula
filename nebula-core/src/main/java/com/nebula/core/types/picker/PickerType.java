@@ -5,19 +5,15 @@ import com.nebula.core.NebulaException;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.Type;
-import com.nebula.core.types.TypeBuilder;
-import com.nebula.core.types.constant.ConstantType;
-import com.nebula.core.types.constant.ConstantTypeBuilder;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class PickerType implements Type {
+class PickerType implements Type {
 
     private List<GeneratedObject> generatedObjects;
     private GenerationContext context;
 
-    public PickerType(List<GeneratedObject> generatedObjects) {
+    PickerType(List<GeneratedObject> generatedObjects) {
         if (generatedObjects == null) {
             throw new NebulaException("generatedObjects is null");
         }

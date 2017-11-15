@@ -5,9 +5,8 @@ import java.util.List;
 
 import com.nebula.core.types.AbstractAmongType;
 
-public class NumberAmongType extends AbstractAmongType<BigDecimal> {
-
-	public NumberAmongType(List<BigDecimal> items) {
+class NumberAmongType extends AbstractAmongType<BigDecimal> {
+	NumberAmongType(List<BigDecimal> items) {
 		super(items);
 	}
 }

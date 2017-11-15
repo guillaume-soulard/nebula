@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-public class RestGenerationRule implements GenerationRule {
+class RestGenerationRule implements GenerationRule {
 
     private Model model;
     private String host;
@@ -29,7 +29,7 @@ public class RestGenerationRule implements GenerationRule {
     private HttpServer server;
     private String defaultContentType;
 
-    public RestGenerationRule(Model model, Map<String, FormatterBuilder> contentTypeFormatterMap, String defaultContentType, String host, int port) {
+    RestGenerationRule(Model model, Map<String, FormatterBuilder> contentTypeFormatterMap, String defaultContentType, String host, int port) {
         this.model = model;
         this.host = host;
         this.port = port;

@@ -8,14 +8,14 @@ import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.Type;
 
-public abstract class AbstractListType implements Type {
+abstract class AbstractListType implements Type {
 
 	protected Generator generator;
 	protected int maxSize;
 	protected int minSize;
 	protected GenerationContext context;
 
-	public AbstractListType(int minSize, int maxSize, Generator generator) {
+	AbstractListType(int minSize, int maxSize, Generator generator) {
 		this.minSize = minSize;
 		this.maxSize = maxSize;
 		this.generator = generator;
@@ -32,7 +32,7 @@ public abstract class AbstractListType implements Type {
 
 	protected abstract List<Object> generateList(int listSize, NebulaRandom nebulaRandom);
 
-	protected void fillList(int listSize, NebulaRandom nebulaRandom, List<Object> list) {
+	void fillList(int listSize, NebulaRandom nebulaRandom, List<Object> list) {
 		for (int elementIndex = 0; elementIndex < listSize; elementIndex++) {
 			list.add(getItem(nebulaRandom));
 		}

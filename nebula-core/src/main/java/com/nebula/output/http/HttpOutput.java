@@ -8,12 +8,12 @@ import org.apache.http.impl.client.CloseableHttpClient;
 
 import java.io.IOException;
 
-public class HttpOutput implements Output {
+class HttpOutput implements Output {
 
     private final String url;
     private CloseableHttpClient httpClient;
 
-    public HttpOutput(String url, CloseableHttpClient httpClient) {
+    HttpOutput(String url, CloseableHttpClient httpClient) {
         this.httpClient = httpClient;
         this.url = url;
     }

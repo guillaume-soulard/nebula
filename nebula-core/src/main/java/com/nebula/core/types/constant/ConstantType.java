@@ -4,11 +4,11 @@ import com.nebula.core.GeneratedObject;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.Type;
 
-public class ConstantType implements Type {
+class ConstantType implements Type {
 
 	private Object value;
 
-	public ConstantType(Object value) {
+	ConstantType(Object value) {
 		this.value = value;
 	}
 

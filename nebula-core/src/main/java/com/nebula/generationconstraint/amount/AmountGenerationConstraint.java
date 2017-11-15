@@ -8,7 +8,7 @@ import com.nebula.generationconstraint.GenerationConstraint;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class AmountGenerationConstraint implements GenerationConstraint {
+class AmountGenerationConstraint implements GenerationConstraint {
 
     private final int maxAmountOfObjectsToGenerate;
     private AtomicInteger amountOfAlreadyGeneratedObjects = new AtomicInteger(0);

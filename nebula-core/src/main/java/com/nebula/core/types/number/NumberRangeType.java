@@ -6,13 +6,13 @@ import com.nebula.core.GeneratedObject;
 import com.nebula.core.types.AbstractTypeWithIndexCheck;
 import com.nebula.core.types.Range;
 
-public class NumberRangeType extends AbstractTypeWithIndexCheck {
+class NumberRangeType extends AbstractTypeWithIndexCheck {
 
 	private Range<BigDecimal> range;
 	private int precision;
 	private BigDecimal increment;
 
-	public NumberRangeType(Range<BigDecimal> range, int precision) {
+	NumberRangeType(Range<BigDecimal> range, int precision) {
 		this.range = range;
 		this.precision = precision;
 		increment = BigDecimal.ONE.divide(BigDecimal.TEN.pow(precision));
@@ -31,7 +31,7 @@ public class NumberRangeType extends AbstractTypeWithIndexCheck {
 		return new GeneratedObject(calculateRequestedNumber(index));
 	}
 
-	public BigDecimal calculateRequestedNumber(Long index) {
+	private BigDecimal calculateRequestedNumber(Long index) {
 		return range.getMin().add(new BigDecimal(index).multiply(increment)).setScale(precision);
 	}
 }

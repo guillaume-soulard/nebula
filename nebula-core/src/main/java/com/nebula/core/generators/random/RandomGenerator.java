@@ -6,9 +6,13 @@ import com.nebula.core.generators.Generator;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.Type;
 
-public class RandomGenerator implements Generator {
+class RandomGenerator implements Generator {
 
 	private GenerationContext context;
+
+	RandomGenerator() {
+
+	}
 
 	public GeneratedObject generate(Type type) {
 		throwExceptionIfGenerationContextIsNull();

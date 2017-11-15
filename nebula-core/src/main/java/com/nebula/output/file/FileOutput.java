@@ -11,7 +11,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
-public class FileOutput implements Output {
+class FileOutput implements Output {
     private final String charset;
     private Path filePath;
     private FileOutputStream fileOutputStream;

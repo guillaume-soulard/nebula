@@ -6,12 +6,12 @@ import com.nebula.core.generators.Generator;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.Type;
 
-public class SequenceGenerator implements Generator {
+class SequenceGenerator implements Generator {
 
 	private boolean allowCycle;
 	private GenerationContext context;
 
-	public SequenceGenerator(boolean allowCycle) {
+	SequenceGenerator(boolean allowCycle) {
 		this.allowCycle = allowCycle;
 	}
 

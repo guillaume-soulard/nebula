@@ -6,13 +6,13 @@ import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaException;
 import com.nebula.core.types.AbstractTypeWithIndexCheck;
 
-public class EntityType extends AbstractTypeWithIndexCheck {
+class EntityType extends AbstractTypeWithIndexCheck {
 
 	private Entity entity;
 	private String entityName;
 	private EntityGenerator entityGenerator = new EntityGenerator();
 
-	public EntityType(String entityName) {
+	EntityType(String entityName) {
 		if (entityName == null) {
 			throw new NebulaException("entityName is null");
 		}

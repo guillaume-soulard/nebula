@@ -10,7 +10,7 @@ import com.nebula.formatter.ValueFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CsvFormatter extends AbstractFormatter {
+class CsvFormatter extends AbstractFormatter {
     private final String separator;
     private final boolean header;
     private final String quote;

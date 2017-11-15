@@ -1,11 +1,8 @@
 package com.nebula;
 
 import com.nebula.core.*;
-import com.nebula.core.generators.GeneratorBuilder;
 import com.nebula.generationrule.GenerationRule;
 import com.nebula.generationrule.GenerationRuleBuilder;
-import com.nebula.generationrule.oneshoot.OneShootGenerationRule;
-import com.nebula.generationrule.oneshoot.OneShootGenerationRuleBuilder;
 
 import java.util.*;
 

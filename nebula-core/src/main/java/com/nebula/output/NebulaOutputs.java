@@ -1,7 +1,6 @@
 package com.nebula.output;
 
 import com.nebula.output.file.FileOutputBuilder;
-import com.nebula.output.http.HttpOutput;
 import com.nebula.output.http.HttpOutputBuilder;
 import com.nebula.output.stdout.StandardOutputOutputBuilder;
 

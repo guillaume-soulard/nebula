@@ -5,7 +5,11 @@ import com.nebula.core.NebulaException;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.Type;
 
-public class BooleanType implements Type {
+class BooleanType implements Type {
+
+	BooleanType() {
+
+	}
 
 	@Override
 	public void init(GenerationContext context) {

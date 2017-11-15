@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class CustomFormatter extends AbstractFormatter {
+class CustomFormatter extends AbstractFormatter {
     private String headerFormat;
     private final String generatedObjectFormat;
     private String footerFormat;

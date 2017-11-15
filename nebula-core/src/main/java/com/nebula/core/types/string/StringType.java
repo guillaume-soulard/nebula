@@ -4,11 +4,11 @@ import com.nebula.core.GeneratedObject;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.Type;
 
-public class StringType implements Type {
+class StringType implements Type {
 
 	private StringGenerator stringGenerator;
 
-	public StringType(StringGenerator stringGenerator) {
+	StringType(StringGenerator stringGenerator) {
 		this.stringGenerator = stringGenerator;
 	}
 

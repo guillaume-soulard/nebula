@@ -2,7 +2,7 @@ package com.nebula.output.stdout;
 
 import com.nebula.output.Output;
 
-public class StandardOutputOutput implements Output {
+class StandardOutputOutput implements Output {
 
     StandardOutputOutput() {
 
