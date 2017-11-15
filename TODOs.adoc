@@ -7,7 +7,6 @@
 . Add JDBC output
 . Add socket output
 . Add xml formatter
-. Add SQL formatter
 . Add word type
 . Add sentence type
 . Add human types
