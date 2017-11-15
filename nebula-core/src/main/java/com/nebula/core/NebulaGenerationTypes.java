@@ -1,8 +1,5 @@
 package com.nebula.core;
 
-import java.math.BigDecimal;
-import java.util.Date;
-
 import com.nebula.core.types.bool.BooleanTypeBuilder;
 import com.nebula.core.types.constant.ConstantTypeBuilder;
 import com.nebula.core.types.date.DateTimeTypeBuilderChooser;
@@ -12,6 +9,8 @@ import com.nebula.core.types.number.NumberTypeBuilderChooser;
 import com.nebula.core.types.picker.PickerTypeBuilder;
 import com.nebula.core.types.string.StringTypeBuilder;
 import org.joda.time.DateTime;
+
+import java.math.BigDecimal;
 
 public final class NebulaGenerationTypes {
 

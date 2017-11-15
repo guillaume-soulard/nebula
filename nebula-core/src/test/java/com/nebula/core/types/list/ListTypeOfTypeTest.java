@@ -1,13 +1,5 @@
 package com.nebula.core.types.list;
 
-import static com.nebula.Nebula.newModel;
-import static org.assertj.core.api.Assertions.assertThat;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import org.junit.Test;
-
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaGenerationTypes;
 import com.nebula.core.NebulaGenerators;
@@ -15,6 +7,13 @@ import com.nebula.core.generators.Generator;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.Type;
+import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.nebula.Nebula.newModel;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class ListTypeOfTypeTest {
 

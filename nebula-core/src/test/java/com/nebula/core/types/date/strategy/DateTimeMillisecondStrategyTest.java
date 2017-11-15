@@ -1,9 +1,9 @@
 package com.nebula.core.types.date.strategy;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.joda.time.DateTime;
 import org.junit.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class DateTimeMillisecondStrategyTest {
 

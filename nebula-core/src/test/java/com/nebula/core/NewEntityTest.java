@@ -1,10 +1,9 @@
 package com.nebula.core;
 
+import org.junit.Test;
+
 import static com.nebula.Nebula.newModel;
 import static org.assertj.core.api.Assertions.assertThat;
-
-import com.nebula.Nebula;
-import org.junit.Test;
 
 public class NewEntityTest {
 

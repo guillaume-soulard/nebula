@@ -5,7 +5,6 @@ import com.nebula.core.GeneratedObject;
 import com.nebula.core.GeneratedObjectIterator;
 import com.nebula.core.NebulaException;
 import com.nebula.formatter.Formatter;
-import com.nebula.generationrule.oneshoot.OneShootGenerationRule;
 import com.nebula.output.Output;
 import org.junit.Test;
 import org.mockito.InOrder;

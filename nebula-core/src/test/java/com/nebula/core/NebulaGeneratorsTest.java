@@ -1,11 +1,10 @@
 package com.nebula.core;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-import org.junit.Test;
-
 import com.nebula.core.generators.random.RandomGeneratorBuilder;
 import com.nebula.core.generators.sequance.SequenceGeneratorBuilder;
+import org.junit.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class NebulaGeneratorsTest {
 

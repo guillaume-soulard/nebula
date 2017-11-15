@@ -1,12 +1,11 @@
 package com.nebula.core.types.constant;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import com.nebula.core.GeneratedObject;
+import org.junit.Test;
 
 import java.math.BigDecimal;
 
-import org.junit.Test;
-
-import com.nebula.core.GeneratedObject;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class ConstantTypeTest {
 

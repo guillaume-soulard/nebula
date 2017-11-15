@@ -1,24 +1,17 @@
 package com.nebula.core.types.date;
 
-import static com.googlecode.catchexception.CatchException.catchException;
-import static com.googlecode.catchexception.CatchException.caughtException;
-import static com.nebula.core.types.date.DateTimeAdderConsumer.isInstanceOf;
-import static org.assertj.core.api.Assertions.assertThat;
-
+import com.nebula.core.GeneratedObject;
+import com.nebula.core.NebulaException;
+import com.nebula.core.types.Range;
+import com.nebula.core.types.date.strategy.*;
 import org.joda.time.DateTime;
 import org.joda.time.ReadableInstant;
 import org.junit.Test;
 
-import com.nebula.core.GeneratedObject;
-import com.nebula.core.NebulaException;
-import com.nebula.core.types.Range;
-import com.nebula.core.types.date.strategy.DateTimeDayStrategy;
-import com.nebula.core.types.date.strategy.DateTimeHourStrategy;
-import com.nebula.core.types.date.strategy.DateTimeMillisecondStrategy;
-import com.nebula.core.types.date.strategy.DateTimeMinuteStrategy;
-import com.nebula.core.types.date.strategy.DateTimeMonthStrategy;
-import com.nebula.core.types.date.strategy.DateTimeSecondStrategy;
-import com.nebula.core.types.date.strategy.DateTimeYearStrategy;
+import static com.googlecode.catchexception.CatchException.catchException;
+import static com.googlecode.catchexception.CatchException.caughtException;
+import static com.nebula.core.types.date.DateTimeAdderConsumer.isInstanceOf;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class DateTimeRangeTypeTest {
 

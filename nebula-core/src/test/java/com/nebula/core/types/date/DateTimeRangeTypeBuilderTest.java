@@ -1,13 +1,12 @@
 package com.nebula.core.types.date;
 
-import static com.nebula.Nebula.newModel;
-import static org.assertj.core.api.Assertions.assertThat;
-
+import com.nebula.core.types.Type;
+import com.nebula.core.types.TypeBuilder;
 import org.joda.time.DateTime;
 import org.junit.Test;
 
-import com.nebula.core.types.Type;
-import com.nebula.core.types.TypeBuilder;
+import static com.nebula.Nebula.newModel;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class DateTimeRangeTypeBuilderTest {
 

@@ -1,16 +1,14 @@
 package com.nebula.core.types.constant;
 
-import static com.nebula.Nebula.newModel;
-import static org.assertj.core.api.Assertions.assertThat;
-
-import java.math.BigDecimal;
-import java.util.Date;
-
+import com.nebula.core.types.Type;
+import com.nebula.core.types.TypeBuilder;
 import org.joda.time.DateTime;
 import org.junit.Test;
 
-import com.nebula.core.types.Type;
-import com.nebula.core.types.TypeBuilder;
+import java.math.BigDecimal;
+
+import static com.nebula.Nebula.newModel;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class ConstantTypeBuilderTest {
 

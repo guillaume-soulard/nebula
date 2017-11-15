@@ -1,10 +1,9 @@
 package com.nebula.core.types.date;
 
-import java.util.List;
-
+import com.nebula.core.types.AbstractAmongType;
 import org.joda.time.ReadableInstant;
 
-import com.nebula.core.types.AbstractAmongType;
+import java.util.List;
 
 class DateTimeAmongType extends AbstractAmongType<ReadableInstant> {
 	DateTimeAmongType(List<ReadableInstant> items) {

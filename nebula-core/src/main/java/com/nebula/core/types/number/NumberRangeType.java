@@ -1,10 +1,10 @@
 package com.nebula.core.types.number;
 
-import java.math.BigDecimal;
-
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.types.AbstractTypeWithIndexCheck;
 import com.nebula.core.types.Range;
+
+import java.math.BigDecimal;
 
 class NumberRangeType extends AbstractTypeWithIndexCheck {
 

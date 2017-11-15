@@ -1,7 +1,6 @@
 package com.nebula.formatter.custom;
 
 import com.nebula.Model;
-import com.nebula.Nebula;
 import com.nebula.core.Entity;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.GeneratedProperty;

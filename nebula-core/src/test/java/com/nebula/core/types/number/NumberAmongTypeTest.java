@@ -1,17 +1,16 @@
 package com.nebula.core.types.number;
 
-import static com.googlecode.catchexception.CatchException.catchException;
-import static com.googlecode.catchexception.CatchException.caughtException;
-import static org.assertj.core.api.Assertions.assertThat;
+import com.nebula.core.GeneratedObject;
+import com.nebula.core.NebulaException;
+import org.junit.Test;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.Test;
-
-import com.nebula.core.GeneratedObject;
-import com.nebula.core.NebulaException;
+import static com.googlecode.catchexception.CatchException.catchException;
+import static com.googlecode.catchexception.CatchException.caughtException;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class NumberAmongTypeTest {
 

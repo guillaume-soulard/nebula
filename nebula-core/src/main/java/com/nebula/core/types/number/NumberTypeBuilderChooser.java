@@ -1,8 +1,8 @@
 package com.nebula.core.types.number;
 
-import java.math.BigDecimal;
-
 import com.nebula.core.types.TypeBuilderChooser;
+
+import java.math.BigDecimal;
 
 public class NumberTypeBuilderChooser
 		extends TypeBuilderChooser<BigDecimal, NumberRangeTypeBuilder, NumberAmongTypeBuilder> {

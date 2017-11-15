@@ -1,7 +1,6 @@
 package com.nebula.core;
 
 import com.nebula.Model;
-import com.nebula.Nebula;
 import com.nebula.core.types.date.DateTimeTypeIntervals;
 import org.joda.time.DateTime;
 import org.junit.Test;

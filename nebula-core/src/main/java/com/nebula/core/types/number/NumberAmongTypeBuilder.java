@@ -1,11 +1,11 @@
 package com.nebula.core.types.number;
 
-import java.math.BigDecimal;
-
 import com.nebula.Model;
 import com.nebula.core.types.AmongTypeBuilder;
 import com.nebula.core.types.Type;
 import com.nebula.parser.NumberParser;
+
+import java.math.BigDecimal;
 
 public class NumberAmongTypeBuilder extends AmongTypeBuilder<BigDecimal> {
 

@@ -1,16 +1,13 @@
 package com.nebula.core.types.string;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-
-import org.junit.Test;
-
-import com.nebula.core.GeneratedObject;
 import com.nebula.Model;
+import com.nebula.core.GeneratedObject;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
+import org.junit.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.*;
 
 public class StringTypeTest {
 

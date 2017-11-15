@@ -1,13 +1,12 @@
 package com.nebula.core.types.date;
 
 import com.nebula.Model;
-import com.nebula.parser.DateParser;
-import org.joda.time.DateTime;
-import org.joda.time.ReadableInstant;
-
 import com.nebula.core.types.Range;
 import com.nebula.core.types.RangeTypeBuilder;
 import com.nebula.core.types.Type;
+import com.nebula.parser.DateParser;
+import org.joda.time.DateTime;
+import org.joda.time.ReadableInstant;
 
 import java.util.Date;
 

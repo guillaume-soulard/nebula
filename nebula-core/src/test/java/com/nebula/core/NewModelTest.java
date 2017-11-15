@@ -1,10 +1,10 @@
 package com.nebula.core;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import com.nebula.Model;
 import com.nebula.Nebula;
 import org.junit.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class NewModelTest {
 

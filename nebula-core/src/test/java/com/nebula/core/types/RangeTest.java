@@ -1,11 +1,10 @@
 package com.nebula.core.types;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.fail;
-
+import com.nebula.core.NebulaException;
 import org.junit.Test;
 
-import com.nebula.core.NebulaException;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.fail;
 
 public class RangeTest {
 

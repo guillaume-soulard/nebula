@@ -1,12 +1,12 @@
 package com.nebula.core.types.list;
 
-import java.util.List;
-
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.generators.Generator;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.Type;
+
+import java.util.List;
 
 abstract class AbstractListType implements Type {
 

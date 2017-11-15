@@ -1,13 +1,12 @@
 package com.nebula.core.types;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import com.nebula.core.types.number.NumberAmongTypeBuilder;
+import com.nebula.core.types.number.NumberRangeTypeBuilder;
+import org.junit.Test;
 
 import java.math.BigDecimal;
 
-import org.junit.Test;
-
-import com.nebula.core.types.number.NumberAmongTypeBuilder;
-import com.nebula.core.types.number.NumberRangeTypeBuilder;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class TypeBuilderChooserTest {
 

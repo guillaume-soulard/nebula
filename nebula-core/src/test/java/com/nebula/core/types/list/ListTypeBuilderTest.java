@@ -1,13 +1,12 @@
 package com.nebula.core.types.list;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-import org.junit.Test;
-
 import com.nebula.core.NebulaGenerationTypes;
 import com.nebula.core.NebulaGenerators;
 import com.nebula.core.generators.GeneratorBuilder;
 import com.nebula.core.types.TypeBuilder;
+import org.junit.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class ListTypeBuilderTest {
 

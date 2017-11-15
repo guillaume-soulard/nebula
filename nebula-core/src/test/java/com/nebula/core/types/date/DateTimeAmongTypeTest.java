@@ -1,21 +1,16 @@
 package com.nebula.core.types.date;
 
-import static com.googlecode.catchexception.CatchException.catchException;
-import static com.googlecode.catchexception.CatchException.caughtException;
-import static org.assertj.core.api.Assertions.assertThat;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
-
+import com.nebula.core.GeneratedObject;
+import com.nebula.core.NebulaException;
 import org.joda.time.DateTime;
 import org.joda.time.ReadableInstant;
 import org.junit.Test;
 
-import com.nebula.core.GeneratedObject;
-import com.nebula.core.NebulaException;
+import java.util.*;
+
+import static com.googlecode.catchexception.CatchException.catchException;
+import static com.googlecode.catchexception.CatchException.caughtException;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class DateTimeAmongTypeTest {
 

@@ -3,10 +3,6 @@ package com.nebula.formatter.custom;
 import com.nebula.Model;
 import com.nebula.formatter.AbstractFormatterBuilder;
 import com.nebula.formatter.Formatter;
-import com.nebula.formatter.FormatterBuilder;
-import com.nebula.formatter.ValueFormatter;
-
-import java.util.List;
 
 public class CustomFormatterBuilder extends AbstractFormatterBuilder {
 

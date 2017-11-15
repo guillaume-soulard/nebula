@@ -6,8 +6,6 @@ import com.nebula.core.Entity;
 import com.nebula.core.NebulaException;
 import com.nebula.formatter.NebulaFormatters;
 import com.nebula.generationrule.GenerationRule;
-import com.nebula.generationrule.oneshoot.OneShootGenerationRule;
-import com.nebula.generationrule.oneshoot.OneShootGenerationRuleBuilder;
 import com.nebula.output.NebulaOutputs;
 import org.junit.Test;
 

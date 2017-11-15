@@ -1,8 +1,9 @@
 package com.nebula.formatter.csv;
 
 import com.nebula.Model;
-import com.nebula.Nebula;
-import com.nebula.core.*;
+import com.nebula.core.Entity;
+import com.nebula.core.GeneratedObject;
+import com.nebula.core.GeneratedProperty;
 import com.nebula.formatter.ValueFormatter;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,8 +13,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import static com.nebula.Nebula.newModel;
-import static com.nebula.core.NebulaGenerationTypes.*;
-import static com.nebula.core.NebulaGenerators.*;
+import static com.nebula.core.NebulaGenerationTypes.string;
+import static com.nebula.core.NebulaGenerators.random;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CsvFormatterTest {

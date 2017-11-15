@@ -1,14 +1,13 @@
 package com.nebula.core.types.entity;
 
+import com.nebula.core.NebulaException;
+import com.nebula.core.types.Type;
+import org.junit.Test;
+
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
 import static com.nebula.Nebula.newModel;
 import static org.assertj.core.api.Assertions.assertThat;
-
-import org.junit.Test;
-
-import com.nebula.core.NebulaException;
-import com.nebula.core.types.Type;
 
 public class EntityTypeBuilderTest {
 

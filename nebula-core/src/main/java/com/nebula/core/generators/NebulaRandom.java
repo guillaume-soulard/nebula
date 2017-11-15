@@ -1,8 +1,8 @@
 package com.nebula.core.generators;
 
-import java.util.Random;
-
 import com.nebula.core.types.Type;
+
+import java.util.Random;
 
 public class NebulaRandom {
 

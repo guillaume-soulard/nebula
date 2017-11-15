@@ -1,17 +1,15 @@
 package com.nebula.core.types.number;
 
+import com.nebula.core.NebulaException;
+import com.nebula.core.types.Type;
+import org.junit.Test;
+
+import java.math.BigDecimal;
+
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
 import static com.nebula.Nebula.newModel;
 import static org.assertj.core.api.Assertions.assertThat;
-
-import java.math.BigDecimal;
-
-import com.nebula.Model;
-import org.junit.Test;
-
-import com.nebula.core.NebulaException;
-import com.nebula.core.types.Type;
 
 public class NumberRangeTypeBuilderTest {
 

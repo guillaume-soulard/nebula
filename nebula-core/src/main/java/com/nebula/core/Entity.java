@@ -1,14 +1,14 @@
 package com.nebula.core;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.nebula.Model;
 import com.nebula.core.generators.GeneratorBuilder;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.Type;
 import com.nebula.core.types.TypeBuilder;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Entity implements Type {
 

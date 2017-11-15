@@ -1,11 +1,11 @@
 package com.nebula.core.types;
 
+import com.nebula.Model;
+import com.nebula.core.NebulaException;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import com.nebula.Model;
-import com.nebula.core.NebulaException;
 
 public abstract class AmongTypeBuilder<T extends Comparable<T>> extends AbstractParsable<T> implements TypeBuilder {
 

@@ -1,11 +1,10 @@
 package com.nebula.core.types.bool;
 
-import static com.nebula.Nebula.newModel;
-import static org.assertj.core.api.Assertions.assertThat;
-
+import com.nebula.core.types.Type;
 import org.junit.Test;
 
-import com.nebula.core.types.Type;
+import static com.nebula.Nebula.newModel;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class BooleanTypeBuilderTest {
 

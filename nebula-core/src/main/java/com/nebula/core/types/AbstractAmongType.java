@@ -1,10 +1,10 @@
 package com.nebula.core.types;
 
-import java.util.Collections;
-import java.util.List;
-
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaException;
+
+import java.util.Collections;
+import java.util.List;
 
 public abstract class AbstractAmongType<T extends Comparable<T>> extends AbstractTypeWithIndexCheck implements Type {
 

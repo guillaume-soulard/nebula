@@ -1,12 +1,11 @@
 package com.nebula.core.types.constant;
 
-import java.math.BigDecimal;
-import java.util.Date;
-
 import com.nebula.Model;
 import com.nebula.core.types.Type;
 import com.nebula.core.types.TypeBuilder;
 import org.joda.time.DateTime;
+
+import java.math.BigDecimal;
 
 public class ConstantTypeBuilder implements TypeBuilder {
 

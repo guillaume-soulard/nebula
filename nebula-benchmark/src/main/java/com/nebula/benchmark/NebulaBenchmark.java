@@ -1,9 +1,6 @@
 package com.nebula.benchmark;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
+import com.nebula.benchmark.types.bool.BoolTypeBenchmark;
 import com.nebula.benchmark.types.constant.ConstantTypeBenchmark;
 import com.nebula.benchmark.types.list.ListTypeAmongItemsBenchmark;
 import com.nebula.benchmark.types.list.ListTypeOfTypeBenchmark;
@@ -14,7 +11,9 @@ import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 
-import com.nebula.benchmark.types.bool.BoolTypeBenchmark;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class NebulaBenchmark {
 

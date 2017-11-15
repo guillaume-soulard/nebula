@@ -1,10 +1,10 @@
 package com.nebula.core.types.date;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import com.nebula.core.types.date.strategy.DateTimeStrategy;
 
 import java.util.function.Consumer;
 
-import com.nebula.core.types.date.strategy.DateTimeStrategy;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class DateTimeAdderConsumer implements Consumer<DateTimeStrategy> {
 

@@ -1,13 +1,5 @@
 package com.nebula.core;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-import java.math.BigDecimal;
-import java.util.Date;
-
-import org.joda.time.DateTime;
-import org.junit.Test;
-
 import com.nebula.core.types.bool.BooleanTypeBuilder;
 import com.nebula.core.types.constant.ConstantTypeBuilder;
 import com.nebula.core.types.date.DateTimeTypeBuilderChooser;
@@ -15,6 +7,12 @@ import com.nebula.core.types.entity.EntityTypeBuilder;
 import com.nebula.core.types.list.ListTypeBuilder;
 import com.nebula.core.types.number.NumberTypeBuilderChooser;
 import com.nebula.core.types.string.StringTypeBuilder;
+import org.joda.time.DateTime;
+import org.junit.Test;
+
+import java.math.BigDecimal;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class NebulaGenerationTypesTest {
 

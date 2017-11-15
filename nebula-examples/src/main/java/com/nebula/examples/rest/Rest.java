@@ -7,7 +7,7 @@ import org.apache.http.entity.ContentType;
 
 import java.math.BigDecimal;
 
-import static com.nebula.Nebula.*;
+import static com.nebula.Nebula.newModel;
 import static com.nebula.core.NebulaGenerationTypes.*;
 import static com.nebula.core.NebulaGenerators.random;
 import static com.nebula.core.NebulaGenerators.sequence;

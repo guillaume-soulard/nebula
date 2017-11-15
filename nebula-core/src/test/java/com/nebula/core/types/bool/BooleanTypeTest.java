@@ -1,13 +1,12 @@
 package com.nebula.core.types.bool;
 
+import com.nebula.core.GeneratedObject;
+import com.nebula.core.NebulaException;
+import org.junit.Test;
+
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
-
-import org.junit.Test;
-
-import com.nebula.core.GeneratedObject;
-import com.nebula.core.NebulaException;
 
 public class BooleanTypeTest {
 

@@ -3,13 +3,11 @@ package com.nebula.output.file;
 import com.nebula.core.NebulaException;
 import com.nebula.output.Output;
 
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 
 class FileOutput implements Output {
     private final String charset;

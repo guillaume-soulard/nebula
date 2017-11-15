@@ -4,7 +4,6 @@ import com.nebula.core.Entity;
 import com.nebula.generationconstraint.NebulaConstraints;
 import com.nebula.generationrule.GenerationRuleBuilder;
 import com.nebula.generationrule.GenerationRules;
-import com.nebula.generationrule.oneshoot.OneShootGenerationRuleBuilder;
 import org.joda.time.DateTime;
 import org.junit.After;
 import org.junit.Before;
@@ -14,7 +13,7 @@ import org.junit.rules.TemporaryFolder;
 
 import java.io.File;
 
-import static com.nebula.Nebula.*;
+import static com.nebula.Nebula.newModel;
 import static com.nebula.core.NebulaGenerationTypes.dateTime;
 import static com.nebula.core.NebulaGenerationTypes.string;
 import static com.nebula.core.NebulaGenerators.random;

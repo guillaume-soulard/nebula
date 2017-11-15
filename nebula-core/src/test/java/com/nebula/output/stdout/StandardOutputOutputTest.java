@@ -1,6 +1,5 @@
 package com.nebula.output.stdout;
 
-import com.nebula.output.stdout.StandardOutputOutput;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InOrder;

@@ -1,21 +1,20 @@
 package com.nebula.core.types.entity;
 
+import com.nebula.Model;
+import com.nebula.core.Entity;
+import com.nebula.core.GeneratedObject;
+import com.nebula.core.NebulaException;
+import com.nebula.core.PropertyBuilder;
+import com.nebula.core.generators.NebulaRandom;
+import com.nebula.core.types.GenerationContext;
+import org.junit.Test;
+
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
 import static com.nebula.Nebula.newModel;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-
-import org.junit.Test;
-
-import com.nebula.core.Entity;
-import com.nebula.core.GeneratedObject;
-import com.nebula.Model;
-import com.nebula.core.NebulaException;
-import com.nebula.core.PropertyBuilder;
-import com.nebula.core.generators.NebulaRandom;
-import com.nebula.core.types.GenerationContext;
 
 public class EntityTypeTest {
 
