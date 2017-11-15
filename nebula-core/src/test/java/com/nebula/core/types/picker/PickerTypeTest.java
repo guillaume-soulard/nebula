@@ -14,7 +14,9 @@ import java.util.List;
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class PickerTypeTest {
 
@@ -36,7 +38,7 @@ public class PickerTypeTest {
         GeneratedObject result = picker.generateObject(0L);
 
         // THEN
-        assertThat(result).isEqualTo(item1);
+        assertThat(result).isEqualTo(item3);
     }
 
     @Test
@@ -81,7 +83,7 @@ public class PickerTypeTest {
         Long result = picker.getMaxRange();
 
         // THEN
-        assertThat(result).isEqualTo(0L);
+        assertThat(result).isEqualTo(-1L);
     }
 
     @Test
@@ -97,7 +99,7 @@ public class PickerTypeTest {
         Long result = picker.getMaxRange();
 
         // THEN
-        assertThat(result).isEqualTo(1L);
+        assertThat(result).isEqualTo(0L);
     }
 
     @Test

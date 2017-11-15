@@ -42,6 +42,6 @@ public class PickerType implements Type {
 
     @Override
     public Long getMaxRange() {
-        return (long) generatedObjects.size();
+        return (long) generatedObjects.size() - 1;
     }
 }
