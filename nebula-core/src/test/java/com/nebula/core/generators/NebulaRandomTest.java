@@ -53,7 +53,7 @@ public class NebulaRandomTest {
 				.withMax(BigDecimal.valueOf(-990)).build(newModel());
 
 		// WHEN
-		List<Long> result = new ArrayList<Long>();
+		List<Long> result = new ArrayList<>();
 		for (int i = 1; i <= 10000; i++) {
 			result.add(nebulaRandom.nextIndex(range));
 		}

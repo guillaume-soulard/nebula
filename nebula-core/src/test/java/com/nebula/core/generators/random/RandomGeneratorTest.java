@@ -75,7 +75,7 @@ public class RandomGeneratorTest {
 		Type type = NebulaGenerationTypes.number().range().withMin(BigDecimal.ZERO).withMax(BigDecimal.TEN).build(newModel());
 
 		// WHEN
-		List<GeneratedObject> result = new ArrayList<GeneratedObject>();
+		List<GeneratedObject> result = new ArrayList<>();
 
 		for (int i = 1; i <= 10000; i++) {
 			result.add(generator.generate(type));

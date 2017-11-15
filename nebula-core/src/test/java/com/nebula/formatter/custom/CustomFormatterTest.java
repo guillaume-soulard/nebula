@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class CustomFormatterTest {
 
-    private ValueFormatter valueFormatter = new ValueFormatter("MM/dd/yyyy", '.', ',');;
+    private ValueFormatter valueFormatter = new ValueFormatter("MM/dd/yyyy", '.', ',');
 
     @Test
     public void formatGeneratedObject_should_return_given_format() throws Exception {

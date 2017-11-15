@@ -8,6 +8,7 @@ import java.net.URLDecoder;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class Request {
 
@@ -55,11 +56,7 @@ public class Request {
     }
 
     public List<Long> getLongsParameter(String parameterName) {
-        List<Long> longs = new ArrayList<>();
-
-        for (String longString : parameters.get(parameterName)) {
-            longs.add(Long.valueOf(longString));
-        }
+        List<Long> longs = parameters.get(parameterName).stream().map(Long::valueOf).collect(Collectors.toList());
 
         return longs;
     }

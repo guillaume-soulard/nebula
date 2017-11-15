@@ -74,16 +74,12 @@ class OneShootGenerationRule implements GenerationRule {
     }
 
     private void closeOutputs() {
-        for (Output output : outputsToWrite) {
-            output.close();
-        }
+        outputsToWrite.forEach(Output::close);
 
     }
 
     private void openOutputs() {
-        for (Output output : outputsToWrite) {
-            output.open();
-        }
+        outputsToWrite.forEach(Output::open);
     }
 
     private void generateFooter() {

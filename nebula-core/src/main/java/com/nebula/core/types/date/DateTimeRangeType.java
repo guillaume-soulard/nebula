@@ -14,7 +14,7 @@ class DateTimeRangeType extends AbstractTypeWithIndexCheck {
 
 	private Range<ReadableInstant> range;
 	private DateTimeTypeIntervals interval;
-	private Map<DateTimeTypeIntervals, DateTimeStrategy> dateTimeStrategy = new HashMap<DateTimeTypeIntervals, DateTimeStrategy>();
+	private Map<DateTimeTypeIntervals, DateTimeStrategy> dateTimeStrategy = new HashMap<>();
 
 	DateTimeRangeType(Range<ReadableInstant> range, DateTimeTypeIntervals interval) {
 		this.range = range;
@@ -47,7 +47,7 @@ class DateTimeRangeType extends AbstractTypeWithIndexCheck {
 	}
 
 	public Map<DateTimeTypeIntervals, DateTimeStrategy> getDateTimeAdders() {
-		return new HashMap<DateTimeTypeIntervals, DateTimeStrategy>(dateTimeStrategy);
+		return new HashMap<>(dateTimeStrategy);
 	}
 
 	@Override

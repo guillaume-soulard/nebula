@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
@@ -270,13 +271,9 @@ public class ModelTest {
 	}
 
 	private List<Object> extractValuesForProperty(String propertyName, List<GeneratedObject> generatedObjects) {
-		List<Object> values = new ArrayList<Object>();
+		List<Object> values = new ArrayList<>();
 		for (GeneratedObject generatedObject : generatedObjects) {
-			for (GeneratedProperty generatedProperty : generatedObject.getGeneratedProperties()) {
-				if (generatedProperty.getPropertyName().equals(propertyName)) {
-					values.add(generatedProperty.getPropertyValue().getObject());
-				}
-			}
+            values.addAll(generatedObject.getGeneratedProperties().stream().filter(generatedProperty -> generatedProperty.getPropertyName().equals(propertyName)).map(generatedProperty -> generatedProperty.getPropertyValue().getObject()).collect(Collectors.toList()));
 		}
 		return values;
 	}

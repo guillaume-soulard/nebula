@@ -47,12 +47,7 @@ public class RestGenerationRuleIT {
         formatterMap.put(ContentType.TEXT_PLAIN.getMimeType(), NebulaFormatters.csv());
         rest = new RestGenerationRule(model, formatterMap, ContentType.APPLICATION_JSON.getMimeType(), "localhost", 8080);
 
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                rest.generate();
-            }
-        });
+        Thread thread = new Thread(() -> rest.generate());
 
         thread.start();
     }

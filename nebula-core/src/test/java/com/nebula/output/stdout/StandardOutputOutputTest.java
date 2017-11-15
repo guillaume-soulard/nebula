@@ -6,7 +6,6 @@ import org.mockito.InOrder;
 
 import java.io.PrintStream;
 
-import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.*;
 
 public class StandardOutputOutputTest {

@@ -9,7 +9,7 @@ import java.util.*;
 public class Model {
 
 	private long seed;
-	private List<Entity> entities = new ArrayList<Entity>();
+	private List<Entity> entities = new ArrayList<>();
 	private EntityGenerator entityGenerator = new EntityGenerator();
 	private List<GenerationRule> generationRules = new ArrayList<>();
 	private String dateFormat = "MM/dd/yyyy";
@@ -49,7 +49,7 @@ public class Model {
 	}
 
 	public Map<Entity, List<GeneratedObject>> generateEntitiesObjectsAll(long seed) {
-		Map<Entity, List<GeneratedObject>> result = new HashMap<Entity, List<GeneratedObject>>();
+		Map<Entity, List<GeneratedObject>> result = new HashMap<>();
 		for (Entity entity : entities) {
 			result.put(entity, generateEntityObjects(entity, seed));
 		}
@@ -57,7 +57,7 @@ public class Model {
 	}
 
 	public List<GeneratedObject> generateEntityObjects(Entity entity, long seed) {
-		List<GeneratedObject> generatedObjects = new LinkedList<GeneratedObject>();
+		List<GeneratedObject> generatedObjects = new LinkedList<>();
 
 		for (int index = 0; index < entity.getAmount(); index++) {
 			generatedObjects.add(generateEntityObject(entity, index, seed));
@@ -96,9 +96,7 @@ public class Model {
 	}
 
 	public void generate() {
-		for (GenerationRule generationRule : generationRules) {
-			generationRule.generate();
-		}
+        generationRules.forEach(GenerationRule::generate);
 	}
 
 	public String getDateFormat() {

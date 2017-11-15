@@ -22,6 +22,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import static com.nebula.core.NebulaGenerationTypes.string;
 
@@ -132,9 +133,7 @@ class RequestHandler implements HttpRequestHandler {
             List<GeneratedObject> generatedObjects = new ArrayList<>();
 
             if (request.hasParameter("indices")) {
-                for (long index : request.getLongsParameter("indices")) {
-                    generatedObjects.add(model.generateEntityObject(request.getResource(), index));
-                }
+                generatedObjects.addAll(request.getLongsParameter("indices").stream().map(index -> model.generateEntityObject(request.getResource(), index)).collect(Collectors.toList()));
 
             } else {
                 long startIndex = request.getLongParameter("skip");

@@ -9,11 +9,12 @@ import com.nebula.core.types.TypeBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Entity implements Type {
 
 	private PropertyBuilder propertyBuilder = null;
-	private List<Property> properties = new ArrayList<Property>();
+	private List<Property> properties = new ArrayList<>();
 	private String name;
 	private Long amount;
 	private Model model;
@@ -65,15 +66,10 @@ public class Entity implements Type {
 	}
 
 	public GeneratedObject generateObject(Long objectIndex) {
-		List<GeneratedProperty> generatedProperties = new ArrayList<GeneratedProperty>();
-		for (Property property : properties) {
-
-			generatedProperties.add(
-					new GeneratedProperty(property.getName(),
-							property.getGenerator().generate(property.getType()),
-							property.getType()));
-		}
-		return new GeneratedObject(generatedProperties);
+		List<GeneratedProperty> generatedProperties = properties.stream().map(property -> new GeneratedProperty(property.getName(),
+                property.getGenerator().generate(property.getType()),
+                property.getType())).collect(Collectors.toList());
+        return new GeneratedObject(generatedProperties);
 	}
 
 	public Long getMaxRange() {

@@ -22,7 +22,7 @@ public class DateTimeRangeTypeBuilder extends RangeTypeBuilder<ReadableInstant> 
 
 	@Override
 	public Type buildImpl(Model model) {
-		return new DateTimeRangeType(new Range<ReadableInstant>(min, max), interval);
+		return new DateTimeRangeType(new Range<>(min, max), interval);
 	}
 
 	public DateTimeRangeTypeBuilder withMin(DateTime value) {

@@ -13,9 +13,8 @@ public class PropertyBuilder {
 		checkIfPropertyNameIsNotNull(propertyName);
 		checkIfPropertyTypeIsNotNull(propertyType);
 		checkIfPropertyGeneratorIsNotNull(propertyGeneratorBuilder);
-		Property property = new Property(propertyName, buildType(model, propertyType),
+		return new Property(propertyName, buildType(model, propertyType),
 				buildGenerator(propertyGeneratorBuilder));
-		return property;
 	}
 
 	private Generator buildGenerator(GeneratorBuilder propertyGeneratorBuilder) {

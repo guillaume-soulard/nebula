@@ -30,7 +30,7 @@ public class GeneratedObjectTest {
 	public void getGeneratedProperties_should_return_list_passed_in_constructor() {
 
 		// GIVEN
-		List<GeneratedProperty> generatedProperties = new ArrayList<GeneratedProperty>();
+		List<GeneratedProperty> generatedProperties = new ArrayList<>();
 		GeneratedObject generatedObject = new GeneratedObject(generatedProperties);
 
 		// WHEN

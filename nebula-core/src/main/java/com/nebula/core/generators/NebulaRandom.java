@@ -34,6 +34,6 @@ public class NebulaRandom {
 	}
 
 	public long getSeed() {
-		return new Long(seed);
+		return seed;
 	}
 }

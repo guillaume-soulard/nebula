@@ -57,7 +57,7 @@ public class NebulaBenchmark {
 		if (benchmarkClasses.size() == 1) {
 			return benchmarkClasses.get(0).getSimpleName();
 		} else {
-			return benchmarkClasses.stream().map(clazz -> clazz.getSimpleName()).distinct().collect(Collectors.toList())
+			return benchmarkClasses.stream().map(Class::getSimpleName).distinct().collect(Collectors.toList())
 					.stream().reduce("", (a, b) -> a + "|" + b);
 		}
 

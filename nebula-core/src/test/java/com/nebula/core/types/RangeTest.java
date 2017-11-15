@@ -14,7 +14,7 @@ public class RangeTest {
 		Range<Integer> range = null;
 
 		// WHEN
-		range = new Range<Integer>(10, 20);
+		range = new Range<>(10, 20);
 
 		// THEN
 		assertThat(range).hasFieldOrPropertyWithValue("min", 10);
@@ -27,7 +27,7 @@ public class RangeTest {
 
 		// WHEN
 		try {
-			new Range<Integer>(20, 10);
+            new Range<>(20, 10);
 			fail("Should throw an exception");
 		} catch (Throwable e) {
 
@@ -43,7 +43,7 @@ public class RangeTest {
 
 		// WHEN
 		try {
-			new Range<Integer>(null, 20);
+            new Range<>(null, 20);
 		} catch (Throwable e) {
 
 			// THEN
@@ -58,7 +58,7 @@ public class RangeTest {
 
 		// WHEN
 		try {
-			new Range<Integer>(10, null);
+            new Range<>(10, null);
 		} catch (Throwable e) {
 
 			// THEN

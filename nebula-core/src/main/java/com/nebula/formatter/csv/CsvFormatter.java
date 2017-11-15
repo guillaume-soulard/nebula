@@ -9,6 +9,7 @@ import com.nebula.formatter.ValueFormatter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 class CsvFormatter extends AbstractFormatter {
     private final String separator;
@@ -57,11 +58,7 @@ class CsvFormatter extends AbstractFormatter {
     }
 
     private List<String> getAllColumnsOfGeneratedObject(GeneratedObject generatedObject) {
-        List<String> columns = new ArrayList<>();
-
-        for (GeneratedProperty generatedProperty : generatedObject.getGeneratedProperties()) {
-            columns.add(generatedProperty.getPropertyName());
-        }
+        List<String> columns = generatedObject.getGeneratedProperties().stream().map(GeneratedProperty::getPropertyName).collect(Collectors.toList());
 
         return columns;
     }
@@ -83,9 +80,7 @@ class CsvFormatter extends AbstractFormatter {
 
     private void addAllPropertiesToColumnNamesIfNoColumnNamesAreSpecified(Entity entity) {
         if (columnNames.isEmpty()) {
-            for (Property property : entity.getProperties()) {
-                columnNames.add(property.getName());
-            }
+            columnNames.addAll(entity.getProperties().stream().map(Property::getName).collect(Collectors.toList()));
         }
     }
 
