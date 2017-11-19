@@ -4,7 +4,6 @@
 
 . Set Nebula API fluent (entity, outputs, formatters, generation rules, constraints).
 . Add static entity (entity with given generated objects)
-. Add JDBC output
 . Add socket output
 . Add xml formatter
 . Add word type
