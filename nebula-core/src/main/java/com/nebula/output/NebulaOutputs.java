@@ -2,6 +2,7 @@ package com.nebula.output;
 
 import com.nebula.output.file.FileOutputBuilder;
 import com.nebula.output.http.HttpOutputBuilder;
+import com.nebula.output.jdbc.JdbcOutputBuilder;
 import com.nebula.output.stdout.StandardOutputOutputBuilder;
 
 public final class NebulaOutputs {
@@ -15,4 +16,6 @@ public final class NebulaOutputs {
     }
 
     public static HttpOutputBuilder http(String url) { return new HttpOutputBuilder(url); }
+
+    public static JdbcOutputBuilder jdbc() { return new JdbcOutputBuilder(); }
 }
