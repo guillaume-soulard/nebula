@@ -17,5 +17,3 @@
 . Add expression generation constraints ("<propertyName> = 'foo' AND (<otherPropertyName> LIKE '%bar%' OR <property> BETWEEN 0 AND 9)")
 
 == Fixes
-
-. Model builder
