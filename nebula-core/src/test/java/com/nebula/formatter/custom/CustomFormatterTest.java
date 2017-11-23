@@ -1,6 +1,7 @@
 package com.nebula.formatter.custom;
 
 import com.nebula.Model;
+import com.nebula.ModelBuilder;
 import com.nebula.core.Entity;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.GeneratedProperty;
@@ -10,7 +11,6 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.nebula.Nebula.newModel;
 import static com.nebula.core.NebulaGenerationTypes.*;
 import static com.nebula.core.NebulaGenerators.random;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -47,8 +47,8 @@ public class CustomFormatterTest {
         List<String> propertiesToExclude = new ArrayList<>();
         CustomFormatter customFormatter = new CustomFormatter(headerFormat, format, footerFormat, valueFormatter, propertiesToExclude);
         List<GeneratedProperty> generatedProperties = new ArrayList<>();
-        generatedProperties.add(new GeneratedProperty("firstName", new GeneratedObject("durant"), string().build(newModel())));
-        generatedProperties.add(new GeneratedProperty("lastName", new GeneratedObject("jean"), string().build(newModel())));
+        generatedProperties.add(new GeneratedProperty("firstName", new GeneratedObject("durant"), string().build(new ModelBuilder().build())));
+        generatedProperties.add(new GeneratedProperty("lastName", new GeneratedObject("jean"), string().build(new ModelBuilder().build())));
         GeneratedObject generatedObject = new GeneratedObject(generatedProperties);
 
         // WHEN
@@ -68,7 +68,7 @@ public class CustomFormatterTest {
         String footerFormat = "EXEC";
         List<String> propertiesToExclude = new ArrayList<>();
         CustomFormatter customFormatter = new CustomFormatter(headerFormat, format, footerFormat, valueFormatter, propertiesToExclude);
-        Model model = newModel();
+        Model model = new ModelBuilder().build();
         Entity entity = model.newEntity("entity");
         Entity subEntity = model.newEntity("subEntity");
         subEntity.addProperty("subProperty", random(), constant("durant"));
@@ -93,7 +93,7 @@ public class CustomFormatterTest {
         String footerFormat = "EXEC";
         List<String> propertiesToExclude = new ArrayList<>();
         CustomFormatter customFormatter = new CustomFormatter(headerFormat, bodyFormat, footerFormat, valueFormatter, propertiesToExclude);
-        Entity entity = newModel().newEntity("test");
+        Entity entity = new ModelBuilder().build().newEntity("test");
 
         // WHEN
         String result = customFormatter.formatHeader(entity);
@@ -111,7 +111,7 @@ public class CustomFormatterTest {
         String footerFormat = "EXEC";
         List<String> propertiesToExclude = new ArrayList<>();
         CustomFormatter customFormatter = new CustomFormatter(headerFormat, bodyFormat, footerFormat, valueFormatter, propertiesToExclude);
-        Entity entity = newModel().newEntity("test");
+        Entity entity = new ModelBuilder().build().newEntity("test");
 
         // WHEN
         String result = customFormatter.formatFooter(entity);

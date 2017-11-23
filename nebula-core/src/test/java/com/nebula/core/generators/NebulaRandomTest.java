@@ -1,5 +1,6 @@
 package com.nebula.core.generators;
 
+import com.nebula.ModelBuilder;
 import com.nebula.core.NebulaGenerationTypes;
 import com.nebula.core.types.Type;
 import org.junit.Test;
@@ -9,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.nebula.Nebula.newModel;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -21,7 +21,7 @@ public class NebulaRandomTest {
 
 		// GIVEN
 		NebulaRandom nebulaRandom = new NebulaRandom(0l);
-		Type range = NebulaGenerationTypes.number().range().withMin(BigDecimal.ZERO).withMax(BigDecimal.ZERO).build(newModel());
+		Type range = NebulaGenerationTypes.number().range().withMin(BigDecimal.ZERO).withMax(BigDecimal.ZERO).build(new ModelBuilder().build());
 
 		// WHEN
 		Long result = nebulaRandom.nextIndex(range);
@@ -35,7 +35,7 @@ public class NebulaRandomTest {
 
 		// GIVEN
 		NebulaRandom nebulaRandom = new NebulaRandom(0l);
-		Type range = NebulaGenerationTypes.number().range().withMin(BigDecimal.TEN).withMax(BigDecimal.TEN).build(newModel());
+		Type range = NebulaGenerationTypes.number().range().withMin(BigDecimal.TEN).withMax(BigDecimal.TEN).build(new ModelBuilder().build());
 
 		// WHEN
 		Long result = nebulaRandom.nextIndex(range);
@@ -50,7 +50,7 @@ public class NebulaRandomTest {
 		// GIVEN
 		NebulaRandom nebulaRandom = new NebulaRandom(0l);
 		Type range = NebulaGenerationTypes.number().range().withMin(BigDecimal.valueOf(-1000))
-				.withMax(BigDecimal.valueOf(-990)).build(newModel());
+				.withMax(BigDecimal.valueOf(-990)).build(new ModelBuilder().build());
 
 		// WHEN
 		List<Long> result = new ArrayList<>();

@@ -1,7 +1,7 @@
 package com.nebula.examples.simple;
 
 import com.nebula.Model;
-import com.nebula.Nebula;
+import com.nebula.ModelBuilder;
 import com.nebula.core.Entity;
 import com.nebula.core.NebulaGenerationTypes;
 import com.nebula.core.NebulaGenerators;
@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 public class SimpleGeneration {
 
     public static void main(String[] args) {
-        Model model = Nebula.newModel();
+        Model model = new ModelBuilder().build();
 
         Entity entity = model.newEntity("test");
         entity.addProperty("string", NebulaGenerators.sequence().cycle(), NebulaGenerationTypes.number().range().withMin(BigDecimal.ZERO));

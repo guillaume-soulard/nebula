@@ -1,7 +1,7 @@
 package com.nebula.generationrule.oneshoot;
 
 import com.nebula.Model;
-import com.nebula.Nebula;
+import com.nebula.ModelBuilder;
 import com.nebula.core.Entity;
 import com.nebula.core.NebulaException;
 import com.nebula.formatter.NebulaFormatters;
@@ -20,7 +20,7 @@ public class GenerationRuleBuilderTest {
 
         // GIVEN
         OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();
-        Model model = Nebula.newModel();
+        Model model = new ModelBuilder().build();
 
         // WHEN
         catchException(generationRuleBuilder).build(model);
@@ -35,7 +35,7 @@ public class GenerationRuleBuilderTest {
 
         // GIVEN
         OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();
-        Model model = Nebula.newModel();
+        Model model = new ModelBuilder().build();
         Entity entity = model.newEntity("test");
         generationRuleBuilder.withEntity(entity);
 
@@ -52,7 +52,7 @@ public class GenerationRuleBuilderTest {
 
         // GIVEN
         OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();
-        Model model = Nebula.newModel();
+        Model model = new ModelBuilder().build();
         Entity entity = model.newEntity("test");
         generationRuleBuilder.withEntity(entity);
         generationRuleBuilder.withFormatter(NebulaFormatters.csv());
@@ -70,7 +70,7 @@ public class GenerationRuleBuilderTest {
 
         // GIVEN
         OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();
-        Model model = Nebula.newModel();
+        Model model = new ModelBuilder().build();
         Entity entity = model.newEntity("test");
         generationRuleBuilder.withEntity(entity);
         generationRuleBuilder.withFormatter(NebulaFormatters.csv());
@@ -89,7 +89,7 @@ public class GenerationRuleBuilderTest {
 
         // GIVEN
         OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();
-        Model model = Nebula.newModel();
+        Model model = new ModelBuilder().build();
         Entity entity = model.newEntity("test");
         model.addEntity(entity);
         generationRuleBuilder.withEntity(entity);

@@ -1,12 +1,12 @@
 package com.nebula.examples.sql;
 
 import com.nebula.Model;
+import com.nebula.ModelBuilder;
 import com.nebula.core.Entity;
 import com.nebula.generationrule.GenerationRules;
 
 import java.math.BigDecimal;
 
-import static com.nebula.Nebula.newModel;
 import static com.nebula.core.NebulaGenerationTypes.*;
 import static com.nebula.core.NebulaGenerators.random;
 import static com.nebula.core.NebulaGenerators.sequence;
@@ -17,8 +17,7 @@ import static com.nebula.output.NebulaOutputs.stdout;
 public class Sql {
 
     public static void main(String[] args) {
-        Model model = newModel();
-        model.setSeed(0L);
+        Model model = new ModelBuilder().withSeed(0L).build();
 
         Entity users = model.newEntity("users");
         users.addProperty("id", sequence(), number().range().withMin(BigDecimal.ZERO));

@@ -1,9 +1,9 @@
 package com.nebula.core.types.date;
 
+import com.nebula.ModelBuilder;
 import com.nebula.core.types.Type;
 import org.junit.Test;
 
-import static com.nebula.Nebula.newModel;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class DateTimeAmongTypeBuilderTest {
@@ -15,7 +15,7 @@ public class DateTimeAmongTypeBuilderTest {
 		DateTimeAmongTypeBuilder builder = new DateTimeAmongTypeBuilder();
 
 		// WHEN
-		Type result = builder.build(newModel());
+		Type result = builder.build(new ModelBuilder().build());
 
 		// THEN
 		assertThat(result).isInstanceOf(DateTimeAmongType.class);

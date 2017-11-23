@@ -1,5 +1,6 @@
 package com.nebula.core.types.number;
 
+import com.nebula.ModelBuilder;
 import com.nebula.core.NebulaException;
 import com.nebula.core.types.Type;
 import org.junit.Test;
@@ -8,7 +9,6 @@ import java.math.BigDecimal;
 
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
-import static com.nebula.Nebula.newModel;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class NumberRangeTypeBuilderTest {
@@ -20,7 +20,7 @@ public class NumberRangeTypeBuilderTest {
 		NumberRangeTypeBuilder builder = new NumberRangeTypeBuilder();
 
 		// WHEN
-		Type result = builder.build(newModel());
+		Type result = builder.build(new ModelBuilder().build());
 
 		// THEN
 		assertThat(result).isInstanceOf(NumberRangeType.class);
@@ -33,7 +33,7 @@ public class NumberRangeTypeBuilderTest {
 		NumberRangeTypeBuilder builder = new NumberRangeTypeBuilder();
 
 		// WHEN
-		Type result = builder.build(newModel());
+		Type result = builder.build(new ModelBuilder().build());
 
 		// THEN
 		assertThat(result).hasFieldOrPropertyWithValue("precision", 0);
@@ -46,7 +46,7 @@ public class NumberRangeTypeBuilderTest {
 		NumberRangeTypeBuilder builder = new NumberRangeTypeBuilder();
 
 		// WHEN
-		Type result = builder.withPrecision(1).build(newModel());
+		Type result = builder.withPrecision(1).build(new ModelBuilder().build());
 
 		// THEN
 		assertThat(result).hasFieldOrPropertyWithValue("precision", 1);
@@ -59,7 +59,7 @@ public class NumberRangeTypeBuilderTest {
 		NumberRangeTypeBuilder builder = new NumberRangeTypeBuilder();
 
 		// WHEN
-		Type result = builder.withMin(BigDecimal.valueOf(10)).build(newModel());
+		Type result = builder.withMin(BigDecimal.valueOf(10)).build(new ModelBuilder().build());
 
 		// THEN
 		assertThat(result).hasFieldOrPropertyWithValue("range.min", BigDecimal.TEN);
@@ -72,7 +72,7 @@ public class NumberRangeTypeBuilderTest {
 		NumberRangeTypeBuilder builder = new NumberRangeTypeBuilder();
 
 		// WHEN
-		Type result = builder.build(newModel());
+		Type result = builder.build(new ModelBuilder().build());
 
 		// THEN
 		assertThat(result).hasFieldOrPropertyWithValue("range.min", BigDecimal.valueOf(Integer.MIN_VALUE));
@@ -85,7 +85,7 @@ public class NumberRangeTypeBuilderTest {
 		NumberRangeTypeBuilder builder = new NumberRangeTypeBuilder();
 
 		// WHEN
-		Type result = builder.build(newModel());
+		Type result = builder.build(new ModelBuilder().build());
 
 		// THEN
 		assertThat(result).hasFieldOrPropertyWithValue("range.max", BigDecimal.valueOf(Integer.MAX_VALUE));
@@ -98,7 +98,7 @@ public class NumberRangeTypeBuilderTest {
 		NumberRangeTypeBuilder builder = new NumberRangeTypeBuilder();
 
 		// WHEN
-		Type result = builder.withMax(BigDecimal.valueOf(456)).build(newModel());
+		Type result = builder.withMax(BigDecimal.valueOf(456)).build(new ModelBuilder().build());
 
 		// THEN
 		assertThat(result).hasFieldOrPropertyWithValue("range.max", BigDecimal.valueOf(456));
@@ -127,7 +127,7 @@ public class NumberRangeTypeBuilderTest {
 		BigDecimal max = BigDecimal.ZERO;
 
 		// WHEN
-		catchException(builder.withMin(min).withMax(max)).build(newModel());
+		catchException(builder.withMin(min).withMax(max)).build(new ModelBuilder().build());
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("max must be greater than min");

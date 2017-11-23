@@ -1,13 +1,13 @@
 package com.nebula.examples.rest;
 
 import com.nebula.Model;
+import com.nebula.ModelBuilder;
 import com.nebula.core.Entity;
 import com.nebula.generationrule.GenerationRules;
 import org.apache.http.entity.ContentType;
 
 import java.math.BigDecimal;
 
-import static com.nebula.Nebula.newModel;
 import static com.nebula.core.NebulaGenerationTypes.*;
 import static com.nebula.core.NebulaGenerators.random;
 import static com.nebula.core.NebulaGenerators.sequence;
@@ -16,8 +16,7 @@ import static com.nebula.formatter.NebulaFormatters.json;
 public class Rest {
 
     public static void main(String[] args) {
-        Model model = newModel();
-        model.setSeed("users");
+        Model model = new ModelBuilder().withSeed("users").build();
 
         Entity users = model.newEntity("users");
         users.addProperty("id", sequence(), number().range().withMin(BigDecimal.ZERO));

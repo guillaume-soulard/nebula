@@ -1,5 +1,6 @@
 package com.nebula.core.types.string;
 
+import com.nebula.ModelBuilder;
 import com.nebula.core.NebulaException;
 import com.nebula.core.types.Type;
 import com.nebula.core.types.TypeBuilder;
@@ -7,7 +8,6 @@ import org.junit.Test;
 
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
-import static com.nebula.Nebula.newModel;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class StringTypeBuilderTest {
@@ -19,7 +19,7 @@ public class StringTypeBuilderTest {
 		TypeBuilder builder = new StringTypeBuilder();
 
 		// WHEN
-		Type result = builder.build(newModel());
+		Type result = builder.build(new ModelBuilder().build());
 
 		// THEN
 		assertThat(result).isInstanceOf(StringType.class);

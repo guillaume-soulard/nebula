@@ -1,5 +1,6 @@
 package com.nebula.formatter.json;
 
+import com.nebula.ModelBuilder;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.GeneratedProperty;
 import com.nebula.core.NebulaGenerationTypes;
@@ -11,7 +12,6 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.nebula.Nebula.newModel;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class JsonFormatterTest {
@@ -118,7 +118,7 @@ public class JsonFormatterTest {
         // GIVEN
         JsonFormatter jsonFormatter = newJsonFormatter();
         List<GeneratedProperty> properties = new ArrayList<>();
-        properties.add(new GeneratedProperty("field", new GeneratedObject("value"), NebulaGenerationTypes.string().build(newModel())));
+        properties.add(new GeneratedProperty("field", new GeneratedObject("value"), NebulaGenerationTypes.string().build(new ModelBuilder().build())));
         GeneratedObject generatedObject = new GeneratedObject(properties);
 
         // WHEN
@@ -134,7 +134,7 @@ public class JsonFormatterTest {
         // GIVEN
         JsonFormatter jsonFormatter = newJsonFormatterWithQuotedFields();
         List<GeneratedProperty> properties = new ArrayList<>();
-        properties.add(new GeneratedProperty("field", new GeneratedObject("value"), NebulaGenerationTypes.string().build(newModel())));
+        properties.add(new GeneratedProperty("field", new GeneratedObject("value"), NebulaGenerationTypes.string().build(new ModelBuilder().build())));
         GeneratedObject generatedObject = new GeneratedObject(properties);
 
         // WHEN
@@ -150,8 +150,8 @@ public class JsonFormatterTest {
         // GIVEN
         JsonFormatter jsonFormatter = newJsonFormatter();
         List<GeneratedProperty> properties = new ArrayList<>();
-        properties.add(new GeneratedProperty("field1", new GeneratedObject("value1"), NebulaGenerationTypes.string().build(newModel())));
-        properties.add(new GeneratedProperty("field2", new GeneratedObject("value2"), NebulaGenerationTypes.string().build(newModel())));
+        properties.add(new GeneratedProperty("field1", new GeneratedObject("value1"), NebulaGenerationTypes.string().build(new ModelBuilder().build())));
+        properties.add(new GeneratedProperty("field2", new GeneratedObject("value2"), NebulaGenerationTypes.string().build(new ModelBuilder().build())));
         GeneratedObject generatedObject = new GeneratedObject(properties);
 
         // WHEN
@@ -168,8 +168,8 @@ public class JsonFormatterTest {
         JsonFormatter jsonFormatter = newJsonFormatter();
         List<GeneratedProperty> properties = new ArrayList<>();
         List<GeneratedProperty> subObjectProperties = new ArrayList<>();
-        subObjectProperties.add(new GeneratedProperty("field", new GeneratedObject("value"), NebulaGenerationTypes.string().build(newModel())));
-        properties.add(new GeneratedProperty("test", new GeneratedObject(subObjectProperties), NebulaGenerationTypes.entity("test").build(newModel())));
+        subObjectProperties.add(new GeneratedProperty("field", new GeneratedObject("value"), NebulaGenerationTypes.string().build(new ModelBuilder().build())));
+        properties.add(new GeneratedProperty("test", new GeneratedObject(subObjectProperties), NebulaGenerationTypes.entity("test").build(new ModelBuilder().build())));
         GeneratedObject generatedObject = new GeneratedObject(properties);
 
         // WHEN
@@ -218,7 +218,7 @@ public class JsonFormatterTest {
         JsonFormatter jsonFormatter = newJsonFormatter();
         List<GeneratedObject> list = new ArrayList<>();
         List<GeneratedProperty> properties = new ArrayList<>();
-        properties.add(new GeneratedProperty("field", new GeneratedObject("value"), NebulaGenerationTypes.string().build(newModel())));
+        properties.add(new GeneratedProperty("field", new GeneratedObject("value"), NebulaGenerationTypes.string().build(new ModelBuilder().build())));
         list.add(new GeneratedObject(properties));
         GeneratedObject generatedObject = new GeneratedObject(list);
 
@@ -236,9 +236,9 @@ public class JsonFormatterTest {
         JsonFormatter jsonFormatter = newJsonFormatterWithPrettyFormat();
         List<GeneratedProperty> properties = new ArrayList<>();
         List<GeneratedProperty> subObjectProperties = new ArrayList<>();
-        subObjectProperties.add(new GeneratedProperty("field", new GeneratedObject("value"), NebulaGenerationTypes.string().build(newModel())));
-        subObjectProperties.add(new GeneratedProperty("field", new GeneratedObject("value"), NebulaGenerationTypes.string().build(newModel())));
-        properties.add(new GeneratedProperty("test", new GeneratedObject(subObjectProperties), NebulaGenerationTypes.entity("test").build(newModel())));
+        subObjectProperties.add(new GeneratedProperty("field", new GeneratedObject("value"), NebulaGenerationTypes.string().build(new ModelBuilder().build())));
+        subObjectProperties.add(new GeneratedProperty("field", new GeneratedObject("value"), NebulaGenerationTypes.string().build(new ModelBuilder().build())));
+        properties.add(new GeneratedProperty("test", new GeneratedObject(subObjectProperties), NebulaGenerationTypes.entity("test").build(new ModelBuilder().build())));
         GeneratedObject generatedObject = new GeneratedObject(properties);
 
         // WHEN

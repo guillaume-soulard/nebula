@@ -1,11 +1,11 @@
 package com.nebula.core.types.date;
 
+import com.nebula.ModelBuilder;
 import com.nebula.core.types.Type;
 import com.nebula.core.types.TypeBuilder;
 import org.joda.time.DateTime;
 import org.junit.Test;
 
-import static com.nebula.Nebula.newModel;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class DateTimeRangeTypeBuilderTest {
@@ -17,7 +17,7 @@ public class DateTimeRangeTypeBuilderTest {
 		TypeBuilder builder = new DateTimeRangeTypeBuilder();
 
 		// WHEN
-		Type result = builder.build(newModel());
+		Type result = builder.build(new ModelBuilder().build());
 
 		// THEN
 		assertThat(result).isInstanceOf(DateTimeRangeType.class);
@@ -30,7 +30,7 @@ public class DateTimeRangeTypeBuilderTest {
 		TypeBuilder builder = new DateTimeRangeTypeBuilder();
 
 		// WHEN
-		Type result = builder.build(newModel());
+		Type result = builder.build(new ModelBuilder().build());
 
 		// THEN
 		assertThat(result).hasFieldOrPropertyWithValue("range.min", new DateTime(0l))
@@ -46,7 +46,7 @@ public class DateTimeRangeTypeBuilderTest {
 		DateTime min = new DateTime(2017, 1, 1, 0, 0);
 
 		// WHEN
-		Type result = builder.withMin(min).build(newModel());
+		Type result = builder.withMin(min).build(new ModelBuilder().build());
 
 		// THEN
 		assertThat(result).hasFieldOrPropertyWithValue("range.min", min);
@@ -60,7 +60,7 @@ public class DateTimeRangeTypeBuilderTest {
 		DateTime max = new DateTime(2017, 1, 1, 0, 0);
 
 		// WHEN
-		Type result = builder.withMax(max).build(newModel());
+		Type result = builder.withMax(max).build(new ModelBuilder().build());
 
 		// THEN
 		assertThat(result).hasFieldOrPropertyWithValue("range.max", max);
@@ -74,7 +74,7 @@ public class DateTimeRangeTypeBuilderTest {
 		DateTimeTypeIntervals interval = DateTimeTypeIntervals.MONTH;
 
 		// WHEN
-		Type result = builder.withInterval(interval).build(newModel());
+		Type result = builder.withInterval(interval).build(new ModelBuilder().build());
 
 		// THEN
 		assertThat(result).hasFieldOrPropertyWithValue("interval", interval);

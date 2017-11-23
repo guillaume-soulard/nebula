@@ -1,5 +1,6 @@
 package com.nebula.core.generators.random;
 
+import com.nebula.ModelBuilder;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaException;
 import com.nebula.core.NebulaGenerationTypes;
@@ -15,7 +16,6 @@ import java.util.List;
 
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
-import static com.nebula.Nebula.newModel;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 
@@ -40,7 +40,7 @@ public class RandomGeneratorTest {
 		RandomGenerator generator = new RandomGenerator();
 		long entityIndex = 0L;
 		generator.init(new GenerationContext(mock(NebulaRandom.class), null, entityIndex));
-		Type type = NebulaGenerationTypes.number().range().withMin(BigDecimal.ONE).withMax(BigDecimal.ONE).build(newModel());
+		Type type = NebulaGenerationTypes.number().range().withMin(BigDecimal.ONE).withMax(BigDecimal.ONE).build(new ModelBuilder().build());
 
 		// WHEN
 		GeneratedObject result = generator.generate(type);
@@ -56,7 +56,7 @@ public class RandomGeneratorTest {
 		RandomGenerator generator = new RandomGenerator();
 		long entityIndex = 0L;
 		generator.init(new GenerationContext(mock(NebulaRandom.class), null, entityIndex));
-		Type type = NebulaGenerationTypes.number().range().withMin(BigDecimal.TEN).withMax(BigDecimal.TEN).build(newModel());
+		Type type = NebulaGenerationTypes.number().range().withMin(BigDecimal.TEN).withMax(BigDecimal.TEN).build(new ModelBuilder().build());
 
 		// WHEN
 		GeneratedObject result = generator.generate(type);
@@ -72,7 +72,7 @@ public class RandomGeneratorTest {
 		RandomGenerator generator = new RandomGenerator();
 		long entityIndex = 0L;
 		generator.init(new GenerationContext(new NebulaRandom(0l), null, entityIndex));
-		Type type = NebulaGenerationTypes.number().range().withMin(BigDecimal.ZERO).withMax(BigDecimal.TEN).build(newModel());
+		Type type = NebulaGenerationTypes.number().range().withMin(BigDecimal.ZERO).withMax(BigDecimal.TEN).build(new ModelBuilder().build());
 
 		// WHEN
 		List<GeneratedObject> result = new ArrayList<>();
@@ -107,7 +107,7 @@ public class RandomGeneratorTest {
 
 		// GIVEN
 		RandomGenerator generator = new RandomGenerator();
-		Type type = NebulaGenerationTypes.number().range().build(newModel());
+		Type type = NebulaGenerationTypes.number().range().build(new ModelBuilder().build());
 
 		// WHEN
 		catchException(generator).generate(type);

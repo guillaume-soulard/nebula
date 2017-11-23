@@ -1,6 +1,7 @@
 package com.nebula.output.jdbc;
 
 import com.nebula.Model;
+import com.nebula.ModelBuilder;
 import com.nebula.core.Entity;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,7 +14,6 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
-import static com.nebula.Nebula.newModel;
 import static com.nebula.core.NebulaGenerationTypes.number;
 import static com.nebula.core.NebulaGenerationTypes.string;
 import static com.nebula.core.NebulaGenerators.random;
@@ -44,8 +44,7 @@ public class JdbcOutputIT {
     public void generate_should_generate_10_users_in_hsqldb() throws Exception {
 
         // GIVEN
-        Model model = newModel();
-        model.setSeed("My company's users");
+        Model model = new ModelBuilder().withSeed("My company's users").build();
         Entity users = model.newEntity("users", 10);
         users.addProperty("id", sequence(), number().range().withMin(BigDecimal.ONE));
         users.addProperty("name", random(), string().withPattern("[A-Z]{1}[a-z]{5,29}"));

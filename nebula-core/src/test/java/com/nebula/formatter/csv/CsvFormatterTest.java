@@ -1,6 +1,7 @@
 package com.nebula.formatter.csv;
 
 import com.nebula.Model;
+import com.nebula.ModelBuilder;
 import com.nebula.core.Entity;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.GeneratedProperty;
@@ -12,7 +13,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.nebula.Nebula.newModel;
 import static com.nebula.core.NebulaGenerationTypes.string;
 import static com.nebula.core.NebulaGenerators.random;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -30,7 +30,7 @@ public class CsvFormatterTest {
     public void formatGeneratedObject_should_return_durant() throws Exception {
 
         // GIVEN
-        Model model = newModel();
+        Model model = new ModelBuilder().build();
         String separator = ";";
         boolean header = false;
         String quote = "";
@@ -51,7 +51,7 @@ public class CsvFormatterTest {
     public void formatGeneratedObject_should_return_jean_durant() throws Exception {
 
         // GIVEN
-        Model model = newModel();
+        Model model = new ModelBuilder().build();
         String separator = ";";
         boolean header = false;
         String quote = "";
@@ -73,7 +73,7 @@ public class CsvFormatterTest {
     public void formatGeneratedObject_should_return_jean_durant_if_no_coluns_are_specified() throws Exception {
 
         // GIVEN
-        Model model = newModel();
+        Model model = new ModelBuilder().build();
         String separator = ";";
         boolean header = false;
         String quote = "";
@@ -96,7 +96,7 @@ public class CsvFormatterTest {
     public void formatGeneratedObject_should_return_quotted_values() throws Exception {
 
         // GIVEN
-        Model model = newModel();
+        Model model = new ModelBuilder().build();
         String separator = ";";
         boolean header = false;
         String quote = "\"";
@@ -118,7 +118,7 @@ public class CsvFormatterTest {
     public void formatGeneratedObject_should_return_only_value_of_col1() throws Exception {
 
         // GIVEN
-        Model model = newModel();
+        Model model = new ModelBuilder().build();
         String separator = ";";
         boolean header = false;
         String quote = "";
@@ -140,7 +140,7 @@ public class CsvFormatterTest {
     public void formatGeneratedObject_should_return_all_columns_when_empty_column_list_is_passed() throws Exception {
 
         // GIVEN
-        Model model = newModel();
+        Model model = new ModelBuilder().build();
         String separator = ";";
         boolean header = false;
         String quote = "";
@@ -168,7 +168,7 @@ public class CsvFormatterTest {
     public void formatHeader_should_return_firstName_lastName() throws Exception {
 
         // GIVEN
-        Model model = newModel();
+        Model model = new ModelBuilder().build();
         String separator = ";";
         boolean header = true;
         String quote = "";
@@ -189,7 +189,7 @@ public class CsvFormatterTest {
     public void formatHeader_should_return_col1_col2() throws Exception {
 
         // GIVEN
-        Model model = newModel();
+        Model model = new ModelBuilder().build();
         String separator = ";";
         boolean header = true;
         String quote = "";
@@ -210,7 +210,7 @@ public class CsvFormatterTest {
     public void formatHeader_should_return_empty_string() throws Exception {
 
         // GIVEN
-        Model model = newModel();
+        Model model = new ModelBuilder().build();
         String separator = ";";
         boolean header = false;
         String quote = "";
@@ -231,7 +231,7 @@ public class CsvFormatterTest {
     public void formatHeader_should_return_quoted_strings() throws Exception {
 
         // GIVEN
-        Model model = newModel();
+        Model model = new ModelBuilder().build();
         String separator = ";";
         boolean header = true;
         String quote = "\"";
@@ -252,7 +252,7 @@ public class CsvFormatterTest {
     public void formatFooter_should_return_empty_string() throws Exception {
 
         // GIVEN
-        Model model = newModel();
+        Model model = new ModelBuilder().build();
         String separator = ";";
         boolean header = false;
         String quote = "";

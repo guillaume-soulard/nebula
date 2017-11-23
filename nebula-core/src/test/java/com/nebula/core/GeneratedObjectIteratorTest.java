@@ -1,6 +1,7 @@
 package com.nebula.core;
 
 import com.nebula.Model;
+import com.nebula.ModelBuilder;
 import org.junit.Test;
 
 import java.util.NoSuchElementException;
@@ -17,7 +18,7 @@ public class GeneratedObjectIteratorTest {
 
 		// GIVEN
 		GeneratedObjectIterator iterator = null;
-		Model model = new Model();
+		Model model = new ModelBuilder().build();
 		Entity entity = mock(Entity.class);
 		long seed = 1l;
 
@@ -33,7 +34,7 @@ public class GeneratedObjectIteratorTest {
 	public void hasNext_should_return_true_when_entity_amount_is_1() {
 
 		// GIVEN
-		Model model = new Model();
+		Model model = new ModelBuilder().build();
 		Entity entity = new Entity(model, "test", 1l, new PropertyBuilder());
 		long seed = 1l;
 		GeneratedObjectIterator iterator = new GeneratedObjectIterator(model, entity, seed);
@@ -49,7 +50,7 @@ public class GeneratedObjectIteratorTest {
 	public void hasNext_should_return_true_when_entity_amount_is_strictly_positive() {
 
 		// GIVEN
-		Model model = new Model();
+		Model model = new ModelBuilder().build();
 		Entity entity = new Entity(model, "test", 67l, new PropertyBuilder());
 		long seed = 1l;
 		GeneratedObjectIterator iterator = new GeneratedObjectIterator(model, entity, seed);
@@ -65,7 +66,7 @@ public class GeneratedObjectIteratorTest {
 	public void hasNext_should_return_false_when_entity_amount_is_0() {
 
 		// GIVEN
-		Model model = new Model();
+		Model model = new ModelBuilder().build();
 		Entity entity = new Entity(model, "test", 0l, new PropertyBuilder());
 		long seed = 1l;
 		GeneratedObjectIterator iterator = new GeneratedObjectIterator(model, entity, seed);
@@ -81,7 +82,7 @@ public class GeneratedObjectIteratorTest {
 	public void hasNext_should_return_true_when_next_calls_not_exceed_total_amount_of_entity() {
 
 		// GIVEN
-		Model model = new Model();
+		Model model = new ModelBuilder().build();
 		Entity entity = new Entity(model, "test", 2l, new PropertyBuilder());
 		long seed = 1l;
 		GeneratedObjectIterator iterator = new GeneratedObjectIterator(model, entity, seed);
@@ -98,7 +99,7 @@ public class GeneratedObjectIteratorTest {
 	public void hasNext_should_return_false_when_next_calls_equal_total_amount_of_entity() {
 
 		// GIVEN
-		Model model = new Model();
+		Model model = new ModelBuilder().build();
 		Entity entity = new Entity(model ,"test", 2l, new PropertyBuilder());
 		long seed = 1l;
 		GeneratedObjectIterator iterator = new GeneratedObjectIterator(model, entity, seed);

@@ -1,8 +1,8 @@
 package com.nebula.core;
 
+import com.nebula.ModelBuilder;
 import org.junit.Test;
 
-import static com.nebula.Nebula.newModel;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class NewEntityTest {
@@ -15,7 +15,7 @@ public class NewEntityTest {
 		String entityName = "test";
 
 		// WHEN
-		entity = newModel().newEntity(entityName, 1);
+		entity = new ModelBuilder().build().newEntity(entityName, 1);
 
 		// THEN
 		assertThat(entity).isNotNull().hasFieldOrPropertyWithValue("name", entityName)
@@ -30,7 +30,7 @@ public class NewEntityTest {
 		String entityName = "an other_entity";
 
 		// WHEN
-		entity = newModel().newEntity(entityName, 1);
+		entity = new ModelBuilder().build().newEntity(entityName, 1);
 
 		// THEN
 		assertThat(entity).isNotNull().hasFieldOrPropertyWithValue("name", entityName);
@@ -45,7 +45,7 @@ public class NewEntityTest {
 
 		// WHEN
 		try {
-			newModel().newEntity(entityName, 1);
+			new ModelBuilder().build().newEntity(entityName, 1);
 		} catch (Throwable e) {
 			exception = e;
 		}

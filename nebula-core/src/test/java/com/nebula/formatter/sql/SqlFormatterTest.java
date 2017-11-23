@@ -1,5 +1,6 @@
 package com.nebula.formatter.sql;
 
+import com.nebula.ModelBuilder;
 import com.nebula.core.Entity;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.GeneratedProperty;
@@ -14,7 +15,6 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.nebula.Nebula.newModel;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -59,7 +59,7 @@ public class SqlFormatterTest {
         ValueFormatter valueFormatter = new ValueFormatter("dd/MM/YYYY", ',', ' ');
         List<String> propertiesToExclude = new ArrayList<>();
         Formatter formatter = new SqlFormatter(valueFormatter, propertiesToExclude);
-        Entity entity = newModel().newEntity("users");
+        Entity entity = new ModelBuilder().build().newEntity("users");
 
         // WHEN
         String result = formatter.formatHeader(entity);
@@ -75,7 +75,7 @@ public class SqlFormatterTest {
         ValueFormatter valueFormatter = new ValueFormatter("dd/MM/YYYY", ',', ' ');
         List<String> propertiesToExclude = new ArrayList<>();
         Formatter formatter = new SqlFormatter(valueFormatter, propertiesToExclude);
-        Entity entity = newModel().newEntity("users");
+        Entity entity = new ModelBuilder().build().newEntity("users");
 
         // WHEN
         String result = formatter.formatFooter(entity);

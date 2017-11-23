@@ -1,5 +1,6 @@
 package com.nebula.core.types.list;
 
+import com.nebula.ModelBuilder;
 import com.nebula.core.NebulaException;
 import com.nebula.core.NebulaGenerationTypes;
 import com.nebula.core.NebulaGenerators;
@@ -10,7 +11,6 @@ import org.junit.Test;
 
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
-import static com.nebula.Nebula.newModel;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ListTypeOfTypeBuilderTest {
@@ -138,7 +138,7 @@ public class ListTypeOfTypeBuilderTest {
 		ListTypeOfTypeBuilder builder = new ListTypeOfTypeBuilder(generator, type);
 
 		// WHEN
-		Type result = builder.build(newModel());
+		Type result = builder.build(new ModelBuilder().build());
 
 		// THEN
 		assertThat(result).hasFieldOrPropertyWithValue("maxSize", 10).hasFieldOrPropertyWithValue("minSize", 0);
@@ -154,7 +154,7 @@ public class ListTypeOfTypeBuilderTest {
 		builder.withMinSize(10).withMaxSize(0);
 
 		// WHEN
-		catchException(builder).build(newModel());
+		catchException(builder).build(new ModelBuilder().build());
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)

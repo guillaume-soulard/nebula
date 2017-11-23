@@ -1,11 +1,11 @@
 package com.nebula.parser;
 
 import com.nebula.Model;
+import com.nebula.ModelBuilder;
 import org.joda.time.DateTime;
 import org.joda.time.ReadableInstant;
 import org.junit.Test;
 
-import static com.nebula.Nebula.newModel;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class DateParserTest {
@@ -16,7 +16,7 @@ public class DateParserTest {
         // GIVEN
         DateParser dateParser = new DateParser();
         String dateToParse = "01/01/2017";
-        Model model = newModel();
+        Model model = new ModelBuilder().build();
 
         // WHEN
         ReadableInstant result = dateParser.parse(model, dateToParse);
@@ -31,7 +31,7 @@ public class DateParserTest {
         // GIVEN
         DateParser dateParser = new DateParser();
         String dateToParse = "12/31/2017";
-        Model model = newModel();
+        Model model = new ModelBuilder().build();
 
         // WHEN
         ReadableInstant result = dateParser.parse(model, dateToParse);
@@ -46,8 +46,7 @@ public class DateParserTest {
         // GIVEN
         DateParser dateParser = new DateParser();
         String dateToParse = "31-12-2017";
-        Model model = newModel();
-        model.setDateFormat("dd-MM-yyyy");
+        Model model = new ModelBuilder().withDateFormat("dd-MM-yyyy").build();
 
         // WHEN
         ReadableInstant result = dateParser.parse(model, dateToParse);

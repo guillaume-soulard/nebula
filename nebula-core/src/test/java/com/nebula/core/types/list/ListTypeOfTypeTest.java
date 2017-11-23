@@ -1,5 +1,6 @@
 package com.nebula.core.types.list;
 
+import com.nebula.ModelBuilder;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaGenerationTypes;
 import com.nebula.core.NebulaGenerators;
@@ -12,7 +13,6 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.nebula.Nebula.newModel;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ListTypeOfTypeTest {
@@ -24,7 +24,7 @@ public class ListTypeOfTypeTest {
 		int minSize = 0;
 		int maxSize = 0;
 		Generator generator = NebulaGenerators.random().build();
-		Type type = NebulaGenerationTypes.bool().build(newModel());
+		Type type = NebulaGenerationTypes.bool().build(new ModelBuilder().build());
 		ListTypeOfType listType = null;
 
 		// WHEN
@@ -43,7 +43,7 @@ public class ListTypeOfTypeTest {
 		int minSize = 0;
 		int maxSize = 0;
 		Generator generator = NebulaGenerators.random().build();
-		Type type = NebulaGenerationTypes.bool().build(newModel());
+		Type type = NebulaGenerationTypes.bool().build(new ModelBuilder().build());
 		ListTypeOfType listType = new ListTypeOfType(minSize, maxSize, generator, type);
 
 		// WHEN
@@ -60,7 +60,7 @@ public class ListTypeOfTypeTest {
 		int minSize = 0;
 		int maxSize = 0;
 		Generator generator = NebulaGenerators.random().build();
-		Type type = NebulaGenerationTypes.bool().build(newModel());
+		Type type = NebulaGenerationTypes.bool().build(new ModelBuilder().build());
 		ListTypeOfType listType = new ListTypeOfType(minSize, maxSize, generator, type);
 
 		// WHEN
@@ -77,7 +77,7 @@ public class ListTypeOfTypeTest {
 		int minSize = 0;
 		int maxSize = 1;
 		Generator generator = NebulaGenerators.random().build();
-		Type type = NebulaGenerationTypes.bool().build(newModel());
+		Type type = NebulaGenerationTypes.bool().build(new ModelBuilder().build());
 		ListTypeOfType listType = new ListTypeOfType(minSize, maxSize, generator, type);
 
 		// WHEN
@@ -94,7 +94,7 @@ public class ListTypeOfTypeTest {
 		int minSize = 7;
 		int maxSize = 22;
 		Generator generator = NebulaGenerators.random().build();
-		Type type = NebulaGenerationTypes.bool().build(newModel());
+		Type type = NebulaGenerationTypes.bool().build(new ModelBuilder().build());
 		ListTypeOfType listType = new ListTypeOfType(minSize, maxSize, generator, type);
 
 		// WHEN
@@ -111,7 +111,7 @@ public class ListTypeOfTypeTest {
 		int minSize = 7;
 		int maxSize = 22;
 		Generator generator = NebulaGenerators.random().build();
-		Type type = NebulaGenerationTypes.bool().build(newModel());
+		Type type = NebulaGenerationTypes.bool().build(new ModelBuilder().build());
 		ListTypeOfType listType = new ListTypeOfType(minSize, maxSize, generator, type);
 		long entityIndex = 0L;
 		GenerationContext context = new GenerationContext(new NebulaRandom(1l), null, entityIndex);
@@ -130,7 +130,7 @@ public class ListTypeOfTypeTest {
 		int minSize = 0;
 		int maxSize = 0;
 		Generator generator = NebulaGenerators.random().build();
-		Type type = NebulaGenerationTypes.bool().build(newModel());
+		Type type = NebulaGenerationTypes.bool().build(new ModelBuilder().build());
 		ListTypeOfType listType = new ListTypeOfType(minSize, maxSize, generator, type);
 		long entityIndex = 0L;
 		GenerationContext context = new GenerationContext(new NebulaRandom(1l), null, entityIndex);
@@ -150,7 +150,7 @@ public class ListTypeOfTypeTest {
 		int minSize = 0;
 		int maxSize = 0;
 		Generator generator = NebulaGenerators.random().build();
-		Type type = NebulaGenerationTypes.bool().build(newModel());
+		Type type = NebulaGenerationTypes.bool().build(new ModelBuilder().build());
 		ListTypeOfType listType = new ListTypeOfType(minSize, maxSize, generator, type);
 		long entityIndex = 0L;
 		GenerationContext context = new GenerationContext(new NebulaRandom(1l), null, entityIndex);
@@ -170,7 +170,7 @@ public class ListTypeOfTypeTest {
 		int minSize = 0;
 		int maxSize = 0;
 		Generator generator = NebulaGenerators.random().build();
-		Type type = NebulaGenerationTypes.bool().build(newModel());
+		Type type = NebulaGenerationTypes.bool().build(new ModelBuilder().build());
 		ListTypeOfType listType = new ListTypeOfType(minSize, maxSize, generator, type);
 		long entityIndex = 0L;
 		GenerationContext context = new GenerationContext(new NebulaRandom(1l), null, entityIndex);
@@ -189,7 +189,7 @@ public class ListTypeOfTypeTest {
 		int minSize = 1;
 		int maxSize = 1;
 		Generator generator = NebulaGenerators.random().build();
-		Type type = NebulaGenerationTypes.bool().build(newModel());
+		Type type = NebulaGenerationTypes.bool().build(new ModelBuilder().build());
 		ListTypeOfType listType = new ListTypeOfType(minSize, maxSize, generator, type);
 		long entityIndex = 0L;
 		GenerationContext context = new GenerationContext(new NebulaRandom(1l), null, entityIndex);
@@ -209,7 +209,7 @@ public class ListTypeOfTypeTest {
 		int minSize = 0;
 		int maxSize = 100;
 		Generator generator = NebulaGenerators.random().build();
-		Type type = NebulaGenerationTypes.bool().build(newModel());
+		Type type = NebulaGenerationTypes.bool().build(new ModelBuilder().build());
 		ListTypeOfType listType = new ListTypeOfType(minSize, maxSize, generator, type);
 		long entityIndex = 0L;
 		GenerationContext context = new GenerationContext(new NebulaRandom(1l), null, entityIndex);
@@ -232,7 +232,7 @@ public class ListTypeOfTypeTest {
 		int minSize = 0;
 		int maxSize = 10;
 		Generator generator = NebulaGenerators.random().build();
-		Type type = NebulaGenerationTypes.bool().build(newModel());
+		Type type = NebulaGenerationTypes.bool().build(new ModelBuilder().build());
 		ListTypeOfType listType = new ListTypeOfType(minSize, maxSize, generator, type);
 		long entityIndex = 0L;
 		GenerationContext context = new GenerationContext(new NebulaRandom(1l), null, entityIndex);

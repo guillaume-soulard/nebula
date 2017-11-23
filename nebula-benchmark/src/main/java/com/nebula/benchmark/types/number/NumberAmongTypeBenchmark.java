@@ -1,6 +1,7 @@
 package com.nebula.benchmark.types.number;
 
 import com.nebula.Model;
+import com.nebula.ModelBuilder;
 import com.nebula.core.Entity;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
@@ -9,7 +10,6 @@ import java.math.BigDecimal;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
-import static com.nebula.Nebula.newModel;
 import static com.nebula.core.NebulaGenerationTypes.number;
 import static com.nebula.core.NebulaGenerators.random;
 
@@ -33,7 +33,7 @@ public class NumberAmongTypeBenchmark {
 
 	@Setup(Level.Iteration)
 	public void setup() {
-		model = newModel();
+		model = new ModelBuilder().build();
 		entity = model.newEntity("test", 10000000);
 		entity.addProperty("property", random(), number().among().items(BigDecimal.ZERO, BigDecimal.ONE, BigDecimal.TEN));
 		model.addEntity(entity);

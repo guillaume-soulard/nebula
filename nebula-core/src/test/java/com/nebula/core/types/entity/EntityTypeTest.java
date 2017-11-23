@@ -1,6 +1,7 @@
 package com.nebula.core.types.entity;
 
 import com.nebula.Model;
+import com.nebula.ModelBuilder;
 import com.nebula.core.Entity;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaException;
@@ -11,7 +12,6 @@ import org.junit.Test;
 
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
-import static com.nebula.Nebula.newModel;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -202,7 +202,7 @@ public class EntityTypeTest {
 	}
 
 	private Entity entityWithAmount(long amount) {
-		return new Entity(newModel(), ENTITY_NAME, amount, new PropertyBuilder());
+		return new Entity(new ModelBuilder().build(), ENTITY_NAME, amount, new PropertyBuilder());
 	}
 
 	private GenerationContext initEntityTypeWithEntityAmount(EntityType type, long entityAmount) {

@@ -13,7 +13,6 @@ import org.junit.rules.TemporaryFolder;
 
 import java.io.File;
 
-import static com.nebula.Nebula.newModel;
 import static com.nebula.core.NebulaGenerationTypes.dateTime;
 import static com.nebula.core.NebulaGenerationTypes.string;
 import static com.nebula.core.NebulaGenerators.random;
@@ -40,9 +39,7 @@ public class CsvGenerationIT {
     public void generate_should_generate_a_correct_csv_file() throws Exception {
 
         // GIVEN
-        Model model = newModel();
-        model.setSeed(1l);
-        model.setDateFormat("dd/MM/yyyy");
+        Model model = new ModelBuilder().withSeed(1L).withDateFormat("dd/MM/yyyy").build();
         Entity users = model.newEntity("users", 100l);
         users.addProperty("firstName", random(), string().withPattern("[A-Z]{1}[a-z]{3,25}"));
         users.addProperty("lastName", random(), string().withPattern("[A-Z]{1}[a-z]{3,25}"));

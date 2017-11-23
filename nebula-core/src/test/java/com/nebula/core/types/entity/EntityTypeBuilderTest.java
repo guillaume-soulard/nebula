@@ -1,12 +1,12 @@
 package com.nebula.core.types.entity;
 
+import com.nebula.ModelBuilder;
 import com.nebula.core.NebulaException;
 import com.nebula.core.types.Type;
 import org.junit.Test;
 
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
-import static com.nebula.Nebula.newModel;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class EntityTypeBuilderTest {
@@ -18,7 +18,7 @@ public class EntityTypeBuilderTest {
 		EntityTypeBuilder builder = new EntityTypeBuilder();
 
 		// WHEN
-		Type result = builder.withName("test").build(newModel());
+		Type result = builder.withName("test").build(new ModelBuilder().build());
 
 		// THEN
 		assertThat(result).isInstanceOf(EntityType.class);

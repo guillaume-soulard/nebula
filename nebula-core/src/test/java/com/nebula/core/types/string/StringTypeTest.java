@@ -1,6 +1,7 @@
 package com.nebula.core.types.string;
 
 import com.nebula.Model;
+import com.nebula.ModelBuilder;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
@@ -151,7 +152,7 @@ public class StringTypeTest {
 		StringGenerator stringGenerator = mock(StringGenerator.class);
 		StringType stringType = new StringType(stringGenerator);
 		NebulaRandom nebulaRandom = new NebulaRandom(0l);
-		Model model = new Model();
+		Model model = new ModelBuilder().build();
 		long entityIndex = 0L;
 		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex);
 

@@ -1,7 +1,7 @@
 package com.nebula.core.types.string;
 
 import com.nebula.Model;
-import com.nebula.Nebula;
+import com.nebula.ModelBuilder;
 import com.nebula.core.Entity;
 import com.nebula.core.NebulaGenerationTypes;
 import com.nebula.core.NebulaGenerators;
@@ -10,7 +10,6 @@ import com.nebula.core.types.GenerationContext;
 import org.joda.time.DateTime;
 import org.junit.Test;
 
-import static com.nebula.Nebula.newModel;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class StringTypeIT {
@@ -21,7 +20,7 @@ public class StringTypeIT {
 	public void generateEntityObject_should_take_less_than_1_second_to_generate_100000_strings() {
 
 		// GIVEN
-		Model model = Nebula.newModel();
+		Model model = new ModelBuilder().build();
 		Entity entity = createEntityInModel(model);
 		DateTime start = DateTime.now();
 
@@ -40,7 +39,7 @@ public class StringTypeIT {
 		// GIVEN
 		StringType stringType = new StringType(StringGenerator.newStringGenerator("[A-Z]{1}[a-z]{10,25}"));
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(new NebulaRandom(0l), new Model(), entityIndex);
+		GenerationContext context = new GenerationContext(new NebulaRandom(0l), new ModelBuilder().build(), entityIndex);
 		stringType.init(context);
 		DateTime start = DateTime.now();
 
@@ -54,7 +53,7 @@ public class StringTypeIT {
 	}
 
 	private Entity createEntityInModel(Model model) {
-		Entity entity = newModel().newEntity("entity", 1);
+		Entity entity = new ModelBuilder().build().newEntity("entity", 1);
 		entity.addProperty("property", NebulaGenerators.random(),
 				NebulaGenerationTypes.string().withPattern("[A-Z]{1}[a-z]{10,25}"));
 		model.addEntity(entity);

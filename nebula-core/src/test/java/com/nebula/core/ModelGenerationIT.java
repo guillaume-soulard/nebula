@@ -1,6 +1,7 @@
 package com.nebula.core;
 
 import com.nebula.Model;
+import com.nebula.ModelBuilder;
 import com.nebula.core.types.date.DateTimeTypeIntervals;
 import org.joda.time.DateTime;
 import org.junit.Test;
@@ -11,7 +12,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
 
-import static com.nebula.Nebula.newModel;
 import static com.nebula.core.NebulaGenerationTypes.*;
 import static com.nebula.core.NebulaGenerators.random;
 import static com.nebula.core.NebulaGenerators.sequence;
@@ -40,7 +40,7 @@ public class ModelGenerationIT {
 
 		// GIVEN
 		long seed = 10l;
-		Model model = newModel();
+		Model model = new ModelBuilder().build();
 		Entity testEntity = buildTestEntity(model);
 		Entity anotherEntity = buildAnotherEntity(model);
 		model.addEntity(testEntity);
@@ -60,7 +60,7 @@ public class ModelGenerationIT {
 	public void generateEntityObject_should_generate_two_properties_with_different_values_with_same_type() throws Exception {
 
 		// GIVEN
-		Model model = newModel();
+		Model model = new ModelBuilder().build();
 		Entity entity = model.newEntity("test", 1);
 		entity.addProperty("first", random(), string());
 		entity.addProperty("second", random(), string());

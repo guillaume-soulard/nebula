@@ -1,11 +1,11 @@
 package com.nebula.parser;
 
 import com.nebula.Model;
+import com.nebula.ModelBuilder;
 import org.junit.Test;
 
 import java.math.BigDecimal;
 
-import static com.nebula.Nebula.newModel;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class NumberParserTest {
@@ -15,7 +15,7 @@ public class NumberParserTest {
 
         // GIVEN
         NumberParser builder = new NumberParser();
-        Model model = newModel();
+        Model model = new ModelBuilder().build();
 
         // WHEN
         BigDecimal result = builder.parse(model, "0");
@@ -29,7 +29,7 @@ public class NumberParserTest {
 
         // GIVEN
         NumberParser builder = new NumberParser();
-        Model model = newModel();
+        Model model = new ModelBuilder().build();
 
         // WHEN
         BigDecimal result = builder.parse(model, "10");
@@ -43,7 +43,7 @@ public class NumberParserTest {
 
         // GIVEN
         NumberParser builder = new NumberParser();
-        Model model = newModel();
+        Model model = new ModelBuilder().build();
 
         // WHEN
         BigDecimal result = builder.parse(model, "10.56");
@@ -57,7 +57,7 @@ public class NumberParserTest {
 
         // GIVEN
         NumberParser builder = new NumberParser();
-        Model model = newModel();
+        Model model = new ModelBuilder().build();
 
         // WHEN
         BigDecimal result = builder.parse(model, "100000000.56");
@@ -71,7 +71,7 @@ public class NumberParserTest {
 
         // GIVEN
         NumberParser builder = new NumberParser();
-        Model model = newModel();
+        Model model = new ModelBuilder().build();
 
         // WHEN
         BigDecimal result = builder.parse(model, "100,000,000.56");
@@ -85,9 +85,10 @@ public class NumberParserTest {
 
         // GIVEN
         NumberParser builder = new NumberParser();
-        Model model = newModel();
-        model.setNumberDecimalSeparator(',');
-        model.setNumberThousandSeparator(' ');
+        Model model = new ModelBuilder()
+                .withNumberThousandSeparator(' ')
+                .withNumberDecimalSeparator(',')
+                .build();
 
         // WHEN
         BigDecimal result = builder.parse(model, "1 234,96");

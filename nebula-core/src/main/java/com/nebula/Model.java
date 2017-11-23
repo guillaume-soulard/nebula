@@ -8,16 +8,19 @@ import java.util.*;
 
 public class Model {
 
-	private long seed;
+	private final long seed;
+	private final String dateFormat;
+	private final char numberDecimalSeparator;
+	private final char numberThousandSeparator;
 	private List<Entity> entities = new ArrayList<>();
 	private EntityGenerator entityGenerator = new EntityGenerator();
 	private List<GenerationRule> generationRules = new ArrayList<>();
-	private String dateFormat = "MM/dd/yyyy";
-	private char numberDecimalSeparator = '.';
-	private char numberThousandSeparator = ',';
 
-	public Model() {
-		seed = new Random().nextLong();
+	Model(long seed, char numberThousandSeparator, char numberDecimalSeparator, String dateFormat) {
+		this.seed = seed;
+		this.numberThousandSeparator = numberThousandSeparator;
+		this.numberDecimalSeparator = numberDecimalSeparator;
+		this.dateFormat = dateFormat;
 	}
 
 	public Entity newEntity(String entityName, long amount) {
@@ -91,10 +94,6 @@ public class Model {
 		return seed;
 	}
 
-	public void setSeed(long seed) {
-		this.seed = seed;
-	}
-
 	public void generate() {
         generationRules.forEach(GenerationRule::generate);
 	}
@@ -103,37 +102,11 @@ public class Model {
 		return dateFormat;
 	}
 
-	public void setDateFormat(String dateFormat) {
-		this.dateFormat = dateFormat;
-	}
-
 	public char getNumberDecimalSeparator() {
 		return numberDecimalSeparator;
 	}
 
-	public void setNumberDecimalSeparator(char numberDecimalSeparator) {
-		this.numberDecimalSeparator = numberDecimalSeparator;
-	}
-
 	public char getNumberThousandSeparator() {
 		return numberThousandSeparator;
-	}
-
-	public void setNumberThousandSeparator(char numberThousandSeparator) {
-		this.numberThousandSeparator = numberThousandSeparator;
-	}
-
-	public void setSeed(String seedString) {
-		if (seedString == null) {
-			throw new NebulaException("seed is null");
-		}
-
-		long longSeed = 0l;
-
-		for (byte seedByte : seedString.getBytes()) {
-			longSeed += 31 * seedByte;
-		}
-
-		this.seed = longSeed;
 	}
 }

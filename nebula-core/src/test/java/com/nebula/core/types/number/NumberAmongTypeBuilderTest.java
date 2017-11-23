@@ -1,5 +1,6 @@
 package com.nebula.core.types.number;
 
+import com.nebula.ModelBuilder;
 import com.nebula.core.NebulaException;
 import com.nebula.core.types.AmongTypeBuilder;
 import com.nebula.core.types.Type;
@@ -10,7 +11,6 @@ import java.util.Arrays;
 
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
-import static com.nebula.Nebula.newModel;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class NumberAmongTypeBuilderTest {
@@ -22,7 +22,7 @@ public class NumberAmongTypeBuilderTest {
 		NumberAmongTypeBuilder builder = new NumberAmongTypeBuilder();
 
 		// WHEN
-		Type result = builder.build(newModel());
+		Type result = builder.build(new ModelBuilder().build());
 
 		// THEN
 		assertThat(result).isInstanceOf(NumberAmongType.class);
@@ -118,7 +118,7 @@ public class NumberAmongTypeBuilderTest {
 		BigDecimal item2 = BigDecimal.ONE;
 
 		// WHEN
-		Type result = builder.items(item1, item2).build(newModel());
+		Type result = builder.items(item1, item2).build(new ModelBuilder().build());
 
 		// THEN
 		assertThat(result).hasFieldOrPropertyWithValue("items", Arrays.asList(item1, item2));

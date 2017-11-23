@@ -1,6 +1,7 @@
 package com.nebula.generationrule.rest;
 
 import com.nebula.Model;
+import com.nebula.ModelBuilder;
 import com.nebula.core.Entity;
 import com.nebula.formatter.FormatterBuilder;
 import com.nebula.formatter.NebulaFormatters;
@@ -21,7 +22,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.nebula.Nebula.newModel;
 import static com.nebula.core.NebulaGenerationTypes.dateTime;
 import static com.nebula.core.NebulaGenerationTypes.string;
 import static com.nebula.core.NebulaGenerators.random;
@@ -33,9 +33,7 @@ public class RestGenerationRuleIT {
 
     @BeforeClass
     public static void setUp() throws Exception {
-        Model model = newModel();
-        model.setDateFormat("dd/MM/yyyy");
-        model.setSeed("users");
+        Model model = new ModelBuilder().withSeed("users").withDateFormat("dd/MM/yyyy").build();
 
         Entity entity = model.newEntity("user");
         entity.addProperty("firstName", random(), string().withPattern("[A-Aa-z]{10,25}"));

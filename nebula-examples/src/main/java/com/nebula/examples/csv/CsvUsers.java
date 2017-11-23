@@ -1,7 +1,7 @@
 package com.nebula.examples.csv;
 
 import com.nebula.Model;
-import com.nebula.Nebula;
+import com.nebula.ModelBuilder;
 import com.nebula.core.Entity;
 import com.nebula.core.NebulaGenerationTypes;
 import com.nebula.core.NebulaGenerators;
@@ -16,9 +16,10 @@ public class CsvUsers {
 
         System.out.println("Generate 10 Users");
 
-        Model model = Nebula.newModel();
-        model.setSeed("a seed");
-        model.setDateFormat("dd/MM/yyyy");
+        Model model = new ModelBuilder()
+                .withSeed("a seed")
+                .withDateFormat("dd/MM/yyyy")
+                .build();
 
         Entity users = model.newEntity("users", Long.MAX_VALUE);
         users.addProperty("firstName", NebulaGenerators.random(), NebulaGenerationTypes.string().withPattern("[A-Z]{1}[a-z]{3,25}"));
