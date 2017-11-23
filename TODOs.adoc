@@ -18,5 +18,4 @@
 
 == Fixes
 
-. Number format fluent api is broken on formatters
 . Model builder

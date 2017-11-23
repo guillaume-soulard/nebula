@@ -4,7 +4,7 @@ import com.nebula.Model;
 import com.nebula.formatter.AbstractFormatterBuilder;
 import com.nebula.formatter.Formatter;
 
-public class JsonFormatterBuilder extends AbstractFormatterBuilder {
+public class JsonFormatterBuilder extends AbstractFormatterBuilder<JsonFormatterBuilder> {
     private boolean prettyFormat = false;
     private boolean quotedFields = false;
 
@@ -21,6 +21,11 @@ public class JsonFormatterBuilder extends AbstractFormatterBuilder {
 
     public JsonFormatterBuilder quotedFields() {
         quotedFields = true;
+        return this;
+    }
+
+    @Override
+    protected JsonFormatterBuilder getThis() {
         return this;
     }
 }

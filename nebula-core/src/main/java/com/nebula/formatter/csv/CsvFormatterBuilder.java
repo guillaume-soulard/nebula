@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class CsvFormatterBuilder extends AbstractFormatterBuilder {
+public class CsvFormatterBuilder extends AbstractFormatterBuilder<CsvFormatterBuilder> {
     private String separator = ",";
     private String quote = "";
     private boolean header = true;
@@ -64,18 +64,8 @@ public class CsvFormatterBuilder extends AbstractFormatterBuilder {
         return this;
     }
 
-    public CsvFormatterBuilder withDateFormat(String dateFormat) {
-        this.dateFormat = dateFormat;
-        return this;
-    }
-
-    public CsvFormatterBuilder withNumberDecimalSeparator(char numberDecimalSeparator) {
-        this.numberDecimalSeparator = numberDecimalSeparator;
-        return this;
-    }
-
-    public CsvFormatterBuilder withNumberThousandSeparator(char numberThousandSeparator) {
-        this.numberThousandSeparator = numberThousandSeparator;
+    @Override
+    protected CsvFormatterBuilder getThis() {
         return this;
     }
 }

@@ -5,7 +5,7 @@ import com.nebula.Model;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AbstractFormatterBuilder implements FormatterBuilder {
+public abstract class AbstractFormatterBuilder<T extends AbstractFormatterBuilder> implements FormatterBuilder {
 
     private Character numberThousandSeparator;
     private Character numberDecimalSeparator;
@@ -28,23 +28,25 @@ public abstract class AbstractFormatterBuilder implements FormatterBuilder {
         return new ValueFormatter(dateFormat, numberDecimalSeparator, numberThousandSeparator);
     }
 
-    public AbstractFormatterBuilder withDateFormat(String dateFormat) {
+    public T withDateFormat(String dateFormat) {
         this.dateFormat = dateFormat;
-        return this;
+        return getThis();
     }
 
-    public AbstractFormatterBuilder withNumberDecimalSeparator(char numberDecimalSeparator) {
+    public T withNumberDecimalSeparator(char numberDecimalSeparator) {
         this.numberDecimalSeparator = numberDecimalSeparator;
-        return this;
+        return getThis();
     }
 
-    public AbstractFormatterBuilder withNumberThousandSeparator(char numberThousandSeparator) {
+    public T withNumberThousandSeparator(char numberThousandSeparator) {
         this.numberThousandSeparator = numberThousandSeparator;
-        return this;
+        return getThis();
     }
 
-    public AbstractFormatterBuilder addPropertyToIgnore(String propertyName) {
+    public T addPropertyToIgnore(String propertyName) {
         this.propertiesToExclude.add(propertyName);
-        return this;
+        return getThis();
     }
+
+    protected abstract T getThis();
 }

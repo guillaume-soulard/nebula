@@ -4,7 +4,7 @@ import com.nebula.Model;
 import com.nebula.formatter.AbstractFormatterBuilder;
 import com.nebula.formatter.Formatter;
 
-public class CustomFormatterBuilder extends AbstractFormatterBuilder {
+public class CustomFormatterBuilder extends AbstractFormatterBuilder<CustomFormatterBuilder> {
 
     private String headerFormat;
     private String generatedObjectFormat;
@@ -43,6 +43,11 @@ public class CustomFormatterBuilder extends AbstractFormatterBuilder {
 
     public CustomFormatterBuilder withFooterFormat(String footerFormat) {
         this.footerFormat = footerFormat;
+        return this;
+    }
+
+    @Override
+    protected CustomFormatterBuilder getThis() {
         return this;
     }
 }
