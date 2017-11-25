@@ -4,6 +4,7 @@ import com.nebula.formatter.csv.CsvFormatterBuilder;
 import com.nebula.formatter.custom.CustomFormatterBuilder;
 import com.nebula.formatter.json.JsonFormatterBuilder;
 import com.nebula.formatter.sql.SqlFormatterBuilder;
+import com.nebula.formatter.xml.XmlFormatterBuilder;
 
 public final class NebulaFormatters {
 
@@ -20,4 +21,6 @@ public final class NebulaFormatters {
     }
 
     public static SqlFormatterBuilder sql() { return new SqlFormatterBuilder(); }
+
+    public static XmlFormatterBuilder xml() { return new XmlFormatterBuilder(); }
 }
