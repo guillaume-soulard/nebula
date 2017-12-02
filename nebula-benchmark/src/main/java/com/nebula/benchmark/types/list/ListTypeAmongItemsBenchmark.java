@@ -1,7 +1,7 @@
 package com.nebula.benchmark.types.list;
 
-import com.nebula.Model;
-import com.nebula.ModelBuilder;
+import com.nebula.core.Model;
+import com.nebula.core.ModelBuilder;
 import com.nebula.core.Entity;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;

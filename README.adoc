@@ -16,14 +16,14 @@ The central element in Nebula is the model. The model consists on
 --
 package com.nebula.examples.csv;
 
-import com.nebula.Model;
+import com.nebula.core.Model;
 import com.nebula.Nebula;
 import com.nebula.core.Entity;
 import com.nebula.core.types.NebulaTypes;
 import com.nebula.core.generators.NebulaGenerators;
-import com.nebula.formatter.NebulaFormatters;
-import com.nebula.generationconstraint.NebulaConstraints;
-import com.nebula.output.NebulaOutputs;
+import com.nebula.core.formatter.NebulaFormatters;
+import com.nebula.core.generationconstraint.NebulaConstraints;
+import com.nebula.core.output.NebulaOutputs;
 import org.joda.time.DateTime;
 
 import static com.nebula.Nebula.*;

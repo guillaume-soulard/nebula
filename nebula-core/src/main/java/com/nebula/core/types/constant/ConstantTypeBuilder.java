@@ -1,6 +1,6 @@
 package com.nebula.core.types.constant;
 
-import com.nebula.Model;
+import com.nebula.core.Model;
 import com.nebula.core.types.Type;
 import com.nebula.core.types.TypeBuilder;
 import org.joda.time.DateTime;

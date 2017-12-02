@@ -1,7 +1,5 @@
 package com.nebula.core;
 
-import com.nebula.Model;
-
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 

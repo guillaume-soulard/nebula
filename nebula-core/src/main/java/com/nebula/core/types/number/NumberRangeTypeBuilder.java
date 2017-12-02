@@ -1,11 +1,11 @@
 package com.nebula.core.types.number;
 
-import com.nebula.Model;
+import com.nebula.core.Model;
 import com.nebula.core.NebulaException;
 import com.nebula.core.types.Range;
 import com.nebula.core.types.RangeTypeBuilder;
 import com.nebula.core.types.Type;
-import com.nebula.parser.NumberParser;
+import com.nebula.core.parser.NumberParser;
 
 import java.math.BigDecimal;
 

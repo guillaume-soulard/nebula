@@ -1,6 +1,6 @@
 package com.nebula.core.generators;
 
-import com.nebula.ModelBuilder;
+import com.nebula.core.ModelBuilder;
 import com.nebula.core.types.NebulaTypes;
 import com.nebula.core.types.Type;
 import org.junit.Test;

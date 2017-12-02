@@ -1,18 +1,18 @@
 package com.nebula.examples.sql;
 
-import com.nebula.Model;
-import com.nebula.ModelBuilder;
+import com.nebula.core.Model;
+import com.nebula.core.ModelBuilder;
 import com.nebula.core.Entity;
-import com.nebula.generationrule.GenerationRules;
+import com.nebula.core.generationrule.GenerationRules;
 
 import java.math.BigDecimal;
 
 import static com.nebula.core.types.NebulaTypes.*;
 import static com.nebula.core.generators.NebulaGenerators.random;
 import static com.nebula.core.generators.NebulaGenerators.sequence;
-import static com.nebula.formatter.NebulaFormatters.sql;
-import static com.nebula.generationconstraint.NebulaConstraints.amount;
-import static com.nebula.output.NebulaOutputs.stdout;
+import static com.nebula.core.formatter.NebulaFormatters.sql;
+import static com.nebula.core.generationconstraint.NebulaConstraints.amount;
+import static com.nebula.core.output.NebulaOutputs.stdout;
 
 public class Sql {
 

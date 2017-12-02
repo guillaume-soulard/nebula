@@ -1,9 +1,9 @@
 package com.nebula.examples.rest;
 
-import com.nebula.Model;
-import com.nebula.ModelBuilder;
+import com.nebula.core.Model;
+import com.nebula.core.ModelBuilder;
 import com.nebula.core.Entity;
-import com.nebula.generationrule.GenerationRules;
+import com.nebula.core.generationrule.GenerationRules;
 import org.apache.http.entity.ContentType;
 
 import java.math.BigDecimal;
@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 import static com.nebula.core.types.NebulaTypes.*;
 import static com.nebula.core.generators.NebulaGenerators.random;
 import static com.nebula.core.generators.NebulaGenerators.sequence;
-import static com.nebula.formatter.NebulaFormatters.json;
+import static com.nebula.core.formatter.NebulaFormatters.json;
 
 public class Rest {
 

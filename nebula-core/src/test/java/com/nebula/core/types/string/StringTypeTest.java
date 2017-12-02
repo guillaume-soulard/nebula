@@ -1,7 +1,7 @@
 package com.nebula.core.types.string;
 
-import com.nebula.Model;
-import com.nebula.ModelBuilder;
+import com.nebula.core.Model;
+import com.nebula.core.ModelBuilder;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;

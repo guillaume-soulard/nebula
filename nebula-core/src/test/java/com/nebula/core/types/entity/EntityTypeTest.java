@@ -1,7 +1,7 @@
 package com.nebula.core.types.entity;
 
-import com.nebula.Model;
-import com.nebula.ModelBuilder;
+import com.nebula.core.Model;
+import com.nebula.core.ModelBuilder;
 import com.nebula.core.Entity;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaException;

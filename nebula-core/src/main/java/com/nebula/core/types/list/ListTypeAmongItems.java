@@ -1,6 +1,6 @@
 package com.nebula.core.types.list;
 
-import com.nebula.Model;
+import com.nebula.core.Model;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.types.NebulaTypes;
 import com.nebula.core.generators.Generator;

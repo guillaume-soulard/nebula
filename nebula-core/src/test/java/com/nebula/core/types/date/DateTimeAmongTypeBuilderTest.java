@@ -1,6 +1,6 @@
 package com.nebula.core.types.date;
 
-import com.nebula.ModelBuilder;
+import com.nebula.core.ModelBuilder;
 import com.nebula.core.types.Type;
 import org.junit.Test;
 

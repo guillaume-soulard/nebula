@@ -1,7 +1,5 @@
 package com.nebula.core;
 
-import com.nebula.Model;
-import com.nebula.ModelBuilder;
 import org.junit.Test;
 
 import java.util.NoSuchElementException;

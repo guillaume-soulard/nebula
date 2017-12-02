@@ -1,6 +1,6 @@
 package com.nebula.core.types.number;
 
-import com.nebula.ModelBuilder;
+import com.nebula.core.ModelBuilder;
 import com.nebula.core.NebulaException;
 import com.nebula.core.types.AmongTypeBuilder;
 import com.nebula.core.types.Type;

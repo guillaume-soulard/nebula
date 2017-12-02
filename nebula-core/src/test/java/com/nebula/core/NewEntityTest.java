@@ -1,6 +1,5 @@
 package com.nebula.core;
 
-import com.nebula.ModelBuilder;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

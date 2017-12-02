@@ -1,6 +1,6 @@
 package com.nebula.core.generators.random;
 
-import com.nebula.ModelBuilder;
+import com.nebula.core.ModelBuilder;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaException;
 import com.nebula.core.types.NebulaTypes;

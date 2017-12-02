@@ -1,6 +1,6 @@
 package com.nebula.core.types.list;
 
-import com.nebula.ModelBuilder;
+import com.nebula.core.ModelBuilder;
 import com.nebula.core.NebulaException;
 import com.nebula.core.types.NebulaTypes;
 import com.nebula.core.generators.NebulaGenerators;

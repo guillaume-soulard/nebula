@@ -1,6 +1,5 @@
 package com.nebula.core;
 
-import com.nebula.Model;
 import com.nebula.core.generators.Generator;
 import com.nebula.core.generators.GeneratorBuilder;
 import com.nebula.core.types.Type;

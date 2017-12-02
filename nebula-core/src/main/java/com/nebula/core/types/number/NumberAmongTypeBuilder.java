@@ -1,9 +1,9 @@
 package com.nebula.core.types.number;
 
-import com.nebula.Model;
+import com.nebula.core.Model;
 import com.nebula.core.types.AmongTypeBuilder;
 import com.nebula.core.types.Type;
-import com.nebula.parser.NumberParser;
+import com.nebula.core.parser.NumberParser;
 
 import java.math.BigDecimal;
 

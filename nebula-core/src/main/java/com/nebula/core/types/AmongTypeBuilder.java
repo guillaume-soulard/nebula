@@ -1,6 +1,6 @@
 package com.nebula.core.types;
 
-import com.nebula.Model;
+import com.nebula.core.Model;
 import com.nebula.core.NebulaException;
 
 import java.util.ArrayList;

@@ -1,14 +1,14 @@
 package com.nebula.examples.csv;
 
-import com.nebula.Model;
-import com.nebula.ModelBuilder;
+import com.nebula.core.Model;
+import com.nebula.core.ModelBuilder;
 import com.nebula.core.Entity;
 import com.nebula.core.types.NebulaTypes;
 import com.nebula.core.generators.NebulaGenerators;
-import com.nebula.formatter.NebulaFormatters;
-import com.nebula.generationconstraint.NebulaConstraints;
-import com.nebula.generationrule.GenerationRules;
-import com.nebula.output.NebulaOutputs;
+import com.nebula.core.formatter.NebulaFormatters;
+import com.nebula.core.generationconstraint.NebulaConstraints;
+import com.nebula.core.generationrule.GenerationRules;
+import com.nebula.core.output.NebulaOutputs;
 
 public class CsvUsers {
 
