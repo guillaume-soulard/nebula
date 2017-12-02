@@ -4,7 +4,7 @@ import com.nebula.core.types.TypeBuilderChooser;
 import org.joda.time.ReadableInstant;
 
 public class DateTimeTypeBuilderChooser
-		extends TypeBuilderChooser<ReadableInstant, DateTimeRangeTypeBuilder, DateTimeAmongTypeBuilder> {
+		extends TypeBuilderChooser<DateTimeRangeTypeBuilder, DateTimeAmongTypeBuilder, ReadableInstant, DateTimeRangeTypeBuilder, DateTimeAmongTypeBuilder> {
 
 	public DateTimeTypeBuilderChooser() {
 		super(new DateTimeRangeTypeBuilder(), new DateTimeAmongTypeBuilder());

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public abstract class AmongTypeBuilder<T extends Comparable<T>> extends AbstractParsable<T> implements TypeBuilder {
+public abstract class AmongTypeBuilder<S extends AmongTypeBuilder, T extends Comparable<T>> extends AbstractParsable<T> implements TypeBuilder {
 
 	protected List<T> items = new ArrayList<>();
 	private List<String> itemStrings = new ArrayList<>();
@@ -29,17 +29,18 @@ public abstract class AmongTypeBuilder<T extends Comparable<T>> extends Abstract
 	}
 
 	protected abstract Type buildImpl(Model model);
+	protected abstract S getThis();
 
-	public AmongTypeBuilder<T> items(T... items) {
+	public S items(T... items) {
 		checkParameter(items);
 		this.items.addAll(Arrays.asList(items));
-		return this;
+		return getThis();
 	}
 
-	public AmongTypeBuilder<T> items(String... itemStrings) {
+	public S items(String... itemStrings) {
 		checkParameter(itemStrings);
 		this.itemStrings.addAll(Arrays.asList(itemStrings));
-		return this;
+		return getThis();
 	}
 
 	private void checkParameter(Object[] items) {

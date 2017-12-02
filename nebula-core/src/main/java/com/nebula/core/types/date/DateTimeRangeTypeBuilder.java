@@ -10,7 +10,7 @@ import org.joda.time.ReadableInstant;
 
 import java.util.Date;
 
-public class DateTimeRangeTypeBuilder extends RangeTypeBuilder<ReadableInstant> {
+public class DateTimeRangeTypeBuilder extends RangeTypeBuilder<DateTimeRangeTypeBuilder, ReadableInstant> {
 
 	public static final DateTime MIN_DEFAULT_DATE_TIME = new DateTime(0l);
 	public static final DateTime MAX_DEFAULT_DATE_TIME = new DateTime(9999, 12, 31, 0, 0);
@@ -23,6 +23,11 @@ public class DateTimeRangeTypeBuilder extends RangeTypeBuilder<ReadableInstant> 
 	@Override
 	public Type buildImpl(Model model) {
 		return new DateTimeRangeType(new Range<>(min, max), interval);
+	}
+
+	@Override
+	protected DateTimeRangeTypeBuilder getThis() {
+		return this;
 	}
 
 	public DateTimeRangeTypeBuilder withMin(DateTime value) {

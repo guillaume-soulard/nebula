@@ -11,12 +11,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class TypeBuilderChooserTest {
 
 	@Test
-	public void range_should_return_given_instance_of_range_buidler() {
+	public void range_should_return_given_instance_of_range_builder() {
 
 		// GIVEN
 		NumberRangeTypeBuilder rangeBuilder = new NumberRangeTypeBuilder();
 		NumberAmongTypeBuilder amongBuilder = new NumberAmongTypeBuilder();
-		TypeBuilderChooser<BigDecimal, NumberRangeTypeBuilder, NumberAmongTypeBuilder> chooser = new TypeBuilderChooser<>(
+		TypeBuilderChooser<NumberRangeTypeBuilder, NumberAmongTypeBuilder, BigDecimal, NumberRangeTypeBuilder, NumberAmongTypeBuilder> chooser = new TypeBuilderChooser<>(
 				rangeBuilder, amongBuilder);
 
 		// WHEN
@@ -27,12 +27,12 @@ public class TypeBuilderChooserTest {
 	}
 
 	@Test
-	public void among_should_return_given_instance_of_among_buidler() {
+	public void among_should_return_given_instance_of_among_builder() {
 
 		// GIVEN
 		NumberRangeTypeBuilder rangeBuilder = new NumberRangeTypeBuilder();
 		NumberAmongTypeBuilder amongBuilder = new NumberAmongTypeBuilder();
-		TypeBuilderChooser<BigDecimal, NumberRangeTypeBuilder, NumberAmongTypeBuilder> chooser = new TypeBuilderChooser<>(
+		TypeBuilderChooser<NumberRangeTypeBuilder, NumberAmongTypeBuilder, BigDecimal, NumberRangeTypeBuilder, NumberAmongTypeBuilder> chooser = new TypeBuilderChooser<>(
 				rangeBuilder, amongBuilder);
 
 		// WHEN

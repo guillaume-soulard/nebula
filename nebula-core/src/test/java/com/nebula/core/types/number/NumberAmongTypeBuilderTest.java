@@ -36,7 +36,7 @@ public class NumberAmongTypeBuilderTest {
 		BigDecimal item = BigDecimal.ZERO;
 
 		// WHEN
-		AmongTypeBuilder<BigDecimal> result = builder.items(item);
+		NumberAmongTypeBuilder result = builder.items(item);
 
 		// THEN
 		assertThat(result).hasFieldOrPropertyWithValue("items", Arrays.asList(item));
@@ -51,7 +51,7 @@ public class NumberAmongTypeBuilderTest {
 		BigDecimal item2 = BigDecimal.ONE;
 
 		// WHEN
-		AmongTypeBuilder<BigDecimal> result = builder.items(item1, item2);
+		NumberAmongTypeBuilder result = builder.items(item1, item2);
 
 		// THEN
 		assertThat(result).hasFieldOrPropertyWithValue("items", Arrays.asList(item1, item2));
@@ -64,7 +64,7 @@ public class NumberAmongTypeBuilderTest {
 		NumberAmongTypeBuilder builder = new NumberAmongTypeBuilder();
 
 		// WHEN
-		AmongTypeBuilder<BigDecimal> result = builder.items(new BigDecimal[] { null });
+		NumberAmongTypeBuilder result = builder.items(new BigDecimal[] { null });
 
 		// THEN
 		assertThat(result).hasFieldOrPropertyWithValue("items", Arrays.asList(new BigDecimal[] { null }));

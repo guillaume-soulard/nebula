@@ -145,4 +145,16 @@ public class NumberRangeTypeBuilderTest {
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("precision is negative");
 	}
+
+	@Test
+	public void builder_should_have_access_to_precision_and_min() throws Exception {
+
+		// GIVEN
+		NumberRangeTypeBuilder builder = new NumberRangeTypeBuilder();
+
+		// WHEN
+		builder.withPrecision(1).withMin(BigDecimal.ZERO);
+
+		// THEN
+	}
 }

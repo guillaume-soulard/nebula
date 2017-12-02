@@ -1,6 +1,11 @@
 package com.nebula.core.types;
 
-public class TypeBuilderChooser<T extends Comparable<T>, R extends RangeTypeBuilder<T>, A extends AmongTypeBuilder<T>> {
+public class TypeBuilderChooser<
+		SR extends RangeTypeBuilder,
+		SA extends AmongTypeBuilder,
+		T extends Comparable<T>,
+		R extends RangeTypeBuilder<SR, T>,
+		A extends AmongTypeBuilder<SA, T>> {
 
 	private R rangeBuilder;
 	private A amongBuilder;

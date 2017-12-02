@@ -7,13 +7,18 @@ import com.nebula.core.parser.NumberParser;
 
 import java.math.BigDecimal;
 
-public class NumberAmongTypeBuilder extends AmongTypeBuilder<BigDecimal> {
+public class NumberAmongTypeBuilder extends AmongTypeBuilder<NumberAmongTypeBuilder, BigDecimal> {
 
 	private NumberParser numberParser = new NumberParser();
 
 	@Override
 	public Type buildImpl(Model model) {
 		return new NumberAmongType(items);
+	}
+
+	@Override
+	protected NumberAmongTypeBuilder getThis() {
+		return this;
 	}
 
 	@Override

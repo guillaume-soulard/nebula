@@ -9,7 +9,7 @@ import com.nebula.core.parser.NumberParser;
 
 import java.math.BigDecimal;
 
-public class NumberRangeTypeBuilder extends RangeTypeBuilder<BigDecimal> {
+public class NumberRangeTypeBuilder extends RangeTypeBuilder<NumberRangeTypeBuilder, BigDecimal> {
 
 	private int precision = 0;
 	private NumberParser numberParser = new NumberParser();
@@ -20,6 +20,11 @@ public class NumberRangeTypeBuilder extends RangeTypeBuilder<BigDecimal> {
 			throw new NebulaException("max must be greater than min");
 		}
 		return new NumberRangeType(new Range<>(min, max), precision);
+	}
+
+	@Override
+	protected NumberRangeTypeBuilder getThis() {
+		return this;
 	}
 
 	public NumberRangeTypeBuilder withPrecision(int value) {

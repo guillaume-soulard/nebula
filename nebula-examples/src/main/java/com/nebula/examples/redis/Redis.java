@@ -39,9 +39,9 @@ public class Redis {
 
             Entity weather = model.newEntity("weather");
             weather.addProperty("time", sequence(), dateTime().range()
-                    .withInterval(DateTimeTypeIntervals.HOUR)
                     .withMin("01/01/2017")
-                    .withMax("01/01/2018"));
+                    .withMax("01/01/2018")
+                    .withInterval(DateTimeTypeIntervals.HOUR));
             weather.addProperty("temperature", random(), number().range()
                     .withMin("-20")
                     .withMax("40"));

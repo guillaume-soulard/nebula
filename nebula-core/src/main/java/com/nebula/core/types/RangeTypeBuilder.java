@@ -2,7 +2,7 @@ package com.nebula.core.types;
 
 import com.nebula.core.Model;
 
-public abstract class RangeTypeBuilder<T extends Comparable<T>> extends AbstractParsable<T> implements TypeBuilder {
+public abstract class RangeTypeBuilder<S extends RangeTypeBuilder, T extends Comparable<T>> extends AbstractParsable<T> implements TypeBuilder {
 
 	protected T min;
 	protected T max;
@@ -25,30 +25,31 @@ public abstract class RangeTypeBuilder<T extends Comparable<T>> extends Abstract
 	}
 
 	protected abstract Type buildImpl(Model model);
+	protected abstract S getThis();
 
 	public RangeTypeBuilder() {
 		min = getDefaultMin();
 		max = getDefaultMax();
 	}
 
-	public RangeTypeBuilder<T> withMin(T value) {
+	public S withMin(T value) {
 		min = value;
-		return this;
+		return getThis();
 	}
 
-	public RangeTypeBuilder<T> withMax(T value) {
+	public S withMax(T value) {
 		max = value;
-		return this;
+		return getThis();
 	}
 
-	public RangeTypeBuilder<T> withMin(String value) {
+	public S withMin(String value) {
 		minString = value;
-		return this;
+		return getThis();
 	}
 
-	public RangeTypeBuilder<T> withMax(String value) {
+	public S withMax(String value) {
 		maxString = value;
-		return this;
+		return getThis();
 	}
 
 	protected abstract T getDefaultMin();
