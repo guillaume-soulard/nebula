@@ -2,7 +2,7 @@ package com.nebula.core.types.list;
 
 import com.nebula.Model;
 import com.nebula.core.GeneratedObject;
-import com.nebula.core.NebulaGenerationTypes;
+import com.nebula.core.types.NebulaTypes;
 import com.nebula.core.generators.Generator;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.Type;
@@ -39,7 +39,7 @@ public class ListTypeAmongItems extends AbstractListType {
 	}
 
 	private void initNumberRange() {
-		numberRange = NebulaGenerationTypes.number().range().withMin(BigDecimal.ZERO)
+		numberRange = NebulaTypes.number().range().withMin(BigDecimal.ZERO)
 				.withMax(BigDecimal.valueOf(items.length - 1)).build(model);
 		numberRange.init(context);
 	}

@@ -2,8 +2,8 @@ package com.nebula.core.types.list;
 
 import com.nebula.ModelBuilder;
 import com.nebula.core.NebulaException;
-import com.nebula.core.NebulaGenerationTypes;
-import com.nebula.core.NebulaGenerators;
+import com.nebula.core.types.NebulaTypes;
+import com.nebula.core.generators.NebulaGenerators;
 import com.nebula.core.generators.GeneratorBuilder;
 import com.nebula.core.types.Type;
 import com.nebula.core.types.constant.ConstantTypeBuilder;
@@ -142,7 +142,7 @@ public class ListTypeAmongItemsBuilderTest {
 		// GIVEN
 		GeneratorBuilder generator = NebulaGenerators.random();
 		ListTypeAmongItemsBuilder builder = new ListTypeAmongItemsBuilder(generator);
-		ConstantTypeBuilder item = NebulaGenerationTypes.constant("test");
+		ConstantTypeBuilder item = NebulaTypes.constant("test");
 
 		// WHEN
 		ListTypeAmongItemsBuilder result = builder.amongItems(item);
@@ -157,8 +157,8 @@ public class ListTypeAmongItemsBuilderTest {
 		// GIVEN
 		GeneratorBuilder generator = NebulaGenerators.random();
 		ListTypeAmongItemsBuilder builder = new ListTypeAmongItemsBuilder(generator);
-		ConstantTypeBuilder item1 = NebulaGenerationTypes.constant("test");
-		ConstantTypeBuilder item2 = NebulaGenerationTypes.constant("test");
+		ConstantTypeBuilder item1 = NebulaTypes.constant("test");
+		ConstantTypeBuilder item2 = NebulaTypes.constant("test");
 
 		// WHEN
 		ListTypeAmongItemsBuilder result = builder.amongItems(item1, item2);

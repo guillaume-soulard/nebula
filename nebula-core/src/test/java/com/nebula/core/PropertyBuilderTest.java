@@ -3,6 +3,8 @@ package com.nebula.core;
 import com.nebula.Model;
 import com.nebula.ModelBuilder;
 import com.nebula.core.generators.GeneratorBuilder;
+import com.nebula.core.generators.NebulaGenerators;
+import com.nebula.core.types.NebulaTypes;
 import com.nebula.core.types.TypeBuilder;
 import org.junit.Test;
 
@@ -17,7 +19,7 @@ public class PropertyBuilderTest {
 		// GIVEN
 		PropertyBuilder propertyBuilder = new PropertyBuilder();
 		String propertyName = null;
-		TypeBuilder propertyType = NebulaGenerationTypes.number().range();
+		TypeBuilder propertyType = NebulaTypes.number().range();
 		GeneratorBuilder propertyGenerator = NebulaGenerators.random();
 		Model model = new ModelBuilder().build();
 
@@ -49,7 +51,7 @@ public class PropertyBuilderTest {
 		// GIVEN
 		PropertyBuilder propertyBuilder = new PropertyBuilder();
 		String propertyName = "name";
-		TypeBuilder propertyType = NebulaGenerationTypes.number().range();
+		TypeBuilder propertyType = NebulaTypes.number().range();
 		GeneratorBuilder propertyGenerator = null;
 		Model model = new ModelBuilder().build();
 

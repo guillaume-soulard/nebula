@@ -1,5 +1,6 @@
 package com.nebula.core;
 
+import com.nebula.core.types.NebulaTypes;
 import com.nebula.core.types.bool.BooleanTypeBuilder;
 import com.nebula.core.types.constant.ConstantTypeBuilder;
 import com.nebula.core.types.date.DateTimeTypeBuilderChooser;
@@ -22,7 +23,7 @@ public class NebulaGenerationTypesTest {
 		// GIVEN
 
 		// WHEN
-		NumberTypeBuilderChooser result = NebulaGenerationTypes.number();
+		NumberTypeBuilderChooser result = NebulaTypes.number();
 
 		// THEN
 		assertThat(result).isNotNull();
@@ -34,7 +35,7 @@ public class NebulaGenerationTypesTest {
 		// GIVEN
 
 		// WHEN
-		DateTimeTypeBuilderChooser result = NebulaGenerationTypes.dateTime();
+		DateTimeTypeBuilderChooser result = NebulaTypes.dateTime();
 
 		// THEN
 		assertThat(result).isNotNull();
@@ -46,7 +47,7 @@ public class NebulaGenerationTypesTest {
 		// GIVEN
 
 		// WHEN
-		StringTypeBuilder result = NebulaGenerationTypes.string();
+		StringTypeBuilder result = NebulaTypes.string();
 
 		// THEN
 		assertThat(result).isNotNull();
@@ -58,7 +59,7 @@ public class NebulaGenerationTypesTest {
 		// GIVEN
 
 		// WHEN
-		BooleanTypeBuilder result = NebulaGenerationTypes.bool();
+		BooleanTypeBuilder result = NebulaTypes.bool();
 
 		// THEN
 		assertThat(result).isNotNull();
@@ -70,7 +71,7 @@ public class NebulaGenerationTypesTest {
 		// GIVEN
 
 		// WHEN
-		ListTypeBuilder result = NebulaGenerationTypes.list();
+		ListTypeBuilder result = NebulaTypes.list();
 
 		// THEN
 		assertThat(result).isNotNull();
@@ -83,7 +84,7 @@ public class NebulaGenerationTypesTest {
 		String value = "test";
 
 		// WHEN
-		ConstantTypeBuilder result = NebulaGenerationTypes.constant(value);
+		ConstantTypeBuilder result = NebulaTypes.constant(value);
 
 		// THEN
 		assertThat(result).isNotNull().hasFieldOrPropertyWithValue("value", value);
@@ -96,7 +97,7 @@ public class NebulaGenerationTypesTest {
 		DateTime value = new DateTime(2017, 1, 1, 0, 0);
 
 		// WHEN
-		ConstantTypeBuilder result = NebulaGenerationTypes.constant(value);
+		ConstantTypeBuilder result = NebulaTypes.constant(value);
 
 		// THEN
 		assertThat(result).isNotNull().hasFieldOrPropertyWithValue("value", value);
@@ -109,7 +110,7 @@ public class NebulaGenerationTypesTest {
 		BigDecimal value = BigDecimal.ZERO;
 
 		// WHEN
-		ConstantTypeBuilder result = NebulaGenerationTypes.constant(value);
+		ConstantTypeBuilder result = NebulaTypes.constant(value);
 
 		// THEN
 		assertThat(result).isNotNull().hasFieldOrPropertyWithValue("value", value);
@@ -122,7 +123,7 @@ public class NebulaGenerationTypesTest {
 		Boolean value = Boolean.FALSE;
 
 		// WHEN
-		ConstantTypeBuilder result = NebulaGenerationTypes.constant(value);
+		ConstantTypeBuilder result = NebulaTypes.constant(value);
 
 		// THEN
 		assertThat(result).isNotNull().hasFieldOrPropertyWithValue("value", value);
@@ -135,7 +136,7 @@ public class NebulaGenerationTypesTest {
 		String entityName = "test";
 
 		// WHEN
-		EntityTypeBuilder result = NebulaGenerationTypes.entity(entityName);
+		EntityTypeBuilder result = NebulaTypes.entity(entityName);
 
 		// THEN
 		assertThat(result).isNotNull();

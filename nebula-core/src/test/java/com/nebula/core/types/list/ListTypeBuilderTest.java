@@ -1,7 +1,7 @@
 package com.nebula.core.types.list;
 
-import com.nebula.core.NebulaGenerationTypes;
-import com.nebula.core.NebulaGenerators;
+import com.nebula.core.types.NebulaTypes;
+import com.nebula.core.generators.NebulaGenerators;
 import com.nebula.core.generators.GeneratorBuilder;
 import com.nebula.core.types.TypeBuilder;
 import org.junit.Test;
@@ -15,7 +15,7 @@ public class ListTypeBuilderTest {
 
 		// GIVEN
 		ListTypeBuilder builder = new ListTypeBuilder();
-		TypeBuilder type = NebulaGenerationTypes.bool();
+		TypeBuilder type = NebulaTypes.bool();
 		GeneratorBuilder generator = NebulaGenerators.random();
 
 		// WHEN

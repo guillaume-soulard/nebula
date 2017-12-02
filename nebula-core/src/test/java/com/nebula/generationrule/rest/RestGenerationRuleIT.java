@@ -22,9 +22,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.nebula.core.NebulaGenerationTypes.dateTime;
-import static com.nebula.core.NebulaGenerationTypes.string;
-import static com.nebula.core.NebulaGenerators.random;
+import static com.nebula.core.types.NebulaTypes.dateTime;
+import static com.nebula.core.types.NebulaTypes.string;
+import static com.nebula.core.generators.NebulaGenerators.random;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class RestGenerationRuleIT {

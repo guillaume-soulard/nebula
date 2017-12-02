@@ -12,9 +12,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
 
-import static com.nebula.core.NebulaGenerationTypes.*;
-import static com.nebula.core.NebulaGenerators.random;
-import static com.nebula.core.NebulaGenerators.sequence;
+import static com.nebula.core.types.NebulaTypes.*;
+import static com.nebula.core.generators.NebulaGenerators.random;
+import static com.nebula.core.generators.NebulaGenerators.sequence;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ModelGenerationIT {

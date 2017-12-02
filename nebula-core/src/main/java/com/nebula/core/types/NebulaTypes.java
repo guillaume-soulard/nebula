@@ -1,7 +1,8 @@
-package com.nebula.core;
+package com.nebula.core.types;
 
 import com.nebula.core.types.bool.BooleanTypeBuilder;
 import com.nebula.core.types.constant.ConstantTypeBuilder;
+import com.nebula.core.types.custom.CustomTypeBuilder;
 import com.nebula.core.types.date.DateTimeTypeBuilderChooser;
 import com.nebula.core.types.entity.EntityTypeBuilder;
 import com.nebula.core.types.list.ListTypeBuilder;
@@ -12,7 +13,7 @@ import org.joda.time.DateTime;
 
 import java.math.BigDecimal;
 
-public final class NebulaGenerationTypes {
+public final class NebulaTypes {
 
 	public static NumberTypeBuilderChooser number() {
 		return new NumberTypeBuilderChooser();
@@ -61,4 +62,6 @@ public final class NebulaGenerationTypes {
 	public static PickerTypeBuilder picker(BigDecimal item) { return new PickerTypeBuilder().addItem(item); }
 
 	public static PickerTypeBuilder picker(Boolean item) { return new PickerTypeBuilder().addItem(item); }
+
+	public static CustomTypeBuilder custom(Type type) { return new CustomTypeBuilder(type); }
 }

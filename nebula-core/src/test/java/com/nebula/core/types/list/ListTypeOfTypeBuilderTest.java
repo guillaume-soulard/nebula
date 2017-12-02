@@ -2,8 +2,8 @@ package com.nebula.core.types.list;
 
 import com.nebula.ModelBuilder;
 import com.nebula.core.NebulaException;
-import com.nebula.core.NebulaGenerationTypes;
-import com.nebula.core.NebulaGenerators;
+import com.nebula.core.types.NebulaTypes;
+import com.nebula.core.generators.NebulaGenerators;
 import com.nebula.core.generators.GeneratorBuilder;
 import com.nebula.core.types.Type;
 import com.nebula.core.types.TypeBuilder;
@@ -20,7 +20,7 @@ public class ListTypeOfTypeBuilderTest {
 
 		// GIVEN
 		GeneratorBuilder generator = NebulaGenerators.random();
-		TypeBuilder type = NebulaGenerationTypes.bool();
+		TypeBuilder type = NebulaTypes.bool();
 		ListTypeOfTypeBuilder builder = null;
 
 		// WHEN
@@ -36,7 +36,7 @@ public class ListTypeOfTypeBuilderTest {
 
 		// GIVEN
 		GeneratorBuilder generator = null;
-		TypeBuilder type = NebulaGenerationTypes.bool();
+		TypeBuilder type = NebulaTypes.bool();
 		Exception exception = null;
 
 		// WHEN
@@ -74,7 +74,7 @@ public class ListTypeOfTypeBuilderTest {
 
 		// GIVEN
 		GeneratorBuilder generator = NebulaGenerators.random();
-		TypeBuilder type = NebulaGenerationTypes.bool();
+		TypeBuilder type = NebulaTypes.bool();
 		ListTypeOfTypeBuilder builder = new ListTypeOfTypeBuilder(generator, type);
 
 		// WHEN
@@ -89,7 +89,7 @@ public class ListTypeOfTypeBuilderTest {
 
 		// GIVEN
 		GeneratorBuilder generator = NebulaGenerators.random();
-		TypeBuilder type = NebulaGenerationTypes.bool();
+		TypeBuilder type = NebulaTypes.bool();
 		ListTypeOfTypeBuilder builder = new ListTypeOfTypeBuilder(generator, type);
 
 		// WHEN
@@ -104,7 +104,7 @@ public class ListTypeOfTypeBuilderTest {
 
 		// GIVEN
 		GeneratorBuilder generator = NebulaGenerators.random();
-		TypeBuilder type = NebulaGenerationTypes.bool();
+		TypeBuilder type = NebulaTypes.bool();
 		ListTypeOfTypeBuilder builder = new ListTypeOfTypeBuilder(generator, type);
 
 		// WHEN
@@ -119,7 +119,7 @@ public class ListTypeOfTypeBuilderTest {
 
 		// GIVEN
 		GeneratorBuilder generator = NebulaGenerators.random();
-		TypeBuilder type = NebulaGenerationTypes.bool();
+		TypeBuilder type = NebulaTypes.bool();
 		ListTypeOfTypeBuilder builder = new ListTypeOfTypeBuilder(generator, type);
 
 		// WHEN
@@ -134,7 +134,7 @@ public class ListTypeOfTypeBuilderTest {
 
 		// GIVEN
 		GeneratorBuilder generator = NebulaGenerators.random();
-		TypeBuilder type = NebulaGenerationTypes.bool();
+		TypeBuilder type = NebulaTypes.bool();
 		ListTypeOfTypeBuilder builder = new ListTypeOfTypeBuilder(generator, type);
 
 		// WHEN
@@ -149,7 +149,7 @@ public class ListTypeOfTypeBuilderTest {
 
 		// GIVEN
 		GeneratorBuilder generator = NebulaGenerators.random();
-		TypeBuilder type = NebulaGenerationTypes.bool();
+		TypeBuilder type = NebulaTypes.bool();
 		ListTypeOfTypeBuilder builder = new ListTypeOfTypeBuilder(generator, type);
 		builder.withMinSize(10).withMaxSize(0);
 

@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import static com.nebula.core.NebulaGenerationTypes.string;
+import static com.nebula.core.types.NebulaTypes.string;
 
 class RequestHandler implements HttpRequestHandler {
 

@@ -13,9 +13,9 @@ import org.junit.rules.TemporaryFolder;
 
 import java.io.File;
 
-import static com.nebula.core.NebulaGenerationTypes.dateTime;
-import static com.nebula.core.NebulaGenerationTypes.string;
-import static com.nebula.core.NebulaGenerators.random;
+import static com.nebula.core.types.NebulaTypes.dateTime;
+import static com.nebula.core.types.NebulaTypes.string;
+import static com.nebula.core.generators.NebulaGenerators.random;
 import static com.nebula.formatter.NebulaFormatters.csv;
 import static com.nebula.output.NebulaOutputs.file;
 import static org.assertj.core.api.Assertions.assertThat;

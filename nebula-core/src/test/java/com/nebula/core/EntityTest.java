@@ -4,8 +4,10 @@ import com.nebula.Model;
 import com.nebula.ModelBuilder;
 import com.nebula.core.generators.Generator;
 import com.nebula.core.generators.GeneratorBuilder;
+import com.nebula.core.generators.NebulaGenerators;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
+import com.nebula.core.types.NebulaTypes;
 import com.nebula.core.types.Type;
 import com.nebula.core.types.TypeBuilder;
 import org.junit.Test;
@@ -24,7 +26,7 @@ public class EntityTest {
 		// GIVEN
 		Entity entity = new ModelBuilder().build().newEntity("test", 1);
 		String propertyName = "name";
-		TypeBuilder propertyType = NebulaGenerationTypes.number().range();
+		TypeBuilder propertyType = NebulaTypes.number().range();
 		GeneratorBuilder propertyGenerator = NebulaGenerators.random();
 
 		// WHEN
@@ -43,7 +45,7 @@ public class EntityTest {
 		// GIVEN
 		Entity entity = new ModelBuilder().build().newEntity("test", 1);
 		GeneratorBuilder propertyGenerator = NebulaGenerators.random();
-		TypeBuilder propertyType = NebulaGenerationTypes.number().range();
+		TypeBuilder propertyType = NebulaTypes.number().range();
 		String propertyName = "property name test";
 		entity.addProperty(propertyName, propertyGenerator, propertyType);
 
@@ -73,7 +75,7 @@ public class EntityTest {
 
 		Entity entity = new ModelBuilder().build().newEntity("test", 1);
 		String propertyName = "property";
-		entity.addProperty(propertyName, NebulaGenerators.random(), NebulaGenerationTypes.number().range());
+		entity.addProperty(propertyName, NebulaGenerators.random(), NebulaTypes.number().range());
 		long entityIndex = 0L;
 		entity.init(new GenerationContext(new NebulaRandom(1l), null, entityIndex));
 
@@ -91,7 +93,7 @@ public class EntityTest {
 		Entity entity = new ModelBuilder().build().newEntity("test", 1);
 		String propertyName = "property";
 		entity.addProperty(propertyName, NebulaGenerators.random(),
-				NebulaGenerationTypes.number().range().withMin(BigDecimal.ONE).withMax(BigDecimal.ONE));
+				NebulaTypes.number().range().withMin(BigDecimal.ONE).withMax(BigDecimal.ONE));
 		long entityIndex = 0L;
 		entity.init(new GenerationContext(new NebulaRandom(1l), null, entityIndex));
 
@@ -112,9 +114,9 @@ public class EntityTest {
 		String property1Name = "property1";
 		String property2Name = "property2";
 		entity.addProperty(property1Name, NebulaGenerators.random(),
-				NebulaGenerationTypes.number().range().withMin(BigDecimal.ONE).withMax(BigDecimal.ONE));
+				NebulaTypes.number().range().withMin(BigDecimal.ONE).withMax(BigDecimal.ONE));
 		entity.addProperty(property2Name, NebulaGenerators.random(),
-				NebulaGenerationTypes.number().range().withMin(BigDecimal.valueOf(5)).withMax(BigDecimal.valueOf(5)));
+				NebulaTypes.number().range().withMin(BigDecimal.valueOf(5)).withMax(BigDecimal.valueOf(5)));
 		long entityIndex = 0L;
 		entity.init(new GenerationContext(new NebulaRandom(1l), null, entityIndex));
 

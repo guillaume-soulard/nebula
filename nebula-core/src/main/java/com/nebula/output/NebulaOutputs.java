@@ -1,5 +1,6 @@
 package com.nebula.output;
 
+import com.nebula.output.custom.CustomOutputBuilder;
 import com.nebula.output.file.FileOutputBuilder;
 import com.nebula.output.http.HttpOutputBuilder;
 import com.nebula.output.jdbc.JdbcOutputBuilder;
@@ -21,4 +22,6 @@ public final class NebulaOutputs {
     public static JdbcOutputBuilder jdbc() { return new JdbcOutputBuilder(); }
 
     public static SocketOutputBuilder socket() { return new SocketOutputBuilder(); }
+
+    public static CustomOutputBuilder custom(Output output) { return new CustomOutputBuilder(output); }
 }

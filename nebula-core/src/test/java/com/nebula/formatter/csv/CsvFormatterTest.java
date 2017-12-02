@@ -13,8 +13,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.nebula.core.NebulaGenerationTypes.string;
-import static com.nebula.core.NebulaGenerators.random;
+import static com.nebula.core.types.NebulaTypes.string;
+import static com.nebula.core.generators.NebulaGenerators.random;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CsvFormatterTest {

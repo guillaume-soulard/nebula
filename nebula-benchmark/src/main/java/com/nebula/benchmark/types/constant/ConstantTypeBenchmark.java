@@ -9,8 +9,8 @@ import org.openjdk.jmh.infra.Blackhole;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
-import static com.nebula.core.NebulaGenerationTypes.constant;
-import static com.nebula.core.NebulaGenerators.random;
+import static com.nebula.core.types.NebulaTypes.constant;
+import static com.nebula.core.generators.NebulaGenerators.random;
 
 @State(Scope.Benchmark)
 @BenchmarkMode(Mode.Throughput)

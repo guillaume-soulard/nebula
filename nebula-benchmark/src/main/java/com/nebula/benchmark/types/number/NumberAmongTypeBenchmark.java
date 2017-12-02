@@ -10,8 +10,8 @@ import java.math.BigDecimal;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
-import static com.nebula.core.NebulaGenerationTypes.number;
-import static com.nebula.core.NebulaGenerators.random;
+import static com.nebula.core.types.NebulaTypes.number;
+import static com.nebula.core.generators.NebulaGenerators.random;
 
 @State(Scope.Benchmark)
 @BenchmarkMode(Mode.Throughput)

@@ -1,5 +1,6 @@
-package com.nebula.core;
+package com.nebula.core.generators;
 
+import com.nebula.core.generators.custom.CustomGeneratorBuilder;
 import com.nebula.core.generators.random.RandomGeneratorBuilder;
 import com.nebula.core.generators.sequance.SequenceGeneratorBuilder;
 
@@ -12,4 +13,6 @@ public class NebulaGenerators {
 	public static SequenceGeneratorBuilder sequence() {
 		return new SequenceGeneratorBuilder();
 	}
+
+	public static CustomGeneratorBuilder custom(Generator generator) { return new CustomGeneratorBuilder(generator);  }
 }

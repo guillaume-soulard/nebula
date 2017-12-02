@@ -16,8 +16,8 @@ public final class NebulaFormatters {
         return new JsonFormatterBuilder();
     }
 
-    public static CustomFormatterBuilder custom() {
-        return new CustomFormatterBuilder();
+    public static CustomFormatterBuilder custom(Formatter formatter) {
+        return new CustomFormatterBuilder(formatter);
     }
 
     public static SqlFormatterBuilder sql() { return new SqlFormatterBuilder(); }

@@ -1,5 +1,6 @@
 package com.nebula.core;
 
+import com.nebula.core.generators.NebulaGenerators;
 import com.nebula.core.generators.random.RandomGeneratorBuilder;
 import com.nebula.core.generators.sequance.SequenceGeneratorBuilder;
 import org.junit.Test;

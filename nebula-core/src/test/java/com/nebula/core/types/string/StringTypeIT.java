@@ -3,8 +3,8 @@ package com.nebula.core.types.string;
 import com.nebula.Model;
 import com.nebula.ModelBuilder;
 import com.nebula.core.Entity;
-import com.nebula.core.NebulaGenerationTypes;
-import com.nebula.core.NebulaGenerators;
+import com.nebula.core.types.NebulaTypes;
+import com.nebula.core.generators.NebulaGenerators;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
 import org.joda.time.DateTime;
@@ -55,7 +55,7 @@ public class StringTypeIT {
 	private Entity createEntityInModel(Model model) {
 		Entity entity = new ModelBuilder().build().newEntity("entity", 1);
 		entity.addProperty("property", NebulaGenerators.random(),
-				NebulaGenerationTypes.string().withPattern("[A-Z]{1}[a-z]{10,25}"));
+				NebulaTypes.string().withPattern("[A-Z]{1}[a-z]{10,25}"));
 		model.addEntity(entity);
 		return entity;
 	}

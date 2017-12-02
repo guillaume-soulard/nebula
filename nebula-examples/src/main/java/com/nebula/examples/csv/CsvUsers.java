@@ -3,8 +3,8 @@ package com.nebula.examples.csv;
 import com.nebula.Model;
 import com.nebula.ModelBuilder;
 import com.nebula.core.Entity;
-import com.nebula.core.NebulaGenerationTypes;
-import com.nebula.core.NebulaGenerators;
+import com.nebula.core.types.NebulaTypes;
+import com.nebula.core.generators.NebulaGenerators;
 import com.nebula.formatter.NebulaFormatters;
 import com.nebula.generationconstraint.NebulaConstraints;
 import com.nebula.generationrule.GenerationRules;
@@ -22,9 +22,9 @@ public class CsvUsers {
                 .build();
 
         Entity users = model.newEntity("users", Long.MAX_VALUE);
-        users.addProperty("firstName", NebulaGenerators.random(), NebulaGenerationTypes.string().withPattern("[A-Z]{1}[a-z]{3,25}"));
-        users.addProperty("lastName", NebulaGenerators.random(), NebulaGenerationTypes.string().withPattern("[A-Z]{1}[a-z]{3,25}"));
-        users.addProperty("dayOfBirth", NebulaGenerators.random(), NebulaGenerationTypes.dateTime().range().withMin("01/01/1950").withMax("01/01/2000"));
+        users.addProperty("firstName", NebulaGenerators.random(), NebulaTypes.string().withPattern("[A-Z]{1}[a-z]{3,25}"));
+        users.addProperty("lastName", NebulaGenerators.random(), NebulaTypes.string().withPattern("[A-Z]{1}[a-z]{3,25}"));
+        users.addProperty("dayOfBirth", NebulaGenerators.random(), NebulaTypes.dateTime().range().withMin("01/01/1950").withMax("01/01/2000"));
         model.addEntity(users);
 
         model.addGenerationRule(GenerationRules.newOneShootGenerationRule()

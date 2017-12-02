@@ -3,8 +3,8 @@ package com.nebula.core.types.list;
 import com.nebula.Model;
 import com.nebula.ModelBuilder;
 import com.nebula.core.GeneratedObject;
-import com.nebula.core.NebulaGenerationTypes;
-import com.nebula.core.NebulaGenerators;
+import com.nebula.core.types.NebulaTypes;
+import com.nebula.core.generators.NebulaGenerators;
 import com.nebula.core.generators.Generator;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
@@ -346,6 +346,6 @@ public class ListTypeAmongItemsTest {
 	}
 
 	private ConstantTypeBuilder newConstant() {
-		return NebulaGenerationTypes.constant("test");
+		return NebulaTypes.constant("test");
 	}
 }

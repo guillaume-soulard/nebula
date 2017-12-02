@@ -14,10 +14,10 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
-import static com.nebula.core.NebulaGenerationTypes.number;
-import static com.nebula.core.NebulaGenerationTypes.string;
-import static com.nebula.core.NebulaGenerators.random;
-import static com.nebula.core.NebulaGenerators.sequence;
+import static com.nebula.core.types.NebulaTypes.number;
+import static com.nebula.core.types.NebulaTypes.string;
+import static com.nebula.core.generators.NebulaGenerators.random;
+import static com.nebula.core.generators.NebulaGenerators.sequence;
 import static com.nebula.formatter.NebulaFormatters.sql;
 import static com.nebula.generationrule.GenerationRules.newOneShootGenerationRule;
 import static com.nebula.output.NebulaOutputs.jdbc;
