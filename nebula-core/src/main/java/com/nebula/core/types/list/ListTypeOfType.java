@@ -3,6 +3,8 @@ package com.nebula.core.types.list;
 import com.nebula.core.generators.Generator;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
+import com.nebula.core.types.JavaType;
+import com.nebula.core.types.JavaTypeName;
 import com.nebula.core.types.Type;
 
 import java.util.ArrayList;
@@ -42,5 +44,10 @@ class ListTypeOfType extends AbstractListType {
 	@Override
 	public Long getMaxRange() {
 		return (long) (maxSize - minSize);
+	}
+
+	@Override
+	public JavaType getJavaType() {
+		return new JavaType(JavaTypeName.ARRAY, type.getJavaType());
 	}
 }

@@ -3,7 +3,11 @@ package com.nebula.core.types.bool;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaException;
 import com.nebula.core.types.GenerationContext;
+import com.nebula.core.types.JavaType;
 import com.nebula.core.types.Type;
+
+import java.util.Collections;
+import java.util.List;
 
 class BooleanType implements Type {
 
@@ -35,5 +39,10 @@ class BooleanType implements Type {
 	@Override
 	public Long getMaxRange() {
 		return 1l;
+	}
+
+	@Override
+	public JavaType getJavaType() {
+		return JavaType.BOOLEAN;
 	}
 }

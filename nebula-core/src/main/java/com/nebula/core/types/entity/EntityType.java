@@ -5,6 +5,10 @@ import com.nebula.core.EntityGenerator;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaException;
 import com.nebula.core.types.AbstractTypeWithIndexCheck;
+import com.nebula.core.types.JavaType;
+
+import java.util.Collections;
+import java.util.List;
 
 class EntityType extends AbstractTypeWithIndexCheck {
 
@@ -28,6 +32,11 @@ class EntityType extends AbstractTypeWithIndexCheck {
 	public Long getMaxRange() {
 		getEntityFromModelIfNeededElseThrowException();
 		return entity.getAmount() - 1;
+	}
+
+	@Override
+	public JavaType getJavaType() {
+		return new JavaType(entityName);
 	}
 
 	private void getEntityFromModelIfNeededElseThrowException() {

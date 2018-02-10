@@ -11,4 +11,6 @@ public interface Type {
 	Long getMinRange();
 
 	Long getMaxRange();
+
+	JavaType getJavaType();
 }

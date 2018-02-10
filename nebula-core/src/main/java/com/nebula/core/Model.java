@@ -1,6 +1,5 @@
 package com.nebula.core;
 
-import com.nebula.core.*;
 import com.nebula.core.generationrule.GenerationRule;
 import com.nebula.core.generationrule.GenerationRuleBuilder;
 

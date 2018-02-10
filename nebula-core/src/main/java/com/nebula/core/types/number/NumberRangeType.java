@@ -2,9 +2,12 @@ package com.nebula.core.types.number;
 
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.types.AbstractTypeWithIndexCheck;
+import com.nebula.core.types.JavaType;
 import com.nebula.core.types.Range;
 
 import java.math.BigDecimal;
+import java.util.Collections;
+import java.util.List;
 
 class NumberRangeType extends AbstractTypeWithIndexCheck {
 
@@ -24,6 +27,11 @@ class NumberRangeType extends AbstractTypeWithIndexCheck {
 
 	public Long getMaxRange() {
 		return BigDecimal.TEN.pow(precision).multiply(range.getMax().subtract(range.getMin())).longValue();
+	}
+
+	@Override
+	public JavaType getJavaType() {
+		return JavaType.NUMBER;
 	}
 
 	@Override

@@ -2,12 +2,15 @@ package com.nebula.core.types.date;
 
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.types.AbstractTypeWithIndexCheck;
+import com.nebula.core.types.JavaType;
 import com.nebula.core.types.Range;
 import com.nebula.core.types.date.strategy.*;
 import org.joda.time.DateTime;
 import org.joda.time.ReadableInstant;
 
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 class DateTimeRangeType extends AbstractTypeWithIndexCheck {
@@ -44,6 +47,11 @@ class DateTimeRangeType extends AbstractTypeWithIndexCheck {
 		DateTime max = (DateTime) range.getMax();
 
 		return dateTimeStrategy.get(interval).getMaxIndex(min, max);
+	}
+
+	@Override
+	public JavaType getJavaType() {
+		return JavaType.DATE;
 	}
 
 	public Map<DateTimeTypeIntervals, DateTimeStrategy> getDateTimeAdders() {

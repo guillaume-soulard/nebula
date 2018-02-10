@@ -3,10 +3,12 @@ package com.nebula.core;
 import com.nebula.core.generators.GeneratorBuilder;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
+import com.nebula.core.types.JavaType;
 import com.nebula.core.types.Type;
 import com.nebula.core.types.TypeBuilder;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -73,6 +75,11 @@ public class Entity implements Type {
 
 	public Long getMaxRange() {
 		return amount;
+	}
+
+	@Override
+	public JavaType getJavaType() {
+		return new JavaType(name);
 	}
 
 	public Long getMinRange() {

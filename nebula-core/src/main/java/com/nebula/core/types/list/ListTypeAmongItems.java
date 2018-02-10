@@ -2,15 +2,20 @@ package com.nebula.core.types.list;
 
 import com.nebula.core.Model;
 import com.nebula.core.GeneratedObject;
+import com.nebula.core.types.JavaType;
+import com.nebula.core.types.JavaTypeName;
 import com.nebula.core.types.NebulaTypes;
 import com.nebula.core.generators.Generator;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.Type;
 import com.nebula.core.types.constant.ConstantTypeBuilder;
+import org.joda.time.DateTime;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ListTypeAmongItems extends AbstractListType {
 
@@ -65,5 +70,35 @@ public class ListTypeAmongItems extends AbstractListType {
 	@Override
 	public Long getMaxRange() {
 		return (long) items.length - 1;
+	}
+
+	@Override
+	public JavaType getJavaType() {
+		Set<JavaType> javaTypes = new HashSet<>();
+
+		for (GeneratedObject item : items) {
+
+			if (item.getObject() instanceof Boolean) {
+				javaTypes.add(JavaType.BOOLEAN);
+			}
+
+			if (item.getObject() instanceof String) {
+				javaTypes.add(JavaType.STRING);
+			}
+
+			if (item.getObject() instanceof BigDecimal) {
+				javaTypes.add(JavaType.NUMBER);
+			}
+
+			if (item.getObject() instanceof DateTime) {
+				javaTypes.add(JavaType.DATE);
+			}
+		}
+
+		if (javaTypes.size() == 1) {
+			return new JavaType(JavaTypeName.ARRAY, javaTypes.iterator().next());
+		} else {
+			return new JavaType(JavaTypeName.ARRAY, new JavaType(JavaTypeName.OBJECT));
+		}
 	}
 }
