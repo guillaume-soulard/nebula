@@ -136,8 +136,8 @@ class RequestHandler implements HttpRequestHandler {
                 generatedObjects.addAll(request.getLongsParameter("indices").stream().map(index -> model.generateEntityObject(request.getResource(), index)).collect(Collectors.toList()));
 
             } else {
-                long startIndex = request.getLongParameter("skip");
-                long endIndex = startIndex + request.getLongParameter("count") - 1;
+                long startIndex = request.getLongParameter("index");
+                long endIndex = startIndex + request.getLongParameter("offset") - 1;
                 for (long i = startIndex; i <= endIndex; i++) {
                     generatedObjects.add(model.generateEntityObject(request.getResource(), i));
                 }

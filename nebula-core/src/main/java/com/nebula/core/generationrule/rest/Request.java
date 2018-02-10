@@ -38,8 +38,8 @@ public class Request {
                 throw new NebulaException("Bad request");
             }
         }
-        parameters.put("skip", Arrays.asList("0"));
-        parameters.put("count", Arrays.asList("10"));
+        parameters.put("index", Arrays.asList("0"));
+        parameters.put("offset", Arrays.asList("10"));
         if (uri.getQuery() != null && !uri.getQuery().isEmpty()) {
             Map<String, List<String>> queryParameters = splitQuery(uri.getQuery());
             hasParameters = !queryParameters.isEmpty();

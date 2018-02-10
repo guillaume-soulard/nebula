@@ -45,5 +45,13 @@ public class Rest {
                 .withPort(3000));
 
         model.generate();
+
+
+        // Run urls like :
+
+        // http://localhost:3000/users
+        // http://localhost:3000/users/0
+        // http://localhost:3000/users?indices=0,1,2,3
+        // http://localhost:3000/users?index=5&offset=5
     }
 }
