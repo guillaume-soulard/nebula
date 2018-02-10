@@ -41,12 +41,13 @@ public class GraphQl {
 
         model.addGenerationRule(GenerationRules.newGraphQlGenerationRule()
                 .withHost("localhost")
+                .handleRequestsOn("/graphQl")
                 .withPort(3000));
 
         model.generate();
 
 
-//        Run Queries on http://localhost:3000/ with POST method :
+//        Run Queries on http://localhost:3000/graphQl with POST method :
 //
 //        To get only one user :
 //

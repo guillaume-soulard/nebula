@@ -22,12 +22,14 @@ public class GraphQlGenerationRule implements GenerationRule {
     private Model model;
     private String host;
     private int port;
+    private String handleRequestsPattern;
     private HttpServer server;
 
-    GraphQlGenerationRule(Model model, String host, int port) {
+    GraphQlGenerationRule(Model model, String host, int port, String handleRequestsPattern) {
         this.model = model;
         this.host = host;
         this.port = port;
+        this.handleRequestsPattern = handleRequestsPattern;
     }
 
     @Override
@@ -55,7 +57,7 @@ public class GraphQlGenerationRule implements GenerationRule {
                     .setLocalAddress(InetAddress.getByName(host))
                     .setHttpProcessor(httpProcessor)
                     .setSocketConfig(socketConfig)
-                    .registerHandler("*", requestHandler)
+                    .registerHandler(handleRequestsPattern, requestHandler)
                     .create();
 
             server.start();
