@@ -1,6 +1,5 @@
 package com.nebula.core.generators.sequance;
 
-import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaException;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.Type;
@@ -25,7 +24,7 @@ public class SequenceGeneratorTest {
         when(context.getEntityIndex()).thenReturn(index);
 
         // WHEN
-        GeneratedObject result = generator.generate(type);
+        generator.generate(type);
 
         // THEN
         verify(type).generateObject(index);
@@ -110,5 +109,4 @@ public class SequenceGeneratorTest {
         // THEN
         assertThat((Exception) caughtException()).isNull();
     }
-
 }

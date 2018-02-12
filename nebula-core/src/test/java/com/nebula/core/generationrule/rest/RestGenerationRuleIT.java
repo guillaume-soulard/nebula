@@ -104,7 +104,7 @@ public class RestGenerationRuleIT {
         HttpClient client = HttpClientBuilder.create().build();
 
         // WHEN
-        HttpResponse response = client.execute(new HttpHost("localhost", 8080), new HttpGet("/user?count=2"));
+        HttpResponse response = client.execute(new HttpHost("localhost", 8080), new HttpGet("/user?offset=2"));
 
         // THEN
         assertThat(response.getStatusLine().getStatusCode()).isEqualTo(200);
@@ -118,7 +118,7 @@ public class RestGenerationRuleIT {
         HttpClient client = HttpClientBuilder.create().build();
 
         // WHEN
-        HttpResponse response = client.execute(new HttpHost("localhost", 8080), new HttpGet("/user?skip=2"));
+        HttpResponse response = client.execute(new HttpHost("localhost", 8080), new HttpGet("/user?index=2"));
 
         // THEN
         assertThat(response.getStatusLine().getStatusCode()).isEqualTo(200);

@@ -34,7 +34,7 @@ public class PickerTypeTest {
         GeneratedObject result = picker.generateObject(0L);
 
         // THEN
-        assertThat(result).isEqualTo(item3);
+        assertThat(result).isEqualTo(item1);
     }
 
     @Test

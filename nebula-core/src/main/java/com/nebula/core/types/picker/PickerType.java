@@ -31,8 +31,7 @@ class PickerType implements Type {
 
     @Override
     public GeneratedObject generateObject(Long objectIndex) {
-        NebulaRandom localNebulaRandom = new NebulaRandom(context.getNebulaRandom().getSeed() + objectIndex);
-        return generatedObjects.get(Math.toIntExact(localNebulaRandom.randomBetween(getMinRange(), getMaxRange())));
+        return generatedObjects.get(Math.toIntExact(objectIndex));
     }
 
     @Override
