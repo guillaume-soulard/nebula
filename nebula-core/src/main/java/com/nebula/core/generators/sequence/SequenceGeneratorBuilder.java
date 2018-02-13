@@ -1,19 +1,19 @@
-package com.nebula.core.generators.sequance;
+package com.nebula.core.generators.sequence;
 
 import com.nebula.core.generators.Generator;
 import com.nebula.core.generators.GeneratorBuilder;
 
 public class SequenceGeneratorBuilder implements GeneratorBuilder {
 
-	private boolean allowCycle = false;
+	private boolean allowCycle = true;
 
 	@Override
 	public Generator build() {
 		return new SequenceGenerator(allowCycle);
 	}
 
-	public SequenceGeneratorBuilder cycle() {
-		this.allowCycle = true;
+	public SequenceGeneratorBuilder noCycle() {
+		this.allowCycle = false;
 		return this;
 	}
 }

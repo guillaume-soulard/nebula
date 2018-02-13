@@ -1,4 +1,4 @@
-package com.nebula.core.generators.sequance;
+package com.nebula.core.generators.sequence;
 
 import com.nebula.core.NebulaException;
 import com.nebula.core.types.GenerationContext;

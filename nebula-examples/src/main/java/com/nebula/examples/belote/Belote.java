@@ -24,14 +24,14 @@ public class Belote {
                 .build();
 
         Entity belote = model.newEntity("belote", Long.MAX_VALUE);
-        belote.addProperty("player", sequence().cycle(), amongItems("North", "South", "East", "West"));
+        belote.addProperty("player", sequence(), amongItems("North", "South", "East", "West"));
 
         belote.addProperty("hand", random(), list().of(randomUnique(), entity("card")).withMinSize(8).withMaxSize(8));
         model.addEntity(belote);
 
         Entity card = model.newEntity("card", 32L);
 
-        card.addProperty("color", sequence().cycle(), amongItems("Spade", "Heart", "Diamond", "Club"));
+        card.addProperty("color", sequence(), amongItems("Spade", "Heart", "Diamond", "Club"));
         card.addProperty("height", randomUnique(), amongItems("Ace", "10", "King", "Queen", "Jack", "9", "8", "7"));
         model.addEntity(card);
 

@@ -130,12 +130,12 @@ public class ModelGenerationIT {
 				number().range().withMin(BigDecimal.ZERO).withMax(BigDecimal.valueOf(100)));
 		entity.addProperty(DATE_TIME_PROPERTY_NAME, random(),
 				dateTime().range().withInterval(DateTimeTypeIntervals.DAY).withMin(MIN_DATE).withMax(MAX_DATE));
-		entity.addProperty(BOOLEAN_PROPERTY_NAME, sequence().cycle(), bool());
+		entity.addProperty(BOOLEAN_PROPERTY_NAME, sequence(), bool());
 		entity.addProperty(CONSTANT_PROPERTY_NAME, constant(ENTITY_TEST_NAME));
-		entity.addProperty(LIST_PROPERTY_NAME, sequence().cycle(),
+		entity.addProperty(LIST_PROPERTY_NAME, sequence(),
 				list().of(random(), bool()).withMinSize(100).withMaxSize(200));
-		entity.addProperty(STRING_PROPERTY_NAME, sequence().cycle(), string().withPattern(STRING_PATTERN));
-		entity.addProperty(ENTITY_PROPERTY_NAME, sequence().cycle(), entity(ANOTHER_ENTITY_NAME));
+		entity.addProperty(STRING_PROPERTY_NAME, sequence(), string().withPattern(STRING_PATTERN));
+		entity.addProperty(ENTITY_PROPERTY_NAME, sequence(), entity(ANOTHER_ENTITY_NAME));
 		return entity;
 	}
 

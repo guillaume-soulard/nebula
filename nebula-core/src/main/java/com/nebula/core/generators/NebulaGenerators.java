@@ -3,7 +3,7 @@ package com.nebula.core.generators;
 import com.nebula.core.generators.custom.CustomGeneratorBuilder;
 import com.nebula.core.generators.random.RandomGeneratorBuilder;
 import com.nebula.core.generators.randomunique.RandomUniqueGeneratorBuilder;
-import com.nebula.core.generators.sequance.SequenceGeneratorBuilder;
+import com.nebula.core.generators.sequence.SequenceGeneratorBuilder;
 
 public class NebulaGenerators {
 

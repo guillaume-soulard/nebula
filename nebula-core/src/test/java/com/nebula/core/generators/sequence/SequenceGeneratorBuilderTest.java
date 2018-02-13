@@ -1,23 +1,23 @@
-package com.nebula.core.generators.sequance;
+package com.nebula.core.generators.sequence;
 
 import com.nebula.core.generators.Generator;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class SequanceGeneratorBuilderTest {
+public class SequenceGeneratorBuilderTest {
 
 	@Test
-	public void new_SequanceGeneratorBuilder_should_set_allowCycle_to_false_by_default() {
+	public void new_SequenceGeneratorBuilder_should_set_allowCycle_to_true_by_default() {
 
 		// GIVEN
-		SequenceGeneratorBuilder builder = null;
+		SequenceGeneratorBuilder builder;
 
 		// WHEN
 		builder = new SequenceGeneratorBuilder();
 
 		// THEN
-		assertThat(builder).hasFieldOrPropertyWithValue("allowCycle", false);
+		assertThat(builder).hasFieldOrPropertyWithValue("allowCycle", true);
 	}
 
 	@Test
@@ -34,15 +34,15 @@ public class SequanceGeneratorBuilderTest {
 	}
 
 	@Test
-	public void cycle_should_set_allowCycle_to_true() {
+	public void noCycle_should_set_allowCycle_to_false() {
 
 		// GIVEN
 		SequenceGeneratorBuilder builder = new SequenceGeneratorBuilder();
 
 		// WHEN
-		SequenceGeneratorBuilder result = builder.cycle();
+		SequenceGeneratorBuilder result = builder.noCycle();
 
 		// THEN
-		assertThat(result).hasFieldOrPropertyWithValue("allowCycle", true);
+		assertThat(result).hasFieldOrPropertyWithValue("allowCycle", false);
 	}
 }
