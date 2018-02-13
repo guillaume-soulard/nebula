@@ -32,7 +32,7 @@ public class GraphQlSchemaBuilderTest {
         entity.addProperty("date", random(), dateTime().range());
         entity.addProperty("number", random(), number().range());
         entity.addProperty("bool", random(), bool());
-        entity.addProperty("constant", random(), constant("constant"));
+        entity.addProperty("constant", constant("constant"));
         entity.addProperty("entityList", random(), list().of(random(), entity("subEntity")));
         entity.addProperty("stringList", random(), list().of(random(), string()));
         entity.addProperty("amongItems", random(), amongItems("1", "2", "3"));
@@ -43,7 +43,7 @@ public class GraphQlSchemaBuilderTest {
         subEntity.addProperty("date", random(), dateTime().range());
         subEntity.addProperty("number", random(), number().range());
         subEntity.addProperty("bool", random(), bool());
-        subEntity.addProperty("constant", random(), constant("constant"));
+        subEntity.addProperty("constant", constant("constant"));
         subEntity.addProperty("stringList", random(), list().of(random(), string()));
         subEntity.addProperty("amongItems", random(), amongItems("1", "2", "3"));
         model.addEntity(subEntity);

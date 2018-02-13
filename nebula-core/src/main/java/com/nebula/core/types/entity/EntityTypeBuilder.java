@@ -2,10 +2,11 @@ package com.nebula.core.types.entity;
 
 import com.nebula.core.Model;
 import com.nebula.core.NebulaException;
+import com.nebula.core.types.RandomTypeBuilder;
 import com.nebula.core.types.Type;
 import com.nebula.core.types.TypeBuilder;
 
-public class EntityTypeBuilder implements TypeBuilder {
+public class EntityTypeBuilder implements RandomTypeBuilder {
 
 	private String entityName;
 

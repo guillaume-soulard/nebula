@@ -7,7 +7,7 @@ import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.NebulaTypes;
 import com.nebula.core.types.Type;
-import com.nebula.core.types.TypeBuilder;
+import com.nebula.core.types.RandomTypeBuilder;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -24,7 +24,7 @@ public class EntityTest {
 		// GIVEN
 		Entity entity = new ModelBuilder().build().newEntity("test", 1);
 		String propertyName = "name";
-		TypeBuilder propertyType = NebulaTypes.number().range();
+		RandomTypeBuilder propertyType = NebulaTypes.number().range();
 		GeneratorBuilder propertyGenerator = NebulaGenerators.random();
 
 		// WHEN
@@ -43,7 +43,7 @@ public class EntityTest {
 		// GIVEN
 		Entity entity = new ModelBuilder().build().newEntity("test", 1);
 		GeneratorBuilder propertyGenerator = NebulaGenerators.random();
-		TypeBuilder propertyType = NebulaTypes.number().range();
+		RandomTypeBuilder propertyType = NebulaTypes.number().range();
 		String propertyName = "property name test";
 		entity.addProperty(propertyName, propertyGenerator, propertyType);
 
@@ -139,7 +139,7 @@ public class EntityTest {
 		Generator generator = mock(Generator.class);
 		when(property.getType()).thenReturn(mock(Type.class));
 		when(property.getGenerator()).thenReturn(generator);
-		when(propertyBuilder.newProperty(any(Model.class), anyString(), any(TypeBuilder.class), any(GeneratorBuilder.class)))
+		when(propertyBuilder.newProperty(any(Model.class), anyString(), any(RandomTypeBuilder.class), any(GeneratorBuilder.class)))
 				.thenReturn(property);
 		when(property.getName()).thenReturn("name");
 		Entity entity = new Entity(new ModelBuilder().build(), "test", 1l, propertyBuilder);
@@ -166,7 +166,7 @@ public class EntityTest {
 		when(property.getGenerator()).thenReturn(mock(Generator.class));
 		when(property.getType()).thenReturn(type);
 		when(property.getName()).thenReturn("name");
-		when(propertyBuilder.newProperty(any(Model.class), anyString(), any(TypeBuilder.class), any(GeneratorBuilder.class)))
+		when(propertyBuilder.newProperty(any(Model.class), anyString(), any(RandomTypeBuilder.class), any(GeneratorBuilder.class)))
 				.thenReturn(property);
 		Entity entity = new Entity(new ModelBuilder().build(), "test", 1l, propertyBuilder);
 		NebulaRandom nebulaRandom = mock(NebulaRandom.class);

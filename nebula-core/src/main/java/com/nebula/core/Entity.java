@@ -1,16 +1,16 @@
 package com.nebula.core;
 
 import com.nebula.core.generators.GeneratorBuilder;
+import com.nebula.core.generators.NebulaGenerators;
 import com.nebula.core.generators.NebulaRandom;
-import com.nebula.core.types.GenerationContext;
-import com.nebula.core.types.JavaType;
-import com.nebula.core.types.Type;
-import com.nebula.core.types.TypeBuilder;
+import com.nebula.core.types.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static com.nebula.core.generators.NebulaGenerators.random;
 
 public class Entity implements Type {
 
@@ -35,10 +35,18 @@ public class Entity implements Type {
 		return properties;
 	}
 
-	public void addProperty(String propertyName, GeneratorBuilder propertyGeneratorBuilder, TypeBuilder propertyType) {
-		checkIfPropertyAlreadyExists(propertyName);
-		properties.add(propertyBuilder.newProperty(model, propertyName, propertyType, propertyGeneratorBuilder));
+	public void addProperty(String propertyName, GeneratorBuilder propertyGeneratorBuilder, RandomTypeBuilder propertyType) {
+        addProperty(propertyName, propertyType, propertyGeneratorBuilder);
 	}
+
+	public void addProperty(String propertyName, StaticTypeBuilder propertyType) {
+		addProperty(propertyName, propertyType, random());
+	}
+
+	private void addProperty(String propertyName, TypeBuilder propertyType, GeneratorBuilder propertyGeneratorBuilder) {
+        checkIfPropertyAlreadyExists(propertyName);
+        properties.add(propertyBuilder.newProperty(model, propertyName, propertyType, propertyGeneratorBuilder));
+    }
 
 	private void checkIfPropertyAlreadyExists(String propertyName) {
 		for (Property property : properties) {

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public abstract class AmongTypeBuilder<S extends AmongTypeBuilder, T extends Comparable<T>> extends AbstractParsable<T> implements TypeBuilder {
+public abstract class AmongTypeBuilder<S extends AmongTypeBuilder, T extends Comparable<T>> extends AbstractParsable<T> implements RandomTypeBuilder {
 
 	protected List<T> items = new ArrayList<>();
 	private List<String> itemStrings = new ArrayList<>();

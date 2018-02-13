@@ -2,7 +2,7 @@ package com.nebula.core.types;
 
 import com.nebula.core.Model;
 
-public abstract class RangeTypeBuilder<S extends RangeTypeBuilder, T extends Comparable<T>> extends AbstractParsable<T> implements TypeBuilder {
+public abstract class RangeTypeBuilder<S extends RangeTypeBuilder, T extends Comparable<T>> extends AbstractParsable<T> implements RandomTypeBuilder {
 
 	protected T min;
 	protected T max;

@@ -34,7 +34,7 @@ public class ConstantTypeBenchmark {
 	public void setup() {
 		model = new ModelBuilder().build();
 		entity = model.newEntity("test", 10000000);
-		entity.addProperty("property", random(), constant("test"));
+		entity.addProperty("property", constant("test"));
 		model.addEntity(entity);
 		index = new AtomicLong(0l);
 	}

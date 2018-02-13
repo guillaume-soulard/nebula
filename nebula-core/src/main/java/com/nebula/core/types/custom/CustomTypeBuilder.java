@@ -2,10 +2,11 @@ package com.nebula.core.types.custom;
 
 import com.nebula.core.Model;
 import com.nebula.core.NebulaException;
+import com.nebula.core.types.RandomTypeBuilder;
 import com.nebula.core.types.Type;
 import com.nebula.core.types.TypeBuilder;
 
-public class CustomTypeBuilder implements TypeBuilder {
+public class CustomTypeBuilder implements RandomTypeBuilder {
     private Type type;
 
     public CustomTypeBuilder(Type type) {

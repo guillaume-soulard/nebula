@@ -2,15 +2,15 @@ package com.nebula.core.types.list;
 
 import com.nebula.core.NebulaException;
 import com.nebula.core.generators.GeneratorBuilder;
-import com.nebula.core.types.TypeBuilder;
+import com.nebula.core.types.RandomTypeBuilder;
 
-public abstract class AbstractListTypeBuilder implements TypeBuilder {
+public abstract class AbstractListTypeBuilder implements RandomTypeBuilder {
 
 	protected int minSize = 0;
 	protected int maxSize = 10;
 	protected GeneratorBuilder generator;
 
-	protected AbstractListTypeBuilder(GeneratorBuilder generator) {
+	AbstractListTypeBuilder(GeneratorBuilder generator) {
 		this.generator = generator;
 	}
 
@@ -27,13 +27,13 @@ public abstract class AbstractListTypeBuilder implements TypeBuilder {
 		return this;
 	}
 
-	protected void throwExceptionWhenMinMaxAreNotValid() {
+	void throwExceptionWhenMinMaxAreNotValid() {
 		if (minSize > maxSize) {
 			throw new NebulaException("maxSize must be greater than minSize");
 		}
 	}
 
-	protected void throwExceptionWhenGeneratorIsNull() {
+	void throwExceptionWhenGeneratorIsNull() {
 		if (generator == null) {
 			throw new NebulaException("generator is null");
 		}
