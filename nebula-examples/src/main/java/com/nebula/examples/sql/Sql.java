@@ -23,11 +23,11 @@ public class Sql {
         users.addProperty("id", sequence(), number().range().withMin(BigDecimal.ZERO));
         users.addProperty("firstName", random(), string().withPattern("[A-Z]{1}[a-z]{10,25}"));
         users.addProperty("lastName", random(), string().withPattern("[A-Z]{1}[a-z]{10,25}"));
-        users.addProperty("department", random(), picker("Dept 1")
-                .addItem("Dept 2")
-                .addItem("Dept 3")
-                .addItem("Dept 4")
-                .addItem("Dept 5"));
+        users.addProperty("department", random(), amongItems("Dept 1",
+                "Dept 2",
+                "Dept 3",
+                "Dept 4",
+                "Dept 5"));
 
         model.addEntity(users);
 

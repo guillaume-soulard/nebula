@@ -1,8 +1,7 @@
-package com.nebula.core.types.picker;
+package com.nebula.core.types.amongitems;
 
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaException;
-import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.JavaType;
 import com.nebula.core.types.JavaTypeName;
@@ -12,12 +11,12 @@ import org.joda.time.DateTime;
 import java.math.BigDecimal;
 import java.util.*;
 
-class PickerType implements Type {
+class AmongItemsType implements Type {
 
     private List<GeneratedObject> generatedObjects;
     private GenerationContext context;
 
-    PickerType(List<GeneratedObject> generatedObjects) {
+    AmongItemsType(List<GeneratedObject> generatedObjects) {
         if (generatedObjects == null) {
             throw new NebulaException("generatedObjects is null");
         }

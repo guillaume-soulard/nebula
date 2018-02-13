@@ -1,4 +1,4 @@
-package com.nebula.core.types.picker;
+package com.nebula.core.types.amongitems;
 
 import com.nebula.core.Model;
 import com.nebula.core.GeneratedObject;
@@ -14,7 +14,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 
-public class PickerTypeTest {
+public class AmongItemsTypeTest {
 
     @Test
     public void generateObject_should_return_item1() throws Exception {
@@ -27,7 +27,7 @@ public class PickerTypeTest {
         generatedObjects.add(item2);
         GeneratedObject item3 = new GeneratedObject("Item 3");
         generatedObjects.add(item3);
-        Type picker  = new PickerType(generatedObjects);
+        Type picker  = new AmongItemsType(generatedObjects);
         picker.init(getContext(0L));
 
         // WHEN
@@ -41,7 +41,7 @@ public class PickerTypeTest {
     public void getMinRange_should_return_0_when_list_is_empty() throws Exception {
 
         // GIVEN
-        Type picker  = new PickerType(new ArrayList<>());
+        Type picker  = new AmongItemsType(new ArrayList<>());
         picker.init(getContext(0L));
 
         // WHEN
@@ -57,7 +57,7 @@ public class PickerTypeTest {
         // GIVEN
         List<GeneratedObject> generatedObjects = new ArrayList<>();
         generatedObjects.add(new GeneratedObject("Item 1"));
-        Type picker  = new PickerType(generatedObjects);
+        Type picker  = new AmongItemsType(generatedObjects);
         picker.init(getContext(0L));
 
         // WHEN
@@ -72,7 +72,7 @@ public class PickerTypeTest {
 
         // GIVEN
         List<GeneratedObject> generatedObjects = new ArrayList<>();
-        Type picker  = new PickerType(generatedObjects);
+        Type picker  = new AmongItemsType(generatedObjects);
         picker.init(getContext(0L));
 
         // WHEN
@@ -88,7 +88,7 @@ public class PickerTypeTest {
         // GIVEN
         List<GeneratedObject> generatedObjects = new ArrayList<>();
         generatedObjects.add(new GeneratedObject("Item 1"));
-        Type picker  = new PickerType(generatedObjects);
+        Type picker  = new AmongItemsType(generatedObjects);
         picker.init(getContext(0L));
 
         // WHEN
@@ -106,7 +106,7 @@ public class PickerTypeTest {
 
         // WHEN
         try {
-            new PickerType(null);
+            new AmongItemsType(null);
         } catch (Exception e) {
             exception = e;
         }

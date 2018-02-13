@@ -7,11 +7,13 @@ import com.nebula.core.types.date.DateTimeTypeBuilderChooser;
 import com.nebula.core.types.entity.EntityTypeBuilder;
 import com.nebula.core.types.list.ListTypeBuilder;
 import com.nebula.core.types.number.NumberTypeBuilderChooser;
-import com.nebula.core.types.picker.PickerTypeBuilder;
+import com.nebula.core.types.amongitems.AmongItemsTypeBuilder;
 import com.nebula.core.types.string.StringTypeBuilder;
 import org.joda.time.DateTime;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.Collection;
 
 public final class NebulaTypes {
 
@@ -55,13 +57,13 @@ public final class NebulaTypes {
 		return new EntityTypeBuilder().withName(entityName);
 	}
 
-	public static PickerTypeBuilder picker(String item) { return new PickerTypeBuilder().addItem(item); }
+	public static AmongItemsTypeBuilder amongItems(String... items) { return new AmongItemsTypeBuilder(Arrays.asList(items)); }
 
-	public static PickerTypeBuilder picker(DateTime item) { return new PickerTypeBuilder().addItem(item); }
+	public static AmongItemsTypeBuilder amongItems(DateTime... items) { return new AmongItemsTypeBuilder(Arrays.asList(items)); }
 
-	public static PickerTypeBuilder picker(BigDecimal item) { return new PickerTypeBuilder().addItem(item); }
+	public static AmongItemsTypeBuilder amongItems(BigDecimal... items) { return new AmongItemsTypeBuilder(Arrays.asList(items)); }
 
-	public static PickerTypeBuilder picker(Boolean item) { return new PickerTypeBuilder().addItem(item); }
+	public static AmongItemsTypeBuilder amongItems(Boolean... items) { return new AmongItemsTypeBuilder(Arrays.asList(items)); }
 
 	public static CustomTypeBuilder custom(Type type) { return new CustomTypeBuilder(type); }
 }

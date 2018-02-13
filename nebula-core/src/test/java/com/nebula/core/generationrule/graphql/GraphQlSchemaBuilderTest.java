@@ -4,14 +4,7 @@ import com.nebula.core.Entity;
 import com.nebula.core.Model;
 import com.nebula.core.ModelBuilder;
 import graphql.GraphQL;
-import graphql.schema.idl.SchemaParser;
-import org.junit.Ignore;
 import org.junit.Test;
-import org.springframework.core.io.ClassPathResource;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Scanner;
 
 import static com.nebula.core.generators.NebulaGenerators.random;
 import static com.nebula.core.types.NebulaTypes.*;
@@ -42,7 +35,7 @@ public class GraphQlSchemaBuilderTest {
         entity.addProperty("constant", random(), constant("constant"));
         entity.addProperty("entityList", random(), list().of(random(), entity("subEntity")));
         entity.addProperty("stringList", random(), list().of(random(), string()));
-        entity.addProperty("picker", random(), picker("1").addItem("2").addItem("3"));
+        entity.addProperty("amongItems", random(), amongItems("1", "2", "3"));
         model.addEntity(entity);
 
         Entity subEntity = model.newEntity("subEntity");
@@ -52,7 +45,7 @@ public class GraphQlSchemaBuilderTest {
         subEntity.addProperty("bool", random(), bool());
         subEntity.addProperty("constant", random(), constant("constant"));
         subEntity.addProperty("stringList", random(), list().of(random(), string()));
-        subEntity.addProperty("picker", random(), picker("1").addItem("2").addItem("3"));
+        subEntity.addProperty("amongItems", random(), amongItems("1", "2", "3"));
         model.addEntity(subEntity);
 
         return model;
