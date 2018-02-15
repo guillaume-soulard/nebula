@@ -12,10 +12,15 @@ public class NumberParser {
 
     public BigDecimal parse(Model model, String string) {
         DecimalFormatSymbols symbols = new DecimalFormatSymbols();
-        symbols.setGroupingSeparator(model.getNumberThousandSeparator());
+        if (model.getNumberThousandSeparator() != null) {
+            symbols.setGroupingSeparator(model.getNumberThousandSeparator());
+        }
         symbols.setDecimalSeparator(model.getNumberDecimalSeparator());
         String pattern = "#,##0.0#";
         DecimalFormat decimalFormat = new DecimalFormat(pattern, symbols);
+        if (model.getNumberThousandSeparator() == null) {
+            decimalFormat.setGroupingUsed(false);
+        }
         decimalFormat.setParseBigDecimal(true);
 
         try {

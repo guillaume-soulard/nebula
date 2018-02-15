@@ -5,8 +5,8 @@ import java.util.Random;
 public class ModelBuilder {
 
     private long seed;
-    private char numberThousandSeparator;
-    private char numberDecimalSeparator;
+    private Character numberThousandSeparator;
+    private Character numberDecimalSeparator;
     private String dateFormat;
 
     public ModelBuilder() {
@@ -45,8 +45,18 @@ public class ModelBuilder {
         return this;
     }
 
+    public ModelBuilder withoutNumberThousandSeparator() {
+        this.numberThousandSeparator = null;
+        return this;
+    }
+
     public ModelBuilder withNumberDecimalSeparator(char numberDecimalSeparator) {
         this.numberDecimalSeparator = numberDecimalSeparator;
+        return this;
+    }
+
+    public ModelBuilder withoutNumberDecimalSeparator() {
+        this.numberDecimalSeparator = null;
         return this;
     }
 

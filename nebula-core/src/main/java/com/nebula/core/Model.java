@@ -9,13 +9,13 @@ public class Model {
 
 	private final long seed;
 	private final String dateFormat;
-	private final char numberDecimalSeparator;
-	private final char numberThousandSeparator;
+	private final Character numberDecimalSeparator;
+	private final Character numberThousandSeparator;
 	private List<Entity> entities = new ArrayList<>();
 	private EntityGenerator entityGenerator = new EntityGenerator();
 	private List<GenerationRule> generationRules = new ArrayList<>();
 
-	Model(long seed, char numberThousandSeparator, char numberDecimalSeparator, String dateFormat) {
+	Model(long seed, Character numberThousandSeparator, Character numberDecimalSeparator, String dateFormat) {
 		this.seed = seed;
 		this.numberThousandSeparator = numberThousandSeparator;
 		this.numberDecimalSeparator = numberDecimalSeparator;
@@ -101,11 +101,11 @@ public class Model {
 		return dateFormat;
 	}
 
-	public char getNumberDecimalSeparator() {
+	public Character getNumberDecimalSeparator() {
 		return numberDecimalSeparator;
 	}
 
-	public char getNumberThousandSeparator() {
+	public Character getNumberThousandSeparator() {
 		return numberThousandSeparator;
 	}
 }

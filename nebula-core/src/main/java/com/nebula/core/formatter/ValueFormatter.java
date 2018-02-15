@@ -15,14 +15,18 @@ public class ValueFormatter {
     private DecimalFormat numberFormat;
     private DateTimeFormatter dateTimeFormat;
 
-    public ValueFormatter(String dateFormat, char numberDecimalSeparator, char numberThousandSeparator) {
+    public ValueFormatter(String dateFormat, Character numberDecimalSeparator, Character numberThousandSeparator) {
 
         dateTimeFormat = DateTimeFormat.forPattern(dateFormat);
 
         numberFormat = (DecimalFormat) NumberFormat.getInstance();
         DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols();
         decimalFormatSymbols.setDecimalSeparator(numberDecimalSeparator);
-        decimalFormatSymbols.setGroupingSeparator(numberThousandSeparator);
+        if (numberThousandSeparator != null) {
+            decimalFormatSymbols.setGroupingSeparator(numberThousandSeparator);
+        } else {
+            numberFormat.setGroupingUsed(false);
+        }
         numberFormat.setDecimalFormatSymbols(decimalFormatSymbols);
     }
 
