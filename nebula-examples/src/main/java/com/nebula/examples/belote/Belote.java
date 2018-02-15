@@ -17,7 +17,7 @@ public class Belote {
 
     public static void main(String[] args) {
 
-        System.out.println("Generate 1000000 hands in belote game with 4 players");
+        System.out.println("Generate 100 hands in belote game with 4 players");
 
         Model model = new ModelBuilder()
                 .withSeed("belote")
@@ -40,7 +40,7 @@ public class Belote {
                 .withEntity(belote)
                 .withFormatter(json().pretty())
                 .addOutput(NebulaOutputs.stdout())
-                .addGenerationConstraint(NebulaConstraints.amount(10)));
+                .addGenerationConstraint(NebulaConstraints.amount(100)));
 
         model.generate();
 
