@@ -67,9 +67,16 @@ The concept behind Nebula is data generation based on two elements :
 * a seed
 * an index
 
-The most important thing is when an entity is declared, nubula works like an array which all items is a generated object that match entity declaration. All object can be accessible with an index (from 0 to 9223372036854775807). All objects are generated on demand when access via index is perform.
+The most important thing is when an entity is declared, Nubula works like an array which all items is a generated object that match entity declaration. All object can be accessible with an index (from 0 to 9223372036854775807). All objects are generated on demand when access via index is perform.
 
 Seed concept is very important. For a same seed nebula will generate the same dataset.
+
+== Vocabulary
+
+* Model : a model contains the data structure to generate (entities) and all generation behavior for data generation.
+* Entity : represent a hierarchical data structure. An entity consist on a set of properties that describe name, type and generation rule for a property.
+* Formatter : a formatter transform entities to String for outputs
+* Output : Example : file, http, stdout, jdbc, ...
 
 == Model settings
 
@@ -86,17 +93,32 @@ Model settings are apply on all operations that use these setting in the model.
 
 == Types
 
-[NOTE]
---
-TODO
---
+Types are accessible in NebulaTypes class
+
+|===
+|Type|Description|Default behavior
+|amongItems()|Provide a list of items and pick one of these|
+|bool()|Generate a boolean (true or false)|
+|constant()|Always generate the same thing|
+|custom()|A custom type implementation can be specify with this type|
+|datetime()|Generate a date time according rule|
+|entity()|Generate an another entity|
+|list()|Generate à list|
+|number()|Generate a number|
+|string()|Generate a string|
+|===
 
 == Generators
 
-[NOTE]
---
-TODO
---
+All generators are accessible in NebulaGenerators
+
+|===
+|Generator|Description| Default behavior
+|custom()|A custom implementation can be specify with this generator|
+|random()|Generate a random type|
+|randomUnique()|Generate a random type uniquely. After all types are generated, the generator cycle again|
+|sequence()|Generate sequentially the type|By default, the sequence cycle if reach the maximum
+|===
 
 == Formats
 
