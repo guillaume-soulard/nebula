@@ -39,8 +39,6 @@ public class NebulaJunitRunnerTest {
 
     @GenerationModel(name = "users")
     public Model setUpModel(Model model) {
-        Model newModel = new ModelBuilder().withSeed("users").build();
-        model.getEntities().forEach(entity -> newModel.addEntity(entity));
-        return newModel;
+        return new ModelBuilder(model).withSeed("users").build();
     }
 }

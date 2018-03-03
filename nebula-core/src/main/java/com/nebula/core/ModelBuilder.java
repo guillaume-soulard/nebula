@@ -1,5 +1,9 @@
 package com.nebula.core;
 
+import com.nebula.core.generationrule.GenerationRule;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class ModelBuilder {
@@ -8,6 +12,8 @@ public class ModelBuilder {
     private Character numberThousandSeparator;
     private Character numberDecimalSeparator;
     private String dateFormat;
+    private List<Entity> entities = new ArrayList<>();
+    private List<GenerationRule> generationRules = new ArrayList<>();
 
     public ModelBuilder() {
         seed = new Random().nextLong();
@@ -16,8 +22,17 @@ public class ModelBuilder {
         numberThousandSeparator = ',';
     }
 
+    public ModelBuilder(Model baseModel) {
+        seed = baseModel.getSeed();
+        dateFormat = baseModel.getDateFormat();
+        numberDecimalSeparator = baseModel.getNumberDecimalSeparator();
+        numberThousandSeparator = baseModel.getNumberThousandSeparator();
+        entities = baseModel.getEntities();
+        generationRules = baseModel.getGenerationRules();
+    }
+
     public Model build() {
-        return new Model(seed, numberThousandSeparator, numberDecimalSeparator, dateFormat);
+        return new Model(seed, numberThousandSeparator, numberDecimalSeparator, dateFormat, entities, generationRules);
     }
 
     public ModelBuilder withSeed(long seed) {

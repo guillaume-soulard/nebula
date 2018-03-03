@@ -11,15 +11,17 @@ public class Model {
 	private final String dateFormat;
 	private final Character numberDecimalSeparator;
 	private final Character numberThousandSeparator;
-	private List<Entity> entities = new ArrayList<>();
+	private List<Entity> entities;
 	private EntityGenerator entityGenerator = new EntityGenerator();
-	private List<GenerationRule> generationRules = new ArrayList<>();
+	private List<GenerationRule> generationRules;
 
-	Model(long seed, Character numberThousandSeparator, Character numberDecimalSeparator, String dateFormat) {
+	Model(long seed, Character numberThousandSeparator, Character numberDecimalSeparator, String dateFormat, List<Entity> entities, List<GenerationRule> generationRules) {
 		this.seed = seed;
 		this.numberThousandSeparator = numberThousandSeparator;
 		this.numberDecimalSeparator = numberDecimalSeparator;
 		this.dateFormat = dateFormat;
+		this.entities = entities;
+		this.generationRules = generationRules;
 	}
 
 	public Entity newEntity(String entityName, long amount) {
@@ -107,5 +109,9 @@ public class Model {
 
 	public Character getNumberThousandSeparator() {
 		return numberThousandSeparator;
+	}
+
+	public List<GenerationRule> getGenerationRules() {
+		return generationRules;
 	}
 }
