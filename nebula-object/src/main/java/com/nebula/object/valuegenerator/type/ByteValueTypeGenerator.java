@@ -2,7 +2,6 @@ package com.nebula.object.valuegenerator.type;
 
 import com.nebula.core.types.RandomTypeBuilder;
 import com.nebula.object.valuegenerator.ValueTypeGenerator;
-import com.nebula.object.valuegenerator.ValueTypeGeneratorContext;
 
 import java.util.List;
 
@@ -13,11 +12,6 @@ public class ByteValueTypeGenerator implements ValueTypeGenerator {
     @Override
     public boolean match(Class<?> clazz) {
         return byte.class.equals(clazz) || Byte.class.equals(clazz);
-    }
-
-    @Override
-    public Object getValue(ValueTypeGeneratorContext context) {
-        return context.getObjectGenerator().getObjectGeneratorBuilder().getDefaultByte();
     }
 
     @Override

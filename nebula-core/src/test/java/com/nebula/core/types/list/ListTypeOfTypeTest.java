@@ -246,4 +246,25 @@ public class ListTypeOfTypeTest {
 		assertThat(secondResult.getObject()).asList()
 				.containsExactlyElementsOf(((ArrayList<Object>) firstResult.getObject()));
 	}
+
+	@Test
+	public void generateObject_should_generate_a_list_of_string_with_different_values() throws Exception {
+
+		// GIVEN
+		int minSize = 0;
+		int maxSize = 10;
+		Generator generator = NebulaGenerators.random().build();
+		Type type = NebulaTypes.string().build(new ModelBuilder().build());
+		ListTypeOfType listType = new ListTypeOfType(minSize, maxSize, generator, type);
+		long entityIndex = 0L;
+		GenerationContext context = new GenerationContext(new NebulaRandom(1l), null, entityIndex);
+		listType.init(context);
+
+		// WHEN
+		GeneratedObject result = listType.generateObject(0l);
+
+		// THEN
+		assertThat(result.getObject()).asList()
+				.doesNotHaveDuplicates();
+	}
 }

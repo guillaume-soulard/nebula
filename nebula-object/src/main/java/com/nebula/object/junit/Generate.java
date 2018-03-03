@@ -8,5 +8,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
 public @interface Generate {
-    String modelName() default "default";
+    String usingModel() default "default";
+    int amount() default 10;
 }

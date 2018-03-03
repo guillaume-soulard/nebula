@@ -1,10 +1,11 @@
-package com.nebula.object.generator.model;
+package com.nebula.object.generator;
 
 import com.nebula.core.Entity;
 import com.nebula.core.Model;
 import com.nebula.core.ModelBuilder;
 import com.nebula.object.User;
 import com.nebula.object.UserAddress;
+import com.nebula.object.generator.model.ClassModelBuilder;
 import org.junit.Test;
 
 import java.util.List;

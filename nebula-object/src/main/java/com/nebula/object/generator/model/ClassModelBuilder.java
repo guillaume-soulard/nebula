@@ -13,6 +13,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import static com.nebula.core.generators.NebulaGenerators.random;
@@ -59,28 +60,34 @@ public class ClassModelBuilder {
 
     private void buildObjectEntity(Class<?> clazz, Model model) {
 
-        if (entityNotExists(clazz, model) && !isBasicType(clazz)) {
-
+        if (entityNotExists(clazz, model)) {
             Entity entity = model.newEntity(clazz.getCanonicalName());
-            for (Field field : FieldUtils.getAllFieldsList(clazz)) {
 
-                List<Class<?>> genericTypes = new ArrayList<>();
+            if (isBasicType(clazz)) {
+                entity.addProperty("_val", random(), getNebulaPropertyType(clazz, Collections.emptyList()));
+            } else {
 
-                if (field.getType().isArray()) {
-                    buildObjectEntity(field.getType().getComponentType(), model);
-                } else if (Collection.class.isAssignableFrom(field.getType())) {
-                    try {
-                        Class<?> genericType = Class.forName(((ParameterizedType) field.getGenericType()).getActualTypeArguments()[0].getTypeName());
-                        genericTypes.add(genericType);
-                        buildObjectEntity(genericType, model);
-                    } catch (ClassNotFoundException e) {
-                        throw new NebulaException(e.getMessage());
+                for (Field field : FieldUtils.getAllFieldsList(clazz)) {
+
+                    List<Class<?>> genericTypes = new ArrayList<>();
+
+                    if (field.getType().isArray()) {
+                        buildObjectEntity(field.getType().getComponentType(), model);
+                    } else if (Collection.class.isAssignableFrom(field.getType())) {
+                        try {
+                            Class<?> genericType = Class.forName(((ParameterizedType) field.getGenericType()).getActualTypeArguments()[0].getTypeName());
+                            genericTypes.add(genericType);
+                            buildObjectEntity(genericType, model);
+                        } catch (ClassNotFoundException e) {
+                            throw new NebulaException(e.getMessage());
+                        }
+                    } else {
+                        buildObjectEntity(field.getType(), model);
                     }
-                } else {
-                    buildObjectEntity(field.getType(), model);
+
+                    entity.addProperty(field.getName(), random(), getNebulaPropertyType(field.getType(), genericTypes));
                 }
 
-                entity.addProperty(field.getName(), random(), getNebulaPropertyType(field.getType(), genericTypes));
             }
 
             model.addEntity(entity);

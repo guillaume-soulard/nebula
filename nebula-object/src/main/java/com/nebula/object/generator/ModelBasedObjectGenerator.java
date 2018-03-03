@@ -1,4 +1,4 @@
-package com.nebula.object.generator.model;
+package com.nebula.object.generator;
 
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.GeneratedProperty;
@@ -21,9 +21,9 @@ import java.util.stream.IntStream;
 public class ModelBasedObjectGenerator implements ObjectGenerator {
 
     private final List<ValueTypeGenerator> valueTypeGenerators;
-    private final List<ValueTypeGenerator> basicValueTypeGenerators;
     private Model model;
     private AtomicLong index = new AtomicLong(0L);
+    private final List<ValueTypeGenerator> basicValueTypeGenerators;
 
     public ModelBasedObjectGenerator(Model model) {
         this.model = model;
@@ -43,7 +43,6 @@ public class ModelBasedObjectGenerator implements ObjectGenerator {
         basicValueTypeGenerators.add(new ByteValueTypeGenerator());
 
         valueTypeGenerators = new ArrayList<>();
-
         valueTypeGenerators.addAll(basicValueTypeGenerators);
         valueTypeGenerators.add(new ListValueTypeGenerator(basicValueTypeGenerators));
         valueTypeGenerators.add(new ArrayValueTypeGenerator());
@@ -62,6 +61,10 @@ public class ModelBasedObjectGenerator implements ObjectGenerator {
 
     private <T> T convertToObject(Class<T> clazz, GeneratedObject generatedObject) {
         try {
+
+            if (isBasicGeneratedObject(generatedObject)) {
+                return (T) generatedObject.getGeneratedPropertyValue("_val").getObject();
+            }
 
             if (generatedObject.getGeneratedProperties() != null) {
                 T instance = clazz.newInstance();
@@ -117,6 +120,13 @@ public class ModelBasedObjectGenerator implements ObjectGenerator {
         } catch (InstantiationException | IllegalAccessException e) {
             throw new NebulaException(e.getMessage());
         }
+    }
+
+    private boolean isBasicGeneratedObject(GeneratedObject generatedObject) {
+        return generatedObject.getGeneratedProperties() != null
+                && generatedObject.getGeneratedProperties()
+                .stream()
+                .filter(generatedProperty -> "_val".equals(generatedProperty.getPropertyName())).count() > 0;
     }
 
     private Object getFinalValueFrom(Class<?> fieldType, Object object) {

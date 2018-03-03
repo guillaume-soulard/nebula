@@ -1,30 +1,19 @@
 package com.nebula.object.valuegenerator.type;
 
 import com.nebula.core.types.RandomTypeBuilder;
-import com.nebula.object.valuegenerator.ValueTypeGeneratorContext;
+import com.nebula.object.valuegenerator.ValueTypeGenerator;
 
-import java.lang.reflect.Array;
 import java.util.List;
 
 import static com.nebula.core.generators.NebulaGenerators.random;
 import static com.nebula.core.types.NebulaTypes.entity;
 import static com.nebula.core.types.NebulaTypes.list;
 
-public class ArrayValueTypeGenerator extends ValueTypeGeneratorWithMaxDepth {
+public class ArrayValueTypeGenerator implements ValueTypeGenerator {
 
     @Override
     public boolean match(Class<?> clazz) {
         return clazz.isArray();
-    }
-
-    @Override
-    public Object getValue(ValueTypeGeneratorContext context) {
-        Object[] array = (Object[]) Array.newInstance(context.getClazz().getComponentType(),
-                context.getObjectGenerator().getObjectGeneratorBuilder().getDefaultCollectionSize());
-        for (int i = 0; i < 10; i++) {
-            array[i] = generateIfMaxDepthNotReached(context, context.getClazz().getComponentType());
-        }
-        return array;
     }
 
     @Override

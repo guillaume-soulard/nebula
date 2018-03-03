@@ -1,8 +1,9 @@
 package com.nebula.object.junit;
 
+import com.nebula.core.Model;
 import com.nebula.core.NebulaException;
-import com.nebula.object.ObjectGenerator;
-import com.nebula.object.generator.simple.ObjectGeneratorBuilder;
+import com.nebula.object.generator.ModelBasedObjectGenerator;
+import com.nebula.object.generator.model.ClassModelBuilder;
 import org.apache.commons.lang3.reflect.FieldUtils;
 import org.apache.commons.lang3.reflect.MethodUtils;
 import org.junit.runner.Description;
@@ -19,6 +20,8 @@ import org.junit.runners.model.Statement;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.lang.reflect.ParameterizedType;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,33 +37,67 @@ public class NebulaJunitRunner extends Runner implements Filterable {
             protected Statement withBefores(FrameworkMethod method, Object target, Statement statement) {
 
                 try {
-                    for (Method typeMethod : MethodUtils.getMethodsListWithAnnotation(target.getClass(), Model.class)) {
-                        Model modelAnnotation = typeMethod.getDeclaredAnnotation(Model.class);
-                        if (modelAnnotation != null) {
-                            if (!com.nebula.core.Model.class.equals(typeMethod.getReturnType())) {
-                                throw new NebulaException("Method " + typeMethod.toGenericString() + " must return " + com.nebula.core.Model.class.toGenericString());
-                            }
+                    for (Field field : FieldUtils.getFieldsWithAnnotation(target.getClass(), Generate.class)) {
+                        Generate generateAnnotation = field.getDeclaredAnnotation(Generate.class);
+                        field.setAccessible(true);
+                        Model model = getModelByNameOrDefault(field, generateAnnotation.usingModel(), target);
+                        ModelBasedObjectGenerator objectGenerator = new ModelBasedObjectGenerator(model);
 
-                            models.put(modelAnnotation.name(), (com.nebula.core.Model) typeMethod.invoke(target));
+                        if (Collection.class.isAssignableFrom(field.getType())) {
+                            Class<?> type = Class.forName(((ParameterizedType) field.getGenericType()).getActualTypeArguments()[0].getTypeName());
+                            field.set(target, objectGenerator.generateListOf(generateAnnotation.amount(), type));
+                        } else {
+                            field.set(target, objectGenerator.generateNext(field.getType()));
                         }
                     }
 
 
-                    ObjectGeneratorBuilder builder = new ObjectGeneratorBuilder();
-                    ObjectGenerator objectGenerator = builder.build();
-
-                    for (Field field : FieldUtils.getFieldsWithAnnotation(target.getClass(), Generate.class)) {
-                        Generate populateAnnotation = field.getDeclaredAnnotation(Generate.class);
-                        boolean fieldWasAccessible = field.isAccessible();
-                        field.setAccessible(true);
-                        field.set(target, objectGenerator.generateNext(field.getType()));
-                        field.setAccessible(fieldWasAccessible);
-                    }
-                } catch (IllegalAccessException | InvocationTargetException e) {
+                } catch (IllegalAccessException | InvocationTargetException | ClassNotFoundException e) {
                     throw new RuntimeException(e);
                 }
 
                 return super.withBefores(method, target, statement);
+            }
+
+            private Model getModelByNameOrDefault(Field field, String modelName, Object target) throws IllegalAccessException, InvocationTargetException, ClassNotFoundException {
+
+                Method modelMethod = null;
+
+                Class<?> modelType = field.getType();
+                if (Collection.class.isAssignableFrom(field.getType())) {
+                    modelType = Class.forName(((ParameterizedType) field.getGenericType()).getActualTypeArguments()[0].getTypeName());
+                }
+
+                Model defaultModel = new ClassModelBuilder().buildModelFrom(modelType);
+
+                if ("default".equals(modelName)) {
+                    return defaultModel;
+                }
+
+                for (Method typeMethod : MethodUtils.getMethodsListWithAnnotation(target.getClass(), GenerationModel.class)) {
+                    GenerationModel modelAnnotation = typeMethod.getDeclaredAnnotation(GenerationModel.class);
+                    if (modelAnnotation != null && modelAnnotation.name().equals(modelName)) {
+                        if (!Model.class.equals(typeMethod.getReturnType())
+                                || typeMethod.getParameters().length != 1
+                                || !Model.class.equals(typeMethod.getParameters()[0].getType())) {
+                            throw new NebulaException("Method " + typeMethod.toGenericString() + " must be like " + Model.class.toGenericString() + " " + typeMethod.getName() + " (" + Model.class.toGenericString() + " model)");
+                        }
+
+                        if (modelMethod != null) {
+                            throw new NebulaException("Found duplicate model definition for '" + modelName + "'");
+                        }
+
+                        modelMethod = typeMethod;
+                    }
+                }
+
+
+                if (modelMethod == null) {
+
+                    throw new NebulaException("Model '" + modelName + "' not found");
+                }
+
+                return (Model) modelMethod.invoke(target, defaultModel);
             }
 
             public void run(final RunNotifier notifier) {

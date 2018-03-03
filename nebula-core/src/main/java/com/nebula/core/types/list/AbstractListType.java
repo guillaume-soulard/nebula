@@ -34,7 +34,10 @@ abstract class AbstractListType implements Type {
 
 	void fillList(int listSize, NebulaRandom nebulaRandom, List<Object> list) {
 		for (int elementIndex = 0; elementIndex < listSize; elementIndex++) {
-			list.add(getItem(nebulaRandom));
+			NebulaRandom nebulaRandomForItem = new NebulaRandom(nebulaRandom.getSeed() + elementIndex);
+			GenerationContext generationContextForItem = new GenerationContext(nebulaRandomForItem, context.getModel(), elementIndex);
+			generator.init(generationContextForItem);
+			list.add(getItem(nebulaRandomForItem));
 		}
 	}
 

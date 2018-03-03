@@ -2,9 +2,7 @@ package com.nebula.object.valuegenerator.type;
 
 import com.nebula.core.types.RandomTypeBuilder;
 import com.nebula.object.valuegenerator.ValueTypeGenerator;
-import com.nebula.object.valuegenerator.ValueTypeGeneratorContext;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -13,7 +11,7 @@ import static com.nebula.core.generators.NebulaGenerators.random;
 import static com.nebula.core.types.NebulaTypes.entity;
 import static com.nebula.core.types.NebulaTypes.list;
 
-public class ListValueTypeGenerator extends ValueTypeGeneratorWithMaxDepth {
+public class ListValueTypeGenerator implements ValueTypeGenerator {
 
     private List<ValueTypeGenerator> basicValueTypeGenerators;
 
@@ -24,15 +22,6 @@ public class ListValueTypeGenerator extends ValueTypeGeneratorWithMaxDepth {
     @Override
     public boolean match(Class<?> clazz) {
         return Collection.class.isAssignableFrom(clazz);
-    }
-
-    @Override
-    public Object getValue(ValueTypeGeneratorContext context) {
-        List<Object> list = new ArrayList<>();
-        for (int i = 0; i < context.getObjectGenerator().getObjectGeneratorBuilder().getDefaultCollectionSize(); i++) {
-            list.add(generateIfMaxDepthNotReached(context, context.getTypeArguments().get(0)));
-        }
-        return list;
     }
 
     @Override

@@ -1,22 +1,17 @@
 package com.nebula.object.valuegenerator.type;
 
 import com.nebula.core.types.RandomTypeBuilder;
-import com.nebula.object.valuegenerator.ValueTypeGeneratorContext;
+import com.nebula.object.valuegenerator.ValueTypeGenerator;
 
 import java.util.List;
 
 import static com.nebula.core.types.NebulaTypes.entity;
 
-public class ObjectValueTypeGenerator extends ValueTypeGeneratorWithMaxDepth {
+public class ObjectValueTypeGenerator implements ValueTypeGenerator {
 
     @Override
     public boolean match(Class<?> clazz) {
         return true;
-    }
-
-    @Override
-    public Object getValue(ValueTypeGeneratorContext context) {
-        return generateIfMaxDepthNotReached(context, context.getClazz());
     }
 
     @Override
