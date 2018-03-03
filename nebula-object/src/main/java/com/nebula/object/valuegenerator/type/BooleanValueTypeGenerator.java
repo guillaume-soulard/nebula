@@ -1,7 +1,12 @@
 package com.nebula.object.valuegenerator.type;
 
+import com.nebula.core.types.RandomTypeBuilder;
 import com.nebula.object.valuegenerator.ValueTypeGenerator;
 import com.nebula.object.valuegenerator.ValueTypeGeneratorContext;
+
+import java.util.List;
+
+import static com.nebula.core.types.NebulaTypes.bool;
 
 public class BooleanValueTypeGenerator implements ValueTypeGenerator {
     @Override
@@ -12,5 +17,15 @@ public class BooleanValueTypeGenerator implements ValueTypeGenerator {
     @Override
     public Object getValue(ValueTypeGeneratorContext context) {
         return context.getObjectGenerator().getObjectGeneratorBuilder().isDefaultBoolean();
+    }
+
+    @Override
+    public RandomTypeBuilder getNebulaTypeFor(Class<?> type, List<Class<?>> genericTypes) {
+        return bool();
+    }
+
+    @Override
+    public Object getFinalValue(Object object) {
+        return Boolean.valueOf(object.toString());
     }
 }

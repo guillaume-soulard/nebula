@@ -1,4 +1,4 @@
-package com.nebula.object.generator;
+package com.nebula.object.generator.simple;
 
 import com.nebula.object.ObjectGenerator;
 import org.joda.time.DateTime;

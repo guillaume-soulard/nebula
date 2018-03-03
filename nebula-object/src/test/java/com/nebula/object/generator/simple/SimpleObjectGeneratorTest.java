@@ -1,4 +1,4 @@
-package com.nebula.object.generator;
+package com.nebula.object.generator.simple;
 
 import com.nebula.object.Category;
 import com.nebula.object.User;
@@ -20,7 +20,7 @@ public class SimpleObjectGeneratorTest {
         SimpleObjectGenerator objectGenerator = new SimpleObjectGenerator(defaultObjectBuilder);
 
         // WHEN
-        User result = objectGenerator.generate(User.class);
+        User result = objectGenerator.generateNext(User.class);
 
         // THEN
         assertThat(result).isNotNull();
@@ -33,7 +33,7 @@ public class SimpleObjectGeneratorTest {
         SimpleObjectGenerator objectGenerator = new SimpleObjectGenerator(defaultObjectBuilder);
 
         // WHEN
-        User result = objectGenerator.generate(User.class);
+        User result = objectGenerator.generateNext(User.class);
 
         // THEN
         assertThat(result).hasFieldOrPropertyWithValue("name", "string")
@@ -49,7 +49,7 @@ public class SimpleObjectGeneratorTest {
         SimpleObjectGenerator objectGenerator = new SimpleObjectGenerator(defaultObjectBuilder);
 
         // WHEN
-        User result = objectGenerator.generate(User.class);
+        User result = objectGenerator.generateNext(User.class);
 
         // THEN
         assertThat(result.getAddress()).isNotNull().hasFieldOrPropertyWithValue("address", "string");
@@ -62,7 +62,7 @@ public class SimpleObjectGeneratorTest {
         SimpleObjectGenerator objectGenerator = new SimpleObjectGenerator(defaultObjectBuilder);
 
         // WHEN
-        User result = objectGenerator.generate(User.class);
+        User result = objectGenerator.generateNext(User.class);
 
         // THEN
         assertThat(result.getDepartments()).isNotNull().hasSize(10).doesNotContainNull();
@@ -75,7 +75,7 @@ public class SimpleObjectGeneratorTest {
         SimpleObjectGenerator objectGenerator = new SimpleObjectGenerator(defaultObjectBuilder);
 
         // WHEN
-        User result = objectGenerator.generate(User.class);
+        User result = objectGenerator.generateNext(User.class);
 
         // THEN
         assertThat(result.getComments()).isNotNull().hasSize(10).containsOnly("string");
@@ -115,7 +115,7 @@ public class SimpleObjectGeneratorTest {
         SimpleObjectGenerator objectGenerator = new SimpleObjectGenerator(new ObjectGeneratorBuilder().setDefaultMaxDepth(5));
 
         // WHEN
-        Category result = objectGenerator.generate(Category.class);
+        Category result = objectGenerator.generateNext(Category.class);
 
         // THEN
         assertThat(result).isNotNull();

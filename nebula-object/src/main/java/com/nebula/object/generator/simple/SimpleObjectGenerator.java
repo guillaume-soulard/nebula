@@ -1,4 +1,4 @@
-package com.nebula.object.generator;
+package com.nebula.object.generator.simple;
 
 import com.nebula.core.NebulaException;
 import com.nebula.object.ObjectGenerator;
@@ -38,7 +38,7 @@ public class SimpleObjectGenerator implements ObjectGenerator {
         valueTypeGenerators = new ArrayList<>();
 
         valueTypeGenerators.addAll(basicValueTypeGenerators);
-        valueTypeGenerators.add(new ListValueTypeGenerator());
+        valueTypeGenerators.add(new ListValueTypeGenerator(basicValueTypeGenerators));
         valueTypeGenerators.add(new ArrayValueTypeGenerator());
 
         // the last field setter to test
@@ -67,7 +67,7 @@ public class SimpleObjectGenerator implements ObjectGenerator {
         }
     }
 
-    public <T> T generate(Class<T> clazz) {
+    public <T> T generateNext(Class<T> clazz) {
         return generateWithMaxDepth(clazz, 1);
     }
 
@@ -81,7 +81,7 @@ public class SimpleObjectGenerator implements ObjectGenerator {
         List<T> list = new ArrayList<>();
 
         for (int i = 1; i <= amount; i++) {
-            list.add(generate(clazz));
+            list.add(generateNext(clazz));
         }
 
         return list;

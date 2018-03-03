@@ -1,6 +1,6 @@
 package com.nebula.object.valuegenerator;
 
-import com.nebula.object.generator.SimpleObjectGenerator;
+import com.nebula.object.generator.simple.SimpleObjectGenerator;
 
 import java.util.List;
 
