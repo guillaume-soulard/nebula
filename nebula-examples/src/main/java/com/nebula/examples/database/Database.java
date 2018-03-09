@@ -40,7 +40,7 @@ public class Database {
         Entity products = model.newEntity("Products", 1000);
         products.addProperty("id", sequence(), number().range().withMin(BigDecimal.ONE));
         products.addProperty("name", random(), string().withPattern("[A-Z]{1}[a-z]{10,24}"));
-        products.addProperty("description", random(), string().withPattern("([a-z ]{10,25}){10,50}"));
+        products.addProperty("description", random(), text());
         products.addProperty("price", random(), number().range().withMin("0.10").withMax("9999.99").withPrecision(2));
         products.addProperty("category", random(), number().range().withMin(BigDecimal.ONE).withMax("100"));
         model.addEntity(products);
@@ -48,13 +48,14 @@ public class Database {
         Entity category = model.newEntity("Category", 10);
         category.addProperty("id", sequence(), number().range().withMin(BigDecimal.ONE));
         category.addProperty("name", random(), string().withPattern("[A-Z]{1}[a-z]{10,24}"));
-        category.addProperty("description", random(), string().withPattern("([a-z ]{10,25}){10,50}"));
+        category.addProperty("description", random(), text());
         model.addEntity(category);
 
         model.addGenerationRule(GenerationRules.newOneShootGenerationRule()
                 .addOutput(jdbc()
                         .withDriverClass("org.hsqldb.jdbc.JDBCDriver")
                         .withUrl("jdbc:hsqldb:mem:testdb"))
+                .addOutput(stdout())
                 .withFormatter(sql().addPropertyToIgnore("_id"))
                 .withEntity(category));
 
@@ -62,6 +63,7 @@ public class Database {
                 .addOutput(jdbc()
                         .withDriverClass("org.hsqldb.jdbc.JDBCDriver")
                         .withUrl("jdbc:hsqldb:mem:testdb"))
+                .addOutput(stdout())
                 .withFormatter(sql().addPropertyToIgnore("_id"))
                 .withEntity(products));
 

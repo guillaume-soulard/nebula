@@ -9,6 +9,7 @@ import com.nebula.core.types.list.ListTypeBuilder;
 import com.nebula.core.types.number.NumberTypeBuilderChooser;
 import com.nebula.core.types.amongitems.AmongItemsTypeBuilder;
 import com.nebula.core.types.string.StringTypeBuilder;
+import com.nebula.core.types.text.TypeTextBuilder;
 import org.joda.time.DateTime;
 
 import java.math.BigDecimal;
@@ -66,4 +67,6 @@ public final class NebulaTypes {
 	public static AmongItemsTypeBuilder amongItems(Boolean... items) { return new AmongItemsTypeBuilder(Arrays.asList(items)); }
 
 	public static CustomTypeBuilder custom(Type type) { return new CustomTypeBuilder(type); }
+
+	public static TypeTextBuilder text() { return new TypeTextBuilder(); }
 }
