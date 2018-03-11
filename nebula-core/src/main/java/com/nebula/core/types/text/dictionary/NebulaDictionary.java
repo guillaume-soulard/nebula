@@ -33,7 +33,7 @@ public class NebulaDictionary {
                 textBuilder.append(" ");
             }
 
-            long numberOfWordsToGenerate = nebulaRandom.randomBetween(configuration.getMinWords(), configuration.getMaxWords());
+            long numberOfWordsToGenerate = nebulaRandom.randomBetween(configuration.getMinWordsPerSentence(), configuration.getMaxWordsPerSentence());
 
             for (int wordsCount = 1; wordsCount <= numberOfWordsToGenerate; wordsCount++) {
 

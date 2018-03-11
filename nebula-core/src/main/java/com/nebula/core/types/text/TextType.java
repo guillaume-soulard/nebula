@@ -27,7 +27,7 @@ public class TextType implements Type {
     @Override
     public GeneratedObject generateObject(Long objectIndex) {
         NebulaRandom nebulaRandom = new NebulaRandom(context.getNebulaRandom().getSeed() + objectIndex);
-        return new GeneratedObject("");
+        return new GeneratedObject(dictionary.getText(nebulaRandom, textGenerationConfiguration));
     }
 
     @Override

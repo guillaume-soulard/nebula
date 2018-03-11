@@ -44,14 +44,14 @@ public class TypeTextBuilder implements RandomTypeBuilder {
         return this;
     }
 
-    public TypeTextBuilder withMinWords(int minWords) {
-        this.textGenerationConfiguration.setMinWords(minWords);
+    public TypeTextBuilder withMinWordsPerSentence(int minWordsPerSentence) {
+        this.textGenerationConfiguration.setMinWordsPerSentence(minWordsPerSentence);
         return this;
     }
 
 
-    public TypeTextBuilder withMaxWords(int maxWords) {
-        this.textGenerationConfiguration.setMaxWords(maxWords);
+    public TypeTextBuilder withMaxWordsPerSentence(int maxWordsPerSentence) {
+        this.textGenerationConfiguration.setMaxWordsPerSentence(maxWordsPerSentence);
         return this;
     }
 

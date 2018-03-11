@@ -2,26 +2,26 @@ package com.nebula.core.types.text;
 
 public class TextGenerationConfiguration {
 
-    private int minWords = 1;
-    private int maxWords = 10;
+    private int minWordsPerSentence = 1;
+    private int maxWordsPerSentence = 10;
     private int maxSentences = 1;
     private int minSentences = 1;
 
-    public int getMinWords() {
-        return minWords;
+    public int getMinWordsPerSentence() {
+        return minWordsPerSentence;
     }
 
-    public TextGenerationConfiguration setMinWords(int minWords) {
-        this.minWords = minWords;
+    public TextGenerationConfiguration setMinWordsPerSentence(int minWordsPerSentence) {
+        this.minWordsPerSentence = minWordsPerSentence;
         return this;
     }
 
-    public int getMaxWords() {
-        return maxWords;
+    public int getMaxWordsPerSentence() {
+        return maxWordsPerSentence;
     }
 
-    public TextGenerationConfiguration setMaxWords(int maxWords) {
-        this.maxWords = maxWords;
+    public TextGenerationConfiguration setMaxWordsPerSentence(int maxWordsPerSentence) {
+        this.maxWordsPerSentence = maxWordsPerSentence;
         return this;
     }
 

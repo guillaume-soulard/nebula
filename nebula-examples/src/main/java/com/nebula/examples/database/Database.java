@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.Map;
 
 import static com.nebula.core.formatter.NebulaFormatters.sql;
-import static com.nebula.core.generationconstraint.NebulaConstraints.amount;
 import static com.nebula.core.generators.NebulaGenerators.random;
 import static com.nebula.core.generators.NebulaGenerators.sequence;
 import static com.nebula.core.output.NebulaOutputs.jdbc;
@@ -40,7 +39,7 @@ public class Database {
         Entity products = model.newEntity("Products", 1000);
         products.addProperty("id", sequence(), number().range().withMin(BigDecimal.ONE));
         products.addProperty("name", random(), string().withPattern("[A-Z]{1}[a-z]{10,24}"));
-        products.addProperty("description", random(), text());
+        products.addProperty("description", random(), text().usingEnglishDictionary().withMinSentences(1).withMaxSentences(10).withMinWordsPerSentence(5).withMaxWordsPerSentence(15));
         products.addProperty("price", random(), number().range().withMin("0.10").withMax("9999.99").withPrecision(2));
         products.addProperty("category", random(), number().range().withMin(BigDecimal.ONE).withMax("100"));
         model.addEntity(products);
@@ -48,7 +47,7 @@ public class Database {
         Entity category = model.newEntity("Category", 10);
         category.addProperty("id", sequence(), number().range().withMin(BigDecimal.ONE));
         category.addProperty("name", random(), string().withPattern("[A-Z]{1}[a-z]{10,24}"));
-        category.addProperty("description", random(), text());
+        category.addProperty("description", random(), text().usingEnglishDictionary().withMinSentences(1).withMaxSentences(10).withMinWordsPerSentence(5).withMaxWordsPerSentence(15));
         model.addEntity(category);
 
         model.addGenerationRule(GenerationRules.newOneShootGenerationRule()

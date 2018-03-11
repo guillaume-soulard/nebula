@@ -50,8 +50,8 @@ public class NebulaDictionaryTest {
     public void getText_should_return_string_only_one_word_and_one_sentence() throws Exception {
 
         // GIVEN
-        configuration.setMinWords(1);
-        configuration.setMaxWords(1);
+        configuration.setMinWordsPerSentence(1);
+        configuration.setMaxWordsPerSentence(1);
         configuration.setMinSentences(1);
         configuration.setMaxSentences(1);
 
@@ -66,8 +66,8 @@ public class NebulaDictionaryTest {
     public void getText_should_return_string_with_two_words_in_two_sentences() throws Exception {
 
         // GIVEN
-        configuration.setMinWords(1);
-        configuration.setMaxWords(1);
+        configuration.setMinWordsPerSentence(1);
+        configuration.setMaxWordsPerSentence(1);
         configuration.setMinSentences(2);
         configuration.setMaxSentences(2);
 
@@ -82,8 +82,8 @@ public class NebulaDictionaryTest {
     public void getText_should_return_a_sentence_with_a_number_of_words_between_5_and_10() throws Exception {
 
         // GIVEN
-        configuration.setMinWords(5);
-        configuration.setMaxWords(10);
+        configuration.setMinWordsPerSentence(5);
+        configuration.setMaxWordsPerSentence(10);
         configuration.setMinSentences(1);
         configuration.setMaxSentences(1);
 
