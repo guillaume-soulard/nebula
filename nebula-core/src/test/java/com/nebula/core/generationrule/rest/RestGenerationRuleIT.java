@@ -1,8 +1,8 @@
 package com.nebula.core.generationrule.rest;
 
+import com.nebula.core.Entity;
 import com.nebula.core.Model;
 import com.nebula.core.ModelBuilder;
-import com.nebula.core.Entity;
 import com.nebula.core.formatter.FormatterBuilder;
 import com.nebula.core.formatter.NebulaFormatters;
 import org.apache.http.HttpHeaders;
@@ -22,9 +22,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.nebula.core.generators.NebulaGenerators.random;
 import static com.nebula.core.types.NebulaTypes.dateTime;
 import static com.nebula.core.types.NebulaTypes.string;
-import static com.nebula.core.generators.NebulaGenerators.random;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class RestGenerationRuleIT {
@@ -33,7 +33,7 @@ public class RestGenerationRuleIT {
 
     @BeforeClass
     public static void setUp() throws Exception {
-        Model model = new ModelBuilder().withSeed("users").withDateFormat("dd/MM/yyyy").build();
+        Model model = ModelBuilder.newModel().withSeed("users").withDateFormat("dd/MM/yyyy").build();
 
         Entity entity = model.newEntity("user");
         entity.addProperty("firstName", random(), string().withPattern("[A-Aa-z]{10,25}"));

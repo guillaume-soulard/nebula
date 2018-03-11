@@ -1,8 +1,5 @@
 package com.nebula.core;
 
-import com.nebula.core.Entity;
-import com.nebula.core.Model;
-import com.nebula.core.ModelBuilder;
 import com.nebula.core.generationconstraint.NebulaConstraints;
 import com.nebula.core.generationrule.GenerationRuleBuilder;
 import com.nebula.core.generationrule.GenerationRules;
@@ -15,11 +12,11 @@ import org.junit.rules.TemporaryFolder;
 
 import java.io.File;
 
+import static com.nebula.core.formatter.NebulaFormatters.json;
+import static com.nebula.core.generators.NebulaGenerators.random;
+import static com.nebula.core.output.NebulaOutputs.file;
 import static com.nebula.core.types.NebulaTypes.dateTime;
 import static com.nebula.core.types.NebulaTypes.string;
-import static com.nebula.core.generators.NebulaGenerators.random;
-import static com.nebula.core.formatter.NebulaFormatters.json;
-import static com.nebula.core.output.NebulaOutputs.file;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class JsonGenerationIT {
@@ -41,7 +38,7 @@ public class JsonGenerationIT {
     public void generate_should_generate_a_correct_csv_file() throws Exception {
 
         // GIVEN
-        Model model = new ModelBuilder().withSeed(1L).withDateFormat("dd/MM/yyyy").build();
+        Model model = ModelBuilder.newModel().withSeed(1L).withDateFormat("dd/MM/yyyy").build();
         Entity users = model.newEntity("users", 100l);
         users.addProperty("firstName", random(), string().withPattern("[A-Z]{1}[a-z]{3,25}"));
         users.addProperty("lastName", random(), string().withPattern("[A-Z]{1}[a-z]{3,25}"));

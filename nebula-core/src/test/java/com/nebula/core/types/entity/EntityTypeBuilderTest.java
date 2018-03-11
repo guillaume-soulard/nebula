@@ -18,7 +18,7 @@ public class EntityTypeBuilderTest {
 		EntityTypeBuilder builder = new EntityTypeBuilder();
 
 		// WHEN
-		Type result = builder.withName("test").build(new ModelBuilder().build());
+		Type result = builder.withName("test").build(ModelBuilder.newModel().build());
 
 		// THEN
 		assertThat(result).isInstanceOf(EntityType.class);

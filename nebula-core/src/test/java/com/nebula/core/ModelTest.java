@@ -1,6 +1,5 @@
 package com.nebula.core;
 
-import com.nebula.core.*;
 import com.nebula.core.generators.NebulaGenerators;
 import com.nebula.core.types.NebulaTypes;
 import org.junit.Test;
@@ -20,7 +19,7 @@ public class ModelTest {
 	@Test
 	public void add_should_add_given_type_in_model() {
 		// GIVEN
-		Model model = new ModelBuilder().build();
+		Model model = ModelBuilder.newModel().build();
 		Entity entity = model.newEntity("test", 1);
 
 		// WHEN
@@ -34,7 +33,7 @@ public class ModelTest {
 	public void add_should_throw_nebula_exception_when_null_type_is_passed() {
 		// GIVEN
 		Entity entity = null;
-		Model model = new ModelBuilder().build();
+		Model model = ModelBuilder.newModel().build();
 
 		// WHEN
 		catchException(model).addEntity(entity);
@@ -48,7 +47,7 @@ public class ModelTest {
 
 		// GIVEN
 		long seed = 1l;
-		Model model = new ModelBuilder().build();
+		Model model = ModelBuilder.newModel().build();
 		Entity entity = model.newEntity("test", 10);
 		entity.addProperty("number", NebulaGenerators.random(), NebulaTypes.number().range());
 		model.addEntity(entity);
@@ -66,7 +65,7 @@ public class ModelTest {
 
 		// GIVEN
 		long seed = 1l;
-		Model model = new ModelBuilder().build();
+		Model model = ModelBuilder.newModel().build();
 		Entity entity = model.newEntity("test", 10);
 		entity.addProperty("number", NebulaGenerators.random(), NebulaTypes.number().range());
 		model.addEntity(entity);
@@ -83,7 +82,7 @@ public class ModelTest {
 
 		// GIVEN
 		long seed = 1l;
-		Model model = new ModelBuilder().build();
+		Model model = ModelBuilder.newModel().build();
 		int amount = 100;
 		Entity entity = model.newEntity("test", amount);
 		String propertyName = "number";
@@ -104,7 +103,7 @@ public class ModelTest {
 	public void iterator_should_return_a_new_iterator() {
 
 		// GIVEN
-		Model model = new ModelBuilder().build();
+		Model model = ModelBuilder.newModel().build();
 		int amount = 10;
 		Entity entity = model.newEntity("test", amount);
 		entity.addProperty("number", NebulaGenerators.random(),
@@ -123,7 +122,7 @@ public class ModelTest {
 	public void iterator_should_get_same_objects_than_all_entities() {
 
 		// GIVEN
-		Model model = new ModelBuilder().build();
+		Model model = ModelBuilder.newModel().build();
 		int amount = 10;
 		Entity entity = model.newEntity("test", amount);
 		entity.addProperty("number", NebulaGenerators.random(),
@@ -143,7 +142,7 @@ public class ModelTest {
 	public void getEntityByName_should_return_entity() {
 
 		// GIVEN
-		Model model = new ModelBuilder().build();
+		Model model = ModelBuilder.newModel().build();
 		int amount = 10;
 		String entityName = "test";
 		Entity entity = model.newEntity(entityName, amount);
@@ -160,7 +159,7 @@ public class ModelTest {
 	public void getEntityByName_should_throw_exception_when_unexisting_entity_is_passed() {
 
 		// GIVEN
-		Model model = new ModelBuilder().build();
+		Model model = ModelBuilder.newModel().build();
 		int amount = 10;
 		Entity entity = model.newEntity("test", amount);
 		model.addEntity(entity);
@@ -177,7 +176,7 @@ public class ModelTest {
 	public void generateEntity_should_generate_entity_for_index_0() {
 
 		// GIVEN
-		Model model = new ModelBuilder().build();
+		Model model = ModelBuilder.newModel().build();
 		int amount = 10;
 		Entity entity = model.newEntity("test", amount);
 		model.addEntity(entity);
@@ -195,7 +194,7 @@ public class ModelTest {
 	public void generateEntity_should_generate_10_different_objects() {
 
 		// GIVEN
-		Model model = new ModelBuilder().build();
+		Model model = ModelBuilder.newModel().build();
 		int amount = 10;
 		Entity entity = model.newEntity("test", amount);
 		model.addEntity(entity);
@@ -212,7 +211,7 @@ public class ModelTest {
 	public void generateEntity_should_generate_the_same_entity_for_index_0() {
 
 		// GIVEN
-		Model model = new ModelBuilder().build();
+		Model model = ModelBuilder.newModel().build();
 		int amount = 10;
 		Entity entity = model.newEntity("test", amount);
 		model.addEntity(entity);
@@ -231,7 +230,7 @@ public class ModelTest {
 	public void generateEntity_should_generate_the_same_entity_for_index_0_comparing_to_generate_all_entities() {
 
 		// GIVEN
-		Model model = new ModelBuilder().build();
+		Model model = ModelBuilder.newModel().build();
 		int amount = 10;
 		Entity entity = model.newEntity("test", amount);
 		model.addEntity(entity);

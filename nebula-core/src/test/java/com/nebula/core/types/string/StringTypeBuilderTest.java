@@ -19,7 +19,7 @@ public class StringTypeBuilderTest {
 		TypeBuilder builder = new StringTypeBuilder();
 
 		// WHEN
-		Type result = builder.build(new ModelBuilder().build());
+		Type result = builder.build(ModelBuilder.newModel().build());
 
 		// THEN
 		assertThat(result).isInstanceOf(StringType.class);

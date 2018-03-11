@@ -22,7 +22,7 @@ public class EntityTest {
 	@Test
 	public void addProperty_should_add_new_property_in_entity_properties() {
 		// GIVEN
-		Entity entity = new ModelBuilder().build().newEntity("test", 1);
+		Entity entity = ModelBuilder.newModel().build().newEntity("test", 1);
 		String propertyName = "name";
 		RandomTypeBuilder propertyType = NebulaTypes.number().range();
 		GeneratorBuilder propertyGenerator = NebulaGenerators.random();
@@ -41,7 +41,7 @@ public class EntityTest {
 	public void addProperty_should_throw_exception_when_duplicate_property_name_is_added() {
 
 		// GIVEN
-		Entity entity = new ModelBuilder().build().newEntity("test", 1);
+		Entity entity = ModelBuilder.newModel().build().newEntity("test", 1);
 		GeneratorBuilder propertyGenerator = NebulaGenerators.random();
 		RandomTypeBuilder propertyType = NebulaTypes.number().range();
 		String propertyName = "property name test";
@@ -59,7 +59,7 @@ public class EntityTest {
 	public void generateObject_should_generate_a_non_null_object() {
 
 		// GIVEN
-		Entity entity = new ModelBuilder().build().newEntity("test", 1);
+		Entity entity = ModelBuilder.newModel().build().newEntity("test", 1);
 
 		// WHEN
 		GeneratedObject result = entity.generateObject(1l);
@@ -71,7 +71,7 @@ public class EntityTest {
 	@Test
 	public void generateObject_should_return_the_correct_amount_of_properties() {
 
-		Entity entity = new ModelBuilder().build().newEntity("test", 1);
+		Entity entity = ModelBuilder.newModel().build().newEntity("test", 1);
 		String propertyName = "property";
 		entity.addProperty(propertyName, NebulaGenerators.random(), NebulaTypes.number().range());
 		long entityIndex = 0L;
@@ -88,7 +88,7 @@ public class EntityTest {
 	public void generateObject_should_return_a_generated_object_with_one_generated_property_equal_to_1() {
 
 		// GIVEN
-		Entity entity = new ModelBuilder().build().newEntity("test", 1);
+		Entity entity = ModelBuilder.newModel().build().newEntity("test", 1);
 		String propertyName = "property";
 		entity.addProperty(propertyName, NebulaGenerators.random(),
 				NebulaTypes.number().range().withMin(BigDecimal.ONE).withMax(BigDecimal.ONE));
@@ -108,7 +108,7 @@ public class EntityTest {
 	public void generateObject_should_return_a_generated_object_with_two_properties_first_equal_to_1_and_second_equal_to_5() {
 
 		// GIVEN
-		Entity entity = new ModelBuilder().build().newEntity("test", 1);
+		Entity entity = ModelBuilder.newModel().build().newEntity("test", 1);
 		String property1Name = "property1";
 		String property2Name = "property2";
 		entity.addProperty(property1Name, NebulaGenerators.random(),
@@ -142,7 +142,7 @@ public class EntityTest {
 		when(propertyBuilder.newProperty(any(Model.class), anyString(), any(RandomTypeBuilder.class), any(GeneratorBuilder.class)))
 				.thenReturn(property);
 		when(property.getName()).thenReturn("name");
-		Entity entity = new Entity(new ModelBuilder().build(), "test", 1l, propertyBuilder);
+		Entity entity = new Entity(ModelBuilder.newModel().build(), "test", 1l, propertyBuilder);
 		NebulaRandom nebulaRandom = mock(NebulaRandom.class);
 		when(nebulaRandom.getSeed()).thenReturn(0l);
 		entity.addProperty("name", null, null);
@@ -168,7 +168,7 @@ public class EntityTest {
 		when(property.getName()).thenReturn("name");
 		when(propertyBuilder.newProperty(any(Model.class), anyString(), any(RandomTypeBuilder.class), any(GeneratorBuilder.class)))
 				.thenReturn(property);
-		Entity entity = new Entity(new ModelBuilder().build(), "test", 1l, propertyBuilder);
+		Entity entity = new Entity(ModelBuilder.newModel().build(), "test", 1l, propertyBuilder);
 		NebulaRandom nebulaRandom = mock(NebulaRandom.class);
 		entity.addProperty(null, null, null);
 		long entityIndex = 0L;
@@ -185,7 +185,7 @@ public class EntityTest {
 	public void setPropertyBuilder_should_set_propertyBuilder_filed_in_given_entity() {
 
 		// GIVEN
-		Entity entity = new ModelBuilder().build().newEntity("test", 1);
+		Entity entity = ModelBuilder.newModel().build().newEntity("test", 1);
 		PropertyBuilder propertyBuilder = new PropertyBuilder();
 
 		// WHEN

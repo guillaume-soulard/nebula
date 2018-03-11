@@ -15,7 +15,7 @@ public class BooleanTypeBuilderTest {
 		BooleanTypeBuilder builder = new BooleanTypeBuilder();
 
 		// WHEN
-		Type result = builder.build(new ModelBuilder().build());
+		Type result = builder.build(ModelBuilder.newModel().build());
 
 		// THEN
 		assertThat(result).isInstanceOf(BooleanType.class);

@@ -30,7 +30,7 @@ public class Redis {
             startRedisServer(redisServer);
             Jedis jedis = new Jedis("localhost", REDIS_PORT);
 
-            Model model = new ModelBuilder()
+            Model model = ModelBuilder.newModel()
                     .withSeed("redis weather time series")
                     .withDateFormat("dd/MM/yyyy")
                     .withNumberDecimalSeparator(' ')

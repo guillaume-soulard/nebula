@@ -33,7 +33,7 @@ public class NumberAmongTypeBenchmark {
 
 	@Setup(Level.Iteration)
 	public void setup() {
-		model = new ModelBuilder().build();
+		model = ModelBuilder.newModel().build();
 		entity = model.newEntity("test", 10000000);
 		entity.addProperty("property", random(), number().among().items(BigDecimal.ZERO, BigDecimal.ONE, BigDecimal.TEN));
 		model.addEntity(entity);

@@ -59,7 +59,7 @@ public class SqlFormatterTest {
         ValueFormatter valueFormatter = new ValueFormatter("dd/MM/YYYY", ',', ' ');
         List<String> propertiesToExclude = new ArrayList<>();
         Formatter formatter = new SqlFormatter(valueFormatter, propertiesToExclude);
-        Entity entity = new ModelBuilder().build().newEntity("users");
+        Entity entity = ModelBuilder.newModel().build().newEntity("users");
 
         // WHEN
         String result = formatter.formatHeader(entity);
@@ -75,7 +75,7 @@ public class SqlFormatterTest {
         ValueFormatter valueFormatter = new ValueFormatter("dd/MM/YYYY", ',', ' ');
         List<String> propertiesToExclude = new ArrayList<>();
         Formatter formatter = new SqlFormatter(valueFormatter, propertiesToExclude);
-        Entity entity = new ModelBuilder().build().newEntity("users");
+        Entity entity = ModelBuilder.newModel().build().newEntity("users");
 
         // WHEN
         String result = formatter.formatFooter(entity);

@@ -20,7 +20,7 @@ public class ModelBasedObjectGeneratorTest {
     public void generate_should_return_non_null_object() throws Exception {
 
         // GIVEN
-        Model model = new ModelBuilder()
+        Model model = ModelBuilder.newModel()
                 .build();
         Entity userAddressEntity = model.newEntity(UserAddress.class.getCanonicalName());
         userAddressEntity.addProperty("address", random(), string());

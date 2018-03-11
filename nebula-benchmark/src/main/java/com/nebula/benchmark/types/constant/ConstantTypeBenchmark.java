@@ -32,7 +32,7 @@ public class ConstantTypeBenchmark {
 
 	@Setup(Level.Iteration)
 	public void setup() {
-		model = new ModelBuilder().build();
+		model = ModelBuilder.newModel().build();
 		entity = model.newEntity("test", 10000000);
 		entity.addProperty("property", constant("test"));
 		model.addEntity(entity);

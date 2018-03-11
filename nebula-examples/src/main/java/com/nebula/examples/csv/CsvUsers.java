@@ -16,7 +16,7 @@ public class CsvUsers {
 
         System.out.println("Generate 10 Users");
 
-        Model model = new ModelBuilder()
+        Model model = ModelBuilder.newModel()
                 .withSeed("a seed")
                 .withDateFormat("dd/MM/yyyy")
                 .build();

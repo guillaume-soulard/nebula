@@ -39,6 +39,6 @@ public class NebulaJunitRunnerTest {
 
     @GenerationModel(name = "users")
     public Model setUpModel(Model model) {
-        return new ModelBuilder(model).withSeed("users").build();
+        return ModelBuilder.newModelFrom(model).withSeed("users").build();
     }
 }

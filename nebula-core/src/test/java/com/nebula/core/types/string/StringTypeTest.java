@@ -152,7 +152,7 @@ public class StringTypeTest {
 		StringGenerator stringGenerator = mock(StringGenerator.class);
 		StringType stringType = new StringType(stringGenerator);
 		NebulaRandom nebulaRandom = new NebulaRandom(0l);
-		Model model = new ModelBuilder().build();
+		Model model = ModelBuilder.newModel().build();
 		long entityIndex = 0L;
 		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex);
 

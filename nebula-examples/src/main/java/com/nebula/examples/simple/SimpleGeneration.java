@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 public class SimpleGeneration {
 
     public static void main(String[] args) {
-        Model model = new ModelBuilder().build();
+        Model model = ModelBuilder.newModel().build();
 
         Entity entity = model.newEntity("test");
         entity.addProperty("string", NebulaGenerators.sequence(), NebulaTypes.number().range().withMin(BigDecimal.ZERO));

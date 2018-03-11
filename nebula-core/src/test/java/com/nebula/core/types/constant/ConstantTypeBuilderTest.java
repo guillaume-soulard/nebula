@@ -76,7 +76,7 @@ public class ConstantTypeBuilderTest {
 		ConstantTypeBuilder builder = new ConstantTypeBuilder(value);
 
 		// WHEN
-		Type result = builder.build(new ModelBuilder().build());
+		Type result = builder.build(ModelBuilder.newModel().build());
 
 		// THEN
 		assertThat(result).isInstanceOf(ConstantType.class);

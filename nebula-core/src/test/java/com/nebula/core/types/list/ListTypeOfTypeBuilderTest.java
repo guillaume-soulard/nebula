@@ -138,7 +138,7 @@ public class ListTypeOfTypeBuilderTest {
 		ListTypeOfTypeBuilder builder = new ListTypeOfTypeBuilder(generator, type);
 
 		// WHEN
-		Type result = builder.build(new ModelBuilder().build());
+		Type result = builder.build(ModelBuilder.newModel().build());
 
 		// THEN
 		assertThat(result).hasFieldOrPropertyWithValue("maxSize", 10).hasFieldOrPropertyWithValue("minSize", 0);
@@ -154,7 +154,7 @@ public class ListTypeOfTypeBuilderTest {
 		builder.withMinSize(10).withMaxSize(0);
 
 		// WHEN
-		catchException(builder).build(new ModelBuilder().build());
+		catchException(builder).build(ModelBuilder.newModel().build());
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)

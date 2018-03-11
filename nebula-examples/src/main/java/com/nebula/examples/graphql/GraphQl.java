@@ -14,7 +14,7 @@ import static com.nebula.core.types.NebulaTypes.*;
 public class GraphQl {
 
     public static void main(String[] args) {
-        Model model = new ModelBuilder().withSeed("users").build();
+        Model model = ModelBuilder.newModel().withSeed("users").build();
 
         Entity users = model.newEntity("users");
         users.addProperty("id", sequence(), number().range().withMin(BigDecimal.ZERO));

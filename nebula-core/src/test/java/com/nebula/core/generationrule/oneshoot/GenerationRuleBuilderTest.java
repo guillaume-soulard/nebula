@@ -20,7 +20,7 @@ public class GenerationRuleBuilderTest {
 
         // GIVEN
         OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();
-        Model model = new ModelBuilder().build();
+        Model model = ModelBuilder.newModel().build();
 
         // WHEN
         catchException(generationRuleBuilder).build(model);
@@ -35,7 +35,7 @@ public class GenerationRuleBuilderTest {
 
         // GIVEN
         OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();
-        Model model = new ModelBuilder().build();
+        Model model = ModelBuilder.newModel().build();
         Entity entity = model.newEntity("test");
         generationRuleBuilder.withEntity(entity);
 
@@ -52,7 +52,7 @@ public class GenerationRuleBuilderTest {
 
         // GIVEN
         OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();
-        Model model = new ModelBuilder().build();
+        Model model = ModelBuilder.newModel().build();
         Entity entity = model.newEntity("test");
         generationRuleBuilder.withEntity(entity);
         generationRuleBuilder.withFormatter(NebulaFormatters.csv());
@@ -70,7 +70,7 @@ public class GenerationRuleBuilderTest {
 
         // GIVEN
         OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();
-        Model model = new ModelBuilder().build();
+        Model model = ModelBuilder.newModel().build();
         Entity entity = model.newEntity("test");
         generationRuleBuilder.withEntity(entity);
         generationRuleBuilder.withFormatter(NebulaFormatters.csv());
@@ -89,7 +89,7 @@ public class GenerationRuleBuilderTest {
 
         // GIVEN
         OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();
-        Model model = new ModelBuilder().build();
+        Model model = ModelBuilder.newModel().build();
         Entity entity = model.newEntity("test");
         model.addEntity(entity);
         generationRuleBuilder.withEntity(entity);

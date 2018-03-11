@@ -15,20 +15,28 @@ public class ModelBuilder {
     private List<Entity> entities = new ArrayList<>();
     private List<GenerationRule> generationRules = new ArrayList<>();
 
-    public ModelBuilder() {
+    private ModelBuilder() {
         seed = new Random().nextLong();
         dateFormat = "MM/dd/yyyy";
         numberDecimalSeparator = '.';
         numberThousandSeparator = ',';
     }
 
-    public ModelBuilder(Model baseModel) {
+    private ModelBuilder(Model baseModel) {
         seed = baseModel.getSeed();
         dateFormat = baseModel.getDateFormat();
         numberDecimalSeparator = baseModel.getNumberDecimalSeparator();
         numberThousandSeparator = baseModel.getNumberThousandSeparator();
         entities = baseModel.getEntities();
         generationRules = baseModel.getGenerationRules();
+    }
+
+    public static ModelBuilder newModel() {
+        return new ModelBuilder();
+    }
+
+    public static ModelBuilder newModelFrom(Model baseModel) {
+        return new ModelBuilder(baseModel);
     }
 
     public Model build() {

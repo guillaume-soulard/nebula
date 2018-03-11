@@ -14,7 +14,7 @@ public class NewEntityTest {
 		String entityName = "test";
 
 		// WHEN
-		entity = new ModelBuilder().build().newEntity(entityName, 1);
+		entity = ModelBuilder.newModel().build().newEntity(entityName, 1);
 
 		// THEN
 		assertThat(entity).isNotNull().hasFieldOrPropertyWithValue("name", entityName)
@@ -29,7 +29,7 @@ public class NewEntityTest {
 		String entityName = "an other_entity";
 
 		// WHEN
-		entity = new ModelBuilder().build().newEntity(entityName, 1);
+		entity = ModelBuilder.newModel().build().newEntity(entityName, 1);
 
 		// THEN
 		assertThat(entity).isNotNull().hasFieldOrPropertyWithValue("name", entityName);
@@ -44,7 +44,7 @@ public class NewEntityTest {
 
 		// WHEN
 		try {
-			new ModelBuilder().build().newEntity(entityName, 1);
+			ModelBuilder.newModel().build().newEntity(entityName, 1);
 		} catch (Throwable e) {
 			exception = e;
 		}

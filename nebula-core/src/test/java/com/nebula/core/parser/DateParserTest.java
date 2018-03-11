@@ -16,7 +16,7 @@ public class DateParserTest {
         // GIVEN
         DateParser dateParser = new DateParser();
         String dateToParse = "01/01/2017";
-        Model model = new ModelBuilder().build();
+        Model model = ModelBuilder.newModel().build();
 
         // WHEN
         ReadableInstant result = dateParser.parse(model, dateToParse);
@@ -31,7 +31,7 @@ public class DateParserTest {
         // GIVEN
         DateParser dateParser = new DateParser();
         String dateToParse = "12/31/2017";
-        Model model = new ModelBuilder().build();
+        Model model = ModelBuilder.newModel().build();
 
         // WHEN
         ReadableInstant result = dateParser.parse(model, dateToParse);
@@ -46,7 +46,7 @@ public class DateParserTest {
         // GIVEN
         DateParser dateParser = new DateParser();
         String dateToParse = "31-12-2017";
-        Model model = new ModelBuilder().withDateFormat("dd-MM-yyyy").build();
+        Model model = ModelBuilder.newModel().withDateFormat("dd-MM-yyyy").build();
 
         // WHEN
         ReadableInstant result = dateParser.parse(model, dateToParse);

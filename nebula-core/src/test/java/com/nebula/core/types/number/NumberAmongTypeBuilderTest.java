@@ -22,7 +22,7 @@ public class NumberAmongTypeBuilderTest {
 		NumberAmongTypeBuilder builder = new NumberAmongTypeBuilder();
 
 		// WHEN
-		Type result = builder.build(new ModelBuilder().build());
+		Type result = builder.build(ModelBuilder.newModel().build());
 
 		// THEN
 		assertThat(result).isInstanceOf(NumberAmongType.class);
@@ -118,7 +118,7 @@ public class NumberAmongTypeBuilderTest {
 		BigDecimal item2 = BigDecimal.ONE;
 
 		// WHEN
-		Type result = builder.items(item1, item2).build(new ModelBuilder().build());
+		Type result = builder.items(item1, item2).build(ModelBuilder.newModel().build());
 
 		// THEN
 		assertThat(result).hasFieldOrPropertyWithValue("items", Arrays.asList(item1, item2));
