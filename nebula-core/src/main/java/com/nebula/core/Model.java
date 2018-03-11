@@ -114,4 +114,8 @@ public class Model {
 	public List<GenerationRule> getGenerationRules() {
 		return generationRules;
 	}
+
+	public void removeEntity(String entityName) {
+		entities.remove(getEntityByName(entityName));
+	}
 }

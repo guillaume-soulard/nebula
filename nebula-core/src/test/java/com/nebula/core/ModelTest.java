@@ -245,6 +245,53 @@ public class ModelTest {
 		assertThat(result).isEqualTo(genratedObjectAtIndex0);
 	}
 
+	@Test
+	public void removeEntity_should_remove_all_entity_from_list() throws Exception {
+
+		// GIVEN
+		Model model = ModelBuilder.newModel().build();
+		String entityName = "entity 1";
+		model.addEntity(model.newEntity(entityName));
+
+		// WHEN
+		model.removeEntity(entityName);
+
+		// THEN
+		assertThat(model.getEntities()).isEmpty();
+	}
+
+	@Test
+	public void removeEntity_should_remove_entity_from_list() throws Exception {
+
+		// GIVEN
+		Model model = ModelBuilder.newModel().build();
+		String entityName = "to remove";
+		model.addEntity(model.newEntity(entityName));
+		String anotherEntity = "another entity";
+		model.addEntity(model.newEntity(anotherEntity));
+
+		// WHEN
+		model.removeEntity(entityName);
+
+		// THEN
+		assertThat(model.getEntities()).extracting("name").containsOnly(anotherEntity);
+	}
+
+	@Test
+	public void removeEntity_should_throw_exception_when_entity_to_remove_not_exists() throws Exception {
+
+		// GIVEN
+		Model model = ModelBuilder.newModel().build();
+		model.addEntity(model.newEntity("entity"));
+
+		// WHEN
+		catchException(model).removeEntity("un existing entity");
+
+		// THEN
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
+				.hasMessage("entity 'un existing entity' not exists in model");
+	}
+
 	private List<Object> extractValuesForProperty(String propertyName, List<GeneratedObject> generatedObjects) {
 		List<Object> values = new ArrayList<>();
 		for (GeneratedObject generatedObject : generatedObjects) {
