@@ -17,7 +17,7 @@ import static org.mockito.Mockito.*;
 public class HttpOutputTest {
 
     @Test
-    public void open_should_do_nothing() throws Exception {
+    public void open_should_do_nothing() {
 
         // GIVEN
         String url = "localhost";

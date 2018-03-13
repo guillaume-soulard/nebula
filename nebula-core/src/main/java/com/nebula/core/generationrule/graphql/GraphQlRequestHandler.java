@@ -8,7 +8,6 @@ import com.nebula.core.formatter.Formatter;
 import com.nebula.core.formatter.NebulaFormatters;
 import graphql.ExecutionResult;
 import graphql.GraphQL;
-import org.apache.http.HttpException;
 import org.apache.http.HttpRequest;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -27,9 +26,9 @@ import static com.nebula.core.types.NebulaTypes.string;
 
 public class GraphQlRequestHandler implements HttpRequestHandler {
 
-    private Model model;
-    private Formatter jsonFormatter;
-    private GraphQL graphQL;
+    private final Model model;
+    private final Formatter jsonFormatter;
+    private final GraphQL graphQL;
 
     GraphQlRequestHandler(Model model, GraphQL graphQL) {
         this.model = model;
@@ -39,12 +38,12 @@ public class GraphQlRequestHandler implements HttpRequestHandler {
     }
 
     @Override
-    public void handle(HttpRequest httpRequest, HttpResponse httpResponse, HttpContext httpContext) throws HttpException, IOException {
+    public void handle(HttpRequest httpRequest, HttpResponse httpResponse, HttpContext httpContext) throws IOException {
         try {
             if (HttpPost.METHOD_NAME.equals(httpRequest.getRequestLine().getMethod())) {
                 executeGraphQlQueryAndSendResult(httpRequest, httpResponse);
             } else {
-                sendNotSupportedMethod(httpResponse, 405);
+                sendNotSupportedMethod(httpResponse);
             }
         } catch (Exception e) {
             sendError(httpRequest, httpResponse, e);
@@ -91,7 +90,7 @@ public class GraphQlRequestHandler implements HttpRequestHandler {
         return jsonFormatter.formatGeneratedObject(new GeneratedObject(generatedProperties));
     }
 
-    private void sendNotSupportedMethod(HttpResponse httpResponse, int code) {
-        httpResponse.setStatusCode(code);
+    private void sendNotSupportedMethod(HttpResponse httpResponse) {
+        httpResponse.setStatusCode(405);
     }
 }

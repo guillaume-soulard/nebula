@@ -16,7 +16,7 @@ import static org.mockito.Mockito.mock;
 public class AbstractFormatterTest {
 
     @Test
-    public void excludeFieldsOn_should_return_all_given_properties() throws Exception {
+    public void excludeFieldsOn_should_return_all_given_properties() {
 
         // GIVEN
         List<String> excludedFields = new ArrayList<>();
@@ -31,7 +31,7 @@ public class AbstractFormatterTest {
     }
 
     @Test
-    public void excludeFieldsOn_should_return_no_properties() throws Exception {
+    public void excludeFieldsOn_should_return_no_properties() {
 
         // GIVEN
         List<String> excludedFields = Arrays.asList("_id");
@@ -46,7 +46,7 @@ public class AbstractFormatterTest {
     }
 
     @Test
-    public void excludeFieldsOn_should_return_one_property() throws Exception {
+    public void excludeFieldsOn_should_return_one_property() {
 
         // GIVEN
         List<String> excludedFields = Arrays.asList("_id");

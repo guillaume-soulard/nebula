@@ -10,9 +10,9 @@ import java.util.List;
 
 abstract class AbstractListType implements Type {
 
-	protected Generator generator;
-	protected int maxSize;
-	protected int minSize;
+	protected final Generator generator;
+	protected final int maxSize;
+	protected final int minSize;
 	protected GenerationContext context;
 
 	AbstractListType(int minSize, int maxSize, Generator generator) {

@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ValueFormatterTest {
 
     @Test
-    public void formatValue_should_return_date_with_given_format() throws Exception {
+    public void formatValue_should_return_date_with_given_format() {
 
         // GIVEN
         ValueFormatter valueFormatter = new ValueFormatter("dd/MM/yyyy", '.', ',');
@@ -24,7 +24,7 @@ public class ValueFormatterTest {
     }
 
     @Test
-    public void formatValue_should_return_number_with_correct_separators() throws Exception {
+    public void formatValue_should_return_number_with_correct_separators() {
 
         // GIVEN
         ValueFormatter valueFormatter = new ValueFormatter("dd/MM/yyyy", ',', ' ');

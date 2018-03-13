@@ -3,7 +3,6 @@ package com.nebula.core.formatter;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.GeneratedProperty;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,12 +17,11 @@ public abstract class AbstractFormatter implements Formatter {
 
     protected GeneratedObject excludeFieldsOn(GeneratedObject generatedObject) {
 
-        List<GeneratedProperty> propertiesToDelete = new ArrayList<>();
         if (generatedObject != null && generatedObject.getGeneratedProperties() != null) {
-            propertiesToDelete.addAll(generatedObject.getGeneratedProperties()
+            List<GeneratedProperty> propertiesToDelete = generatedObject.getGeneratedProperties()
                     .stream()
                     .filter(generatedProperty ->
-                            propertiesToExclude.contains(generatedProperty.getPropertyName())).collect(Collectors.toList()));
+                            propertiesToExclude.contains(generatedProperty.getPropertyName())).collect(Collectors.toList());
             generatedObject.getGeneratedProperties().removeAll(propertiesToDelete);
         }
 

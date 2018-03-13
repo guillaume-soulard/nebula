@@ -8,7 +8,7 @@ import com.nebula.core.types.TypeBuilder;
 
 public class ListTypeOfTypeBuilder extends AbstractListTypeBuilder {
 
-	private TypeBuilder type;
+	private final TypeBuilder type;
 
 	public ListTypeOfTypeBuilder(GeneratorBuilder generator, TypeBuilder type) {
 		super(generator);

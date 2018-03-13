@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class NumberParserTest {
 
     @Test
-    public void parse_should_return_0() throws Exception {
+    public void parse_should_return_0() {
 
         // GIVEN
         NumberParser builder = new NumberParser();
@@ -25,7 +25,7 @@ public class NumberParserTest {
     }
 
     @Test
-    public void parse_should_return_10() throws Exception {
+    public void parse_should_return_10() {
 
         // GIVEN
         NumberParser builder = new NumberParser();
@@ -39,7 +39,7 @@ public class NumberParserTest {
     }
 
     @Test
-    public void parse_should_return_10_dot_56() throws Exception {
+    public void parse_should_return_10_dot_56() {
 
         // GIVEN
         NumberParser builder = new NumberParser();
@@ -53,7 +53,7 @@ public class NumberParserTest {
     }
 
     @Test
-    public void parse_should_return_100000000_dot_56() throws Exception {
+    public void parse_should_return_100000000_dot_56() {
 
         // GIVEN
         NumberParser builder = new NumberParser();
@@ -67,7 +67,7 @@ public class NumberParserTest {
     }
 
     @Test
-    public void parse_should_return_100_comma_000_comma_000_dot_56() throws Exception {
+    public void parse_should_return_100_comma_000_comma_000_dot_56() {
 
         // GIVEN
         NumberParser builder = new NumberParser();
@@ -81,7 +81,7 @@ public class NumberParserTest {
     }
 
     @Test
-    public void parse_should_return_number_with_custom_separators() throws Exception {
+    public void parse_should_return_number_with_custom_separators() {
 
         // GIVEN
         NumberParser builder = new NumberParser();

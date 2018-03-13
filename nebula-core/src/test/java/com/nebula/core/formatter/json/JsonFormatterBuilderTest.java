@@ -5,7 +5,7 @@ import org.junit.Test;
 public class JsonFormatterBuilderTest {
 
     @Test
-    public void JsonFormatterBuilder_should_have_method_withNumberThousandSeparator() throws Exception {
+    public void JsonFormatterBuilder_should_have_method_withNumberThousandSeparator() {
 
         // GIVEN
         JsonFormatterBuilder builder= new JsonFormatterBuilder();
@@ -17,7 +17,7 @@ public class JsonFormatterBuilderTest {
     }
 
     @Test
-    public void JsonFormatterBuilder_should_have_method_withDateFormat() throws Exception {
+    public void JsonFormatterBuilder_should_have_method_withDateFormat() {
 
         // GIVEN
         JsonFormatterBuilder builder= new JsonFormatterBuilder();
@@ -29,7 +29,7 @@ public class JsonFormatterBuilderTest {
     }
 
     @Test
-    public void JsonFormatterBuilder_should_have_method_withNumberDecimalSeparator() throws Exception {
+    public void JsonFormatterBuilder_should_have_method_withNumberDecimalSeparator() {
 
         // GIVEN
         JsonFormatterBuilder builder= new JsonFormatterBuilder();

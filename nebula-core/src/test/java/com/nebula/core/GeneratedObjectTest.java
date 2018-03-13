@@ -16,7 +16,7 @@ public class GeneratedObjectTest {
 	@Test
 	public void getObject_should_return_object_passed_in_constructor() {
 		// GIVEN
-		Object object = new String("test");
+		Object object = "test";
 		GeneratedObject generatedObject = new GeneratedObject(object);
 
 		// WHEN
@@ -174,7 +174,7 @@ public class GeneratedObjectTest {
 	}
 
 	@Test
-	public void toString_should_be_value() throws Exception {
+	public void toString_should_be_value() {
 
 		// GIVEN
 		GeneratedObject generatedObject;
@@ -187,7 +187,7 @@ public class GeneratedObjectTest {
 	}
 
 	@Test
-	public void toString_should_be_10() throws Exception {
+	public void toString_should_be_10() {
 
 		// GIVEN
 		GeneratedObject generatedObject;
@@ -200,7 +200,7 @@ public class GeneratedObjectTest {
 	}
 
 	@Test
-	public void toString_should_be_empty_array() throws Exception {
+	public void toString_should_be_empty_array() {
 
 		// GIVEN
 		GeneratedObject generatedObject;
@@ -214,7 +214,7 @@ public class GeneratedObjectTest {
 	}
 
 	@Test
-	public void toString_should_be_array_of_3_strings() throws Exception {
+	public void toString_should_be_array_of_3_strings() {
 
 		// GIVEN
 		GeneratedObject generatedObject;
@@ -228,7 +228,7 @@ public class GeneratedObjectTest {
 	}
 
 	@Test
-	public void toString_should_be_array_of_3_numbers() throws Exception {
+	public void toString_should_be_array_of_3_numbers() {
 
 		// GIVEN
 		GeneratedObject generatedObject;
@@ -242,7 +242,7 @@ public class GeneratedObjectTest {
 	}
 
 	@Test
-	public void toString_should_return_two_properties() throws Exception {
+	public void toString_should_return_two_properties() {
 
 		// GIVEN
 		GeneratedObject generatedObject;

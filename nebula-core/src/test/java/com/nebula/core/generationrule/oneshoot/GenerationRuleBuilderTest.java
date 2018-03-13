@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class GenerationRuleBuilderTest {
 
     @Test
-    public void build_should_throw_exception_when_entity_is_not_specified() throws Exception {
+    public void build_should_throw_exception_when_entity_is_not_specified() {
 
         // GIVEN
         OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();
@@ -31,7 +31,7 @@ public class GenerationRuleBuilderTest {
     }
 
     @Test
-    public void build_should_throw_exception_when_formatter_is_not_specified() throws Exception {
+    public void build_should_throw_exception_when_formatter_is_not_specified() {
 
         // GIVEN
         OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();
@@ -48,7 +48,7 @@ public class GenerationRuleBuilderTest {
     }
 
     @Test
-    public void build_should_throw_exception_when_any_outputs_are_specified() throws Exception {
+    public void build_should_throw_exception_when_any_outputs_are_specified() {
 
         // GIVEN
         OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();
@@ -66,7 +66,7 @@ public class GenerationRuleBuilderTest {
     }
 
     @Test
-    public void build_should_throw_exception_when_entity_non_exists_in_model() throws Exception {
+    public void build_should_throw_exception_when_entity_non_exists_in_model() {
 
         // GIVEN
         OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();
@@ -84,7 +84,7 @@ public class GenerationRuleBuilderTest {
     }
 
     @Test
-    public void build_should_not_throw_exception_when_any_generation_constraints_are_specified() throws Exception {
+    public void build_should_not_throw_exception_when_any_generation_constraints_are_specified() {
 
         // GIVEN
         OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();

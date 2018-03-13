@@ -44,7 +44,7 @@ public class ModelTest {
 	public void generateAll_should_generate_10_objects() {
 
 		// GIVEN
-		long seed = 1l;
+		long seed = 1L;
 		Model model = ModelBuilder.newModel().build();
 		Entity entity = model.newEntity("test", 10);
 		entity.addProperty("number", NebulaGenerators.random(), NebulaTypes.number().range());
@@ -61,7 +61,7 @@ public class ModelTest {
 	public void generateEntity_should_generate_10_objects() {
 
 		// GIVEN
-		long seed = 1l;
+		long seed = 1L;
 		Model model = ModelBuilder.newModel().build();
 		Entity entity = model.newEntity("test", 10);
 		entity.addProperty("number", NebulaGenerators.random(), NebulaTypes.number().range());
@@ -77,7 +77,7 @@ public class ModelTest {
 	public void generateAll_should_return_only_numbers_between_minus2_and_2_over_100_generated_entities() {
 
 		// GIVEN
-		long seed = 1l;
+		long seed = 1L;
 		Model model = ModelBuilder.newModel().build();
 		int amount = 100;
 		Entity entity = model.newEntity("test", amount);
@@ -103,7 +103,7 @@ public class ModelTest {
 		Entity entity = model.newEntity("test", amount);
 		entity.addProperty("number", NebulaGenerators.random(),
 				NebulaTypes.number().range().withMin(BigDecimal.valueOf(-2)).withMax(BigDecimal.valueOf(2)));
-		long seed = 1l;
+		long seed = 1L;
 
 		// WHEN
 		GeneratedObjectIterator result = model.iterator("test", seed);
@@ -121,7 +121,7 @@ public class ModelTest {
 		Entity entity = model.newEntity("test", amount);
 		entity.addProperty("number", NebulaGenerators.random(),
 				NebulaTypes.number().range().withMin(BigDecimal.valueOf(-2)).withMax(BigDecimal.valueOf(2)));
-		long seed = 1l;
+		long seed = 1L;
 		List<GeneratedObject> allObjects = model.generateEntityObjects(entity, seed);
 
 		// WHEN
@@ -170,8 +170,8 @@ public class ModelTest {
 		Model model = ModelBuilder.newModel().build();
 		int amount = 10;
 		Entity entity = model.newEntity("test", amount);
-		long seed = 1l;
-		long entityIndex = 0l;
+		long seed = 1L;
+		long entityIndex = 0L;
 
 		// WHEN
 		GeneratedObject result = model.generateEntityObject(entity, entityIndex, seed);
@@ -187,7 +187,7 @@ public class ModelTest {
 		Model model = ModelBuilder.newModel().build();
 		int amount = 10;
 		Entity entity = model.newEntity("test", amount);
-		long seed = 1l;
+		long seed = 1L;
 
 		// WHEN
 		List<GeneratedObject> result = model.generateEntityObjects(entity, seed);
@@ -203,8 +203,8 @@ public class ModelTest {
 		Model model = ModelBuilder.newModel().build();
 		int amount = 10;
 		Entity entity = model.newEntity("test", amount);
-		long seed = 1l;
-		long entityIndex = 0l;
+		long seed = 1L;
+		long entityIndex = 0L;
 
 		// WHEN
 		GeneratedObject object1 = model.generateEntityObject(entity, entityIndex, seed);
@@ -221,8 +221,8 @@ public class ModelTest {
 		Model model = ModelBuilder.newModel().build();
 		int amount = 10;
 		Entity entity = model.newEntity("test", amount);
-		long seed = 1l;
-		long entityIndex = 0l;
+		long seed = 1L;
+		long entityIndex = 0L;
 		GeneratedObject generatedObjectAtIndex0 = model.generateEntityObjects(entity, seed).get(0);
 
 		// WHEN
@@ -233,7 +233,7 @@ public class ModelTest {
 	}
 
 	@Test
-	public void removeEntity_should_remove_all_entity_from_list() throws Exception {
+	public void removeEntity_should_remove_all_entity_from_list() {
 
 		// GIVEN
 		Model model = ModelBuilder.newModel().build();
@@ -248,7 +248,7 @@ public class ModelTest {
 	}
 
 	@Test
-	public void removeEntity_should_remove_entity_from_list() throws Exception {
+	public void removeEntity_should_remove_entity_from_list() {
 
 		// GIVEN
 		Model model = ModelBuilder.newModel().build();
@@ -265,7 +265,7 @@ public class ModelTest {
 	}
 
 	@Test
-	public void removeEntity_should_throw_exception_when_entity_to_remove_not_exists() throws Exception {
+	public void removeEntity_should_throw_exception_when_entity_to_remove_not_exists() {
 
 		// GIVEN
 		Model model = ModelBuilder.newModel().build();

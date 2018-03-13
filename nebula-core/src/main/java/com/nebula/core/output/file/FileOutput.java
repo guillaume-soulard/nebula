@@ -11,7 +11,7 @@ import java.nio.file.Paths;
 
 class FileOutput implements Output {
     private final String charset;
-    private Path filePath;
+    private final Path filePath;
     private FileOutputStream fileOutputStream;
 
     FileOutput(String filePath, String charset) {

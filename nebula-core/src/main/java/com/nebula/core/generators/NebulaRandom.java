@@ -7,8 +7,8 @@ import java.util.Random;
 public class NebulaRandom {
 
 	private static final int MAX_INT_TO_GENERATE = 1;
-	private Random random;
-	private long seed;
+	private final Random random;
+	private final long seed;
 
 	public NebulaRandom(long seed) {
 		this.seed = seed;

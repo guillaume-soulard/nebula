@@ -14,7 +14,7 @@ import java.util.List;
 public class TypeTextBuilder implements RandomTypeBuilder {
 
     private NebulaDictionary dictionary;
-    private TextGenerationConfiguration textGenerationConfiguration = new TextGenerationConfiguration();
+    private final TextGenerationConfiguration textGenerationConfiguration = new TextGenerationConfiguration();
 
     public TypeTextBuilder() {
 

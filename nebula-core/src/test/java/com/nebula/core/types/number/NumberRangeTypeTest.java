@@ -22,7 +22,7 @@ public class NumberRangeTypeTest {
 		NumberRangeType doubleType = new NumberRangeType(range, precision);
 
 		// WHEN
-		GeneratedObject result = doubleType.generateObject(5l);
+		GeneratedObject result = doubleType.generateObject(5L);
 
 		// THEN
 		assertThat(result.getObject()).isEqualTo(BigDecimal.valueOf(0.5));
@@ -37,7 +37,7 @@ public class NumberRangeTypeTest {
 		NumberRangeType doubleType = new NumberRangeType(range, precision);
 
 		// WHEN
-		GeneratedObject result = doubleType.generateObject(5l);
+		GeneratedObject result = doubleType.generateObject(5L);
 
 		// THEN
 		assertThat(result.getObject()).isEqualTo(BigDecimal.valueOf(0.05));
@@ -52,10 +52,10 @@ public class NumberRangeTypeTest {
 		NumberRangeType doubleType = new NumberRangeType(range, precision);
 
 		// WHEN
-		catchException(doubleType).generateObject(100l);
+		catchException(doubleType).generateObject(100L);
 
 		// THEN
-		assertThat((Exception) (Exception) caughtException()).isInstanceOf(NebulaException.class)
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
 
@@ -71,7 +71,7 @@ public class NumberRangeTypeTest {
 		Long result = doubleType.getMinRange();
 
 		// THEN
-		assertThat(result).isEqualTo(0l);
+		assertThat(result).isEqualTo(0L);
 	}
 
 	@Test
@@ -86,7 +86,7 @@ public class NumberRangeTypeTest {
 		Long result = doubleType.getMaxRange();
 
 		// THEN
-		assertThat(result).isEqualTo(0l);
+		assertThat(result).isEqualTo(0L);
 	}
 
 	@Test
@@ -101,7 +101,7 @@ public class NumberRangeTypeTest {
 		Long result = doubleType.getMaxRange();
 
 		// THEN
-		assertThat(result).isEqualTo(1l);
+		assertThat(result).isEqualTo(1L);
 	}
 
 	@Test
@@ -131,7 +131,7 @@ public class NumberRangeTypeTest {
 		Long result = doubleType.getMaxRange();
 
 		// THEN
-		assertThat(result).isEqualTo(5000l);
+		assertThat(result).isEqualTo(5000L);
 	}
 
 	@Test
@@ -143,10 +143,10 @@ public class NumberRangeTypeTest {
 		NumberRangeType doubleType = new NumberRangeType(range, precision);
 
 		// WHEN
-		catchException(doubleType).generateObject(-1l);
+		catchException(doubleType).generateObject(-1L);
 
 		// THEN
-		assertThat((Exception) (Exception) caughtException()).isInstanceOf(NebulaException.class)
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
 }

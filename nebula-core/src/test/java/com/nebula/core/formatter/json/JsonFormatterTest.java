@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class JsonFormatterTest {
 
     @Test
-    public void formatHeader_should_return_empty_string() throws Exception {
+    public void formatHeader_should_return_empty_string() {
 
         // GIVEN
         JsonFormatter jsonFormatter = newJsonFormatter();
@@ -30,7 +30,7 @@ public class JsonFormatterTest {
     }
 
     @Test
-    public void formatGeneratedObject_should_return_empty_string() throws Exception {
+    public void formatGeneratedObject_should_return_empty_string() {
 
         // GIVEN
         JsonFormatter jsonFormatter = newJsonFormatter();
@@ -43,7 +43,7 @@ public class JsonFormatterTest {
     }
 
     @Test
-    public void formatGeneratedObject_should_return_test() throws Exception {
+    public void formatGeneratedObject_should_return_test() {
 
         // GIVEN
         JsonFormatter jsonFormatter = newJsonFormatter();
@@ -57,7 +57,7 @@ public class JsonFormatterTest {
     }
 
     @Test
-    public void formatGeneratedObject_should_return_0() throws Exception {
+    public void formatGeneratedObject_should_return_0() {
 
         // GIVEN
         JsonFormatter jsonFormatter = newJsonFormatter();
@@ -71,7 +71,7 @@ public class JsonFormatterTest {
     }
 
     @Test
-    public void formatGeneratedObject_should_return_1_comma_000_dot_25() throws Exception {
+    public void formatGeneratedObject_should_return_1_comma_000_dot_25() {
 
         // GIVEN
         JsonFormatter jsonFormatter = newJsonFormatter();
@@ -85,7 +85,7 @@ public class JsonFormatterTest {
     }
 
     @Test
-    public void formatGeneratedObject_should_return_02_slash_01_slash_2017() throws Exception {
+    public void formatGeneratedObject_should_return_02_slash_01_slash_2017() {
 
         // GIVEN
         JsonFormatter jsonFormatter = newJsonFormatter();
@@ -99,7 +99,7 @@ public class JsonFormatterTest {
     }
 
     @Test
-    public void formatGeneratedObject_should_return_another_text() throws Exception {
+    public void formatGeneratedObject_should_return_another_text() {
 
         // GIVEN
         JsonFormatter jsonFormatter = newJsonFormatter();
@@ -113,7 +113,7 @@ public class JsonFormatterTest {
     }
 
     @Test
-    public void formatGeneratedObject_should_return_json_object_with_one_property() throws Exception {
+    public void formatGeneratedObject_should_return_json_object_with_one_property() {
 
         // GIVEN
         JsonFormatter jsonFormatter = newJsonFormatter();
@@ -129,7 +129,7 @@ public class JsonFormatterTest {
     }
 
     @Test
-    public void formatGeneratedObject_should_return_json_object_with_field_quoted() throws Exception {
+    public void formatGeneratedObject_should_return_json_object_with_field_quoted() {
 
         // GIVEN
         JsonFormatter jsonFormatter = newJsonFormatterWithQuotedFields();
@@ -145,7 +145,7 @@ public class JsonFormatterTest {
     }
 
     @Test
-    public void formatGeneratedObject_should_return_json_object_with_two_property() throws Exception {
+    public void formatGeneratedObject_should_return_json_object_with_two_property() {
 
         // GIVEN
         JsonFormatter jsonFormatter = newJsonFormatter();
@@ -162,7 +162,7 @@ public class JsonFormatterTest {
     }
 
     @Test
-    public void formatGeneratedObject_should_return_json_object_sub_object() throws Exception {
+    public void formatGeneratedObject_should_return_json_object_sub_object() {
 
         // GIVEN
         JsonFormatter jsonFormatter = newJsonFormatter();
@@ -180,7 +180,7 @@ public class JsonFormatterTest {
     }
 
     @Test
-    public void formatGeneratedObject_should_return_empty_array() throws Exception {
+    public void formatGeneratedObject_should_return_empty_array() {
 
         // GIVEN
         JsonFormatter jsonFormatter = newJsonFormatter();
@@ -195,7 +195,7 @@ public class JsonFormatterTest {
     }
 
     @Test
-    public void formatGeneratedObject_should_return_array_with_two_items() throws Exception {
+    public void formatGeneratedObject_should_return_array_with_two_items() {
 
         // GIVEN
         JsonFormatter jsonFormatter = newJsonFormatter();
@@ -212,7 +212,7 @@ public class JsonFormatterTest {
     }
 
     @Test
-    public void formatGeneratedObject_should_return_array_with_one_object() throws Exception {
+    public void formatGeneratedObject_should_return_array_with_one_object() {
 
         // GIVEN
         JsonFormatter jsonFormatter = newJsonFormatter();
@@ -230,7 +230,7 @@ public class JsonFormatterTest {
     }
 
     @Test
-    public void formatGeneratedObject_should_return_json_object_with_pretty_format() throws Exception {
+    public void formatGeneratedObject_should_return_json_object_with_pretty_format() {
 
         // GIVEN
         JsonFormatter jsonFormatter = newJsonFormatterWithPrettyFormat();

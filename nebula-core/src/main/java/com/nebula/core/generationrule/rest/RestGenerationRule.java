@@ -4,7 +4,6 @@ import com.nebula.core.Model;
 import com.nebula.core.formatter.Formatter;
 import com.nebula.core.formatter.FormatterBuilder;
 import com.nebula.core.generationrule.GenerationRule;
-import org.apache.http.HttpException;
 import org.apache.http.HttpRequest;
 import org.apache.http.HttpResponse;
 import org.apache.http.config.SocketConfig;
@@ -14,7 +13,6 @@ import org.apache.http.protocol.HttpContext;
 import org.apache.http.protocol.HttpProcessor;
 import org.apache.http.protocol.HttpRequestHandler;
 
-import java.io.IOException;
 import java.net.InetAddress;
 import java.util.HashMap;
 import java.util.Map;
@@ -22,12 +20,12 @@ import java.util.concurrent.TimeUnit;
 
 class RestGenerationRule implements GenerationRule {
 
-    private Model model;
-    private String host;
-    private int port;
-    private Map<String, Formatter> contentTypeFormatterMap = new HashMap<>();
+    private final Model model;
+    private final String host;
+    private final int port;
+    private final Map<String, Formatter> contentTypeFormatterMap = new HashMap<>();
     private HttpServer server;
-    private String defaultContentType;
+    private final String defaultContentType;
 
     RestGenerationRule(Model model, Map<String, FormatterBuilder> contentTypeFormatterMap, String defaultContentType, String host, int port) {
         this.model = model;
@@ -46,12 +44,12 @@ class RestGenerationRule implements GenerationRule {
             HttpRequestHandler requestHandler = new RequestHandler(model, contentTypeFormatterMap, defaultContentType);
             HttpProcessor httpProcessor = new HttpProcessor() {
                 @Override
-                public void process(HttpRequest httpRequest, HttpContext httpContext) throws HttpException, IOException {
+                public void process(HttpRequest httpRequest, HttpContext httpContext) {
 
                 }
 
                 @Override
-                public void process(HttpResponse httpResponse, HttpContext httpContext) throws HttpException, IOException {
+                public void process(HttpResponse httpResponse, HttpContext httpContext) {
 
                 }
             };

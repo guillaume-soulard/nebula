@@ -12,7 +12,7 @@ import java.util.List;
 
 class ListTypeOfType extends AbstractListType {
 
-	private Type type;
+	private final Type type;
 
 	ListTypeOfType(int minSize, int maxSize, Generator generator, Type type) {
 		super(minSize, maxSize, generator);
@@ -38,7 +38,7 @@ class ListTypeOfType extends AbstractListType {
 
 	@Override
 	public Long getMinRange() {
-		return 0l;
+		return 0L;
 	}
 
 	@Override

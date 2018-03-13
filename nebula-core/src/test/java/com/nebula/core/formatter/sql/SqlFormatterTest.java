@@ -24,14 +24,14 @@ public class SqlFormatterTest {
     private Entity entity;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         String tableName = "users";
         entity = mock(Entity.class);
         when(entity.getName()).thenReturn(tableName);
     }
 
     @Test
-    public void formatGeneratedObject_should_format_given_generated_object_as_sql_insert() throws Exception {
+    public void formatGeneratedObject_should_format_given_generated_object_as_sql_insert() {
 
         // GIVEN
         ValueFormatter valueFormatter = new ValueFormatter("dd/MM/YYYY", ',', ' ');
@@ -53,7 +53,7 @@ public class SqlFormatterTest {
     }
 
     @Test
-    public void formatHeader_should_return_delete_from() throws Exception {
+    public void formatHeader_should_return_delete_from() {
 
         // GIVEN
         ValueFormatter valueFormatter = new ValueFormatter("dd/MM/YYYY", ',', ' ');
@@ -69,7 +69,7 @@ public class SqlFormatterTest {
     }
 
     @Test
-    public void formatFooter_should_return_commit() throws Exception {
+    public void formatFooter_should_return_commit() {
 
         // GIVEN
         ValueFormatter valueFormatter = new ValueFormatter("dd/MM/YYYY", ',', ' ');

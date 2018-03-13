@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 class AmountGenerationConstraint implements GenerationConstraint {
 
     private final int maxAmountOfObjectsToGenerate;
-    private AtomicInteger amountOfAlreadyGeneratedObjects = new AtomicInteger(0);
+    private final AtomicInteger amountOfAlreadyGeneratedObjects = new AtomicInteger(0);
 
 
     AmountGenerationConstraint(int maxAmountOfObjectsToGenerate) {

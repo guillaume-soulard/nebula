@@ -33,7 +33,7 @@ public class ConstantTypeTest {
 		Long result = constantType.getMinRange();
 
 		// THEN
-		assertThat(result).isEqualTo(0l);
+		assertThat(result).isEqualTo(0L);
 	}
 
 	@Test
@@ -46,7 +46,7 @@ public class ConstantTypeTest {
 		Long result = constantType.getMaxRange();
 
 		// THEN
-		assertThat(result).isEqualTo(0l);
+		assertThat(result).isEqualTo(0L);
 	}
 
 	@Test
@@ -56,7 +56,7 @@ public class ConstantTypeTest {
 		ConstantType constantType = new ConstantType(null);
 
 		// WHEN
-		GeneratedObject result = constantType.generateObject(0l);
+		GeneratedObject result = constantType.generateObject(0L);
 
 		// THEN
 		assertThat(result).isNotNull();
@@ -70,7 +70,7 @@ public class ConstantTypeTest {
 		ConstantType constantType = new ConstantType(value);
 
 		// WHEN
-		GeneratedObject result = constantType.generateObject(0l);
+		GeneratedObject result = constantType.generateObject(0L);
 
 		// THEN
 		assertThat(result.getObject()).isEqualTo(value);
@@ -84,7 +84,7 @@ public class ConstantTypeTest {
 		ConstantType constantType = new ConstantType(value);
 
 		// WHEN
-		GeneratedObject result = constantType.generateObject(0l);
+		GeneratedObject result = constantType.generateObject(0L);
 
 		// THEN
 		assertThat(result.getObject()).isEqualTo(value);
@@ -96,10 +96,10 @@ public class ConstantTypeTest {
 		// GIVEN
 		String value = "test";
 		ConstantType constantType = new ConstantType(value);
-		GeneratedObject resultAtIndex0 = constantType.generateObject(0l);
+		GeneratedObject resultAtIndex0 = constantType.generateObject(0L);
 
 		// WHEN
-		GeneratedObject result = constantType.generateObject(1l);
+		GeneratedObject result = constantType.generateObject(1L);
 
 		// THEN
 		assertThat(result.getObject()).isEqualTo(resultAtIndex0.getObject());

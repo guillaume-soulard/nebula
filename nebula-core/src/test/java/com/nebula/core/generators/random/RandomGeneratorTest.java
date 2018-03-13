@@ -71,7 +71,7 @@ public class RandomGeneratorTest {
 		// GIVEN
 		RandomGenerator generator = new RandomGenerator();
 		long entityIndex = 0L;
-		generator.init(new GenerationContext(new NebulaRandom(0l), null, entityIndex));
+		generator.init(new GenerationContext(new NebulaRandom(0L), null, entityIndex));
 		Type type = NebulaTypes.number().range().withMin(BigDecimal.ZERO).withMax(BigDecimal.TEN).build(ModelBuilder.newModel().build());
 
 		// WHEN

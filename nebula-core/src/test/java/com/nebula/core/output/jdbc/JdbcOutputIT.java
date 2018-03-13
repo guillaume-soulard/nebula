@@ -29,7 +29,7 @@ public class JdbcOutputIT {
     private JdbcTemplate jdbcTemplate;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
 
         EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
         EmbeddedDatabase db = builder
@@ -41,7 +41,7 @@ public class JdbcOutputIT {
     }
 
     @Test
-    public void generate_should_generate_10_users_in_hsqldb() throws Exception {
+    public void generate_should_generate_10_users_in_hsqldb() {
 
         // GIVEN
         Model model = ModelBuilder.newModel().withSeed("My company's users").build();

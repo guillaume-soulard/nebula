@@ -16,8 +16,8 @@ import static com.nebula.core.generators.NebulaGenerators.random;
 @State(Scope.Benchmark)
 @BenchmarkMode(Mode.Throughput)
 @OutputTimeUnit(TimeUnit.SECONDS)
-@Warmup(time = 1, timeUnit = TimeUnit.SECONDS, iterations = 1)
-@Measurement(time = 3, timeUnit = TimeUnit.SECONDS, iterations = 3)
+@Warmup(time = 1, iterations = 1)
+@Measurement(time = 3, iterations = 3)
 @Threads(1)
 @Fork(1)
 public class ListTypeOfTypeBenchmark {
@@ -28,7 +28,7 @@ public class ListTypeOfTypeBenchmark {
 
 	@Benchmark
 	public void benchmark_list_of_number_with_size_1(Blackhole blackhole) {
-		blackhole.consume(model.generateEntityObject(entity, index.getAndIncrement(), 0l));
+		blackhole.consume(model.generateEntityObject(entity, index.getAndIncrement(), 0L));
 	}
 
 	@Setup(Level.Iteration)
@@ -37,6 +37,6 @@ public class ListTypeOfTypeBenchmark {
 		entity = model.newEntity("test", 10000000);
 		entity.addProperty("property", random(),
 				NebulaTypes.list().of(random(), number().range()));
-		index = new AtomicLong(0l);
+		index = new AtomicLong(0L);
 	}
 }

@@ -16,8 +16,8 @@ import static com.nebula.core.generators.NebulaGenerators.random;
 @State(Scope.Benchmark)
 @BenchmarkMode(Mode.Throughput)
 @OutputTimeUnit(TimeUnit.SECONDS)
-@Warmup(time = 1, timeUnit = TimeUnit.SECONDS, iterations = 1)
-@Measurement(time = 3, timeUnit = TimeUnit.SECONDS, iterations = 3)
+@Warmup(time = 1, iterations = 1)
+@Measurement(time = 3, iterations = 3)
 @Threads(1)
 @Fork(1)
 public class NumberAmongTypeBenchmark {
@@ -28,7 +28,7 @@ public class NumberAmongTypeBenchmark {
 
 	@Benchmark
 	public void benchmark_number_range_type(Blackhole blackhole) {
-		blackhole.consume(model.generateEntityObject(entity, index.getAndIncrement(), 0l));
+		blackhole.consume(model.generateEntityObject(entity, index.getAndIncrement(), 0L));
 	}
 
 	@Setup(Level.Iteration)
@@ -36,6 +36,6 @@ public class NumberAmongTypeBenchmark {
 		model = ModelBuilder.newModel().build();
 		entity = model.newEntity("test", 10000000);
 		entity.addProperty("property", random(), number().among().items(BigDecimal.ZERO, BigDecimal.ONE, BigDecimal.TEN));
-		index = new AtomicLong(0l);
+		index = new AtomicLong(0L);
 	}
 }

@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ModelBasedObjectGeneratorTest {
 
     @Test
-    public void generate_should_return_non_null_object() throws Exception {
+    public void generate_should_return_non_null_object() {
 
         // GIVEN
         Model model = ModelBuilder.newModel()
@@ -36,7 +36,7 @@ public class ModelBasedObjectGeneratorTest {
     }
 
     @Test
-    public void generate_should_return_non_null_User_object() throws Exception {
+    public void generate_should_return_non_null_User_object() {
 
         // GIVEN
         Model model = new ClassModelBuilder().buildModelFrom(User.class);
@@ -50,7 +50,7 @@ public class ModelBasedObjectGeneratorTest {
     }
 
     @Test
-    public void generateListOf_should_return_a_list_of_User_object() throws Exception {
+    public void generateListOf_should_return_a_list_of_User_object() {
 
         // GIVEN
         Model model = new ClassModelBuilder().buildModelFrom(User.class);

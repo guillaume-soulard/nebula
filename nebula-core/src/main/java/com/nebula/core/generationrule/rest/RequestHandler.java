@@ -28,9 +28,9 @@ import static com.nebula.core.types.NebulaTypes.string;
 
 class RequestHandler implements HttpRequestHandler {
 
-    private Model model;
-    private Map<String, Formatter> contentTypeFormatterMap;
-    private String defaultContentType;
+    private final Model model;
+    private final Map<String, Formatter> contentTypeFormatterMap;
+    private final String defaultContentType;
 
     public RequestHandler(Model model, Map<String, Formatter> contentTypeFormatterMap, String defaultContentType) {
         this.model = model;
@@ -39,12 +39,12 @@ class RequestHandler implements HttpRequestHandler {
     }
 
     @Override
-    public void handle(HttpRequest httpRequest, HttpResponse httpResponse, HttpContext httpContext) throws HttpException, IOException {
+    public void handle(HttpRequest httpRequest, HttpResponse httpResponse, HttpContext httpContext) throws IOException {
         try {
             if (HttpGet.METHOD_NAME.equals(httpRequest.getRequestLine().getMethod())) {
                 sendGetQueryResult(httpRequest, httpResponse);
             } else {
-                sendNotSupportedMethod(httpResponse, 405);
+                sendNotSupportedMethod(httpResponse);
             }
         } catch (Exception e) {
             sendError(httpRequest, httpResponse, e);
@@ -153,7 +153,7 @@ class RequestHandler implements HttpRequestHandler {
         }
     }
 
-    private void sendNotSupportedMethod(HttpResponse httpResponse, int code) {
-        httpResponse.setStatusCode(code);
+    private void sendNotSupportedMethod(HttpResponse httpResponse) {
+        httpResponse.setStatusCode(405);
     }
 }

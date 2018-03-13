@@ -20,7 +20,7 @@ public class BooleanTypeTest {
 		Long result = booleanType.getMinRange();
 
 		// THEN
-		assertThat(result).isEqualTo(0l);
+		assertThat(result).isEqualTo(0L);
 	}
 
 	@Test
@@ -33,7 +33,7 @@ public class BooleanTypeTest {
 		Long result = booleanType.getMaxRange();
 
 		// THEN
-		assertThat(result).isEqualTo(1l);
+		assertThat(result).isEqualTo(1L);
 	}
 
 	@Test
@@ -43,7 +43,7 @@ public class BooleanTypeTest {
 		BooleanType booleanType = new BooleanType();
 
 		// WHEN
-		GeneratedObject result = booleanType.generateObject(0l);
+		GeneratedObject result = booleanType.generateObject(0L);
 
 		// THEN
 		assertThat(result).isNotNull();
@@ -56,7 +56,7 @@ public class BooleanTypeTest {
 		BooleanType booleanType = new BooleanType();
 
 		// WHEN
-		GeneratedObject result = booleanType.generateObject(0l);
+		GeneratedObject result = booleanType.generateObject(0L);
 
 		// THEN
 		assertThat(result.getObject()).isEqualTo(Boolean.FALSE);
@@ -69,7 +69,7 @@ public class BooleanTypeTest {
 		BooleanType booleanType = new BooleanType();
 
 		// WHEN
-		GeneratedObject result = booleanType.generateObject(1l);
+		GeneratedObject result = booleanType.generateObject(1L);
 
 		// THEN
 		assertThat(result.getObject()).isEqualTo(Boolean.TRUE);
@@ -82,7 +82,7 @@ public class BooleanTypeTest {
 		BooleanType booleanType = new BooleanType();
 
 		// WHEN
-		catchException(booleanType).generateObject(-1l);
+		catchException(booleanType).generateObject(-1L);
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
@@ -96,7 +96,7 @@ public class BooleanTypeTest {
 		BooleanType booleanType = new BooleanType();
 
 		// WHEN
-		catchException(booleanType).generateObject(2l);
+		catchException(booleanType).generateObject(2L);
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)

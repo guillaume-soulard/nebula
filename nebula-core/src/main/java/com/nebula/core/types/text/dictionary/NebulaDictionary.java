@@ -7,7 +7,7 @@ import java.util.List;
 
 public class NebulaDictionary {
 
-    private List<String> words;
+    private final List<String> words;
 
     public NebulaDictionary(List<String> words) {
         this.words = words;

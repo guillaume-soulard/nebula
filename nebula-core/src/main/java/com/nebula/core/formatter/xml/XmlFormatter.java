@@ -14,7 +14,7 @@ import java.util.List;
 
 class XmlFormatter implements Formatter {
 
-    private ValueFormatter valueFormatter;
+    private final ValueFormatter valueFormatter;
     private Entity entity;
 
     XmlFormatter(ValueFormatter valueFormatter) {

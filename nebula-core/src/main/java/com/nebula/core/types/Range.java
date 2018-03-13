@@ -4,9 +4,9 @@ import com.nebula.core.NebulaException;
 
 public class Range<T extends Comparable<T>> {
 
-	private T min;
+	private final T min;
 
-	private T max;
+	private final T max;
 
 	public Range(T min, T max) {
 		checkMin(min);
@@ -16,21 +16,21 @@ public class Range<T extends Comparable<T>> {
 		this.max = max;
 	}
 
-	public void checkInterval(T min, T max) {
+	private void checkInterval(T min, T max) {
 		if (min.compareTo(max) > 0) {
 
 			throw new NebulaException("range [" + min + ";" + max + "] is invalid");
 		}
 	}
 
-	public void checkMax(T max) {
+	private void checkMax(T max) {
 		if (max == null) {
 
 			throw new NebulaException("max is null");
 		}
 	}
 
-	public void checkMin(T min) {
+	private void checkMin(T min) {
 		if (min == null) {
 
 			throw new NebulaException("min is null");

@@ -5,14 +5,10 @@ import com.nebula.core.Model;
 import graphql.schema.DataFetcher;
 import graphql.schema.DataFetchingEnvironment;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-
 public class NebulaSingleEntityDataFetcher implements DataFetcher<GeneratedObject> {
 
-    private Model model;
-    private String entityName;
+    private final Model model;
+    private final String entityName;
 
     NebulaSingleEntityDataFetcher(Model model, String entityName) {
         this.model = model;

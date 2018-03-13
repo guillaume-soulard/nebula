@@ -13,7 +13,7 @@ public class DateTimeMillisecondStrategyTest {
 		// GIVEN
 		DateTimeStrategy strategy = new DateTimeMillisecondStrategy();
 		DateTime initialDate = new DateTime(2017, 1, 1, 0, 0, 0, 0);
-		Long index = 0l;
+		Long index = 0L;
 
 		// WHEN
 		DateTime result = strategy.getByDateAndIndexAndInterval(initialDate, index);
@@ -28,7 +28,7 @@ public class DateTimeMillisecondStrategyTest {
 		// GIVEN
 		DateTimeStrategy strategy = new DateTimeMillisecondStrategy();
 		DateTime initialDate = new DateTime(2017, 1, 1, 0, 0, 0, 0);
-		Long index = 1l;
+		Long index = 1L;
 
 		// WHEN
 		DateTime result = strategy.getByDateAndIndexAndInterval(initialDate, index);
@@ -49,7 +49,7 @@ public class DateTimeMillisecondStrategyTest {
 		Long result = strategy.getMaxIndex(min, max);
 
 		// THEN
-		assertThat(result).isEqualTo(2000l);
+		assertThat(result).isEqualTo(2000L);
 	}
 
 	@Test
@@ -64,6 +64,6 @@ public class DateTimeMillisecondStrategyTest {
 		Long result = strategy.getMaxIndex(min, max);
 
 		// THEN
-		assertThat(result).isEqualTo(1l);
+		assertThat(result).isEqualTo(1L);
 	}
 }

@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class JsonGenerationIT {
 
     @Rule
-    public TemporaryFolder temporaryFolder = new TemporaryFolder();
+    public final TemporaryFolder temporaryFolder = new TemporaryFolder();
 
     @Before
     public void setUp() throws Exception {
@@ -30,16 +30,16 @@ public class JsonGenerationIT {
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         temporaryFolder.delete();
     }
 
     @Test
-    public void generate_should_generate_a_correct_csv_file() throws Exception {
+    public void generate_should_generate_a_correct_csv_file() {
 
         // GIVEN
         Model model = ModelBuilder.newModel().withSeed(1L).withDateFormat("dd/MM/yyyy").build();
-        Entity users = model.newEntity("users", 100l);
+        Entity users = model.newEntity("users", 100L);
         users.addProperty("firstName", random(), string().withPattern("[A-Z]{1}[a-z]{3,25}"));
         users.addProperty("lastName", random(), string().withPattern("[A-Z]{1}[a-z]{3,25}"));
         DateTime minDayOfBirth = new DateTime(1950, 1, 1, 0, 0);

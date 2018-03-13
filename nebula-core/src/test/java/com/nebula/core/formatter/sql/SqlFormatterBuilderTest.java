@@ -5,7 +5,7 @@ import org.junit.Test;
 public class SqlFormatterBuilderTest {
 
     @Test
-    public void SqlFormatterBuilder_should_have_method_withNumberThousandSeparator() throws Exception {
+    public void SqlFormatterBuilder_should_have_method_withNumberThousandSeparator() {
 
         // GIVEN
         SqlFormatterBuilder builder= new SqlFormatterBuilder();
@@ -17,7 +17,7 @@ public class SqlFormatterBuilderTest {
     }
 
     @Test
-    public void SqlFormatterBuilder_should_have_method_withDateFormat() throws Exception {
+    public void SqlFormatterBuilder_should_have_method_withDateFormat() {
 
         // GIVEN
         SqlFormatterBuilder builder= new SqlFormatterBuilder();
@@ -29,7 +29,7 @@ public class SqlFormatterBuilderTest {
     }
 
     @Test
-    public void SqlFormatterBuilder_should_have_method_withNumberDecimalSeparator() throws Exception {
+    public void SqlFormatterBuilder_should_have_method_withNumberDecimalSeparator() {
 
         // GIVEN
         SqlFormatterBuilder builder= new SqlFormatterBuilder();

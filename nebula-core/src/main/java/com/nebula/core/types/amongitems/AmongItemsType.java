@@ -14,7 +14,6 @@ import java.util.*;
 class AmongItemsType implements Type {
 
     private List<GeneratedObject> generatedObjects;
-    private GenerationContext context;
 
     AmongItemsType(List<GeneratedObject> generatedObjects) {
         if (generatedObjects == null) {
@@ -25,7 +24,6 @@ class AmongItemsType implements Type {
 
     @Override
     public void init(GenerationContext context) {
-        this.context = context;
     }
 
     @Override

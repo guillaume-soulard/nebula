@@ -20,35 +20,35 @@ public class NebulaRandomTest {
 	public void nextIndex_should_return_0_with_integer_range_0_0() {
 
 		// GIVEN
-		NebulaRandom nebulaRandom = new NebulaRandom(0l);
+		NebulaRandom nebulaRandom = new NebulaRandom(0L);
 		Type range = NebulaTypes.number().range().withMin(BigDecimal.ZERO).withMax(BigDecimal.ZERO).build(ModelBuilder.newModel().build());
 
 		// WHEN
 		Long result = nebulaRandom.nextIndex(range);
 
 		// THEN
-		assertThat(result).isEqualTo(0l);
+		assertThat(result).isEqualTo(0L);
 	}
 
 	@Test
 	public void nextIndex_should_return_0_with_integer_range_10_10() {
 
 		// GIVEN
-		NebulaRandom nebulaRandom = new NebulaRandom(0l);
+		NebulaRandom nebulaRandom = new NebulaRandom(0L);
 		Type range = NebulaTypes.number().range().withMin(BigDecimal.TEN).withMax(BigDecimal.TEN).build(ModelBuilder.newModel().build());
 
 		// WHEN
 		Long result = nebulaRandom.nextIndex(range);
 
 		// THEN
-		assertThat(result).isEqualTo(0l);
+		assertThat(result).isEqualTo(0L);
 	}
 
 	@Test
 	public void nextIndex_should_return_index_between_0_and_10_with_integer_range_minus_1000_and_minus_990() {
 
 		// GIVEN
-		NebulaRandom nebulaRandom = new NebulaRandom(0l);
+		NebulaRandom nebulaRandom = new NebulaRandom(0L);
 		Type range = NebulaTypes.number().range().withMin(BigDecimal.valueOf(-1000))
 				.withMax(BigDecimal.valueOf(-990)).build(ModelBuilder.newModel().build());
 
@@ -59,17 +59,17 @@ public class NebulaRandomTest {
 		}
 
 		// THEN
-		assertThat(result).containsAll(Arrays.asList(0l, 1l, 2l, 3l, 4l, 5l, 6l, 7l, 8l, 9l, 10l));
+		assertThat(result).containsAll(Arrays.asList(0L, 1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L, 10L));
 	}
 
 	@Test
 	public void nextIndex_should_not_throw_exception_when_max_bound_is_integer_max_and_min_bound_is_integer_min() {
 
 		// GIVEN
-		NebulaRandom nebulaRandom = new NebulaRandom(1l);
+		NebulaRandom nebulaRandom = new NebulaRandom(1L);
 		Type type = mock(Type.class);
-		long min = 0l;
-		long max = 10l;
+		long min = 0L;
+		long max = 10L;
 		when(type.getMinRange()).thenReturn(min);
 		when(type.getMaxRange()).thenReturn(max);
 
@@ -84,25 +84,25 @@ public class NebulaRandomTest {
 	public void randomBetween_should_return_0() {
 
 		// GIVEN
-		NebulaRandom nebulaRandom = new NebulaRandom(1l);
+		NebulaRandom nebulaRandom = new NebulaRandom(1L);
 
 		// WHEN
-		Long result = nebulaRandom.randomBetween(0l, 0l);
+		Long result = nebulaRandom.randomBetween(0L, 0L);
 
 		// THEN
-		assertThat(result).isEqualTo(0l);
+		assertThat(result).isEqualTo(0L);
 	}
 
 	@Test
 	public void randomBetween_should_return_1() {
 
 		// GIVEN
-		NebulaRandom nebulaRandom = new NebulaRandom(1l);
+		NebulaRandom nebulaRandom = new NebulaRandom(1L);
 
 		// WHEN
-		Long result = nebulaRandom.randomBetween(1l, 1l);
+		Long result = nebulaRandom.randomBetween(1L, 1L);
 
 		// THEN
-		assertThat(result).isEqualTo(1l);
+		assertThat(result).isEqualTo(1L);
 	}
 }

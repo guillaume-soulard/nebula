@@ -5,7 +5,7 @@ import org.junit.Test;
 public class CsvFormatterBuilderTest {
 
     @Test
-    public void CsvFormatterBuilder_should_have_method_withNumberThousandSeparator() throws Exception {
+    public void CsvFormatterBuilder_should_have_method_withNumberThousandSeparator() {
 
         // GIVEN
         CsvFormatterBuilder builder= new CsvFormatterBuilder();
@@ -17,7 +17,7 @@ public class CsvFormatterBuilderTest {
     }
 
     @Test
-    public void CsvFormatterBuilder_should_have_method_withDateFormat() throws Exception {
+    public void CsvFormatterBuilder_should_have_method_withDateFormat() {
 
         // GIVEN
         CsvFormatterBuilder builder= new CsvFormatterBuilder();
@@ -29,7 +29,7 @@ public class CsvFormatterBuilderTest {
     }
 
     @Test
-    public void CsvFormatterBuilder_should_have_method_withNumberDecimalSeparator() throws Exception {
+    public void CsvFormatterBuilder_should_have_method_withNumberDecimalSeparator() {
 
         // GIVEN
         CsvFormatterBuilder builder = new CsvFormatterBuilder();

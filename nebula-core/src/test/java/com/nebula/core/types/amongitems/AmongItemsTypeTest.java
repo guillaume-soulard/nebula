@@ -17,7 +17,7 @@ import static org.mockito.Mockito.mock;
 public class AmongItemsTypeTest {
 
     @Test
-    public void generateObject_should_return_item1() throws Exception {
+    public void generateObject_should_return_item1() {
 
         // GIVEN
         List<GeneratedObject> generatedObjects = new ArrayList<>();
@@ -38,7 +38,7 @@ public class AmongItemsTypeTest {
     }
 
     @Test
-    public void getMinRange_should_return_0_when_list_is_empty() throws Exception {
+    public void getMinRange_should_return_0_when_list_is_empty() {
 
         // GIVEN
         Type picker  = new AmongItemsType(new ArrayList<>());
@@ -52,7 +52,7 @@ public class AmongItemsTypeTest {
     }
 
     @Test
-    public void getMinRange_should_return_0_when_list_is_not_empty() throws Exception {
+    public void getMinRange_should_return_0_when_list_is_not_empty() {
 
         // GIVEN
         List<GeneratedObject> generatedObjects = new ArrayList<>();
@@ -68,7 +68,7 @@ public class AmongItemsTypeTest {
     }
 
     @Test
-    public void getMaxRange_should_return_0_when_list_is_not_empty() throws Exception {
+    public void getMaxRange_should_return_0_when_list_is_not_empty() {
 
         // GIVEN
         List<GeneratedObject> generatedObjects = new ArrayList<>();
@@ -83,7 +83,7 @@ public class AmongItemsTypeTest {
     }
 
     @Test
-    public void getMaxRange_should_return_1_when_list_size_is_1() throws Exception {
+    public void getMaxRange_should_return_1_when_list_size_is_1() {
 
         // GIVEN
         List<GeneratedObject> generatedObjects = new ArrayList<>();
@@ -99,7 +99,7 @@ public class AmongItemsTypeTest {
     }
 
     @Test
-    public void newPickerType_should_throw_exception_when_null_list_is_passed() throws Exception {
+    public void newPickerType_should_throw_exception_when_null_list_is_passed() {
 
         // GIVEN;
         Exception exception = null;

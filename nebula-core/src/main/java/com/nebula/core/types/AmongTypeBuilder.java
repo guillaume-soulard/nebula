@@ -9,8 +9,8 @@ import java.util.List;
 
 public abstract class AmongTypeBuilder<S extends AmongTypeBuilder, T extends Comparable<T>> extends AbstractParsable<T> implements RandomTypeBuilder {
 
-	protected List<T> items = new ArrayList<>();
-	private List<String> itemStrings = new ArrayList<>();
+	protected final List<T> items = new ArrayList<>();
+	private final List<String> itemStrings = new ArrayList<>();
 
 	@Override
 	public Type build(Model model) {

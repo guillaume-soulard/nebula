@@ -27,7 +27,7 @@ public abstract class RangeTypeBuilder<S extends RangeTypeBuilder, T extends Com
 	protected abstract Type buildImpl(Model model);
 	protected abstract S getThis();
 
-	public RangeTypeBuilder() {
+	protected RangeTypeBuilder() {
 		min = getDefaultMin();
 		max = getDefaultMax();
 	}

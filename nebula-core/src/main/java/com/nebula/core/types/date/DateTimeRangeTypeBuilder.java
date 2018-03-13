@@ -18,7 +18,7 @@ public class DateTimeRangeTypeBuilder extends RangeTypeBuilder<DateTimeRangeType
 	public static final Date MAX_DEFAULT_DATE = MAX_DEFAULT_DATE_TIME.toDate();
 
 	private DateTimeTypeIntervals interval;
-	private DateParser dateParser = new DateParser();
+	private final DateParser dateParser = new DateParser();
 
 	@Override
 	public Type buildImpl(Model model) {

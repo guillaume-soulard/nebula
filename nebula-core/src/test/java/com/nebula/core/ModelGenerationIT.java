@@ -37,7 +37,7 @@ public class ModelGenerationIT {
 	public void generate_should_generate_1000_entities_with_correct_properties_values() {
 
 		// GIVEN
-		long seed = 10l;
+		long seed = 10L;
 		Model model = ModelBuilder.newModel().build();
 		Entity testEntity = buildTestEntity(model);
 		Entity anotherEntity = buildAnotherEntity(model);
@@ -53,7 +53,7 @@ public class ModelGenerationIT {
 	}
 
 	@Test
-	public void generateEntityObject_should_generate_two_properties_with_different_values_with_same_type() throws Exception {
+	public void generateEntityObject_should_generate_two_properties_with_different_values_with_same_type() {
 
 		// GIVEN
 		Model model = ModelBuilder.newModel().build();
@@ -62,7 +62,7 @@ public class ModelGenerationIT {
 		entity.addProperty("second", random(), string());
 
 		// WHEN
-		GeneratedObject generatedObject = model.generateEntityObject(entity, 0l, 0l);
+		GeneratedObject generatedObject = model.generateEntityObject(entity, 0L, 0L);
 
 		// THEN
 		Object firstValue = generatedObject.getGeneratedPropertyValue("first").getObject();
@@ -73,7 +73,7 @@ public class ModelGenerationIT {
 	private Predicate<GeneratedObject> expected(final List<GeneratedObject> generatedAnotherEntity) {
 		return new Predicate<GeneratedObject>() {
 
-			private List<String> propertyNames = Arrays.asList(ID_PROPERTY_NAME, INTEGER_PROPERTY_NAME,
+			private final List<String> propertyNames = Arrays.asList(ID_PROPERTY_NAME, INTEGER_PROPERTY_NAME,
 					DATE_TIME_PROPERTY_NAME, BOOLEAN_PROPERTY_NAME, CONSTANT_PROPERTY_NAME, LIST_PROPERTY_NAME,
 					STRING_PROPERTY_NAME, ENTITY_PROPERTY_NAME);
 

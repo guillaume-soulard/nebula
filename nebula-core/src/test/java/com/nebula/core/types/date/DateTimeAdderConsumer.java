@@ -8,9 +8,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class DateTimeAdderConsumer implements Consumer<DateTimeStrategy> {
 
-	private Class<? extends DateTimeStrategy> clazz;
+	private final Class<? extends DateTimeStrategy> clazz;
 
-	public DateTimeAdderConsumer(Class<? extends DateTimeStrategy> clazz) {
+	private DateTimeAdderConsumer(Class<? extends DateTimeStrategy> clazz) {
 		this.clazz = clazz;
 	}
 

@@ -4,11 +4,11 @@ import com.nebula.core.types.Type;
 
 public class GeneratedProperty {
 
-	public static final String QUOTE = "\"";
-	public static final String OBJECT_VALUE_SEPARATOR = ":";
-	private String propertyName;
-	private GeneratedObject propertyValue;
-	private Type propertyType;
+	private static final String QUOTE = "\"";
+	private static final String OBJECT_VALUE_SEPARATOR = ":";
+	private final String propertyName;
+	private final GeneratedObject propertyValue;
+	private final Type propertyType;
 
 	public GeneratedProperty(String propertyName, GeneratedObject propertyValue, Type propertyType) {
 		this.propertyName = propertyName;
@@ -52,19 +52,17 @@ public class GeneratedProperty {
 		} else if (!propertyName.equals(other.propertyName))
 			return false;
 		if (propertyValue == null) {
-			if (other.propertyValue != null)
-				return false;
-		} else if (!propertyValue.equals(other.propertyValue))
-			return false;
-		return true;
+			return other.propertyValue == null;
+		} else {
+			return propertyValue.equals(other.propertyValue);
+		}
 	}
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append(QUOTE).append(propertyName).append(QUOTE);
-		builder.append(OBJECT_VALUE_SEPARATOR);
-		builder.append(propertyValue.toString());
-		return builder.toString();
+		String builder = QUOTE + propertyName + QUOTE +
+				OBJECT_VALUE_SEPARATOR +
+				propertyValue.toString();
+		return builder;
 	}
 }

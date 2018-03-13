@@ -8,16 +8,14 @@ import com.nebula.core.types.date.strategy.*;
 import org.joda.time.DateTime;
 import org.joda.time.ReadableInstant;
 
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 class DateTimeRangeType extends AbstractTypeWithIndexCheck {
 
-	private Range<ReadableInstant> range;
-	private DateTimeTypeIntervals interval;
-	private Map<DateTimeTypeIntervals, DateTimeStrategy> dateTimeStrategy = new HashMap<>();
+	private final Range<ReadableInstant> range;
+	private final DateTimeTypeIntervals interval;
+	private final Map<DateTimeTypeIntervals, DateTimeStrategy> dateTimeStrategy = new HashMap<>();
 
 	DateTimeRangeType(Range<ReadableInstant> range, DateTimeTypeIntervals interval) {
 		this.range = range;
@@ -38,7 +36,7 @@ class DateTimeRangeType extends AbstractTypeWithIndexCheck {
 
 	@Override
 	public Long getMinRange() {
-		return 0l;
+		return 0L;
 	}
 
 	@Override

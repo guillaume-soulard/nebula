@@ -19,10 +19,10 @@ public class StringTypeTest {
 		String pattern = "[a]{1}";
 		StringType stringType = new StringType(newStringGenerator(pattern));
 		long entityIndex = 0L;
-		stringType.init(new GenerationContext(new NebulaRandom(1l), null, entityIndex));
+		stringType.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex));
 
 		// WHEN
-		GeneratedObject result = stringType.generateObject(0l);
+		GeneratedObject result = stringType.generateObject(0L);
 
 		// THEN
 		assertThat(result).isNotNull();
@@ -35,10 +35,10 @@ public class StringTypeTest {
 		String pattern = "[a]{1}";
 		StringType stringType = new StringType(newStringGenerator(pattern));
 		long entityIndex = 0L;
-		stringType.init(new GenerationContext(new NebulaRandom(1l), null, entityIndex));
+		stringType.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex));
 
 		// WHEN
-		GeneratedObject result = stringType.generateObject(0l);
+		GeneratedObject result = stringType.generateObject(0L);
 
 		// THEN
 		assertThat(result.getObject()).isNotNull();
@@ -50,10 +50,10 @@ public class StringTypeTest {
 		// GIVEN
 		StringType stringType = new StringType(newStringGenerator("test"));
 		long entityIndex = 0L;
-		stringType.init(new GenerationContext(new NebulaRandom(1l), null, entityIndex));
+		stringType.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex));
 
 		// WHEN
-		GeneratedObject result = stringType.generateObject(0l);
+		GeneratedObject result = stringType.generateObject(0L);
 
 		// THEN
 		assertThat(result.getObject()).isInstanceOf(String.class).isEqualTo("test");
@@ -65,11 +65,11 @@ public class StringTypeTest {
 		// GIVEN
 		StringType stringType = new StringType(newStringGenerator(null));
 		long entityIndex = 0L;
-		stringType.init(new GenerationContext(new NebulaRandom(1l), null, entityIndex));
-		GeneratedObject resultIndex0 = stringType.generateObject(0l);
+		stringType.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex));
+		GeneratedObject resultIndex0 = stringType.generateObject(0L);
 
 		// WHEN
-		GeneratedObject resultIndex1 = stringType.generateObject(1l);
+		GeneratedObject resultIndex1 = stringType.generateObject(1L);
 
 		// THEN
 		assertThat(resultIndex0.getObject()).isNotEqualTo(resultIndex1.getObject());
@@ -83,7 +83,7 @@ public class StringTypeTest {
 		StringType stringType = new StringType(stringGenerator);
 
 		// WHEN
-		stringType.generateObject(1l);
+		stringType.generateObject(1L);
 
 		// THEN
 		verify(stringGenerator, times(1)).generateString();
@@ -128,7 +128,7 @@ public class StringTypeTest {
 		Long result = stringType.getMinRange();
 
 		// THEN
-		assertThat(result).isEqualTo(0l);
+		assertThat(result).isEqualTo(0L);
 	}
 
 	@Test
@@ -142,7 +142,7 @@ public class StringTypeTest {
 		Long result = stringType.getMaxRange();
 
 		// THEN
-		assertThat(result).isEqualTo(0l);
+		assertThat(result).isEqualTo(0L);
 	}
 
 	@Test
@@ -151,7 +151,7 @@ public class StringTypeTest {
 		// GIVEN
 		StringGenerator stringGenerator = mock(StringGenerator.class);
 		StringType stringType = new StringType(stringGenerator);
-		NebulaRandom nebulaRandom = new NebulaRandom(0l);
+		NebulaRandom nebulaRandom = new NebulaRandom(0L);
 		Model model = ModelBuilder.newModel().build();
 		long entityIndex = 0L;
 		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex);
@@ -160,7 +160,7 @@ public class StringTypeTest {
 		stringType.init(context);
 
 		// THEN
-		verify(stringGenerator, times(1)).setSeed(0l);
+		verify(stringGenerator, times(1)).setSeed(0L);
 	}
 
 	private StringGenerator newStringGenerator(String pattern) {

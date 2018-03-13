@@ -5,10 +5,10 @@ import java.util.NoSuchElementException;
 
 public class GeneratedObjectIterator implements Iterator<GeneratedObject> {
 
-	private Model model;
-	private Entity entity;
-	private long nextIndexToGenerate = 0l;
-	private long seed;
+	private final Model model;
+	private final Entity entity;
+	private long nextIndexToGenerate = 0L;
+	private final long seed;
 
 	public GeneratedObjectIterator(Model model, Entity entity, long seed) {
 		this.model = model;

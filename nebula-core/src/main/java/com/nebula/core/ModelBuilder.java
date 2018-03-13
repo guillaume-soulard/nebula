@@ -53,7 +53,7 @@ public class ModelBuilder {
             throw new NebulaException("seed is null");
         }
 
-        long longSeed = 0l;
+        long longSeed = 0L;
 
         for (byte seedByte : seedString.getBytes()) {
             longSeed += 31 * seedByte;

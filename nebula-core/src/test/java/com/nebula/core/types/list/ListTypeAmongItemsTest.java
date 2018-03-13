@@ -58,7 +58,7 @@ public class ListTypeAmongItemsTest {
 		Long result = listType.getMinRange();
 
 		// THEN
-		assertThat(result).isEqualTo(0l);
+		assertThat(result).isEqualTo(0L);
 	}
 
 	@Test
@@ -75,7 +75,7 @@ public class ListTypeAmongItemsTest {
 		Long result = listType.getMaxRange();
 
 		// THEN
-		assertThat(result).isEqualTo(0l);
+		assertThat(result).isEqualTo(0L);
 	}
 
 	@Test
@@ -92,7 +92,7 @@ public class ListTypeAmongItemsTest {
 		Long result = listType.getMaxRange();
 
 		// THEN
-		assertThat(result).isEqualTo(1l);
+		assertThat(result).isEqualTo(1L);
 	}
 
 	@Test
@@ -110,7 +110,7 @@ public class ListTypeAmongItemsTest {
 		Long result = listType.getMaxRange();
 
 		// THEN
-		assertThat(result).isEqualTo(4l);
+		assertThat(result).isEqualTo(4L);
 	}
 
 	@Test
@@ -140,14 +140,14 @@ public class ListTypeAmongItemsTest {
 		Generator generator = NebulaGenerators.random().build();
 		ConstantTypeBuilder[] items = new ConstantTypeBuilder[] { newConstant() };
 		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newModel().build(), minSize, maxSize, generator, items);
-		NebulaRandom nebulaRandom = new NebulaRandom(0l);
+		NebulaRandom nebulaRandom = new NebulaRandom(0L);
 		Model model = ModelBuilder.newModel().build();
 		long entityIndex = 0L;
 		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex);
 		listType.init(context);
 
 		// WHEN
-		GeneratedObject result = listType.generateObject(0l);
+		GeneratedObject result = listType.generateObject(0L);
 
 		// THEN
 		assertThat(result).isNotNull();
@@ -162,14 +162,14 @@ public class ListTypeAmongItemsTest {
 		Generator generator = NebulaGenerators.random().build();
 		ConstantTypeBuilder[] items = new ConstantTypeBuilder[] { newConstant() };
 		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newModel().build(), minSize, maxSize, generator, items);
-		NebulaRandom nebulaRandom = new NebulaRandom(0l);
+		NebulaRandom nebulaRandom = new NebulaRandom(0L);
 		Model model = ModelBuilder.newModel().build();
 		long entityIndex = 0L;
 		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex);
 		listType.init(context);
 
 		// WHEN
-		GeneratedObject result = listType.generateObject(0l);
+		GeneratedObject result = listType.generateObject(0L);
 
 		// THEN
 		assertThat(result.getObject()).isInstanceOf(ArrayList.class);
@@ -184,14 +184,14 @@ public class ListTypeAmongItemsTest {
 		Generator generator = NebulaGenerators.random().build();
 		ConstantTypeBuilder[] items = new ConstantTypeBuilder[] { newConstant() };
 		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newModel().build(), minSize, maxSize, generator, items);
-		NebulaRandom nebulaRandom = new NebulaRandom(0l);
+		NebulaRandom nebulaRandom = new NebulaRandom(0L);
 		Model model = ModelBuilder.newModel().build();
 		long entityIndex = 0L;
 		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex);
 		listType.init(context);
 
 		// WHEN
-		GeneratedObject result = listType.generateObject(0l);
+		GeneratedObject result = listType.generateObject(0L);
 
 		// THEN
 		assertThat(result.getObject()).asList().isEmpty();
@@ -206,14 +206,14 @@ public class ListTypeAmongItemsTest {
 		Generator generator = NebulaGenerators.random().build();
 		ConstantTypeBuilder[] items = new ConstantTypeBuilder[] { newConstant() };
 		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newModel().build(), minSize, maxSize, generator, items);
-		NebulaRandom nebulaRandom = new NebulaRandom(0l);
+		NebulaRandom nebulaRandom = new NebulaRandom(0L);
 		Model model = ModelBuilder.newModel().build();
 		long entityIndex = 0L;
 		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex);
 		listType.init(context);
 
 		// WHEN
-		GeneratedObject result = listType.generateObject(0l);
+		GeneratedObject result = listType.generateObject(0L);
 
 		// THEN
 		assertThat(result.getObject()).asList().hasSize(1);
@@ -229,15 +229,15 @@ public class ListTypeAmongItemsTest {
 		Generator generator = NebulaGenerators.random().build();
 		ConstantTypeBuilder[] items = new ConstantTypeBuilder[] { newConstant() };
 		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newModel().build(), minSize, maxSize, generator, items);
-		NebulaRandom nebulaRandom = new NebulaRandom(0l);
+		NebulaRandom nebulaRandom = new NebulaRandom(0L);
 		Model model = ModelBuilder.newModel().build();
 		long entityIndex = 0L;
 		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex);
 		listType.init(context);
-		GeneratedObject resultAtindex0 = listType.generateObject(0l);
+		GeneratedObject resultAtindex0 = listType.generateObject(0L);
 
 		// WHEN
-		GeneratedObject result = listType.generateObject(1l);
+		GeneratedObject result = listType.generateObject(1L);
 
 		// THEN
 		assertThat(result.getObject()).asList().size().isNotEqualTo(((List<Object>) resultAtindex0.getObject()).size());
@@ -252,15 +252,15 @@ public class ListTypeAmongItemsTest {
 		Generator generator = NebulaGenerators.random().build();
 		ConstantTypeBuilder[] items = new ConstantTypeBuilder[] { newConstant() };
 		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newModel().build(), minSize, maxSize, generator, items);
-		NebulaRandom nebulaRandom = new NebulaRandom(0l);
+		NebulaRandom nebulaRandom = new NebulaRandom(0L);
 		Model model = ModelBuilder.newModel().build();
 		long entityIndex = 0L;
 		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex);
 		listType.init(context);
-		GeneratedObject resultAtindex0 = listType.generateObject(0l);
+		GeneratedObject resultAtindex0 = listType.generateObject(0L);
 
 		// WHEN
-		GeneratedObject result = listType.generateObject(0l);
+		GeneratedObject result = listType.generateObject(0L);
 
 		// THEN
 		assertThat(result.getObject()).asList().isEqualTo(resultAtindex0.getObject());
@@ -276,14 +276,14 @@ public class ListTypeAmongItemsTest {
 		ConstantTypeBuilder item = newConstant();
 		ConstantTypeBuilder[] items = new ConstantTypeBuilder[] { item };
 		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newModel().build(), minSize, maxSize, generator, items);
-		NebulaRandom nebulaRandom = new NebulaRandom(0l);
+		NebulaRandom nebulaRandom = new NebulaRandom(0L);
 		Model model = ModelBuilder.newModel().build();
 		long entityIndex = 0L;
 		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex);
 		listType.init(context);
 
 		// WHEN
-		GeneratedObject result = listType.generateObject(0l);
+		GeneratedObject result = listType.generateObject(0L);
 
 		// THEN
 		assertThat(result.getObject()).asList().hasSize(1).containsOnly(new GeneratedObject("test"));
@@ -298,14 +298,14 @@ public class ListTypeAmongItemsTest {
 		Generator generator = NebulaGenerators.random().build();
 		ConstantTypeBuilder[] items = new ConstantTypeBuilder[] {};
 		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newModel().build(), minSize, maxSize, generator, items);
-		NebulaRandom nebulaRandom = new NebulaRandom(0l);
+		NebulaRandom nebulaRandom = new NebulaRandom(0L);
 		Model model = ModelBuilder.newModel().build();
 		long entityIndex = 0L;
 		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex);
 		listType.init(context);
 
 		// WHEN
-		GeneratedObject result = listType.generateObject(0l);
+		GeneratedObject result = listType.generateObject(0L);
 
 		// THEN
 		assertThat(result.getObject()).asList().isEmpty();
@@ -323,7 +323,7 @@ public class ListTypeAmongItemsTest {
 		ConstantTypeBuilder item3 = newConstant();
 		ConstantTypeBuilder[] items = new ConstantTypeBuilder[] { item1, item2, item3 };
 		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newModel().build(), minSize, maxSize, generator, items);
-		NebulaRandom nebulaRandom = new NebulaRandom(0l);
+		NebulaRandom nebulaRandom = new NebulaRandom(0L);
 		Model model = ModelBuilder.newModel().build();
 		long entityIndex = 0L;
 		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex);
@@ -334,7 +334,7 @@ public class ListTypeAmongItemsTest {
 		when(generator.generate(any(Type.class))).thenReturn(index0, index1, index2, index2, index1, index0);
 
 		// WHEN
-		GeneratedObject result = listType.generateObject(0l);
+		GeneratedObject result = listType.generateObject(0L);
 
 		// THEN
 		assertThat(result.getObject()).asList().containsExactly(new GeneratedObject("test"),

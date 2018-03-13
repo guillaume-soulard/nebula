@@ -20,8 +20,8 @@ class JsonFormatter extends AbstractFormatter {
     private static final String JSON_PRETTY_FORMAT_INDENTATION = "  ";
     private static final String JSON_PRETTY_FORMAT_SPACE = " ";
 
-    private boolean prettyFormat;
-    private boolean quotedFields;
+    private final boolean prettyFormat;
+    private final boolean quotedFields;
 
     JsonFormatter(boolean prettyFormat, boolean quotedFields, ValueFormatter valueFormatter, List<String> propertiesToExclude) {
         super(valueFormatter, propertiesToExclude);

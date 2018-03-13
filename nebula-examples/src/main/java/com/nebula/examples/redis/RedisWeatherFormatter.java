@@ -3,11 +3,9 @@ package com.nebula.examples.redis;
 import com.nebula.core.Entity;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.formatter.AbstractFormatter;
-import com.nebula.core.formatter.Formatter;
 import com.nebula.core.formatter.ValueFormatter;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class RedisWeatherFormatter extends AbstractFormatter {
 

@@ -3,7 +3,6 @@ package com.nebula.core.generationrule.graphql;
 import com.nebula.core.Model;
 import com.nebula.core.generationrule.GenerationRule;
 import graphql.GraphQL;
-import org.apache.http.HttpException;
 import org.apache.http.HttpRequest;
 import org.apache.http.HttpResponse;
 import org.apache.http.config.SocketConfig;
@@ -13,16 +12,15 @@ import org.apache.http.protocol.HttpContext;
 import org.apache.http.protocol.HttpProcessor;
 import org.apache.http.protocol.HttpRequestHandler;
 
-import java.io.IOException;
 import java.net.InetAddress;
 import java.util.concurrent.TimeUnit;
 
 public class GraphQlGenerationRule implements GenerationRule {
 
-    private Model model;
-    private String host;
-    private int port;
-    private String handleRequestsPattern;
+    private final Model model;
+    private final String host;
+    private final int port;
+    private final String handleRequestsPattern;
     private HttpServer server;
 
     GraphQlGenerationRule(Model model, String host, int port, String handleRequestsPattern) {
@@ -38,12 +36,12 @@ public class GraphQlGenerationRule implements GenerationRule {
             HttpRequestHandler requestHandler = new GraphQlRequestHandler(model, buildGraphQl(model));
             HttpProcessor httpProcessor = new HttpProcessor() {
                 @Override
-                public void process(HttpRequest httpRequest, HttpContext httpContext) throws HttpException, IOException {
+                public void process(HttpRequest httpRequest, HttpContext httpContext) {
 
                 }
 
                 @Override
-                public void process(HttpResponse httpResponse, HttpContext httpContext) throws HttpException, IOException {
+                public void process(HttpResponse httpResponse, HttpContext httpContext) {
 
                 }
             };

@@ -9,10 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NebulaEntityListDataFetcher implements DataFetcher<List<GeneratedObject>> {
-    private Model model;
-    private String entityName;
+    private final Model model;
+    private final String entityName;
 
-    public NebulaEntityListDataFetcher(Model model, String entityName) {
+    NebulaEntityListDataFetcher(Model model, String entityName) {
         this.model = model;
         this.entityName = entityName;
     }

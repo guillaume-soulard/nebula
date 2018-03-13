@@ -4,7 +4,6 @@ import com.nebula.core.Model;
 import com.nebula.core.NebulaException;
 import com.nebula.core.types.RandomTypeBuilder;
 import com.nebula.core.types.Type;
-import com.nebula.core.types.TypeBuilder;
 
 import static com.nebula.core.types.string.StringGenerator.newStringGenerator;
 

@@ -11,7 +11,7 @@ import java.io.IOException;
 class HttpOutput implements Output {
 
     private final String url;
-    private CloseableHttpClient httpClient;
+    private final CloseableHttpClient httpClient;
 
     HttpOutput(String url, CloseableHttpClient httpClient) {
         this.httpClient = httpClient;

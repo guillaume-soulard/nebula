@@ -13,13 +13,13 @@ public class StandardOutputOutputTest {
     private PrintStream printStream;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         printStream = mock(PrintStream.class);
         System.setOut(printStream);
     }
 
     @Test
-    public void write_should_write_test_in_stdout() throws Exception {
+    public void write_should_write_test_in_stdout() {
 
         // GIVEN
         StandardOutputOutput output = new StandardOutputOutput();
@@ -33,7 +33,7 @@ public class StandardOutputOutputTest {
     }
 
     @Test
-    public void write_should_flush_stdout_after_writing_object() throws Exception {
+    public void write_should_flush_stdout_after_writing_object() {
 
         // GIVEN
         StandardOutputOutput output = new StandardOutputOutput();

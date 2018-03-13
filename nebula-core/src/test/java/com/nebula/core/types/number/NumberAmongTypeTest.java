@@ -36,7 +36,7 @@ public class NumberAmongTypeTest {
 		NumberAmongType numberAmongType = new NumberAmongType(items);
 
 		// WHEN
-		GeneratedObject result = numberAmongType.generateObject(0l);
+		GeneratedObject result = numberAmongType.generateObject(0L);
 
 		// THEN
 		assertThat(result.getObject()).isEqualTo(BigDecimal.ZERO);
@@ -50,7 +50,7 @@ public class NumberAmongTypeTest {
 		NumberAmongType numberAmongType = new NumberAmongType(items);
 
 		// WHEN
-		GeneratedObject result = numberAmongType.generateObject(1l);
+		GeneratedObject result = numberAmongType.generateObject(1L);
 
 		// THEN
 		assertThat(result.getObject()).isEqualTo(BigDecimal.ONE);
@@ -64,7 +64,7 @@ public class NumberAmongTypeTest {
 		NumberAmongType numberAmongType = new NumberAmongType(items);
 
 		// WHEN
-		catchException(numberAmongType).generateObject(10l);
+		catchException(numberAmongType).generateObject(10L);
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
@@ -79,7 +79,7 @@ public class NumberAmongTypeTest {
 		NumberAmongType numberAmongType = new NumberAmongType(items);
 
 		// WHEN
-		catchException(numberAmongType).generateObject(3l);
+		catchException(numberAmongType).generateObject(3L);
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
@@ -94,7 +94,7 @@ public class NumberAmongTypeTest {
 		NumberAmongType numberAmongType = new NumberAmongType(items);
 
 		// WHEN
-		catchException(numberAmongType).generateObject(-1l);
+		catchException(numberAmongType).generateObject(-1L);
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
@@ -112,7 +112,7 @@ public class NumberAmongTypeTest {
 		Long result = numberAmongType.getMinRange();
 
 		// THEN
-		assertThat(result).isEqualTo(0l);
+		assertThat(result).isEqualTo(0L);
 	}
 
 	@Test
@@ -126,7 +126,7 @@ public class NumberAmongTypeTest {
 		Long result = numberAmongType.getMaxRange();
 
 		// THEN
-		assertThat(result).isEqualTo(0l);
+		assertThat(result).isEqualTo(0L);
 	}
 
 	@Test
@@ -140,6 +140,6 @@ public class NumberAmongTypeTest {
 		Long result = numberAmongType.getMaxRange();
 
 		// THEN
-		assertThat(result).isEqualTo(1l);
+		assertThat(result).isEqualTo(1L);
 	}
 }

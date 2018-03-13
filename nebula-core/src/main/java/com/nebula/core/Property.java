@@ -5,11 +5,11 @@ import com.nebula.core.types.Type;
 
 public class Property {
 
-	private String name;
+	private final String name;
 
-	private Type type;
+	private final Type type;
 
-	private Generator generator;
+	private final Generator generator;
 
 	public Property(String name, Type type, Generator generator) {
 		this.name = name;

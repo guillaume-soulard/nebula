@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class DateTimeAmongTypeTest {
 
-	private ReadableInstant day1 = new DateTime(2017, 1, 1, 0, 0);
+	private final ReadableInstant day1 = new DateTime(2017, 1, 1, 0, 0);
 
 	@Test
 	public void generateObject_should_return_a_non_null_object() {
@@ -23,7 +23,7 @@ public class DateTimeAmongTypeTest {
 		DateTimeAmongType dateType = new DateTimeAmongType(oneDay());
 
 		// WHEN
-		GeneratedObject result = dateType.generateObject(0l);
+		GeneratedObject result = dateType.generateObject(0L);
 
 		// THEN
 		assertThat(result).isNotNull();
@@ -36,7 +36,7 @@ public class DateTimeAmongTypeTest {
 		DateTimeAmongType dateType = new DateTimeAmongType(oneDay());
 
 		// WHEN
-		GeneratedObject result = dateType.generateObject(0l);
+		GeneratedObject result = dateType.generateObject(0L);
 
 		// THEN
 		assertThat(result.getObject()).isEqualTo(day1);
@@ -49,10 +49,10 @@ public class DateTimeAmongTypeTest {
 		DateTimeAmongType dateType = new DateTimeAmongType(oneDay());
 
 		// WHEN
-		catchException(dateType).generateObject(10l);
+		catchException(dateType).generateObject(10L);
 
 		// THEN
-		assertThat((Exception) (Exception) caughtException()).isInstanceOf(NebulaException.class)
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
 

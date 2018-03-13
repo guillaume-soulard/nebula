@@ -57,9 +57,8 @@ class CsvFormatter extends AbstractFormatter {
     }
 
     private List<String> getAllColumnsOfGeneratedObject(GeneratedObject generatedObject) {
-        List<String> columns = generatedObject.getGeneratedProperties().stream().map(GeneratedProperty::getPropertyName).collect(Collectors.toList());
 
-        return columns;
+        return generatedObject.getGeneratedProperties().stream().map(GeneratedProperty::getPropertyName).collect(Collectors.toList());
     }
 
     private void appendValueWithQuotesToStringBuilder(StringBuilder builder, Object value) {

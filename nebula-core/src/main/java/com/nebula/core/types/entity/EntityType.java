@@ -7,14 +7,11 @@ import com.nebula.core.NebulaException;
 import com.nebula.core.types.AbstractTypeWithIndexCheck;
 import com.nebula.core.types.JavaType;
 
-import java.util.Collections;
-import java.util.List;
-
 class EntityType extends AbstractTypeWithIndexCheck {
 
 	private Entity entity;
 	private String entityName;
-	private EntityGenerator entityGenerator = new EntityGenerator();
+	private final EntityGenerator entityGenerator = new EntityGenerator();
 
 	EntityType(String entityName) {
 		if (entityName == null) {
@@ -25,7 +22,7 @@ class EntityType extends AbstractTypeWithIndexCheck {
 
 	@Override
 	public Long getMinRange() {
-		return 0l;
+		return 0L;
 	}
 
 	@Override

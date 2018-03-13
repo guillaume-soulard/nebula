@@ -63,6 +63,6 @@ public class StringTypeBuilderTest {
 		catchException(builder).withPattern(pattern);
 
 		// THEN
-		assertThat((Exception) (Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("pattern is null");
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("pattern is null");
 	}
 }

@@ -11,9 +11,9 @@ public class Model {
 	private final String dateFormat;
 	private final Character numberDecimalSeparator;
 	private final Character numberThousandSeparator;
-	private List<Entity> entities;
-	private EntityGenerator entityGenerator = new EntityGenerator();
-	private List<GenerationRule> generationRules;
+	private final List<Entity> entities;
+	private final EntityGenerator entityGenerator = new EntityGenerator();
+	private final List<GenerationRule> generationRules;
 
 	Model(long seed, Character numberThousandSeparator, Character numberDecimalSeparator, String dateFormat, List<Entity> entities, List<GenerationRule> generationRules) {
 		this.seed = seed;

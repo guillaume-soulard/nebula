@@ -16,8 +16,8 @@ import java.util.List;
 class OneShootGenerationRule implements GenerationRule {
 
     private List<Output> outputsToWrite = new ArrayList<>();
-    private Formatter formatterToUse;
-    private GeneratedObjectIterator generatedObjectSource;
+    private final Formatter formatterToUse;
+    private final GeneratedObjectIterator generatedObjectSource;
     private List<GenerationConstraint> generationConstraints = new ArrayList<>();
     private Entity entity;
 

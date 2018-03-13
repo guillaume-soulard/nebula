@@ -5,12 +5,9 @@ import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.JavaType;
 import com.nebula.core.types.Type;
 
-import java.util.Collections;
-import java.util.List;
-
 class StringType implements Type {
 
-	private StringGenerator stringGenerator;
+	private final StringGenerator stringGenerator;
 
 	StringType(StringGenerator stringGenerator) {
 		this.stringGenerator = stringGenerator;
@@ -28,12 +25,12 @@ class StringType implements Type {
 
 	@Override
 	public Long getMinRange() {
-		return 0l;
+		return 0L;
 	}
 
 	@Override
 	public Long getMaxRange() {
-		return 0l;
+		return 0L;
 	}
 
 	@Override

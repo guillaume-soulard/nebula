@@ -5,9 +5,9 @@ import redis.clients.jedis.Jedis;
 
 public class RedisOutput implements Output {
 
-    private Jedis jedis;
+    private final Jedis jedis;
 
-    public RedisOutput(Jedis jedis) {
+    RedisOutput(Jedis jedis) {
         this.jedis = jedis;
     }
 

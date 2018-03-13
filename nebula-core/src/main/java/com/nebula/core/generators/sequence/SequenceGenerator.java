@@ -8,7 +8,7 @@ import com.nebula.core.types.Type;
 
 class SequenceGenerator implements Generator {
 
-	private boolean allowCycle;
+	private final boolean allowCycle;
 	private GenerationContext context;
 
 	SequenceGenerator(boolean allowCycle) {

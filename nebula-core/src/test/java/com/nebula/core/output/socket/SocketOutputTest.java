@@ -27,7 +27,7 @@ public class SocketOutputTest {
     }
 
     @Test
-    public void open_should_open_socket() throws Exception {
+    public void open_should_open_socket() {
 
         // GIVEN
         String host = "localhost";
@@ -42,7 +42,7 @@ public class SocketOutputTest {
     }
 
     @Test
-    public void open_should_throw_exception_when_unknown_host_not_listen_the_given_port() throws Exception {
+    public void open_should_throw_exception_when_unknown_host_not_listen_the_given_port() {
 
         // GIVEN
         String host = "aqzsedrftgyhujikolpmwxcvbn";
@@ -57,7 +57,7 @@ public class SocketOutputTest {
     }
 
     @Test
-    public void open_should_throw_exception_when_right_listen_the_given_another_port() throws Exception {
+    public void open_should_throw_exception_when_right_listen_the_given_another_port() {
 
         // GIVEN
         String host = "localhost";
@@ -72,7 +72,7 @@ public class SocketOutputTest {
     }
 
     @Test
-    public void close_should_close_socket() throws Exception {
+    public void close_should_close_socket() {
 
         // GIVEN
         String host = "localhost";
@@ -88,7 +88,7 @@ public class SocketOutputTest {
     }
 
     @Test
-    public void close_should_throw_exception_when_socket_is_not_open() throws Exception {
+    public void close_should_throw_exception_when_socket_is_not_open() {
 
         // GIVEN
         String host = "localhost";
@@ -121,7 +121,7 @@ public class SocketOutputTest {
     }
 
     @Test
-    public void write_should_send_null() throws Exception {
+    public void write_should_send_null() {
 
         // GIVEN
         String host = "localhost";

@@ -62,7 +62,7 @@ public class EntityTest {
 		Entity entity = ModelBuilder.newModel().build().newEntity("test", 1);
 
 		// WHEN
-		GeneratedObject result = entity.generateObject(1l);
+		GeneratedObject result = entity.generateObject(1L);
 
 		// THEN
 		assertThat(result).isNotNull();
@@ -75,10 +75,10 @@ public class EntityTest {
 		String propertyName = "property";
 		entity.addProperty(propertyName, NebulaGenerators.random(), NebulaTypes.number().range());
 		long entityIndex = 0L;
-		entity.init(new GenerationContext(new NebulaRandom(1l), null, entityIndex));
+		entity.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex));
 
 		// WHEN
-		GeneratedObject result = entity.generateObject(1l);
+		GeneratedObject result = entity.generateObject(1L);
 
 		// THEN
 		assertThat(result.getGeneratedProperties()).hasSize(1);
@@ -93,10 +93,10 @@ public class EntityTest {
 		entity.addProperty(propertyName, NebulaGenerators.random(),
 				NebulaTypes.number().range().withMin(BigDecimal.ONE).withMax(BigDecimal.ONE));
 		long entityIndex = 0L;
-		entity.init(new GenerationContext(new NebulaRandom(1l), null, entityIndex));
+		entity.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex));
 
 		// WHEN
-		GeneratedObject result = entity.generateObject(1l);
+		GeneratedObject result = entity.generateObject(1L);
 
 		// THEN
 		assertThat(result.getGeneratedProperties()).hasSize(1);
@@ -116,10 +116,10 @@ public class EntityTest {
 		entity.addProperty(property2Name, NebulaGenerators.random(),
 				NebulaTypes.number().range().withMin(BigDecimal.valueOf(5)).withMax(BigDecimal.valueOf(5)));
 		long entityIndex = 0L;
-		entity.init(new GenerationContext(new NebulaRandom(1l), null, entityIndex));
+		entity.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex));
 
 		// WHEN
-		GeneratedObject result = entity.generateObject(1l);
+		GeneratedObject result = entity.generateObject(1L);
 
 		// THEN
 		assertThat(result.getGeneratedProperties()).hasSize(2);
@@ -142,9 +142,9 @@ public class EntityTest {
 		when(propertyBuilder.newProperty(any(Model.class), anyString(), any(RandomTypeBuilder.class), any(GeneratorBuilder.class)))
 				.thenReturn(property);
 		when(property.getName()).thenReturn("name");
-		Entity entity = new Entity(ModelBuilder.newModel().build(), "test", 1l, propertyBuilder);
+		Entity entity = new Entity(ModelBuilder.newModel().build(), "test", 1L, propertyBuilder);
 		NebulaRandom nebulaRandom = mock(NebulaRandom.class);
-		when(nebulaRandom.getSeed()).thenReturn(0l);
+		when(nebulaRandom.getSeed()).thenReturn(0L);
 		entity.addProperty("name", null, null);
 		long entityIndex = 0L;
 		GenerationContext context = new GenerationContext(nebulaRandom, null, entityIndex);
@@ -168,7 +168,7 @@ public class EntityTest {
 		when(property.getName()).thenReturn("name");
 		when(propertyBuilder.newProperty(any(Model.class), anyString(), any(RandomTypeBuilder.class), any(GeneratorBuilder.class)))
 				.thenReturn(property);
-		Entity entity = new Entity(ModelBuilder.newModel().build(), "test", 1l, propertyBuilder);
+		Entity entity = new Entity(ModelBuilder.newModel().build(), "test", 1L, propertyBuilder);
 		NebulaRandom nebulaRandom = mock(NebulaRandom.class);
 		entity.addProperty(null, null, null);
 		long entityIndex = 0L;

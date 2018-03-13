@@ -14,10 +14,10 @@ public class Request {
 
     private final String resource;
     private Long pathIndex;
-    private Map<String, List<String>> parameters = new HashMap<>();
+    private final Map<String, List<String>> parameters = new HashMap<>();
     private boolean hasParameters = false;
 
-    public Request(URI uri) throws UnsupportedEncodingException {
+    Request(URI uri) throws UnsupportedEncodingException {
 
         String requestPath = uri.getPath();
 
@@ -56,9 +56,8 @@ public class Request {
     }
 
     public List<Long> getLongsParameter(String parameterName) {
-        List<Long> longs = parameters.get(parameterName).stream().map(Long::valueOf).collect(Collectors.toList());
 
-        return longs;
+        return parameters.get(parameterName).stream().map(Long::valueOf).collect(Collectors.toList());
     }
 
     public boolean doesNotHaveParameters() {

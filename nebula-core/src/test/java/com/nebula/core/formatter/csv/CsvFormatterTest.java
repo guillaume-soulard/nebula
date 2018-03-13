@@ -22,12 +22,12 @@ public class CsvFormatterTest {
     private ValueFormatter valueFormatter;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         valueFormatter = new ValueFormatter("dd/MM/yyyy", '.', ',');
     }
 
     @Test
-    public void formatGeneratedObject_should_return_durant() throws Exception {
+    public void formatGeneratedObject_should_return_durant() {
 
         // GIVEN
         Model model = ModelBuilder.newModel().build();
@@ -48,7 +48,7 @@ public class CsvFormatterTest {
     }
 
     @Test
-    public void formatGeneratedObject_should_return_jean_durant() throws Exception {
+    public void formatGeneratedObject_should_return_jean_durant() {
 
         // GIVEN
         Model model = ModelBuilder.newModel().build();
@@ -70,7 +70,7 @@ public class CsvFormatterTest {
     }
 
     @Test
-    public void formatGeneratedObject_should_return_jean_durant_if_no_coluns_are_specified() throws Exception {
+    public void formatGeneratedObject_should_return_jean_durant_if_no_coluns_are_specified() {
 
         // GIVEN
         Model model = ModelBuilder.newModel().build();
@@ -93,7 +93,7 @@ public class CsvFormatterTest {
     }
 
     @Test
-    public void formatGeneratedObject_should_return_quotted_values() throws Exception {
+    public void formatGeneratedObject_should_return_quotted_values() {
 
         // GIVEN
         Model model = ModelBuilder.newModel().build();
@@ -115,7 +115,7 @@ public class CsvFormatterTest {
     }
 
     @Test
-    public void formatGeneratedObject_should_return_only_value_of_col1() throws Exception {
+    public void formatGeneratedObject_should_return_only_value_of_col1() {
 
         // GIVEN
         Model model = ModelBuilder.newModel().build();
@@ -137,7 +137,7 @@ public class CsvFormatterTest {
     }
 
     @Test
-    public void formatGeneratedObject_should_return_all_columns_when_empty_column_list_is_passed() throws Exception {
+    public void formatGeneratedObject_should_return_all_columns_when_empty_column_list_is_passed() {
 
         // GIVEN
         Model model = ModelBuilder.newModel().build();
@@ -165,7 +165,7 @@ public class CsvFormatterTest {
     }
 
     @Test
-    public void formatHeader_should_return_firstName_lastName() throws Exception {
+    public void formatHeader_should_return_firstName_lastName() {
 
         // GIVEN
         Model model = ModelBuilder.newModel().build();
@@ -186,7 +186,7 @@ public class CsvFormatterTest {
     }
 
     @Test
-    public void formatHeader_should_return_col1_col2() throws Exception {
+    public void formatHeader_should_return_col1_col2() {
 
         // GIVEN
         Model model = ModelBuilder.newModel().build();
@@ -207,7 +207,7 @@ public class CsvFormatterTest {
     }
 
     @Test
-    public void formatHeader_should_return_empty_string() throws Exception {
+    public void formatHeader_should_return_empty_string() {
 
         // GIVEN
         Model model = ModelBuilder.newModel().build();
@@ -228,7 +228,7 @@ public class CsvFormatterTest {
     }
 
     @Test
-    public void formatHeader_should_return_quoted_strings() throws Exception {
+    public void formatHeader_should_return_quoted_strings() {
 
         // GIVEN
         Model model = ModelBuilder.newModel().build();
@@ -249,7 +249,7 @@ public class CsvFormatterTest {
     }
 
     @Test
-    public void formatFooter_should_return_empty_string() throws Exception {
+    public void formatFooter_should_return_empty_string() {
 
         // GIVEN
         Model model = ModelBuilder.newModel().build();

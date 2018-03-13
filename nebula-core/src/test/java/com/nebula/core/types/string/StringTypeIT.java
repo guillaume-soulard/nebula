@@ -26,7 +26,7 @@ public class StringTypeIT {
 
 		// WHEN
 		for (int i = 1; i <= 1000; i++) {
-			model.generateEntityObject(entity, 0l, 0l);
+			model.generateEntityObject(entity, 0L, 0L);
 		}
 
 		// THEN
@@ -39,13 +39,13 @@ public class StringTypeIT {
 		// GIVEN
 		StringType stringType = new StringType(StringGenerator.newStringGenerator("[A-Z]{1}[a-z]{10,25}"));
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(new NebulaRandom(0l), ModelBuilder.newModel().build(), entityIndex);
+		GenerationContext context = new GenerationContext(new NebulaRandom(0L), ModelBuilder.newModel().build(), entityIndex);
 		stringType.init(context);
 		DateTime start = DateTime.now();
 
 		// WHEN
 		for (int i = 1; i <= 1000; i++) {
-			stringType.generateObject(0l);
+			stringType.generateObject(0L);
 		}
 
 		// THEN

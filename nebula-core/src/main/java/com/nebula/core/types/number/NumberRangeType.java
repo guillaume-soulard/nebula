@@ -6,14 +6,12 @@ import com.nebula.core.types.JavaType;
 import com.nebula.core.types.Range;
 
 import java.math.BigDecimal;
-import java.util.Collections;
-import java.util.List;
 
 class NumberRangeType extends AbstractTypeWithIndexCheck {
 
-	private Range<BigDecimal> range;
-	private int precision;
-	private BigDecimal increment;
+	private final Range<BigDecimal> range;
+	private final int precision;
+	private final BigDecimal increment;
 
 	NumberRangeType(Range<BigDecimal> range, int precision) {
 		this.range = range;
@@ -22,7 +20,7 @@ class NumberRangeType extends AbstractTypeWithIndexCheck {
 	}
 
 	public Long getMinRange() {
-		return 0l;
+		return 0L;
 	}
 
 	public Long getMaxRange() {

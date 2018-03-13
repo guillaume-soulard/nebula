@@ -13,10 +13,10 @@ import static com.nebula.core.generators.NebulaGenerators.random;
 public class Entity implements Type {
 
 	private PropertyBuilder propertyBuilder;
-	private List<Property> properties = new ArrayList<>();
-	private String name;
-	private Long amount;
-	private Model model;
+	private final List<Property> properties = new ArrayList<>();
+	private final String name;
+	private final Long amount;
+	private final Model model;
 
 	public Entity(Model model, String name, Long amount, PropertyBuilder propertyBuilder) {
 		this.amount = amount;

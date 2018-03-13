@@ -11,9 +11,9 @@ public class SimpleSocketServer extends Thread {
 
     private ServerSocket serverSocket;
     private boolean running = true;
-    private List<String> receivedData = new ArrayList<>();
+    private final List<String> receivedData = new ArrayList<>();
 
-    public SimpleSocketServer() throws IOException {
+    SimpleSocketServer() throws IOException {
         this.serverSocket = new ServerSocket(3000);
     }
 

@@ -14,7 +14,6 @@ import org.joda.time.DateTime;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
-import java.util.Collection;
 
 public final class NebulaTypes {
 

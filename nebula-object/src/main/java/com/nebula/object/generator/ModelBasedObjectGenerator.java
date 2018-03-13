@@ -21,14 +21,13 @@ import java.util.stream.IntStream;
 public class ModelBasedObjectGenerator implements ObjectGenerator {
 
     private final List<ValueTypeGenerator> valueTypeGenerators;
-    private Model model;
-    private AtomicLong index = new AtomicLong(0L);
-    private final List<ValueTypeGenerator> basicValueTypeGenerators;
+    private final Model model;
+    private final AtomicLong index = new AtomicLong(0L);
 
     public ModelBasedObjectGenerator(Model model) {
         this.model = model;
 
-        basicValueTypeGenerators = new ArrayList<>();
+        List<ValueTypeGenerator> basicValueTypeGenerators = new ArrayList<>();
 
         basicValueTypeGenerators.add(new BigDecimalValueTypeGenerator());
         basicValueTypeGenerators.add(new BooleanValueTypeGenerator());
@@ -125,8 +124,7 @@ public class ModelBasedObjectGenerator implements ObjectGenerator {
     private boolean isBasicGeneratedObject(GeneratedObject generatedObject) {
         return generatedObject.getGeneratedProperties() != null
                 && generatedObject.getGeneratedProperties()
-                .stream()
-                .filter(generatedProperty -> "_val".equals(generatedProperty.getPropertyName())).count() > 0;
+                .stream().anyMatch(generatedProperty -> "_val".equals(generatedProperty.getPropertyName()));
     }
 
     private Object getFinalValueFrom(Class<?> fieldType, Object object) {

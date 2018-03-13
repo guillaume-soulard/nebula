@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class RestGenerationRuleBuilder implements GenerationRuleBuilder {
 
-    private Map<String, FormatterBuilder> contentTypeFormatter = new HashMap<>();
+    private final Map<String, FormatterBuilder> contentTypeFormatter = new HashMap<>();
     private String host = "localhost";
     private int port = 80;
     private String defaultContentType = ContentType.APPLICATION_JSON.getMimeType();

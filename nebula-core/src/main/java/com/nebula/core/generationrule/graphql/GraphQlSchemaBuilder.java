@@ -22,7 +22,7 @@ import static graphql.schema.GraphQLObjectType.newObject;
 
 public class GraphQlSchemaBuilder {
 
-    private Map<String, GraphQLObjectType> convertedEntities = new HashMap<>();
+    private final Map<String, GraphQLObjectType> convertedEntities = new HashMap<>();
 
     public GraphQL buildSchemaFrom(Model model) {
 

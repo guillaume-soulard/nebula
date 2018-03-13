@@ -147,7 +147,7 @@ public class NumberRangeTypeBuilderTest {
 	}
 
 	@Test
-	public void builder_should_have_access_to_precision_and_min() throws Exception {
+	public void builder_should_have_access_to_precision_and_min() {
 
 		// GIVEN
 		NumberRangeTypeBuilder builder = new NumberRangeTypeBuilder();

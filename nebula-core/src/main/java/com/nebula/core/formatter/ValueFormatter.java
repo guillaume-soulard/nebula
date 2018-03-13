@@ -12,8 +12,8 @@ import java.text.NumberFormat;
 
 public class ValueFormatter {
 
-    private DecimalFormat numberFormat;
-    private DateTimeFormatter dateTimeFormat;
+    private final DecimalFormat numberFormat;
+    private final DateTimeFormatter dateTimeFormat;
 
     public ValueFormatter(String dateFormat, Character numberDecimalSeparator, Character numberThousandSeparator) {
 

@@ -31,7 +31,7 @@ public class RestGenerationRuleIT {
     private static RestGenerationRule rest;
 
     @BeforeClass
-    public static void setUp() throws Exception {
+    public static void setUp() {
         Model model = ModelBuilder.newModel().withSeed("users").withDateFormat("dd/MM/yyyy").build();
 
         model.newEntity("user")
@@ -51,7 +51,7 @@ public class RestGenerationRuleIT {
     }
 
     @AfterClass
-    public static void tearDown() throws Exception {
+    public static void tearDown() {
         rest.stop();
     }
 

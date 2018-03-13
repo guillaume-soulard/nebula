@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 
 public class NebulaBenchmark {
 
-	private List<Class<?>> benchmarkClasses;
+	private final List<Class<?>> benchmarkClasses;
 
 	private NebulaBenchmark() {
 		benchmarkClasses = new ArrayList<>();
@@ -29,28 +29,19 @@ public class NebulaBenchmark {
 		benchmarkClasses.add(NumberAmongTypeBenchmark.class);
 	}
 
-	public static void main(String[] args) throws RunnerException {
+	public static void main(String[] args) {
 		new NebulaBenchmark().runBenchmark();
 	}
 
-	private void runBenchmark() throws RunnerException {
+	private void runBenchmark() {
 		try {
 			Options options = new OptionsBuilder()
-					// .output(getOuputFileName()).result(getResultFileName())
 					.include(getBenchmarkClassesRegexp()).shouldDoGC(true).shouldFailOnError(true)
 					.jvmArgs("-Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n").build();
 			new Runner(options).run();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-
-	private String getResultFileName() {
-		return "result.txt";
-	}
-
-	private String getOuputFileName() {
-		return "logs.txt";
 	}
 
 	private String getBenchmarkClassesRegexp() {

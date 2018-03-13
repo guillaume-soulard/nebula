@@ -8,8 +8,8 @@ import java.sql.*;
 class JdbcOutput implements Output {
 
     private Connection connection;
-    private String url;
-    private String driverClassName;
+    private final String url;
+    private final String driverClassName;
 
     JdbcOutput(String url, String driverClassName) {
         this.url = url;

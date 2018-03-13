@@ -42,10 +42,10 @@ public class EntityTypeTest {
 
 		// GIVEN
 		EntityType type = new EntityType(ENTITY_NAME);
-		initEntityTypeWithEntityAmount(type, 1l);
+		initEntityTypeWithEntityAmount(type, 1L);
 
 		// WHEN
-		GeneratedObject result = type.generateObject(0l);
+		GeneratedObject result = type.generateObject(0L);
 
 		// THEN
 		assertThat(result).isNotNull();
@@ -55,10 +55,10 @@ public class EntityTypeTest {
 	public void generateObject_should_return_a_GeneratedObject_with_a_list_of_properties() {
 
 		EntityType type = new EntityType(ENTITY_NAME);
-		initEntityTypeWithEntityAmount(type, 1l);
+		initEntityTypeWithEntityAmount(type, 1L);
 
 		// WHEN
-		GeneratedObject result = type.generateObject(0l);
+		GeneratedObject result = type.generateObject(0L);
 
 		// THEN
 		assertThat(result).hasFieldOrPropertyWithValue("object", null).hasNoNullFieldsOrPropertiesExcept("object");
@@ -68,7 +68,7 @@ public class EntityTypeTest {
 	public void init_should_set_context() {
 
 		EntityType type = new EntityType(ENTITY_NAME);
-		GenerationContext context = initEntityTypeWithEntityAmount(type, 1l);
+		GenerationContext context = initEntityTypeWithEntityAmount(type, 1L);
 
 		// THEN
 		assertThat(type).hasFieldOrPropertyWithValue("context", context);
@@ -83,16 +83,16 @@ public class EntityTypeTest {
 		Long result = entityType.getMinRange();
 
 		// THEN
-		assertThat(result).isEqualTo(0l);
+		assertThat(result).isEqualTo(0L);
 	}
 
 	@Test
 	public void getMaxRange_should_return_0l() {
 
 		EntityType entityType = new EntityType(ENTITY_NAME);
-		NebulaRandom nebulaRandom = new NebulaRandom(1l);
+		NebulaRandom nebulaRandom = new NebulaRandom(1L);
 		Model model = mock(Model.class);
-		when(model.getEntityByName(ENTITY_NAME)).thenReturn(entityWithAmount(1l));
+		when(model.getEntityByName(ENTITY_NAME)).thenReturn(entityWithAmount(1L));
 		long entityIndex = 0L;
 		entityType.init(new GenerationContext(nebulaRandom, model, entityIndex));
 
@@ -100,28 +100,28 @@ public class EntityTypeTest {
 		Long result = entityType.getMaxRange();
 
 		// THEN
-		assertThat(result).isEqualTo(0l);
+		assertThat(result).isEqualTo(0L);
 	}
 
 	@Test
 	public void getMaxRange_should_return_1l() {
 
 		EntityType entityType = new EntityType(ENTITY_NAME);
-		initEntityTypeWithEntityAmount(entityType, 2l);
+		initEntityTypeWithEntityAmount(entityType, 2L);
 
 		// WHEN
 		Long result = entityType.getMaxRange();
 
 		// THEN
-		assertThat(result).isEqualTo(1l);
+		assertThat(result).isEqualTo(1L);
 	}
 
 	@Test
 	public void generateObject_should_generate_same_entity_for_same_index() {
 
 		EntityType entityType = new EntityType(ENTITY_NAME);
-		long index = 0l;
-		initEntityTypeWithEntityAmount(entityType, 1l);
+		long index = 0L;
+		initEntityTypeWithEntityAmount(entityType, 1L);
 		GeneratedObject firstResult = entityType.generateObject(index);
 
 		// WHEN
@@ -135,11 +135,11 @@ public class EntityTypeTest {
 	public void generateObject_should_generate_different_entities_for_two_different_indexes() {
 
 		EntityType entityType = new EntityType(ENTITY_NAME);
-		initEntityTypeWithEntityAmount(entityType, 2l);
-		GeneratedObject firstResult = entityType.generateObject(0l);
+		initEntityTypeWithEntityAmount(entityType, 2L);
+		GeneratedObject firstResult = entityType.generateObject(0L);
 
 		// WHEN
-		GeneratedObject result = entityType.generateObject(1l);
+		GeneratedObject result = entityType.generateObject(1L);
 
 		// THEN
 		assertThat(result).isNotEqualTo(firstResult);
@@ -149,10 +149,10 @@ public class EntityTypeTest {
 	public void generateObject_should_throw_exception_when_index_is_negative() {
 
 		EntityType entityType = new EntityType(ENTITY_NAME);
-		initEntityTypeWithEntityAmount(entityType, 1l);
+		initEntityTypeWithEntityAmount(entityType, 1L);
 
 		// WHEN
-		catchException(entityType).generateObject(-1l);
+		catchException(entityType).generateObject(-1L);
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
@@ -163,10 +163,10 @@ public class EntityTypeTest {
 	public void generateObject_should_throw_exception_when_index_is_greater_than_the_maximum_index() {
 
 		EntityType entityType = new EntityType(ENTITY_NAME);
-		initEntityTypeWithEntityAmount(entityType, 1l);
+		initEntityTypeWithEntityAmount(entityType, 1L);
 
 		// WHEN
-		catchException(entityType).generateObject(1l);
+		catchException(entityType).generateObject(1L);
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
@@ -177,10 +177,10 @@ public class EntityTypeTest {
 	public void generateObject_should_throw_exception_when_entity_name_is_unknown() {
 
 		EntityType entityType = new EntityType("unknown entity");
-		initEntityTypeWithEntityAmount(entityType, 1l);
+		initEntityTypeWithEntityAmount(entityType, 1L);
 
 		// WHEN
-		catchException(entityType).generateObject(1l);
+		catchException(entityType).generateObject(1L);
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
@@ -191,7 +191,7 @@ public class EntityTypeTest {
 	public void getMaxRange_should_throw_exception_when_entity_name_is_unknown() {
 
 		EntityType entityType = new EntityType("unknown entity");
-		initEntityTypeWithEntityAmount(entityType, 1l);
+		initEntityTypeWithEntityAmount(entityType, 1L);
 
 		// WHEN
 		catchException(entityType).getMaxRange();
@@ -208,7 +208,7 @@ public class EntityTypeTest {
 	private GenerationContext initEntityTypeWithEntityAmount(EntityType type, long entityAmount) {
 		Model model = mock(Model.class);
 		when(model.getEntityByName(ENTITY_NAME)).thenReturn(entityWithAmount(entityAmount));
-		NebulaRandom nebulaRandom = new NebulaRandom(1l);
+		NebulaRandom nebulaRandom = new NebulaRandom(1L);
 		long entityIndex = 0L;
 		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex);
 		type.init(context);

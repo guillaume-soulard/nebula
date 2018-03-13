@@ -16,14 +16,12 @@ import java.util.stream.IntStream;
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.*;
 
 public class RandomUniqueGeneratorTest {
 
     @Test
-    public void generate_should_not_return_null() throws Exception {
+    public void generate_should_not_return_null() {
 
         // GIVEN
         Type type = buildType();
@@ -38,7 +36,7 @@ public class RandomUniqueGeneratorTest {
     }
 
     @Test
-    public void generate_should_throw_NebulaException_when_is_not_initialized() throws Exception {
+    public void generate_should_throw_NebulaException_when_is_not_initialized() {
 
         // GIVEN
         Type type = buildType();
@@ -53,7 +51,7 @@ public class RandomUniqueGeneratorTest {
     }
 
     @Test
-    public void generate_should_not_throw_NebulaException_when_it_is_initialized() throws Exception {
+    public void generate_should_not_throw_NebulaException_when_it_is_initialized() {
 
         // GIVEN
         Type type = buildType();
@@ -67,7 +65,7 @@ public class RandomUniqueGeneratorTest {
     }
 
     @Test
-    public void generate_should_init_type() throws Exception {
+    public void generate_should_init_type() {
 
         // GIVEN
         Type type = buildType();
@@ -81,7 +79,7 @@ public class RandomUniqueGeneratorTest {
     }
 
     @Test
-    public void generate_should_return_generated_object_by_type() throws Exception {
+    public void generate_should_return_generated_object_by_type() {
 
         // GIVEN
         Type type = buildType();
@@ -97,7 +95,7 @@ public class RandomUniqueGeneratorTest {
     }
 
     @Test
-    public void generate_should_call_generate_object_with_all_10_indices_randomly_when_generate_is_called_10_times() throws Exception {
+    public void generate_should_call_generate_object_with_all_10_indices_randomly_when_generate_is_called_10_times() {
 
         // GIVEN
         Type type = spy(NebulaTypes.number().range().withMin(BigDecimal.ZERO).withMax(BigDecimal.TEN).build(mock(Model.class)));
@@ -122,7 +120,7 @@ public class RandomUniqueGeneratorTest {
     }
 
     @Test
-    public void generate_should_call_generate_object_with_all_10_indices_randomly_when_generate_is_called_20_times() throws Exception {
+    public void generate_should_call_generate_object_with_all_10_indices_randomly_when_generate_is_called_20_times() {
 
         // GIVEN
         Type type = spy(NebulaTypes.number().range().withMin(BigDecimal.ZERO).withMax(BigDecimal.TEN).build(mock(Model.class)));

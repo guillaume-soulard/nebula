@@ -18,7 +18,7 @@ import static org.mockito.Mockito.when;
 public class XmlFormatterTest {
 
     @Test
-    public void formatGeneratedObject_should_format_simple_generated_object() throws Exception {
+    public void formatGeneratedObject_should_format_simple_generated_object() {
 
         // GIVEN
         XmlFormatter formatter = new XmlFormatter(new ValueFormatter("dd/MM/yyyy", '.', ','));
@@ -44,7 +44,7 @@ public class XmlFormatterTest {
     }
 
     @Test
-    public void formatGeneratedObject_should_format_complex_generated_object() throws Exception {
+    public void formatGeneratedObject_should_format_complex_generated_object() {
 
         // GIVEN
         XmlFormatter formatter = new XmlFormatter(new ValueFormatter("dd/MM/yyyy", '.', ','));
@@ -75,7 +75,7 @@ public class XmlFormatterTest {
     }
 
     @Test
-    public void formatGeneratedObject_should_format_complex_generated_object_with_array() throws Exception {
+    public void formatGeneratedObject_should_format_complex_generated_object_with_array() {
 
         // GIVEN
         XmlFormatter formatter = new XmlFormatter(new ValueFormatter("dd/MM/yyyy", '.', ','));

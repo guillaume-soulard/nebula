@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class DateParserTest {
 
     @Test
-    public void parse_should_return_01_01_2017() throws Exception {
+    public void parse_should_return_01_01_2017() {
 
         // GIVEN
         DateParser dateParser = new DateParser();
@@ -26,7 +26,7 @@ public class DateParserTest {
     }
 
     @Test
-    public void parse_should_return_12_31_2017() throws Exception {
+    public void parse_should_return_12_31_2017() {
 
         // GIVEN
         DateParser dateParser = new DateParser();
@@ -41,7 +41,7 @@ public class DateParserTest {
     }
 
     @Test
-    public void parse_should_return_12_31_2017_with_custom_format() throws Exception {
+    public void parse_should_return_12_31_2017_with_custom_format() {
 
         // GIVEN
         DateParser dateParser = new DateParser();

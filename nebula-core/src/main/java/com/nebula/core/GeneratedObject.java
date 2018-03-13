@@ -4,12 +4,12 @@ import java.util.List;
 
 public class GeneratedObject {
 
-	public static final String QUOTE = "\"";
-	public static final String OBJECT_SEPARATOR = ",";
-	public static final String ARRAY_START = "[";
-	public static final String ARRAY_END = "]";
-	public static final String OBJECT_START = "{";
-	public static final String OBJECT_END = "}";
+	private static final String QUOTE = "\"";
+	private static final String OBJECT_SEPARATOR = ",";
+	private static final String ARRAY_START = "[";
+	private static final String ARRAY_END = "]";
+	private static final String OBJECT_START = "{";
+	private static final String OBJECT_END = "}";
 	public static final String PROPERTY_VALUE_SEPARATOR = ":";
 	private List<GeneratedProperty> generatedProperties;
 	private Object object;
@@ -54,11 +54,10 @@ public class GeneratedObject {
 		} else if (!generatedProperties.equals(other.generatedProperties))
 			return false;
 		if (object == null) {
-			if (other.object != null)
-				return false;
-		} else if (!object.equals(other.object))
-			return false;
-		return true;
+			return other.object == null;
+		} else {
+			return object.equals(other.object);
+		}
 	}
 
 	@Override

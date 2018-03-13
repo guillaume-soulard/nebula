@@ -10,7 +10,7 @@ public abstract class AbstractFormatterBuilder<T extends AbstractFormatterBuilde
     private Character numberThousandSeparator;
     private Character numberDecimalSeparator;
     private String dateFormat;
-    protected List<String> propertiesToExclude = new ArrayList<>();
+    protected final List<String> propertiesToExclude = new ArrayList<>();
 
     protected ValueFormatter buildValueFormatter(Model model) {
         if (dateFormat == null) {

@@ -19,9 +19,9 @@ import java.util.Set;
 
 public class ListTypeAmongItems extends AbstractListType {
 
-	private GeneratedObject[] items;
+	private final GeneratedObject[] items;
 	private Type numberRange;
-	private Model model;
+	private final Model model;
 
 	public ListTypeAmongItems(Model model, int minSize, int maxSize, Generator generator, ConstantTypeBuilder[] builders) {
 		super(minSize, maxSize, generator);
@@ -64,7 +64,7 @@ public class ListTypeAmongItems extends AbstractListType {
 
 	@Override
 	public Long getMinRange() {
-		return 0l;
+		return 0L;
 	}
 
 	@Override

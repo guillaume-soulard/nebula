@@ -8,7 +8,7 @@ import org.joda.time.ReadableInstant;
 
 public class DateTimeAmongTypeBuilder extends AmongTypeBuilder<DateTimeAmongTypeBuilder, ReadableInstant> {
 
-	private DateParser dateParser = new DateParser();
+	private final DateParser dateParser = new DateParser();
 
 	@Override
 	public Type buildImpl(Model model) {

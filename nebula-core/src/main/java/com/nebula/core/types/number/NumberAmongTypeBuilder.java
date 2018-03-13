@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 
 public class NumberAmongTypeBuilder extends AmongTypeBuilder<NumberAmongTypeBuilder, BigDecimal> {
 
-	private NumberParser numberParser = new NumberParser();
+	private final NumberParser numberParser = new NumberParser();
 
 	@Override
 	public Type buildImpl(Model model) {

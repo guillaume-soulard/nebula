@@ -22,8 +22,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 public class NebulaJunitRunner extends Runner implements Filterable {
 
@@ -31,8 +29,6 @@ public class NebulaJunitRunner extends Runner implements Filterable {
 
     public NebulaJunitRunner(Class testClass) throws InitializationError {
         runner = new BlockJUnit4ClassRunner(testClass) {
-
-            private Map<String, com.nebula.core.Model> models = new HashMap<>();
 
             protected Statement withBefores(FrameworkMethod method, Object target, Statement statement) {
 
@@ -101,7 +97,6 @@ public class NebulaJunitRunner extends Runner implements Filterable {
             }
 
             public void run(final RunNotifier notifier) {
-                notifier.addListener(new NebulaRunListener());;
                 super.run(notifier);
             }
         };

@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CsvGenerationIT {
 
     @Rule
-    public TemporaryFolder temporaryFolder = new TemporaryFolder();
+    public final TemporaryFolder temporaryFolder = new TemporaryFolder();
 
     @Before
     public void setUp() throws Exception {
@@ -30,12 +30,12 @@ public class CsvGenerationIT {
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         temporaryFolder.delete();
     }
 
     @Test
-    public void generate_should_generate_a_correct_csv_file() throws Exception {
+    public void generate_should_generate_a_correct_csv_file() {
 
         // GIVEN
         Model model = ModelBuilder.newModel().withSeed(1L).withDateFormat("dd/MM/yyyy").build();

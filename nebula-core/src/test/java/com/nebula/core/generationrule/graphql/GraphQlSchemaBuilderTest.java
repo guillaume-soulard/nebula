@@ -1,6 +1,5 @@
 package com.nebula.core.generationrule.graphql;
 
-import com.nebula.core.Entity;
 import com.nebula.core.Model;
 import com.nebula.core.ModelBuilder;
 import graphql.GraphQL;
@@ -13,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class GraphQlSchemaBuilderTest {
 
     @Test
-    public void buildSchemaFrom_should_not_return_null() throws Exception {
+    public void buildSchemaFrom_should_not_return_null() {
 
         // GIVEN
         GraphQlSchemaBuilder builder = new GraphQlSchemaBuilder();

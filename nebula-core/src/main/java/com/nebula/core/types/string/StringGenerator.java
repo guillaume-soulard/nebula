@@ -5,8 +5,8 @@ import com.mifmif.common.regex.Generex;
 public class StringGenerator {
 
 	public static final String DEFAULT_PATTERN = "[a-zA-Z_0-9]{10}";
-	private Generex generex;
-	private String pattern;
+	private final Generex generex;
+	private final String pattern;
 
 	private StringGenerator(String pattern) {
 		this.pattern = pattern;

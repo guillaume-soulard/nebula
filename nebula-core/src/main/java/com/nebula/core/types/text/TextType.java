@@ -10,8 +10,8 @@ import com.nebula.core.types.text.dictionary.NebulaDictionary;
 public class TextType implements Type {
 
     private GenerationContext context;
-    private NebulaDictionary dictionary;
-    private TextGenerationConfiguration textGenerationConfiguration;
+    private final NebulaDictionary dictionary;
+    private final TextGenerationConfiguration textGenerationConfiguration;
 
     TextType(NebulaDictionary dictionary, TextGenerationConfiguration textGenerationConfiguration) {
         this.dictionary = dictionary;

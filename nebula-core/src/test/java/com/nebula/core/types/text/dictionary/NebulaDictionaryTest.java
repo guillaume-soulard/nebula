@@ -16,14 +16,14 @@ public class NebulaDictionaryTest {
     private NebulaRandom nebulaRandom;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         dictionary = new NebulaDictionary(Collections.singletonList("test"));
         configuration = new TextGenerationConfiguration();
         nebulaRandom = new NebulaRandom(1L);
     }
 
     @Test
-    public void getText_should_return_non_null_text() throws Exception {
+    public void getText_should_return_non_null_text() {
 
         // GIVEN
 
@@ -35,7 +35,7 @@ public class NebulaDictionaryTest {
     }
 
     @Test
-    public void getText_should_return_string_with_test_inside() throws Exception {
+    public void getText_should_return_string_with_test_inside() {
 
         // GIVEN
 
@@ -47,7 +47,7 @@ public class NebulaDictionaryTest {
     }
 
     @Test
-    public void getText_should_return_string_only_one_word_and_one_sentence() throws Exception {
+    public void getText_should_return_string_only_one_word_and_one_sentence() {
 
         // GIVEN
         configuration.setMinWordsPerSentence(1);
@@ -63,7 +63,7 @@ public class NebulaDictionaryTest {
     }
 
     @Test
-    public void getText_should_return_string_with_two_words_in_two_sentences() throws Exception {
+    public void getText_should_return_string_with_two_words_in_two_sentences() {
 
         // GIVEN
         configuration.setMinWordsPerSentence(1);
@@ -79,7 +79,7 @@ public class NebulaDictionaryTest {
     }
 
     @Test
-    public void getText_should_return_a_sentence_with_a_number_of_words_between_5_and_10() throws Exception {
+    public void getText_should_return_a_sentence_with_a_number_of_words_between_5_and_10() {
 
         // GIVEN
         configuration.setMinWordsPerSentence(5);

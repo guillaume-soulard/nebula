@@ -3,7 +3,6 @@ package com.nebula.object.junit;
 import com.nebula.core.Model;
 import com.nebula.core.ModelBuilder;
 import com.nebula.object.User;
-import com.nebula.object.generator.model.ClassModelBuilder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -24,7 +23,7 @@ public class NebulaJunitRunnerTest {
     private User user;
 
     @Test
-    public void should_pass() throws Exception {
+    public void should_pass() {
 
         assertThat(users).hasSize(10);
         assertThat(string).isNotNull();

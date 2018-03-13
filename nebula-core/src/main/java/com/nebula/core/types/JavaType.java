@@ -2,10 +2,10 @@ package com.nebula.core.types;
 
 public class JavaType {
 
-    public static JavaType NUMBER = new JavaType(JavaTypeName.NUMBER);
-    public static JavaType DATE = new JavaType(JavaTypeName.DATE);
-    public static JavaType BOOLEAN = new JavaType(JavaTypeName.BOOLEAN);
-    public static JavaType STRING = new JavaType(JavaTypeName.STRING);
+    public static final JavaType NUMBER = new JavaType(JavaTypeName.NUMBER);
+    public static final JavaType DATE = new JavaType(JavaTypeName.DATE);
+    public static final JavaType BOOLEAN = new JavaType(JavaTypeName.BOOLEAN);
+    public static final JavaType STRING = new JavaType(JavaTypeName.STRING);
 
     private final JavaType subType;
     private final String name;

@@ -10,7 +10,7 @@ public abstract class AbstractAmongType<T extends Comparable<T>> extends Abstrac
 
 	private List<T> items;
 
-	public AbstractAmongType(List<T> items) {
+	protected AbstractAmongType(List<T> items) {
 		if (items == null) {
 			throw new NebulaException("items is null");
 		}
@@ -19,7 +19,7 @@ public abstract class AbstractAmongType<T extends Comparable<T>> extends Abstrac
 
 	@Override
 	public Long getMinRange() {
-		return 0l;
+		return 0L;
 	}
 
 	@Override

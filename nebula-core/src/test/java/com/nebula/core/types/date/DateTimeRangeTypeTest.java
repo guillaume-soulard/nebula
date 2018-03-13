@@ -24,7 +24,7 @@ public class DateTimeRangeTypeTest {
 		DateTimeRangeType dateType = new DateTimeRangeType(range, DateTimeTypeIntervals.DAY);
 
 		// WHEN
-		GeneratedObject result = dateType.generateObject(0l);
+		GeneratedObject result = dateType.generateObject(0L);
 
 		// THEN
 		assertThat(result).isNotNull();
@@ -39,7 +39,7 @@ public class DateTimeRangeTypeTest {
 		DateTimeRangeType dateType = new DateTimeRangeType(range, DateTimeTypeIntervals.DAY);
 
 		// WHEN
-		GeneratedObject generatedObject = dateType.generateObject(0l);
+		GeneratedObject generatedObject = dateType.generateObject(0L);
 
 		// THEN
 		assertThat(generatedObject).hasFieldOrPropertyWithValue("object", dateTime);
@@ -55,7 +55,7 @@ public class DateTimeRangeTypeTest {
 		DateTimeRangeType dateType = new DateTimeRangeType(range, DateTimeTypeIntervals.DAY);
 
 		// WHEN
-		GeneratedObject generatedObject = dateType.generateObject(1l);
+		GeneratedObject generatedObject = dateType.generateObject(1L);
 
 		// THEN
 		DateTime expectedDateTime = new DateTime(2017, 1, 2, 0, 0);
@@ -89,7 +89,7 @@ public class DateTimeRangeTypeTest {
 		DateTimeRangeType dateType = new DateTimeRangeType(range, interval);
 
 		// WHEN
-		GeneratedObject generatedObject = dateType.generateObject(9l);
+		GeneratedObject generatedObject = dateType.generateObject(9L);
 
 		// THEN
 		DateTime expectedDateTime = new DateTime(2017, 1, 1, 9, 0);
@@ -124,7 +124,7 @@ public class DateTimeRangeTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_throw_exception_when_reequested_date_is_out_of_range() {
+	public void generateObject_should_throw_exception_when_requested_date_is_out_of_range() {
 
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0);
@@ -134,10 +134,10 @@ public class DateTimeRangeTypeTest {
 		DateTimeRangeType dateType = new DateTimeRangeType(range, interval);
 
 		// WHEN
-		catchException(dateType).generateObject(1000l);
+		catchException(dateType).generateObject(1000L);
 
 		// THEN
-		assertThat((Exception) (Exception) caughtException()).isInstanceOf(NebulaException.class)
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
 
@@ -152,10 +152,10 @@ public class DateTimeRangeTypeTest {
 		DateTimeRangeType dateType = new DateTimeRangeType(range, interval);
 
 		// WHEN
-		catchException(dateType).generateObject(-1l);
+		catchException(dateType).generateObject(-1L);
 
 		// THEN
-		assertThat((Exception) (Exception) caughtException()).isInstanceOf(NebulaException.class)
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
 
@@ -173,7 +173,7 @@ public class DateTimeRangeTypeTest {
 		Long result = dateType.getMinRange();
 
 		// THEN
-		assertThat(result).isEqualTo(0l);
+		assertThat(result).isEqualTo(0L);
 	}
 
 	@Test
@@ -190,7 +190,7 @@ public class DateTimeRangeTypeTest {
 		Long result = dateType.getMaxRange();
 
 		// THEN
-		assertThat(result).isEqualTo(1000l);
+		assertThat(result).isEqualTo(1000L);
 	}
 
 	@Test
@@ -207,7 +207,7 @@ public class DateTimeRangeTypeTest {
 		Long result = dateType.getMaxRange();
 
 		// THEN
-		assertThat(result).isEqualTo(10l);
+		assertThat(result).isEqualTo(10L);
 	}
 
 	@Test
@@ -224,7 +224,7 @@ public class DateTimeRangeTypeTest {
 		Long result = dateType.getMaxRange();
 
 		// THEN
-		assertThat(result).isEqualTo(36l);
+		assertThat(result).isEqualTo(36L);
 	}
 
 	@Test
@@ -241,7 +241,7 @@ public class DateTimeRangeTypeTest {
 		Long result = dateType.getMaxRange();
 
 		// THEN
-		assertThat(result).isEqualTo(24l);
+		assertThat(result).isEqualTo(24L);
 	}
 
 	@Test
@@ -258,7 +258,7 @@ public class DateTimeRangeTypeTest {
 		Long result = dateType.getMaxRange();
 
 		// THEN
-		assertThat(result).isEqualTo(30l);
+		assertThat(result).isEqualTo(30L);
 	}
 
 	@Test
@@ -275,7 +275,7 @@ public class DateTimeRangeTypeTest {
 		Long result = dateType.getMaxRange();
 
 		// THEN
-		assertThat(result).isEqualTo(2l);
+		assertThat(result).isEqualTo(2L);
 	}
 
 	@Test
@@ -292,7 +292,7 @@ public class DateTimeRangeTypeTest {
 		Long result = dateType.getMaxRange();
 
 		// THEN
-		assertThat(result).isEqualTo(6l);
+		assertThat(result).isEqualTo(6L);
 	}
 
 	@Test
@@ -309,6 +309,6 @@ public class DateTimeRangeTypeTest {
 		Long result = dateType.getMaxRange();
 
 		// THEN
-		assertThat(result).isEqualTo(2l);
+		assertThat(result).isEqualTo(2L);
 	}
 }

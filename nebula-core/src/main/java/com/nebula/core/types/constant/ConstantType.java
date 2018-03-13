@@ -8,12 +8,10 @@ import com.nebula.core.types.Type;
 import org.joda.time.DateTime;
 
 import java.math.BigDecimal;
-import java.util.Collections;
-import java.util.List;
 
 class ConstantType implements Type {
 
-	private Object value;
+	private final Object value;
 
 	ConstantType(Object value) {
 		this.value = value;
@@ -31,12 +29,12 @@ class ConstantType implements Type {
 
 	@Override
 	public Long getMinRange() {
-		return 0l;
+		return 0L;
 	}
 
 	@Override
 	public Long getMaxRange() {
-		return 0l;
+		return 0L;
 	}
 
 	@Override

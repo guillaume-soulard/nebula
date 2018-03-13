@@ -19,7 +19,7 @@ import static org.mockito.Mockito.*;
 public class OneShootGenerationRuleTest {
 
     @Test
-    public void new_GenerationRule_should_set_correctly_properties() throws Exception {
+    public void new_GenerationRule_should_set_correctly_properties() {
 
         // GIVEN
         Entity entity = mock(Entity.class);
@@ -41,7 +41,7 @@ public class OneShootGenerationRuleTest {
     }
 
     @Test
-    public void new_GenerationRule_should_throw_exception_when_entity_is_null() throws Exception {
+    public void new_GenerationRule_should_throw_exception_when_entity_is_null() {
 
         // GIVEN
         Entity entity = null;
@@ -64,7 +64,7 @@ public class OneShootGenerationRuleTest {
     }
 
     @Test
-    public void new_GenerationRule_should_throw_exception_when_outputs_is_null() throws Exception {
+    public void new_GenerationRule_should_throw_exception_when_outputs_is_null() {
 
         // GIVEN
         Entity entity = mock(Entity.class);
@@ -86,7 +86,7 @@ public class OneShootGenerationRuleTest {
     }
 
     @Test
-    public void new_GenerationRule_should_throw_exception_when_outputs_contains_a_null() throws Exception {
+    public void new_GenerationRule_should_throw_exception_when_outputs_contains_a_null() {
 
         // GIVEN
         Entity entity = mock(Entity.class);
@@ -109,7 +109,7 @@ public class OneShootGenerationRuleTest {
     }
 
     @Test
-    public void new_GenerationRule_should_throw_exception_when_formatter_null() throws Exception {
+    public void new_GenerationRule_should_throw_exception_when_formatter_null() {
 
         // GIVEN
         Entity entity = mock(Entity.class);
@@ -132,7 +132,7 @@ public class OneShootGenerationRuleTest {
     }
 
     @Test
-    public void new_GenerationRule_should_throw_exception_when_generatedObjectIterator_null() throws Exception {
+    public void new_GenerationRule_should_throw_exception_when_generatedObjectIterator_null() {
 
         // GIVEN
         Output output = mock(Output.class);
@@ -153,7 +153,7 @@ public class OneShootGenerationRuleTest {
     }
 
     @Test
-    public void generate_should_call_objects_in_right_order() throws Exception {
+    public void generate_should_call_objects_in_right_order() {
 
         // GIVEN
         Entity entity = mock(Entity.class);

@@ -7,8 +7,8 @@ public class TypeBuilderChooser<
 		R extends RangeTypeBuilder<SR, T>,
 		A extends AmongTypeBuilder<SA, T>> {
 
-	private R rangeBuilder;
-	private A amongBuilder;
+	private final R rangeBuilder;
+	private final A amongBuilder;
 
 	public TypeBuilderChooser(R rangeBuilder, A amongBuilder) {
 		this.rangeBuilder = rangeBuilder;

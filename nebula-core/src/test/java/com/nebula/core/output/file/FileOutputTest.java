@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class FileOutputTest {
 
     @Rule
-    public TemporaryFolder temporaryFolder = new TemporaryFolder();
+    public final TemporaryFolder temporaryFolder = new TemporaryFolder();
 
     @Before
     public void setUp() throws Exception {
@@ -23,7 +23,7 @@ public class FileOutputTest {
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         temporaryFolder.delete();
     }
 
@@ -44,7 +44,7 @@ public class FileOutputTest {
     }
 
     @Test
-    public void write_should_write_in_non_existing_file() throws Exception {
+    public void write_should_write_in_non_existing_file() {
 
         // GIVEN
         File fileToWrite = new File(temporaryFolder.getRoot(), "nonExisting.tmp");

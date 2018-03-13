@@ -13,7 +13,7 @@ import static com.nebula.core.types.NebulaTypes.list;
 
 public class ListValueTypeGenerator implements ValueTypeGenerator {
 
-    private List<ValueTypeGenerator> basicValueTypeGenerators;
+    private final List<ValueTypeGenerator> basicValueTypeGenerators;
 
     public ListValueTypeGenerator(List<ValueTypeGenerator> basicValueTypeGenerators) {
         this.basicValueTypeGenerators = basicValueTypeGenerators;

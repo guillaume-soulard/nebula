@@ -18,8 +18,8 @@ public class OneShootGenerationRuleBuilder implements GenerationRuleBuilder {
 
     private FormatterBuilder formatterBuilder;
     private Entity entity;
-    private List<Output> outputs = new ArrayList<>();
-    private List<GenerationConstraint> generationConstraints = new ArrayList<>();
+    private final List<Output> outputs = new ArrayList<>();
+    private final List<GenerationConstraint> generationConstraints = new ArrayList<>();
     private String entityName;
 
     public OneShootGenerationRuleBuilder withFormatter(FormatterBuilder formatterBuilder) {

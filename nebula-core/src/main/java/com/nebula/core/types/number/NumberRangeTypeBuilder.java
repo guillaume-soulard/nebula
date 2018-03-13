@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 public class NumberRangeTypeBuilder extends RangeTypeBuilder<NumberRangeTypeBuilder, BigDecimal> {
 
 	private int precision = 0;
-	private NumberParser numberParser = new NumberParser();
+	private final NumberParser numberParser = new NumberParser();
 
 	@Override
 	protected Type buildImpl(Model model) {

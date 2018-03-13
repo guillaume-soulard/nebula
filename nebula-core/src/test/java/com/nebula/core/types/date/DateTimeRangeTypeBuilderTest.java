@@ -33,7 +33,7 @@ public class DateTimeRangeTypeBuilderTest {
 		Type result = builder.build(ModelBuilder.newModel().build());
 
 		// THEN
-		assertThat(result).hasFieldOrPropertyWithValue("range.min", new DateTime(0l))
+		assertThat(result).hasFieldOrPropertyWithValue("range.min", new DateTime(0L))
 				.hasFieldOrPropertyWithValue("range.max", new DateTime(9999, 12, 31, 0, 0))
 				.hasFieldOrPropertyWithValue("interval", DateTimeTypeIntervals.DAY);
 	}

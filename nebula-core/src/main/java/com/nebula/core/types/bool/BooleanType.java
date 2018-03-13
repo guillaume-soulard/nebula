@@ -6,9 +6,6 @@ import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.JavaType;
 import com.nebula.core.types.Type;
 
-import java.util.Collections;
-import java.util.List;
-
 class BooleanType implements Type {
 
 	BooleanType() {
@@ -33,12 +30,12 @@ class BooleanType implements Type {
 
 	@Override
 	public Long getMinRange() {
-		return 0l;
+		return 0L;
 	}
 
 	@Override
 	public Long getMaxRange() {
-		return 1l;
+		return 1L;
 	}
 
 	@Override

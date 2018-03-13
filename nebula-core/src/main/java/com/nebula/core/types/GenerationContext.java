@@ -5,9 +5,9 @@ import com.nebula.core.generators.NebulaRandom;
 
 public class GenerationContext {
 
-	private NebulaRandom nebulaRandom;
-	private Model model;
-	private long entityIndex;
+	private final NebulaRandom nebulaRandom;
+	private final Model model;
+	private final long entityIndex;
 
 	public GenerationContext(NebulaRandom nebulaRandom, Model model, long entityIndex) {
 		this.nebulaRandom = nebulaRandom;

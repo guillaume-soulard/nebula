@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ClassModelBuilderTest {
 
     @Test
-    public void buildModelFrom_should_return_non_null_model_for_UserAddress() throws Exception {
+    public void buildModelFrom_should_return_non_null_model_for_UserAddress() {
 
         // GIVEN
         ClassModelBuilder builder = new ClassModelBuilder();
@@ -24,7 +24,7 @@ public class ClassModelBuilderTest {
 
 
     @Test
-    public void buildModelFrom_should_return_non_null_model_for_User() throws Exception {
+    public void buildModelFrom_should_return_non_null_model_for_User() {
 
         // GIVEN
         ClassModelBuilder builder = new ClassModelBuilder();

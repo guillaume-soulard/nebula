@@ -50,7 +50,7 @@ public class ListTypeOfTypeTest {
 		Long result = listType.getMinRange();
 
 		// THEN
-		assertThat(result).isEqualTo(0l);
+		assertThat(result).isEqualTo(0L);
 	}
 
 	@Test
@@ -67,7 +67,7 @@ public class ListTypeOfTypeTest {
 		Long result = listType.getMaxRange();
 
 		// THEN
-		assertThat(result).isEqualTo(0l);
+		assertThat(result).isEqualTo(0L);
 	}
 
 	@Test
@@ -84,7 +84,7 @@ public class ListTypeOfTypeTest {
 		Long result = listType.getMaxRange();
 
 		// THEN
-		assertThat(result).isEqualTo(1l);
+		assertThat(result).isEqualTo(1L);
 	}
 
 	@Test
@@ -101,7 +101,7 @@ public class ListTypeOfTypeTest {
 		Long result = listType.getMaxRange();
 
 		// THEN
-		assertThat(result).isEqualTo(15l);
+		assertThat(result).isEqualTo(15L);
 	}
 
 	@Test
@@ -114,7 +114,7 @@ public class ListTypeOfTypeTest {
 		Type type = NebulaTypes.bool().build(ModelBuilder.newModel().build());
 		ListTypeOfType listType = new ListTypeOfType(minSize, maxSize, generator, type);
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(new NebulaRandom(1l), null, entityIndex);
+		GenerationContext context = new GenerationContext(new NebulaRandom(1L), null, entityIndex);
 
 		// WHEN
 		listType.init(context);
@@ -133,11 +133,11 @@ public class ListTypeOfTypeTest {
 		Type type = NebulaTypes.bool().build(ModelBuilder.newModel().build());
 		ListTypeOfType listType = new ListTypeOfType(minSize, maxSize, generator, type);
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(new NebulaRandom(1l), null, entityIndex);
+		GenerationContext context = new GenerationContext(new NebulaRandom(1L), null, entityIndex);
 		listType.init(context);
 
 		// WHEN
-		GeneratedObject result = listType.generateObject(0l);
+		GeneratedObject result = listType.generateObject(0L);
 
 		// THEN
 		assertThat(result).isNotNull();
@@ -153,11 +153,11 @@ public class ListTypeOfTypeTest {
 		Type type = NebulaTypes.bool().build(ModelBuilder.newModel().build());
 		ListTypeOfType listType = new ListTypeOfType(minSize, maxSize, generator, type);
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(new NebulaRandom(1l), null, entityIndex);
+		GenerationContext context = new GenerationContext(new NebulaRandom(1L), null, entityIndex);
 		listType.init(context);
 
 		// WHEN
-		GeneratedObject result = listType.generateObject(0l);
+		GeneratedObject result = listType.generateObject(0L);
 
 		// THEN
 		assertThat(result.getObject()).isInstanceOf(ArrayList.class);
@@ -173,10 +173,10 @@ public class ListTypeOfTypeTest {
 		Type type = NebulaTypes.bool().build(ModelBuilder.newModel().build());
 		ListTypeOfType listType = new ListTypeOfType(minSize, maxSize, generator, type);
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(new NebulaRandom(1l), null, entityIndex);
+		GenerationContext context = new GenerationContext(new NebulaRandom(1L), null, entityIndex);
 		listType.init(context);
 		// WHEN
-		GeneratedObject result = listType.generateObject(0l);
+		GeneratedObject result = listType.generateObject(0L);
 
 		// THEN
 		assertThat(result.getObject()).asList().isEmpty();
@@ -192,10 +192,10 @@ public class ListTypeOfTypeTest {
 		Type type = NebulaTypes.bool().build(ModelBuilder.newModel().build());
 		ListTypeOfType listType = new ListTypeOfType(minSize, maxSize, generator, type);
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(new NebulaRandom(1l), null, entityIndex);
+		GenerationContext context = new GenerationContext(new NebulaRandom(1L), null, entityIndex);
 		listType.init(context);
 		// WHEN
-		GeneratedObject result = listType.generateObject(0l);
+		GeneratedObject result = listType.generateObject(0L);
 
 		// THEN
 		assertThat(result.getObject()).asList().hasSize(1);
@@ -212,12 +212,12 @@ public class ListTypeOfTypeTest {
 		Type type = NebulaTypes.bool().build(ModelBuilder.newModel().build());
 		ListTypeOfType listType = new ListTypeOfType(minSize, maxSize, generator, type);
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(new NebulaRandom(1l), null, entityIndex);
+		GenerationContext context = new GenerationContext(new NebulaRandom(1L), null, entityIndex);
 		listType.init(context);
-		GeneratedObject resultAtIndex0 = listType.generateObject(0l);
+		GeneratedObject resultAtIndex0 = listType.generateObject(0L);
 
 		// WHEN
-		GeneratedObject resultAtIndex1 = listType.generateObject(1l);
+		GeneratedObject resultAtIndex1 = listType.generateObject(1L);
 
 		// THEN
 		assertThat(resultAtIndex1.getObject()).asList().size()
@@ -235,12 +235,12 @@ public class ListTypeOfTypeTest {
 		Type type = NebulaTypes.bool().build(ModelBuilder.newModel().build());
 		ListTypeOfType listType = new ListTypeOfType(minSize, maxSize, generator, type);
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(new NebulaRandom(1l), null, entityIndex);
+		GenerationContext context = new GenerationContext(new NebulaRandom(1L), null, entityIndex);
 		listType.init(context);
-		GeneratedObject firstResult = listType.generateObject(0l);
+		GeneratedObject firstResult = listType.generateObject(0L);
 
 		// WHEN
-		GeneratedObject secondResult = listType.generateObject(0l);
+		GeneratedObject secondResult = listType.generateObject(0L);
 
 		// THEN
 		assertThat(secondResult.getObject()).asList()
@@ -248,7 +248,7 @@ public class ListTypeOfTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_generate_a_list_of_string_with_different_values() throws Exception {
+	public void generateObject_should_generate_a_list_of_string_with_different_values() {
 
 		// GIVEN
 		int minSize = 0;
@@ -257,11 +257,11 @@ public class ListTypeOfTypeTest {
 		Type type = NebulaTypes.string().build(ModelBuilder.newModel().build());
 		ListTypeOfType listType = new ListTypeOfType(minSize, maxSize, generator, type);
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(new NebulaRandom(1l), null, entityIndex);
+		GenerationContext context = new GenerationContext(new NebulaRandom(1L), null, entityIndex);
 		listType.init(context);
 
 		// WHEN
-		GeneratedObject result = listType.generateObject(0l);
+		GeneratedObject result = listType.generateObject(0L);
 
 		// THEN
 		assertThat(result.getObject()).asList()
