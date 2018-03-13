@@ -34,9 +34,6 @@ public class GraphQl {
                 "Dept 9",
                 "Dept 10"));
 
-        model.addEntity(users);
-        model.addEntity(departments);
-
         model.addGenerationRule(GenerationRules.newGraphQlGenerationRule()
                 .withHost("localhost")
                 .handleRequestsOn("/graphQl")

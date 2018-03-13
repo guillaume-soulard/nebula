@@ -27,26 +27,24 @@ public class GraphQlSchemaBuilderTest {
 
     private Model getModel() {
         Model model = ModelBuilder.newModel().build();
-        Entity entity = model.newEntity("entity");
-        entity.addProperty("string", random() , string());
-        entity.addProperty("date", random(), dateTime().range());
-        entity.addProperty("number", random(), number().range());
-        entity.addProperty("bool", random(), bool());
-        entity.addProperty("constant", constant("constant"));
-        entity.addProperty("entityList", random(), list().of(random(), entity("subEntity")));
-        entity.addProperty("stringList", random(), list().of(random(), string()));
-        entity.addProperty("amongItems", random(), amongItems("1", "2", "3"));
-        model.addEntity(entity);
+        model.newEntity("entity")
+                .addProperty("string", random(), string())
+                .addProperty("date", random(), dateTime().range())
+                .addProperty("number", random(), number().range())
+                .addProperty("bool", random(), bool())
+                .addProperty("constant", constant("constant"))
+                .addProperty("entityList", random(), list().of(random(), entity("subEntity")))
+                .addProperty("stringList", random(), list().of(random(), string()))
+                .addProperty("amongItems", random(), amongItems("1", "2", "3"));
 
-        Entity subEntity = model.newEntity("subEntity");
-        subEntity.addProperty("string", random() , string());
-        subEntity.addProperty("date", random(), dateTime().range());
-        subEntity.addProperty("number", random(), number().range());
-        subEntity.addProperty("bool", random(), bool());
-        subEntity.addProperty("constant", constant("constant"));
-        subEntity.addProperty("stringList", random(), list().of(random(), string()));
-        subEntity.addProperty("amongItems", random(), amongItems("1", "2", "3"));
-        model.addEntity(subEntity);
+        model.newEntity("subEntity")
+            .addProperty("string", random() , string())
+            .addProperty("date", random(), dateTime().range())
+            .addProperty("number", random(), number().range())
+            .addProperty("bool", random(), bool())
+            .addProperty("constant", constant("constant"))
+            .addProperty("stringList", random(), list().of(random(), string()))
+            .addProperty("amongItems", random(), amongItems("1", "2", "3"));
 
         return model;
     }

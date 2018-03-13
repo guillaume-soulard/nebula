@@ -71,8 +71,7 @@ public class GenerationRuleBuilderTest {
         // GIVEN
         OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();
         Model model = ModelBuilder.newModel().build();
-        Entity entity = model.newEntity("test");
-        generationRuleBuilder.withEntity(entity);
+        generationRuleBuilder.withEntity("test");
         generationRuleBuilder.withFormatter(NebulaFormatters.csv());
         generationRuleBuilder.addOutput(NebulaOutputs.stdout());
 
@@ -91,7 +90,6 @@ public class GenerationRuleBuilderTest {
         OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();
         Model model = ModelBuilder.newModel().build();
         Entity entity = model.newEntity("test");
-        model.addEntity(entity);
         generationRuleBuilder.withEntity(entity);
         generationRuleBuilder.withFormatter(NebulaFormatters.csv());
         generationRuleBuilder.addOutput(NebulaOutputs.stdout());

@@ -36,8 +36,6 @@ public class Rest {
                 "Dept 9",
                 "Dept 10"));
 
-        model.addEntity(users);
-        model.addEntity(departments);
 
         model.addGenerationRule(GenerationRules.newRestGenerationRule()
                 .addContentTypeFormatter(ContentType.APPLICATION_JSON, json().pretty())

@@ -29,8 +29,6 @@ public class Sql {
                 "Dept 4",
                 "Dept 5"));
 
-        model.addEntity(users);
-
         model.addGenerationRule(GenerationRules.newOneShootGenerationRule()
                 .addOutput(stdout())
                 .withFormatter(sql().addPropertyToIgnore("_id"))

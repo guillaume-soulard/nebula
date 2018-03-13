@@ -89,8 +89,6 @@ public class ClassModelBuilder {
                 }
 
             }
-
-            model.addEntity(entity);
         }
     }
 

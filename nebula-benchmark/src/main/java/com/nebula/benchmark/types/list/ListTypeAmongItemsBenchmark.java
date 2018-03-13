@@ -37,7 +37,6 @@ public class ListTypeAmongItemsBenchmark {
 		entity = model.newEntity("test", 10000000);
 		entity.addProperty("property", random(), list()
 				.of(random()).amongItems(constant("value")));
-		model.addEntity(entity);
 		index = new AtomicLong(0l);
 	}
 }

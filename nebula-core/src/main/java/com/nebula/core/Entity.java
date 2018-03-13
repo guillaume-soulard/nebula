@@ -1,12 +1,10 @@
 package com.nebula.core;
 
 import com.nebula.core.generators.GeneratorBuilder;
-import com.nebula.core.generators.NebulaGenerators;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.*;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -14,7 +12,7 @@ import static com.nebula.core.generators.NebulaGenerators.random;
 
 public class Entity implements Type {
 
-	private PropertyBuilder propertyBuilder = null;
+	private PropertyBuilder propertyBuilder;
 	private List<Property> properties = new ArrayList<>();
 	private String name;
 	private Long amount;
@@ -35,17 +33,18 @@ public class Entity implements Type {
 		return properties;
 	}
 
-	public void addProperty(String propertyName, GeneratorBuilder propertyGeneratorBuilder, RandomTypeBuilder propertyType) {
-        addProperty(propertyName, propertyType, propertyGeneratorBuilder);
+	public Entity addProperty(String propertyName, GeneratorBuilder propertyGeneratorBuilder, RandomTypeBuilder propertyType) {
+        return addProperty(propertyName, propertyType, propertyGeneratorBuilder);
 	}
 
-	public void addProperty(String propertyName, StaticTypeBuilder propertyType) {
-		addProperty(propertyName, propertyType, random());
+	public Entity addProperty(String propertyName, StaticTypeBuilder propertyType) {
+		return addProperty(propertyName, propertyType, random());
 	}
 
-	private void addProperty(String propertyName, TypeBuilder propertyType, GeneratorBuilder propertyGeneratorBuilder) {
+	private Entity addProperty(String propertyName, TypeBuilder propertyType, GeneratorBuilder propertyGeneratorBuilder) {
         checkIfPropertyAlreadyExists(propertyName);
         properties.add(propertyBuilder.newProperty(model, propertyName, propertyType, propertyGeneratorBuilder));
+        return this;
     }
 
 	private void checkIfPropertyAlreadyExists(String propertyName) {
@@ -91,7 +90,7 @@ public class Entity implements Type {
 	}
 
 	public Long getMinRange() {
-		return 1l;
+		return 1L;
 	}
 
 	public void setPropertyBuilder(PropertyBuilder propertyBuilder) {

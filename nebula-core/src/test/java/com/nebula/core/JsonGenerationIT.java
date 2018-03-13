@@ -45,7 +45,6 @@ public class JsonGenerationIT {
         DateTime minDayOfBirth = new DateTime(1950, 1, 1, 0, 0);
         DateTime maxDayOfBirth = new DateTime(2000, 1, 1, 0, 0);
         users.addProperty("dayOfBirth", random(), dateTime().range().withMin(minDayOfBirth).withMax(maxDayOfBirth));
-        model.addEntity(users);
 
         File fileToGenerate = new File(temporaryFolder.getRoot(), "users.json");
 

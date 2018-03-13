@@ -1,6 +1,5 @@
 package com.nebula.core.generationrule.rest;
 
-import com.nebula.core.Entity;
 import com.nebula.core.Model;
 import com.nebula.core.ModelBuilder;
 import com.nebula.core.formatter.FormatterBuilder;
@@ -35,11 +34,12 @@ public class RestGenerationRuleIT {
     public static void setUp() throws Exception {
         Model model = ModelBuilder.newModel().withSeed("users").withDateFormat("dd/MM/yyyy").build();
 
-        Entity entity = model.newEntity("user");
-        entity.addProperty("firstName", random(), string().withPattern("[A-Aa-z]{10,25}"));
-        entity.addProperty("lastName", random(), string().withPattern("[A-Aa-z]{10,25}"));
-        entity.addProperty("dayOfBirth", random(), dateTime().range().withMin(new DateTime(1940, 1, 1, 0, 0)).withMax(new DateTime(2017, 12, 31, 0, 0)));
-        model.addEntity(entity);
+        model.newEntity("user")
+                .addProperty("firstName", random(), string().withPattern("[A-Aa-z]{10,25}"))
+                .addProperty("lastName", random(), string().withPattern("[A-Aa-z]{10,25}"))
+                .addProperty("dayOfBirth", random(), dateTime().range()
+                        .withMin(new DateTime(1940, 1, 1, 0, 0))
+                        .withMax(new DateTime(2017, 12, 31, 0, 0)));
         Map<String, FormatterBuilder> formatterMap = new HashMap<>();
         formatterMap.put(ContentType.APPLICATION_JSON.getMimeType(), NebulaFormatters.json());
         formatterMap.put(ContentType.TEXT_PLAIN.getMimeType(), NebulaFormatters.csv());

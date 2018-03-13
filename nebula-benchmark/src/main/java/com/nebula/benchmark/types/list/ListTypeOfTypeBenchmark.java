@@ -37,7 +37,6 @@ public class ListTypeOfTypeBenchmark {
 		entity = model.newEntity("test", 10000000);
 		entity.addProperty("property", random(),
 				NebulaTypes.list().of(random(), number().range()));
-		model.addEntity(entity);
 		index = new AtomicLong(0l);
 	}
 }

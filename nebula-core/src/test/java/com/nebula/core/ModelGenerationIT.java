@@ -41,8 +41,6 @@ public class ModelGenerationIT {
 		Model model = ModelBuilder.newModel().build();
 		Entity testEntity = buildTestEntity(model);
 		Entity anotherEntity = buildAnotherEntity(model);
-		model.addEntity(testEntity);
-		model.addEntity(anotherEntity);
 
 		// WHEN
 		Map<Entity, List<GeneratedObject>> result = model.generateEntitiesObjectsAll(seed);
@@ -62,7 +60,6 @@ public class ModelGenerationIT {
 		Entity entity = model.newEntity("test", 1);
 		entity.addProperty("first", random(), string());
 		entity.addProperty("second", random(), string());
-		model.addEntity(entity);
 
 		// WHEN
 		GeneratedObject generatedObject = model.generateEntityObject(entity, 0l, 0l);

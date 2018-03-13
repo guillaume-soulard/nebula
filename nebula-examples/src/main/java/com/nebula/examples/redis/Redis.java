@@ -8,8 +8,6 @@ import com.nebula.core.types.date.DateTimeTypeIntervals;
 import redis.clients.jedis.Jedis;
 import redis.embedded.RedisServer;
 
-import java.util.Map;
-
 import static com.nebula.core.formatter.NebulaFormatters.custom;
 import static com.nebula.core.generationconstraint.NebulaConstraints.amount;
 import static com.nebula.core.generationrule.GenerationRules.newOneShootGenerationRule;
@@ -45,7 +43,6 @@ public class Redis {
             weather.addProperty("temperature", random(), number().range()
                     .withMin("-20")
                     .withMax("40"));
-            model.addEntity(weather);
 
             model.addGenerationRule(newOneShootGenerationRule()
                     .withEntity(weather)

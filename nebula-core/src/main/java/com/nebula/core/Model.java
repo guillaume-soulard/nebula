@@ -29,19 +29,13 @@ public class Model {
 		if (entityName == null) {
 			throw new NebulaException("entity name is null");
 		}
-		return new Entity(this, entityName, amount, new PropertyBuilder());
+		Entity entity = new Entity(this, entityName, amount, new PropertyBuilder());
+		entities.add(entity);
+		return entity;
 	}
 
 	public Entity newEntity(String entityName) {
 		return newEntity(entityName, Long.MAX_VALUE);
-	}
-
-	public void addEntity(Entity entity) {
-
-		if (entity == null) {
-			throw new NebulaException("type is null");
-		}
-		entities.add(entity);
 	}
 
 	public void addGenerationRule(GenerationRuleBuilder generationRuleBuilder) {

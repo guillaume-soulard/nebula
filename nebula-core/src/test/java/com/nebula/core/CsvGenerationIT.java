@@ -39,13 +39,12 @@ public class CsvGenerationIT {
 
         // GIVEN
         Model model = ModelBuilder.newModel().withSeed(1L).withDateFormat("dd/MM/yyyy").build();
-        Entity users = model.newEntity("users", 100l);
-        users.addProperty("firstName", random(), string().withPattern("[A-Z]{1}[a-z]{3,25}"));
-        users.addProperty("lastName", random(), string().withPattern("[A-Z]{1}[a-z]{3,25}"));
         DateTime minDayOfBirth = new DateTime(1950, 1, 1, 0, 0);
         DateTime maxDayOfBirth = new DateTime(2000, 1, 1, 0, 0);
-        users.addProperty("dayOfBirth", random(), dateTime().range().withMin(minDayOfBirth).withMax(maxDayOfBirth));
-        model.addEntity(users);
+        Entity users = model.newEntity("users", 100L)
+                .addProperty("firstName", random(), string().withPattern("[A-Z]{1}[a-z]{3,25}"))
+                .addProperty("lastName", random(), string().withPattern("[A-Z]{1}[a-z]{3,25}"))
+                .addProperty("dayOfBirth", random(), dateTime().range().withMin(minDayOfBirth).withMax(maxDayOfBirth));
 
         File fileToGenerate = new File(temporaryFolder.getRoot(), "users.csv");
 

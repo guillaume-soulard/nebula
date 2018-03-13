@@ -35,7 +35,6 @@ public class BoolTypeBenchmark {
 		model = ModelBuilder.newModel().build();
 		entity = model.newEntity("test", 10000000);
 		entity.addProperty("property", random(), bool());
-		model.addEntity(entity);
 		index = new AtomicLong(0l);
 	}
 }

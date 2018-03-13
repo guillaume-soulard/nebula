@@ -17,29 +17,27 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ModelTest {
 
 	@Test
-	public void add_should_add_given_type_in_model() {
+	public void newEntity_should_add_given_type_in_model() {
 		// GIVEN
 		Model model = ModelBuilder.newModel().build();
-		Entity entity = model.newEntity("test", 1);
 
 		// WHEN
-		model.addEntity(entity);
+		Entity entity = model.newEntity("test", 1);
 
 		// THEN
 		assertThat(model.getEntities()).containsOnly(entity);
 	}
 
 	@Test
-	public void add_should_throw_nebula_exception_when_null_type_is_passed() {
+	public void newEntity_with_no_amount_should_add_given_type_in_model() {
 		// GIVEN
-		Entity entity = null;
 		Model model = ModelBuilder.newModel().build();
 
 		// WHEN
-		catchException(model).addEntity(entity);
+		Entity entity = model.newEntity("test");
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("type is null");
+		assertThat(model.getEntities()).containsOnly(entity);
 	}
 
 	@Test
@@ -50,7 +48,6 @@ public class ModelTest {
 		Model model = ModelBuilder.newModel().build();
 		Entity entity = model.newEntity("test", 10);
 		entity.addProperty("number", NebulaGenerators.random(), NebulaTypes.number().range());
-		model.addEntity(entity);
 
 		// WHEN
 		Map<Entity, List<GeneratedObject>> result = model.generateEntitiesObjectsAll(seed);
@@ -68,7 +65,6 @@ public class ModelTest {
 		Model model = ModelBuilder.newModel().build();
 		Entity entity = model.newEntity("test", 10);
 		entity.addProperty("number", NebulaGenerators.random(), NebulaTypes.number().range());
-		model.addEntity(entity);
 
 		// WHEN
 		List<GeneratedObject> result = model.generateEntityObjects(entity, seed);
@@ -88,7 +84,6 @@ public class ModelTest {
 		String propertyName = "number";
 		entity.addProperty(propertyName, NebulaGenerators.random(),
 				NebulaTypes.number().range().withMin(BigDecimal.valueOf(-2)).withMax(BigDecimal.valueOf(2)));
-		model.addEntity(entity);
 
 		// WHEN
 		Map<Entity, List<GeneratedObject>> result = model.generateEntitiesObjectsAll(seed);
@@ -108,7 +103,6 @@ public class ModelTest {
 		Entity entity = model.newEntity("test", amount);
 		entity.addProperty("number", NebulaGenerators.random(),
 				NebulaTypes.number().range().withMin(BigDecimal.valueOf(-2)).withMax(BigDecimal.valueOf(2)));
-		model.addEntity(entity);
 		long seed = 1l;
 
 		// WHEN
@@ -127,7 +121,6 @@ public class ModelTest {
 		Entity entity = model.newEntity("test", amount);
 		entity.addProperty("number", NebulaGenerators.random(),
 				NebulaTypes.number().range().withMin(BigDecimal.valueOf(-2)).withMax(BigDecimal.valueOf(2)));
-		model.addEntity(entity);
 		long seed = 1l;
 		List<GeneratedObject> allObjects = model.generateEntityObjects(entity, seed);
 
@@ -146,7 +139,6 @@ public class ModelTest {
 		int amount = 10;
 		String entityName = "test";
 		Entity entity = model.newEntity(entityName, amount);
-		model.addEntity(entity);
 
 		// WHEN
 		Entity result = model.getEntityByName(entityName);
@@ -162,7 +154,6 @@ public class ModelTest {
 		Model model = ModelBuilder.newModel().build();
 		int amount = 10;
 		Entity entity = model.newEntity("test", amount);
-		model.addEntity(entity);
 
 		// WHEN
 		catchException(model).getEntityByName("unexisting");
@@ -179,7 +170,6 @@ public class ModelTest {
 		Model model = ModelBuilder.newModel().build();
 		int amount = 10;
 		Entity entity = model.newEntity("test", amount);
-		model.addEntity(entity);
 		long seed = 1l;
 		long entityIndex = 0l;
 
@@ -197,7 +187,6 @@ public class ModelTest {
 		Model model = ModelBuilder.newModel().build();
 		int amount = 10;
 		Entity entity = model.newEntity("test", amount);
-		model.addEntity(entity);
 		long seed = 1l;
 
 		// WHEN
@@ -214,7 +203,6 @@ public class ModelTest {
 		Model model = ModelBuilder.newModel().build();
 		int amount = 10;
 		Entity entity = model.newEntity("test", amount);
-		model.addEntity(entity);
 		long seed = 1l;
 		long entityIndex = 0l;
 
@@ -233,16 +221,15 @@ public class ModelTest {
 		Model model = ModelBuilder.newModel().build();
 		int amount = 10;
 		Entity entity = model.newEntity("test", amount);
-		model.addEntity(entity);
 		long seed = 1l;
 		long entityIndex = 0l;
-		GeneratedObject genratedObjectAtIndex0 = model.generateEntityObjects(entity, seed).get(0);
+		GeneratedObject generatedObjectAtIndex0 = model.generateEntityObjects(entity, seed).get(0);
 
 		// WHEN
 		GeneratedObject result = model.generateEntityObject(entity, entityIndex, seed);
 
 		// THEN
-		assertThat(result).isEqualTo(genratedObjectAtIndex0);
+		assertThat(result).isEqualTo(generatedObjectAtIndex0);
 	}
 
 	@Test
@@ -251,7 +238,7 @@ public class ModelTest {
 		// GIVEN
 		Model model = ModelBuilder.newModel().build();
 		String entityName = "entity 1";
-		model.addEntity(model.newEntity(entityName));
+		model.newEntity(entityName);
 
 		// WHEN
 		model.removeEntity(entityName);
@@ -266,9 +253,9 @@ public class ModelTest {
 		// GIVEN
 		Model model = ModelBuilder.newModel().build();
 		String entityName = "to remove";
-		model.addEntity(model.newEntity(entityName));
+		model.newEntity(entityName);
 		String anotherEntity = "another entity";
-		model.addEntity(model.newEntity(anotherEntity));
+		model.newEntity(anotherEntity);
 
 		// WHEN
 		model.removeEntity(entityName);
@@ -282,7 +269,7 @@ public class ModelTest {
 
 		// GIVEN
 		Model model = ModelBuilder.newModel().build();
-		model.addEntity(model.newEntity("entity"));
+		model.newEntity("entity");
 
 		// WHEN
 		catchException(model).removeEntity("un existing entity");

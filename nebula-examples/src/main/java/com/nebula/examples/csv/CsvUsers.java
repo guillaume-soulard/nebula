@@ -25,7 +25,6 @@ public class CsvUsers {
         users.addProperty("firstName", NebulaGenerators.random(), NebulaTypes.string().withPattern("[A-Z]{1}[a-z]{3,25}"));
         users.addProperty("lastName", NebulaGenerators.random(), NebulaTypes.string().withPattern("[A-Z]{1}[a-z]{3,25}"));
         users.addProperty("dayOfBirth", NebulaGenerators.random(), NebulaTypes.dateTime().range().withMin("01/01/1950").withMax("01/01/2000"));
-        model.addEntity(users);
 
         model.addGenerationRule(GenerationRules.newOneShootGenerationRule()
                 .withEntity(users)

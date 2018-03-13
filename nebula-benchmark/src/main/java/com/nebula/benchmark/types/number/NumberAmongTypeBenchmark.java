@@ -36,7 +36,6 @@ public class NumberAmongTypeBenchmark {
 		model = ModelBuilder.newModel().build();
 		entity = model.newEntity("test", 10000000);
 		entity.addProperty("property", random(), number().among().items(BigDecimal.ZERO, BigDecimal.ONE, BigDecimal.TEN));
-		model.addEntity(entity);
 		index = new AtomicLong(0l);
 	}
 }

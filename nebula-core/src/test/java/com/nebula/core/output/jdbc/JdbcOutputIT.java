@@ -49,7 +49,6 @@ public class JdbcOutputIT {
         users.addProperty("id", sequence(), number().range().withMin(BigDecimal.ONE));
         users.addProperty("name", random(), string().withPattern("[A-Z]{1}[a-z]{5,29}"));
         users.addProperty("email", random(), string().withPattern("[a-z]{5,10}\\@(gmail\\.com|company\\.com|outlook\\.com)"));
-        model.addEntity(users);
 
         model.addGenerationRule(newOneShootGenerationRule()
                 .withEntity(users)

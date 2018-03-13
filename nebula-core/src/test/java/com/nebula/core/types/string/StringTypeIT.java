@@ -56,7 +56,6 @@ public class StringTypeIT {
 		Entity entity = ModelBuilder.newModel().build().newEntity("entity", 1);
 		entity.addProperty("property", NebulaGenerators.random(),
 				NebulaTypes.string().withPattern("[A-Z]{1}[a-z]{10,25}"));
-		model.addEntity(entity);
 		return entity;
 	}
 

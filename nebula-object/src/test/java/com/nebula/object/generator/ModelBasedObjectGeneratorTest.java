@@ -24,7 +24,6 @@ public class ModelBasedObjectGeneratorTest {
                 .build();
         Entity userAddressEntity = model.newEntity(UserAddress.class.getCanonicalName());
         userAddressEntity.addProperty("address", random(), string());
-        model.addEntity(userAddressEntity);
 
         ModelBasedObjectGenerator generator = new ModelBasedObjectGenerator(model);
 

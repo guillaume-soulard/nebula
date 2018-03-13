@@ -19,7 +19,6 @@ public class SimpleGeneration {
 
         Entity entity = model.newEntity("test");
         entity.addProperty("string", NebulaGenerators.sequence(), NebulaTypes.number().range().withMin(BigDecimal.ZERO));
-        model.addEntity(entity);
 
         model.addGenerationRule(GenerationRules.newOneShootGenerationRule()
                 .withEntity("test")
