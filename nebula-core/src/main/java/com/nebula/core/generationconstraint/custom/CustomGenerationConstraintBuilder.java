@@ -2,7 +2,7 @@ package com.nebula.core.generationconstraint.custom;
 
 import com.nebula.core.NebulaException;
 import com.nebula.core.generationconstraint.GenerationConstraint;
-import com.nebula.core.generationconstraint.amount.GenerationConstraintBuilder;
+import com.nebula.core.generationconstraint.GenerationConstraintBuilder;
 
 public class CustomGenerationConstraintBuilder implements GenerationConstraintBuilder {
 

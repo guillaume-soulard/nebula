@@ -5,7 +5,7 @@ import com.nebula.core.Entity;
 import com.nebula.core.NebulaException;
 import com.nebula.core.formatter.FormatterBuilder;
 import com.nebula.core.generationconstraint.GenerationConstraint;
-import com.nebula.core.generationconstraint.amount.GenerationConstraintBuilder;
+import com.nebula.core.generationconstraint.GenerationConstraintBuilder;
 import com.nebula.core.generationrule.GenerationRule;
 import com.nebula.core.generationrule.GenerationRuleBuilder;
 import com.nebula.core.output.Output;

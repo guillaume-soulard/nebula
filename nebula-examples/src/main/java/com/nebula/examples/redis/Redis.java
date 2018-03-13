@@ -29,14 +29,14 @@ public class Redis {
             Jedis jedis = new Jedis("localhost", REDIS_PORT);
 
             Model model = ModelBuilder.newModel()
-                    .withSeed("redis weather time series")
+                    .withSeed("redis weather during series")
                     .withDateFormat("dd/MM/yyyy")
                     .withNumberDecimalSeparator(' ')
                     .withNumberThousandSeparator(' ')
                     .build();
 
             Entity weather = model.newEntity("weather");
-            weather.addProperty("time", sequence(), dateTime().range()
+            weather.addProperty("during", sequence(), dateTime().range()
                     .withMin("01/01/2017")
                     .withMax("01/01/2018")
                     .withInterval(DateTimeTypeIntervals.HOUR));

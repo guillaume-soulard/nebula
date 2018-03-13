@@ -1,4 +1,4 @@
-package com.nebula.core.generationconstraint.amount;
+package com.nebula.core.generationconstraint;
 
 import com.nebula.core.generationconstraint.GenerationConstraint;
 

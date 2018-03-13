@@ -1,6 +1,7 @@
 package com.nebula.core.generationconstraint.amount;
 
 import com.nebula.core.generationconstraint.GenerationConstraint;
+import com.nebula.core.generationconstraint.GenerationConstraintBuilder;
 
 public class AmountGenerationConstraintBuilder implements GenerationConstraintBuilder {
 

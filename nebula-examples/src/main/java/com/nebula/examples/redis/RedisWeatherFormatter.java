@@ -21,7 +21,7 @@ public class RedisWeatherFormatter extends AbstractFormatter {
     @Override
     public String formatGeneratedObject(GeneratedObject generatedObject) {
         return "return redis.call('HMSET', '2017:temperature', '" +
-                valueFormatter.formatValue(generatedObject.getGeneratedPropertyValue("time").getObject()) + "', '" +
+                valueFormatter.formatValue(generatedObject.getGeneratedPropertyValue("during").getObject()) + "', '" +
                 generatedObject.getGeneratedPropertyValue("temperature") + "')";
     }
 
