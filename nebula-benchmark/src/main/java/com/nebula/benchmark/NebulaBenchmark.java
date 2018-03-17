@@ -2,10 +2,16 @@ package com.nebula.benchmark;
 
 import com.nebula.benchmark.types.bool.BoolTypeBenchmark;
 import com.nebula.benchmark.types.constant.ConstantTypeBenchmark;
+import com.nebula.benchmark.types.date.DateAmongTypeBenchmark;
+import com.nebula.benchmark.types.date.DateRangeTypeBenchmark;
 import com.nebula.benchmark.types.list.ListTypeAmongItemsBenchmark;
 import com.nebula.benchmark.types.list.ListTypeOfTypeBenchmark;
 import com.nebula.benchmark.types.number.NumberAmongTypeBenchmark;
 import com.nebula.benchmark.types.number.NumberRangeTypeBenchmark;
+import com.nebula.benchmark.types.string.StringTypeBenchmark;
+import com.nebula.benchmark.types.text.TextTypeBenchmark;
+import org.openjdk.jmh.annotations.Mode;
+import org.openjdk.jmh.results.format.ResultFormatType;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
@@ -27,6 +33,10 @@ public class NebulaBenchmark {
 		benchmarkClasses.add(ConstantTypeBenchmark.class);
 		benchmarkClasses.add(NumberRangeTypeBenchmark.class);
 		benchmarkClasses.add(NumberAmongTypeBenchmark.class);
+		benchmarkClasses.add(DateRangeTypeBenchmark.class);
+		benchmarkClasses.add(DateAmongTypeBenchmark.class);
+		benchmarkClasses.add(StringTypeBenchmark.class);
+		benchmarkClasses.add(TextTypeBenchmark.class);
 	}
 
 	public static void main(String[] args) {
@@ -36,6 +46,9 @@ public class NebulaBenchmark {
 	private void runBenchmark() {
 		try {
 			Options options = new OptionsBuilder()
+					.output("output.txt")
+                    .resultFormat(ResultFormatType.SCSV)
+					.result("result.txt")
 					.include(getBenchmarkClassesRegexp()).shouldDoGC(true).shouldFailOnError(true)
 					.jvmArgs("-Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n").build();
 			new Runner(options).run();

@@ -1,8 +1,11 @@
 package com.nebula.benchmark.types.list;
 
+import com.nebula.benchmark.types.AbstractRandomTypeBenchmark;
+import com.nebula.benchmark.types.AbstractTypeBenchmark;
 import com.nebula.core.Model;
 import com.nebula.core.ModelBuilder;
 import com.nebula.core.Entity;
+import com.nebula.core.types.RandomTypeBuilder;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
 
@@ -13,30 +16,10 @@ import static com.nebula.core.types.NebulaTypes.constant;
 import static com.nebula.core.types.NebulaTypes.list;
 import static com.nebula.core.generators.NebulaGenerators.random;
 
-@State(Scope.Benchmark)
-@BenchmarkMode(Mode.Throughput)
-@OutputTimeUnit(TimeUnit.SECONDS)
-@Warmup(time = 1, iterations = 1)
-@Measurement(time = 3, iterations = 3)
-@Threads(1)
-@Fork(1)
-public class ListTypeAmongItemsBenchmark {
+public class ListTypeAmongItemsBenchmark extends AbstractRandomTypeBenchmark {
 
-	private AtomicLong index;
-	private Model model;
-	private Entity entity;
-
-	@Benchmark
-	public void benchmark_list_of_number_with_size_1(Blackhole blackhole) {
-		blackhole.consume(model.generateEntityObject(entity, index.getAndIncrement(), 0L));
-	}
-
-	@Setup(Level.Iteration)
-	public void setup() {
-		model = ModelBuilder.newModel().build();
-		entity = model.newEntity("test", 10000000);
-		entity.addProperty("property", random(), list()
-				.of(random()).amongItems(constant("value")));
-		index = new AtomicLong(0L);
+	@Override
+	protected RandomTypeBuilder getType() {
+		return list().of(random()).amongItems(constant("value"));
 	}
 }
