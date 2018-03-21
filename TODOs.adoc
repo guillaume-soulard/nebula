@@ -2,17 +2,12 @@
 
 == Content to add
 
-. Set Nebula API fluent (entity, outputs, formatters, generation rules, constraints).
 . Add static entity (entity with given generated objects)
-. Add word type
-. Add sentence type
 . Add human types
 .. firstName
 .. lastName
 .. address
-. Add time generation rule
 . Add cron generation rule
 . Add Index
-. Add expression generation constraints ("<propertyName> = 'foo' AND (<otherPropertyName> LIKE '%bar%' OR <property> BETWEEN 0 AND 9)")
 
 == Fixes

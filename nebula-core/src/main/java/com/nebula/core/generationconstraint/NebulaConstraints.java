@@ -1,6 +1,7 @@
 package com.nebula.core.generationconstraint;
 
 import com.nebula.core.generationconstraint.amount.AmountGenerationConstraintBuilder;
+import com.nebula.core.generationconstraint.cron.CronGenerationConstraintBuilder;
 import com.nebula.core.generationconstraint.custom.CustomGenerationConstraintBuilder;
 import com.nebula.core.generationconstraint.during.DuringGenerationConstraintBuilder;
 import com.nebula.core.generationconstraint.every.EveryGenerationConstraint;
@@ -24,5 +25,9 @@ public final class NebulaConstraints {
 
     public static EveryGenerationConstraintBuilder every(long duration, TimeUnit timeUnit) {
         return new EveryGenerationConstraintBuilder(duration, timeUnit);
+    }
+
+    public static CronGenerationConstraintBuilder cron() {
+        return new CronGenerationConstraintBuilder();
     }
 }
