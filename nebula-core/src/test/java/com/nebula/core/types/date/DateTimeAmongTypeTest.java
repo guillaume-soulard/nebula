@@ -60,7 +60,7 @@ public class DateTimeAmongTypeTest {
 	public void newDateTimeAmongType_should_set_items_as_UnmodifiableList_when_other_List_implementation_is_passed() {
 
 		// GIVEN
-		DateTimeAmongType dateType = null;
+		DateTimeAmongType dateType;
 
 		// WHEN
 		dateType = new DateTimeAmongType(oneDayAsLinkedList());
@@ -87,10 +87,10 @@ public class DateTimeAmongTypeTest {
 	}
 
 	private List<ReadableInstant> oneDayAsLinkedList() {
-		return new LinkedList<>(Arrays.asList(day1));
+		return new LinkedList<>(Collections.singletonList(day1));
 	}
 
 	private List<ReadableInstant> oneDay() {
-		return new ArrayList<>(Arrays.asList(day1));
+		return new ArrayList<>(Collections.singletonList(day1));
 	}
 }

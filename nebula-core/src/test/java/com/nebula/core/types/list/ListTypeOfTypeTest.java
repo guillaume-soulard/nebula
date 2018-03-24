@@ -25,7 +25,7 @@ public class ListTypeOfTypeTest {
 		int maxSize = 0;
 		Generator generator = NebulaGenerators.random().build();
 		Type type = NebulaTypes.bool().build(ModelBuilder.newModel().build());
-		ListTypeOfType listType = null;
+		ListTypeOfType listType;
 
 		// WHEN
 		listType = new ListTypeOfType(minSize, maxSize, generator, type);

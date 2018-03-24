@@ -11,7 +11,7 @@ public class RangeTest {
 	@Test
 	public void newRange_should_return_a_new_instance_of_Range_with_both_min_and_max_value_specified() {
 		// GIVEN
-		Range<Integer> range = null;
+		Range<Integer> range;
 
 		// WHEN
 		range = new Range<>(10, 20);

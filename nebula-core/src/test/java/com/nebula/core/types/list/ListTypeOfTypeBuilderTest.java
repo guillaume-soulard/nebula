@@ -21,7 +21,7 @@ public class ListTypeOfTypeBuilderTest {
 		// GIVEN
 		GeneratorBuilder generator = NebulaGenerators.random();
 		TypeBuilder type = NebulaTypes.bool();
-		ListTypeOfTypeBuilder builder = null;
+		ListTypeOfTypeBuilder builder;
 
 		// WHEN
 		builder = new ListTypeOfTypeBuilder(generator, type);
@@ -41,7 +41,7 @@ public class ListTypeOfTypeBuilderTest {
 
 		// WHEN
 		try {
-			new ListTypeOfTypeBuilder(generator, type);
+			new ListTypeOfTypeBuilder(null, type);
 		} catch (Exception e) {
 			exception = e;
 		}
@@ -60,7 +60,7 @@ public class ListTypeOfTypeBuilderTest {
 
 		// WHEN
 		try {
-			new ListTypeOfTypeBuilder(generator, type);
+			new ListTypeOfTypeBuilder(generator, null);
 		} catch (Exception e) {
 			exception = e;
 		}

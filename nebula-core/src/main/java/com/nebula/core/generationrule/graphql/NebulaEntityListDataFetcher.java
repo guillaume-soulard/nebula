@@ -8,7 +8,7 @@ import graphql.schema.DataFetchingEnvironment;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NebulaEntityListDataFetcher implements DataFetcher<List<GeneratedObject>> {
+class NebulaEntityListDataFetcher implements DataFetcher<List<GeneratedObject>> {
     private final Model model;
     private final String entityName;
 

@@ -12,8 +12,8 @@ import java.util.Date;
 
 public class DateTimeRangeTypeBuilder extends RangeTypeBuilder<DateTimeRangeTypeBuilder, ReadableInstant> {
 
-	public static final DateTime MIN_DEFAULT_DATE_TIME = new DateTime(0L);
-	public static final DateTime MAX_DEFAULT_DATE_TIME = new DateTime(9999, 12, 31, 0, 0);
+	private static final DateTime MIN_DEFAULT_DATE_TIME = new DateTime(0L);
+	private static final DateTime MAX_DEFAULT_DATE_TIME = new DateTime(9999, 12, 31, 0, 0);
 	public static final Date MIN_DEFAULT_DATE = MIN_DEFAULT_DATE_TIME.toDate();
 	public static final Date MAX_DEFAULT_DATE = MAX_DEFAULT_DATE_TIME.toDate();
 

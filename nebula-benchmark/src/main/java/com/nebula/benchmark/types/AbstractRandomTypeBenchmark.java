@@ -1,12 +1,10 @@
 package com.nebula.benchmark.types;
 
 import com.nebula.core.Entity;
-import com.nebula.core.ModelBuilder;
 import com.nebula.core.types.RandomTypeBuilder;
 import org.openjdk.jmh.annotations.*;
 
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicLong;
 
 import static com.nebula.core.generators.NebulaGenerators.random;
 

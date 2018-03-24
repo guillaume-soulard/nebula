@@ -35,7 +35,7 @@ class CsvFormatter extends AbstractFormatter {
     private void formatObject(GeneratedObject generatedObject, StringBuilder builder) {
         boolean isFirst = true;
 
-        List<String> columnNamesToUse = null;
+        List<String> columnNamesToUse;
 
         if (columnNames == null || columnNames.isEmpty()) {
             columnNamesToUse = getAllColumnsOfGeneratedObject(generatedObject);
@@ -71,7 +71,7 @@ class CsvFormatter extends AbstractFormatter {
 
         StringBuilder builder = new StringBuilder();
         if (header) {
-            buildHeader(entity, builder);
+            buildHeader(builder);
         }
         return builder.toString();
     }
@@ -82,7 +82,7 @@ class CsvFormatter extends AbstractFormatter {
         }
     }
 
-    private void buildHeader(Entity entity, StringBuilder builder) {
+    private void buildHeader(StringBuilder builder) {
         boolean isFirst = true;
 
         for (String columnName : columnNames) {

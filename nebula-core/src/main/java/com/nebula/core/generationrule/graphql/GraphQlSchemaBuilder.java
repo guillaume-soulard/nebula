@@ -20,7 +20,7 @@ import static graphql.schema.GraphQLFieldDefinition.newFieldDefinition;
 import static graphql.schema.GraphQLList.list;
 import static graphql.schema.GraphQLObjectType.newObject;
 
-public class GraphQlSchemaBuilder {
+class GraphQlSchemaBuilder {
 
     private final Map<String, GraphQLObjectType> convertedEntities = new HashMap<>();
 

@@ -17,7 +17,7 @@ import static com.nebula.core.types.NebulaTypes.dateTime;
 import static com.nebula.core.types.NebulaTypes.number;
 import static java.lang.System.exit;
 
-public class Redis {
+class Redis {
 
     private static final Integer REDIS_PORT = 3000;
 

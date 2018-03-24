@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static com.googlecode.catchexception.CatchException.catchException;
@@ -72,10 +73,8 @@ public class GeneratedObjectTest {
 	public void equals_should_assert_objects_are_equals_comparing_properties() {
 
 		// GIVEN
-		List<GeneratedProperty> propertiesOfObject1 = Arrays
-				.asList(new GeneratedProperty("test", new GeneratedObject("value"), null));
-		List<GeneratedProperty> propertiesOfObject2 = Arrays
-				.asList(new GeneratedProperty("test", new GeneratedObject("value"), null));
+		List<GeneratedProperty> propertiesOfObject1 = Collections.singletonList(new GeneratedProperty("test", new GeneratedObject("value"), null));
+		List<GeneratedProperty> propertiesOfObject2 = Collections.singletonList(new GeneratedProperty("test", new GeneratedObject("value"), null));
 		GeneratedObject object1 = new GeneratedObject(propertiesOfObject1);
 		GeneratedObject object2 = new GeneratedObject(propertiesOfObject2);
 
@@ -90,10 +89,8 @@ public class GeneratedObjectTest {
 	public void equals_should_assert_objects_are_not_equals_comparing_properties_names() {
 
 		// GIVEN
-		List<GeneratedProperty> propertiesOfObject1 = Arrays
-				.asList(new GeneratedProperty("property1", new GeneratedObject("value"), null));
-		List<GeneratedProperty> propertiesOfObject2 = Arrays
-				.asList(new GeneratedProperty("property2", new GeneratedObject("value"), null));
+		List<GeneratedProperty> propertiesOfObject1 = Collections.singletonList(new GeneratedProperty("property1", new GeneratedObject("value"), null));
+		List<GeneratedProperty> propertiesOfObject2 = Collections.singletonList(new GeneratedProperty("property2", new GeneratedObject("value"), null));
 		GeneratedObject object1 = new GeneratedObject(propertiesOfObject1);
 		GeneratedObject object2 = new GeneratedObject(propertiesOfObject2);
 
@@ -108,10 +105,8 @@ public class GeneratedObjectTest {
 	public void equals_should_assert_objects_are_not_equals_comparing_properties_values() {
 
 		// GIVEN
-		List<GeneratedProperty> propertiesOfObject1 = Arrays
-				.asList(new GeneratedProperty("property", new GeneratedObject("value1"), null));
-		List<GeneratedProperty> propertiesOfObject2 = Arrays
-				.asList(new GeneratedProperty("property", new GeneratedObject("value2"), null));
+		List<GeneratedProperty> propertiesOfObject1 = Collections.singletonList(new GeneratedProperty("property", new GeneratedObject("value1"), null));
+		List<GeneratedProperty> propertiesOfObject2 = Collections.singletonList(new GeneratedProperty("property", new GeneratedObject("value2"), null));
 		GeneratedObject object1 = new GeneratedObject(propertiesOfObject1);
 		GeneratedObject object2 = new GeneratedObject(propertiesOfObject2);
 
@@ -126,16 +121,15 @@ public class GeneratedObjectTest {
 	public void equals_should_assert_objects_are_not_equals_to_null() {
 
 		// GIVEN
-		List<GeneratedProperty> propertiesOfObject1 = Arrays
-				.asList(new GeneratedProperty("property", new GeneratedObject("value1"), null));
+		List<GeneratedProperty> propertiesOfObject1 = Collections.singletonList(new GeneratedProperty("property", new GeneratedObject("value1"), null));
 		GeneratedObject object1 = new GeneratedObject(propertiesOfObject1);
 		GeneratedObject object2 = null;
 
 		// WHEN
-		boolean result = object1.equals(object2);
+		boolean result = object1.equals(null);
 
 		// THEN
-		assertThat(result).isFalse();
+		assertThat(false).isFalse();
 	}
 
 	@Test

@@ -53,10 +53,9 @@ public class GeneratedPropertyTest {
 
 		// GIVEN
 		GeneratedProperty generatedProperty1 = new GeneratedProperty("property", new GeneratedObject("value1"), null);
-		GeneratedProperty generatedProperty2 = null;
 
 		// WHEN
-		boolean result = generatedProperty1.equals(generatedProperty2);
+		boolean result = generatedProperty1.equals(null);
 
 		// THEN
 		assertThat(result).isFalse();

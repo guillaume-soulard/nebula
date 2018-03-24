@@ -10,7 +10,7 @@ import com.nebula.core.generationconstraint.NebulaConstraints;
 import com.nebula.core.generationrule.GenerationRules;
 import com.nebula.core.output.NebulaOutputs;
 
-public class CsvUsers {
+class CsvUsers {
 
     public static void main(String[] args) {
 

@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static com.googlecode.catchexception.CatchException.catchException;
@@ -18,7 +19,7 @@ public class NumberAmongTypeTest {
 	public void newNumberAmongType_should_set_items_in_fields() {
 
 		// GIVEN
-		NumberAmongType numberAmongType = null;
+		NumberAmongType numberAmongType;
 		List<BigDecimal> expectedItems = Arrays.asList(BigDecimal.ZERO, BigDecimal.ONE, BigDecimal.TEN);
 
 		// WHEN
@@ -119,7 +120,7 @@ public class NumberAmongTypeTest {
 	public void getMaxRange_should_return_0() {
 
 		// GIVEN
-		List<BigDecimal> items = Arrays.asList(BigDecimal.ZERO);
+		List<BigDecimal> items = Collections.singletonList(BigDecimal.ZERO);
 		NumberAmongType numberAmongType = new NumberAmongType(items);
 
 		// WHEN

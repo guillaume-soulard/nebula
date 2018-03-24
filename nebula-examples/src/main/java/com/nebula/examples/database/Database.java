@@ -20,7 +20,7 @@ import static com.nebula.core.output.NebulaOutputs.jdbc;
 import static com.nebula.core.output.NebulaOutputs.stdout;
 import static com.nebula.core.types.NebulaTypes.*;
 
-public class Database {
+class Database {
 
     public static void main(String[] args) {
 

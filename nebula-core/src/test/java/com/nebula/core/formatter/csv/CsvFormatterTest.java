@@ -11,6 +11,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static com.nebula.core.types.NebulaTypes.string;
@@ -35,7 +36,7 @@ public class CsvFormatterTest {
         boolean header = false;
         String quote = "";
         List<String> propertiesToExclude = new ArrayList<>();
-        CsvFormatter formatter = new CsvFormatter(separator, quote, header, Arrays.asList("lastName"), valueFormatter, propertiesToExclude);
+        CsvFormatter formatter = new CsvFormatter(separator, quote, false, Collections.singletonList("lastName"), valueFormatter, propertiesToExclude);
         List<GeneratedProperty> generatedProperties = new ArrayList<>();
         generatedProperties.add(new GeneratedProperty("lastName", new GeneratedObject("durant"), string().build(model)));
         GeneratedObject generatedObject = new GeneratedObject(generatedProperties);
@@ -56,7 +57,7 @@ public class CsvFormatterTest {
         boolean header = false;
         String quote = "";
         List<String> propertiesToExclude = new ArrayList<>();
-        CsvFormatter formatter = new CsvFormatter(separator, quote, header, Arrays.asList("firstName", "lastName"), valueFormatter, propertiesToExclude);
+        CsvFormatter formatter = new CsvFormatter(separator, quote, false, Arrays.asList("firstName", "lastName"), valueFormatter, propertiesToExclude);
         List<GeneratedProperty> generatedProperties = new ArrayList<>();
         generatedProperties.add(new GeneratedProperty("firstName", new GeneratedObject("jean"), string().build(model)));
         generatedProperties.add(new GeneratedProperty("lastName", new GeneratedObject("durant"), string().build(model)));
@@ -79,7 +80,7 @@ public class CsvFormatterTest {
         String quote = "";
         List<String> propertiesToExclude = new ArrayList<>();
         List<String> columnNames = new ArrayList<>();
-        CsvFormatter formatter = new CsvFormatter(separator, quote, header, columnNames, valueFormatter, propertiesToExclude);
+        CsvFormatter formatter = new CsvFormatter(separator, quote, false, columnNames, valueFormatter, propertiesToExclude);
         List<GeneratedProperty> generatedProperties = new ArrayList<>();
         generatedProperties.add(new GeneratedProperty("firstName", new GeneratedObject("jean"), string().build(model)));
         generatedProperties.add(new GeneratedProperty("lastName", new GeneratedObject("durant"), string().build(model)));
@@ -101,7 +102,7 @@ public class CsvFormatterTest {
         boolean header = false;
         String quote = "\"";
         List<String> propertiesToExclude = new ArrayList<>();
-        CsvFormatter formatter = new CsvFormatter(separator, quote, header, Arrays.asList("firstName", "lastName"), valueFormatter, propertiesToExclude);
+        CsvFormatter formatter = new CsvFormatter(separator, quote, false, Arrays.asList("firstName", "lastName"), valueFormatter, propertiesToExclude);
         List<GeneratedProperty> generatedProperties = new ArrayList<>();
         generatedProperties.add(new GeneratedProperty("firstName", new GeneratedObject("jean"), string().build(model)));
         generatedProperties.add(new GeneratedProperty("lastName", new GeneratedObject("durant"), string().build(model)));
@@ -123,7 +124,7 @@ public class CsvFormatterTest {
         boolean header = false;
         String quote = "";
         List<String> propertiesToExclude = new ArrayList<>();
-        CsvFormatter formatter = new CsvFormatter(separator, quote, header, Arrays.asList("col1"), valueFormatter, propertiesToExclude);
+        CsvFormatter formatter = new CsvFormatter(separator, quote, false, Collections.singletonList("col1"), valueFormatter, propertiesToExclude);
         List<GeneratedProperty> generatedProperties = new ArrayList<>();
         generatedProperties.add(new GeneratedProperty("col1", new GeneratedObject("jean"), string().build(model)));
         generatedProperties.add(new GeneratedProperty("col2", new GeneratedObject("durant"), string().build(model)));
@@ -145,7 +146,7 @@ public class CsvFormatterTest {
         boolean header = false;
         String quote = "";
         List<String> propertiesToExclude = new ArrayList<>();
-        CsvFormatter formatter = new CsvFormatter(separator, quote, header, new ArrayList<>(), valueFormatter, propertiesToExclude);
+        CsvFormatter formatter = new CsvFormatter(separator, quote, false, new ArrayList<>(), valueFormatter, propertiesToExclude);
         List<GeneratedProperty> generatedProperties = new ArrayList<>();
 
         Entity entity = model.newEntity("test", Long.MAX_VALUE);
@@ -173,7 +174,7 @@ public class CsvFormatterTest {
         boolean header = true;
         String quote = "";
         List<String> propertiesToExclude = new ArrayList<>();
-        CsvFormatter formatter = new CsvFormatter(separator, quote, header, Arrays.asList("firstName", "lastName"), valueFormatter, propertiesToExclude);
+        CsvFormatter formatter = new CsvFormatter(separator, quote, true, Arrays.asList("firstName", "lastName"), valueFormatter, propertiesToExclude);
         Entity entity = model.newEntity("test", Long.MAX_VALUE);
         entity.addProperty("firstName", random(), string());
         entity.addProperty("lastName", random(), string());
@@ -194,7 +195,7 @@ public class CsvFormatterTest {
         boolean header = true;
         String quote = "";
         List<String> propertiesToExclude = new ArrayList<>();
-        CsvFormatter formatter = new CsvFormatter(separator, quote, header, Arrays.asList("col1", "col2"), valueFormatter, propertiesToExclude);
+        CsvFormatter formatter = new CsvFormatter(separator, quote, true, Arrays.asList("col1", "col2"), valueFormatter, propertiesToExclude);
         Entity entity = model.newEntity("test", Long.MAX_VALUE);
         entity.addProperty("col1", random(), string());
         entity.addProperty("col2", random(), string());
@@ -215,7 +216,7 @@ public class CsvFormatterTest {
         boolean header = false;
         String quote = "";
         List<String> propertiesToExclude = new ArrayList<>();
-        CsvFormatter formatter = new CsvFormatter(separator, quote, header, Arrays.asList("firstName", "lastName"), valueFormatter, propertiesToExclude);
+        CsvFormatter formatter = new CsvFormatter(separator, quote, false, Arrays.asList("firstName", "lastName"), valueFormatter, propertiesToExclude);
         Entity entity = model.newEntity("test", Long.MAX_VALUE);
         entity.addProperty("firstName", random(), string());
         entity.addProperty("lastName", random(), string());
@@ -236,7 +237,7 @@ public class CsvFormatterTest {
         boolean header = true;
         String quote = "\"";
         List<String> propertiesToExclude = new ArrayList<>();
-        CsvFormatter formatter = new CsvFormatter(separator, quote, header, Arrays.asList("firstName", "lastName"), valueFormatter, propertiesToExclude);
+        CsvFormatter formatter = new CsvFormatter(separator, quote, true, Arrays.asList("firstName", "lastName"), valueFormatter, propertiesToExclude);
         Entity entity = model.newEntity("test", Long.MAX_VALUE);
         entity.addProperty("firstName", random(), string());
         entity.addProperty("lastName", random(), string());
@@ -257,7 +258,7 @@ public class CsvFormatterTest {
         boolean header = false;
         String quote = "";
         List<String> propertiesToExclude = new ArrayList<>();
-        CsvFormatter formatter = new CsvFormatter(separator, quote, header, Arrays.asList("firstName", "lastName"), valueFormatter, propertiesToExclude);
+        CsvFormatter formatter = new CsvFormatter(separator, quote, false, Arrays.asList("firstName", "lastName"), valueFormatter, propertiesToExclude);
         Entity entity = model.newEntity("test", Long.MAX_VALUE);
         entity.addProperty("firstName", random(), string());
         entity.addProperty("lastName", random(), string());

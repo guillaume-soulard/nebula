@@ -32,7 +32,7 @@ public class ListTypeAmongItemsTest {
 		int minSize = 0;
 		int maxSize = 0;
 		Generator generator = NebulaGenerators.random().build();
-		ListTypeAmongItems listType = null;
+		ListTypeAmongItems listType;
 		ConstantTypeBuilder[] items = new ConstantTypeBuilder[] { newConstant() };
 
 		// WHEN

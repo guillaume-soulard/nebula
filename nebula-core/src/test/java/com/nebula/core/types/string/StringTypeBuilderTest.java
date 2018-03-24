@@ -29,7 +29,7 @@ public class StringTypeBuilderTest {
 	public void newStringTypeBuilder_should_set_null_as_pattern() {
 
 		// GIVEN
-		StringTypeBuilder builder = null;
+		StringTypeBuilder builder;
 
 		// WHEN
 		builder = new StringTypeBuilder();
@@ -60,7 +60,7 @@ public class StringTypeBuilderTest {
 		String pattern = null;
 
 		// WHEN
-		catchException(builder).withPattern(pattern);
+		catchException(builder).withPattern(null);
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("pattern is null");

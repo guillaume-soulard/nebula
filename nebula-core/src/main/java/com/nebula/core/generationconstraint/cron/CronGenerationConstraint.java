@@ -34,13 +34,13 @@ class CronGenerationConstraint implements GenerationConstraint {
         Optional<Duration> duration = ExecutionTime.forCron(cron)
                 .timeToNextExecution(ZonedDateTime.now());
 
-        if (duration.isPresent()) {
+        duration.ifPresent(duration1 -> {
             try {
-                Thread.sleep(duration.get().getSeconds() * 1000);
+                Thread.sleep(duration1.getSeconds() * 1000);
             } catch (InterruptedException e) {
                 throw new NebulaException(e.getMessage());
             }
-        }
+        });
 
         return AcceptationResult.ACCEPTABLE;
     }

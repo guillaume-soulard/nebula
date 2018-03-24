@@ -4,21 +4,17 @@ import com.nebula.benchmark.AbstractNebulaBenchmark;
 import com.nebula.core.Entity;
 import com.nebula.core.Model;
 import com.nebula.core.ModelBuilder;
-import com.nebula.core.types.RandomTypeBuilder;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
 
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
-import static com.nebula.core.generators.NebulaGenerators.random;
 
-
-public abstract class AbstractTypeBenchmark extends AbstractNebulaBenchmark {
+abstract class AbstractTypeBenchmark extends AbstractNebulaBenchmark {
 
     private AtomicLong index;
-    protected Model model;
-    protected Entity entity;
+    private Model model;
+    private Entity entity;
 
     @Benchmark
     public void benchmarkType(Blackhole blackhole) {

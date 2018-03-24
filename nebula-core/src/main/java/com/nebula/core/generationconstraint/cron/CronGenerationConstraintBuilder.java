@@ -5,10 +5,8 @@ import com.nebula.core.generationconstraint.GenerationConstraintBuilder;
 
 public class CronGenerationConstraintBuilder implements GenerationConstraintBuilder {
 
-    private String cronExpression = "0 * * ? * *";
-
     @Override
     public GenerationConstraint build() {
-        return new CronGenerationConstraint(cronExpression);
+        return new CronGenerationConstraint("0 * * ? * *");
     }
 }

@@ -12,7 +12,7 @@ import com.nebula.core.output.NebulaOutputs;
 
 import java.math.BigDecimal;
 
-public class SimpleGeneration {
+class SimpleGeneration {
 
     public static void main(String[] args) {
         Model model = ModelBuilder.newModel().build();

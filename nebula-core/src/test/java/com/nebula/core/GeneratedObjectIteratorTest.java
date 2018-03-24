@@ -15,7 +15,7 @@ public class GeneratedObjectIteratorTest {
 	public void new_GeneratedObjectIterator_should_set_model_and_entity_and_seed_in_fields() {
 
 		// GIVEN
-		GeneratedObjectIterator iterator = null;
+		GeneratedObjectIterator iterator;
 		Model model = ModelBuilder.newModel().build();
 		Entity entity = mock(Entity.class);
 		long seed = 1L;

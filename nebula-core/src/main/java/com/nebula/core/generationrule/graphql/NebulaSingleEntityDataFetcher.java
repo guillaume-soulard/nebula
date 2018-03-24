@@ -5,7 +5,7 @@ import com.nebula.core.Model;
 import graphql.schema.DataFetcher;
 import graphql.schema.DataFetchingEnvironment;
 
-public class NebulaSingleEntityDataFetcher implements DataFetcher<GeneratedObject> {
+class NebulaSingleEntityDataFetcher implements DataFetcher<GeneratedObject> {
 
     private final Model model;
     private final String entityName;

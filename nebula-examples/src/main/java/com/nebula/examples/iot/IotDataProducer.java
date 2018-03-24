@@ -15,7 +15,7 @@ import static com.nebula.core.output.NebulaOutputs.stdout;
 import static com.nebula.core.types.NebulaTypes.number;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
-public class IotDataProducer {
+class IotDataProducer {
 
     public static void main(String[] args) {
         Model model = ModelBuilder.newModel().withSeed("IOT data producer").build();

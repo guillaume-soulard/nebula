@@ -10,7 +10,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-public class Request {
+class Request {
 
     private final String resource;
     private Long pathIndex;
@@ -21,7 +21,7 @@ public class Request {
 
         String requestPath = uri.getPath();
 
-        Pattern pattern = Pattern.compile("^\\/(?!\\/)(?<RESOURCE>[A-Za-z0-9]*)(\\/)?(?<INDEX>-?[0-9]*)?$");
+        Pattern pattern = Pattern.compile("^/(?!/)(?<RESOURCE>[A-Za-z0-9]*)(/)?(?<INDEX>-?[0-9]*)?$");
 
         Matcher matcher = pattern.matcher(requestPath);
 
@@ -38,8 +38,8 @@ public class Request {
                 throw new NebulaException("Bad request");
             }
         }
-        parameters.put("index", Arrays.asList("0"));
-        parameters.put("offset", Arrays.asList("10"));
+        parameters.put("index", Collections.singletonList("0"));
+        parameters.put("offset", Collections.singletonList("10"));
         if (uri.getQuery() != null && !uri.getQuery().isEmpty()) {
             Map<String, List<String>> queryParameters = splitQuery(uri.getQuery());
             hasParameters = !queryParameters.isEmpty();
@@ -74,12 +74,14 @@ public class Request {
                 query_pairs.put(key, new LinkedList<>());
             }
             final String value = idx > 0 && pair.length() > idx + 1 ? URLDecoder.decode(pair.substring(idx + 1), "UTF-8") : null;
-            query_pairs.get(key).addAll(Arrays.asList(value.split(",")));
+            if (value != null) {
+                query_pairs.get(key).addAll(Arrays.asList(value.split(",")));
+            }
         }
         return query_pairs;
     }
 
-    public boolean hasParameters() {
+    private boolean hasParameters() {
         return hasParameters;
     }
 

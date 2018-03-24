@@ -14,7 +14,7 @@ public class ConstantTypeTest {
 
 		// GIVEN
 		Object value = "test";
-		ConstantType constantType = null;
+		ConstantType constantType;
 
 		// WHEN
 		constantType = new ConstantType(value);

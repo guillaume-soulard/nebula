@@ -4,7 +4,6 @@ import com.nebula.core.generationconstraint.amount.AmountGenerationConstraintBui
 import com.nebula.core.generationconstraint.cron.CronGenerationConstraintBuilder;
 import com.nebula.core.generationconstraint.custom.CustomGenerationConstraintBuilder;
 import com.nebula.core.generationconstraint.during.DuringGenerationConstraintBuilder;
-import com.nebula.core.generationconstraint.every.EveryGenerationConstraint;
 import com.nebula.core.generationconstraint.every.EveryGenerationConstraintBuilder;
 
 import java.util.concurrent.TimeUnit;

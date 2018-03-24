@@ -93,7 +93,7 @@ public class StringTypeTest {
 	public void newStringType_should_set_pattern() {
 
 		// GIVEN
-		StringType stringType = null;
+		StringType stringType;
 		String pattern = "test pattern";
 
 		// WHEN
@@ -107,7 +107,7 @@ public class StringTypeTest {
 	public void newStringType_should_set_default_pattern_when_null_is_passed() {
 
 		// GIVEN
-		StringType stringType = null;
+		StringType stringType;
 		String expectedPattern = "[a-zA-Z_0-9]{10}";
 
 		// WHEN
@@ -122,7 +122,7 @@ public class StringTypeTest {
 
 		// GIVEN
 		String pattern = null;
-		StringType stringType = new StringType(newStringGenerator(pattern));
+		StringType stringType = new StringType(newStringGenerator(null));
 
 		// WHEN
 		Long result = stringType.getMinRange();
@@ -136,7 +136,7 @@ public class StringTypeTest {
 
 		// GIVEN
 		String pattern = null;
-		StringType stringType = new StringType(newStringGenerator(pattern));
+		StringType stringType = new StringType(newStringGenerator(null));
 
 		// WHEN
 		Long result = stringType.getMaxRange();

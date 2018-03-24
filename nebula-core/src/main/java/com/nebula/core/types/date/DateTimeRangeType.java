@@ -61,7 +61,7 @@ class DateTimeRangeType extends AbstractTypeWithIndexCheck {
 		return new GeneratedObject(calculateRequestedDate(index));
 	}
 
-	public DateTime calculateRequestedDate(Long index) {
+	private DateTime calculateRequestedDate(Long index) {
 		return dateTimeStrategy.get(interval).getByDateAndIndexAndInterval((DateTime) range.getMin(), index);
 	}
 

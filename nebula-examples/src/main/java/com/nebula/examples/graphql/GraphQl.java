@@ -11,7 +11,7 @@ import static com.nebula.core.generators.NebulaGenerators.random;
 import static com.nebula.core.generators.NebulaGenerators.sequence;
 import static com.nebula.core.types.NebulaTypes.*;
 
-public class GraphQl {
+class GraphQl {
 
     public static void main(String[] args) {
         Model model = ModelBuilder.newModel().withSeed("users").build();

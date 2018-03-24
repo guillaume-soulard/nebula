@@ -22,7 +22,7 @@ public class PropertyBuilderTest {
 		Model model = ModelBuilder.newModel().build();
 
 		// WHEN
-		catchException(propertyBuilder).newProperty(model, propertyName, propertyType, propertyGenerator);
+		catchException(propertyBuilder).newProperty(model, null, propertyType, propertyGenerator);
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("property name is null");
@@ -38,7 +38,7 @@ public class PropertyBuilderTest {
 		Model model = ModelBuilder.newModel().build();
 
 		// WHEN
-		catchException(propertyBuilder).newProperty(model, propertyName, propertyType, propertyGenerator);
+		catchException(propertyBuilder).newProperty(model, propertyName, null, propertyGenerator);
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("property type is null");
@@ -54,7 +54,7 @@ public class PropertyBuilderTest {
 		Model model = ModelBuilder.newModel().build();
 
 		// WHEN
-		catchException(propertyBuilder).newProperty(model, propertyName, propertyType, propertyGenerator);
+		catchException(propertyBuilder).newProperty(model, propertyName, propertyType, null);
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("property generator is null");

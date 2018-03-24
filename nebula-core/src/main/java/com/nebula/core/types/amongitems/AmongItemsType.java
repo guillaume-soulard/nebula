@@ -44,26 +44,7 @@ class AmongItemsType implements Type {
     @Override
     public JavaType getJavaType() {
 
-        Set<JavaType> javaTypes = new HashSet<>();
-
-        for (GeneratedObject generatedObject : generatedObjects) {
-
-            if (generatedObject.getObject() instanceof Boolean) {
-                javaTypes.add(JavaType.BOOLEAN);
-            }
-
-            if (generatedObject.getObject() instanceof String) {
-                javaTypes.add(JavaType.STRING);
-            }
-
-            if (generatedObject.getObject() instanceof BigDecimal) {
-                javaTypes.add(JavaType.NUMBER);
-            }
-
-            if (generatedObject.getObject() instanceof DateTime) {
-                javaTypes.add(JavaType.DATE);
-            }
-        }
+        Set<JavaType> javaTypes = JavaType.getJavaTypesFor(generatedObjects);
 
         if (javaTypes.size() == 1) {
             return javaTypes.iterator().next();

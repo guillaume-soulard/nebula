@@ -6,7 +6,7 @@ import java.util.function.Consumer;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class DateTimeAdderConsumer implements Consumer<DateTimeStrategy> {
+class DateTimeAdderConsumer implements Consumer<DateTimeStrategy> {
 
 	private final Class<? extends DateTimeStrategy> clazz;
 

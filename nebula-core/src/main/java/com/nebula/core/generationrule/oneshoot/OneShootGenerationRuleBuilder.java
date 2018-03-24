@@ -49,7 +49,7 @@ public class OneShootGenerationRuleBuilder implements GenerationRuleBuilder {
 
     public GenerationRule build(Model model) {
 
-        String entityNameToUse = null;
+        String entityNameToUse;
 
         if (entity != null) {
             entityNameToUse = entity.getName();

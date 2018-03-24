@@ -13,7 +13,7 @@ import static com.nebula.core.generators.NebulaGenerators.random;
 import static com.nebula.core.generators.NebulaGenerators.sequence;
 import static com.nebula.core.formatter.NebulaFormatters.json;
 
-public class Rest {
+class Rest {
 
     public static void main(String[] args) {
         Model model = ModelBuilder.newModel().withSeed("users").build();

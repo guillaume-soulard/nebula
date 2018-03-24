@@ -4,7 +4,7 @@ import com.nebula.core.GeneratedObject;
 import graphql.schema.DataFetcher;
 import graphql.schema.DataFetchingEnvironment;
 
-public class NebulaFieldDataFetcher implements DataFetcher<Object> {
+class NebulaFieldDataFetcher implements DataFetcher<Object> {
 
     private final String propertyName;
 

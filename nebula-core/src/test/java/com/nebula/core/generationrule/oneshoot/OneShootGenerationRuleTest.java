@@ -11,6 +11,7 @@ import org.mockito.InOrder;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -24,7 +25,7 @@ public class OneShootGenerationRuleTest {
         // GIVEN
         Entity entity = mock(Entity.class);
         Output output = mock(Output.class);
-        List<Output> outputs = Arrays.asList(output);
+        List<Output> outputs = Collections.singletonList(output);
         Formatter formatter = mock(Formatter.class);
         GeneratedObjectIterator generatedObjectSource = mock(GeneratedObjectIterator.class);
         when(generatedObjectSource.getEntity()).thenReturn(entity);
@@ -46,10 +47,10 @@ public class OneShootGenerationRuleTest {
         // GIVEN
         Entity entity = null;
         Output output = mock(Output.class);
-        List<Output> outputs = Arrays.asList(output);
+        List<Output> outputs = Collections.singletonList(output);
         Formatter formatter = mock(Formatter.class);
         GeneratedObjectIterator generatedObjectSource = mock(GeneratedObjectIterator.class);
-        when(generatedObjectSource.getEntity()).thenReturn(entity);
+        when(generatedObjectSource.getEntity()).thenReturn(null);
         Exception exception = null;
 
         // WHEN
@@ -76,7 +77,7 @@ public class OneShootGenerationRuleTest {
 
         // WHEN
         try {
-            new OneShootGenerationRule(outputs, formatter, generatedObjectSource, new ArrayList<>());
+            new OneShootGenerationRule(null, formatter, generatedObjectSource, new ArrayList<>());
         } catch (Exception e) {
             exception = e;
         }
@@ -91,7 +92,7 @@ public class OneShootGenerationRuleTest {
         // GIVEN
         Entity entity = mock(Entity.class);
         Output output = null;
-        List<Output> outputs = Arrays.asList(output);
+        List<Output> outputs = Collections.singletonList(null);
         Formatter formatter = mock(Formatter.class);
         GeneratedObjectIterator generatedObjectSource = mock(GeneratedObjectIterator.class);
         when(generatedObjectSource.getEntity()).thenReturn(entity);
@@ -114,7 +115,7 @@ public class OneShootGenerationRuleTest {
         // GIVEN
         Entity entity = mock(Entity.class);
         Output output = mock(Output.class);
-        List<Output> outputs = Arrays.asList(output);
+        List<Output> outputs = Collections.singletonList(output);
         Formatter formatter = null;
         GeneratedObjectIterator generatedObjectSource = mock(GeneratedObjectIterator.class);
         when(generatedObjectSource.getEntity()).thenReturn(entity);
@@ -122,7 +123,7 @@ public class OneShootGenerationRuleTest {
 
         // WHEN
         try {
-            new OneShootGenerationRule(outputs, formatter, generatedObjectSource, new ArrayList<>());
+            new OneShootGenerationRule(outputs, null, generatedObjectSource, new ArrayList<>());
         } catch (Exception e) {
             exception = e;
         }
@@ -136,14 +137,14 @@ public class OneShootGenerationRuleTest {
 
         // GIVEN
         Output output = mock(Output.class);
-        List<Output> outputs = Arrays.asList(output);
+        List<Output> outputs = Collections.singletonList(output);
         Formatter formatter = mock(Formatter.class);
         GeneratedObjectIterator generatedObjectSource = null;
         Exception exception = null;
 
         // WHEN
         try {
-            new OneShootGenerationRule(outputs, formatter, generatedObjectSource, new ArrayList<>());
+            new OneShootGenerationRule(outputs, formatter, null, new ArrayList<>());
         } catch (Exception e) {
             exception = e;
         }
@@ -158,7 +159,7 @@ public class OneShootGenerationRuleTest {
         // GIVEN
         Entity entity = mock(Entity.class);
         Output output = mock(Output.class);
-        List<Output> outputs = Arrays.asList(output);
+        List<Output> outputs = Collections.singletonList(output);
         Formatter formatter = mock(Formatter.class);
         GeneratedObjectIterator generatedObjectSource = mock(GeneratedObjectIterator.class);
         when(generatedObjectSource.hasNext()).thenReturn(true).thenReturn(false);

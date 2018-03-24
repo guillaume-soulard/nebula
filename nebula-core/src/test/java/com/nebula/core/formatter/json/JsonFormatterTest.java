@@ -260,7 +260,7 @@ public class JsonFormatterTest {
         boolean quotedFields = false;
         boolean prettyFormat = true;
         List<String> propertiesToExclude = new ArrayList<>();
-        return new JsonFormatter(prettyFormat, quotedFields, new ValueFormatter(dateFormat, numberDecimalSeparator, numberThousandSeparator), propertiesToExclude);
+        return new JsonFormatter(true, false, new ValueFormatter(dateFormat, numberDecimalSeparator, numberThousandSeparator), propertiesToExclude);
     }
 
     private JsonFormatter newJsonFormatter() {
@@ -270,7 +270,7 @@ public class JsonFormatterTest {
         boolean quotedFields = false;
         boolean prettyFormat = false;
         List<String> propertiesToExclude = new ArrayList<>();
-        return new JsonFormatter(prettyFormat, quotedFields, new ValueFormatter(dateFormat, numberDecimalSeparator, numberThousandSeparator), propertiesToExclude);
+        return new JsonFormatter(false, false, new ValueFormatter(dateFormat, numberDecimalSeparator, numberThousandSeparator), propertiesToExclude);
     }
 
     private JsonFormatter newJsonFormatterWithQuotedFields() {
@@ -280,6 +280,6 @@ public class JsonFormatterTest {
         boolean quotedFields = true;
         boolean prettyFormat = false;
         List<String> propertiesToExclude = new ArrayList<>();
-        return new JsonFormatter(prettyFormat, quotedFields, new ValueFormatter(dateFormat, numberDecimalSeparator, numberThousandSeparator), propertiesToExclude);
+        return new JsonFormatter(false, true, new ValueFormatter(dateFormat, numberDecimalSeparator, numberThousandSeparator), propertiesToExclude);
     }
 }

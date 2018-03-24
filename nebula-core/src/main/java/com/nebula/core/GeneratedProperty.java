@@ -60,9 +60,8 @@ public class GeneratedProperty {
 
 	@Override
 	public String toString() {
-		String builder = QUOTE + propertyName + QUOTE +
+		return QUOTE + propertyName + QUOTE +
 				OBJECT_VALUE_SEPARATOR +
 				propertyValue.toString();
-		return builder;
 	}
 }

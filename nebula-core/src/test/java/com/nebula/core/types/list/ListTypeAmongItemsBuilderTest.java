@@ -22,7 +22,7 @@ public class ListTypeAmongItemsBuilderTest {
 
 		// GIVEN
 		GeneratorBuilder generator = NebulaGenerators.random();
-		ListTypeAmongItemsBuilder builder = null;
+		ListTypeAmongItemsBuilder builder;
 
 		// WHEN
 		builder = new ListTypeAmongItemsBuilder(generator);
@@ -35,12 +35,11 @@ public class ListTypeAmongItemsBuilderTest {
 	public void new_ListTypeOfTypeBuilder_should_throw_exception_when_generator_is_null() {
 
 		// GIVEN
-		GeneratorBuilder generator = null;
 		Exception exception = null;
 
 		// WHEN
 		try {
-			new ListTypeAmongItemsBuilder(generator);
+			new ListTypeAmongItemsBuilder(null);
 		} catch (Exception e) {
 			exception = e;
 		}
@@ -175,7 +174,7 @@ public class ListTypeAmongItemsBuilderTest {
 		ListTypeAmongItemsBuilder builder = new ListTypeAmongItemsBuilder(generator);
 
 		// WHEN
-		ListTypeAmongItemsBuilder result = builder.amongItems(null);
+		ListTypeAmongItemsBuilder result = builder.amongItems((ConstantTypeBuilder[]) null);
 
 		// THEN
 		assertThat(result).hasFieldOrPropertyWithValue("items", new ConstantTypeBuilder[] { null });

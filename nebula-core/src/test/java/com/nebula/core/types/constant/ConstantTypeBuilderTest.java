@@ -17,7 +17,7 @@ public class ConstantTypeBuilderTest {
 
 		// GIVEN
 		String value = "test";
-		TypeBuilder builder = null;
+		TypeBuilder builder;
 
 		// WHEN
 		builder = new ConstantTypeBuilder(value);
@@ -31,7 +31,7 @@ public class ConstantTypeBuilderTest {
 
 		// GIVEN
 		BigDecimal value = BigDecimal.ZERO;
-		TypeBuilder builder = null;
+		TypeBuilder builder;
 
 		// WHEN
 		builder = new ConstantTypeBuilder(value);
@@ -45,7 +45,7 @@ public class ConstantTypeBuilderTest {
 
 		// GIVEN
 		DateTime value = new DateTime(2017, 1, 1, 0, 0);
-		TypeBuilder builder = null;
+		TypeBuilder builder;
 
 		// WHEN
 		builder = new ConstantTypeBuilder(value);
@@ -59,13 +59,13 @@ public class ConstantTypeBuilderTest {
 
 		// GIVEN
 		Boolean value = Boolean.FALSE;
-		TypeBuilder builder = null;
+		TypeBuilder builder;
 
 		// WHEN
-		builder = new ConstantTypeBuilder(value);
+		builder = new ConstantTypeBuilder(false);
 
 		// THEN
-		assertThat(builder).hasFieldOrPropertyWithValue("value", value);
+		assertThat(builder).hasFieldOrPropertyWithValue("value", false);
 	}
 
 	@Test

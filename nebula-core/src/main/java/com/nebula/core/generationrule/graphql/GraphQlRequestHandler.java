@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
 
 import static com.nebula.core.types.NebulaTypes.string;
 
-public class GraphQlRequestHandler implements HttpRequestHandler {
+class GraphQlRequestHandler implements HttpRequestHandler {
 
     private final Model model;
     private final Formatter jsonFormatter;

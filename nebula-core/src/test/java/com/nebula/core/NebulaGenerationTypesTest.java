@@ -123,10 +123,10 @@ public class NebulaGenerationTypesTest {
 		Boolean value = Boolean.FALSE;
 
 		// WHEN
-		ConstantTypeBuilder result = NebulaTypes.constant(value);
+		ConstantTypeBuilder result = NebulaTypes.constant(false);
 
 		// THEN
-		assertThat(result).isNotNull().hasFieldOrPropertyWithValue("value", value);
+		assertThat(result).isNotNull().hasFieldOrPropertyWithValue("value", false);
 	}
 
 	@Test

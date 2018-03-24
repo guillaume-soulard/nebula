@@ -10,15 +10,14 @@ import com.nebula.core.generationconstraint.GenerationConstraint;
 import com.nebula.core.generationrule.GenerationRule;
 import com.nebula.core.output.Output;
 
-import java.util.ArrayList;
 import java.util.List;
 
 class OneShootGenerationRule implements GenerationRule {
 
-    private List<Output> outputsToWrite = new ArrayList<>();
+    private List<Output> outputsToWrite;
     private final Formatter formatterToUse;
     private final GeneratedObjectIterator generatedObjectSource;
-    private List<GenerationConstraint> generationConstraints = new ArrayList<>();
+    private List<GenerationConstraint> generationConstraints;
     private Entity entity;
 
     OneShootGenerationRule(List<Output> outputsToWrite,
@@ -75,7 +74,6 @@ class OneShootGenerationRule implements GenerationRule {
 
     private void closeOutputs() {
         outputsToWrite.forEach(Output::close);
-
     }
 
     private void openOutputs() {

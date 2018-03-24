@@ -14,7 +14,7 @@ import static com.nebula.core.formatter.NebulaFormatters.sql;
 import static com.nebula.core.generationconstraint.NebulaConstraints.amount;
 import static com.nebula.core.output.NebulaOutputs.stdout;
 
-public class Sql {
+class Sql {
 
     public static void main(String[] args) {
         Model model = ModelBuilder.newModel().withSeed(0L).build();

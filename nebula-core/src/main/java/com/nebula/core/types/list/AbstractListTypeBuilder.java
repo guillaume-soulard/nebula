@@ -6,9 +6,9 @@ import com.nebula.core.types.RandomTypeBuilder;
 
 public abstract class AbstractListTypeBuilder implements RandomTypeBuilder {
 
-	protected int minSize = 0;
-	protected int maxSize = 10;
-	protected final GeneratorBuilder generator;
+	int minSize = 0;
+	int maxSize = 10;
+	final GeneratorBuilder generator;
 
 	AbstractListTypeBuilder(GeneratorBuilder generator) {
 		this.generator = generator;

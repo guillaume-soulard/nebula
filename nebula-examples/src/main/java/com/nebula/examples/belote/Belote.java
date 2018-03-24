@@ -13,7 +13,7 @@ import static com.nebula.core.generators.NebulaGenerators.randomUnique;
 import static com.nebula.core.generators.NebulaGenerators.sequence;
 import static com.nebula.core.types.NebulaTypes.*;
 
-public class Belote {
+class Belote {
 
     public static void main(String[] args) {
 

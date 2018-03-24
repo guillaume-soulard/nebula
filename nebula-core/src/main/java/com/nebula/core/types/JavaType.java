@@ -1,5 +1,13 @@
 package com.nebula.core.types;
 
+import com.nebula.core.GeneratedObject;
+import org.joda.time.DateTime;
+
+import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 public class JavaType {
 
     public static final JavaType NUMBER = new JavaType(JavaTypeName.NUMBER);
@@ -36,5 +44,30 @@ public class JavaType {
 
     public JavaType getSubType() {
         return subType;
+    }
+
+    public static Set<JavaType> getJavaTypesFor(List<GeneratedObject> generatedObjects) {
+
+        Set<JavaType> javaTypes = new HashSet<>();
+
+        for (GeneratedObject item : generatedObjects) {
+
+            if (item.getObject() instanceof Boolean) {
+                javaTypes.add(JavaType.BOOLEAN);
+            }
+
+            if (item.getObject() instanceof String) {
+                javaTypes.add(JavaType.STRING);
+            }
+
+            if (item.getObject() instanceof BigDecimal) {
+                javaTypes.add(JavaType.NUMBER);
+            }
+
+            if (item.getObject() instanceof DateTime) {
+                javaTypes.add(JavaType.DATE);
+            }
+        }
+        return javaTypes;
     }
 }

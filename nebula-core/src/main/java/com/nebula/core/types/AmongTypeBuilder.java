@@ -15,15 +15,13 @@ public abstract class AmongTypeBuilder<S extends AmongTypeBuilder, T extends Com
 	@Override
 	public Type build(Model model) {
 
-		if (itemStrings != null) {
-			for (String itemString : itemStrings) {
-				if (itemString != null) {
-					items.add(parseItem(model, itemString));
-				} else {
-					items.add(null);
-				}
-			}
-		}
+		for (String itemString : itemStrings) {
+            if (itemString != null) {
+                items.add(parseItem(model, itemString));
+            } else {
+                items.add(null);
+            }
+        }
 
 		return buildImpl(model);
 	}
@@ -31,7 +29,8 @@ public abstract class AmongTypeBuilder<S extends AmongTypeBuilder, T extends Com
 	protected abstract Type buildImpl(Model model);
 	protected abstract S getThis();
 
-	public S items(T... items) {
+	@SafeVarargs
+	public final S items(T... items) {
 		checkParameter(items);
 		this.items.addAll(Arrays.asList(items));
 		return getThis();

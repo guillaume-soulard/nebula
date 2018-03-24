@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
+import java.util.Collections;
 
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
@@ -38,7 +39,7 @@ public class NumberAmongTypeBuilderTest {
 		NumberAmongTypeBuilder result = builder.items(item);
 
 		// THEN
-		assertThat(result).hasFieldOrPropertyWithValue("items", Arrays.asList(item));
+		assertThat(result).hasFieldOrPropertyWithValue("items", Collections.singletonList(item));
 	}
 
 	@Test

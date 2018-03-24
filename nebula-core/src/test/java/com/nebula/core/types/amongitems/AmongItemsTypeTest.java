@@ -28,7 +28,7 @@ public class AmongItemsTypeTest {
         GeneratedObject item3 = new GeneratedObject("Item 3");
         generatedObjects.add(item3);
         Type picker  = new AmongItemsType(generatedObjects);
-        picker.init(getContext(0L));
+        picker.init(getContext());
 
         // WHEN
         GeneratedObject result = picker.generateObject(0L);
@@ -42,7 +42,7 @@ public class AmongItemsTypeTest {
 
         // GIVEN
         Type picker  = new AmongItemsType(new ArrayList<>());
-        picker.init(getContext(0L));
+        picker.init(getContext());
 
         // WHEN
         Long result = picker.getMinRange();
@@ -58,7 +58,7 @@ public class AmongItemsTypeTest {
         List<GeneratedObject> generatedObjects = new ArrayList<>();
         generatedObjects.add(new GeneratedObject("Item 1"));
         Type picker  = new AmongItemsType(generatedObjects);
-        picker.init(getContext(0L));
+        picker.init(getContext());
 
         // WHEN
         Long result = picker.getMinRange();
@@ -73,7 +73,7 @@ public class AmongItemsTypeTest {
         // GIVEN
         List<GeneratedObject> generatedObjects = new ArrayList<>();
         Type picker  = new AmongItemsType(generatedObjects);
-        picker.init(getContext(0L));
+        picker.init(getContext());
 
         // WHEN
         Long result = picker.getMaxRange();
@@ -89,7 +89,7 @@ public class AmongItemsTypeTest {
         List<GeneratedObject> generatedObjects = new ArrayList<>();
         generatedObjects.add(new GeneratedObject("Item 1"));
         Type picker  = new AmongItemsType(generatedObjects);
-        picker.init(getContext(0L));
+        picker.init(getContext());
 
         // WHEN
         Long result = picker.getMaxRange();
@@ -117,8 +117,8 @@ public class AmongItemsTypeTest {
                 .hasMessage("generatedObjects is null");
     }
 
-    private GenerationContext getContext(long index) {
+    private GenerationContext getContext() {
         NebulaRandom nebulaRandom = new NebulaRandom(0L);
-        return new GenerationContext(nebulaRandom, mock(Model.class), index);
+        return new GenerationContext(nebulaRandom, mock(Model.class), 0L);
     }
 }

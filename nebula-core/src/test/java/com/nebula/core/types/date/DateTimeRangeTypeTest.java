@@ -69,7 +69,7 @@ public class DateTimeRangeTypeTest {
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0);
 		DateTime endDateTime = new DateTime(2017, 1, 31, 0, 0);
 		Range<ReadableInstant> range = new Range<>(startDateTime, endDateTime);
-		DateTimeRangeType dateType = null;
+		DateTimeRangeType dateType;
 
 		// WHEN
 		dateType = new DateTimeRangeType(range, null);
@@ -104,7 +104,7 @@ public class DateTimeRangeTypeTest {
 		DateTime endDateTime = new DateTime(2017, 1, 31, 0, 0);
 		Range<ReadableInstant> range = new Range<>(startDateTime, endDateTime);
 		DateTimeTypeIntervals interval = DateTimeTypeIntervals.DAY;
-		DateTimeRangeType dateType = null;
+		DateTimeRangeType dateType;
 
 		// WHEN
 		dateType = new DateTimeRangeType(range, interval);

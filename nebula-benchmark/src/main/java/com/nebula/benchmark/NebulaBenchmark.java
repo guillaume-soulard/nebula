@@ -10,10 +10,8 @@ import com.nebula.benchmark.types.number.NumberAmongTypeBenchmark;
 import com.nebula.benchmark.types.number.NumberRangeTypeBenchmark;
 import com.nebula.benchmark.types.string.StringTypeBenchmark;
 import com.nebula.benchmark.types.text.TextTypeBenchmark;
-import org.openjdk.jmh.annotations.Mode;
 import org.openjdk.jmh.results.format.ResultFormatType;
 import org.openjdk.jmh.runner.Runner;
-import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 
@@ -21,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class NebulaBenchmark {
+class NebulaBenchmark {
 
 	private final List<Class<?>> benchmarkClasses;
 

@@ -7,7 +7,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SimpleSocketServer extends Thread {
+class SimpleSocketServer extends Thread {
 
     private ServerSocket serverSocket;
     private boolean running = true;
