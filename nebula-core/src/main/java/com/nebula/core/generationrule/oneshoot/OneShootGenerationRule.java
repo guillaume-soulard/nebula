@@ -14,10 +14,10 @@ import java.util.List;
 
 class OneShootGenerationRule implements GenerationRule {
 
-    private List<Output> outputsToWrite;
+    private final List<Output> outputsToWrite;
     private final Formatter formatterToUse;
     private final GeneratedObjectIterator generatedObjectSource;
-    private List<GenerationConstraint> generationConstraints;
+    private final List<GenerationConstraint> generationConstraints;
     private Entity entity;
 
     OneShootGenerationRule(List<Output> outputsToWrite,

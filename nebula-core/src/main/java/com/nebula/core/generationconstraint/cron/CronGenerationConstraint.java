@@ -17,7 +17,7 @@ import java.util.Optional;
 
 class CronGenerationConstraint implements GenerationConstraint {
 
-    private String cronExpression;
+    private final String cronExpression;
 
     CronGenerationConstraint(String cronExpression) {
         this.cronExpression = cronExpression;

@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class CronGenerationConstraintTest {
 
-    private String cronExpression = "0 * * ? * *";
+    private final String cronExpression = "0 * * ? * *";
 
     @Test
     public void new_CronGenerationConstraint_should_set_cron_in_field() {

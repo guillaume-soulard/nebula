@@ -6,7 +6,7 @@ import com.nebula.core.generationconstraint.GenerationConstraint;
 
 public class DuringGenerationConstraint implements GenerationConstraint {
 
-    private long timeToWaitInMilli;
+    private final long timeToWaitInMilli;
     private long startTime = -1;
 
     DuringGenerationConstraint(long timeToWaitInMilli) {

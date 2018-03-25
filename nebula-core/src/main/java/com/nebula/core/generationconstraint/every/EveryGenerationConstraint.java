@@ -7,7 +7,7 @@ import com.nebula.core.generationconstraint.GenerationConstraint;
 
 public class EveryGenerationConstraint implements GenerationConstraint {
 
-    private long timeInMilli;
+    private final long timeInMilli;
 
     EveryGenerationConstraint(long timeInMilli) {
 
