@@ -3,9 +3,7 @@ package com.nebula.object.generator;
 import com.nebula.core.Entity;
 import com.nebula.core.Model;
 import com.nebula.core.ModelBuilder;
-import com.nebula.object.Category;
-import com.nebula.object.User;
-import com.nebula.object.UserAddress;
+import com.nebula.object.*;
 import com.nebula.object.generator.model.ClassModelBuilder;
 import org.junit.Test;
 
@@ -77,6 +75,20 @@ public class ModelBasedObjectGeneratorTest {
 
         // THEN
         assertThat(getRecursiveCountOnField(result, Category::getParent, 1)).isEqualTo(10);
+    }
+
+    @Test
+    public void generate_should_generate_an_parametrized_object() throws Exception {
+
+        // GIVEN
+        Model model = new ClassModelBuilder().buildModelFrom(CustomObject.class);
+        ModelBasedObjectGenerator generator = new ModelBasedObjectGenerator(model);
+
+        // WHEN
+        CustomObject result = generator.generateNext(CustomObject.class);
+
+        // THEN
+        assertThat(result).isNotNull();
     }
 
     private <T> long getRecursiveCountOnField(T object, Function<T, T> recursiveField, long depth) {

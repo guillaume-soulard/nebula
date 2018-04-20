@@ -8,15 +8,20 @@ import com.nebula.object.ObjectGenerator;
 import com.nebula.object.valuegenerator.ValueTypeGenerator;
 import com.nebula.object.valuegenerator.type.*;
 import org.apache.commons.lang3.reflect.FieldUtils;
+import sun.reflect.generics.factory.CoreReflectionFactory;
+import sun.reflect.generics.factory.GenericsFactory;
+import sun.reflect.generics.repository.FieldRepository;
+import sun.reflect.generics.scope.ClassScope;
 
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
-import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class ModelBasedObjectGenerator implements ObjectGenerator {
 
@@ -78,7 +83,15 @@ public class ModelBasedObjectGenerator implements ObjectGenerator {
         return new LazyList(amount, this, clazz);
     }
 
-    private <T> T convertToObject(Class<T> clazz, GeneratedObject generatedObject) {
+
+    private FieldRepository getGenericInfoOf(Field field) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+
+        Method method = field.getClass().getDeclaredMethod("getGenericInfo");
+        method.setAccessible(true);
+        return (FieldRepository) method.invoke(field);
+    }
+
+    private <T> T convertToObject(Class<T> clazz, List<String> typeParamNames, List<Class<?>> typeParamTypes, GeneratedObject generatedObject) {
         try {
 
             if (isBasicGeneratedObject(generatedObject)) {
@@ -93,7 +106,17 @@ public class ModelBasedObjectGenerator implements ObjectGenerator {
                     if (field != null && generatedProperty.getPropertyValue() != null) {
                         if (generatedProperty.getPropertyValue().getGeneratedProperties() != null) {
 
-                            Object value = getFinalValueFrom(field.getType(), convertToObject(field.getType(), generatedProperty.getPropertyValue()));
+
+                            List<String> typesParameterNames = new ArrayList<>();
+                            List<Class<?>> typesParameterTypes = new ArrayList<>();
+
+                            if (field.getGenericType() instanceof ParameterizedType) {
+
+                                typesParameterNames.addAll(Arrays.asList(field.getType().getTypeParameters()).stream().map(type -> type.getName()).collect(Collectors.toList()));
+                                typesParameterTypes.addAll(Stream.of(((ParameterizedType) getGenericInfoOf(field).getGenericType()).getActualTypeArguments()).map(type -> (Class<?>) type).collect(Collectors.toList()));
+                            }
+
+                            Object value = getFinalValueFrom(field.getType(), typesParameterNames, typesParameterTypes, convertToObject(field.getType(), generatedProperty.getPropertyValue()));
 
                             field.set(instance, value);
                         } else {
@@ -136,7 +159,7 @@ public class ModelBasedObjectGenerator implements ObjectGenerator {
             } else {
                 return (T) generatedObject.getObject();
             }
-        } catch (InstantiationException | IllegalAccessException e) {
+        } catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
             throw new NebulaException(e.getMessage());
         }
     }
