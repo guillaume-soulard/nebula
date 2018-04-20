@@ -14,12 +14,14 @@ public class ModelBuilder {
     private String dateFormat;
     private List<Entity> entities = new ArrayList<>();
     private List<GenerationRule> generationRules = new ArrayList<>();
+    private int maxDepth;
 
     private ModelBuilder() {
         seed = new Random().nextLong();
         dateFormat = "MM/dd/yyyy";
         numberDecimalSeparator = '.';
         numberThousandSeparator = ',';
+        maxDepth = 10;
     }
 
     private ModelBuilder(Model baseModel) {
@@ -29,6 +31,7 @@ public class ModelBuilder {
         numberThousandSeparator = baseModel.getNumberThousandSeparator();
         entities = baseModel.getEntities();
         generationRules = baseModel.getGenerationRules();
+        maxDepth = baseModel.getMaxDepth();
     }
 
     public static ModelBuilder newModel() {
@@ -40,7 +43,7 @@ public class ModelBuilder {
     }
 
     public Model build() {
-        return new Model(seed, numberThousandSeparator, numberDecimalSeparator, dateFormat, entities, generationRules);
+        return new Model(seed, numberThousandSeparator, numberDecimalSeparator, dateFormat, entities, generationRules, maxDepth);
     }
 
     public ModelBuilder withSeed(long seed) {
@@ -85,6 +88,17 @@ public class ModelBuilder {
 
     public ModelBuilder withDateFormat(String dateFormat) {
         this.dateFormat = dateFormat;
+        return this;
+    }
+
+    public ModelBuilder withMaxDepth(int maxDepth) {
+        if (maxDepth < 0) {
+
+            throw new NebulaException("maxDepth is negative");
+        }
+
+        this.maxDepth = maxDepth;
+
         return this;
     }
 }

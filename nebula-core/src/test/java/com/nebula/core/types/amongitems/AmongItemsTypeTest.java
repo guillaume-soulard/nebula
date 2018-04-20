@@ -119,6 +119,6 @@ public class AmongItemsTypeTest {
 
     private GenerationContext getContext() {
         NebulaRandom nebulaRandom = new NebulaRandom(0L);
-        return new GenerationContext(nebulaRandom, mock(Model.class), 0L);
+        return new GenerationContext(nebulaRandom, mock(Model.class), 0L, 1, 10);
     }
 }

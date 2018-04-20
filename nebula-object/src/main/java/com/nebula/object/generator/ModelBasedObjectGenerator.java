@@ -90,7 +90,7 @@ public class ModelBasedObjectGenerator implements ObjectGenerator {
                 for (GeneratedProperty generatedProperty : generatedObject.getGeneratedProperties()) {
 
                     Field field = FieldUtils.getDeclaredField(clazz, generatedProperty.getPropertyName(),  true);
-                    if (field != null) {
+                    if (field != null && generatedProperty.getPropertyValue() != null) {
                         if (generatedProperty.getPropertyValue().getGeneratedProperties() != null) {
 
                             Object value = getFinalValueFrom(field.getType(), convertToObject(field.getType(), generatedProperty.getPropertyValue()));

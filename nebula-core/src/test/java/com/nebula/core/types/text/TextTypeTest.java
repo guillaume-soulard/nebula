@@ -29,7 +29,7 @@ public class TextTypeTest {
     @Before
     public void setUp() {
         textType = new TextType(dictionary, textGenerationConfiguration);
-        GenerationContext context = new GenerationContext(new NebulaRandom(1L), mock(Model.class), 0L);
+        GenerationContext context = new GenerationContext(new NebulaRandom(1L), mock(Model.class), 0L, 1, 10);
         textType.init(context);
     }
 

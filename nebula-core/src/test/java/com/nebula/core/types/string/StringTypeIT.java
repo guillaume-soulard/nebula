@@ -39,7 +39,7 @@ public class StringTypeIT {
 		// GIVEN
 		StringType stringType = new StringType(StringGenerator.newStringGenerator("[A-Z]{1}[a-z]{10,25}"));
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(new NebulaRandom(0L), ModelBuilder.newModel().build(), entityIndex);
+		GenerationContext context = new GenerationContext(new NebulaRandom(0L), ModelBuilder.newModel().build(), entityIndex, 1, 10);
 		stringType.init(context);
 		DateTime start = DateTime.now();
 

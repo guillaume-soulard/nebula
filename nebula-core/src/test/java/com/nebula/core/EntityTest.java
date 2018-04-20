@@ -75,7 +75,7 @@ public class EntityTest {
 		String propertyName = "property";
 		entity.addProperty(propertyName, NebulaGenerators.random(), NebulaTypes.number().range());
 		long entityIndex = 0L;
-		entity.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex));
+		entity.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex, 1, 10));
 
 		// WHEN
 		GeneratedObject result = entity.generateObject(1L);
@@ -93,7 +93,7 @@ public class EntityTest {
 		entity.addProperty(propertyName, NebulaGenerators.random(),
 				NebulaTypes.number().range().withMin(BigDecimal.ONE).withMax(BigDecimal.ONE));
 		long entityIndex = 0L;
-		entity.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex));
+		entity.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex, 1, 10));
 
 		// WHEN
 		GeneratedObject result = entity.generateObject(1L);
@@ -116,7 +116,7 @@ public class EntityTest {
 		entity.addProperty(property2Name, NebulaGenerators.random(),
 				NebulaTypes.number().range().withMin(BigDecimal.valueOf(5)).withMax(BigDecimal.valueOf(5)));
 		long entityIndex = 0L;
-		entity.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex));
+		entity.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex, 1, 10));
 
 		// WHEN
 		GeneratedObject result = entity.generateObject(1L);
@@ -147,7 +147,7 @@ public class EntityTest {
 		when(nebulaRandom.getSeed()).thenReturn(0L);
 		entity.addProperty("name", null, null);
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(nebulaRandom, null, entityIndex);
+		GenerationContext context = new GenerationContext(nebulaRandom, null, entityIndex, 1, 10);
 
 		// WHEN
 		entity.init(context);
@@ -172,7 +172,7 @@ public class EntityTest {
 		NebulaRandom nebulaRandom = mock(NebulaRandom.class);
 		entity.addProperty(null, null, null);
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(nebulaRandom, null, entityIndex);
+		GenerationContext context = new GenerationContext(nebulaRandom, null, entityIndex, 1, 10);
 
 		// WHEN
 		entity.init(context);

@@ -8,11 +8,15 @@ public class GenerationContext {
 	private final NebulaRandom nebulaRandom;
 	private final Model model;
 	private final long entityIndex;
+	private final int depth;
+	private final int maxDepth;
 
-	public GenerationContext(NebulaRandom nebulaRandom, Model model, long entityIndex) {
+	public GenerationContext(NebulaRandom nebulaRandom, Model model, long entityIndex, int depth, int maxDepth) {
 		this.nebulaRandom = nebulaRandom;
 		this.model = model;
 		this.entityIndex = entityIndex;
+		this.depth = depth;
+		this.maxDepth = maxDepth;
 	}
 
 	public NebulaRandom getNebulaRandom() {
@@ -25,5 +29,13 @@ public class GenerationContext {
 
 	public long getEntityIndex() {
 		return entityIndex;
+	}
+
+	public int getDepth() {
+		return depth;
+	}
+
+	public int getMaxDepth() {
+		return maxDepth;
 	}
 }

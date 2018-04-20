@@ -47,6 +47,6 @@ class EntityType extends AbstractTypeWithIndexCheck {
 	protected GeneratedObject generatedObjectAtIndex(Long index) {
 		getEntityFromModelIfNeededElseThrowException();
 		return entityGenerator.generateEntityObject(context.getModel(), entity, index,
-				context.getNebulaRandom().getSeed());
+				context.getNebulaRandom().getSeed(), context.getDepth() + 1, context.getMaxDepth());
 	}
 }

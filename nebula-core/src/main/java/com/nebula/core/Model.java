@@ -14,14 +14,16 @@ public class Model {
 	private final List<Entity> entities;
 	private final EntityGenerator entityGenerator = new EntityGenerator();
 	private final List<GenerationRule> generationRules;
+	private final int maxDepth;
 
-	Model(long seed, Character numberThousandSeparator, Character numberDecimalSeparator, String dateFormat, List<Entity> entities, List<GenerationRule> generationRules) {
+	Model(long seed, Character numberThousandSeparator, Character numberDecimalSeparator, String dateFormat, List<Entity> entities, List<GenerationRule> generationRules, int maxDepth) {
 		this.seed = seed;
 		this.numberThousandSeparator = numberThousandSeparator;
 		this.numberDecimalSeparator = numberDecimalSeparator;
 		this.dateFormat = dateFormat;
 		this.entities = entities;
 		this.generationRules = generationRules;
+		this.maxDepth = maxDepth;
 	}
 
 	public Entity newEntity(String entityName, long amount) {
@@ -78,11 +80,11 @@ public class Model {
 	}
 
 	public GeneratedObject generateEntityObject(Entity entity, long entityIndex, long seed) {
-		return entityGenerator.generateEntityObject(this, entity, entityIndex, seed);
+		return entityGenerator.generateEntityObject(this, entity, entityIndex, seed, 1, maxDepth);
 	}
 
 	public GeneratedObject generateEntityObject(String entityName, long entityIndex) {
-		return entityGenerator.generateEntityObject(this, getEntityByName(entityName), entityIndex, seed);
+		return entityGenerator.generateEntityObject(this, getEntityByName(entityName), entityIndex, seed, 1, maxDepth);
 	}
 
 	public long getSeed() {
@@ -107,6 +109,10 @@ public class Model {
 
 	public List<GenerationRule> getGenerationRules() {
 		return generationRules;
+	}
+
+	public int getMaxDepth() {
+		return maxDepth;
 	}
 
 	public void removeEntity(String entityName) {

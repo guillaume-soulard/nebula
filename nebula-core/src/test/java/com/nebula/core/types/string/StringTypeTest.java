@@ -1,8 +1,8 @@
 package com.nebula.core.types.string;
 
+import com.nebula.core.GeneratedObject;
 import com.nebula.core.Model;
 import com.nebula.core.ModelBuilder;
-import com.nebula.core.GeneratedObject;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
 import org.junit.Test;
@@ -19,7 +19,7 @@ public class StringTypeTest {
 		String pattern = "[a]{1}";
 		StringType stringType = new StringType(newStringGenerator(pattern));
 		long entityIndex = 0L;
-		stringType.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex));
+		stringType.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex, 1, 10));
 
 		// WHEN
 		GeneratedObject result = stringType.generateObject(0L);
@@ -35,7 +35,7 @@ public class StringTypeTest {
 		String pattern = "[a]{1}";
 		StringType stringType = new StringType(newStringGenerator(pattern));
 		long entityIndex = 0L;
-		stringType.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex));
+		stringType.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex, 1, 10));
 
 		// WHEN
 		GeneratedObject result = stringType.generateObject(0L);
@@ -50,7 +50,7 @@ public class StringTypeTest {
 		// GIVEN
 		StringType stringType = new StringType(newStringGenerator("test"));
 		long entityIndex = 0L;
-		stringType.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex));
+		stringType.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex, 1, 10));
 
 		// WHEN
 		GeneratedObject result = stringType.generateObject(0L);
@@ -65,7 +65,7 @@ public class StringTypeTest {
 		// GIVEN
 		StringType stringType = new StringType(newStringGenerator(null));
 		long entityIndex = 0L;
-		stringType.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex));
+		stringType.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex, 1, 10));
 		GeneratedObject resultIndex0 = stringType.generateObject(0L);
 
 		// WHEN
@@ -154,7 +154,7 @@ public class StringTypeTest {
 		NebulaRandom nebulaRandom = new NebulaRandom(0L);
 		Model model = ModelBuilder.newModel().build();
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex);
+		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex, 1, 10);
 
 		// WHEN
 		stringType.init(context);

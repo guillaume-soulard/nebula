@@ -64,7 +64,7 @@ public class Entity implements Type {
 	}
 
 	private GenerationContext buildPropertyGenerationContext(GenerationContext context, Property property) {
-		return new GenerationContext(new NebulaRandom(getPropertySeed(context, property)), context.getModel(), context.getEntityIndex());
+		return new GenerationContext(new NebulaRandom(getPropertySeed(context, property)), context.getModel(), context.getEntityIndex(), context.getDepth(), context.getMaxDepth());
 	}
 
 	private long getPropertySeed(GenerationContext context, Property property) {

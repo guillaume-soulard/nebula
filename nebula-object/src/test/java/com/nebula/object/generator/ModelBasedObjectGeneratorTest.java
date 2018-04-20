@@ -3,12 +3,14 @@ package com.nebula.object.generator;
 import com.nebula.core.Entity;
 import com.nebula.core.Model;
 import com.nebula.core.ModelBuilder;
+import com.nebula.object.Category;
 import com.nebula.object.User;
 import com.nebula.object.UserAddress;
 import com.nebula.object.generator.model.ClassModelBuilder;
 import org.junit.Test;
 
 import java.util.List;
+import java.util.function.Function;
 
 import static com.nebula.core.generators.NebulaGenerators.random;
 import static com.nebula.core.types.NebulaTypes.string;
@@ -61,5 +63,31 @@ public class ModelBasedObjectGeneratorTest {
 
         // THEN
         assertThat(result).hasSize(10).doesNotContainNull();
+    }
+
+    @Test
+    public void generate_should_generate_a_recursive_object() {
+
+        // GIVEN
+        Model model = new ClassModelBuilder().buildModelFrom(Category.class);
+        ModelBasedObjectGenerator generator = new ModelBasedObjectGenerator(model);
+
+        // WHEN
+        Category result = generator.generateNext(Category.class);
+
+        // THEN
+        assertThat(getRecursiveCountOnField(result, Category::getParent, 1)).isEqualTo(10);
+    }
+
+    private <T> long getRecursiveCountOnField(T object, Function<T, T> recursiveField, long depth) {
+
+        T subObject = recursiveField.apply(object);
+
+        if (subObject != null) {
+
+            depth = getRecursiveCountOnField(subObject, recursiveField, depth) + 1;
+        }
+
+        return depth;
     }
 }

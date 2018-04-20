@@ -143,7 +143,7 @@ public class ListTypeAmongItemsTest {
 		NebulaRandom nebulaRandom = new NebulaRandom(0L);
 		Model model = ModelBuilder.newModel().build();
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex);
+		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex, 1, 10);
 		listType.init(context);
 
 		// WHEN
@@ -165,7 +165,7 @@ public class ListTypeAmongItemsTest {
 		NebulaRandom nebulaRandom = new NebulaRandom(0L);
 		Model model = ModelBuilder.newModel().build();
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex);
+		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex, 1, 10);
 		listType.init(context);
 
 		// WHEN
@@ -187,7 +187,7 @@ public class ListTypeAmongItemsTest {
 		NebulaRandom nebulaRandom = new NebulaRandom(0L);
 		Model model = ModelBuilder.newModel().build();
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex);
+		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex, 1, 10);
 		listType.init(context);
 
 		// WHEN
@@ -209,7 +209,7 @@ public class ListTypeAmongItemsTest {
 		NebulaRandom nebulaRandom = new NebulaRandom(0L);
 		Model model = ModelBuilder.newModel().build();
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex);
+		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex, 1, 10);
 		listType.init(context);
 
 		// WHEN
@@ -232,7 +232,7 @@ public class ListTypeAmongItemsTest {
 		NebulaRandom nebulaRandom = new NebulaRandom(0L);
 		Model model = ModelBuilder.newModel().build();
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex);
+		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex, 1, 10);
 		listType.init(context);
 		GeneratedObject resultAtindex0 = listType.generateObject(0L);
 
@@ -255,7 +255,7 @@ public class ListTypeAmongItemsTest {
 		NebulaRandom nebulaRandom = new NebulaRandom(0L);
 		Model model = ModelBuilder.newModel().build();
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex);
+		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex, 1, 10);
 		listType.init(context);
 		GeneratedObject resultAtindex0 = listType.generateObject(0L);
 
@@ -279,7 +279,7 @@ public class ListTypeAmongItemsTest {
 		NebulaRandom nebulaRandom = new NebulaRandom(0L);
 		Model model = ModelBuilder.newModel().build();
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex);
+		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex, 1, 10);
 		listType.init(context);
 
 		// WHEN
@@ -301,7 +301,7 @@ public class ListTypeAmongItemsTest {
 		NebulaRandom nebulaRandom = new NebulaRandom(0L);
 		Model model = ModelBuilder.newModel().build();
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex);
+		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex, 1, 10);
 		listType.init(context);
 
 		// WHEN
@@ -326,7 +326,7 @@ public class ListTypeAmongItemsTest {
 		NebulaRandom nebulaRandom = new NebulaRandom(0L);
 		Model model = ModelBuilder.newModel().build();
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex);
+		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex, 1, 10);
 		listType.init(context);
 		GeneratedObject index0 = new GeneratedObject(BigDecimal.ZERO);
 		GeneratedObject index1 = new GeneratedObject(BigDecimal.ONE);
