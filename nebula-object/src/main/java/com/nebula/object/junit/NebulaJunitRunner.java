@@ -23,7 +23,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.util.Collection;
 
-class NebulaJunitRunner extends Runner implements Filterable {
+public class NebulaJunitRunner extends Runner implements Filterable {
 
     private final BlockJUnit4ClassRunner runner;
 
