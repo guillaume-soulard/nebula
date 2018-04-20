@@ -75,12 +75,17 @@ public class NumberAmongTypeBuilderTest {
 
 		// GIVEN
 		NumberAmongTypeBuilder builder = new NumberAmongTypeBuilder();
+		Exception exception = null;
 
 		// WHEN
-		catchException(builder).items((BigDecimal[]) null);
+		try {
+			builder.items((BigDecimal[]) null);
+		} catch (Exception e) {
+			exception = e;
+		}
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("items is null");
+		assertThat(exception).isInstanceOf(NebulaException.class).hasMessage("items is null");
 	}
 
 	@Test
@@ -101,12 +106,17 @@ public class NumberAmongTypeBuilderTest {
 
 		// GIVEN
 		NumberAmongTypeBuilder builder = new NumberAmongTypeBuilder();
+		Exception exception = null;
 
 		// WHEN
-		catchException(builder).items(new BigDecimal[] {});
+		try {
+			catchException(builder).items(new BigDecimal[] {});
+		} catch (Exception e) {
+			exception = e;
+		}
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("items is empty");
+		assertThat(exception).isInstanceOf(NebulaException.class).hasMessage("items is empty");
 	}
 
 	@Test
