@@ -53,9 +53,29 @@ public class ModelBasedObjectGenerator implements ObjectGenerator {
     @Override
     public <T> T generateNext(Class<T> clazz) {
 
-        GeneratedObject generatedObject = model.generateEntityObject(clazz.getCanonicalName(), index.getAndIncrement());
+        return generateAt(index.getAndIncrement(), clazz);
+    }
 
+    @Override
+    public <T> T generateAt(long index, Class<T> clazz) {
+
+        GeneratedObject generatedObject = model.generateEntityObject(clazz.getCanonicalName(), index);
         return convertToObject(clazz, generatedObject);
+    }
+
+    @Override
+    public <T> List<T> generateListOf(int amount, Class<T> clazz) {
+        List<T> list = new ArrayList<>();
+
+        IntStream.range(0, amount).forEach((index) -> list.add(generateNext(clazz)));
+
+        return list;
+    }
+
+    @Override
+    public <T> List<T> generateLazyListOf(int amount, Class<T> clazz) {
+
+        return new LazyList(amount, this, clazz);
     }
 
     private <T> T convertToObject(Class<T> clazz, GeneratedObject generatedObject) {
@@ -136,15 +156,5 @@ public class ModelBasedObjectGenerator implements ObjectGenerator {
         }
 
         throw new NebulaException("Type " + object.getClass().toGenericString() + " is not supported");
-    }
-
-
-    @Override
-    public <T> List<T> generateListOf(int amount, Class<T> clazz) {
-        List<T> list = new ArrayList<>();
-
-        IntStream.range(0, amount).forEach((index) -> list.add(generateNext(clazz)));
-
-        return list;
     }
 }
