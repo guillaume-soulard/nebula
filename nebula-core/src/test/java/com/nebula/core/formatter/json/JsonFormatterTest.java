@@ -245,11 +245,11 @@ public class JsonFormatterTest {
         String result = jsonFormatter.formatGeneratedObject(generatedObject);
 
         // THEN
-        assertThat(result).isEqualTo("{\n" +
-                                     "  test: {\n" +
-                                     "    field: \"value\",\n" +
-                                     "    field: \"value\"\n" +
-                                     "  }\n" +
+        assertThat(result).isEqualTo("{" + System.lineSeparator() +
+                                     "  test: {" + System.lineSeparator() +
+                                     "    field: \"value\"," + System.lineSeparator() +
+                                     "    field: \"value\"" + System.lineSeparator() +
+                                     "  }" + System.lineSeparator() +
                                      "}");
     }
 
