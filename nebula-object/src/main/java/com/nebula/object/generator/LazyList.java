@@ -8,7 +8,7 @@ public class LazyList<T> implements List<T> {
     private final ModelBasedObjectGenerator modelBasedObjectGenerator;
     private Class<T> clazz;
 
-    public LazyList(int listSize, ModelBasedObjectGenerator modelBasedObjectGenerator, Class<T> clazz) {
+    LazyList(int listSize, ModelBasedObjectGenerator modelBasedObjectGenerator, Class<T> clazz) {
         this.listSize = listSize;
         this.modelBasedObjectGenerator = modelBasedObjectGenerator;
         this.clazz = clazz;

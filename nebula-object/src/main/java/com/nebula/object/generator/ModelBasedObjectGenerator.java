@@ -75,9 +75,10 @@ public class ModelBasedObjectGenerator implements ObjectGenerator {
     @Override
     public <T> List<T> generateLazyListOf(int amount, Class<T> clazz) {
 
-        return new LazyList(amount, this, clazz);
+        return new LazyList<>(amount, this, clazz);
     }
 
+    @SuppressWarnings("unchecked")
     private <T> T convertToObject(Class<T> clazz, GeneratedObject generatedObject) {
         try {
 
