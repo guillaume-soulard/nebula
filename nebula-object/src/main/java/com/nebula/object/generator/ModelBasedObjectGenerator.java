@@ -93,40 +93,13 @@ public class ModelBasedObjectGenerator implements ObjectGenerator {
                     Field field = FieldUtils.getDeclaredField(clazz, generatedProperty.getPropertyName(),  true);
                     if (field != null && generatedProperty.getPropertyValue() != null) {
                         if (generatedProperty.getPropertyValue().getGeneratedProperties() != null) {
-
                             Object value = getFinalValueFrom(field.getType(), convertToObject(field.getType(), generatedProperty.getPropertyValue()));
-
                             field.set(instance, value);
                         } else {
                             if (field.getType().isArray()) {
-
-                                Collection<Object> array = (Collection<Object>) generatedProperty.getPropertyValue().getObject();
-
-                                Object convertedArray = Array.newInstance(field.getType().getComponentType(), array.size());
-
-                                int i = 0;
-
-                                for (Object object : array) {
-                                    Array.set(convertedArray, i, convertToObject(field.getType().getComponentType(), (GeneratedObject) object));
-                                    i++;
-                                }
-
-                                field.set(instance, convertedArray);
-
+                                convertArray(instance, generatedProperty, field);
                             } else if (Collection.class.isAssignableFrom(field.getType())) {
-                                Collection<Object> array = (Collection<Object>) generatedProperty.getPropertyValue().getObject();
-
-                                List<Object> convertedList = new ArrayList<>();
-
-                                for (Object object : array) {
-                                    try {
-                                        convertedList.add(convertToObject(Class.forName(((ParameterizedType) field.getGenericType()).getActualTypeArguments()[0].getTypeName()), (GeneratedObject) object));
-                                    } catch (ClassNotFoundException e) {
-                                        throw new NebulaException(e.getMessage());
-                                    }
-                                }
-
-                                field.set(instance, convertedList);
+                                convertCollection(instance, generatedProperty, field);
                             } else {
                                 field.set(instance, getFinalValueFrom(field.getType(), generatedProperty.getPropertyValue().getObject()));
                             }
@@ -140,6 +113,37 @@ public class ModelBasedObjectGenerator implements ObjectGenerator {
         } catch (InstantiationException | IllegalAccessException e) {
             throw new NebulaException(e.getMessage());
         }
+    }
+
+    private <T> void convertArray(T instance, GeneratedProperty generatedProperty, Field field) throws IllegalAccessException {
+        Collection<Object> array = (Collection<Object>) generatedProperty.getPropertyValue().getObject();
+
+        Object convertedArray = Array.newInstance(field.getType().getComponentType(), array.size());
+
+        int i = 0;
+
+        for (Object object : array) {
+            Array.set(convertedArray, i, convertToObject(field.getType().getComponentType(), (GeneratedObject) object));
+            i++;
+        }
+
+        field.set(instance, convertedArray);
+    }
+
+    private <T> void convertCollection(T instance, GeneratedProperty generatedProperty, Field field) throws IllegalAccessException {
+        Collection<Object> array = (Collection<Object>) generatedProperty.getPropertyValue().getObject();
+
+        List<Object> convertedList = new ArrayList<>();
+
+        for (Object object : array) {
+            try {
+                convertedList.add(convertToObject(Class.forName(((ParameterizedType) field.getGenericType()).getActualTypeArguments()[0].getTypeName()), (GeneratedObject) object));
+            } catch (ClassNotFoundException e) {
+                throw new NebulaException(e.getMessage());
+            }
+        }
+
+        field.set(instance, convertedList);
     }
 
     private boolean isBasicGeneratedObject(GeneratedObject generatedObject) {

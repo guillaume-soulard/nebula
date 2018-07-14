@@ -56,7 +56,7 @@ public class LazyList<T> implements List<T> {
 
     @Override
     public boolean containsAll(Collection<?> c) {
-        return c.stream().allMatch(item -> contains(item));
+        return c.stream().allMatch(this::contains);
     }
 
     @Override

@@ -10,7 +10,6 @@ public class GeneratedObject {
 	private static final String ARRAY_END = "]";
 	private static final String OBJECT_START = "{";
 	private static final String OBJECT_END = "}";
-	public static final String PROPERTY_VALUE_SEPARATOR = ":";
 	private List<GeneratedProperty> generatedProperties;
 	private Object object;
 

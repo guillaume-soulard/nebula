@@ -6,6 +6,7 @@ import com.nebula.core.types.JavaType;
 import com.nebula.core.types.Range;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 class NumberRangeType extends AbstractTypeWithIndexCheck {
 
@@ -16,7 +17,7 @@ class NumberRangeType extends AbstractTypeWithIndexCheck {
 	NumberRangeType(Range<BigDecimal> range, int precision) {
 		this.range = range;
 		this.precision = precision;
-		increment = BigDecimal.ONE.divide(BigDecimal.TEN.pow(precision));
+		increment = BigDecimal.ONE.divide(BigDecimal.TEN.pow(precision), precision);
 	}
 
 	public Long getMinRange() {
@@ -38,6 +39,6 @@ class NumberRangeType extends AbstractTypeWithIndexCheck {
 	}
 
 	private BigDecimal calculateRequestedNumber(Long index) {
-		return range.getMin().add(new BigDecimal(index).multiply(increment)).setScale(precision);
+		return range.getMin().add(new BigDecimal(index).multiply(increment)).setScale(precision, RoundingMode.HALF_EVEN);
 	}
 }

@@ -8,7 +8,7 @@ public class LazyListIterator<T> implements Iterator<T> {
     private AtomicInteger index;
     private LazyList<T> lazyList;
 
-    public LazyListIterator(LazyList<T> lazyList) {
+    LazyListIterator(LazyList<T> lazyList) {
         this.lazyList = lazyList;
         index = new AtomicInteger(0);
     }
