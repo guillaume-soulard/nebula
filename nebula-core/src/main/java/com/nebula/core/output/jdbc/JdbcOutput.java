@@ -32,8 +32,8 @@ class JdbcOutput implements Output {
     public void write(OutputParameter formattedObject) {
         try {
             if (!formattedObject.getFormattedObject().isEmpty()
-                    && !formattedObject.equals("\n")
-                    && !formattedObject.equals("\r\n")) {
+                    && !formattedObject.getFormattedObject().equals("\n")
+                    && !formattedObject.getFormattedObject().equals("\r\n")) {
                 connection.prepareStatement(formattedObject.getFormattedObject()).execute();
             }
         } catch (SQLException e) {

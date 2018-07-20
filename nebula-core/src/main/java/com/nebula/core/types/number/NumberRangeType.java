@@ -17,7 +17,7 @@ class NumberRangeType extends AbstractTypeWithIndexCheck {
 	NumberRangeType(Range<BigDecimal> range, int precision) {
 		this.range = range;
 		this.precision = precision;
-		increment = BigDecimal.ONE.divide(BigDecimal.TEN.pow(precision), precision);
+		increment = BigDecimal.ONE.divide(BigDecimal.TEN.pow(precision), precision, RoundingMode.HALF_EVEN);
 	}
 
 	public Long getMinRange() {

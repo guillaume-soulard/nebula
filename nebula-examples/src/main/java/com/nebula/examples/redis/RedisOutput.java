@@ -1,6 +1,7 @@
 package com.nebula.examples.redis;
 
 import com.nebula.core.output.Output;
+import com.nebula.core.output.OutputParameter;
 import redis.clients.jedis.Jedis;
 
 public class RedisOutput implements Output {
@@ -17,8 +18,8 @@ public class RedisOutput implements Output {
     }
 
     @Override
-    public void write(String formattedObject) {
-        jedis.eval(formattedObject);
+    public void write(OutputParameter formattedObject) {
+        jedis.eval(formattedObject.getFormattedObject());
     }
 
     @Override
