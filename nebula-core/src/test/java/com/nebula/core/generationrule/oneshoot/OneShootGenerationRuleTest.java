@@ -6,6 +6,7 @@ import com.nebula.core.GeneratedObjectIterator;
 import com.nebula.core.NebulaException;
 import com.nebula.core.formatter.Formatter;
 import com.nebula.core.output.Output;
+import com.nebula.core.output.OutputParameter;
 import org.junit.Test;
 import org.mockito.InOrder;
 
@@ -174,11 +175,11 @@ public class OneShootGenerationRuleTest {
         InOrder inOrder = inOrder(formatter, output, generatedObjectSource);
 
         inOrder.verify(formatter).formatHeader(entity);
-        inOrder.verify(output, times(2)).write(any(String.class));
+        inOrder.verify(output, times(2)).write(any(OutputParameter.class));
         inOrder.verify(generatedObjectSource).hasNext();
         inOrder.verify(generatedObjectSource).next();
         inOrder.verify(formatter).formatGeneratedObject(generatedObject);
-        inOrder.verify(output, times(2)).write(any(String.class));
+        inOrder.verify(output, times(2)).write(any(OutputParameter.class));
         inOrder.verify(formatter).formatFooter(entity);
     }
 }

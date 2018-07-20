@@ -1,6 +1,7 @@
 package com.nebula.core.output.socket;
 
 import com.nebula.core.NebulaException;
+import com.nebula.core.output.OutputParameter;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
@@ -112,7 +113,7 @@ public class SocketOutputTest {
         socketOutput.open();
 
         // WHEN
-        socketOutput.write("test");
+        socketOutput.write(new OutputParameter("test", null));
 
         // THEN
         Thread.sleep(100); // wait for the server to receive data

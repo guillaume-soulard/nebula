@@ -9,6 +9,7 @@ import com.nebula.core.generationconstraint.AcceptationResult;
 import com.nebula.core.generationconstraint.GenerationConstraint;
 import com.nebula.core.generationrule.GenerationRule;
 import com.nebula.core.output.Output;
+import com.nebula.core.output.OutputParameter;
 
 import java.util.List;
 
@@ -81,7 +82,7 @@ class OneShootGenerationRule implements GenerationRule {
     }
 
     private void generateFooter() {
-        writeToOutputs(formatterToUse.formatFooter(entity));
+        writeToOutputs(null, formatterToUse.formatFooter(entity));
     }
 
     private void generateObjects() {
@@ -91,20 +92,20 @@ class OneShootGenerationRule implements GenerationRule {
             GeneratedObject generatedObject = generatedObjectSource.next();
             acceptationResult = getAcceptationResult(generatedObject);
             if (AcceptationResult.ACCEPTABLE.equals(acceptationResult)) {
-                writeToOutputs(formatterToUse.formatGeneratedObject(generatedObject));
-                writeToOutputs(System.lineSeparator());
+                writeToOutputs(generatedObject, formatterToUse.formatGeneratedObject(generatedObject));
+                writeToOutputs(null, System.lineSeparator());
             }
         }
     }
 
     private void generateHeader() {
-        writeToOutputs(formatterToUse.formatHeader(entity));
-        writeToOutputs(System.lineSeparator());
+        writeToOutputs(null, formatterToUse.formatHeader(entity));
+        writeToOutputs(null, System.lineSeparator());
     }
 
-    private void writeToOutputs(String formattedGeneratedObject) {
+    private void writeToOutputs(GeneratedObject originalObject, String formattedGeneratedObject) {
         for (Output output : outputsToWrite) {
-            output.write(formattedGeneratedObject);
+            output.write(new OutputParameter(formattedGeneratedObject, originalObject));
         }
     }
 

@@ -2,6 +2,7 @@ package com.nebula.core.output.socket;
 
 import com.nebula.core.NebulaException;
 import com.nebula.core.output.Output;
+import com.nebula.core.output.OutputParameter;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -28,11 +29,11 @@ class SocketOutput implements Output {
     }
 
     @Override
-    public void write(String formattedObject) {
+    public void write(OutputParameter formattedObject) {
         try {
             OutputStream outputStream = socket.getOutputStream();
             if (formattedObject != null) {
-                outputStream.write(formattedObject.getBytes());
+                outputStream.write(formattedObject.getFormattedObject().getBytes());
             } else {
                 outputStream.write("null".getBytes());
             }

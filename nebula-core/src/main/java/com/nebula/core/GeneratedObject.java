@@ -1,6 +1,6 @@
 package com.nebula.core;
 
-import java.util.List;
+import java.util.*;
 
 public class GeneratedObject {
 
@@ -133,5 +133,46 @@ public class GeneratedObject {
 		}
 
 		throw new NebulaException("Property '" + propertyName + "' is undefined");
+	}
+
+	public Object getValueByPath(String value) {
+
+		Stack<String> paths = new Stack<>();
+		List<String> pathList = Arrays.asList(value.split("\\."));
+		Collections.reverse(pathList);
+		paths.addAll(pathList);
+		return recursiveGetValueByPath(paths);
+	}
+
+	private Object recursiveGetValueByPath(Stack<String> paths) {
+
+		String path = paths.pop();
+
+		if (isFinalObject()) {
+
+			return object;
+		} else {
+
+			Optional<GeneratedProperty> property = generatedProperties
+					.stream()
+					.filter(p -> p.getPropertyName().equals(path))
+					.findFirst();
+
+			if (property.isPresent()) {
+
+				if (paths.isEmpty()) {
+					return property.get().getPropertyValue().getObject();
+				} else {
+					return property.get().getPropertyValue().recursiveGetValueByPath(paths);
+				}
+			} else {
+
+				throw new NebulaException(String.format("Property '%s' not exists", path));
+			}
+		}
+	}
+
+	private boolean isFinalObject() {
+		return generatedProperties == null;
 	}
 }

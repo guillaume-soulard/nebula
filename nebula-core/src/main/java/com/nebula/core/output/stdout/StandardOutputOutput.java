@@ -1,6 +1,7 @@
 package com.nebula.core.output.stdout;
 
 import com.nebula.core.output.Output;
+import com.nebula.core.output.OutputParameter;
 
 class StandardOutputOutput implements Output {
 
@@ -12,8 +13,8 @@ class StandardOutputOutput implements Output {
     public void open() {
     }
 
-    public void write(String formattedObject) {
-        System.out.print(formattedObject);
+    public void write(OutputParameter formattedObject) {
+        System.out.print(formattedObject.getFormattedObject());
         System.out.flush();
     }
 

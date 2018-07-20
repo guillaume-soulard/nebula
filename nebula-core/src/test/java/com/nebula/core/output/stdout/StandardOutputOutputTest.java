@@ -1,5 +1,6 @@
 package com.nebula.core.output.stdout;
 
+import com.nebula.core.output.OutputParameter;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InOrder;
@@ -26,7 +27,7 @@ public class StandardOutputOutputTest {
         String formattedObject = "test";
 
         // WHEN
-        output.write(formattedObject);
+        output.write(new OutputParameter(formattedObject, null));
 
         // THEN
         verify(printStream, times(1)).print(formattedObject);
@@ -39,7 +40,7 @@ public class StandardOutputOutputTest {
         StandardOutputOutput output = new StandardOutputOutput();
 
         // WHEN
-        output.write("test");
+        output.write(new OutputParameter("test", null));
 
         // THEN
         InOrder inOrder = inOrder(printStream);

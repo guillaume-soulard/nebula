@@ -250,4 +250,65 @@ public class GeneratedObjectTest {
 		// THEN
 		assertThat(generatedObject).hasToString("{\"property 1\":\"value\",\"property 2\":10}");
 	}
+
+	@Test
+	public void getValueByPath_should_return_the_value_when_object_is_final() {
+
+		// GIVEN
+		GeneratedObject generatedObject = new GeneratedObject("test");
+
+		// WHEN
+		Object result = generatedObject.getValueByPath("");
+
+		// THEN
+		assertThat(result).isEqualTo("test");
+	}
+
+	@Test
+	public void getValueByPath_should_return_the_value_of_an_existing_property() {
+
+		// GIVEN
+		List<GeneratedProperty> properties = new ArrayList<>();
+		properties.add(new GeneratedProperty("customProperty", new GeneratedObject("value"), null));
+		GeneratedObject generatedObject = new GeneratedObject(properties);
+
+		// WHEN
+		Object result = generatedObject.getValueByPath("customProperty");
+
+		// THEN
+		assertThat(result).isEqualTo("value");
+	}
+
+	@Test
+	public void getValueByPath_should_throw_an_exception_when_property_not_exists() {
+
+		// GIVEN
+		List<GeneratedProperty> properties = new ArrayList<>();
+		properties.add(new GeneratedProperty("customProperty", new GeneratedObject("value"), null));
+		GeneratedObject generatedObject = new GeneratedObject(properties);
+
+		// WHEN
+		catchException(generatedObject).getValueByPath("nonExisting");
+
+		// THEN
+		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
+			.hasMessage("Property 'nonExisting' not exists");
+	}
+
+	@Test
+	public void getValueByPath_should_return_the_value_of_an_existing_property_at_level_2() {
+
+		// GIVEN
+		List<GeneratedProperty> properties = new ArrayList<>();
+		List<GeneratedProperty> level2 = new ArrayList<>();
+		level2.add(new GeneratedProperty("level2", new GeneratedObject("level2 value"), null));
+		properties.add(new GeneratedProperty("customProperty", new GeneratedObject(level2), null));
+		GeneratedObject generatedObject = new GeneratedObject(properties);
+
+		// WHEN
+		Object result = generatedObject.getValueByPath("customProperty.level2");
+
+		// THEN
+		assertThat(result).isEqualTo("level2 value");
+	}
 }

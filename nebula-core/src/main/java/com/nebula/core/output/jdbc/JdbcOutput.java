@@ -2,6 +2,7 @@ package com.nebula.core.output.jdbc;
 
 import com.nebula.core.NebulaException;
 import com.nebula.core.output.Output;
+import com.nebula.core.output.OutputParameter;
 
 import java.sql.*;
 
@@ -28,12 +29,12 @@ class JdbcOutput implements Output {
     }
 
     @Override
-    public void write(String formattedObject) {
+    public void write(OutputParameter formattedObject) {
         try {
-            if (!formattedObject.isEmpty()
+            if (!formattedObject.getFormattedObject().isEmpty()
                     && !formattedObject.equals("\n")
                     && !formattedObject.equals("\r\n")) {
-                connection.prepareStatement(formattedObject).execute();
+                connection.prepareStatement(formattedObject.getFormattedObject()).execute();
             }
         } catch (SQLException e) {
             throw new NebulaException(e.getMessage());

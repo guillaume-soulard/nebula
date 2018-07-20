@@ -2,6 +2,7 @@ package com.nebula.core.output.file;
 
 import com.nebula.core.NebulaException;
 import com.nebula.core.output.Output;
+import com.nebula.core.output.OutputParameter;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -33,7 +34,7 @@ class FileOutput implements Output {
         }
     }
 
-    public void write(String formattedObject) {
+    public void write(OutputParameter formattedObject) {
         try {
             writeFormattedObjectToFile(formattedObject);
         } catch (IOException e) {
@@ -50,8 +51,8 @@ class FileOutput implements Output {
         }
     }
 
-    private void writeFormattedObjectToFile(String formattedObject) throws IOException {
-        fileOutputStream.write(formattedObject.getBytes(charset));
+    private void writeFormattedObjectToFile(OutputParameter formattedObject) throws IOException {
+        fileOutputStream.write(formattedObject.getFormattedObject().getBytes(charset));
         fileOutputStream.flush();
     }
 

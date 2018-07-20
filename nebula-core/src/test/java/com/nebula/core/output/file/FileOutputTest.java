@@ -1,5 +1,6 @@
 package com.nebula.core.output.file;
 
+import com.nebula.core.output.OutputParameter;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -35,9 +36,10 @@ public class FileOutputTest {
         FileOutput fileOutput = new FileOutput(fileToWrite.getPath(), "UTF-8");
         String formattedObject = "content to write";
         fileOutput.open();
+        OutputParameter objectToWrite = new OutputParameter(formattedObject, null);
 
         // WHEN
-        fileOutput.write(formattedObject);
+        fileOutput.write(objectToWrite);
 
         // THEN
         assertThat(fileToWrite).exists().hasContent(formattedObject);
@@ -51,9 +53,10 @@ public class FileOutputTest {
         FileOutput fileOutput = new FileOutput(fileToWrite.getPath(), "UTF-8");
         String formattedObject = "content to write";
         fileOutput.open();
+        OutputParameter objectToWrite = new OutputParameter(formattedObject, null);
 
         // WHEN
-        fileOutput.write(formattedObject);
+        fileOutput.write(objectToWrite);
 
         // THEN
         assertThat(fileToWrite).exists().hasContent(formattedObject);
@@ -68,9 +71,10 @@ public class FileOutputTest {
         FileOutput fileOutput = new FileOutput(fileToWrite.getPath(), charset);
         String formattedObject = "content to write";
         fileOutput.open();
+        OutputParameter objectToWrite = new OutputParameter(formattedObject, null);
 
         // WHEN
-        fileOutput.write(formattedObject);
+        fileOutput.write(objectToWrite);
 
         // THEN
         assertThat(fileToWrite).exists().hasBinaryContent(formattedObject.getBytes(charset));
@@ -85,9 +89,10 @@ public class FileOutputTest {
         FileOutput fileOutput = new FileOutput(fileToWrite.getPath(), charset);
         String formattedObject = "content to write";
         fileOutput.open();
+        OutputParameter objectToWrite = new OutputParameter(formattedObject, null);
 
         // WHEN
-        fileOutput.write(formattedObject);
+        fileOutput.write(objectToWrite);
 
         // THEN
         assertThat(fileToWrite).exists().hasBinaryContent(formattedObject.getBytes(charset));
@@ -103,9 +108,10 @@ public class FileOutputTest {
         FileOutput fileOutput = new FileOutput(fileToWrite.getPath(), "UTF-8");
         String newContent = "new content";
         fileOutput.open();
+        OutputParameter objectToWrite = new OutputParameter(newContent, null);
 
         // WHEN
-        fileOutput.write(newContent);
+        fileOutput.write(objectToWrite);
 
         // THEN
         assertThat(fileToWrite).exists().hasContent(newContent);
