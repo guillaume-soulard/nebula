@@ -12,6 +12,11 @@ public class Property {
 	private final Generator generator;
 
 	public Property(String name, Type type, Generator generator) {
+
+		if (name.contains(".")) {
+			throw new NebulaException("Property name must not contains '.'");
+		}
+
 		this.name = name;
 		this.type = type;
 		this.generator = generator;

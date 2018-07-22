@@ -11,6 +11,11 @@ public class GeneratedProperty {
 	private final Type propertyType;
 
 	public GeneratedProperty(String propertyName, GeneratedObject propertyValue, Type propertyType) {
+
+		if (propertyName.contains(".")) {
+			throw new NebulaException("Property name must not contains '.'");
+		}
+
 		this.propertyName = propertyName;
 		this.propertyValue = propertyValue;
 		this.propertyType = propertyType;

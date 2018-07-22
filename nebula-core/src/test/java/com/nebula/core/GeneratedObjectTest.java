@@ -311,4 +311,36 @@ public class GeneratedObjectTest {
 		// THEN
 		assertThat(result).isEqualTo("level2 value");
 	}
+
+	@Test
+	public void getValueByPath_should_return_the_value_of_an_existing_property_with_complex_name() {
+
+		// GIVEN
+		List<GeneratedProperty> properties = new ArrayList<>();
+		properties.add(new GeneratedProperty("custom property\"name\"",new GeneratedObject("test"), null));
+		GeneratedObject generatedObject = new GeneratedObject(properties);
+
+		// WHEN
+		Object result = generatedObject.getValueByPath("custom property\"name\"");
+
+		// THEN
+		assertThat(result).isEqualTo("test");
+	}
+
+	@Test
+	public void getValueByPath_should_return_the_value_of_an_existing_property_with_complex_name_at_level_2() {
+
+		// GIVEN
+		List<GeneratedProperty> properties = new ArrayList<>();
+		List<GeneratedProperty> level2 = new ArrayList<>();
+		level2.add(new GeneratedProperty("at level 2", new GeneratedObject("level2 value"), null));
+		properties.add(new GeneratedProperty("custom property \"name\"", new GeneratedObject(level2), null));
+		GeneratedObject generatedObject = new GeneratedObject(properties);
+
+		// WHEN
+		Object result = generatedObject.getValueByPath("custom property \"name\".at level 2");
+
+		// THEN
+		assertThat(result).isEqualTo("level2 value");
+	}
 }

@@ -52,12 +52,30 @@ public class GeneratedPropertyTest {
 	public void equals_should_assert_properties_are_not_equals_because_one_is_null() {
 
 		// GIVEN
-		GeneratedProperty generatedProperty1 = new GeneratedProperty("property", new GeneratedObject("value1"), null);
+		GeneratedProperty generatedProperty = new GeneratedProperty("property", new GeneratedObject("value1"), null);
 
 		// WHEN
-		boolean result = generatedProperty1.equals(null);
+		boolean result = generatedProperty.equals(null);
 
 		// THEN
 		assertThat(result).isFalse();
+	}
+
+	@Test
+	public void new_generated_property_should_throw_and_excception_when_there_is_a_dot_in_name() {
+
+		// GIVEN
+		Exception exception = null;
+
+		// WHEN
+		try {
+			new GeneratedProperty("property.name", new GeneratedObject("value1"), null);
+		} catch (Exception e) {
+			exception = e;
+		}
+
+		// THEN
+		assertThat(exception).isInstanceOf(NebulaException.class)
+			.hasMessage("Property name must not contains '.'");
 	}
 }
