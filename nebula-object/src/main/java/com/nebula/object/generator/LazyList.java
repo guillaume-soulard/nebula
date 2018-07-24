@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class LazyList<T> implements List<T> {
     private final int listSize;
     private final ModelBasedObjectGenerator modelBasedObjectGenerator;
-    private Class<T> clazz;
+    private final Class<T> clazz;
 
     LazyList(int listSize, ModelBasedObjectGenerator modelBasedObjectGenerator, Class<T> clazz) {
         this.listSize = listSize;

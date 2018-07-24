@@ -14,9 +14,9 @@ public class HttpOutputBuilder implements OutputBuilder {
     static final String PATCH_VERB = "PATCH";
     private final String url;
     private String httpVerb;
-    private Map<String, String> staticHeaders = new HashMap<>();
-    private Map<String, String> dynamicHeaders = new HashMap<>();
-    private Map<String, String> dynamicPathVariables = new HashMap<>();
+    private final Map<String, String> staticHeaders = new HashMap<>();
+    private final Map<String, String> dynamicHeaders = new HashMap<>();
+    private final Map<String, String> dynamicPathVariables = new HashMap<>();
 
     public HttpOutputBuilder(String url) {
         this.url = url;

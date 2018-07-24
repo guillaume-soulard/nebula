@@ -5,8 +5,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class LazyListIterator<T> implements Iterator<T> {
 
-    private AtomicInteger index;
-    private LazyList<T> lazyList;
+    private final AtomicInteger index;
+    private final LazyList<T> lazyList;
 
     LazyListIterator(LazyList<T> lazyList) {
         this.lazyList = lazyList;

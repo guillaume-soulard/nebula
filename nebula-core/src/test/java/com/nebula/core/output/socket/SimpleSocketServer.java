@@ -31,10 +31,10 @@ class SimpleSocketServer extends Thread {
                     while (running) {
                         if (inputStream.available() > 0) {
                             byte[] bytes = new byte[inputStream.available()];
-                            inputStream.read(bytes);
-                            String data = new String(bytes);
-                            receivedData.add(data);
-                            System.out.println("Received data => '" + data + "'");
+                            if (inputStream.read(bytes) != -1) {
+                                String data = new String(bytes);
+                                receivedData.add(data);
+                            }
                         }
                     }
             }

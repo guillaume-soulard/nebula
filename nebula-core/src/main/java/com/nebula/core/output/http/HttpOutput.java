@@ -47,14 +47,18 @@ class HttpOutput implements Output {
         try {
             HttpEntityEnclosingRequestBase method;
 
-            if (HttpOutputBuilder.POST_VERB.equals(httpVerb)) {
-                method = new HttpPost();
-            } else if (HttpOutputBuilder.PUT_VERB.equals(httpVerb)) {
-                method = new HttpPut();
-            } else if (HttpOutputBuilder.PATCH_VERB.equals(httpVerb)) {
-                method = new HttpPatch();
-            } else {
-                throw new NebulaException("Http verb '" + httpVerb + "' is not supported");
+            switch (httpVerb) {
+                case HttpOutputBuilder.POST_VERB:
+                    method = new HttpPost();
+                    break;
+                case HttpOutputBuilder.PUT_VERB:
+                    method = new HttpPut();
+                    break;
+                case HttpOutputBuilder.PATCH_VERB:
+                    method = new HttpPatch();
+                    break;
+                default:
+                    throw new NebulaException("Http verb '" + httpVerb + "' is not supported");
             }
 
             staticHeaders.forEach(method::addHeader);
