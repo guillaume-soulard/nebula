@@ -6,17 +6,17 @@ import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.JavaType;
 import com.nebula.core.types.text.dictionary.NebulaDictionary;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 
-@RunWith(MockitoJUnitRunner.class)
-public class TextTypeTest {
+@ExtendWith(MockitoExtension.class)
+class TextTypeTest {
 
     private TextType textType;
 
@@ -26,15 +26,15 @@ public class TextTypeTest {
     @Mock
     private NebulaDictionary dictionary;
 
-    @Before
-    public void setUp() {
+    @BeforeEach
+    void setUp() {
         textType = new TextType(dictionary, textGenerationConfiguration);
         GenerationContext context = new GenerationContext(new NebulaRandom(1L), mock(Model.class), 0L, 1, 10);
         textType.init(context);
     }
 
     @Test
-    public void generateObject_should_return_a_non_null_string() {
+    void generateObject_should_return_a_non_null_string() {
 
         // GIVEN
 
@@ -46,7 +46,7 @@ public class TextTypeTest {
     }
 
 //    @Test
-//    public void generateObject_should_call_generate_on_TextGenerator() {
+//    void generateObject_should_call_generate_on_TextGenerator() {
 //
 //        // GIVEN
 //
@@ -58,7 +58,7 @@ public class TextTypeTest {
 //    }
 
 //    @Test
-//    public void generateObject_should_return_TextGenerator_generate_return() {
+//    void generateObject_should_return_TextGenerator_generate_return() {
 //
 //        // GIVEN
 //        String expectedString = "test";
@@ -72,7 +72,7 @@ public class TextTypeTest {
 //    }
 
     @Test
-    public void getMinRange_should_return_0() {
+    void getMinRange_should_return_0() {
 
         // GIVEN
 
@@ -84,7 +84,7 @@ public class TextTypeTest {
     }
 
     @Test
-    public void getMaxRange_should_return_0() {
+    void getMaxRange_should_return_0() {
 
         // GIVEN
 
@@ -96,7 +96,7 @@ public class TextTypeTest {
     }
 
     @Test
-    public void getJavaType_should_return_STRING() {
+    void getJavaType_should_return_STRING() {
 
         // GIVEN
 

@@ -3,7 +3,7 @@ package com.nebula.core.types.number;
 import com.nebula.core.ModelBuilder;
 import com.nebula.core.NebulaException;
 import com.nebula.core.types.Type;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -13,10 +13,10 @@ import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class NumberAmongTypeBuilderTest {
+class NumberAmongTypeBuilderTest {
 
 	@Test
-	public void build_should_return_a_new_instance_of_NumberAmongType_with_defaults() {
+	void build_should_return_a_new_instance_of_NumberAmongType_with_defaults() {
 
 		// GIVEN
 		NumberAmongTypeBuilder builder = new NumberAmongTypeBuilder();
@@ -29,7 +29,7 @@ public class NumberAmongTypeBuilderTest {
 	}
 
 	@Test
-	public void items_should_return_the_builder_with_given_item_as_collection() {
+	void items_should_return_the_builder_with_given_item_as_collection() {
 
 		// GIVEN
 		NumberAmongTypeBuilder builder = new NumberAmongTypeBuilder();
@@ -43,7 +43,7 @@ public class NumberAmongTypeBuilderTest {
 	}
 
 	@Test
-	public void items_should_return_the_builder_with_given_items_as_collection() {
+	void items_should_return_the_builder_with_given_items_as_collection() {
 
 		// GIVEN
 		NumberAmongTypeBuilder builder = new NumberAmongTypeBuilder();
@@ -58,7 +58,7 @@ public class NumberAmongTypeBuilderTest {
 	}
 
 	@Test
-	public void items_should_return_the_builder_with_null_as_collection() {
+	void items_should_return_the_builder_with_null_as_collection() {
 
 		// GIVEN
 		NumberAmongTypeBuilder builder = new NumberAmongTypeBuilder();
@@ -71,7 +71,7 @@ public class NumberAmongTypeBuilderTest {
 	}
 
 	@Test
-	public void items_should_throw_exception_when_null_items_is_passed_for_big_decimal() {
+	void items_should_throw_exception_when_null_items_is_passed_for_big_decimal() {
 
 		// GIVEN
 		NumberAmongTypeBuilder builder = new NumberAmongTypeBuilder();
@@ -89,7 +89,7 @@ public class NumberAmongTypeBuilderTest {
 	}
 
 	@Test
-	public void items_should_throw_exception_when_null_items_is_passed_for_string() {
+	void items_should_throw_exception_when_null_items_is_passed_for_string() {
 
 		// GIVEN
 		NumberAmongTypeBuilder builder = new NumberAmongTypeBuilder();
@@ -102,7 +102,7 @@ public class NumberAmongTypeBuilderTest {
 	}
 
 	@Test
-	public void items_should_throw_exception_when_empty_items_is_passed() {
+	void items_should_throw_exception_when_empty_items_is_passed() {
 
 		// GIVEN
 		NumberAmongTypeBuilder builder = new NumberAmongTypeBuilder();
@@ -120,7 +120,7 @@ public class NumberAmongTypeBuilderTest {
 	}
 
 	@Test
-	public void build_should_NumberAmongType_with_items() {
+	void build_should_NumberAmongType_with_items() {
 
 		// GIVEN
 		NumberAmongTypeBuilder builder = new NumberAmongTypeBuilder();

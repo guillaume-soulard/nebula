@@ -1,10 +1,10 @@
 package com.nebula.core.output.jdbc;
 
+import com.nebula.core.Entity;
 import com.nebula.core.Model;
 import com.nebula.core.ModelBuilder;
-import com.nebula.core.Entity;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
@@ -14,22 +14,22 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
-import static com.nebula.core.types.NebulaTypes.number;
-import static com.nebula.core.types.NebulaTypes.string;
-import static com.nebula.core.generators.NebulaGenerators.random;
-import static com.nebula.core.generators.NebulaGenerators.sequence;
 import static com.nebula.core.formatter.NebulaFormatters.sql;
 import static com.nebula.core.generationrule.GenerationRules.newOneShootGenerationRule;
+import static com.nebula.core.generators.NebulaGenerators.random;
+import static com.nebula.core.generators.NebulaGenerators.sequence;
 import static com.nebula.core.output.NebulaOutputs.jdbc;
 import static com.nebula.core.output.NebulaOutputs.stdout;
+import static com.nebula.core.types.NebulaTypes.number;
+import static com.nebula.core.types.NebulaTypes.string;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class JdbcOutputIT {
+class JdbcOutputIT {
 
     private JdbcTemplate jdbcTemplate;
 
-    @Before
-    public void setUp() {
+    @BeforeEach
+    void setUp() {
 
         EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
         EmbeddedDatabase db = builder
@@ -41,7 +41,7 @@ public class JdbcOutputIT {
     }
 
     @Test
-    public void generate_should_generate_10_users_in_hsqldb() {
+    void generate_should_generate_10_users_in_hsqldb() {
 
         // GIVEN
         Model model = ModelBuilder.newModel().withSeed("My company's users").build();

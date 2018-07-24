@@ -2,16 +2,16 @@ package com.nebula.core.parser;
 
 import com.nebula.core.Model;
 import com.nebula.core.ModelBuilder;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class NumberParserTest {
+class NumberParserTest {
 
     @Test
-    public void parse_should_return_0() {
+    void parse_should_return_0() {
 
         // GIVEN
         NumberParser builder = new NumberParser();
@@ -25,7 +25,7 @@ public class NumberParserTest {
     }
 
     @Test
-    public void parse_should_return_10() {
+    void parse_should_return_10() {
 
         // GIVEN
         NumberParser builder = new NumberParser();
@@ -39,7 +39,7 @@ public class NumberParserTest {
     }
 
     @Test
-    public void parse_should_return_10_dot_56() {
+    void parse_should_return_10_dot_56() {
 
         // GIVEN
         NumberParser builder = new NumberParser();
@@ -53,7 +53,7 @@ public class NumberParserTest {
     }
 
     @Test
-    public void parse_should_return_100000000_dot_56() {
+    void parse_should_return_100000000_dot_56() {
 
         // GIVEN
         NumberParser builder = new NumberParser();
@@ -67,7 +67,7 @@ public class NumberParserTest {
     }
 
     @Test
-    public void parse_should_return_100_comma_000_comma_000_dot_56() {
+    void parse_should_return_100_comma_000_comma_000_dot_56() {
 
         // GIVEN
         NumberParser builder = new NumberParser();
@@ -81,7 +81,7 @@ public class NumberParserTest {
     }
 
     @Test
-    public void parse_should_return_number_with_custom_separators() {
+    void parse_should_return_number_with_custom_separators() {
 
         // GIVEN
         NumberParser builder = new NumberParser();

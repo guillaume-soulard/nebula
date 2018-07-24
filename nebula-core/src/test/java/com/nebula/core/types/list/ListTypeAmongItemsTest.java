@@ -1,16 +1,16 @@
 package com.nebula.core.types.list;
 
+import com.nebula.core.GeneratedObject;
 import com.nebula.core.Model;
 import com.nebula.core.ModelBuilder;
-import com.nebula.core.GeneratedObject;
-import com.nebula.core.types.NebulaTypes;
-import com.nebula.core.generators.NebulaGenerators;
 import com.nebula.core.generators.Generator;
+import com.nebula.core.generators.NebulaGenerators;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
+import com.nebula.core.types.NebulaTypes;
 import com.nebula.core.types.Type;
 import com.nebula.core.types.constant.ConstantTypeBuilder;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -21,12 +21,12 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class ListTypeAmongItemsTest {
+class ListTypeAmongItemsTest {
 
 	private static final BigDecimal BIG_DECIMAL_TWO = BigDecimal.ONE.add(BigDecimal.ONE);
 
 	@Test
-	public void new_ListType_should_set_passed_values_in_fields() {
+	void new_ListType_should_set_passed_values_in_fields() {
 
 		// GIVEN
 		int minSize = 0;
@@ -45,7 +45,7 @@ public class ListTypeAmongItemsTest {
 	}
 
 	@Test
-	public void getMinRange_should_return_0() {
+	void getMinRange_should_return_0() {
 
 		// GIVEN
 		int minSize = 0;
@@ -62,7 +62,7 @@ public class ListTypeAmongItemsTest {
 	}
 
 	@Test
-	public void getMaxRange_should_return_0() {
+	void getMaxRange_should_return_0() {
 
 		// GIVEN
 		int minSize = 0;
@@ -79,7 +79,7 @@ public class ListTypeAmongItemsTest {
 	}
 
 	@Test
-	public void getMaxRange_should_return_1() {
+	void getMaxRange_should_return_1() {
 
 		// GIVEN
 		int minSize = 0;
@@ -96,7 +96,7 @@ public class ListTypeAmongItemsTest {
 	}
 
 	@Test
-	public void getMaxRange_should_return_4() {
+	void getMaxRange_should_return_4() {
 
 		// GIVEN
 		int minSize = 0;
@@ -114,7 +114,7 @@ public class ListTypeAmongItemsTest {
 	}
 
 	@Test
-	public void init_should_set_nebulaRandom() {
+	void init_should_set_nebulaRandom() {
 
 		// GIVEN
 		int minSize = 0;
@@ -132,7 +132,7 @@ public class ListTypeAmongItemsTest {
 	}
 
 	@Test
-	public void generateObject_should_return_a_non_null_object() {
+	void generateObject_should_return_a_non_null_object() {
 
 		// GIVEN
 		int minSize = 0;
@@ -154,7 +154,7 @@ public class ListTypeAmongItemsTest {
 	}
 
 	@Test
-	public void generateObject_should_return_an_ArrayList() {
+	void generateObject_should_return_an_ArrayList() {
 
 		// GIVEN
 		int minSize = 0;
@@ -176,7 +176,7 @@ public class ListTypeAmongItemsTest {
 	}
 
 	@Test
-	public void generateObject_should_return_an_empty_list() {
+	void generateObject_should_return_an_empty_list() {
 
 		// GIVEN
 		int minSize = 0;
@@ -198,7 +198,7 @@ public class ListTypeAmongItemsTest {
 	}
 
 	@Test
-	public void generateObject_should_return_a_list_with_size_1() {
+	void generateObject_should_return_a_list_with_size_1() {
 
 		// GIVEN
 		int minSize = 1;
@@ -221,7 +221,7 @@ public class ListTypeAmongItemsTest {
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void generateObject_should_return_a_list_with_different_size_at_index_0_and_1() {
+	void generateObject_should_return_a_list_with_different_size_at_index_0_and_1() {
 
 		// GIVEN
 		int minSize = 0;
@@ -244,7 +244,7 @@ public class ListTypeAmongItemsTest {
 	}
 
 	@Test
-	public void generateObject_should_return_a_the_same_list_size_with_same_index() {
+	void generateObject_should_return_a_the_same_list_size_with_same_index() {
 
 		// GIVEN
 		int minSize = 0;
@@ -267,7 +267,7 @@ public class ListTypeAmongItemsTest {
 	}
 
 	@Test
-	public void generateObject_should_return_a_list_contening_only_items_in_gien_items_list() {
+	void generateObject_should_return_a_list_contening_only_items_in_gien_items_list() {
 
 		// GIVEN
 		int minSize = 1;
@@ -290,7 +290,7 @@ public class ListTypeAmongItemsTest {
 	}
 
 	@Test
-	public void generateObject_should_return_an_empty_list_with_minSize_set_to_1() {
+	void generateObject_should_return_an_empty_list_with_minSize_set_to_1() {
 
 		// GIVEN
 		int minSize = 1;
@@ -312,7 +312,7 @@ public class ListTypeAmongItemsTest {
 	}
 
 	@Test
-	public void generateObject_should_return_list_that_contains_items_gives_by_the_generator() {
+	void generateObject_should_return_list_that_contains_items_gives_by_the_generator() {
 
 		// GIVEN
 		int minSize = 6;

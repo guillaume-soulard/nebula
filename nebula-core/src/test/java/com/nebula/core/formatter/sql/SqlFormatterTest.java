@@ -1,15 +1,15 @@
 package com.nebula.core.formatter.sql;
 
-import com.nebula.core.ModelBuilder;
 import com.nebula.core.Entity;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.GeneratedProperty;
-import com.nebula.core.types.Type;
+import com.nebula.core.ModelBuilder;
 import com.nebula.core.formatter.Formatter;
 import com.nebula.core.formatter.ValueFormatter;
+import com.nebula.core.types.Type;
 import org.joda.time.DateTime;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -19,19 +19,19 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class SqlFormatterTest {
+class SqlFormatterTest {
 
     private Entity entity;
 
-    @Before
-    public void setUp() {
+    @BeforeEach
+    void setUp() {
         String tableName = "users";
         entity = mock(Entity.class);
         when(entity.getName()).thenReturn(tableName);
     }
 
     @Test
-    public void formatGeneratedObject_should_format_given_generated_object_as_sql_insert() {
+    void formatGeneratedObject_should_format_given_generated_object_as_sql_insert() {
 
         // GIVEN
         ValueFormatter valueFormatter = new ValueFormatter("dd/MM/YYYY", ',', ' ');
@@ -53,7 +53,7 @@ public class SqlFormatterTest {
     }
 
     @Test
-    public void formatHeader_should_return_delete_from() {
+    void formatHeader_should_return_delete_from() {
 
         // GIVEN
         ValueFormatter valueFormatter = new ValueFormatter("dd/MM/YYYY", ',', ' ');
@@ -69,7 +69,7 @@ public class SqlFormatterTest {
     }
 
     @Test
-    public void formatFooter_should_return_commit() {
+    void formatFooter_should_return_commit() {
 
         // GIVEN
         ValueFormatter valueFormatter = new ValueFormatter("dd/MM/YYYY", ',', ' ');

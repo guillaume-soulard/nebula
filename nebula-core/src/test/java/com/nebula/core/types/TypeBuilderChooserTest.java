@@ -2,16 +2,16 @@ package com.nebula.core.types;
 
 import com.nebula.core.types.number.NumberAmongTypeBuilder;
 import com.nebula.core.types.number.NumberRangeTypeBuilder;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class TypeBuilderChooserTest {
+class TypeBuilderChooserTest {
 
 	@Test
-	public void range_should_return_given_instance_of_range_builder() {
+	void range_should_return_given_instance_of_range_builder() {
 
 		// GIVEN
 		NumberRangeTypeBuilder rangeBuilder = new NumberRangeTypeBuilder();
@@ -27,7 +27,7 @@ public class TypeBuilderChooserTest {
 	}
 
 	@Test
-	public void among_should_return_given_instance_of_among_builder() {
+	void among_should_return_given_instance_of_among_builder() {
 
 		// GIVEN
 		NumberRangeTypeBuilder rangeBuilder = new NumberRangeTypeBuilder();

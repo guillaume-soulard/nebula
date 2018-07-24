@@ -4,7 +4,7 @@ import com.nebula.core.Entity;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.GeneratedProperty;
 import com.nebula.core.types.Type;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,10 +13,10 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 
-public class AbstractFormatterTest {
+class AbstractFormatterTest {
 
     @Test
-    public void excludeFieldsOn_should_return_all_given_properties() {
+    void excludeFieldsOn_should_return_all_given_properties() {
 
         // GIVEN
         List<String> excludedFields = new ArrayList<>();
@@ -31,7 +31,7 @@ public class AbstractFormatterTest {
     }
 
     @Test
-    public void excludeFieldsOn_should_return_no_properties() {
+    void excludeFieldsOn_should_return_no_properties() {
 
         // GIVEN
         List<String> excludedFields = Collections.singletonList("_id");
@@ -46,7 +46,7 @@ public class AbstractFormatterTest {
     }
 
     @Test
-    public void excludeFieldsOn_should_return_one_property() {
+    void excludeFieldsOn_should_return_one_property() {
 
         // GIVEN
         List<String> excludedFields = Collections.singletonList("_id");

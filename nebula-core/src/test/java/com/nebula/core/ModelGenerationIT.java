@@ -2,7 +2,7 @@ package com.nebula.core;
 
 import com.nebula.core.types.date.DateTimeTypeIntervals;
 import org.joda.time.DateTime;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -10,12 +10,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
 
-import static com.nebula.core.types.NebulaTypes.*;
 import static com.nebula.core.generators.NebulaGenerators.random;
 import static com.nebula.core.generators.NebulaGenerators.sequence;
+import static com.nebula.core.types.NebulaTypes.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ModelGenerationIT {
+class ModelGenerationIT {
 
 	private static final String ENTITY_PROPERTY_NAME = "entity";
 	private static final int ANOTHER_ENTITY_AMOUNT = 10;
@@ -34,7 +34,7 @@ public class ModelGenerationIT {
 	private static final String ID_PROPERTY_NAME = "_id";
 
 	@Test
-	public void generate_should_generate_1000_entities_with_correct_properties_values() {
+	void generate_should_generate_1000_entities_with_correct_properties_values() {
 
 		// GIVEN
 		long seed = 10L;
@@ -53,7 +53,7 @@ public class ModelGenerationIT {
 	}
 
 	@Test
-	public void generateEntityObject_should_generate_two_properties_with_different_values_with_same_type() {
+	void generateEntityObject_should_generate_two_properties_with_different_values_with_same_type() {
 
 		// GIVEN
 		Model model = ModelBuilder.newModel().build();

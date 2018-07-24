@@ -1,27 +1,27 @@
 package com.nebula.core.types.string;
 
+import com.nebula.core.Entity;
 import com.nebula.core.Model;
 import com.nebula.core.ModelBuilder;
-import com.nebula.core.Entity;
-import com.nebula.core.types.NebulaTypes;
 import com.nebula.core.generators.NebulaGenerators;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
+import com.nebula.core.types.NebulaTypes;
 import org.joda.time.DateTime;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class StringTypeIT {
+class StringTypeIT {
 
 	private static final long ONE_SECOND = 1000;
 
 	@Test
-	public void generateEntityObject_should_take_less_than_1_second_to_generate_100000_strings() {
+	void generateEntityObject_should_take_less_than_1_second_to_generate_100000_strings() {
 
 		// GIVEN
 		Model model = ModelBuilder.newModel().build();
-		Entity entity = createEntityInModel(model);
+		Entity entity = createEntityInModel();
 		DateTime start = DateTime.now();
 
 		// WHEN
@@ -34,7 +34,7 @@ public class StringTypeIT {
 	}
 
 	@Test
-	public void generateObject_should_take_less_than_1_second_to_generate_100000_strings() {
+	void generateObject_should_take_less_than_1_second_to_generate_100000_strings() {
 
 		// GIVEN
 		StringType stringType = new StringType(StringGenerator.newStringGenerator("[A-Z]{1}[a-z]{10,25}"));
@@ -52,7 +52,7 @@ public class StringTypeIT {
 		assertThat(elapsedTime(start)).isLessThanOrEqualTo(ONE_SECOND);
 	}
 
-	private Entity createEntityInModel(Model model) {
+	private Entity createEntityInModel() {
 		Entity entity = ModelBuilder.newModel().build().newEntity("entity", 1);
 		entity.addProperty("property", NebulaGenerators.random(),
 				NebulaTypes.string().withPattern("[A-Z]{1}[a-z]{10,25}"));

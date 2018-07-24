@@ -2,14 +2,14 @@ package com.nebula.core.types.bool;
 
 import com.nebula.core.ModelBuilder;
 import com.nebula.core.types.Type;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class BooleanTypeBuilderTest {
+class BooleanTypeBuilderTest {
 
 	@Test
-	public void build_should_return_a_new_instance_of_BooleanType() {
+	void build_should_return_a_new_instance_of_BooleanType() {
 
 		// GIVEN
 		BooleanTypeBuilder builder = new BooleanTypeBuilder();

@@ -7,7 +7,7 @@ import com.nebula.object.Category;
 import com.nebula.object.User;
 import com.nebula.object.UserAddress;
 import com.nebula.object.generator.model.ClassModelBuilder;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import java.util.function.Function;
@@ -16,10 +16,10 @@ import static com.nebula.core.generators.NebulaGenerators.random;
 import static com.nebula.core.types.NebulaTypes.string;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ModelBasedObjectGeneratorTest {
+class ModelBasedObjectGeneratorTest {
 
     @Test
-    public void generate_should_return_non_null_object() {
+    void generate_should_return_non_null_object() {
 
         // GIVEN
         Model model = ModelBuilder.newModel()
@@ -38,7 +38,7 @@ public class ModelBasedObjectGeneratorTest {
     }
 
     @Test
-    public void generate_should_return_non_null_User_object() {
+    void generate_should_return_non_null_User_object() {
 
         // GIVEN
         Model model = new ClassModelBuilder().buildModelFrom(User.class);
@@ -52,7 +52,7 @@ public class ModelBasedObjectGeneratorTest {
     }
 
     @Test
-    public void generateListOf_should_return_a_list_of_User_object() {
+    void generateListOf_should_return_a_list_of_User_object() {
 
         // GIVEN
         Model model = new ClassModelBuilder().buildModelFrom(User.class);
@@ -66,7 +66,7 @@ public class ModelBasedObjectGeneratorTest {
     }
 
     @Test
-    public void generate_should_generate_a_recursive_object() {
+    void generate_should_generate_a_recursive_object() {
 
         // GIVEN
         Model model = new ClassModelBuilder().buildModelFrom(Category.class);

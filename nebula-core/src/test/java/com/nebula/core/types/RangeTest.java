@@ -1,15 +1,15 @@
 package com.nebula.core.types;
 
 import com.nebula.core.NebulaException;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.fail;
 
-public class RangeTest {
+class RangeTest {
 
 	@Test
-	public void newRange_should_return_a_new_instance_of_Range_with_both_min_and_max_value_specified() {
+	void newRange_should_return_a_new_instance_of_Range_with_both_min_and_max_value_specified() {
 		// GIVEN
 		Range<Integer> range;
 
@@ -22,7 +22,7 @@ public class RangeTest {
 	}
 
 	@Test
-	public void newRange_should_throw_exception_when_inverted_range_is_passed() {
+	void newRange_should_throw_exception_when_inverted_range_is_passed() {
 		// GIVEN
 
 		// WHEN
@@ -37,7 +37,7 @@ public class RangeTest {
 	}
 
 	@Test
-	public void newRange_should_throw_NebulaException_when_null_min_is_passed() {
+	void newRange_should_throw_NebulaException_when_null_min_is_passed() {
 
 		// GIVEN
 
@@ -52,7 +52,7 @@ public class RangeTest {
 	}
 
 	@Test
-	public void newRange_should_throw_NebulaException_when_null_max_is_passed() {
+	void newRange_should_throw_NebulaException_when_null_max_is_passed() {
 
 		// GIVEN
 

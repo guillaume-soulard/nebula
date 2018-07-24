@@ -1,13 +1,13 @@
 package com.nebula.core;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class GeneratedPropertyTest {
+class GeneratedPropertyTest {
 
 	@Test
-	public void equals_should_assert_properties_are_equals() {
+	void equals_should_assert_properties_are_equals() {
 
 		// GIVEN
 		GeneratedProperty generatedProperty1 = new GeneratedProperty("property", new GeneratedObject("value"), null);
@@ -21,7 +21,7 @@ public class GeneratedPropertyTest {
 	}
 
 	@Test
-	public void equals_should_assert_properties_are_not_equals_because_property_names_are_differents() {
+	void equals_should_assert_properties_are_not_equals_because_property_names_are_differents() {
 
 		// GIVEN
 		GeneratedProperty generatedProperty1 = new GeneratedProperty("property1", new GeneratedObject("value"), null);
@@ -35,7 +35,7 @@ public class GeneratedPropertyTest {
 	}
 
 	@Test
-	public void equals_should_assert_properties_are_not_equals_because_property_values_are_differents() {
+	void equals_should_assert_properties_are_not_equals_because_property_values_are_differents() {
 
 		// GIVEN
 		GeneratedProperty generatedProperty1 = new GeneratedProperty("property", new GeneratedObject("value1"), null);
@@ -49,7 +49,7 @@ public class GeneratedPropertyTest {
 	}
 
 	@Test
-	public void equals_should_assert_properties_are_not_equals_because_one_is_null() {
+	void equals_should_assert_properties_are_not_equals_because_one_is_null() {
 
 		// GIVEN
 		GeneratedProperty generatedProperty = new GeneratedProperty("property", new GeneratedObject("value1"), null);
@@ -62,7 +62,7 @@ public class GeneratedPropertyTest {
 	}
 
 	@Test
-	public void new_generated_property_should_throw_and_excception_when_there_is_a_dot_in_name() {
+	void new_generated_property_should_throw_and_excception_when_there_is_a_dot_in_name() {
 
 		// GIVEN
 		Exception exception = null;

@@ -2,33 +2,33 @@ package com.nebula.core.output.socket;
 
 import com.nebula.core.NebulaException;
 import com.nebula.core.output.OutputParameter;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
 
-@Ignore("Sometime this test class fail on maven build")
-public class SocketOutputTest {
+@Disabled("Sometime this test class fail on maven build")
+class SocketOutputTest {
 
     private SimpleSocketServer server;
 
-    @Before
-    public void setUp() throws Exception {
+    @BeforeEach
+    void setUp() throws Exception {
         server = new SimpleSocketServer();
         server.start();
     }
 
-    @After
-    public void tearDown() throws Exception {
+    @AfterEach
+    void tearDown() throws Exception {
         server.stopServer();
     }
 
     @Test
-    public void open_should_open_socket() {
+    void open_should_open_socket() {
 
         // GIVEN
         String host = "localhost";
@@ -43,7 +43,7 @@ public class SocketOutputTest {
     }
 
     @Test
-    public void open_should_throw_exception_when_unknown_host_not_listen_the_given_port() {
+    void open_should_throw_exception_when_unknown_host_not_listen_the_given_port() {
 
         // GIVEN
         String host = "aqzsedrftgyhujikolpmwxcvbn";
@@ -58,7 +58,7 @@ public class SocketOutputTest {
     }
 
     @Test
-    public void open_should_throw_exception_when_right_listen_the_given_another_port() {
+    void open_should_throw_exception_when_right_listen_the_given_another_port() {
 
         // GIVEN
         String host = "localhost";
@@ -73,7 +73,7 @@ public class SocketOutputTest {
     }
 
     @Test
-    public void close_should_close_socket() {
+    void close_should_close_socket() {
 
         // GIVEN
         String host = "localhost";
@@ -89,7 +89,7 @@ public class SocketOutputTest {
     }
 
     @Test
-    public void close_should_throw_exception_when_socket_is_not_open() {
+    void close_should_throw_exception_when_socket_is_not_open() {
 
         // GIVEN
         String host = "localhost";
@@ -104,7 +104,7 @@ public class SocketOutputTest {
     }
 
     @Test
-    public void write_should_send_test() throws Exception {
+    void write_should_send_test() throws Exception {
 
         // GIVEN
         String host = "localhost";
@@ -122,7 +122,7 @@ public class SocketOutputTest {
     }
 
     @Test
-    public void write_should_send_null() {
+    void write_should_send_null() {
 
         // GIVEN
         String host = "localhost";

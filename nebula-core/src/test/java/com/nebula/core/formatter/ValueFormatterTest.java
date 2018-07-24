@@ -1,16 +1,16 @@
 package com.nebula.core.formatter;
 
 import org.joda.time.DateTime;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ValueFormatterTest {
+class ValueFormatterTest {
 
     @Test
-    public void formatValue_should_return_date_with_given_format() {
+    void formatValue_should_return_date_with_given_format() {
 
         // GIVEN
         ValueFormatter valueFormatter = new ValueFormatter("dd/MM/yyyy", '.', ',');
@@ -24,7 +24,7 @@ public class ValueFormatterTest {
     }
 
     @Test
-    public void formatValue_should_return_number_with_correct_separators() {
+    void formatValue_should_return_number_with_correct_separators() {
 
         // GIVEN
         ValueFormatter valueFormatter = new ValueFormatter("dd/MM/yyyy", ',', ' ');

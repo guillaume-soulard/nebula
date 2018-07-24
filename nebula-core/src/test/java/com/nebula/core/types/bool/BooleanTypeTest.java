@@ -2,16 +2,16 @@ package com.nebula.core.types.bool;
 
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaException;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class BooleanTypeTest {
+class BooleanTypeTest {
 
 	@Test
-	public void getMinRange_should_return_0() {
+	void getMinRange_should_return_0() {
 
 		// GIVEN
 		BooleanType booleanType = new BooleanType();
@@ -24,7 +24,7 @@ public class BooleanTypeTest {
 	}
 
 	@Test
-	public void getMaxRange_should_return_1() {
+	void getMaxRange_should_return_1() {
 
 		// GIVEN
 		BooleanType booleanType = new BooleanType();
@@ -37,7 +37,7 @@ public class BooleanTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_return_non_null_object() {
+	void generateObject_should_return_non_null_object() {
 
 		// GIVEN
 		BooleanType booleanType = new BooleanType();
@@ -50,7 +50,7 @@ public class BooleanTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_return_false_when_index_is_0() {
+	void generateObject_should_return_false_when_index_is_0() {
 
 		// GIVEN
 		BooleanType booleanType = new BooleanType();
@@ -63,7 +63,7 @@ public class BooleanTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_return_true_when_index_is_1() {
+	void generateObject_should_return_true_when_index_is_1() {
 
 		// GIVEN
 		BooleanType booleanType = new BooleanType();
@@ -76,7 +76,7 @@ public class BooleanTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_throw_exception_when_index_is_negative() {
+	void generateObject_should_throw_exception_when_index_is_negative() {
 
 		// GIVEN
 		BooleanType booleanType = new BooleanType();
@@ -90,7 +90,7 @@ public class BooleanTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_throw_exception_when_index_is_greater_than_1() {
+	void generateObject_should_throw_exception_when_index_is_greater_than_1() {
 
 		// GIVEN
 		BooleanType booleanType = new BooleanType();
@@ -104,7 +104,7 @@ public class BooleanTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_throw_exception_when_index_is_null() {
+	void generateObject_should_throw_exception_when_index_is_null() {
 
 		// GIVEN
 		BooleanType booleanType = new BooleanType();

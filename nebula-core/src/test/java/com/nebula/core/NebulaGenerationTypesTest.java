@@ -9,16 +9,16 @@ import com.nebula.core.types.list.ListTypeBuilder;
 import com.nebula.core.types.number.NumberTypeBuilderChooser;
 import com.nebula.core.types.string.StringTypeBuilder;
 import org.joda.time.DateTime;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class NebulaGenerationTypesTest {
+class NebulaGenerationTypesTest {
 
 	@Test
-	public void integer_should_return_a_new_instance_of_NumberTypeBuilderChooser() {
+	void integer_should_return_a_new_instance_of_NumberTypeBuilderChooser() {
 
 		// GIVEN
 
@@ -30,7 +30,7 @@ public class NebulaGenerationTypesTest {
 	}
 
 	@Test
-	public void dateTime_should_return_a_new_instance_of_DateTimeTypeBuilderChooser() {
+	void dateTime_should_return_a_new_instance_of_DateTimeTypeBuilderChooser() {
 
 		// GIVEN
 
@@ -42,7 +42,7 @@ public class NebulaGenerationTypesTest {
 	}
 
 	@Test
-	public void string_should_return_a_new_instance_of_StringTypeBuilder() {
+	void string_should_return_a_new_instance_of_StringTypeBuilder() {
 
 		// GIVEN
 
@@ -54,7 +54,7 @@ public class NebulaGenerationTypesTest {
 	}
 
 	@Test
-	public void bool_should_return_a_new_instance_of_BooleanTypeBuilder() {
+	void bool_should_return_a_new_instance_of_BooleanTypeBuilder() {
 
 		// GIVEN
 
@@ -66,7 +66,7 @@ public class NebulaGenerationTypesTest {
 	}
 
 	@Test
-	public void list_should_return_a_new_instance_of_ListTypeBuilder() {
+	void list_should_return_a_new_instance_of_ListTypeBuilder() {
 
 		// GIVEN
 
@@ -78,7 +78,7 @@ public class NebulaGenerationTypesTest {
 	}
 
 	@Test
-	public void constant_should_return_a_new_instance_of_ConstantTypeBuilder_with_String() {
+	void constant_should_return_a_new_instance_of_ConstantTypeBuilder_with_String() {
 
 		// GIVEN
 		String value = "test";
@@ -91,7 +91,7 @@ public class NebulaGenerationTypesTest {
 	}
 
 	@Test
-	public void constant_should_return_a_new_instance_of_ConstantTypeBuilder_with_Date() {
+	void constant_should_return_a_new_instance_of_ConstantTypeBuilder_with_Date() {
 
 		// GIVEN
 		DateTime value = new DateTime(2017, 1, 1, 0, 0);
@@ -104,7 +104,7 @@ public class NebulaGenerationTypesTest {
 	}
 
 	@Test
-	public void constant_should_return_a_new_instance_of_ConstantTypeBuilder_with_BigDecimal() {
+	void constant_should_return_a_new_instance_of_ConstantTypeBuilder_with_BigDecimal() {
 
 		// GIVEN
 		BigDecimal value = BigDecimal.ZERO;
@@ -117,10 +117,9 @@ public class NebulaGenerationTypesTest {
 	}
 
 	@Test
-	public void constant_should_return_a_new_instance_of_ConstantTypeBuilder_with_Boolean() {
+	void constant_should_return_a_new_instance_of_ConstantTypeBuilder_with_Boolean() {
 
 		// GIVEN
-		Boolean value = Boolean.FALSE;
 
 		// WHEN
 		ConstantTypeBuilder result = NebulaTypes.constant(false);
@@ -130,7 +129,7 @@ public class NebulaGenerationTypesTest {
 	}
 
 	@Test
-	public void entity_should_return_a_new_instance_of_EntityTypeBuilder() {
+	void entity_should_return_a_new_instance_of_EntityTypeBuilder() {
 
 		// GIVEN
 		String entityName = "test";

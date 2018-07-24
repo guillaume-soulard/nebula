@@ -3,17 +3,17 @@ package com.nebula.core.generators.sequence;
 import com.nebula.core.NebulaException;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.Type;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
-public class SequenceGeneratorTest {
+class SequenceGeneratorTest {
 
     @Test
-    public void generate_should_call_generate_object_with_index_0() {
+    void generate_should_call_generate_object_with_index_0() {
 
         // GIVEN
         SequenceGenerator generator = new SequenceGenerator(false);
@@ -31,7 +31,7 @@ public class SequenceGeneratorTest {
     }
 
     @Test
-    public void generate_should_call_generate_object_with_index_0_twice() {
+    void generate_should_call_generate_object_with_index_0_twice() {
 
         // GIVEN
         SequenceGenerator generator = new SequenceGenerator(false);
@@ -50,7 +50,7 @@ public class SequenceGeneratorTest {
     }
 
     @Test
-    public void generate_should_call_generate_object_with_index_7_twice() {
+    void generate_should_call_generate_object_with_index_7_twice() {
 
         // GIVEN
         SequenceGenerator generator = new SequenceGenerator(false);
@@ -70,7 +70,7 @@ public class SequenceGeneratorTest {
     }
 
     @Test
-    public void generate_should_throw_exception_when_index_reach_max_range() {
+    void generate_should_throw_exception_when_index_reach_max_range() {
 
         // GIVEN
         SequenceGenerator generator = new SequenceGenerator(false);
@@ -92,7 +92,7 @@ public class SequenceGeneratorTest {
     }
 
     @Test
-    public void generate_should_not_throw_exception_when_index_reach_max_range_because_cycle_is_true() {
+    void generate_should_not_throw_exception_when_index_reach_max_range_because_cycle_is_true() {
 
         // GIVEN
         SequenceGenerator generator = new SequenceGenerator(true);

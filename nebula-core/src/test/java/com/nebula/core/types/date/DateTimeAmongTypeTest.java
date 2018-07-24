@@ -4,20 +4,23 @@ import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaException;
 import org.joda.time.DateTime;
 import org.joda.time.ReadableInstant;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class DateTimeAmongTypeTest {
+class DateTimeAmongTypeTest {
 
 	private final ReadableInstant day1 = new DateTime(2017, 1, 1, 0, 0);
 
 	@Test
-	public void generateObject_should_return_a_non_null_object() {
+	void generateObject_should_return_a_non_null_object() {
 
 		// GIVEN
 		DateTimeAmongType dateType = new DateTimeAmongType(oneDay());
@@ -30,7 +33,7 @@ public class DateTimeAmongTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_return_day1() {
+	void generateObject_should_return_day1() {
 
 		// GIVEN
 		DateTimeAmongType dateType = new DateTimeAmongType(oneDay());
@@ -43,7 +46,7 @@ public class DateTimeAmongTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_throw_Exception_when_index_is_out_of_range() {
+	void generateObject_should_throw_Exception_when_index_is_out_of_range() {
 
 		// GIVEN
 		DateTimeAmongType dateType = new DateTimeAmongType(oneDay());
@@ -57,7 +60,7 @@ public class DateTimeAmongTypeTest {
 	}
 
 	@Test
-	public void newDateTimeAmongType_should_set_items_as_UnmodifiableList_when_other_List_implementation_is_passed() {
+	void newDateTimeAmongType_should_set_items_as_UnmodifiableList_when_other_List_implementation_is_passed() {
 
 		// GIVEN
 		DateTimeAmongType dateType;
@@ -70,7 +73,7 @@ public class DateTimeAmongTypeTest {
 	}
 
 	@Test
-	public void newDateTimeAmongType_should_throw_exception_when_null_items_is_passed() {
+	void newDateTimeAmongType_should_throw_exception_when_null_items_is_passed() {
 
 		// GIVEN
 		Exception exception = null;

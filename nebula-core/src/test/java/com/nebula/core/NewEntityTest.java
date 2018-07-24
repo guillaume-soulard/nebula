@@ -1,13 +1,13 @@
 package com.nebula.core;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class NewEntityTest {
+class NewEntityTest {
 
 	@Test
-	public void newEntity_should_create_new_instance_of_entity_with_test_as_name() {
+	void newEntity_should_create_new_instance_of_entity_with_test_as_name() {
 
 		// GIVEN
 		Entity entity;
@@ -22,7 +22,7 @@ public class NewEntityTest {
 	}
 
 	@Test
-	public void newEntity_should_create_new_instance_of_entity_with_an_other_entity_as_name() {
+	void newEntity_should_create_new_instance_of_entity_with_an_other_entity_as_name() {
 
 		// GIVEN
 		Entity entity;
@@ -36,7 +36,7 @@ public class NewEntityTest {
 	}
 
 	@Test
-	public void newEntity_should_throw_NebulaException_when_null_name_is_passed() {
+	void newEntity_should_throw_NebulaException_when_null_name_is_passed() {
 
 		// GIVEN
 		Throwable exception = null;

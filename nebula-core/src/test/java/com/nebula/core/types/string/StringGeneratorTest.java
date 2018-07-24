@@ -1,13 +1,13 @@
 package com.nebula.core.types.string;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class StringGeneratorTest {
+class StringGeneratorTest {
 
 	@Test
-	public void newStringGenerator_should_return_a_new_instance_of_StringGenerator() {
+	void newStringGenerator_should_return_a_new_instance_of_StringGenerator() {
 
 		// GIVEN
 		String pattern = "test";
@@ -20,7 +20,7 @@ public class StringGeneratorTest {
 	}
 
 	@Test
-	public void newStringGenerator_should_set_default_pattern_when_null_is_passed() {
+	void newStringGenerator_should_set_default_pattern_when_null_is_passed() {
 
 		// GIVEN
 		String expectedDefaultPattern = "[a-zA-Z_0-9]{10}";
@@ -33,7 +33,7 @@ public class StringGeneratorTest {
 	}
 
 	@Test
-	public void generateString_should_return_test() {
+	void generateString_should_return_test() {
 
 		// GIVEN
 		String expectedString = "test";
@@ -47,7 +47,7 @@ public class StringGeneratorTest {
 	}
 
 	@Test
-	public void generateString_should_return_a_string_matching_pattern() {
+	void generateString_should_return_a_string_matching_pattern() {
 
 		// GIVEN
 		String pattern = "[a-z]{10}";

@@ -3,7 +3,7 @@ package com.nebula.core.types.number;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaException;
 import com.nebula.core.types.Range;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 
@@ -11,10 +11,10 @@ import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class NumberRangeTypeTest {
+class NumberRangeTypeTest {
 
 	@Test
-	public void generateObject_should_return_0_dot_5_when_min_0_and_max_1_and_precision_1_for_index_5() {
+	void generateObject_should_return_0_dot_5_when_min_0_and_max_1_and_precision_1_for_index_5() {
 
 		// GIVEN
 		Range<BigDecimal> range = new Range<>(BigDecimal.valueOf(0d), BigDecimal.valueOf(1d));
@@ -29,7 +29,7 @@ public class NumberRangeTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_return_0_dot_05_when_min_0_and_max_10_and_precision_2_for_index_5() {
+	void generateObject_should_return_0_dot_05_when_min_0_and_max_10_and_precision_2_for_index_5() {
 
 		// GIVEN
 		Range<BigDecimal> range = new Range<>(BigDecimal.valueOf(0d), BigDecimal.valueOf(10d));
@@ -44,7 +44,7 @@ public class NumberRangeTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_throw_exception_when_index_is_out_of_range() {
+	void generateObject_should_throw_exception_when_index_is_out_of_range() {
 
 		// GIVEN
 		Range<BigDecimal> range = new Range<>(BigDecimal.valueOf(0), BigDecimal.valueOf(1));
@@ -60,7 +60,7 @@ public class NumberRangeTypeTest {
 	}
 
 	@Test
-	public void getMinRange_should_return_0() {
+	void getMinRange_should_return_0() {
 
 		// GIVEN
 		Range<BigDecimal> range = new Range<>(BigDecimal.valueOf(0d), BigDecimal.valueOf(1d));
@@ -75,7 +75,7 @@ public class NumberRangeTypeTest {
 	}
 
 	@Test
-	public void getMaxRange_should_return_0() {
+	void getMaxRange_should_return_0() {
 
 		// GIVEN
 		Range<BigDecimal> range = new Range<>(BigDecimal.valueOf(0), BigDecimal.valueOf(0));
@@ -90,7 +90,7 @@ public class NumberRangeTypeTest {
 	}
 
 	@Test
-	public void getMaxRange_should_return_1() {
+	void getMaxRange_should_return_1() {
 
 		// GIVEN
 		Range<BigDecimal> range = new Range<>(BigDecimal.valueOf(0d), BigDecimal.valueOf(1d));
@@ -105,7 +105,7 @@ public class NumberRangeTypeTest {
 	}
 
 	@Test
-	public void getMaxRange_should_return_1000000() {
+	void getMaxRange_should_return_1000000() {
 
 		// GIVEN
 		Range<BigDecimal> range = new Range<>(BigDecimal.valueOf(10), BigDecimal.valueOf(20d));
@@ -120,7 +120,7 @@ public class NumberRangeTypeTest {
 	}
 
 	@Test
-	public void getMaxRange_should_return_5000() {
+	void getMaxRange_should_return_5000() {
 
 		// GIVEN
 		Range<BigDecimal> range = new Range<>(BigDecimal.valueOf(12), BigDecimal.valueOf(17d));
@@ -135,7 +135,7 @@ public class NumberRangeTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_throw_exception_when_negative_index_is_passed() {
+	void generateObject_should_throw_exception_when_negative_index_is_passed() {
 
 		// GIVEN
 		Range<BigDecimal> range = new Range<>(BigDecimal.valueOf(0d), BigDecimal.valueOf(10d));

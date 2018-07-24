@@ -3,9 +3,9 @@ package com.nebula.core.formatter.xml;
 import com.nebula.core.Entity;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.GeneratedProperty;
-import com.nebula.core.types.Type;
 import com.nebula.core.formatter.ValueFormatter;
-import org.junit.Test;
+import com.nebula.core.types.Type;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,10 +15,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class XmlFormatterTest {
+class XmlFormatterTest {
 
     @Test
-    public void formatGeneratedObject_should_format_simple_generated_object() {
+    void formatGeneratedObject_should_format_simple_generated_object() {
 
         // GIVEN
         XmlFormatter formatter = new XmlFormatter(new ValueFormatter("dd/MM/yyyy", '.', ','));
@@ -44,7 +44,7 @@ public class XmlFormatterTest {
     }
 
     @Test
-    public void formatGeneratedObject_should_format_complex_generated_object() {
+    void formatGeneratedObject_should_format_complex_generated_object() {
 
         // GIVEN
         XmlFormatter formatter = new XmlFormatter(new ValueFormatter("dd/MM/yyyy", '.', ','));
@@ -75,7 +75,7 @@ public class XmlFormatterTest {
     }
 
     @Test
-    public void formatGeneratedObject_should_format_complex_generated_object_with_array() {
+    void formatGeneratedObject_should_format_complex_generated_object_with_array() {
 
         // GIVEN
         XmlFormatter formatter = new XmlFormatter(new ValueFormatter("dd/MM/yyyy", '.', ','));

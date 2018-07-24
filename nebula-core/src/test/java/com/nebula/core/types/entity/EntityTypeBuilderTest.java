@@ -3,16 +3,16 @@ package com.nebula.core.types.entity;
 import com.nebula.core.ModelBuilder;
 import com.nebula.core.NebulaException;
 import com.nebula.core.types.Type;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class EntityTypeBuilderTest {
+class EntityTypeBuilderTest {
 
 	@Test
-	public void build_should_return_a_new_instance_of_EntityType() {
+	void build_should_return_a_new_instance_of_EntityType() {
 
 		// GIVEN
 		EntityTypeBuilder builder = new EntityTypeBuilder();
@@ -25,7 +25,7 @@ public class EntityTypeBuilderTest {
 	}
 
 	@Test
-	public void ofType_should_set_entity_in_builder_s_field() {
+	void ofType_should_set_entity_in_builder_s_field() {
 
 		// GIVEN
 		EntityTypeBuilder builder = new EntityTypeBuilder();
@@ -39,7 +39,7 @@ public class EntityTypeBuilderTest {
 	}
 
 	@Test
-	public void ofType_should_throw_exception_when_entityName_is_null() {
+	void ofType_should_throw_exception_when_entityName_is_null() {
 
 		// GIVEN
 		EntityTypeBuilder builder = new EntityTypeBuilder();

@@ -1,6 +1,6 @@
 package com.nebula.core;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.NoSuchElementException;
 
@@ -9,10 +9,10 @@ import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
-public class GeneratedObjectIteratorTest {
+class GeneratedObjectIteratorTest {
 
 	@Test
-	public void new_GeneratedObjectIterator_should_set_model_and_entity_and_seed_in_fields() {
+	void new_GeneratedObjectIterator_should_set_model_and_entity_and_seed_in_fields() {
 
 		// GIVEN
 		GeneratedObjectIterator iterator;
@@ -29,7 +29,7 @@ public class GeneratedObjectIteratorTest {
 	}
 
 	@Test
-	public void hasNext_should_return_true_when_entity_amount_is_1() {
+	void hasNext_should_return_true_when_entity_amount_is_1() {
 
 		// GIVEN
 		Model model = ModelBuilder.newModel().build();
@@ -45,7 +45,7 @@ public class GeneratedObjectIteratorTest {
 	}
 
 	@Test
-	public void hasNext_should_return_true_when_entity_amount_is_strictly_positive() {
+	void hasNext_should_return_true_when_entity_amount_is_strictly_positive() {
 
 		// GIVEN
 		Model model = ModelBuilder.newModel().build();
@@ -61,7 +61,7 @@ public class GeneratedObjectIteratorTest {
 	}
 
 	@Test
-	public void hasNext_should_return_false_when_entity_amount_is_0() {
+	void hasNext_should_return_false_when_entity_amount_is_0() {
 
 		// GIVEN
 		Model model = ModelBuilder.newModel().build();
@@ -77,7 +77,7 @@ public class GeneratedObjectIteratorTest {
 	}
 
 	@Test
-	public void hasNext_should_return_true_when_next_calls_not_exceed_total_amount_of_entity() {
+	void hasNext_should_return_true_when_next_calls_not_exceed_total_amount_of_entity() {
 
 		// GIVEN
 		Model model = ModelBuilder.newModel().build();
@@ -94,7 +94,7 @@ public class GeneratedObjectIteratorTest {
 	}
 
 	@Test
-	public void hasNext_should_return_false_when_next_calls_equal_total_amount_of_entity() {
+	void hasNext_should_return_false_when_next_calls_equal_total_amount_of_entity() {
 
 		// GIVEN
 		Model model = ModelBuilder.newModel().build();
@@ -112,7 +112,7 @@ public class GeneratedObjectIteratorTest {
 	}
 
 	@Test
-	public void next_should_return_the_first_entity() {
+	void next_should_return_the_first_entity() {
 
 		// GIVEN
 		GeneratedObject expectedGeneratedObject = new GeneratedObject(null);
@@ -133,7 +133,7 @@ public class GeneratedObjectIteratorTest {
 	}
 
 	@Test
-	public void next_should_throw_NoSuchElementException_when_iterator_has_no_more_generated_objects() {
+	void next_should_throw_NoSuchElementException_when_iterator_has_no_more_generated_objects() {
 
 		// GIVEN
 		Model model = mock(Model.class);
@@ -153,7 +153,7 @@ public class GeneratedObjectIteratorTest {
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void next_should_throw_NebulaException_when_model_throw_exception() {
+	void next_should_throw_NebulaException_when_model_throw_exception() {
 
 		// GIVEN
 		Model model = mock(Model.class);

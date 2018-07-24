@@ -4,14 +4,14 @@ import com.nebula.core.ModelBuilder;
 import com.nebula.core.types.Type;
 import com.nebula.core.types.TypeBuilder;
 import org.joda.time.DateTime;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class DateTimeRangeTypeBuilderTest {
+class DateTimeRangeTypeBuilderTest {
 
 	@Test
-	public void build_should_return_a_new_instance_of_DateTimeType() {
+	void build_should_return_a_new_instance_of_DateTimeType() {
 
 		// GIVEN
 		TypeBuilder builder = new DateTimeRangeTypeBuilder();
@@ -24,7 +24,7 @@ public class DateTimeRangeTypeBuilderTest {
 	}
 
 	@Test
-	public void build_should_set_default_values_in_DateTimeBuilder() {
+	void build_should_set_default_values_in_DateTimeBuilder() {
 
 		// GIVEN
 		TypeBuilder builder = new DateTimeRangeTypeBuilder();
@@ -39,7 +39,7 @@ public class DateTimeRangeTypeBuilderTest {
 	}
 
 	@Test
-	public void withMin_should_set_min_date_in_new_instance_of_DateTimeType() {
+	void withMin_should_set_min_date_in_new_instance_of_DateTimeType() {
 
 		// GIVEN
 		DateTimeRangeTypeBuilder builder = new DateTimeRangeTypeBuilder();
@@ -53,7 +53,7 @@ public class DateTimeRangeTypeBuilderTest {
 	}
 
 	@Test
-	public void withMax_should_set_max_date_in_new_instance_of_DateTimeType() {
+	void withMax_should_set_max_date_in_new_instance_of_DateTimeType() {
 
 		// GIVEN
 		DateTimeRangeTypeBuilder builder = new DateTimeRangeTypeBuilder();
@@ -67,7 +67,7 @@ public class DateTimeRangeTypeBuilderTest {
 	}
 
 	@Test
-	public void withINterval_should_set_ths_interval_in_new_instance_of_DateTimeType() {
+	void withINterval_should_set_ths_interval_in_new_instance_of_DateTimeType() {
 
 		// GIVEN
 		DateTimeRangeTypeBuilder builder = new DateTimeRangeTypeBuilder();

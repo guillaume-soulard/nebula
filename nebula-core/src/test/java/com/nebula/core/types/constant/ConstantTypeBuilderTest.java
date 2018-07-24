@@ -4,16 +4,16 @@ import com.nebula.core.ModelBuilder;
 import com.nebula.core.types.Type;
 import com.nebula.core.types.TypeBuilder;
 import org.joda.time.DateTime;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ConstantTypeBuilderTest {
+class ConstantTypeBuilderTest {
 
 	@Test
-	public void new_ConstantTypeBuilder_should_set_string_as_value() {
+	void new_ConstantTypeBuilder_should_set_string_as_value() {
 
 		// GIVEN
 		String value = "test";
@@ -27,7 +27,7 @@ public class ConstantTypeBuilderTest {
 	}
 
 	@Test
-	public void new_ConstantTypeBuilder_should_set_BigDecimal_as_value() {
+	void new_ConstantTypeBuilder_should_set_BigDecimal_as_value() {
 
 		// GIVEN
 		BigDecimal value = BigDecimal.ZERO;
@@ -41,7 +41,7 @@ public class ConstantTypeBuilderTest {
 	}
 
 	@Test
-	public void new_ConstantTypeBuilder_should_set_Date_as_value() {
+	void new_ConstantTypeBuilder_should_set_Date_as_value() {
 
 		// GIVEN
 		DateTime value = new DateTime(2017, 1, 1, 0, 0);
@@ -55,10 +55,9 @@ public class ConstantTypeBuilderTest {
 	}
 
 	@Test
-	public void new_ConstantTypeBuilder_should_set_Boolean_as_value() {
+	void new_ConstantTypeBuilder_should_set_Boolean_as_value() {
 
 		// GIVEN
-		Boolean value = Boolean.FALSE;
 		TypeBuilder builder;
 
 		// WHEN
@@ -69,7 +68,7 @@ public class ConstantTypeBuilderTest {
 	}
 
 	@Test
-	public void build_should_return_new_instance_of_ConstantType_with_given_value() {
+	void build_should_return_new_instance_of_ConstantType_with_given_value() {
 
 		// GIVEN
 		String value = "test";

@@ -1,22 +1,22 @@
 package com.nebula.core.generationrule.oneshoot;
 
+import com.nebula.core.Entity;
 import com.nebula.core.Model;
 import com.nebula.core.ModelBuilder;
-import com.nebula.core.Entity;
 import com.nebula.core.NebulaException;
 import com.nebula.core.formatter.NebulaFormatters;
 import com.nebula.core.generationrule.GenerationRule;
 import com.nebula.core.output.NebulaOutputs;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class GenerationRuleBuilderTest {
+class GenerationRuleBuilderTest {
 
     @Test
-    public void build_should_throw_exception_when_entity_is_not_specified() {
+    void build_should_throw_exception_when_entity_is_not_specified() {
 
         // GIVEN
         OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();
@@ -31,7 +31,7 @@ public class GenerationRuleBuilderTest {
     }
 
     @Test
-    public void build_should_throw_exception_when_formatter_is_not_specified() {
+    void build_should_throw_exception_when_formatter_is_not_specified() {
 
         // GIVEN
         OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();
@@ -48,7 +48,7 @@ public class GenerationRuleBuilderTest {
     }
 
     @Test
-    public void build_should_throw_exception_when_any_outputs_are_specified() {
+    void build_should_throw_exception_when_any_outputs_are_specified() {
 
         // GIVEN
         OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();
@@ -66,7 +66,7 @@ public class GenerationRuleBuilderTest {
     }
 
     @Test
-    public void build_should_throw_exception_when_entity_non_exists_in_model() {
+    void build_should_throw_exception_when_entity_non_exists_in_model() {
 
         // GIVEN
         OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();
@@ -84,7 +84,7 @@ public class GenerationRuleBuilderTest {
     }
 
     @Test
-    public void build_should_not_throw_exception_when_any_generation_constraints_are_specified() {
+    void build_should_not_throw_exception_when_any_generation_constraints_are_specified() {
 
         // GIVEN
         OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();

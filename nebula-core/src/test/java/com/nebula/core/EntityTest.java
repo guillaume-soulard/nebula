@@ -6,9 +6,9 @@ import com.nebula.core.generators.NebulaGenerators;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.NebulaTypes;
-import com.nebula.core.types.Type;
 import com.nebula.core.types.RandomTypeBuilder;
-import org.junit.Test;
+import com.nebula.core.types.Type;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 
@@ -17,10 +17,10 @@ import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
-public class EntityTest {
+class EntityTest {
 
 	@Test
-	public void addProperty_should_add_new_property_in_entity_properties() {
+	void addProperty_should_add_new_property_in_entity_properties() {
 		// GIVEN
 		Entity entity = ModelBuilder.newModel().build().newEntity("test", 1);
 		String propertyName = "name";
@@ -38,7 +38,7 @@ public class EntityTest {
 	}
 
 	@Test
-	public void addProperty_should_throw_exception_when_duplicate_property_name_is_added() {
+	void addProperty_should_throw_exception_when_duplicate_property_name_is_added() {
 
 		// GIVEN
 		Entity entity = ModelBuilder.newModel().build().newEntity("test", 1);
@@ -56,7 +56,7 @@ public class EntityTest {
 	}
 
 	@Test
-	public void generateObject_should_generate_a_non_null_object() {
+	void generateObject_should_generate_a_non_null_object() {
 
 		// GIVEN
 		Entity entity = ModelBuilder.newModel().build().newEntity("test", 1);
@@ -69,7 +69,7 @@ public class EntityTest {
 	}
 
 	@Test
-	public void generateObject_should_return_the_correct_amount_of_properties() {
+	void generateObject_should_return_the_correct_amount_of_properties() {
 
 		Entity entity = ModelBuilder.newModel().build().newEntity("test", 1);
 		String propertyName = "property";
@@ -85,7 +85,7 @@ public class EntityTest {
 	}
 
 	@Test
-	public void generateObject_should_return_a_generated_object_with_one_generated_property_equal_to_1() {
+	void generateObject_should_return_a_generated_object_with_one_generated_property_equal_to_1() {
 
 		// GIVEN
 		Entity entity = ModelBuilder.newModel().build().newEntity("test", 1);
@@ -105,7 +105,7 @@ public class EntityTest {
 	}
 
 	@Test
-	public void generateObject_should_return_a_generated_object_with_two_properties_first_equal_to_1_and_second_equal_to_5() {
+	void generateObject_should_return_a_generated_object_with_two_properties_first_equal_to_1_and_second_equal_to_5() {
 
 		// GIVEN
 		Entity entity = ModelBuilder.newModel().build().newEntity("test", 1);
@@ -131,7 +131,7 @@ public class EntityTest {
 	}
 
 	@Test
-	public void init_should_init_property_generators() {
+	void init_should_init_property_generators() {
 
 		// GIVEN
 		PropertyBuilder propertyBuilder = mock(PropertyBuilder.class);
@@ -157,7 +157,7 @@ public class EntityTest {
 	}
 
 	@Test
-	public void init_should_init_property_type() {
+	void init_should_init_property_type() {
 
 		// GIVEN
 		PropertyBuilder propertyBuilder = mock(PropertyBuilder.class);
@@ -182,7 +182,7 @@ public class EntityTest {
 	}
 
 	@Test
-	public void setPropertyBuilder_should_set_propertyBuilder_filed_in_given_entity() {
+	void setPropertyBuilder_should_set_propertyBuilder_filed_in_given_entity() {
 
 		// GIVEN
 		Entity entity = ModelBuilder.newModel().build().newEntity("test", 1);

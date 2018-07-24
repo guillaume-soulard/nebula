@@ -12,9 +12,9 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.entity.ContentType;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.joda.time.DateTime;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import sun.misc.IOUtils;
 
 import java.io.IOException;
@@ -26,12 +26,12 @@ import static com.nebula.core.types.NebulaTypes.dateTime;
 import static com.nebula.core.types.NebulaTypes.string;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class RestGenerationRuleIT {
+class RestGenerationRuleIT {
 
     private static RestGenerationRule rest;
 
-    @BeforeClass
-    public static void setUp() {
+    @BeforeAll
+    static void setUp() {
         Model model = ModelBuilder.newModel().withSeed("users").withDateFormat("dd/MM/yyyy").build();
 
         model.newEntity("user")
@@ -50,13 +50,13 @@ public class RestGenerationRuleIT {
         thread.start();
     }
 
-    @AfterClass
-    public static void tearDown() {
+    @AfterAll
+    static void tearDown() {
         rest.stop();
     }
 
     @Test
-    public void execute_should_return_first_item_in_resource() throws Exception {
+    void execute_should_return_first_item_in_resource() throws Exception {
 
         // GIVEN
         HttpClient client = HttpClientBuilder.create().build();
@@ -70,7 +70,7 @@ public class RestGenerationRuleIT {
     }
 
     @Test
-    public void execute_should_return_result_when_negative_index_is_passed() throws Exception {
+    void execute_should_return_result_when_negative_index_is_passed() throws Exception {
 
         // GIVEN
         HttpClient client = HttpClientBuilder.create().build();
@@ -84,7 +84,7 @@ public class RestGenerationRuleIT {
     }
 
     @Test
-    public void execute_should_return_first_10_items() throws Exception {
+    void execute_should_return_first_10_items() throws Exception {
 
         // GIVEN
         HttpClient client = HttpClientBuilder.create().build();
@@ -98,7 +98,7 @@ public class RestGenerationRuleIT {
     }
 
     @Test
-    public void execute_should_return_first_2_items() throws Exception {
+    void execute_should_return_first_2_items() throws Exception {
 
         // GIVEN
         HttpClient client = HttpClientBuilder.create().build();
@@ -112,7 +112,7 @@ public class RestGenerationRuleIT {
     }
 
     @Test
-    public void execute_should_return_first_10_items_skipping_the_2_first() throws Exception {
+    void execute_should_return_first_10_items_skipping_the_2_first() throws Exception {
 
         // GIVEN
         HttpClient client = HttpClientBuilder.create().build();
@@ -126,7 +126,7 @@ public class RestGenerationRuleIT {
     }
 
     @Test
-    public void execute_should_return_items_at_index_0_5_7() throws Exception {
+    void execute_should_return_items_at_index_0_5_7() throws Exception {
 
         // GIVEN
         HttpClient client = HttpClientBuilder.create().build();
@@ -140,7 +140,7 @@ public class RestGenerationRuleIT {
     }
 
     @Test
-    public void execute_should_return_not_found_when_resource_not_exists() throws Exception {
+    void execute_should_return_not_found_when_resource_not_exists() throws Exception {
 
         // GIVEN
         HttpClient client = HttpClientBuilder.create().build();
@@ -154,7 +154,7 @@ public class RestGenerationRuleIT {
     }
 
     @Test
-    public void execute_should_return_entity_as_csv_format() throws Exception {
+    void execute_should_return_entity_as_csv_format() throws Exception {
 
         // GIVEN
         HttpClient client = HttpClientBuilder.create().build();

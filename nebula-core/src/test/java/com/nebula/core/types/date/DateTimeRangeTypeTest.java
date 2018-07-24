@@ -6,17 +6,17 @@ import com.nebula.core.types.Range;
 import com.nebula.core.types.date.strategy.*;
 import org.joda.time.DateTime;
 import org.joda.time.ReadableInstant;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
 import static com.nebula.core.types.date.DateTimeAdderConsumer.isInstanceOf;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class DateTimeRangeTypeTest {
+class DateTimeRangeTypeTest {
 
 	@Test
-	public void generateObject_should_return_a_non_null_object() {
+	void generateObject_should_return_a_non_null_object() {
 
 		// GIVEN
 		DateTime dateTime = new DateTime(2017, 1, 1, 0, 0);
@@ -31,7 +31,7 @@ public class DateTimeRangeTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_return_2017_1_1() {
+	void generateObject_should_return_2017_1_1() {
 
 		// GIVEN
 		DateTime dateTime = new DateTime(2017, 1, 1, 0, 0);
@@ -46,7 +46,7 @@ public class DateTimeRangeTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_return_2017_1_2() {
+	void generateObject_should_return_2017_1_2() {
 
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0);
@@ -63,7 +63,7 @@ public class DateTimeRangeTypeTest {
 	}
 
 	@Test
-	public void newDateType_should_set_DateTypeInterval_to_DAY_when_null_is_passed() {
+	void newDateType_should_set_DateTypeInterval_to_DAY_when_null_is_passed() {
 
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0);
@@ -79,7 +79,7 @@ public class DateTimeRangeTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_return_2017_1_1_10_hours_and_00_minutes_for_interval_hours() {
+	void generateObject_should_return_2017_1_1_10_hours_and_00_minutes_for_interval_hours() {
 
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0);
@@ -97,7 +97,7 @@ public class DateTimeRangeTypeTest {
 	}
 
 	@Test
-	public void newDateTypeType_should_set_all_DateTimeIntervals_in_map() {
+	void newDateTypeType_should_set_all_DateTimeIntervals_in_map() {
 
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0);
@@ -124,7 +124,7 @@ public class DateTimeRangeTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_throw_exception_when_requested_date_is_out_of_range() {
+	void generateObject_should_throw_exception_when_requested_date_is_out_of_range() {
 
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0);
@@ -142,7 +142,7 @@ public class DateTimeRangeTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_throw_exception_when_index_is_negative() {
+	void generateObject_should_throw_exception_when_index_is_negative() {
 
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0);
@@ -160,7 +160,7 @@ public class DateTimeRangeTypeTest {
 	}
 
 	@Test
-	public void getMinRange_should_return_0() {
+	void getMinRange_should_return_0() {
 
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0);
@@ -177,7 +177,7 @@ public class DateTimeRangeTypeTest {
 	}
 
 	@Test
-	public void getMaxRange_should_return_1000() {
+	void getMaxRange_should_return_1000() {
 
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0, 0, 0);
@@ -194,7 +194,7 @@ public class DateTimeRangeTypeTest {
 	}
 
 	@Test
-	public void getMaxRange_should_return_10() {
+	void getMaxRange_should_return_10() {
 
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0, 0, 0);
@@ -211,7 +211,7 @@ public class DateTimeRangeTypeTest {
 	}
 
 	@Test
-	public void getMaxRange_should_return_36() {
+	void getMaxRange_should_return_36() {
 
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0, 0, 0);
@@ -228,7 +228,7 @@ public class DateTimeRangeTypeTest {
 	}
 
 	@Test
-	public void getMaxRange_should_return_24() {
+	void getMaxRange_should_return_24() {
 
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0, 0, 0);
@@ -245,7 +245,7 @@ public class DateTimeRangeTypeTest {
 	}
 
 	@Test
-	public void getMaxRange_should_return_31() {
+	void getMaxRange_should_return_31() {
 
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0, 0, 0);
@@ -262,7 +262,7 @@ public class DateTimeRangeTypeTest {
 	}
 
 	@Test
-	public void getMaxRange_should_return_2() {
+	void getMaxRange_should_return_2() {
 
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0, 0, 0);
@@ -279,7 +279,7 @@ public class DateTimeRangeTypeTest {
 	}
 
 	@Test
-	public void getMaxRange_should_return_6() {
+	void getMaxRange_should_return_6() {
 
 		// GIVEN
 		DateTime startDateTime = new DateTime(2000, 1, 1, 0, 0, 0, 0);
@@ -296,7 +296,7 @@ public class DateTimeRangeTypeTest {
 	}
 
 	@Test
-	public void getMaxRange_should_return_2_for_interval_minutes_and_for_an_interval_of_2_minutes_and_30_seconds() {
+	void getMaxRange_should_return_2_for_interval_minutes_and_for_an_interval_of_2_minutes_and_30_seconds() {
 
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0, 0, 0);

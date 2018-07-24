@@ -3,7 +3,7 @@ package com.nebula.core.generators;
 import com.nebula.core.ModelBuilder;
 import com.nebula.core.types.NebulaTypes;
 import com.nebula.core.types.Type;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -14,10 +14,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class NebulaRandomTest {
+class NebulaRandomTest {
 
 	@Test
-	public void nextIndex_should_return_0_with_integer_range_0_0() {
+	void nextIndex_should_return_0_with_integer_range_0_0() {
 
 		// GIVEN
 		NebulaRandom nebulaRandom = new NebulaRandom(0L);
@@ -31,7 +31,7 @@ public class NebulaRandomTest {
 	}
 
 	@Test
-	public void nextIndex_should_return_0_with_integer_range_10_10() {
+	void nextIndex_should_return_0_with_integer_range_10_10() {
 
 		// GIVEN
 		NebulaRandom nebulaRandom = new NebulaRandom(0L);
@@ -45,7 +45,7 @@ public class NebulaRandomTest {
 	}
 
 	@Test
-	public void nextIndex_should_return_index_between_0_and_10_with_integer_range_minus_1000_and_minus_990() {
+	void nextIndex_should_return_index_between_0_and_10_with_integer_range_minus_1000_and_minus_990() {
 
 		// GIVEN
 		NebulaRandom nebulaRandom = new NebulaRandom(0L);
@@ -63,7 +63,7 @@ public class NebulaRandomTest {
 	}
 
 	@Test
-	public void nextIndex_should_not_throw_exception_when_max_bound_is_integer_max_and_min_bound_is_integer_min() {
+	void nextIndex_should_not_throw_exception_when_max_bound_is_integer_max_and_min_bound_is_integer_min() {
 
 		// GIVEN
 		NebulaRandom nebulaRandom = new NebulaRandom(1L);
@@ -81,7 +81,7 @@ public class NebulaRandomTest {
 	}
 
 	@Test
-	public void randomBetween_should_return_0() {
+	void randomBetween_should_return_0() {
 
 		// GIVEN
 		NebulaRandom nebulaRandom = new NebulaRandom(1L);
@@ -94,7 +94,7 @@ public class NebulaRandomTest {
 	}
 
 	@Test
-	public void randomBetween_should_return_1() {
+	void randomBetween_should_return_1() {
 
 		// GIVEN
 		NebulaRandom nebulaRandom = new NebulaRandom(1L);

@@ -5,15 +5,15 @@ import com.nebula.core.Model;
 import com.nebula.core.ModelBuilder;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
-public class StringTypeTest {
+class StringTypeTest {
 
 	@Test
-	public void generateObject_should_return_a_non_null_GeneratedObject() {
+	void generateObject_should_return_a_non_null_GeneratedObject() {
 
 		// GIVEN
 		String pattern = "[a]{1}";
@@ -29,7 +29,7 @@ public class StringTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_return_GeneratedObject_with_non_null_value() {
+	void generateObject_should_return_GeneratedObject_with_non_null_value() {
 
 		// GIVEN
 		String pattern = "[a]{1}";
@@ -45,7 +45,7 @@ public class StringTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_return_GeneratedObject_with_value_matching_pattern() {
+	void generateObject_should_return_GeneratedObject_with_value_matching_pattern() {
 
 		// GIVEN
 		StringType stringType = new StringType(newStringGenerator("test"));
@@ -60,7 +60,7 @@ public class StringTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_generate_different_strings_with_index_0_and_1() {
+	void generateObject_should_generate_different_strings_with_index_0_and_1() {
 
 		// GIVEN
 		StringType stringType = new StringType(newStringGenerator(null));
@@ -76,7 +76,7 @@ public class StringTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_call_stringGenerator_generateString() {
+	void generateObject_should_call_stringGenerator_generateString() {
 
 		// GIVEN
 		StringGenerator stringGenerator = mock(StringGenerator.class);
@@ -90,7 +90,7 @@ public class StringTypeTest {
 	}
 
 	@Test
-	public void newStringType_should_set_pattern() {
+	void newStringType_should_set_pattern() {
 
 		// GIVEN
 		StringType stringType;
@@ -104,7 +104,7 @@ public class StringTypeTest {
 	}
 
 	@Test
-	public void newStringType_should_set_default_pattern_when_null_is_passed() {
+	void newStringType_should_set_default_pattern_when_null_is_passed() {
 
 		// GIVEN
 		StringType stringType;
@@ -118,10 +118,9 @@ public class StringTypeTest {
 	}
 
 	@Test
-	public void getMinRange_should_return_0() {
+	void getMinRange_should_return_0() {
 
 		// GIVEN
-		String pattern = null;
 		StringType stringType = new StringType(newStringGenerator(null));
 
 		// WHEN
@@ -132,10 +131,9 @@ public class StringTypeTest {
 	}
 
 	@Test
-	public void getMaxRange_should_return_0() {
+	void getMaxRange_should_return_0() {
 
 		// GIVEN
-		String pattern = null;
 		StringType stringType = new StringType(newStringGenerator(null));
 
 		// WHEN
@@ -146,7 +144,7 @@ public class StringTypeTest {
 	}
 
 	@Test
-	public void init_should_set_new_generex() {
+	void init_should_set_new_generex() {
 
 		// GIVEN
 		StringGenerator stringGenerator = mock(StringGenerator.class);

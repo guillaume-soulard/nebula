@@ -1,13 +1,13 @@
 package com.nebula.core.generators.random;
 
-import com.nebula.core.ModelBuilder;
 import com.nebula.core.GeneratedObject;
+import com.nebula.core.ModelBuilder;
 import com.nebula.core.NebulaException;
-import com.nebula.core.types.NebulaTypes;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
+import com.nebula.core.types.NebulaTypes;
 import com.nebula.core.types.Type;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -19,10 +19,10 @@ import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 
-public class RandomGeneratorTest {
+class RandomGeneratorTest {
 
 	@Test
-	public void random_should_return_a_new_instance_of_RandomGenerator() {
+	void random_should_return_a_new_instance_of_RandomGenerator() {
 
 		// GIVEN
 
@@ -34,7 +34,7 @@ public class RandomGeneratorTest {
 	}
 
 	@Test
-	public void generate_should_return_one() {
+	void generate_should_return_one() {
 
 		// GIVEN
 		RandomGenerator generator = new RandomGenerator();
@@ -50,7 +50,7 @@ public class RandomGeneratorTest {
 	}
 
 	@Test
-	public void generate_should_return_ten() {
+	void generate_should_return_ten() {
 
 		// GIVEN
 		RandomGenerator generator = new RandomGenerator();
@@ -66,7 +66,7 @@ public class RandomGeneratorTest {
 	}
 
 	@Test
-	public void generate_should_return_a_number_between_0_and_10() {
+	void generate_should_return_a_number_between_0_and_10() {
 
 		// GIVEN
 		RandomGenerator generator = new RandomGenerator();
@@ -89,7 +89,7 @@ public class RandomGeneratorTest {
 	}
 
 	@Test
-	public void init_should_throw_exception_when_nebulaRandom_is_null() {
+	void init_should_throw_exception_when_nebulaRandom_is_null() {
 
 		// GIVEN
 		RandomGenerator generator = new RandomGenerator();
@@ -103,7 +103,7 @@ public class RandomGeneratorTest {
 	}
 
 	@Test
-	public void generate_should_throw_exception_when_nebula_random_is_null() {
+	void generate_should_throw_exception_when_nebula_random_is_null() {
 
 		// GIVEN
 		RandomGenerator generator = new RandomGenerator();

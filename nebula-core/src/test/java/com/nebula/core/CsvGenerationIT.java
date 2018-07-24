@@ -3,12 +3,11 @@ package com.nebula.core;
 import com.nebula.core.generationconstraint.NebulaConstraints;
 import com.nebula.core.generationrule.GenerationRuleBuilder;
 import com.nebula.core.generationrule.GenerationRules;
+import io.github.glytching.junit.extension.folder.TemporaryFolder;
+import io.github.glytching.junit.extension.folder.TemporaryFolderExtension;
 import org.joda.time.DateTime;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.io.File;
 
@@ -19,23 +18,11 @@ import static com.nebula.core.types.NebulaTypes.dateTime;
 import static com.nebula.core.types.NebulaTypes.string;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class CsvGenerationIT {
-
-    @Rule
-    public final TemporaryFolder temporaryFolder = new TemporaryFolder();
-
-    @Before
-    public void setUp() throws Exception {
-        temporaryFolder.create();
-    }
-
-    @After
-    public void tearDown() {
-        temporaryFolder.delete();
-    }
+class CsvGenerationIT {
 
     @Test
-    public void generate_should_generate_a_correct_csv_file() {
+    @ExtendWith(TemporaryFolderExtension.class)
+    void generate_should_generate_a_correct_csv_file(TemporaryFolder temporaryFolder) {
 
         // GIVEN
         Model model = ModelBuilder.newModel().withSeed(1L).withDateFormat("dd/MM/yyyy").build();

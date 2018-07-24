@@ -1,24 +1,24 @@
 package com.nebula.core.types.list;
 
-import com.nebula.core.ModelBuilder;
 import com.nebula.core.GeneratedObject;
-import com.nebula.core.types.NebulaTypes;
-import com.nebula.core.generators.NebulaGenerators;
+import com.nebula.core.ModelBuilder;
 import com.nebula.core.generators.Generator;
+import com.nebula.core.generators.NebulaGenerators;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
+import com.nebula.core.types.NebulaTypes;
 import com.nebula.core.types.Type;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ListTypeOfTypeTest {
+class ListTypeOfTypeTest {
 
 	@Test
-	public void new_ListType_should_set_passed_values_in_fields() {
+	void new_ListType_should_set_passed_values_in_fields() {
 
 		// GIVEN
 		int minSize = 0;
@@ -37,7 +37,7 @@ public class ListTypeOfTypeTest {
 	}
 
 	@Test
-	public void getMinRange_should_return_0() {
+	void getMinRange_should_return_0() {
 
 		// GIVEN
 		int minSize = 0;
@@ -54,7 +54,7 @@ public class ListTypeOfTypeTest {
 	}
 
 	@Test
-	public void getMaxRange_should_return_0() {
+	void getMaxRange_should_return_0() {
 
 		// GIVEN
 		int minSize = 0;
@@ -71,7 +71,7 @@ public class ListTypeOfTypeTest {
 	}
 
 	@Test
-	public void getMaxRange_should_return_1() {
+	void getMaxRange_should_return_1() {
 
 		// GIVEN
 		int minSize = 0;
@@ -88,7 +88,7 @@ public class ListTypeOfTypeTest {
 	}
 
 	@Test
-	public void getMaxRange_should_return_15() {
+	void getMaxRange_should_return_15() {
 
 		// GIVEN
 		int minSize = 7;
@@ -105,7 +105,7 @@ public class ListTypeOfTypeTest {
 	}
 
 	@Test
-	public void init_should_set_nebulaRandom() {
+	void init_should_set_nebulaRandom() {
 
 		// GIVEN
 		int minSize = 7;
@@ -124,7 +124,7 @@ public class ListTypeOfTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_return_a_non_null_object() {
+	void generateObject_should_return_a_non_null_object() {
 
 		// GIVEN
 		int minSize = 0;
@@ -144,7 +144,7 @@ public class ListTypeOfTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_return_an_ArrayList() {
+	void generateObject_should_return_an_ArrayList() {
 
 		// GIVEN
 		int minSize = 0;
@@ -164,7 +164,7 @@ public class ListTypeOfTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_return_an_empty_list() {
+	void generateObject_should_return_an_empty_list() {
 
 		// GIVEN
 		int minSize = 0;
@@ -183,7 +183,7 @@ public class ListTypeOfTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_return_a_list_with_size_1() {
+	void generateObject_should_return_a_list_with_size_1() {
 
 		// GIVEN
 		int minSize = 1;
@@ -203,7 +203,7 @@ public class ListTypeOfTypeTest {
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void generateObject_should_return_a_list_with_different_size_at_index_0_and_1() {
+	void generateObject_should_return_a_list_with_different_size_at_index_0_and_1() {
 
 		// GIVEN
 		int minSize = 0;
@@ -226,7 +226,7 @@ public class ListTypeOfTypeTest {
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void generateObject_should_return_a_the_same_list_size_with_same_index() {
+	void generateObject_should_return_a_the_same_list_size_with_same_index() {
 
 		// GIVEN
 		int minSize = 0;
@@ -248,7 +248,7 @@ public class ListTypeOfTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_generate_a_list_of_string_with_different_values() {
+	void generateObject_should_generate_a_list_of_string_with_different_values() {
 
 		// GIVEN
 		int minSize = 0;

@@ -1,13 +1,13 @@
 package com.nebula.core.types.text.dictionary;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class LoremIpsumDictionaryTest {
+class LoremIpsumDictionaryTest {
 
     @Test
-    public void newLoremIpsumDictionary_should_have_non_empty_word_list() throws Exception {
+    void newLoremIpsumDictionary_should_have_non_empty_word_list() throws Exception {
 
         // GIVEN
         LoremIpsumDictionary dictionary;

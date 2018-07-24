@@ -1,6 +1,6 @@
 package com.nebula.core;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -12,10 +12,10 @@ import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class GeneratedObjectTest {
+class GeneratedObjectTest {
 
 	@Test
-	public void getObject_should_return_object_passed_in_constructor() {
+	void getObject_should_return_object_passed_in_constructor() {
 		// GIVEN
 		Object object = "test";
 		GeneratedObject generatedObject = new GeneratedObject(object);
@@ -28,7 +28,7 @@ public class GeneratedObjectTest {
 	}
 
 	@Test
-	public void getGeneratedProperties_should_return_list_passed_in_constructor() {
+	void getGeneratedProperties_should_return_list_passed_in_constructor() {
 
 		// GIVEN
 		List<GeneratedProperty> generatedProperties = new ArrayList<>();
@@ -42,7 +42,7 @@ public class GeneratedObjectTest {
 	}
 
 	@Test
-	public void equals_should_assert_objects_are_equals_comparing_object() {
+	void equals_should_assert_objects_are_equals_comparing_object() {
 
 		// GIVEN
 		GeneratedObject object1 = new GeneratedObject("test");
@@ -56,7 +56,7 @@ public class GeneratedObjectTest {
 	}
 
 	@Test
-	public void equals_should_assert_objects_are_not_equals_comparing_object() {
+	void equals_should_assert_objects_are_not_equals_comparing_object() {
 
 		// GIVEN
 		GeneratedObject object1 = new GeneratedObject("qwerty");
@@ -70,7 +70,7 @@ public class GeneratedObjectTest {
 	}
 
 	@Test
-	public void equals_should_assert_objects_are_equals_comparing_properties() {
+	void equals_should_assert_objects_are_equals_comparing_properties() {
 
 		// GIVEN
 		List<GeneratedProperty> propertiesOfObject1 = Collections.singletonList(new GeneratedProperty("test", new GeneratedObject("value"), null));
@@ -86,7 +86,7 @@ public class GeneratedObjectTest {
 	}
 
 	@Test
-	public void equals_should_assert_objects_are_not_equals_comparing_properties_names() {
+	void equals_should_assert_objects_are_not_equals_comparing_properties_names() {
 
 		// GIVEN
 		List<GeneratedProperty> propertiesOfObject1 = Collections.singletonList(new GeneratedProperty("property1", new GeneratedObject("value"), null));
@@ -102,7 +102,7 @@ public class GeneratedObjectTest {
 	}
 
 	@Test
-	public void equals_should_assert_objects_are_not_equals_comparing_properties_values() {
+	void equals_should_assert_objects_are_not_equals_comparing_properties_values() {
 
 		// GIVEN
 		List<GeneratedProperty> propertiesOfObject1 = Collections.singletonList(new GeneratedProperty("property", new GeneratedObject("value1"), null));
@@ -118,22 +118,21 @@ public class GeneratedObjectTest {
 	}
 
 	@Test
-	public void equals_should_assert_objects_are_not_equals_to_null() {
+	void equals_should_assert_objects_are_not_equals_to_null() {
 
 		// GIVEN
 		List<GeneratedProperty> propertiesOfObject1 = Collections.singletonList(new GeneratedProperty("property", new GeneratedObject("value1"), null));
 		GeneratedObject object1 = new GeneratedObject(propertiesOfObject1);
-		GeneratedObject object2 = null;
 
 		// WHEN
 		boolean result = object1.equals(null);
 
 		// THEN
-		assertThat(false).isFalse();
+		assertThat(result).isFalse();
 	}
 
 	@Test
-	public void getGeneratedPropertyValue_should_return_the_proeprty_value() {
+	void getGeneratedPropertyValue_should_return_the_proeprty_value() {
 
 		// GIVEN
 		List<GeneratedProperty> properties = new ArrayList<>();
@@ -151,7 +150,7 @@ public class GeneratedObjectTest {
 	}
 
 	@Test
-	public void getGeneratedPropertyValue_should_throw_exception_when_propertyName_is_unknown() {
+	void getGeneratedPropertyValue_should_throw_exception_when_propertyName_is_unknown() {
 
 		// GIVEN
 		List<GeneratedProperty> properties = new ArrayList<>();
@@ -168,7 +167,7 @@ public class GeneratedObjectTest {
 	}
 
 	@Test
-	public void toString_should_be_value() {
+	void toString_should_be_value() {
 
 		// GIVEN
 		GeneratedObject generatedObject;
@@ -181,7 +180,7 @@ public class GeneratedObjectTest {
 	}
 
 	@Test
-	public void toString_should_be_10() {
+	void toString_should_be_10() {
 
 		// GIVEN
 		GeneratedObject generatedObject;
@@ -194,7 +193,7 @@ public class GeneratedObjectTest {
 	}
 
 	@Test
-	public void toString_should_be_empty_array() {
+	void toString_should_be_empty_array() {
 
 		// GIVEN
 		GeneratedObject generatedObject;
@@ -208,7 +207,7 @@ public class GeneratedObjectTest {
 	}
 
 	@Test
-	public void toString_should_be_array_of_3_strings() {
+	void toString_should_be_array_of_3_strings() {
 
 		// GIVEN
 		GeneratedObject generatedObject;
@@ -222,7 +221,7 @@ public class GeneratedObjectTest {
 	}
 
 	@Test
-	public void toString_should_be_array_of_3_numbers() {
+	void toString_should_be_array_of_3_numbers() {
 
 		// GIVEN
 		GeneratedObject generatedObject;
@@ -236,7 +235,7 @@ public class GeneratedObjectTest {
 	}
 
 	@Test
-	public void toString_should_return_two_properties() {
+	void toString_should_return_two_properties() {
 
 		// GIVEN
 		GeneratedObject generatedObject;
@@ -252,7 +251,7 @@ public class GeneratedObjectTest {
 	}
 
 	@Test
-	public void getValueByPath_should_return_the_value_when_object_is_final() {
+	void getValueByPath_should_return_the_value_when_object_is_final() {
 
 		// GIVEN
 		GeneratedObject generatedObject = new GeneratedObject("test");
@@ -265,7 +264,7 @@ public class GeneratedObjectTest {
 	}
 
 	@Test
-	public void getValueByPath_should_return_the_value_of_an_existing_property() {
+	void getValueByPath_should_return_the_value_of_an_existing_property() {
 
 		// GIVEN
 		List<GeneratedProperty> properties = new ArrayList<>();
@@ -280,7 +279,7 @@ public class GeneratedObjectTest {
 	}
 
 	@Test
-	public void getValueByPath_should_throw_an_exception_when_property_not_exists() {
+	void getValueByPath_should_throw_an_exception_when_property_not_exists() {
 
 		// GIVEN
 		List<GeneratedProperty> properties = new ArrayList<>();
@@ -296,7 +295,7 @@ public class GeneratedObjectTest {
 	}
 
 	@Test
-	public void getValueByPath_should_return_the_value_of_an_existing_property_at_level_2() {
+	void getValueByPath_should_return_the_value_of_an_existing_property_at_level_2() {
 
 		// GIVEN
 		List<GeneratedProperty> properties = new ArrayList<>();
@@ -313,7 +312,7 @@ public class GeneratedObjectTest {
 	}
 
 	@Test
-	public void getValueByPath_should_return_the_value_of_an_existing_property_with_complex_name() {
+	void getValueByPath_should_return_the_value_of_an_existing_property_with_complex_name() {
 
 		// GIVEN
 		List<GeneratedProperty> properties = new ArrayList<>();
@@ -328,7 +327,7 @@ public class GeneratedObjectTest {
 	}
 
 	@Test
-	public void getValueByPath_should_return_the_value_of_an_existing_property_with_complex_name_at_level_2() {
+	void getValueByPath_should_return_the_value_of_an_existing_property_with_complex_name_at_level_2() {
 
 		// GIVEN
 		List<GeneratedProperty> properties = new ArrayList<>();

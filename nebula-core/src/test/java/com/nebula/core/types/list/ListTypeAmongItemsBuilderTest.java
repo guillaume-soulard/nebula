@@ -2,23 +2,23 @@ package com.nebula.core.types.list;
 
 import com.nebula.core.ModelBuilder;
 import com.nebula.core.NebulaException;
-import com.nebula.core.types.NebulaTypes;
-import com.nebula.core.generators.NebulaGenerators;
 import com.nebula.core.generators.GeneratorBuilder;
+import com.nebula.core.generators.NebulaGenerators;
+import com.nebula.core.types.NebulaTypes;
 import com.nebula.core.types.Type;
 import com.nebula.core.types.constant.ConstantTypeBuilder;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ListTypeAmongItemsBuilderTest {
+class ListTypeAmongItemsBuilderTest {
 
 	private static final ConstantTypeBuilder[] EMPTY_ITEMS = new ConstantTypeBuilder[] {};
 
 	@Test
-	public void new_ListTypeOfTypeBuilder_should_set_generator() {
+	void new_ListTypeOfTypeBuilder_should_set_generator() {
 
 		// GIVEN
 		GeneratorBuilder generator = NebulaGenerators.random();
@@ -32,7 +32,7 @@ public class ListTypeAmongItemsBuilderTest {
 	}
 
 	@Test
-	public void new_ListTypeOfTypeBuilder_should_throw_exception_when_generator_is_null() {
+	void new_ListTypeOfTypeBuilder_should_throw_exception_when_generator_is_null() {
 
 		// GIVEN
 		Exception exception = null;
@@ -49,7 +49,7 @@ public class ListTypeAmongItemsBuilderTest {
 	}
 
 	@Test
-	public void withMinSize_should_set_0_as_min_size() {
+	void withMinSize_should_set_0_as_min_size() {
 
 		// GIVEN
 		GeneratorBuilder generator = NebulaGenerators.random();
@@ -63,7 +63,7 @@ public class ListTypeAmongItemsBuilderTest {
 	}
 
 	@Test
-	public void withMinSize_should_set_15_as_min_size() {
+	void withMinSize_should_set_15_as_min_size() {
 
 		// GIVEN
 		GeneratorBuilder generator = NebulaGenerators.random();
@@ -77,7 +77,7 @@ public class ListTypeAmongItemsBuilderTest {
 	}
 
 	@Test
-	public void withMaxSize_should_set_0_as_max_size() {
+	void withMaxSize_should_set_0_as_max_size() {
 
 		// GIVEN
 		GeneratorBuilder generator = NebulaGenerators.random();
@@ -91,7 +91,7 @@ public class ListTypeAmongItemsBuilderTest {
 	}
 
 	@Test
-	public void withMaxSize_should_set_15_as_max_size() {
+	void withMaxSize_should_set_15_as_max_size() {
 
 		// GIVEN
 		GeneratorBuilder generator = NebulaGenerators.random();
@@ -105,7 +105,7 @@ public class ListTypeAmongItemsBuilderTest {
 	}
 
 	@Test
-	public void build_should_return_a_new_instance_of_ListType_with_items_and_minSize_and_maxSize_with_defauls_value() {
+	void build_should_return_a_new_instance_of_ListType_with_items_and_minSize_and_maxSize_with_defauls_value() {
 
 		// GIVEN
 		GeneratorBuilder generator = NebulaGenerators.random();
@@ -120,7 +120,7 @@ public class ListTypeAmongItemsBuilderTest {
 	}
 
 	@Test
-	public void build_should_throw_exception_when_min_is_greater_than_max() {
+	void build_should_throw_exception_when_min_is_greater_than_max() {
 
 		// GIVEN
 		GeneratorBuilder generator = NebulaGenerators.random();
@@ -136,7 +136,7 @@ public class ListTypeAmongItemsBuilderTest {
 	}
 
 	@Test
-	public void amongItems_should_set_one_item() {
+	void amongItems_should_set_one_item() {
 
 		// GIVEN
 		GeneratorBuilder generator = NebulaGenerators.random();
@@ -151,7 +151,7 @@ public class ListTypeAmongItemsBuilderTest {
 	}
 
 	@Test
-	public void amongItems_should_set_two_item() {
+	void amongItems_should_set_two_item() {
 
 		// GIVEN
 		GeneratorBuilder generator = NebulaGenerators.random();
@@ -167,7 +167,7 @@ public class ListTypeAmongItemsBuilderTest {
 	}
 
 	@Test
-	public void amongItems_should_set_one_item_to_null_when_null_is_passed() {
+	void amongItems_should_set_one_item_to_null_when_null_is_passed() {
 
 		// GIVEN
 		GeneratorBuilder generator = NebulaGenerators.random();
@@ -181,7 +181,7 @@ public class ListTypeAmongItemsBuilderTest {
 	}
 
 	@Test
-	public void amongItems_should_set_empty_items() {
+	void amongItems_should_set_empty_items() {
 
 		// GIVEN
 		GeneratorBuilder generator = NebulaGenerators.random();

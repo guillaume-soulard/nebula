@@ -9,7 +9,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.CloseableHttpClient;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 
 import java.io.IOException;
@@ -23,10 +23,10 @@ import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
-public class HttpOutputTest {
+class HttpOutputTest {
 
     @Test
-    public void open_should_do_nothing() {
+    void open_should_do_nothing() {
 
         // GIVEN
         String url = "localhost";
@@ -45,7 +45,7 @@ public class HttpOutputTest {
     }
 
     @Test
-    public void close_should_call_close_on_client() throws Exception {
+    void close_should_call_close_on_client() throws Exception {
 
         // GIVEN
         String url = "localhost";
@@ -64,7 +64,7 @@ public class HttpOutputTest {
     }
 
     @Test
-    public void close_should_throw_NebulaException_when_close_throw_exception_and_has_same_message() throws Exception {
+    void close_should_throw_NebulaException_when_close_throw_exception_and_has_same_message() throws Exception {
 
         // GIVEN
         String url = "localhost";
@@ -84,7 +84,7 @@ public class HttpOutputTest {
     }
 
     @Test
-    public void write_should_call_execute() throws Exception {
+    void write_should_call_execute() throws Exception {
 
         // GIVEN
         String url = "http://localhost:3000/resource";
@@ -110,7 +110,7 @@ public class HttpOutputTest {
     }
 
     @Test
-    public void write_should_call_execute_with_put_verb() throws Exception {
+    void write_should_call_execute_with_put_verb() throws Exception {
 
         // GIVEN
         String url = "http://localhost:3000/resource";
@@ -135,7 +135,7 @@ public class HttpOutputTest {
     }
 
     @Test
-    public void write_should_call_execute_with_patch_verb() throws Exception {
+    void write_should_call_execute_with_patch_verb() throws Exception {
 
         // GIVEN
         String url = "http://localhost:3000/resource";
@@ -160,7 +160,7 @@ public class HttpOutputTest {
     }
 
     @Test
-    public void write_should_call_execute_with_one_header_dynamic() throws Exception {
+    void write_should_call_execute_with_one_header_dynamic() throws Exception {
 
         // GIVEN
         String url = "http://localhost:3000/resource";
@@ -195,7 +195,7 @@ public class HttpOutputTest {
     }
 
     @Test
-    public void write_should_call_execute_with_one_header_static() throws Exception {
+    void write_should_call_execute_with_one_header_static() throws Exception {
 
         // GIVEN
         String url = "http://localhost:3000/resource";

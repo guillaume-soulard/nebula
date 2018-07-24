@@ -1,15 +1,15 @@
 package com.nebula.core;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static com.nebula.core.generators.NebulaGenerators.random;
 import static com.nebula.core.types.NebulaTypes.entity;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class RecursiveModelGenerationTest {
+class RecursiveModelGenerationTest {
 
     @Test
-    public void generateEntityObject_should_not_throw_StackOverflowException() {
+    void generateEntityObject_should_not_throw_StackOverflowException() {
 
         // GIVEN
         Model model = ModelBuilder.newModel().withSeed("recursive entities").build();

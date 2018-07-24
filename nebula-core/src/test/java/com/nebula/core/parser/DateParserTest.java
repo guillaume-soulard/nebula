@@ -4,14 +4,14 @@ import com.nebula.core.Model;
 import com.nebula.core.ModelBuilder;
 import org.joda.time.DateTime;
 import org.joda.time.ReadableInstant;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class DateParserTest {
+class DateParserTest {
 
     @Test
-    public void parse_should_return_01_01_2017() {
+    void parse_should_return_01_01_2017() {
 
         // GIVEN
         DateParser dateParser = new DateParser();
@@ -26,7 +26,7 @@ public class DateParserTest {
     }
 
     @Test
-    public void parse_should_return_12_31_2017() {
+    void parse_should_return_12_31_2017() {
 
         // GIVEN
         DateParser dateParser = new DateParser();
@@ -41,7 +41,7 @@ public class DateParserTest {
     }
 
     @Test
-    public void parse_should_return_12_31_2017_with_custom_format() {
+    void parse_should_return_12_31_2017_with_custom_format() {
 
         // GIVEN
         DateParser dateParser = new DateParser();

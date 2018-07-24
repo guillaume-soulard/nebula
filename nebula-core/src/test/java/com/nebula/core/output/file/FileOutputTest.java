@@ -1,11 +1,10 @@
 package com.nebula.core.output.file;
 
 import com.nebula.core.output.OutputParameter;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
+import io.github.glytching.junit.extension.folder.TemporaryFolder;
+import io.github.glytching.junit.extension.folder.TemporaryFolderExtension;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.io.File;
 import java.nio.file.Files;
@@ -13,26 +12,14 @@ import java.nio.file.Paths;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class FileOutputTest {
-
-    @Rule
-    public final TemporaryFolder temporaryFolder = new TemporaryFolder();
-
-    @Before
-    public void setUp() throws Exception {
-        temporaryFolder.create();
-    }
-
-    @After
-    public void tearDown() {
-        temporaryFolder.delete();
-    }
+class FileOutputTest {
 
     @Test
-    public void write_should_write_in_existing_file() throws Exception {
+    @ExtendWith(TemporaryFolderExtension.class)
+    void write_should_write_in_existing_file(TemporaryFolder temporaryFolder) throws Exception {
 
         // GIVEN
-        File fileToWrite = temporaryFolder.newFile();
+        File fileToWrite = temporaryFolder.createFile("test.txt");
         FileOutput fileOutput = new FileOutput(fileToWrite.getPath(), "UTF-8");
         String formattedObject = "content to write";
         fileOutput.open();
@@ -46,7 +33,8 @@ public class FileOutputTest {
     }
 
     @Test
-    public void write_should_write_in_non_existing_file() {
+    @ExtendWith(TemporaryFolderExtension.class)
+    void write_should_write_in_non_existing_file(TemporaryFolder temporaryFolder) {
 
         // GIVEN
         File fileToWrite = new File(temporaryFolder.getRoot(), "nonExisting.tmp");
@@ -63,10 +51,11 @@ public class FileOutputTest {
     }
 
     @Test
-    public void write_should_write_in_file_with_UTF_8_encoding() throws Exception {
+    @ExtendWith(TemporaryFolderExtension.class)
+    void write_should_write_in_file_with_UTF_8_encoding(TemporaryFolder temporaryFolder) throws Exception {
 
         // GIVEN
-        File fileToWrite = temporaryFolder.newFile();
+        File fileToWrite = temporaryFolder.createFile("test.txt");
         String charset = "UTF-8";
         FileOutput fileOutput = new FileOutput(fileToWrite.getPath(), charset);
         String formattedObject = "content to write";
@@ -81,10 +70,11 @@ public class FileOutputTest {
     }
 
     @Test
-    public void write_should_write_in_file_with_ISO_8859_1_encoding() throws Exception {
+    @ExtendWith(TemporaryFolderExtension.class)
+    void write_should_write_in_file_with_ISO_8859_1_encoding(TemporaryFolder temporaryFolder) throws Exception {
 
         // GIVEN
-        File fileToWrite = temporaryFolder.newFile();
+        File fileToWrite = temporaryFolder.createFile("test.txt");
         String charset = "ISO-8859-1";
         FileOutput fileOutput = new FileOutput(fileToWrite.getPath(), charset);
         String formattedObject = "content to write";
@@ -99,10 +89,11 @@ public class FileOutputTest {
     }
 
     @Test
-    public void write_should_replace_existing_file_content() throws Exception {
+    @ExtendWith(TemporaryFolderExtension.class)
+    void write_should_replace_existing_file_content(TemporaryFolder temporaryFolder) throws Exception {
 
         // GIVEN
-        File fileToWrite = temporaryFolder.newFile();
+        File fileToWrite = temporaryFolder.createFile("test.txt");
         String existingContent = "existing content";
         Files.write(Paths.get(fileToWrite.getPath()), existingContent.getBytes());
         FileOutput fileOutput = new FileOutput(fileToWrite.getPath(), "UTF-8");

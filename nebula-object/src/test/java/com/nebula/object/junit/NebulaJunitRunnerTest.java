@@ -3,14 +3,14 @@ package com.nebula.object.junit;
 import com.nebula.core.Model;
 import com.nebula.core.ModelBuilder;
 import com.nebula.object.User;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@RunWith(NebulaJunitRunner.class)
+@ExtendWith(NebulaJunitRunner.class)
 public class NebulaJunitRunnerTest {
 
     @Generate
@@ -23,7 +23,7 @@ public class NebulaJunitRunnerTest {
     private User user;
 
     @Test
-    public void should_pass() {
+    void should_pass() {
 
         assertThat(users).hasSize(10);
         assertThat(string).isNotNull();

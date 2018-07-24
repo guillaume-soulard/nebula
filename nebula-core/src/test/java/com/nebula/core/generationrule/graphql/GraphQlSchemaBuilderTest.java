@@ -3,16 +3,16 @@ package com.nebula.core.generationrule.graphql;
 import com.nebula.core.Model;
 import com.nebula.core.ModelBuilder;
 import graphql.GraphQL;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static com.nebula.core.generators.NebulaGenerators.random;
 import static com.nebula.core.types.NebulaTypes.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class GraphQlSchemaBuilderTest {
+class GraphQlSchemaBuilderTest {
 
     @Test
-    public void buildSchemaFrom_should_not_return_null() {
+    void buildSchemaFrom_should_not_return_null() {
 
         // GIVEN
         GraphQlSchemaBuilder builder = new GraphQlSchemaBuilder();

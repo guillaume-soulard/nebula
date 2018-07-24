@@ -1,26 +1,26 @@
 package com.nebula.core.output.stdout;
 
 import com.nebula.core.output.OutputParameter;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.InOrder;
 
 import java.io.PrintStream;
 
 import static org.mockito.Mockito.*;
 
-public class StandardOutputOutputTest {
+class StandardOutputOutputTest {
 
     private PrintStream printStream;
 
-    @Before
-    public void setUp() {
+    @BeforeEach
+    void setUp() {
         printStream = mock(PrintStream.class);
         System.setOut(printStream);
     }
 
     @Test
-    public void write_should_write_test_in_stdout() {
+    void write_should_write_test_in_stdout() {
 
         // GIVEN
         StandardOutputOutput output = new StandardOutputOutput();
@@ -34,7 +34,7 @@ public class StandardOutputOutputTest {
     }
 
     @Test
-    public void write_should_flush_stdout_after_writing_object() {
+    void write_should_flush_stdout_after_writing_object() {
 
         // GIVEN
         StandardOutputOutput output = new StandardOutputOutput();

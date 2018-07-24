@@ -1,12 +1,12 @@
 package com.nebula.core.types.amongitems;
 
-import com.nebula.core.Model;
 import com.nebula.core.GeneratedObject;
+import com.nebula.core.Model;
 import com.nebula.core.NebulaException;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.Type;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,10 +14,10 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 
-public class AmongItemsTypeTest {
+class AmongItemsTypeTest {
 
     @Test
-    public void generateObject_should_return_item1() {
+    void generateObject_should_return_item1() {
 
         // GIVEN
         List<GeneratedObject> generatedObjects = new ArrayList<>();
@@ -38,7 +38,7 @@ public class AmongItemsTypeTest {
     }
 
     @Test
-    public void getMinRange_should_return_0_when_list_is_empty() {
+    void getMinRange_should_return_0_when_list_is_empty() {
 
         // GIVEN
         Type picker  = new AmongItemsType(new ArrayList<>());
@@ -52,7 +52,7 @@ public class AmongItemsTypeTest {
     }
 
     @Test
-    public void getMinRange_should_return_0_when_list_is_not_empty() {
+    void getMinRange_should_return_0_when_list_is_not_empty() {
 
         // GIVEN
         List<GeneratedObject> generatedObjects = new ArrayList<>();
@@ -68,7 +68,7 @@ public class AmongItemsTypeTest {
     }
 
     @Test
-    public void getMaxRange_should_return_0_when_list_is_not_empty() {
+    void getMaxRange_should_return_0_when_list_is_not_empty() {
 
         // GIVEN
         List<GeneratedObject> generatedObjects = new ArrayList<>();
@@ -83,7 +83,7 @@ public class AmongItemsTypeTest {
     }
 
     @Test
-    public void getMaxRange_should_return_1_when_list_size_is_1() {
+    void getMaxRange_should_return_1_when_list_size_is_1() {
 
         // GIVEN
         List<GeneratedObject> generatedObjects = new ArrayList<>();
@@ -99,7 +99,7 @@ public class AmongItemsTypeTest {
     }
 
     @Test
-    public void newPickerType_should_throw_exception_when_null_list_is_passed() {
+    void newPickerType_should_throw_exception_when_null_list_is_passed() {
 
         // GIVEN;
         Exception exception = null;

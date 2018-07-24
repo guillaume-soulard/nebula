@@ -1,11 +1,11 @@
 package com.nebula.core.formatter.sql;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class SqlFormatterBuilderTest {
+class SqlFormatterBuilderTest {
 
     @Test
-    public void SqlFormatterBuilder_should_have_method_withNumberThousandSeparator() {
+    void SqlFormatterBuilder_should_have_method_withNumberThousandSeparator() {
 
         // GIVEN
         SqlFormatterBuilder builder= new SqlFormatterBuilder();
@@ -17,7 +17,7 @@ public class SqlFormatterBuilderTest {
     }
 
     @Test
-    public void SqlFormatterBuilder_should_have_method_withDateFormat() {
+    void SqlFormatterBuilder_should_have_method_withDateFormat() {
 
         // GIVEN
         SqlFormatterBuilder builder= new SqlFormatterBuilder();
@@ -29,7 +29,7 @@ public class SqlFormatterBuilderTest {
     }
 
     @Test
-    public void SqlFormatterBuilder_should_have_method_withNumberDecimalSeparator() {
+    void SqlFormatterBuilder_should_have_method_withNumberDecimalSeparator() {
 
         // GIVEN
         SqlFormatterBuilder builder= new SqlFormatterBuilder();

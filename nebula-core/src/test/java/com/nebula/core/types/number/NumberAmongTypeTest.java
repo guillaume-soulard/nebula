@@ -2,7 +2,7 @@ package com.nebula.core.types.number;
 
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaException;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -13,10 +13,10 @@ import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class NumberAmongTypeTest {
+class NumberAmongTypeTest {
 
 	@Test
-	public void newNumberAmongType_should_set_items_in_fields() {
+	void newNumberAmongType_should_set_items_in_fields() {
 
 		// GIVEN
 		NumberAmongType numberAmongType;
@@ -30,7 +30,7 @@ public class NumberAmongTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_return_0() {
+	void generateObject_should_return_0() {
 
 		// GIVEN
 		List<BigDecimal> items = Arrays.asList(BigDecimal.ZERO, BigDecimal.ONE, BigDecimal.TEN);
@@ -44,7 +44,7 @@ public class NumberAmongTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_return_1() {
+	void generateObject_should_return_1() {
 
 		// GIVEN
 		List<BigDecimal> items = Arrays.asList(BigDecimal.ZERO, BigDecimal.ONE, BigDecimal.TEN);
@@ -58,7 +58,7 @@ public class NumberAmongTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_throw_exception_when_object_index_is_out_of_range() {
+	void generateObject_should_throw_exception_when_object_index_is_out_of_range() {
 
 		// GIVEN
 		List<BigDecimal> items = Arrays.asList(BigDecimal.ZERO, BigDecimal.ONE, BigDecimal.TEN);
@@ -73,7 +73,7 @@ public class NumberAmongTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_throw_exception_when_object_index_is_last_index_plus_one() {
+	void generateObject_should_throw_exception_when_object_index_is_last_index_plus_one() {
 
 		// GIVEN
 		List<BigDecimal> items = Arrays.asList(BigDecimal.ZERO, BigDecimal.ONE, BigDecimal.TEN);
@@ -88,7 +88,7 @@ public class NumberAmongTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_throw_exception_when_object_index_negative() {
+	void generateObject_should_throw_exception_when_object_index_negative() {
 
 		// GIVEN
 		List<BigDecimal> items = Arrays.asList(BigDecimal.ZERO, BigDecimal.ONE, BigDecimal.TEN);
@@ -103,7 +103,7 @@ public class NumberAmongTypeTest {
 	}
 
 	@Test
-	public void getMinRange_should_return_0() {
+	void getMinRange_should_return_0() {
 
 		// GIVEN
 		List<BigDecimal> items = Arrays.asList(BigDecimal.ZERO, BigDecimal.ONE, BigDecimal.TEN);
@@ -117,7 +117,7 @@ public class NumberAmongTypeTest {
 	}
 
 	@Test
-	public void getMaxRange_should_return_0() {
+	void getMaxRange_should_return_0() {
 
 		// GIVEN
 		List<BigDecimal> items = Collections.singletonList(BigDecimal.ZERO);
@@ -131,7 +131,7 @@ public class NumberAmongTypeTest {
 	}
 
 	@Test
-	public void getMaxRange_should_return_1() {
+	void getMaxRange_should_return_1() {
 
 		// GIVEN
 		List<BigDecimal> items = Arrays.asList(BigDecimal.ZERO, BigDecimal.ONE);

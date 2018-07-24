@@ -1,16 +1,16 @@
 package com.nebula.core.types.constant;
 
 import com.nebula.core.GeneratedObject;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ConstantTypeTest {
+class ConstantTypeTest {
 
 	@Test
-	public void new_ConstantType_should_set_value_test() {
+	void new_ConstantType_should_set_value_test() {
 
 		// GIVEN
 		Object value = "test";
@@ -24,7 +24,7 @@ public class ConstantTypeTest {
 	}
 
 	@Test
-	public void getMinRange_should_return_0() {
+	void getMinRange_should_return_0() {
 
 		// GIVEN
 		ConstantType constantType = new ConstantType(null);
@@ -37,7 +37,7 @@ public class ConstantTypeTest {
 	}
 
 	@Test
-	public void getMaxRange_should_return_0() {
+	void getMaxRange_should_return_0() {
 
 		// GIVEN
 		ConstantType constantType = new ConstantType(null);
@@ -50,7 +50,7 @@ public class ConstantTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_return_a_non_null_object() {
+	void generateObject_should_return_a_non_null_object() {
 
 		// GIVEN
 		ConstantType constantType = new ConstantType(null);
@@ -63,7 +63,7 @@ public class ConstantTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_return_test_as_value() {
+	void generateObject_should_return_test_as_value() {
 
 		// GIVEN
 		String value = "test";
@@ -77,7 +77,7 @@ public class ConstantTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_return_0() {
+	void generateObject_should_return_0() {
 
 		// GIVEN
 		BigDecimal value = BigDecimal.ZERO;
@@ -91,7 +91,7 @@ public class ConstantTypeTest {
 	}
 
 	@Test
-	public void generateObject_should_return_same_value_for_index_0_and_1() {
+	void generateObject_should_return_same_value_for_index_0_and_1() {
 
 		// GIVEN
 		String value = "test";

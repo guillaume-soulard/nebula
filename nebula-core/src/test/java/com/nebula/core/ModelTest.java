@@ -2,7 +2,7 @@ package com.nebula.core;
 
 import com.nebula.core.generators.NebulaGenerators;
 import com.nebula.core.types.NebulaTypes;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -14,10 +14,10 @@ import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ModelTest {
+class ModelTest {
 
 	@Test
-	public void newEntity_should_add_given_type_in_model() {
+	void newEntity_should_add_given_type_in_model() {
 		// GIVEN
 		Model model = ModelBuilder.newModel().build();
 
@@ -29,7 +29,7 @@ public class ModelTest {
 	}
 
 	@Test
-	public void newEntity_with_no_amount_should_add_given_type_in_model() {
+	void newEntity_with_no_amount_should_add_given_type_in_model() {
 		// GIVEN
 		Model model = ModelBuilder.newModel().build();
 
@@ -41,7 +41,7 @@ public class ModelTest {
 	}
 
 	@Test
-	public void generateAll_should_generate_10_objects() {
+	void generateAll_should_generate_10_objects() {
 
 		// GIVEN
 		long seed = 1L;
@@ -58,7 +58,7 @@ public class ModelTest {
 	}
 
 	@Test
-	public void generateEntity_should_generate_10_objects() {
+	void generateEntity_should_generate_10_objects() {
 
 		// GIVEN
 		long seed = 1L;
@@ -74,7 +74,7 @@ public class ModelTest {
 	}
 
 	@Test
-	public void generateAll_should_return_only_numbers_between_minus2_and_2_over_100_generated_entities() {
+	void generateAll_should_return_only_numbers_between_minus2_and_2_over_100_generated_entities() {
 
 		// GIVEN
 		long seed = 1L;
@@ -95,7 +95,7 @@ public class ModelTest {
 	}
 
 	@Test
-	public void iterator_should_return_a_new_iterator() {
+	void iterator_should_return_a_new_iterator() {
 
 		// GIVEN
 		Model model = ModelBuilder.newModel().build();
@@ -113,7 +113,7 @@ public class ModelTest {
 	}
 
 	@Test
-	public void iterator_should_get_same_objects_than_all_entities() {
+	void iterator_should_get_same_objects_than_all_entities() {
 
 		// GIVEN
 		Model model = ModelBuilder.newModel().build();
@@ -132,7 +132,7 @@ public class ModelTest {
 	}
 
 	@Test
-	public void getEntityByName_should_return_entity() {
+	void getEntityByName_should_return_entity() {
 
 		// GIVEN
 		Model model = ModelBuilder.newModel().build();
@@ -148,12 +148,12 @@ public class ModelTest {
 	}
 
 	@Test
-	public void getEntityByName_should_throw_exception_when_unexisting_entity_is_passed() {
+	void getEntityByName_should_throw_exception_when_unexisting_entity_is_passed() {
 
 		// GIVEN
 		Model model = ModelBuilder.newModel().build();
 		int amount = 10;
-		Entity entity = model.newEntity("test", amount);
+		model.newEntity("test", amount);
 
 		// WHEN
 		catchException(model).getEntityByName("unexisting");
@@ -164,7 +164,7 @@ public class ModelTest {
 	}
 
 	@Test
-	public void generateEntity_should_generate_entity_for_index_0() {
+	void generateEntity_should_generate_entity_for_index_0() {
 
 		// GIVEN
 		Model model = ModelBuilder.newModel().build();
@@ -181,7 +181,7 @@ public class ModelTest {
 	}
 
 	@Test
-	public void generateEntity_should_generate_10_different_objects() {
+	void generateEntity_should_generate_10_different_objects() {
 
 		// GIVEN
 		Model model = ModelBuilder.newModel().build();
@@ -197,7 +197,7 @@ public class ModelTest {
 	}
 
 	@Test
-	public void generateEntity_should_generate_the_same_entity_for_index_0() {
+	void generateEntity_should_generate_the_same_entity_for_index_0() {
 
 		// GIVEN
 		Model model = ModelBuilder.newModel().build();
@@ -215,7 +215,7 @@ public class ModelTest {
 	}
 
 	@Test
-	public void generateEntity_should_generate_the_same_entity_for_index_0_comparing_to_generate_all_entities() {
+	void generateEntity_should_generate_the_same_entity_for_index_0_comparing_to_generate_all_entities() {
 
 		// GIVEN
 		Model model = ModelBuilder.newModel().build();
@@ -233,7 +233,7 @@ public class ModelTest {
 	}
 
 	@Test
-	public void removeEntity_should_remove_all_entity_from_list() {
+	void removeEntity_should_remove_all_entity_from_list() {
 
 		// GIVEN
 		Model model = ModelBuilder.newModel().build();
@@ -248,7 +248,7 @@ public class ModelTest {
 	}
 
 	@Test
-	public void removeEntity_should_remove_entity_from_list() {
+	void removeEntity_should_remove_entity_from_list() {
 
 		// GIVEN
 		Model model = ModelBuilder.newModel().build();
@@ -265,7 +265,7 @@ public class ModelTest {
 	}
 
 	@Test
-	public void removeEntity_should_throw_exception_when_entity_to_remove_not_exists() {
+	void removeEntity_should_throw_exception_when_entity_to_remove_not_exists() {
 
 		// GIVEN
 		Model model = ModelBuilder.newModel().build();
