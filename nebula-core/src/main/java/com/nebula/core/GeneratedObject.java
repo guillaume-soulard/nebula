@@ -137,11 +137,16 @@ public class GeneratedObject {
 
 	public Object getValueByPath(String value) {
 
-		Stack<String> paths = new Stack<>();
-		List<String> pathList = Arrays.asList(value.split("\\."));
-		Collections.reverse(pathList);
-		paths.addAll(pathList);
-		return recursiveGetValueByPath(paths);
+		if (value != null) {
+			Stack<String> paths = new Stack<>();
+			List<String> pathList = Arrays.asList(value.split("\\."));
+			Collections.reverse(pathList);
+			paths.addAll(pathList);
+			return recursiveGetValueByPath(paths);
+		} else {
+
+			return null;
+		}
 	}
 
 	private Object recursiveGetValueByPath(Stack<String> paths) {

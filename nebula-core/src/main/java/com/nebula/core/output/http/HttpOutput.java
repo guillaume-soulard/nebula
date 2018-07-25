@@ -13,6 +13,8 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import java.io.IOException;
 import java.net.URI;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 class HttpOutput implements Output {
 
@@ -66,7 +68,17 @@ class HttpOutput implements Output {
                 dynamicHeaders.forEach((key, value) -> method.addHeader(key, String.valueOf(formattedObject.getOriginalObject().getValueByPath(value))));
             }
 
-            method.setURI(URI.create(url));
+            Pattern pattern = Pattern.compile("/\\{(?<name>[a-zA-Z0-9 \\.]*)}/?");
+
+            String finalUrl = url;
+            Matcher matcher = pattern.matcher(finalUrl);
+            while (matcher.find()) {
+
+                String group = matcher.group("name");
+                finalUrl = finalUrl.replaceAll("\\{" + group + "}", (String) formattedObject.getOriginalObject().getValueByPath(group));
+            }
+
+            method.setURI(URI.create(finalUrl));
             method.setEntity(new StringEntity(formattedObject.getFormattedObject()));
             httpClient.execute(method);
         } catch (IOException e) {

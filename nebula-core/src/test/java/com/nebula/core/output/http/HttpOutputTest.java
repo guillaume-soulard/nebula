@@ -221,4 +221,35 @@ class HttpOutputTest {
         assertThat(value.getAllHeaders()[0].getName()).isEqualTo("headerName");
         assertThat(value.getAllHeaders()[0].getValue()).isEqualTo("headerValue");
     }
+
+    @Test
+    void write_should_call_execute_with_path_completed_with_dynamic_variables() throws Exception {
+
+        // GIVEN
+        String url = "http://localhost:3000/users/{name}/dept/{dept.name}";
+        CloseableHttpClient client = mock(CloseableHttpClient.class);
+        Map<String, String> staticHeaders = new HashMap<>();
+        Map<String, String> dynamicHeaders = new HashMap<>();
+        Map<String, String> dynamicPathVariable = new HashMap<>();
+        String httpVerb = HttpOutputBuilder.POST_VERB;
+        HttpOutput output = new HttpOutput(url, staticHeaders, dynamicHeaders, dynamicPathVariable, httpVerb, client);
+        List<GeneratedProperty> userGeneratedProperties = new ArrayList<>();
+        userGeneratedProperties.add(new GeneratedProperty("name", new GeneratedObject("John"), null));
+        List<GeneratedProperty> deptGeneratedProperties = new ArrayList<>();
+        deptGeneratedProperties.add(new GeneratedProperty("name", new GeneratedObject("test"), null));
+        GeneratedObject dept = new GeneratedObject(deptGeneratedProperties);
+        userGeneratedProperties.add(new GeneratedProperty("dept", dept, null));
+        GeneratedObject generatedObject = new GeneratedObject(userGeneratedProperties);
+        OutputParameter formattedObject = new OutputParameter("", generatedObject);
+
+        // WHEN
+        output.write(formattedObject);
+
+        // THEN
+        ArgumentCaptor<HttpUriRequest> argumentCaptor = ArgumentCaptor.forClass(HttpUriRequest.class);
+        verify(client, times(1)).execute(argumentCaptor.capture());
+
+        HttpUriRequest value = argumentCaptor.getValue();
+        assertThat(value.getURI().toURL().toString()).isEqualTo("http://localhost:3000/users/John/dept/test");
+    }
 }
