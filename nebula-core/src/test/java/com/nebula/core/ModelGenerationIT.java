@@ -38,7 +38,7 @@ class ModelGenerationIT {
 
 		// GIVEN
 		long seed = 10L;
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 		Entity testEntity = buildTestEntity(model);
 		Entity anotherEntity = buildAnotherEntity(model);
 
@@ -56,7 +56,7 @@ class ModelGenerationIT {
 	void generateEntityObject_should_generate_two_properties_with_different_values_with_same_type() {
 
 		// GIVEN
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 		Entity entity = model.newEntity("test", 1);
 		entity.addProperty("first", random(), string());
 		entity.addProperty("second", random(), string());

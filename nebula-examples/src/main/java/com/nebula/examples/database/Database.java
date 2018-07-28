@@ -31,7 +31,7 @@ class Database {
                 .build();
         JdbcTemplate jdbcTemplate = new JdbcTemplate(db);
 
-        Model model = ModelBuilder.newModel()
+        Model model = ModelBuilder.newEmptyModel()
                 .withSeed("Market database")
                 .withoutNumberThousandSeparator()
                 .build();

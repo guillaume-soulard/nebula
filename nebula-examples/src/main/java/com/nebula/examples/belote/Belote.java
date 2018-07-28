@@ -19,7 +19,7 @@ class Belote {
 
         System.out.println("Generate 100 hands in belote game with 4 players");
 
-        Model model = ModelBuilder.newModel()
+        Model model = ModelBuilder.newEmptyModel()
                 .withSeed("belote")
                 .build();
 

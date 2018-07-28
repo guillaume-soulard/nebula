@@ -25,7 +25,7 @@ class JsonGenerationIT {
     void generate_should_generate_a_correct_csv_file(TemporaryFolder temporaryFolder) {
 
         // GIVEN
-        Model model = ModelBuilder.newModel().withSeed(1L).withDateFormat("dd/MM/yyyy").build();
+        Model model = ModelBuilder.newEmptyModel().withSeed(1L).withDateFormat("dd/MM/yyyy").build();
         Entity users = model.newEntity("users", 100L);
         users.addProperty("firstName", random(), string().withPattern("[A-Z]{1}[a-z]{3,25}"));
         users.addProperty("lastName", random(), string().withPattern("[A-Z]{1}[a-z]{3,25}"));

@@ -44,7 +44,7 @@ class JdbcOutputIT {
     void generate_should_generate_10_users_in_hsqldb() {
 
         // GIVEN
-        Model model = ModelBuilder.newModel().withSeed("My company's users").build();
+        Model model = ModelBuilder.newEmptyModel().withSeed("My company's users").build();
         Entity users = model.newEntity("users", 10);
         users.addProperty("id", sequence(), number().range().withMin(BigDecimal.ONE));
         users.addProperty("name", random(), string().withPattern("[A-Z]{1}[a-z]{5,29}"));

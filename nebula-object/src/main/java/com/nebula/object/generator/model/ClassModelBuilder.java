@@ -50,7 +50,7 @@ public class ClassModelBuilder {
 
     public Model buildModelFrom(Class<?> clazz) {
 
-        Model model = ModelBuilder.newModel()
+        Model model = ModelBuilder.newEmptyModel()
                 .build();
 
         buildObjectEntity(clazz, model);

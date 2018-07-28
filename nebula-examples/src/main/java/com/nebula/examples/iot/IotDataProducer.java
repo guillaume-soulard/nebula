@@ -18,7 +18,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 class IotDataProducer {
 
     public static void main(String[] args) {
-        Model model = ModelBuilder.newModel().withSeed("IOT data producer").build();
+        Model model = ModelBuilder.newEmptyModel().withSeed("IOT data producer").build();
 
         Entity iot = model.newEntity("iot")
                 .addProperty("temperature", random(), number().range()

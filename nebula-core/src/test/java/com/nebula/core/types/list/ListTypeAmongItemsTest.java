@@ -36,7 +36,7 @@ class ListTypeAmongItemsTest {
 		ConstantTypeBuilder[] items = new ConstantTypeBuilder[] { newConstant() };
 
 		// WHEN
-		listType = new ListTypeAmongItems(ModelBuilder.newModel().build(), minSize, maxSize, generator, items);
+		listType = new ListTypeAmongItems(ModelBuilder.newEmptyModel().build(), minSize, maxSize, generator, items);
 
 		// THEN
 		assertThat(listType).hasFieldOrPropertyWithValue("minSize", minSize)
@@ -52,7 +52,7 @@ class ListTypeAmongItemsTest {
 		int maxSize = 0;
 		Generator generator = NebulaGenerators.random().build();
 		ConstantTypeBuilder[] items = new ConstantTypeBuilder[] { newConstant() };
-		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newModel().build(), minSize, maxSize, generator, items);
+		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newEmptyModel().build(), minSize, maxSize, generator, items);
 
 		// WHEN
 		Long result = listType.getMinRange();
@@ -69,7 +69,7 @@ class ListTypeAmongItemsTest {
 		int maxSize = 0;
 		Generator generator = NebulaGenerators.random().build();
 		ConstantTypeBuilder[] items = new ConstantTypeBuilder[] { newConstant() };
-		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newModel().build(), minSize, maxSize, generator, items);
+		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newEmptyModel().build(), minSize, maxSize, generator, items);
 
 		// WHEN
 		Long result = listType.getMaxRange();
@@ -86,7 +86,7 @@ class ListTypeAmongItemsTest {
 		int maxSize = 0;
 		Generator generator = NebulaGenerators.random().build();
 		ConstantTypeBuilder[] items = new ConstantTypeBuilder[] { newConstant(), newConstant() };
-		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newModel().build(), minSize, maxSize, generator, items);
+		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newEmptyModel().build(), minSize, maxSize, generator, items);
 
 		// WHEN
 		Long result = listType.getMaxRange();
@@ -104,7 +104,7 @@ class ListTypeAmongItemsTest {
 		Generator generator = NebulaGenerators.random().build();
 		ConstantTypeBuilder[] items = new ConstantTypeBuilder[] { newConstant(), newConstant(), newConstant(),
 				newConstant(), newConstant() };
-		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newModel().build(), minSize, maxSize, generator, items);
+		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newEmptyModel().build(), minSize, maxSize, generator, items);
 
 		// WHEN
 		Long result = listType.getMaxRange();
@@ -121,7 +121,7 @@ class ListTypeAmongItemsTest {
 		int maxSize = 0;
 		Generator generator = NebulaGenerators.random().build();
 		ConstantTypeBuilder[] items = new ConstantTypeBuilder[] {};
-		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newModel().build(), minSize, maxSize, generator, items);
+		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newEmptyModel().build(), minSize, maxSize, generator, items);
 		GenerationContext context = mock(GenerationContext.class);
 
 		// WHEN
@@ -139,9 +139,9 @@ class ListTypeAmongItemsTest {
 		int maxSize = 0;
 		Generator generator = NebulaGenerators.random().build();
 		ConstantTypeBuilder[] items = new ConstantTypeBuilder[] { newConstant() };
-		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newModel().build(), minSize, maxSize, generator, items);
+		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newEmptyModel().build(), minSize, maxSize, generator, items);
 		NebulaRandom nebulaRandom = new NebulaRandom(0L);
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 		long entityIndex = 0L;
 		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex, 1, 10);
 		listType.init(context);
@@ -161,9 +161,9 @@ class ListTypeAmongItemsTest {
 		int maxSize = 0;
 		Generator generator = NebulaGenerators.random().build();
 		ConstantTypeBuilder[] items = new ConstantTypeBuilder[] { newConstant() };
-		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newModel().build(), minSize, maxSize, generator, items);
+		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newEmptyModel().build(), minSize, maxSize, generator, items);
 		NebulaRandom nebulaRandom = new NebulaRandom(0L);
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 		long entityIndex = 0L;
 		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex, 1, 10);
 		listType.init(context);
@@ -183,9 +183,9 @@ class ListTypeAmongItemsTest {
 		int maxSize = 0;
 		Generator generator = NebulaGenerators.random().build();
 		ConstantTypeBuilder[] items = new ConstantTypeBuilder[] { newConstant() };
-		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newModel().build(), minSize, maxSize, generator, items);
+		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newEmptyModel().build(), minSize, maxSize, generator, items);
 		NebulaRandom nebulaRandom = new NebulaRandom(0L);
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 		long entityIndex = 0L;
 		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex, 1, 10);
 		listType.init(context);
@@ -205,9 +205,9 @@ class ListTypeAmongItemsTest {
 		int maxSize = 1;
 		Generator generator = NebulaGenerators.random().build();
 		ConstantTypeBuilder[] items = new ConstantTypeBuilder[] { newConstant() };
-		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newModel().build(), minSize, maxSize, generator, items);
+		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newEmptyModel().build(), minSize, maxSize, generator, items);
 		NebulaRandom nebulaRandom = new NebulaRandom(0L);
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 		long entityIndex = 0L;
 		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex, 1, 10);
 		listType.init(context);
@@ -228,9 +228,9 @@ class ListTypeAmongItemsTest {
 		int maxSize = 10;
 		Generator generator = NebulaGenerators.random().build();
 		ConstantTypeBuilder[] items = new ConstantTypeBuilder[] { newConstant() };
-		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newModel().build(), minSize, maxSize, generator, items);
+		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newEmptyModel().build(), minSize, maxSize, generator, items);
 		NebulaRandom nebulaRandom = new NebulaRandom(0L);
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 		long entityIndex = 0L;
 		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex, 1, 10);
 		listType.init(context);
@@ -251,9 +251,9 @@ class ListTypeAmongItemsTest {
 		int maxSize = 100;
 		Generator generator = NebulaGenerators.random().build();
 		ConstantTypeBuilder[] items = new ConstantTypeBuilder[] { newConstant() };
-		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newModel().build(), minSize, maxSize, generator, items);
+		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newEmptyModel().build(), minSize, maxSize, generator, items);
 		NebulaRandom nebulaRandom = new NebulaRandom(0L);
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 		long entityIndex = 0L;
 		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex, 1, 10);
 		listType.init(context);
@@ -275,9 +275,9 @@ class ListTypeAmongItemsTest {
 		Generator generator = NebulaGenerators.random().build();
 		ConstantTypeBuilder item = newConstant();
 		ConstantTypeBuilder[] items = new ConstantTypeBuilder[] { item };
-		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newModel().build(), minSize, maxSize, generator, items);
+		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newEmptyModel().build(), minSize, maxSize, generator, items);
 		NebulaRandom nebulaRandom = new NebulaRandom(0L);
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 		long entityIndex = 0L;
 		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex, 1, 10);
 		listType.init(context);
@@ -297,9 +297,9 @@ class ListTypeAmongItemsTest {
 		int maxSize = 1;
 		Generator generator = NebulaGenerators.random().build();
 		ConstantTypeBuilder[] items = new ConstantTypeBuilder[] {};
-		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newModel().build(), minSize, maxSize, generator, items);
+		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newEmptyModel().build(), minSize, maxSize, generator, items);
 		NebulaRandom nebulaRandom = new NebulaRandom(0L);
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 		long entityIndex = 0L;
 		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex, 1, 10);
 		listType.init(context);
@@ -322,9 +322,9 @@ class ListTypeAmongItemsTest {
 		ConstantTypeBuilder item2 = newConstant();
 		ConstantTypeBuilder item3 = newConstant();
 		ConstantTypeBuilder[] items = new ConstantTypeBuilder[] { item1, item2, item3 };
-		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newModel().build(), minSize, maxSize, generator, items);
+		ListTypeAmongItems listType = new ListTypeAmongItems(ModelBuilder.newEmptyModel().build(), minSize, maxSize, generator, items);
 		NebulaRandom nebulaRandom = new NebulaRandom(0L);
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 		long entityIndex = 0L;
 		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex, 1, 10);
 		listType.init(context);

@@ -15,7 +15,7 @@ class NumberParserTest {
 
         // GIVEN
         NumberParser builder = new NumberParser();
-        Model model = ModelBuilder.newModel().build();
+        Model model = ModelBuilder.newEmptyModel().build();
 
         // WHEN
         BigDecimal result = builder.parse(model, "0");
@@ -29,7 +29,7 @@ class NumberParserTest {
 
         // GIVEN
         NumberParser builder = new NumberParser();
-        Model model = ModelBuilder.newModel().build();
+        Model model = ModelBuilder.newEmptyModel().build();
 
         // WHEN
         BigDecimal result = builder.parse(model, "10");
@@ -43,7 +43,7 @@ class NumberParserTest {
 
         // GIVEN
         NumberParser builder = new NumberParser();
-        Model model = ModelBuilder.newModel().build();
+        Model model = ModelBuilder.newEmptyModel().build();
 
         // WHEN
         BigDecimal result = builder.parse(model, "10.56");
@@ -57,7 +57,7 @@ class NumberParserTest {
 
         // GIVEN
         NumberParser builder = new NumberParser();
-        Model model = ModelBuilder.newModel().build();
+        Model model = ModelBuilder.newEmptyModel().build();
 
         // WHEN
         BigDecimal result = builder.parse(model, "100000000.56");
@@ -71,7 +71,7 @@ class NumberParserTest {
 
         // GIVEN
         NumberParser builder = new NumberParser();
-        Model model = ModelBuilder.newModel().build();
+        Model model = ModelBuilder.newEmptyModel().build();
 
         // WHEN
         BigDecimal result = builder.parse(model, "100,000,000.56");
@@ -85,7 +85,7 @@ class NumberParserTest {
 
         // GIVEN
         NumberParser builder = new NumberParser();
-        Model model = ModelBuilder.newModel()
+        Model model = ModelBuilder.newEmptyModel()
                 .withNumberThousandSeparator(' ')
                 .withNumberDecimalSeparator(',')
                 .build();

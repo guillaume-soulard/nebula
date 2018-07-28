@@ -25,7 +25,7 @@ class CsvGenerationIT {
     void generate_should_generate_a_correct_csv_file(TemporaryFolder temporaryFolder) {
 
         // GIVEN
-        Model model = ModelBuilder.newModel().withSeed(1L).withDateFormat("dd/MM/yyyy").build();
+        Model model = ModelBuilder.newEmptyModel().withSeed(1L).withDateFormat("dd/MM/yyyy").build();
         DateTime minDayOfBirth = new DateTime(1950, 1, 1, 0, 0);
         DateTime maxDayOfBirth = new DateTime(2000, 1, 1, 0, 0);
         Entity users = model.newEntity("users", 100L)

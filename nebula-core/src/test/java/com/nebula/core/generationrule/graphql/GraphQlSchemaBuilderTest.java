@@ -25,7 +25,7 @@ class GraphQlSchemaBuilderTest {
     }
 
     private Model getModel() {
-        Model model = ModelBuilder.newModel().build();
+        Model model = ModelBuilder.newEmptyModel().build();
         model.newEntity("entity")
                 .addProperty("string", random(), string())
                 .addProperty("date", random(), dateTime().range())

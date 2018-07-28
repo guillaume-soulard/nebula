@@ -197,7 +197,7 @@ class EntityTypeTest {
 	}
 
 	private Entity entityWithAmount(long amount) {
-		return new Entity(ModelBuilder.newModel().build(), ENTITY_NAME, amount, new PropertyBuilder());
+		return new Entity(ModelBuilder.newEmptyModel().build(), ENTITY_NAME, amount, new PropertyBuilder());
 	}
 
 	private GenerationContext initEntityTypeWithEntityAmount(EntityType type, long entityAmount) {

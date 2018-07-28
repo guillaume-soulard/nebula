@@ -17,7 +17,7 @@ class DateTimeRangeTypeBuilderTest {
 		TypeBuilder builder = new DateTimeRangeTypeBuilder();
 
 		// WHEN
-		Type result = builder.build(ModelBuilder.newModel().build());
+		Type result = builder.build(ModelBuilder.newEmptyModel().build());
 
 		// THEN
 		assertThat(result).isInstanceOf(DateTimeRangeType.class);
@@ -30,7 +30,7 @@ class DateTimeRangeTypeBuilderTest {
 		TypeBuilder builder = new DateTimeRangeTypeBuilder();
 
 		// WHEN
-		Type result = builder.build(ModelBuilder.newModel().build());
+		Type result = builder.build(ModelBuilder.newEmptyModel().build());
 
 		// THEN
 		assertThat(result).hasFieldOrPropertyWithValue("range.min", new DateTime(0L))
@@ -46,7 +46,7 @@ class DateTimeRangeTypeBuilderTest {
 		DateTime min = new DateTime(2017, 1, 1, 0, 0);
 
 		// WHEN
-		Type result = builder.withMin(min).build(ModelBuilder.newModel().build());
+		Type result = builder.withMin(min).build(ModelBuilder.newEmptyModel().build());
 
 		// THEN
 		assertThat(result).hasFieldOrPropertyWithValue("range.min", min);
@@ -60,7 +60,7 @@ class DateTimeRangeTypeBuilderTest {
 		DateTime max = new DateTime(2017, 1, 1, 0, 0);
 
 		// WHEN
-		Type result = builder.withMax(max).build(ModelBuilder.newModel().build());
+		Type result = builder.withMax(max).build(ModelBuilder.newEmptyModel().build());
 
 		// THEN
 		assertThat(result).hasFieldOrPropertyWithValue("range.max", max);
@@ -74,7 +74,7 @@ class DateTimeRangeTypeBuilderTest {
 		DateTimeTypeIntervals interval = DateTimeTypeIntervals.MONTH;
 
 		// WHEN
-		Type result = builder.withInterval(interval).build(ModelBuilder.newModel().build());
+		Type result = builder.withInterval(interval).build(ModelBuilder.newEmptyModel().build());
 
 		// THEN
 		assertThat(result).hasFieldOrPropertyWithValue("interval", interval);

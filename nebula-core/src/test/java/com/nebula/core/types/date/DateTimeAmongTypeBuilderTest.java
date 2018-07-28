@@ -15,7 +15,7 @@ class DateTimeAmongTypeBuilderTest {
 		DateTimeAmongTypeBuilder builder = new DateTimeAmongTypeBuilder();
 
 		// WHEN
-		Type result = builder.build(ModelBuilder.newModel().build());
+		Type result = builder.build(ModelBuilder.newEmptyModel().build());
 
 		// THEN
 		assertThat(result).isInstanceOf(DateTimeAmongType.class);

@@ -27,7 +27,7 @@ class CsvFormatterTest {
     void formatGeneratedObject_should_return_durant() {
 
         // GIVEN
-        Model model = ModelBuilder.newModel().build();
+        Model model = ModelBuilder.newEmptyModel().build();
         String separator = ";";
         String quote = "";
         List<String> propertiesToExclude = new ArrayList<>();
@@ -47,7 +47,7 @@ class CsvFormatterTest {
     void formatGeneratedObject_should_return_jean_durant() {
 
         // GIVEN
-        Model model = ModelBuilder.newModel().build();
+        Model model = ModelBuilder.newEmptyModel().build();
         String separator = ";";
         String quote = "";
         List<String> propertiesToExclude = new ArrayList<>();
@@ -68,7 +68,7 @@ class CsvFormatterTest {
     void formatGeneratedObject_should_return_jean_durant_if_no_coluns_are_specified() {
 
         // GIVEN
-        Model model = ModelBuilder.newModel().build();
+        Model model = ModelBuilder.newEmptyModel().build();
         String separator = ";";
         String quote = "";
         List<String> propertiesToExclude = new ArrayList<>();
@@ -90,7 +90,7 @@ class CsvFormatterTest {
     void formatGeneratedObject_should_return_quotted_values() {
 
         // GIVEN
-        Model model = ModelBuilder.newModel().build();
+        Model model = ModelBuilder.newEmptyModel().build();
         String separator = ";";
         String quote = "\"";
         List<String> propertiesToExclude = new ArrayList<>();
@@ -111,7 +111,7 @@ class CsvFormatterTest {
     void formatGeneratedObject_should_return_only_value_of_col1() {
 
         // GIVEN
-        Model model = ModelBuilder.newModel().build();
+        Model model = ModelBuilder.newEmptyModel().build();
         String separator = ";";
         String quote = "";
         List<String> propertiesToExclude = new ArrayList<>();
@@ -132,7 +132,7 @@ class CsvFormatterTest {
     void formatGeneratedObject_should_return_all_columns_when_empty_column_list_is_passed() {
 
         // GIVEN
-        Model model = ModelBuilder.newModel().build();
+        Model model = ModelBuilder.newEmptyModel().build();
         String separator = ";";
         String quote = "";
         List<String> propertiesToExclude = new ArrayList<>();
@@ -159,7 +159,7 @@ class CsvFormatterTest {
     void formatHeader_should_return_firstName_lastName() {
 
         // GIVEN
-        Model model = ModelBuilder.newModel().build();
+        Model model = ModelBuilder.newEmptyModel().build();
         String separator = ";";
         String quote = "";
         List<String> propertiesToExclude = new ArrayList<>();
@@ -179,7 +179,7 @@ class CsvFormatterTest {
     void formatHeader_should_return_col1_col2() {
 
         // GIVEN
-        Model model = ModelBuilder.newModel().build();
+        Model model = ModelBuilder.newEmptyModel().build();
         String separator = ";";
         String quote = "";
         List<String> propertiesToExclude = new ArrayList<>();
@@ -199,7 +199,7 @@ class CsvFormatterTest {
     void formatHeader_should_return_empty_string() {
 
         // GIVEN
-        Model model = ModelBuilder.newModel().build();
+        Model model = ModelBuilder.newEmptyModel().build();
         String separator = ";";
         String quote = "";
         List<String> propertiesToExclude = new ArrayList<>();
@@ -219,7 +219,7 @@ class CsvFormatterTest {
     void formatHeader_should_return_quoted_strings() {
 
         // GIVEN
-        Model model = ModelBuilder.newModel().build();
+        Model model = ModelBuilder.newEmptyModel().build();
         String separator = ";";
         String quote = "\"";
         List<String> propertiesToExclude = new ArrayList<>();
@@ -239,7 +239,7 @@ class CsvFormatterTest {
     void formatFooter_should_return_empty_string() {
 
         // GIVEN
-        Model model = ModelBuilder.newModel().build();
+        Model model = ModelBuilder.newEmptyModel().build();
         String separator = ";";
         String quote = "";
         List<String> propertiesToExclude = new ArrayList<>();

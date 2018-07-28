@@ -32,7 +32,7 @@ class RestGenerationRuleIT {
 
     @BeforeAll
     static void setUp() {
-        Model model = ModelBuilder.newModel().withSeed("users").withDateFormat("dd/MM/yyyy").build();
+        Model model = ModelBuilder.newEmptyModel().withSeed("users").withDateFormat("dd/MM/yyyy").build();
 
         model.newEntity("user")
                 .addProperty("firstName", random(), string().withPattern("[A-Aa-z]{10,25}"))

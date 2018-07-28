@@ -34,7 +34,7 @@ public class ModelBuilder {
         maxDepth = baseModel.getMaxDepth();
     }
 
-    public static ModelBuilder newModel() {
+    public static ModelBuilder newEmptyModel() {
         return new ModelBuilder();
     }
 

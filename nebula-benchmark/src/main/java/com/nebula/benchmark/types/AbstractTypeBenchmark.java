@@ -23,7 +23,7 @@ abstract class AbstractTypeBenchmark extends AbstractNebulaBenchmark {
 
     @Setup(Level.Iteration)
     public void setup() {
-        model = ModelBuilder.newModel().build();
+        model = ModelBuilder.newEmptyModel().build();
         entity = model.newEntity("test");
         addProperty(entity);
         index = new AtomicLong(0L);

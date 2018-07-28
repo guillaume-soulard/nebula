@@ -112,7 +112,7 @@ class ListTypeAmongItemsBuilderTest {
 		ListTypeAmongItemsBuilder builder = new ListTypeAmongItemsBuilder(generator);
 
 		// WHEN
-		Type result = builder.build(ModelBuilder.newModel().build());
+		Type result = builder.build(ModelBuilder.newEmptyModel().build());
 
 		// THEN
 		assertThat(result).hasFieldOrPropertyWithValue("maxSize", 10).hasFieldOrPropertyWithValue("minSize", 0)
@@ -128,7 +128,7 @@ class ListTypeAmongItemsBuilderTest {
 		builder.withMinSize(10).withMaxSize(0);
 
 		// WHEN
-		catchException(builder).build(ModelBuilder.newModel().build());
+		catchException(builder).build(ModelBuilder.newEmptyModel().build());
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)

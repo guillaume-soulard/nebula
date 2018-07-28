@@ -20,7 +20,7 @@ class GenerationRuleBuilderTest {
 
         // GIVEN
         OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();
-        Model model = ModelBuilder.newModel().build();
+        Model model = ModelBuilder.newEmptyModel().build();
 
         // WHEN
         catchException(generationRuleBuilder).build(model);
@@ -35,7 +35,7 @@ class GenerationRuleBuilderTest {
 
         // GIVEN
         OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();
-        Model model = ModelBuilder.newModel().build();
+        Model model = ModelBuilder.newEmptyModel().build();
         Entity entity = model.newEntity("test");
         generationRuleBuilder.withEntity(entity);
 
@@ -52,7 +52,7 @@ class GenerationRuleBuilderTest {
 
         // GIVEN
         OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();
-        Model model = ModelBuilder.newModel().build();
+        Model model = ModelBuilder.newEmptyModel().build();
         Entity entity = model.newEntity("test");
         generationRuleBuilder.withEntity(entity);
         generationRuleBuilder.withFormatter(NebulaFormatters.csv());
@@ -70,7 +70,7 @@ class GenerationRuleBuilderTest {
 
         // GIVEN
         OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();
-        Model model = ModelBuilder.newModel().build();
+        Model model = ModelBuilder.newEmptyModel().build();
         generationRuleBuilder.withEntity("test");
         generationRuleBuilder.withFormatter(NebulaFormatters.csv());
         generationRuleBuilder.addOutput(NebulaOutputs.stdout());
@@ -88,7 +88,7 @@ class GenerationRuleBuilderTest {
 
         // GIVEN
         OneShootGenerationRuleBuilder generationRuleBuilder = new OneShootGenerationRuleBuilder();
-        Model model = ModelBuilder.newModel().build();
+        Model model = ModelBuilder.newEmptyModel().build();
         Entity entity = model.newEntity("test");
         generationRuleBuilder.withEntity(entity);
         generationRuleBuilder.withFormatter(NebulaFormatters.csv());

@@ -28,7 +28,7 @@ class Redis {
             startRedisServer(redisServer);
             Jedis jedis = new Jedis("localhost", REDIS_PORT);
 
-            Model model = ModelBuilder.newModel()
+            Model model = ModelBuilder.newEmptyModel()
                     .withSeed("redis weather during series")
                     .withDateFormat("dd/MM/yyyy")
                     .withNumberDecimalSeparator(' ')

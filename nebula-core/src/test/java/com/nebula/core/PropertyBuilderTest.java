@@ -18,7 +18,7 @@ class PropertyBuilderTest {
 		PropertyBuilder propertyBuilder = new PropertyBuilder();
 		TypeBuilder propertyType = NebulaTypes.number().range();
 		GeneratorBuilder propertyGenerator = NebulaGenerators.random();
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 
 		// WHEN
 		catchException(propertyBuilder).newProperty(model, null, propertyType, propertyGenerator);
@@ -33,7 +33,7 @@ class PropertyBuilderTest {
 		PropertyBuilder propertyBuilder = new PropertyBuilder();
 		String propertyName = "name";
 		GeneratorBuilder propertyGenerator = NebulaGenerators.random();
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 
 		// WHEN
 		catchException(propertyBuilder).newProperty(model, propertyName, null, propertyGenerator);
@@ -48,7 +48,7 @@ class PropertyBuilderTest {
 		PropertyBuilder propertyBuilder = new PropertyBuilder();
 		String propertyName = "name";
 		TypeBuilder propertyType = NebulaTypes.number().range();
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 
 		// WHEN
 		catchException(propertyBuilder).newProperty(model, propertyName, propertyType, null);

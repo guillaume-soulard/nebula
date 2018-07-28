@@ -16,7 +16,13 @@ public class Model {
 	private final List<GenerationRule> generationRules;
 	private final int maxDepth;
 
-	Model(long seed, Character numberThousandSeparator, Character numberDecimalSeparator, String dateFormat, List<Entity> entities, List<GenerationRule> generationRules, int maxDepth) {
+	protected Model(long seed,
+					Character numberThousandSeparator,
+					Character numberDecimalSeparator,
+					String dateFormat,
+					List<Entity> entities,
+					List<GenerationRule> generationRules,
+					int maxDepth) {
 		this.seed = seed;
 		this.numberThousandSeparator = numberThousandSeparator;
 		this.numberDecimalSeparator = numberDecimalSeparator;
@@ -34,6 +40,17 @@ public class Model {
 		Entity entity = new Entity(this, entityName, amount, new PropertyBuilder());
 		entities.add(entity);
 		return entity;
+	}
+
+	public StaticEntityBuilder newStaticEntity(String entityName) {
+
+		if (entityName == null) {
+			throw new NebulaException("entity name is null");
+		}
+		Entity entity = new Entity(this, entityName, Long.MAX_VALUE, new PropertyBuilder());
+		entities.add(entity);
+
+		return new StaticEntityBuilder(entity);
 	}
 
 	public Entity newEntity(String entityName) {

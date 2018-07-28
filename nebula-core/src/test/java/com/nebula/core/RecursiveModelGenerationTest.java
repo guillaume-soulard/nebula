@@ -12,7 +12,7 @@ class RecursiveModelGenerationTest {
     void generateEntityObject_should_not_throw_StackOverflowException() {
 
         // GIVEN
-        Model model = ModelBuilder.newModel().withSeed("recursive entities").build();
+        Model model = ModelBuilder.newEmptyModel().withSeed("recursive entities").build();
         model.newEntity("entity").addProperty("subEntity", random(), entity("entity"));
 
         // WHEN

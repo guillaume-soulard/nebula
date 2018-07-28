@@ -22,7 +22,7 @@ class ModelBasedObjectGeneratorTest {
     void generate_should_return_non_null_object() {
 
         // GIVEN
-        Model model = ModelBuilder.newModel()
+        Model model = ModelBuilder.newEmptyModel()
                 .build();
         Entity userAddressEntity = model.newEntity(UserAddress.class.getCanonicalName());
         userAddressEntity.addProperty("address", random(), string());

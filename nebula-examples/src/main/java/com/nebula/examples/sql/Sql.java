@@ -17,7 +17,7 @@ import static com.nebula.core.output.NebulaOutputs.stdout;
 class Sql {
 
     public static void main(String[] args) {
-        Model model = ModelBuilder.newModel().withSeed(0L).build();
+        Model model = ModelBuilder.newEmptyModel().withSeed(0L).build();
 
         Entity users = model.newEntity("users");
         users.addProperty("id", sequence(), number().range().withMin(BigDecimal.ZERO));

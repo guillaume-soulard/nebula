@@ -16,7 +16,7 @@ class GeneratedObjectIteratorTest {
 
 		// GIVEN
 		GeneratedObjectIterator iterator;
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 		Entity entity = mock(Entity.class);
 		long seed = 1L;
 
@@ -32,7 +32,7 @@ class GeneratedObjectIteratorTest {
 	void hasNext_should_return_true_when_entity_amount_is_1() {
 
 		// GIVEN
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 		Entity entity = new Entity(model, "test", 1L, new PropertyBuilder());
 		long seed = 1L;
 		GeneratedObjectIterator iterator = new GeneratedObjectIterator(model, entity, seed);
@@ -48,7 +48,7 @@ class GeneratedObjectIteratorTest {
 	void hasNext_should_return_true_when_entity_amount_is_strictly_positive() {
 
 		// GIVEN
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 		Entity entity = new Entity(model, "test", 67L, new PropertyBuilder());
 		long seed = 1L;
 		GeneratedObjectIterator iterator = new GeneratedObjectIterator(model, entity, seed);
@@ -64,7 +64,7 @@ class GeneratedObjectIteratorTest {
 	void hasNext_should_return_false_when_entity_amount_is_0() {
 
 		// GIVEN
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 		Entity entity = new Entity(model, "test", 0L, new PropertyBuilder());
 		long seed = 1L;
 		GeneratedObjectIterator iterator = new GeneratedObjectIterator(model, entity, seed);
@@ -80,7 +80,7 @@ class GeneratedObjectIteratorTest {
 	void hasNext_should_return_true_when_next_calls_not_exceed_total_amount_of_entity() {
 
 		// GIVEN
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 		Entity entity = new Entity(model, "test", 2L, new PropertyBuilder());
 		long seed = 1L;
 		GeneratedObjectIterator iterator = new GeneratedObjectIterator(model, entity, seed);
@@ -97,7 +97,7 @@ class GeneratedObjectIteratorTest {
 	void hasNext_should_return_false_when_next_calls_equal_total_amount_of_entity() {
 
 		// GIVEN
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 		Entity entity = new Entity(model ,"test", 2L, new PropertyBuilder());
 		long seed = 1L;
 		GeneratedObjectIterator iterator = new GeneratedObjectIterator(model, entity, seed);

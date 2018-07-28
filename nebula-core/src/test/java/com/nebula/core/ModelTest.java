@@ -2,6 +2,7 @@ package com.nebula.core;
 
 import com.nebula.core.generators.NebulaGenerators;
 import com.nebula.core.types.NebulaTypes;
+import org.joda.time.DateTime;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -19,7 +20,7 @@ class ModelTest {
 	@Test
 	void newEntity_should_add_given_type_in_model() {
 		// GIVEN
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 
 		// WHEN
 		Entity entity = model.newEntity("test", 1);
@@ -31,7 +32,7 @@ class ModelTest {
 	@Test
 	void newEntity_with_no_amount_should_add_given_type_in_model() {
 		// GIVEN
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 
 		// WHEN
 		Entity entity = model.newEntity("test");
@@ -45,7 +46,7 @@ class ModelTest {
 
 		// GIVEN
 		long seed = 1L;
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 		Entity entity = model.newEntity("test", 10);
 		entity.addProperty("number", NebulaGenerators.random(), NebulaTypes.number().range());
 
@@ -62,7 +63,7 @@ class ModelTest {
 
 		// GIVEN
 		long seed = 1L;
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 		Entity entity = model.newEntity("test", 10);
 		entity.addProperty("number", NebulaGenerators.random(), NebulaTypes.number().range());
 
@@ -78,7 +79,7 @@ class ModelTest {
 
 		// GIVEN
 		long seed = 1L;
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 		int amount = 100;
 		Entity entity = model.newEntity("test", amount);
 		String propertyName = "number";
@@ -98,7 +99,7 @@ class ModelTest {
 	void iterator_should_return_a_new_iterator() {
 
 		// GIVEN
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 		int amount = 10;
 		Entity entity = model.newEntity("test", amount);
 		entity.addProperty("number", NebulaGenerators.random(),
@@ -116,7 +117,7 @@ class ModelTest {
 	void iterator_should_get_same_objects_than_all_entities() {
 
 		// GIVEN
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 		int amount = 10;
 		Entity entity = model.newEntity("test", amount);
 		entity.addProperty("number", NebulaGenerators.random(),
@@ -135,7 +136,7 @@ class ModelTest {
 	void getEntityByName_should_return_entity() {
 
 		// GIVEN
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 		int amount = 10;
 		String entityName = "test";
 		Entity entity = model.newEntity(entityName, amount);
@@ -151,7 +152,7 @@ class ModelTest {
 	void getEntityByName_should_throw_exception_when_unexisting_entity_is_passed() {
 
 		// GIVEN
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 		int amount = 10;
 		model.newEntity("test", amount);
 
@@ -167,7 +168,7 @@ class ModelTest {
 	void generateEntity_should_generate_entity_for_index_0() {
 
 		// GIVEN
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 		int amount = 10;
 		Entity entity = model.newEntity("test", amount);
 		long seed = 1L;
@@ -184,7 +185,7 @@ class ModelTest {
 	void generateEntity_should_generate_10_different_objects() {
 
 		// GIVEN
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 		int amount = 10;
 		Entity entity = model.newEntity("test", amount);
 		long seed = 1L;
@@ -200,7 +201,7 @@ class ModelTest {
 	void generateEntity_should_generate_the_same_entity_for_index_0() {
 
 		// GIVEN
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 		int amount = 10;
 		Entity entity = model.newEntity("test", amount);
 		long seed = 1L;
@@ -218,7 +219,7 @@ class ModelTest {
 	void generateEntity_should_generate_the_same_entity_for_index_0_comparing_to_generate_all_entities() {
 
 		// GIVEN
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 		int amount = 10;
 		Entity entity = model.newEntity("test", amount);
 		long seed = 1L;
@@ -236,7 +237,7 @@ class ModelTest {
 	void removeEntity_should_remove_all_entity_from_list() {
 
 		// GIVEN
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 		String entityName = "entity 1";
 		model.newEntity(entityName);
 
@@ -251,7 +252,7 @@ class ModelTest {
 	void removeEntity_should_remove_entity_from_list() {
 
 		// GIVEN
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 		String entityName = "to remove";
 		model.newEntity(entityName);
 		String anotherEntity = "another entity";
@@ -268,7 +269,7 @@ class ModelTest {
 	void removeEntity_should_throw_exception_when_entity_to_remove_not_exists() {
 
 		// GIVEN
-		Model model = ModelBuilder.newModel().build();
+		Model model = ModelBuilder.newEmptyModel().build();
 		model.newEntity("entity");
 
 		// WHEN
@@ -277,6 +278,67 @@ class ModelTest {
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
 				.hasMessage("entity 'un existing entity' not exists in model");
+	}
+
+	@Test
+	void newStaticEntity_should_create_a_new_static_entity_in_model() {
+
+		// GIVEN
+		Model model = ModelBuilder.newEmptyModel().build();
+
+		// WHEN
+		model.newStaticEntity("test")
+				.newRecord()
+					.addProperty("field 1", "value")
+					.addProperty("field 2", false)
+					.addProperty("field 3", BigDecimal.ONE)
+					.addProperty("field 4", new DateTime(0L))
+				.newRecord()
+					.addProperty("field 1", "value")
+					.addProperty("field 2", false)
+					.addProperty("field 3", BigDecimal.ONE)
+					.addProperty("field 4", new DateTime(0L))
+				.buildEntity();
+
+		// THEN
+		Entity test = model.getEntityByName("test");
+		assertThat(test.getProperties()).hasSize(4);
+		assertThat(test.getAmount()).isEqualTo(2);
+	}
+
+	@Test
+	void generateEntityObjects_should_return_2_generated_objects_with_same_property_value_as_static_entity() {
+
+		// GIVEN
+		Model model = ModelBuilder.newEmptyModel().build();
+		model.newStaticEntity("test")
+				.newRecord()
+					.addProperty("field 1", "value")
+					.addProperty("field 2", false)
+					.addProperty("field 3", BigDecimal.ONE)
+					.addProperty("field 4", new DateTime(0L))
+				.newRecord()
+					.addProperty("field 1", "value 2")
+					.addProperty("field 2", true)
+					.addProperty("field 3", BigDecimal.TEN)
+					.addProperty("field 4", new DateTime(10L))
+				.buildEntity();
+
+		// WHEN
+		List<GeneratedObject> result = model.generateEntityObjects(model.getEntityByName("test"), 0L);
+
+		// THEN
+		assertThat(result).hasSize(2);
+		assertThat(result.get(0).getGeneratedPropertyValue("field 1")).isEqualTo(new GeneratedObject("value"));
+		assertThat(result.get(0).getGeneratedPropertyValue("field 2")).isEqualTo(new GeneratedObject(false));
+		assertThat(result.get(0).getGeneratedPropertyValue("field 3")).isEqualTo(new GeneratedObject(BigDecimal.ONE));
+		assertThat(result.get(0).getGeneratedPropertyValue("field 4")).isEqualTo(new GeneratedObject(new DateTime(0L)));
+
+
+		assertThat(result.get(1).getGeneratedPropertyValue("field 1")).isEqualTo(new GeneratedObject("value 2"));
+		assertThat(result.get(1).getGeneratedPropertyValue("field 2")).isEqualTo(new GeneratedObject(true));
+		assertThat(result.get(1).getGeneratedPropertyValue("field 3")).isEqualTo(new GeneratedObject(BigDecimal.TEN));
+		assertThat(result.get(1).getGeneratedPropertyValue("field 4")).isEqualTo(new GeneratedObject(new DateTime(10L)));
 	}
 
 	private List<Object> extractValuesForProperty(String propertyName, List<GeneratedObject> generatedObjects) {
