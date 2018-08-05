@@ -1,5 +1,9 @@
 package com.nebula.benchmark;
 
+import com.nebula.benchmark.generator.RandomBenchmarkBenchmark;
+import com.nebula.benchmark.generator.RandomUniquekBenchmark;
+import com.nebula.benchmark.generator.SequenceBenchmark;
+import com.nebula.benchmark.model.*;
 import com.nebula.benchmark.types.bool.BoolTypeBenchmark;
 import com.nebula.benchmark.types.constant.ConstantTypeBenchmark;
 import com.nebula.benchmark.types.date.DateAmongTypeBenchmark;
@@ -35,6 +39,18 @@ class NebulaBenchmark {
 		benchmarkClasses.add(DateAmongTypeBenchmark.class);
 		benchmarkClasses.add(StringTypeBenchmark.class);
 		benchmarkClasses.add(TextTypeBenchmark.class);
+
+		benchmarkClasses.add(EntityWith1FieldBenchmark.class);
+		benchmarkClasses.add(EntityWith2FieldBenchmark.class);
+		benchmarkClasses.add(EntityWith10FieldBenchmark.class);
+		benchmarkClasses.add(EntityWith20FieldBenchmark.class);
+		benchmarkClasses.add(EntityWith50FieldBenchmark.class);
+		benchmarkClasses.add(EntityWith100FieldBenchmark.class);
+
+
+		benchmarkClasses.add(RandomBenchmarkBenchmark.class);
+		benchmarkClasses.add(RandomUniquekBenchmark.class);
+		benchmarkClasses.add(SequenceBenchmark.class);
 	}
 
 	public static void main(String[] args) {

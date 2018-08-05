@@ -1,0 +1,518 @@
+# JMH version: 1.19
+# VM version: JDK 1.8.0_161, VM 25.161-b12
+# VM invoker: C:\Program Files\Java\jdk1.8.0_161\jre\bin\java.exe
+# VM options: -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n
+# Warmup: 1 iterations, 1 s each
+# Measurement: 3 iterations, 3 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.nebula.benchmark.generator.RandomBenchmarkBenchmark.benchmarkType
+
+# Run progress: 0,00% complete, ETA 00:03:10
+# Fork: 1 of 1
+Listening for transport dt_socket at address: 8787
+# Warmup Iteration   1: 9690,669 ops/s
+Iteration   1: 44690,599 ops/s
+Iteration   2: 46156,747 ops/s
+Iteration   3: 42672,708 ops/s
+
+
+Result "com.nebula.benchmark.generator.RandomBenchmarkBenchmark.benchmarkType":
+  44506,685 ±(99.9%) 31913,481 ops/s [Average]
+  (min, avg, max) = (42672,708, 44506,685, 46156,747), stdev = 1749,286
+  CI (99.9%): [12593,204, 76420,166] (assumes normal distribution)
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_161, VM 25.161-b12
+# VM invoker: C:\Program Files\Java\jdk1.8.0_161\jre\bin\java.exe
+# VM options: -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n
+# Warmup: 1 iterations, 1 s each
+# Measurement: 3 iterations, 3 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.nebula.benchmark.generator.RandomUniquekBenchmark.benchmarkType
+
+# Run progress: 5,26% complete, ETA 00:04:03
+# Fork: 1 of 1
+Listening for transport dt_socket at address: 8787
+# Warmup Iteration   1: 0,863 ops/s
+Iteration   1: 41443,118 ops/s
+Iteration   2: 48464,939 ops/s
+Iteration   3: 50337,882 ops/s
+
+
+Result "com.nebula.benchmark.generator.RandomUniquekBenchmark.benchmarkType":
+  46748,646 ±(99.9%) 85548,184 ops/s [Average]
+  (min, avg, max) = (41443,118, 46748,646, 50337,882), stdev = 4689,185
+  CI (99.9%): [≈ 0, 132296,830] (assumes normal distribution)
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_161, VM 25.161-b12
+# VM invoker: C:\Program Files\Java\jdk1.8.0_161\jre\bin\java.exe
+# VM options: -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n
+# Warmup: 1 iterations, 1 s each
+# Measurement: 3 iterations, 3 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.nebula.benchmark.generator.SequenceBenchmark.benchmarkType
+
+# Run progress: 10,53% complete, ETA 00:03:51
+# Fork: 1 of 1
+Listening for transport dt_socket at address: 8787
+# Warmup Iteration   1: 9622,010 ops/s
+Iteration   1: 47259,000 ops/s
+Iteration   2: 51625,404 ops/s
+Iteration   3: 49997,976 ops/s
+
+
+Result "com.nebula.benchmark.generator.SequenceBenchmark.benchmarkType":
+  49627,460 ±(99.9%) 40257,627 ops/s [Average]
+  (min, avg, max) = (47259,000, 49627,460, 51625,404), stdev = 2206,656
+  CI (99.9%): [9369,832, 89885,087] (assumes normal distribution)
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_161, VM 25.161-b12
+# VM invoker: C:\Program Files\Java\jdk1.8.0_161\jre\bin\java.exe
+# VM options: -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n
+# Warmup: 1 iterations, 1 s each
+# Measurement: 3 iterations, 3 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.nebula.benchmark.model.EntityWith100FieldBenchmark.benchmarkType
+
+# Run progress: 15,79% complete, ETA 00:03:37
+# Fork: 1 of 1
+Listening for transport dt_socket at address: 8787
+# Warmup Iteration   1: 0,701 ops/s
+Iteration   1: 14510,222 ops/s
+Iteration   2: 16612,166 ops/s
+Iteration   3: 16981,386 ops/s
+
+
+Result "com.nebula.benchmark.model.EntityWith100FieldBenchmark.benchmarkType":
+  16034,591 ±(99.9%) 24318,657 ops/s [Average]
+  (min, avg, max) = (14510,222, 16034,591, 16981,386), stdev = 1332,988
+  CI (99.9%): [≈ 0, 40353,248] (assumes normal distribution)
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_161, VM 25.161-b12
+# VM invoker: C:\Program Files\Java\jdk1.8.0_161\jre\bin\java.exe
+# VM options: -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n
+# Warmup: 1 iterations, 1 s each
+# Measurement: 3 iterations, 3 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.nebula.benchmark.model.EntityWith10FieldBenchmark.benchmarkType
+
+# Run progress: 21,05% complete, ETA 00:03:25
+# Fork: 1 of 1
+Listening for transport dt_socket at address: 8787
+# Warmup Iteration   1: 26,914 ops/s
+Iteration   1: 32108,509 ops/s
+Iteration   2: 34434,251 ops/s
+Iteration   3: 35390,005 ops/s
+
+
+Result "com.nebula.benchmark.model.EntityWith10FieldBenchmark.benchmarkType":
+  33977,588 ±(99.9%) 30790,623 ops/s [Average]
+  (min, avg, max) = (32108,509, 33977,588, 35390,005), stdev = 1687,738
+  CI (99.9%): [3186,966, 64768,211] (assumes normal distribution)
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_161, VM 25.161-b12
+# VM invoker: C:\Program Files\Java\jdk1.8.0_161\jre\bin\java.exe
+# VM options: -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n
+# Warmup: 1 iterations, 1 s each
+# Measurement: 3 iterations, 3 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.nebula.benchmark.model.EntityWith1FieldBenchmark.benchmarkType
+
+# Run progress: 26,32% complete, ETA 00:03:11
+# Fork: 1 of 1
+Listening for transport dt_socket at address: 8787
+# Warmup Iteration   1: 831,945 ops/s
+Iteration   1: 39545,623 ops/s
+Iteration   2: 48053,849 ops/s
+Iteration   3: 45703,707 ops/s
+
+
+Result "com.nebula.benchmark.model.EntityWith1FieldBenchmark.benchmarkType":
+  44434,393 ±(99.9%) 80160,029 ops/s [Average]
+  (min, avg, max) = (39545,623, 44434,393, 48053,849), stdev = 4393,842
+  CI (99.9%): [≈ 0, 124594,422] (assumes normal distribution)
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_161, VM 25.161-b12
+# VM invoker: C:\Program Files\Java\jdk1.8.0_161\jre\bin\java.exe
+# VM options: -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n
+# Warmup: 1 iterations, 1 s each
+# Measurement: 3 iterations, 3 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.nebula.benchmark.model.EntityWith20FieldBenchmark.benchmarkType
+
+# Run progress: 31,58% complete, ETA 00:02:57
+# Fork: 1 of 1
+Listening for transport dt_socket at address: 8787
+# Warmup Iteration   1: 0,765 ops/s
+Iteration   1: 27794,916 ops/s
+Iteration   2: 28917,006 ops/s
+Iteration   3: 28566,221 ops/s
+
+
+Result "com.nebula.benchmark.model.EntityWith20FieldBenchmark.benchmarkType":
+  28426,048 ±(99.9%) 10472,404 ops/s [Average]
+  (min, avg, max) = (27794,916, 28426,048, 28917,006), stdev = 574,028
+  CI (99.9%): [17953,643, 38898,452] (assumes normal distribution)
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_161, VM 25.161-b12
+# VM invoker: C:\Program Files\Java\jdk1.8.0_161\jre\bin\java.exe
+# VM options: -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n
+# Warmup: 1 iterations, 1 s each
+# Measurement: 3 iterations, 3 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.nebula.benchmark.model.EntityWith2FieldBenchmark.benchmarkType
+
+# Run progress: 36,84% complete, ETA 00:02:44
+# Fork: 1 of 1
+Listening for transport dt_socket at address: 8787
+# Warmup Iteration   1: 0,965 ops/s
+Iteration   1: 38057,579 ops/s
+Iteration   2: 43150,496 ops/s
+Iteration   3: 45628,997 ops/s
+
+
+Result "com.nebula.benchmark.model.EntityWith2FieldBenchmark.benchmarkType":
+  42279,024 ±(99.9%) 70424,524 ops/s [Average]
+  (min, avg, max) = (38057,579, 42279,024, 45628,997), stdev = 3860,206
+  CI (99.9%): [≈ 0, 112703,548] (assumes normal distribution)
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_161, VM 25.161-b12
+# VM invoker: C:\Program Files\Java\jdk1.8.0_161\jre\bin\java.exe
+# VM options: -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n
+# Warmup: 1 iterations, 1 s each
+# Measurement: 3 iterations, 3 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.nebula.benchmark.model.EntityWith50FieldBenchmark.benchmarkType
+
+# Run progress: 42,11% complete, ETA 00:02:30
+# Fork: 1 of 1
+Listening for transport dt_socket at address: 8787
+# Warmup Iteration   1: 0,507 ops/s
+Iteration   1: 7913,879 ops/s
+Iteration   2: 6631,688 ops/s
+Iteration   3: 8410,563 ops/s
+
+
+Result "com.nebula.benchmark.model.EntityWith50FieldBenchmark.benchmarkType":
+  7652,043 ±(99.9%) 16745,687 ops/s [Average]
+  (min, avg, max) = (6631,688, 7652,043, 8410,563), stdev = 917,888
+  CI (99.9%): [≈ 0, 24397,730] (assumes normal distribution)
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_161, VM 25.161-b12
+# VM invoker: C:\Program Files\Java\jdk1.8.0_161\jre\bin\java.exe
+# VM options: -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n
+# Warmup: 1 iterations, 1 s each
+# Measurement: 3 iterations, 3 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.nebula.benchmark.types.bool.BoolTypeBenchmark.benchmarkType
+
+# Run progress: 47,37% complete, ETA 00:02:17
+# Fork: 1 of 1
+Listening for transport dt_socket at address: 8787
+# Warmup Iteration   1: 1538699,161 ops/s
+Iteration   1: 2343876,309 ops/s
+Iteration   2: 2370200,679 ops/s
+Iteration   3: 2352595,276 ops/s
+
+
+Result "com.nebula.benchmark.types.bool.BoolTypeBenchmark.benchmarkType":
+  2355557,421 ±(99.9%) 244645,417 ops/s [Average]
+  (min, avg, max) = (2343876,309, 2355557,421, 2370200,679), stdev = 13409,841
+  CI (99.9%): [2110912,005, 2600202,838] (assumes normal distribution)
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_161, VM 25.161-b12
+# VM invoker: C:\Program Files\Java\jdk1.8.0_161\jre\bin\java.exe
+# VM options: -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n
+# Warmup: 1 iterations, 1 s each
+# Measurement: 3 iterations, 3 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.nebula.benchmark.types.constant.ConstantTypeBenchmark.benchmarkType
+
+# Run progress: 52,63% complete, ETA 00:02:03
+# Fork: 1 of 1
+Listening for transport dt_socket at address: 8787
+# Warmup Iteration   1: 1668234,764 ops/s
+Iteration   1: 2394941,795 ops/s
+Iteration   2: 2374628,411 ops/s
+Iteration   3: 2304091,436 ops/s
+
+
+Result "com.nebula.benchmark.types.constant.ConstantTypeBenchmark.benchmarkType":
+  2357887,214 ±(99.9%) 869911,447 ops/s [Average]
+  (min, avg, max) = (2304091,436, 2357887,214, 2394941,795), stdev = 47682,782
+  CI (99.9%): [1487975,767, 3227798,660] (assumes normal distribution)
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_161, VM 25.161-b12
+# VM invoker: C:\Program Files\Java\jdk1.8.0_161\jre\bin\java.exe
+# VM options: -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n
+# Warmup: 1 iterations, 1 s each
+# Measurement: 3 iterations, 3 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.nebula.benchmark.types.date.DateAmongTypeBenchmark.benchmarkType
+
+# Run progress: 57,89% complete, ETA 00:01:49
+# Fork: 1 of 1
+Listening for transport dt_socket at address: 8787
+# Warmup Iteration   1: 1111360,921 ops/s
+Iteration   1: 1942770,452 ops/s
+Iteration   2: 1925559,512 ops/s
+Iteration   3: 1917949,823 ops/s
+
+
+Result "com.nebula.benchmark.types.date.DateAmongTypeBenchmark.benchmarkType":
+  1928759,929 ±(99.9%) 231988,075 ops/s [Average]
+  (min, avg, max) = (1917949,823, 1928759,929, 1942770,452), stdev = 12716,049
+  CI (99.9%): [1696771,854, 2160748,004] (assumes normal distribution)
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_161, VM 25.161-b12
+# VM invoker: C:\Program Files\Java\jdk1.8.0_161\jre\bin\java.exe
+# VM options: -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n
+# Warmup: 1 iterations, 1 s each
+# Measurement: 3 iterations, 3 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.nebula.benchmark.types.date.DateRangeTypeBenchmark.benchmarkType
+
+# Run progress: 63,16% complete, ETA 00:01:35
+# Fork: 1 of 1
+Listening for transport dt_socket at address: 8787
+# Warmup Iteration   1: 41285,826 ops/s
+Iteration   1: 215264,077 ops/s
+Iteration   2: 214522,540 ops/s
+Iteration   3: 220568,529 ops/s
+
+
+Result "com.nebula.benchmark.types.date.DateRangeTypeBenchmark.benchmarkType":
+  216785,049 ±(99.9%) 60158,689 ops/s [Average]
+  (min, avg, max) = (214522,540, 216785,049, 220568,529), stdev = 3297,501
+  CI (99.9%): [156626,360, 276943,738] (assumes normal distribution)
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_161, VM 25.161-b12
+# VM invoker: C:\Program Files\Java\jdk1.8.0_161\jre\bin\java.exe
+# VM options: -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n
+# Warmup: 1 iterations, 1 s each
+# Measurement: 3 iterations, 3 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.nebula.benchmark.types.list.ListTypeAmongItemsBenchmark.benchmarkType
+
+# Run progress: 68,42% complete, ETA 00:01:22
+# Fork: 1 of 1
+Listening for transport dt_socket at address: 8787
+# Warmup Iteration   1: 216583,946 ops/s
+Iteration   1: 452067,222 ops/s
+Iteration   2: 461002,362 ops/s
+Iteration   3: 463183,381 ops/s
+
+
+Result "com.nebula.benchmark.types.list.ListTypeAmongItemsBenchmark.benchmarkType":
+  458750,988 ±(99.9%) 107458,094 ops/s [Average]
+  (min, avg, max) = (452067,222, 458750,988, 463183,381), stdev = 5890,141
+  CI (99.9%): [351292,894, 566209,083] (assumes normal distribution)
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_161, VM 25.161-b12
+# VM invoker: C:\Program Files\Java\jdk1.8.0_161\jre\bin\java.exe
+# VM options: -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n
+# Warmup: 1 iterations, 1 s each
+# Measurement: 3 iterations, 3 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.nebula.benchmark.types.list.ListTypeOfTypeBenchmark.benchmarkType
+
+# Run progress: 73,68% complete, ETA 00:01:08
+# Fork: 1 of 1
+Listening for transport dt_socket at address: 8787
+# Warmup Iteration   1: 227396,347 ops/s
+Iteration   1: 453246,669 ops/s
+Iteration   2: 455376,521 ops/s
+Iteration   3: 460920,685 ops/s
+
+
+Result "com.nebula.benchmark.types.list.ListTypeOfTypeBenchmark.benchmarkType":
+  456514,625 ±(99.9%) 72273,907 ops/s [Average]
+  (min, avg, max) = (453246,669, 456514,625, 460920,685), stdev = 3961,577
+  CI (99.9%): [384240,718, 528788,531] (assumes normal distribution)
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_161, VM 25.161-b12
+# VM invoker: C:\Program Files\Java\jdk1.8.0_161\jre\bin\java.exe
+# VM options: -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n
+# Warmup: 1 iterations, 1 s each
+# Measurement: 3 iterations, 3 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.nebula.benchmark.types.number.NumberAmongTypeBenchmark.benchmarkType
+
+# Run progress: 78,95% complete, ETA 00:00:54
+# Fork: 1 of 1
+Listening for transport dt_socket at address: 8787
+# Warmup Iteration   1: 1161073,815 ops/s
+Iteration   1: 2005546,747 ops/s
+Iteration   2: 1924966,359 ops/s
+Iteration   3: 1999646,320 ops/s
+
+
+Result "com.nebula.benchmark.types.number.NumberAmongTypeBenchmark.benchmarkType":
+  1976719,808 ±(99.9%) 819449,544 ops/s [Average]
+  (min, avg, max) = (1924966,359, 1976719,808, 2005546,747), stdev = 44916,795
+  CI (99.9%): [1157270,264, 2796169,353] (assumes normal distribution)
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_161, VM 25.161-b12
+# VM invoker: C:\Program Files\Java\jdk1.8.0_161\jre\bin\java.exe
+# VM options: -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n
+# Warmup: 1 iterations, 1 s each
+# Measurement: 3 iterations, 3 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.nebula.benchmark.types.number.NumberRangeTypeBenchmark.benchmarkType
+
+# Run progress: 84,21% complete, ETA 00:00:40
+# Fork: 1 of 1
+Listening for transport dt_socket at address: 8787
+# Warmup Iteration   1: 746629,167 ops/s
+Iteration   1: 1500782,220 ops/s
+Iteration   2: 1501696,627 ops/s
+Iteration   3: 1493005,775 ops/s
+
+
+Result "com.nebula.benchmark.types.number.NumberRangeTypeBenchmark.benchmarkType":
+  1498494,874 ±(99.9%) 87125,360 ops/s [Average]
+  (min, avg, max) = (1493005,775, 1498494,874, 1501696,627), stdev = 4775,635
+  CI (99.9%): [1411369,514, 1585620,234] (assumes normal distribution)
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_161, VM 25.161-b12
+# VM invoker: C:\Program Files\Java\jdk1.8.0_161\jre\bin\java.exe
+# VM options: -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n
+# Warmup: 1 iterations, 1 s each
+# Measurement: 3 iterations, 3 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.nebula.benchmark.types.string.StringTypeBenchmark.benchmarkType
+
+# Run progress: 89,47% complete, ETA 00:00:27
+# Fork: 1 of 1
+Listening for transport dt_socket at address: 8787
+# Warmup Iteration   1: 223027,774 ops/s
+Iteration   1: 373446,120 ops/s
+Iteration   2: 372430,737 ops/s
+Iteration   3: 332968,466 ops/s
+
+
+Result "com.nebula.benchmark.types.string.StringTypeBenchmark.benchmarkType":
+  359615,107 ±(99.9%) 421106,209 ops/s [Average]
+  (min, avg, max) = (332968,466, 359615,107, 373446,120), stdev = 23082,252
+  CI (99.9%): [≈ 0, 780721,316] (assumes normal distribution)
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_161, VM 25.161-b12
+# VM invoker: C:\Program Files\Java\jdk1.8.0_161\jre\bin\java.exe
+# VM options: -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n
+# Warmup: 1 iterations, 1 s each
+# Measurement: 3 iterations, 3 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.nebula.benchmark.types.text.TextTypeBenchmark.benchmarkType
+
+# Run progress: 94,74% complete, ETA 00:00:13
+# Fork: 1 of 1
+Listening for transport dt_socket at address: 8787
+# Warmup Iteration   1: 370463,873 ops/s
+Iteration   1: 543579,971 ops/s
+Iteration   2: 593228,490 ops/s
+Iteration   3: 581689,289 ops/s
+
+
+Result "com.nebula.benchmark.types.text.TextTypeBenchmark.benchmarkType":
+  572832,583 ±(99.9%) 474012,077 ops/s [Average]
+  (min, avg, max) = (543579,971, 572832,583, 593228,490), stdev = 25982,201
+  CI (99.9%): [98820,507, 1046844,660] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:04:18
+
+Benchmark                                                    Mode  Cnt        Score        Error  Units
+c.n.b.generator.RandomBenchmarkBenchmark.benchmarkType      thrpt    3    44506,685 ±  31913,481  ops/s
+c.n.b.generator.RandomUniquekBenchmark.benchmarkType        thrpt    3    46748,646 ±  85548,184  ops/s
+c.n.b.generator.SequenceBenchmark.benchmarkType             thrpt    3    49627,460 ±  40257,627  ops/s
+c.n.b.model.EntityWith100FieldBenchmark.benchmarkType       thrpt    3    16034,591 ±  24318,657  ops/s
+c.n.b.model.EntityWith10FieldBenchmark.benchmarkType        thrpt    3    33977,588 ±  30790,623  ops/s
+c.n.b.model.EntityWith1FieldBenchmark.benchmarkType         thrpt    3    44434,393 ±  80160,029  ops/s
+c.n.b.model.EntityWith20FieldBenchmark.benchmarkType        thrpt    3    28426,048 ±  10472,404  ops/s
+c.n.b.model.EntityWith2FieldBenchmark.benchmarkType         thrpt    3    42279,024 ±  70424,524  ops/s
+c.n.b.model.EntityWith50FieldBenchmark.benchmarkType        thrpt    3     7652,043 ±  16745,687  ops/s
+c.n.b.types.bool.BoolTypeBenchmark.benchmarkType            thrpt    3  2355557,421 ± 244645,417  ops/s
+c.n.b.types.constant.ConstantTypeBenchmark.benchmarkType    thrpt    3  2357887,214 ± 869911,447  ops/s
+c.n.b.types.date.DateAmongTypeBenchmark.benchmarkType       thrpt    3  1928759,929 ± 231988,075  ops/s
+c.n.b.types.date.DateRangeTypeBenchmark.benchmarkType       thrpt    3   216785,049 ±  60158,689  ops/s
+c.n.b.types.list.ListTypeAmongItemsBenchmark.benchmarkType  thrpt    3   458750,988 ± 107458,094  ops/s
+c.n.b.types.list.ListTypeOfTypeBenchmark.benchmarkType      thrpt    3   456514,625 ±  72273,907  ops/s
+c.n.b.types.number.NumberAmongTypeBenchmark.benchmarkType   thrpt    3  1976719,808 ± 819449,544  ops/s
+c.n.b.types.number.NumberRangeTypeBenchmark.benchmarkType   thrpt    3  1498494,874 ±  87125,360  ops/s
+c.n.b.types.string.StringTypeBenchmark.benchmarkType        thrpt    3   359615,107 ± 421106,209  ops/s
+c.n.b.types.text.TextTypeBenchmark.benchmarkType            thrpt    3   572832,583 ± 474012,077  ops/s
+
+Benchmark result is saved to result.txt
