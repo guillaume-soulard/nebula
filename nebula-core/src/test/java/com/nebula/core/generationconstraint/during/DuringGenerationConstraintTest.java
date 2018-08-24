@@ -35,7 +35,7 @@ class DuringGenerationConstraintTest {
         AcceptationResult result = constraint.accept(null);
 
         // THEN
-        assertThat(result).isEqualTo(AcceptationResult.ACCEPTABLE);
+        assertThat(result).isEqualTo(AcceptationResult.ACCEPT);
     }
 
     @Test
@@ -64,6 +64,6 @@ class DuringGenerationConstraintTest {
         AcceptationResult result = constraint.accept(null);
 
         // THEN
-        assertThat(result).isEqualTo(AcceptationResult.ACCEPTABLE);
+        assertThat(result).isEqualTo(AcceptationResult.ACCEPT);
     }
 }

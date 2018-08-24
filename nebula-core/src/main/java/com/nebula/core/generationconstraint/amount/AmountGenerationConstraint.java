@@ -24,7 +24,7 @@ class AmountGenerationConstraint implements GenerationConstraint {
 
     @Override
     public AcceptationResult accept(GeneratedObject generatedObject) {
-        AcceptationResult acceptable = AcceptationResult.ACCEPTABLE;
+        AcceptationResult acceptable = AcceptationResult.ACCEPT;
 
         if (amountOfAlreadyGeneratedObjects.get() + 1 <= maxAmountOfObjectsToGenerate) {
             amountOfAlreadyGeneratedObjects.incrementAndGet();

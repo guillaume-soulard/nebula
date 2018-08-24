@@ -32,6 +32,6 @@ class CronGenerationConstraintTest {
         AcceptationResult result = constraint.accept(null);
 
         // THEN
-        assertThat(result).isEqualTo(AcceptationResult.ACCEPTABLE);
+        assertThat(result).isEqualTo(AcceptationResult.ACCEPT);
     }
 }

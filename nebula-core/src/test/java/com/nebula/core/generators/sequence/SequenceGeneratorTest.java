@@ -5,6 +5,8 @@ import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.Type;
 import org.junit.jupiter.api.Test;
 
+import java.util.Collections;
+
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -24,10 +26,10 @@ class SequenceGeneratorTest {
         when(context.getEntityIndex()).thenReturn(index);
 
         // WHEN
-        generator.generate(type);
+        generator.generate(Collections.emptyList(), type);
 
         // THEN
-        verify(type).generateObject(index);
+        verify(type).generateObject(Collections.emptyList(), index);
     }
 
     @Test
@@ -42,11 +44,11 @@ class SequenceGeneratorTest {
         when(context.getEntityIndex()).thenReturn(index);
 
         // WHEN
-        generator.generate(type);
-        generator.generate(type);
+        generator.generate(Collections.emptyList(), type);
+        generator.generate(Collections.emptyList(), type);
 
         // THEN
-        verify(type, times(2)).generateObject(index);
+        verify(type, times(2)).generateObject(Collections.emptyList(), index);
     }
 
     @Test
@@ -62,11 +64,11 @@ class SequenceGeneratorTest {
         when(context.getEntityIndex()).thenReturn(index);
 
         // WHEN
-        generator.generate(type);
-        generator.generate(type);
+        generator.generate(Collections.emptyList(), type);
+        generator.generate(Collections.emptyList(), type);
 
         // THEN
-        verify(type, times(2)).generateObject(index);
+        verify(type, times(2)).generateObject(Collections.emptyList(), index);
     }
 
     @Test
@@ -83,7 +85,7 @@ class SequenceGeneratorTest {
         when(context.getEntityIndex()).thenReturn(index);
 
         // WHEN
-        catchException(generator).generate(type);
+        catchException(generator).generate(Collections.emptyList(), type);
 
         // THEN
         assertThat((Exception) caughtException())
@@ -104,7 +106,7 @@ class SequenceGeneratorTest {
         when(context.getEntityIndex()).thenReturn(index);
 
         // WHEN
-        catchException(generator).generate(type);
+        catchException(generator).generate(Collections.emptyList(), type);
 
         // THEN
         assertThat((Exception) caughtException()).isNull();

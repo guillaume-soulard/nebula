@@ -14,9 +14,11 @@ import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -147,7 +149,7 @@ class ListTypeAmongItemsTest {
 		listType.init(context);
 
 		// WHEN
-		GeneratedObject result = listType.generateObject(0L);
+        GeneratedObject result = listType.generateObject(Collections.emptyList(), 0L);
 
 		// THEN
 		assertThat(result).isNotNull();
@@ -169,7 +171,7 @@ class ListTypeAmongItemsTest {
 		listType.init(context);
 
 		// WHEN
-		GeneratedObject result = listType.generateObject(0L);
+        GeneratedObject result = listType.generateObject(Collections.emptyList(), 0L);
 
 		// THEN
 		assertThat(result.getObject()).isInstanceOf(ArrayList.class);
@@ -191,7 +193,7 @@ class ListTypeAmongItemsTest {
 		listType.init(context);
 
 		// WHEN
-		GeneratedObject result = listType.generateObject(0L);
+        GeneratedObject result = listType.generateObject(Collections.emptyList(), 0L);
 
 		// THEN
 		assertThat(result.getObject()).asList().isEmpty();
@@ -213,7 +215,7 @@ class ListTypeAmongItemsTest {
 		listType.init(context);
 
 		// WHEN
-		GeneratedObject result = listType.generateObject(0L);
+        GeneratedObject result = listType.generateObject(Collections.emptyList(), 0L);
 
 		// THEN
 		assertThat(result.getObject()).asList().hasSize(1);
@@ -234,10 +236,10 @@ class ListTypeAmongItemsTest {
 		long entityIndex = 0L;
 		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex, 1, 10);
 		listType.init(context);
-		GeneratedObject resultAtindex0 = listType.generateObject(0L);
+        GeneratedObject resultAtindex0 = listType.generateObject(Collections.emptyList(), 0L);
 
 		// WHEN
-		GeneratedObject result = listType.generateObject(1L);
+        GeneratedObject result = listType.generateObject(Collections.emptyList(), 1L);
 
 		// THEN
 		assertThat(result.getObject()).asList().size().isNotEqualTo(((List<Object>) resultAtindex0.getObject()).size());
@@ -257,10 +259,10 @@ class ListTypeAmongItemsTest {
 		long entityIndex = 0L;
 		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex, 1, 10);
 		listType.init(context);
-		GeneratedObject resultAtindex0 = listType.generateObject(0L);
+        GeneratedObject resultAtindex0 = listType.generateObject(Collections.emptyList(), 0L);
 
 		// WHEN
-		GeneratedObject result = listType.generateObject(0L);
+        GeneratedObject result = listType.generateObject(Collections.emptyList(), 0L);
 
 		// THEN
 		assertThat(result.getObject()).asList().isEqualTo(resultAtindex0.getObject());
@@ -283,7 +285,7 @@ class ListTypeAmongItemsTest {
 		listType.init(context);
 
 		// WHEN
-		GeneratedObject result = listType.generateObject(0L);
+        GeneratedObject result = listType.generateObject(Collections.emptyList(), 0L);
 
 		// THEN
 		assertThat(result.getObject()).asList().hasSize(1).containsOnly(new GeneratedObject("test"));
@@ -305,7 +307,7 @@ class ListTypeAmongItemsTest {
 		listType.init(context);
 
 		// WHEN
-		GeneratedObject result = listType.generateObject(0L);
+        GeneratedObject result = listType.generateObject(Collections.emptyList(), 0L);
 
 		// THEN
 		assertThat(result.getObject()).asList().isEmpty();
@@ -331,10 +333,10 @@ class ListTypeAmongItemsTest {
 		GeneratedObject index0 = new GeneratedObject(BigDecimal.ZERO);
 		GeneratedObject index1 = new GeneratedObject(BigDecimal.ONE);
 		GeneratedObject index2 = new GeneratedObject(BIG_DECIMAL_TWO);
-		when(generator.generate(any(Type.class))).thenReturn(index0, index1, index2, index2, index1, index0);
+        when(generator.generate(eq(Collections.emptyList()), any(Type.class))).thenReturn(index0, index1, index2, index2, index1, index0);
 
 		// WHEN
-		GeneratedObject result = listType.generateObject(0L);
+        GeneratedObject result = listType.generateObject(Collections.emptyList(), 0L);
 
 		// THEN
 		assertThat(result.getObject()).asList().containsExactly(new GeneratedObject("test"),

@@ -1,9 +1,12 @@
 package com.nebula.core.types.string;
 
 import com.nebula.core.GeneratedObject;
+import com.nebula.core.GeneratedProperty;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.JavaType;
 import com.nebula.core.types.Type;
+
+import java.util.List;
 
 class StringType implements Type {
 
@@ -19,7 +22,7 @@ class StringType implements Type {
 	}
 
 	@Override
-	public GeneratedObject generateObject(Long objectIndex) {
+    public GeneratedObject generateObject(List<GeneratedProperty> generatedProperties, Long objectIndex) {
 		return new GeneratedObject(stringGenerator.generateString());
 	}
 

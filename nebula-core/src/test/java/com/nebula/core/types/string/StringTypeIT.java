@@ -10,6 +10,8 @@ import com.nebula.core.types.NebulaTypes;
 import org.joda.time.DateTime;
 import org.junit.jupiter.api.Test;
 
+import java.util.Collections;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 class StringTypeIT {
@@ -45,7 +47,7 @@ class StringTypeIT {
 
 		// WHEN
 		for (int i = 1; i <= 1000; i++) {
-			stringType.generateObject(0L);
+            stringType.generateObject(Collections.emptyList(), 0L);
 		}
 
 		// THEN

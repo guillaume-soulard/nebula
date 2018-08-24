@@ -5,6 +5,7 @@ import com.nebula.core.generationconstraint.cron.CronGenerationConstraintBuilder
 import com.nebula.core.generationconstraint.custom.CustomGenerationConstraintBuilder;
 import com.nebula.core.generationconstraint.during.DuringGenerationConstraintBuilder;
 import com.nebula.core.generationconstraint.every.EveryGenerationConstraintBuilder;
+import com.nebula.core.generationconstraint.script.ScriptGenerationConstraintBuilder;
 
 import java.util.concurrent.TimeUnit;
 
@@ -28,5 +29,9 @@ public final class NebulaConstraints {
 
     public static CronGenerationConstraintBuilder cron() {
         return new CronGenerationConstraintBuilder();
+    }
+
+    public static ScriptGenerationConstraintBuilder script(String script) {
+        return new ScriptGenerationConstraintBuilder(script);
     }
 }

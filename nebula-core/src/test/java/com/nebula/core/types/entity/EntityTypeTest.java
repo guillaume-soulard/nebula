@@ -5,6 +5,8 @@ import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
 import org.junit.jupiter.api.Test;
 
+import java.util.Collections;
+
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -40,7 +42,7 @@ class EntityTypeTest {
 		initEntityTypeWithEntityAmount(type, 1L);
 
 		// WHEN
-		GeneratedObject result = type.generateObject(0L);
+        GeneratedObject result = type.generateObject(Collections.emptyList(), 0L);
 
 		// THEN
 		assertThat(result).isNotNull();
@@ -53,7 +55,7 @@ class EntityTypeTest {
 		initEntityTypeWithEntityAmount(type, 1L);
 
 		// WHEN
-		GeneratedObject result = type.generateObject(0L);
+        GeneratedObject result = type.generateObject(Collections.emptyList(), 0L);
 
 		// THEN
 		assertThat(result).hasFieldOrPropertyWithValue("object", null).hasNoNullFieldsOrPropertiesExcept("object");
@@ -117,10 +119,10 @@ class EntityTypeTest {
 		EntityType entityType = new EntityType(ENTITY_NAME);
 		long index = 0L;
 		initEntityTypeWithEntityAmount(entityType, 1L);
-		GeneratedObject firstResult = entityType.generateObject(index);
+        GeneratedObject firstResult = entityType.generateObject(Collections.emptyList(), index);
 
 		// WHEN
-		GeneratedObject result = entityType.generateObject(index);
+        GeneratedObject result = entityType.generateObject(Collections.emptyList(), index);
 
 		// THEN
 		assertThat(result).isEqualTo(firstResult);
@@ -131,10 +133,10 @@ class EntityTypeTest {
 
 		EntityType entityType = new EntityType(ENTITY_NAME);
 		initEntityTypeWithEntityAmount(entityType, 2L);
-		GeneratedObject firstResult = entityType.generateObject(0L);
+        GeneratedObject firstResult = entityType.generateObject(Collections.emptyList(), 0L);
 
 		// WHEN
-		GeneratedObject result = entityType.generateObject(1L);
+        GeneratedObject result = entityType.generateObject(Collections.emptyList(), 1L);
 
 		// THEN
 		assertThat(result).isNotEqualTo(firstResult);
@@ -147,7 +149,7 @@ class EntityTypeTest {
 		initEntityTypeWithEntityAmount(entityType, 1L);
 
 		// WHEN
-		catchException(entityType).generateObject(-1L);
+        catchException(entityType).generateObject(Collections.emptyList(), -1L);
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
@@ -161,7 +163,7 @@ class EntityTypeTest {
 		initEntityTypeWithEntityAmount(entityType, 1L);
 
 		// WHEN
-		catchException(entityType).generateObject(1L);
+        catchException(entityType).generateObject(Collections.emptyList(), 1L);
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
@@ -175,7 +177,7 @@ class EntityTypeTest {
 		initEntityTypeWithEntityAmount(entityType, 1L);
 
 		// WHEN
-		catchException(entityType).generateObject(1L);
+        catchException(entityType).generateObject(Collections.emptyList(), 1L);
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)

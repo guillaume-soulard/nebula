@@ -39,7 +39,7 @@ class AmountGenerationConstraintTest {
         AcceptationResult result = constraint.accept(generatedObject);
 
         // THEN
-        assertThat(result).isEqualTo(AcceptationResult.ACCEPTABLE);
+        assertThat(result).isEqualTo(AcceptationResult.ACCEPT);
     }
 
     @Test
@@ -86,7 +86,7 @@ class AmountGenerationConstraintTest {
         AcceptationResult result = constraint.accept(generatedObject);
 
         // THEN
-        assertThat(result).isEqualTo(AcceptationResult.ACCEPTABLE);
+        assertThat(result).isEqualTo(AcceptationResult.ACCEPT);
     }
 
     @Test
@@ -103,7 +103,7 @@ class AmountGenerationConstraintTest {
         AcceptationResult result = constraint.accept(generatedObject);
 
         // THEN
-        assertThat(result).isEqualTo(AcceptationResult.ACCEPTABLE);
+        assertThat(result).isEqualTo(AcceptationResult.ACCEPT);
     }
 
     @Test

@@ -4,6 +4,8 @@ import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaException;
 import org.junit.jupiter.api.Test;
 
+import java.util.Collections;
+
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -43,7 +45,7 @@ class BooleanTypeTest {
 		BooleanType booleanType = new BooleanType();
 
 		// WHEN
-		GeneratedObject result = booleanType.generateObject(0L);
+        GeneratedObject result = booleanType.generateObject(Collections.emptyList(), 0L);
 
 		// THEN
 		assertThat(result).isNotNull();
@@ -56,7 +58,7 @@ class BooleanTypeTest {
 		BooleanType booleanType = new BooleanType();
 
 		// WHEN
-		GeneratedObject result = booleanType.generateObject(0L);
+        GeneratedObject result = booleanType.generateObject(Collections.emptyList(), 0L);
 
 		// THEN
 		assertThat(result.getObject()).isEqualTo(Boolean.FALSE);
@@ -69,7 +71,7 @@ class BooleanTypeTest {
 		BooleanType booleanType = new BooleanType();
 
 		// WHEN
-		GeneratedObject result = booleanType.generateObject(1L);
+        GeneratedObject result = booleanType.generateObject(Collections.emptyList(), 1L);
 
 		// THEN
 		assertThat(result.getObject()).isEqualTo(Boolean.TRUE);
@@ -82,7 +84,7 @@ class BooleanTypeTest {
 		BooleanType booleanType = new BooleanType();
 
 		// WHEN
-		catchException(booleanType).generateObject(-1L);
+        catchException(booleanType).generateObject(Collections.emptyList(), -1L);
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
@@ -96,7 +98,7 @@ class BooleanTypeTest {
 		BooleanType booleanType = new BooleanType();
 
 		// WHEN
-		catchException(booleanType).generateObject(2L);
+        catchException(booleanType).generateObject(Collections.emptyList(), 2L);
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
@@ -110,7 +112,7 @@ class BooleanTypeTest {
 		BooleanType booleanType = new BooleanType();
 
 		// WHEN
-		catchException(booleanType).generateObject(null);
+        catchException(booleanType).generateObject(Collections.emptyList(), null);
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)

@@ -6,6 +6,7 @@ import com.nebula.core.types.Range;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
+import java.util.Collections;
 
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
@@ -22,7 +23,7 @@ class NumberRangeTypeTest {
 		NumberRangeType doubleType = new NumberRangeType(range, precision);
 
 		// WHEN
-		GeneratedObject result = doubleType.generateObject(5L);
+        GeneratedObject result = doubleType.generateObject(Collections.emptyList(), 5L);
 
 		// THEN
 		assertThat(result.getObject()).isEqualTo(BigDecimal.valueOf(0.5));
@@ -37,7 +38,7 @@ class NumberRangeTypeTest {
 		NumberRangeType doubleType = new NumberRangeType(range, precision);
 
 		// WHEN
-		GeneratedObject result = doubleType.generateObject(5L);
+        GeneratedObject result = doubleType.generateObject(Collections.emptyList(), 5L);
 
 		// THEN
 		assertThat(result.getObject()).isEqualTo(BigDecimal.valueOf(0.05));
@@ -52,7 +53,7 @@ class NumberRangeTypeTest {
 		NumberRangeType doubleType = new NumberRangeType(range, precision);
 
 		// WHEN
-		catchException(doubleType).generateObject(100L);
+        catchException(doubleType).generateObject(Collections.emptyList(), 100L);
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
@@ -143,7 +144,7 @@ class NumberRangeTypeTest {
 		NumberRangeType doubleType = new NumberRangeType(range, precision);
 
 		// WHEN
-		catchException(doubleType).generateObject(-1L);
+        catchException(doubleType).generateObject(Collections.emptyList(), -1L);
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)

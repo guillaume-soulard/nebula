@@ -7,6 +7,8 @@ import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
 import org.junit.jupiter.api.Test;
 
+import java.util.Collections;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
@@ -22,7 +24,7 @@ class StringTypeTest {
 		stringType.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex, 1, 10));
 
 		// WHEN
-		GeneratedObject result = stringType.generateObject(0L);
+        GeneratedObject result = stringType.generateObject(Collections.emptyList(), 0L);
 
 		// THEN
 		assertThat(result).isNotNull();
@@ -38,7 +40,7 @@ class StringTypeTest {
 		stringType.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex, 1, 10));
 
 		// WHEN
-		GeneratedObject result = stringType.generateObject(0L);
+        GeneratedObject result = stringType.generateObject(Collections.emptyList(), 0L);
 
 		// THEN
 		assertThat(result.getObject()).isNotNull();
@@ -53,7 +55,7 @@ class StringTypeTest {
 		stringType.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex, 1, 10));
 
 		// WHEN
-		GeneratedObject result = stringType.generateObject(0L);
+        GeneratedObject result = stringType.generateObject(Collections.emptyList(), 0L);
 
 		// THEN
 		assertThat(result.getObject()).isInstanceOf(String.class).isEqualTo("test");
@@ -66,10 +68,10 @@ class StringTypeTest {
 		StringType stringType = new StringType(newStringGenerator(null));
 		long entityIndex = 0L;
 		stringType.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex, 1, 10));
-		GeneratedObject resultIndex0 = stringType.generateObject(0L);
+        GeneratedObject resultIndex0 = stringType.generateObject(Collections.emptyList(), 0L);
 
 		// WHEN
-		GeneratedObject resultIndex1 = stringType.generateObject(1L);
+        GeneratedObject resultIndex1 = stringType.generateObject(Collections.emptyList(), 1L);
 
 		// THEN
 		assertThat(resultIndex0.getObject()).isNotEqualTo(resultIndex1.getObject());
@@ -83,7 +85,7 @@ class StringTypeTest {
 		StringType stringType = new StringType(stringGenerator);
 
 		// WHEN
-		stringType.generateObject(1L);
+        stringType.generateObject(Collections.emptyList(), 1L);
 
 		// THEN
 		verify(stringGenerator, times(1)).generateString();

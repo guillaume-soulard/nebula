@@ -11,6 +11,7 @@ import com.nebula.core.types.Type;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
+import java.util.Collections;
 
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
@@ -62,7 +63,7 @@ class EntityTest {
 		Entity entity = ModelBuilder.newEmptyModel().build().newEntity("test", 1);
 
 		// WHEN
-		GeneratedObject result = entity.generateObject(1L);
+        GeneratedObject result = entity.generateObject(Collections.emptyList(), 1L);
 
 		// THEN
 		assertThat(result).isNotNull();
@@ -78,7 +79,7 @@ class EntityTest {
 		entity.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex, 1, 10));
 
 		// WHEN
-		GeneratedObject result = entity.generateObject(1L);
+        GeneratedObject result = entity.generateObject(Collections.emptyList(), 1L);
 
 		// THEN
 		assertThat(result.getGeneratedProperties()).hasSize(1);
@@ -96,7 +97,7 @@ class EntityTest {
 		entity.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex, 1, 10));
 
 		// WHEN
-		GeneratedObject result = entity.generateObject(1L);
+        GeneratedObject result = entity.generateObject(Collections.emptyList(), 1L);
 
 		// THEN
 		assertThat(result.getGeneratedProperties()).hasSize(1);
@@ -119,7 +120,7 @@ class EntityTest {
 		entity.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex, 1, 10));
 
 		// WHEN
-		GeneratedObject result = entity.generateObject(1L);
+        GeneratedObject result = entity.generateObject(Collections.emptyList(), 1L);
 
 		// THEN
 		assertThat(result.getGeneratedProperties()).hasSize(2);

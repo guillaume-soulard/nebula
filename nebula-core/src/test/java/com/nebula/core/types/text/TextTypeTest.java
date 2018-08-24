@@ -12,6 +12,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.Collections;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 
@@ -39,37 +41,11 @@ class TextTypeTest {
         // GIVEN
 
         // WHEN
-        GeneratedObject result = textType.generateObject(0L);
+        GeneratedObject result = textType.generateObject(Collections.emptyList(), 0L);
 
         // THEN
         assertThat(result).isNotNull();
     }
-
-//    @Test
-//    void generateObject_should_call_generate_on_TextGenerator() {
-//
-//        // GIVEN
-//
-//        // WHEN
-//        textType.generateObject(0L);
-//
-//        // THEN
-//        verify(textGeneratorModel).getText(any());
-//    }
-
-//    @Test
-//    void generateObject_should_return_TextGenerator_generate_return() {
-//
-//        // GIVEN
-//        String expectedString = "test";
-//        when(textGeneratorModel.getText(any())).thenReturn(expectedString);
-//
-//        // WHEN
-//        GeneratedObject result = textType.generateObject(0L);
-//
-//        // THEN
-//        assertThat(result.getObject()).isEqualTo(expectedString);
-//    }
 
     @Test
     void getMinRange_should_return_0() {

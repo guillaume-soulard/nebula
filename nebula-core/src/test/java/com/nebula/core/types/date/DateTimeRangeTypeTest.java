@@ -8,6 +8,8 @@ import org.joda.time.DateTime;
 import org.joda.time.ReadableInstant;
 import org.junit.jupiter.api.Test;
 
+import java.util.Collections;
+
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
 import static com.nebula.core.types.date.DateTimeAdderConsumer.isInstanceOf;
@@ -24,7 +26,7 @@ class DateTimeRangeTypeTest {
 		DateTimeRangeType dateType = new DateTimeRangeType(range, DateTimeTypeIntervals.DAY);
 
 		// WHEN
-		GeneratedObject result = dateType.generateObject(0L);
+        GeneratedObject result = dateType.generateObject(Collections.emptyList(), 0L);
 
 		// THEN
 		assertThat(result).isNotNull();
@@ -39,7 +41,7 @@ class DateTimeRangeTypeTest {
 		DateTimeRangeType dateType = new DateTimeRangeType(range, DateTimeTypeIntervals.DAY);
 
 		// WHEN
-		GeneratedObject generatedObject = dateType.generateObject(0L);
+        GeneratedObject generatedObject = dateType.generateObject(Collections.emptyList(), 0L);
 
 		// THEN
 		assertThat(generatedObject).hasFieldOrPropertyWithValue("object", dateTime);
@@ -55,7 +57,7 @@ class DateTimeRangeTypeTest {
 		DateTimeRangeType dateType = new DateTimeRangeType(range, DateTimeTypeIntervals.DAY);
 
 		// WHEN
-		GeneratedObject generatedObject = dateType.generateObject(1L);
+        GeneratedObject generatedObject = dateType.generateObject(Collections.emptyList(), 1L);
 
 		// THEN
 		DateTime expectedDateTime = new DateTime(2017, 1, 2, 0, 0);
@@ -89,7 +91,7 @@ class DateTimeRangeTypeTest {
 		DateTimeRangeType dateType = new DateTimeRangeType(range, interval);
 
 		// WHEN
-		GeneratedObject generatedObject = dateType.generateObject(9L);
+        GeneratedObject generatedObject = dateType.generateObject(Collections.emptyList(), 9L);
 
 		// THEN
 		DateTime expectedDateTime = new DateTime(2017, 1, 1, 9, 0);
@@ -134,7 +136,7 @@ class DateTimeRangeTypeTest {
 		DateTimeRangeType dateType = new DateTimeRangeType(range, interval);
 
 		// WHEN
-		catchException(dateType).generateObject(1000L);
+        catchException(dateType).generateObject(Collections.emptyList(), 1000L);
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
@@ -152,7 +154,7 @@ class DateTimeRangeTypeTest {
 		DateTimeRangeType dateType = new DateTimeRangeType(range, interval);
 
 		// WHEN
-		catchException(dateType).generateObject(-1L);
+        catchException(dateType).generateObject(Collections.emptyList(), -1L);
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)

@@ -1,11 +1,14 @@
 package com.nebula.core.types.text;
 
 import com.nebula.core.GeneratedObject;
+import com.nebula.core.GeneratedProperty;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.JavaType;
 import com.nebula.core.types.Type;
 import com.nebula.core.types.text.dictionary.NebulaDictionary;
+
+import java.util.List;
 
 public class TextType implements Type {
 
@@ -25,7 +28,7 @@ public class TextType implements Type {
     }
 
     @Override
-    public GeneratedObject generateObject(Long objectIndex) {
+    public GeneratedObject generateObject(List<GeneratedProperty> generatedProperties, Long objectIndex) {
         NebulaRandom nebulaRandom = new NebulaRandom(context.getNebulaRandom().getSeed() + objectIndex);
         return new GeneratedObject(dictionary.getText(nebulaRandom, textGenerationConfiguration));
     }

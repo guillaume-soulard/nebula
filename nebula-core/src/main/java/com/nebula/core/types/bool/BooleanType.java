@@ -1,10 +1,13 @@
 package com.nebula.core.types.bool;
 
 import com.nebula.core.GeneratedObject;
+import com.nebula.core.GeneratedProperty;
 import com.nebula.core.NebulaException;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.JavaType;
 import com.nebula.core.types.Type;
+
+import java.util.List;
 
 class BooleanType implements Type {
 
@@ -18,7 +21,7 @@ class BooleanType implements Type {
 	}
 
 	@Override
-	public GeneratedObject generateObject(Long objectIndex) {
+    public GeneratedObject generateObject(List<GeneratedProperty> generatedProperties, Long objectIndex) {
 		if (getMinRange().equals(objectIndex)) {
 			return new GeneratedObject(Boolean.FALSE);
 		} else if (getMaxRange().equals(objectIndex)) {

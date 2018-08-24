@@ -9,6 +9,7 @@ import com.nebula.core.types.Type;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -31,7 +32,7 @@ class AmongItemsTypeTest {
         picker.init(getContext());
 
         // WHEN
-        GeneratedObject result = picker.generateObject(0L);
+        GeneratedObject result = picker.generateObject(Collections.emptyList(), 0L);
 
         // THEN
         assertThat(result).isEqualTo(item1);

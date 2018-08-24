@@ -6,7 +6,6 @@ import com.nebula.core.types.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static com.nebula.core.generators.NebulaGenerators.random;
 
@@ -73,10 +72,15 @@ public class Entity implements Type {
 		return seed + propertyHashCode;
 	}
 
-	public GeneratedObject generateObject(Long objectIndex) {
-		List<GeneratedProperty> generatedProperties = properties.stream().map(property -> new GeneratedProperty(property.getName(),
-                property.getGenerator().generate(property.getType()),
-                property.getType())).collect(Collectors.toList());
+    public GeneratedObject generateObject(List<GeneratedProperty> generatedProps, Long objectIndex) {
+        List<GeneratedProperty> generatedProperties = new ArrayList<>();
+        for (Property property : properties) {
+            GeneratedProperty generatedProperty = new GeneratedProperty(property.getName(),
+                    property.getGenerator().generate(generatedProperties, property.getType()),
+                    property.getType());
+            generatedProperties.add(generatedProperty);
+        }
+
         return new GeneratedObject(generatedProperties);
 	}
 

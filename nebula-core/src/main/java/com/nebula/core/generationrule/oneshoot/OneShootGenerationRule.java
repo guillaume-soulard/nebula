@@ -86,12 +86,12 @@ class OneShootGenerationRule implements GenerationRule {
     }
 
     private void generateObjects() {
-        AcceptationResult acceptationResult = AcceptationResult.ACCEPTABLE;
+        AcceptationResult acceptationResult = AcceptationResult.ACCEPT;
         while (generatedObjectSource.hasNext()
                 && !AcceptationResult.STOP_GENERATION.equals(acceptationResult)) {
             GeneratedObject generatedObject = generatedObjectSource.next();
             acceptationResult = getAcceptationResult(generatedObject);
-            if (AcceptationResult.ACCEPTABLE.equals(acceptationResult)) {
+            if (AcceptationResult.ACCEPT.equals(acceptationResult)) {
                 writeToOutputs(generatedObject, formatterToUse.formatGeneratedObject(generatedObject));
                 writeToOutputs(null, System.lineSeparator());
             }
@@ -110,11 +110,11 @@ class OneShootGenerationRule implements GenerationRule {
     }
 
     private AcceptationResult getAcceptationResult(GeneratedObject generatedObject) {
-        AcceptationResult acceptable = AcceptationResult.ACCEPTABLE;
+        AcceptationResult acceptable = AcceptationResult.ACCEPT;
         for (GenerationConstraint generationConstraint : generationConstraints) {
             AcceptationResult generatedObjectAcceptationResult = generationConstraint.accept(generatedObject);
-            if (AcceptationResult.NON_ACCEPTABLE.equals(generatedObjectAcceptationResult)) {
-                acceptable = AcceptationResult.NON_ACCEPTABLE;
+            if (AcceptationResult.REJECT.equals(generatedObjectAcceptationResult)) {
+                acceptable = AcceptationResult.REJECT;
             }
 
             if (AcceptationResult.STOP_GENERATION.equals(generatedObjectAcceptationResult)) {

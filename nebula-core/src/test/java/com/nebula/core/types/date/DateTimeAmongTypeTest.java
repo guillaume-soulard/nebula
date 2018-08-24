@@ -26,7 +26,7 @@ class DateTimeAmongTypeTest {
 		DateTimeAmongType dateType = new DateTimeAmongType(oneDay());
 
 		// WHEN
-		GeneratedObject result = dateType.generateObject(0L);
+        GeneratedObject result = dateType.generateObject(Collections.emptyList(), 0L);
 
 		// THEN
 		assertThat(result).isNotNull();
@@ -39,7 +39,7 @@ class DateTimeAmongTypeTest {
 		DateTimeAmongType dateType = new DateTimeAmongType(oneDay());
 
 		// WHEN
-		GeneratedObject result = dateType.generateObject(0L);
+        GeneratedObject result = dateType.generateObject(Collections.emptyList(), 0L);
 
 		// THEN
 		assertThat(result.getObject()).isEqualTo(day1);
@@ -52,7 +52,7 @@ class DateTimeAmongTypeTest {
 		DateTimeAmongType dateType = new DateTimeAmongType(oneDay());
 
 		// WHEN
-		catchException(dateType).generateObject(10L);
+        catchException(dateType).generateObject(Collections.emptyList(), 10L);
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)

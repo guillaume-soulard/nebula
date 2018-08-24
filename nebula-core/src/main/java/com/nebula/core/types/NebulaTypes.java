@@ -1,5 +1,6 @@
 package com.nebula.core.types;
 
+import com.nebula.core.types.amongitems.AmongItemsTypeBuilder;
 import com.nebula.core.types.bool.BooleanTypeBuilder;
 import com.nebula.core.types.constant.ConstantTypeBuilder;
 import com.nebula.core.types.custom.CustomTypeBuilder;
@@ -7,7 +8,7 @@ import com.nebula.core.types.date.DateTimeTypeBuilderChooser;
 import com.nebula.core.types.entity.EntityTypeBuilder;
 import com.nebula.core.types.list.ListTypeBuilder;
 import com.nebula.core.types.number.NumberTypeBuilderChooser;
-import com.nebula.core.types.amongitems.AmongItemsTypeBuilder;
+import com.nebula.core.types.script.ScriptTypeBuilder;
 import com.nebula.core.types.string.StringTypeBuilder;
 import com.nebula.core.types.text.TypeTextBuilder;
 import org.joda.time.DateTime;
@@ -68,4 +69,8 @@ public final class NebulaTypes {
 	public static CustomTypeBuilder custom(Type type) { return new CustomTypeBuilder(type); }
 
 	public static TypeTextBuilder text() { return new TypeTextBuilder(); }
+
+    public static ScriptTypeBuilder script(String script) {
+        return new ScriptTypeBuilder(script);
+    }
 }

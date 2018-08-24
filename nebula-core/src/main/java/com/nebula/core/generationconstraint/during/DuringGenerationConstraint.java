@@ -25,6 +25,6 @@ public class DuringGenerationConstraint implements GenerationConstraint {
             return AcceptationResult.STOP_GENERATION;
         }
 
-        return AcceptationResult.ACCEPTABLE;
+        return AcceptationResult.ACCEPT;
     }
 }

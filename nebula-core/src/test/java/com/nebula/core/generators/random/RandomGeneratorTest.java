@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static com.googlecode.catchexception.CatchException.catchException;
@@ -43,7 +44,7 @@ class RandomGeneratorTest {
 		Type type = NebulaTypes.number().range().withMin(BigDecimal.ONE).withMax(BigDecimal.ONE).build(ModelBuilder.newEmptyModel().build());
 
 		// WHEN
-		GeneratedObject result = generator.generate(type);
+        GeneratedObject result = generator.generate(Collections.emptyList(), type);
 
 		// THEN
 		assertThat(result.getObject()).isInstanceOf(BigDecimal.class).isEqualTo(BigDecimal.ONE);
@@ -59,7 +60,7 @@ class RandomGeneratorTest {
 		Type type = NebulaTypes.number().range().withMin(BigDecimal.TEN).withMax(BigDecimal.TEN).build(ModelBuilder.newEmptyModel().build());
 
 		// WHEN
-		GeneratedObject result = generator.generate(type);
+        GeneratedObject result = generator.generate(Collections.emptyList(), type);
 
 		// THEN
 		assertThat(result.getObject()).isInstanceOf(BigDecimal.class).isEqualTo(BigDecimal.TEN);
@@ -78,7 +79,7 @@ class RandomGeneratorTest {
 		List<GeneratedObject> result = new ArrayList<>();
 
 		for (int i = 1; i <= 10000; i++) {
-			result.add(generator.generate(type));
+            result.add(generator.generate(Collections.emptyList(), type));
 		}
 
 		// THEN
@@ -110,7 +111,7 @@ class RandomGeneratorTest {
 		Type type = NebulaTypes.number().range().build(ModelBuilder.newEmptyModel().build());
 
 		// WHEN
-		catchException(generator).generate(type);
+        catchException(generator).generate(Collections.emptyList(), type);
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)

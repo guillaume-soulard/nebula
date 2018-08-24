@@ -37,7 +37,7 @@ class NumberAmongTypeTest {
 		NumberAmongType numberAmongType = new NumberAmongType(items);
 
 		// WHEN
-		GeneratedObject result = numberAmongType.generateObject(0L);
+        GeneratedObject result = numberAmongType.generateObject(Collections.emptyList(), 0L);
 
 		// THEN
 		assertThat(result.getObject()).isEqualTo(BigDecimal.ZERO);
@@ -51,7 +51,7 @@ class NumberAmongTypeTest {
 		NumberAmongType numberAmongType = new NumberAmongType(items);
 
 		// WHEN
-		GeneratedObject result = numberAmongType.generateObject(1L);
+        GeneratedObject result = numberAmongType.generateObject(Collections.emptyList(), 1L);
 
 		// THEN
 		assertThat(result.getObject()).isEqualTo(BigDecimal.ONE);
@@ -65,7 +65,7 @@ class NumberAmongTypeTest {
 		NumberAmongType numberAmongType = new NumberAmongType(items);
 
 		// WHEN
-		catchException(numberAmongType).generateObject(10L);
+        catchException(numberAmongType).generateObject(Collections.emptyList(), 10L);
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
@@ -80,7 +80,7 @@ class NumberAmongTypeTest {
 		NumberAmongType numberAmongType = new NumberAmongType(items);
 
 		// WHEN
-		catchException(numberAmongType).generateObject(3L);
+        catchException(numberAmongType).generateObject(Collections.emptyList(), 3L);
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
@@ -95,7 +95,7 @@ class NumberAmongTypeTest {
 		NumberAmongType numberAmongType = new NumberAmongType(items);
 
 		// WHEN
-		catchException(numberAmongType).generateObject(-1L);
+        catchException(numberAmongType).generateObject(Collections.emptyList(), -1L);
 
 		// THEN
 		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)

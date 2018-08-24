@@ -21,6 +21,6 @@ public class EveryGenerationConstraint implements GenerationConstraint {
         } catch (InterruptedException e) {
             throw new NebulaException(e.getMessage());
         }
-        return AcceptationResult.ACCEPTABLE;
+        return AcceptationResult.ACCEPT;
     }
 }

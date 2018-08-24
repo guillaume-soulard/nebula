@@ -1,17 +1,21 @@
 package com.nebula.core.types.list;
 
-import com.nebula.core.Model;
 import com.nebula.core.GeneratedObject;
+import com.nebula.core.GeneratedProperty;
+import com.nebula.core.Model;
+import com.nebula.core.generators.Generator;
+import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.JavaType;
 import com.nebula.core.types.JavaTypeName;
 import com.nebula.core.types.NebulaTypes;
-import com.nebula.core.generators.Generator;
-import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.Type;
 import com.nebula.core.types.constant.ConstantTypeBuilder;
 
 import java.math.BigDecimal;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
 
 public class ListTypeAmongItems extends AbstractListType {
 
@@ -25,16 +29,16 @@ public class ListTypeAmongItems extends AbstractListType {
 		this.model = model;
 
 		for (int i = 0; i < builders.length; i++) {
-			items[i] = builders[i].build(model).generateObject(0L);
+            items[i] = builders[i].build(model).generateObject(new ArrayList<>(), 0L);
 		}
 	}
 
 	@Override
-	protected List<Object> generateList(int listSize, NebulaRandom nebulaRandom) {
+    protected List<Object> generateList(List<GeneratedProperty> generatedProperties, int listSize, NebulaRandom nebulaRandom) {
 		List<Object> list = new ArrayList<>(listSize);
 		if (canFillListWithItems()) {
 			initNumberRange();
-			fillList(listSize, nebulaRandom, list);
+            fillList(generatedProperties, listSize, nebulaRandom, list);
 		}
 		return list;
 	}
@@ -49,12 +53,12 @@ public class ListTypeAmongItems extends AbstractListType {
 		return items.length > 0;
 	}
 
-	protected Object getItem(NebulaRandom localNebulaRandom) {
-		return items[getItemIndex()];
-	}
+    protected Object getItem(List<GeneratedProperty> generatedProperties, NebulaRandom localNebulaRandom) {
+        return items[getItemIndex(generatedProperties)];
+    }
 
-	private Integer getItemIndex() {
-		BigDecimal index = (BigDecimal) generator.generate(numberRange).getObject();
+    private Integer getItemIndex(List<GeneratedProperty> generatedProperties) {
+        BigDecimal index = (BigDecimal) generator.generate(generatedProperties, numberRange).getObject();
 		return index.intValue();
 	}
 

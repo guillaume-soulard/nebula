@@ -42,6 +42,6 @@ class CronGenerationConstraint implements GenerationConstraint {
             }
         });
 
-        return AcceptationResult.ACCEPTABLE;
+        return AcceptationResult.ACCEPT;
     }
 }

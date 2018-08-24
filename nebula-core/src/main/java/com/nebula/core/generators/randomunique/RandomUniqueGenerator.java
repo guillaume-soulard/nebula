@@ -1,11 +1,13 @@
 package com.nebula.core.generators.randomunique;
 
 import com.nebula.core.GeneratedObject;
+import com.nebula.core.GeneratedProperty;
 import com.nebula.core.NebulaException;
 import com.nebula.core.generators.Generator;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.Type;
 
+import java.util.List;
 import java.util.Stack;
 import java.util.stream.LongStream;
 
@@ -27,7 +29,7 @@ public class RandomUniqueGenerator implements Generator {
     }
 
     @Override
-    public GeneratedObject generate(Type type) {
+    public GeneratedObject generate(List<GeneratedProperty> generatedProperties, Type type) {
 
         throwExceptionIfNotInitialized();
         type.init(context);
@@ -41,7 +43,7 @@ public class RandomUniqueGenerator implements Generator {
             shuffle(indices, context.getNebulaRandom().getRandom());
         }
 
-        return type.generateObject(indices.pop());
+        return type.generateObject(generatedProperties, indices.pop());
     }
 
     private void throwExceptionIfNotInitialized() {
