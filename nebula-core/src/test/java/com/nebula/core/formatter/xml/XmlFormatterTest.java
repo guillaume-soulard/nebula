@@ -5,6 +5,7 @@ import com.nebula.core.GeneratedObject;
 import com.nebula.core.GeneratedProperty;
 import com.nebula.core.formatter.ValueFormatter;
 import com.nebula.core.types.Type;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ import static org.mockito.Mockito.when;
 class XmlFormatterTest {
 
     @Test
+    @DisplayName("formatGeneratedObject should format simple generated object")
     void formatGeneratedObject_should_format_simple_generated_object() {
 
         // GIVEN
@@ -44,6 +46,7 @@ class XmlFormatterTest {
     }
 
     @Test
+    @DisplayName("formatGeneratedObject should format complex generated object")
     void formatGeneratedObject_should_format_complex_generated_object() {
 
         // GIVEN
@@ -75,6 +78,7 @@ class XmlFormatterTest {
     }
 
     @Test
+    @DisplayName("formatGeneratedObject should format complex generated object with array")
     void formatGeneratedObject_should_format_complex_generated_object_with_array() {
 
         // GIVEN

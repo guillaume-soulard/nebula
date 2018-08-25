@@ -6,6 +6,7 @@ import com.nebula.core.types.Range;
 import com.nebula.core.types.date.strategy.*;
 import org.joda.time.DateTime;
 import org.joda.time.ReadableInstant;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
@@ -18,6 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class DateTimeRangeTypeTest {
 
 	@Test
+    @DisplayName("generateObject should return a non null object")
 	void generateObject_should_return_a_non_null_object() {
 
 		// GIVEN
@@ -33,6 +35,7 @@ class DateTimeRangeTypeTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should return 2017 1 1")
 	void generateObject_should_return_2017_1_1() {
 
 		// GIVEN
@@ -48,6 +51,7 @@ class DateTimeRangeTypeTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should return 2017 1 2")
 	void generateObject_should_return_2017_1_2() {
 
 		// GIVEN
@@ -65,6 +69,7 @@ class DateTimeRangeTypeTest {
 	}
 
 	@Test
+    @DisplayName("newDateType should set DateTypeInterval to DAY when null is passed")
 	void newDateType_should_set_DateTypeInterval_to_DAY_when_null_is_passed() {
 
 		// GIVEN
@@ -81,6 +86,7 @@ class DateTimeRangeTypeTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should return 2017 1 1 10 hours and 00 minutes for interval hours")
 	void generateObject_should_return_2017_1_1_10_hours_and_00_minutes_for_interval_hours() {
 
 		// GIVEN
@@ -99,6 +105,7 @@ class DateTimeRangeTypeTest {
 	}
 
 	@Test
+    @DisplayName("newDateTypeType should set all DateTimeIntervals in map")
 	void newDateTypeType_should_set_all_DateTimeIntervals_in_map() {
 
 		// GIVEN
@@ -126,6 +133,7 @@ class DateTimeRangeTypeTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should throw exception when requested date is out of range")
 	void generateObject_should_throw_exception_when_requested_date_is_out_of_range() {
 
 		// GIVEN
@@ -144,6 +152,7 @@ class DateTimeRangeTypeTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should throw exception when index is negative")
 	void generateObject_should_throw_exception_when_index_is_negative() {
 
 		// GIVEN
@@ -162,6 +171,7 @@ class DateTimeRangeTypeTest {
 	}
 
 	@Test
+    @DisplayName("getMinRange should return 0")
 	void getMinRange_should_return_0() {
 
 		// GIVEN
@@ -179,6 +189,7 @@ class DateTimeRangeTypeTest {
 	}
 
 	@Test
+    @DisplayName("getMaxRange should return 1000")
 	void getMaxRange_should_return_1000() {
 
 		// GIVEN
@@ -196,6 +207,7 @@ class DateTimeRangeTypeTest {
 	}
 
 	@Test
+    @DisplayName("getMaxRange should return 10")
 	void getMaxRange_should_return_10() {
 
 		// GIVEN
@@ -213,6 +225,7 @@ class DateTimeRangeTypeTest {
 	}
 
 	@Test
+    @DisplayName("getMaxRange should return 36")
 	void getMaxRange_should_return_36() {
 
 		// GIVEN
@@ -230,6 +243,7 @@ class DateTimeRangeTypeTest {
 	}
 
 	@Test
+    @DisplayName("getMaxRange should return 24")
 	void getMaxRange_should_return_24() {
 
 		// GIVEN
@@ -247,6 +261,7 @@ class DateTimeRangeTypeTest {
 	}
 
 	@Test
+    @DisplayName("getMaxRange should return 31")
 	void getMaxRange_should_return_31() {
 
 		// GIVEN
@@ -264,6 +279,7 @@ class DateTimeRangeTypeTest {
 	}
 
 	@Test
+    @DisplayName("getMaxRange should return 2")
 	void getMaxRange_should_return_2() {
 
 		// GIVEN
@@ -281,6 +297,7 @@ class DateTimeRangeTypeTest {
 	}
 
 	@Test
+    @DisplayName("getMaxRange should return 6")
 	void getMaxRange_should_return_6() {
 
 		// GIVEN
@@ -298,6 +315,7 @@ class DateTimeRangeTypeTest {
 	}
 
 	@Test
+    @DisplayName("getMaxRange should return 2 for interval minutes and for an interval of 2 minutes and 30 seconds")
 	void getMaxRange_should_return_2_for_interval_minutes_and_for_an_interval_of_2_minutes_and_30_seconds() {
 
 		// GIVEN

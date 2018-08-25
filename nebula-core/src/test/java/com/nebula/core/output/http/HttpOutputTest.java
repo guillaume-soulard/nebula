@@ -9,6 +9,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.CloseableHttpClient;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 
@@ -26,6 +27,7 @@ import static org.mockito.Mockito.*;
 class HttpOutputTest {
 
     @Test
+    @DisplayName("open should do nothing")
     void open_should_do_nothing() {
 
         // GIVEN
@@ -45,6 +47,7 @@ class HttpOutputTest {
     }
 
     @Test
+    @DisplayName("close should call close on client")
     void close_should_call_close_on_client() throws Exception {
 
         // GIVEN
@@ -64,6 +67,7 @@ class HttpOutputTest {
     }
 
     @Test
+    @DisplayName("close should throw NebulaException when close throw exception and has same message")
     void close_should_throw_NebulaException_when_close_throw_exception_and_has_same_message() throws Exception {
 
         // GIVEN
@@ -84,6 +88,7 @@ class HttpOutputTest {
     }
 
     @Test
+    @DisplayName("write should call execute")
     void write_should_call_execute() throws Exception {
 
         // GIVEN
@@ -110,6 +115,7 @@ class HttpOutputTest {
     }
 
     @Test
+    @DisplayName("write should call execute with put verb")
     void write_should_call_execute_with_put_verb() throws Exception {
 
         // GIVEN
@@ -135,6 +141,7 @@ class HttpOutputTest {
     }
 
     @Test
+    @DisplayName("write should call execute with patch verb")
     void write_should_call_execute_with_patch_verb() throws Exception {
 
         // GIVEN
@@ -160,6 +167,7 @@ class HttpOutputTest {
     }
 
     @Test
+    @DisplayName("write should call execute with one header dynamic")
     void write_should_call_execute_with_one_header_dynamic() throws Exception {
 
         // GIVEN
@@ -195,6 +203,7 @@ class HttpOutputTest {
     }
 
     @Test
+    @DisplayName("write should call execute with one header static")
     void write_should_call_execute_with_one_header_static() throws Exception {
 
         // GIVEN
@@ -223,6 +232,7 @@ class HttpOutputTest {
     }
 
     @Test
+    @DisplayName("write should call execute with path completed with dynamic variables")
     void write_should_call_execute_with_path_completed_with_dynamic_variables() throws Exception {
 
         // GIVEN

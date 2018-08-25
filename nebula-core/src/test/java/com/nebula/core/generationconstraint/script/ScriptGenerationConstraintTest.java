@@ -3,6 +3,7 @@ package com.nebula.core.generationconstraint.script;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaException;
 import com.nebula.core.generationconstraint.AcceptationResult;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -10,6 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ScriptGenerationConstraintTest {
 
     @Test
+    @DisplayName("accept should return ACCEPT")
     void accept_should_return_ACCEPT() {
 
         // GIVEN
@@ -24,6 +26,7 @@ class ScriptGenerationConstraintTest {
     }
 
     @Test
+    @DisplayName("accept should return REJECT")
     void accept_should_return_REJECT() {
 
         // GIVEN
@@ -38,6 +41,7 @@ class ScriptGenerationConstraintTest {
     }
 
     @Test
+    @DisplayName("accept should return STOP GENERATION")
     void accept_should_return_STOP_GENERATION() {
 
         // GIVEN
@@ -52,6 +56,7 @@ class ScriptGenerationConstraintTest {
     }
 
     @Test
+    @DisplayName("accept should throw exception when null is returned")
     void accept_should_throw_exception_when_null_is_returned() {
 
         // GIVEN
@@ -72,6 +77,7 @@ class ScriptGenerationConstraintTest {
     }
 
     @Test
+    @DisplayName("accept should throw exception when boolean is returned")
     void accept_should_throw_exception_when_boolean_is_returned() {
 
         // GIVEN
@@ -92,6 +98,7 @@ class ScriptGenerationConstraintTest {
     }
 
     @Test
+    @DisplayName("accept can access obj variable")
     void accept_can_access_obj_variable() {
 
         // GIVEN

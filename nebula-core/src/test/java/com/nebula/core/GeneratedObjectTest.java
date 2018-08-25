@@ -1,5 +1,6 @@
 package com.nebula.core;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -15,6 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class GeneratedObjectTest {
 
 	@Test
+    @DisplayName("getObject should return object passed in constructor")
 	void getObject_should_return_object_passed_in_constructor() {
 		// GIVEN
 		Object object = "test";
@@ -28,6 +30,7 @@ class GeneratedObjectTest {
 	}
 
 	@Test
+    @DisplayName("getGeneratedProperties should return list passed in constructor")
 	void getGeneratedProperties_should_return_list_passed_in_constructor() {
 
 		// GIVEN
@@ -42,6 +45,7 @@ class GeneratedObjectTest {
 	}
 
 	@Test
+    @DisplayName("equals should assert objects are equals comparing object")
 	void equals_should_assert_objects_are_equals_comparing_object() {
 
 		// GIVEN
@@ -56,6 +60,7 @@ class GeneratedObjectTest {
 	}
 
 	@Test
+    @DisplayName("equals should assert objects are not equals comparing object")
 	void equals_should_assert_objects_are_not_equals_comparing_object() {
 
 		// GIVEN
@@ -70,6 +75,7 @@ class GeneratedObjectTest {
 	}
 
 	@Test
+    @DisplayName("equals should assert objects are equals comparing properties")
 	void equals_should_assert_objects_are_equals_comparing_properties() {
 
 		// GIVEN
@@ -86,6 +92,7 @@ class GeneratedObjectTest {
 	}
 
 	@Test
+    @DisplayName("equals should assert objects are not equals comparing properties names")
 	void equals_should_assert_objects_are_not_equals_comparing_properties_names() {
 
 		// GIVEN
@@ -102,6 +109,7 @@ class GeneratedObjectTest {
 	}
 
 	@Test
+    @DisplayName("equals should assert objects are not equals comparing properties values")
 	void equals_should_assert_objects_are_not_equals_comparing_properties_values() {
 
 		// GIVEN
@@ -118,6 +126,7 @@ class GeneratedObjectTest {
 	}
 
 	@Test
+    @DisplayName("equals should assert objects are not equals to null")
 	void equals_should_assert_objects_are_not_equals_to_null() {
 
 		// GIVEN
@@ -132,6 +141,7 @@ class GeneratedObjectTest {
 	}
 
 	@Test
+    @DisplayName("getGeneratedPropertyValue should return the proeprty value")
 	void getGeneratedPropertyValue_should_return_the_proeprty_value() {
 
 		// GIVEN
@@ -150,6 +160,7 @@ class GeneratedObjectTest {
 	}
 
 	@Test
+    @DisplayName("getGeneratedPropertyValue should throw exception when propertyName is unknown")
 	void getGeneratedPropertyValue_should_throw_exception_when_propertyName_is_unknown() {
 
 		// GIVEN
@@ -167,6 +178,7 @@ class GeneratedObjectTest {
 	}
 
 	@Test
+    @DisplayName("toString should be value")
 	void toString_should_be_value() {
 
 		// GIVEN
@@ -180,6 +192,7 @@ class GeneratedObjectTest {
 	}
 
 	@Test
+    @DisplayName("toString should be 10")
 	void toString_should_be_10() {
 
 		// GIVEN
@@ -193,6 +206,7 @@ class GeneratedObjectTest {
 	}
 
 	@Test
+    @DisplayName("toString should be empty array")
 	void toString_should_be_empty_array() {
 
 		// GIVEN
@@ -207,6 +221,7 @@ class GeneratedObjectTest {
 	}
 
 	@Test
+    @DisplayName("toString should be array of 3 strings")
 	void toString_should_be_array_of_3_strings() {
 
 		// GIVEN
@@ -221,6 +236,7 @@ class GeneratedObjectTest {
 	}
 
 	@Test
+    @DisplayName("toString should be array of 3 numbers")
 	void toString_should_be_array_of_3_numbers() {
 
 		// GIVEN
@@ -235,6 +251,7 @@ class GeneratedObjectTest {
 	}
 
 	@Test
+    @DisplayName("toString should return two properties")
 	void toString_should_return_two_properties() {
 
 		// GIVEN
@@ -251,6 +268,7 @@ class GeneratedObjectTest {
 	}
 
 	@Test
+    @DisplayName("getValueByPath should return the value when object is final")
 	void getValueByPath_should_return_the_value_when_object_is_final() {
 
 		// GIVEN
@@ -264,6 +282,7 @@ class GeneratedObjectTest {
 	}
 
 	@Test
+    @DisplayName("getValueByPath should return the value of an existing property")
 	void getValueByPath_should_return_the_value_of_an_existing_property() {
 
 		// GIVEN
@@ -279,6 +298,7 @@ class GeneratedObjectTest {
 	}
 
 	@Test
+    @DisplayName("getValueByPath should throw an exception when property not exists")
 	void getValueByPath_should_throw_an_exception_when_property_not_exists() {
 
 		// GIVEN
@@ -295,6 +315,7 @@ class GeneratedObjectTest {
 	}
 
 	@Test
+    @DisplayName("getValueByPath should return the value of an existing property at level 2")
 	void getValueByPath_should_return_the_value_of_an_existing_property_at_level_2() {
 
 		// GIVEN
@@ -312,6 +333,7 @@ class GeneratedObjectTest {
 	}
 
 	@Test
+    @DisplayName("getValueByPath should return the value of an existing property with complex name")
 	void getValueByPath_should_return_the_value_of_an_existing_property_with_complex_name() {
 
 		// GIVEN
@@ -327,6 +349,7 @@ class GeneratedObjectTest {
 	}
 
 	@Test
+    @DisplayName("getValueByPath should return the value of an existing property with complex name at level 2")
 	void getValueByPath_should_return_the_value_of_an_existing_property_with_complex_name_at_level_2() {
 
 		// GIVEN

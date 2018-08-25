@@ -4,6 +4,7 @@ import com.nebula.core.Entity;
 import com.nebula.core.Model;
 import com.nebula.core.ModelBuilder;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
@@ -41,6 +42,7 @@ class JdbcOutputIT {
     }
 
     @Test
+    @DisplayName("generate_should_generate_10_users_in_hsqldb")
     void generate_should_generate_10_users_in_hsqldb() {
 
         // GIVEN

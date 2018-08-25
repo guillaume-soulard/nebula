@@ -7,6 +7,7 @@ import com.nebula.object.Category;
 import com.nebula.object.User;
 import com.nebula.object.UserAddress;
 import com.nebula.object.generator.model.ClassModelBuilder;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -19,6 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ModelBasedObjectGeneratorTest {
 
     @Test
+    @DisplayName("generate should return non null object")
     void generate_should_return_non_null_object() {
 
         // GIVEN
@@ -38,6 +40,7 @@ class ModelBasedObjectGeneratorTest {
     }
 
     @Test
+    @DisplayName("generate should return non null User object")
     void generate_should_return_non_null_User_object() {
 
         // GIVEN
@@ -52,6 +55,7 @@ class ModelBasedObjectGeneratorTest {
     }
 
     @Test
+    @DisplayName("generateListOf should return a list of User object")
     void generateListOf_should_return_a_list_of_User_object() {
 
         // GIVEN
@@ -66,6 +70,7 @@ class ModelBasedObjectGeneratorTest {
     }
 
     @Test
+    @DisplayName("generate should generate a recursive object")
     void generate_should_generate_a_recursive_object() {
 
         // GIVEN

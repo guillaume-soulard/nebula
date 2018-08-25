@@ -4,6 +4,7 @@ import com.nebula.core.ModelBuilder;
 import com.nebula.core.types.Type;
 import com.nebula.core.types.TypeBuilder;
 import org.joda.time.DateTime;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -11,6 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class DateTimeRangeTypeBuilderTest {
 
 	@Test
+    @DisplayName("build should return a new instance of DateTimeType")
 	void build_should_return_a_new_instance_of_DateTimeType() {
 
 		// GIVEN
@@ -24,6 +26,7 @@ class DateTimeRangeTypeBuilderTest {
 	}
 
 	@Test
+    @DisplayName("build should set default values in DateTimeBuilder")
 	void build_should_set_default_values_in_DateTimeBuilder() {
 
 		// GIVEN
@@ -39,6 +42,7 @@ class DateTimeRangeTypeBuilderTest {
 	}
 
 	@Test
+    @DisplayName("withMin should set min date in new instance of DateTimeType")
 	void withMin_should_set_min_date_in_new_instance_of_DateTimeType() {
 
 		// GIVEN
@@ -53,6 +57,7 @@ class DateTimeRangeTypeBuilderTest {
 	}
 
 	@Test
+    @DisplayName("withMax should set max date in new instance of DateTimeType")
 	void withMax_should_set_max_date_in_new_instance_of_DateTimeType() {
 
 		// GIVEN
@@ -67,6 +72,7 @@ class DateTimeRangeTypeBuilderTest {
 	}
 
 	@Test
+    @DisplayName("withINterval should set ths interval in new instance of DateTimeType")
 	void withINterval_should_set_ths_interval_in_new_instance_of_DateTimeType() {
 
 		// GIVEN

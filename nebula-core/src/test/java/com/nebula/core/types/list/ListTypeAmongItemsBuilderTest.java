@@ -7,6 +7,7 @@ import com.nebula.core.generators.NebulaGenerators;
 import com.nebula.core.types.NebulaTypes;
 import com.nebula.core.types.Type;
 import com.nebula.core.types.constant.ConstantTypeBuilder;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.googlecode.catchexception.CatchException.catchException;
@@ -18,6 +19,7 @@ class ListTypeAmongItemsBuilderTest {
 	private static final ConstantTypeBuilder[] EMPTY_ITEMS = new ConstantTypeBuilder[] {};
 
 	@Test
+    @DisplayName("new ListTypeOfTypeBuilder should set generator")
 	void new_ListTypeOfTypeBuilder_should_set_generator() {
 
 		// GIVEN
@@ -32,6 +34,7 @@ class ListTypeAmongItemsBuilderTest {
 	}
 
 	@Test
+    @DisplayName("new ListTypeOfTypeBuilder should throw exception when generator is null")
 	void new_ListTypeOfTypeBuilder_should_throw_exception_when_generator_is_null() {
 
 		// GIVEN
@@ -49,6 +52,7 @@ class ListTypeAmongItemsBuilderTest {
 	}
 
 	@Test
+    @DisplayName("withMinSize should set 0 as min size")
 	void withMinSize_should_set_0_as_min_size() {
 
 		// GIVEN
@@ -63,6 +67,7 @@ class ListTypeAmongItemsBuilderTest {
 	}
 
 	@Test
+    @DisplayName("withMinSize should set 15 as min size")
 	void withMinSize_should_set_15_as_min_size() {
 
 		// GIVEN
@@ -77,6 +82,7 @@ class ListTypeAmongItemsBuilderTest {
 	}
 
 	@Test
+    @DisplayName("withMaxSize should set 0 as max size")
 	void withMaxSize_should_set_0_as_max_size() {
 
 		// GIVEN
@@ -91,6 +97,7 @@ class ListTypeAmongItemsBuilderTest {
 	}
 
 	@Test
+    @DisplayName("withMaxSize should set 15 as max size")
 	void withMaxSize_should_set_15_as_max_size() {
 
 		// GIVEN
@@ -105,6 +112,7 @@ class ListTypeAmongItemsBuilderTest {
 	}
 
 	@Test
+    @DisplayName("build should return a new instance of ListType with items and minSize and maxSize with defauls value")
 	void build_should_return_a_new_instance_of_ListType_with_items_and_minSize_and_maxSize_with_defauls_value() {
 
 		// GIVEN
@@ -120,6 +128,7 @@ class ListTypeAmongItemsBuilderTest {
 	}
 
 	@Test
+    @DisplayName("build should throw exception when min is greater than max")
 	void build_should_throw_exception_when_min_is_greater_than_max() {
 
 		// GIVEN
@@ -136,6 +145,7 @@ class ListTypeAmongItemsBuilderTest {
 	}
 
 	@Test
+    @DisplayName("amongItems should set one item")
 	void amongItems_should_set_one_item() {
 
 		// GIVEN
@@ -151,6 +161,7 @@ class ListTypeAmongItemsBuilderTest {
 	}
 
 	@Test
+    @DisplayName("amongItems should set two item")
 	void amongItems_should_set_two_item() {
 
 		// GIVEN
@@ -167,6 +178,7 @@ class ListTypeAmongItemsBuilderTest {
 	}
 
 	@Test
+    @DisplayName("amongItems should set one item to null when null is passed")
 	void amongItems_should_set_one_item_to_null_when_null_is_passed() {
 
 		// GIVEN
@@ -181,6 +193,7 @@ class ListTypeAmongItemsBuilderTest {
 	}
 
 	@Test
+    @DisplayName("amongItems should set empty items")
 	void amongItems_should_set_empty_items() {
 
 		// GIVEN

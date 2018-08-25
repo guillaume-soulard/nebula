@@ -1,6 +1,7 @@
 package com.nebula.core.types.constant;
 
 import com.nebula.core.GeneratedObject;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -11,6 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ConstantTypeTest {
 
 	@Test
+    @DisplayName("new ConstantType should set value test")
 	void new_ConstantType_should_set_value_test() {
 
 		// GIVEN
@@ -25,6 +27,7 @@ class ConstantTypeTest {
 	}
 
 	@Test
+    @DisplayName("getMinRange should return 0")
 	void getMinRange_should_return_0() {
 
 		// GIVEN
@@ -38,6 +41,7 @@ class ConstantTypeTest {
 	}
 
 	@Test
+    @DisplayName("getMaxRange should return 0")
 	void getMaxRange_should_return_0() {
 
 		// GIVEN
@@ -51,6 +55,7 @@ class ConstantTypeTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should return a non null object")
 	void generateObject_should_return_a_non_null_object() {
 
 		// GIVEN
@@ -64,6 +69,7 @@ class ConstantTypeTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should return test as value")
 	void generateObject_should_return_test_as_value() {
 
 		// GIVEN
@@ -78,6 +84,7 @@ class ConstantTypeTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should return 0")
 	void generateObject_should_return_0() {
 
 		// GIVEN
@@ -92,6 +99,7 @@ class ConstantTypeTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should return same value for index 0 and 1")
 	void generateObject_should_return_same_value_for_index_0_and_1() {
 
 		// GIVEN

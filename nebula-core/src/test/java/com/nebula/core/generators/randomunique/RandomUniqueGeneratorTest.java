@@ -8,6 +8,7 @@ import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.NebulaTypes;
 import com.nebula.core.types.Type;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -22,6 +23,7 @@ import static org.mockito.Mockito.*;
 class RandomUniqueGeneratorTest {
 
     @Test
+    @DisplayName("generate should not return null")
     void generate_should_not_return_null() {
 
         // GIVEN
@@ -37,6 +39,7 @@ class RandomUniqueGeneratorTest {
     }
 
     @Test
+    @DisplayName("generate should throw NebulaException when is not initialized")
     void generate_should_throw_NebulaException_when_is_not_initialized() {
 
         // GIVEN
@@ -52,6 +55,7 @@ class RandomUniqueGeneratorTest {
     }
 
     @Test
+    @DisplayName("generate should not throw NebulaException when it is initialized")
     void generate_should_not_throw_NebulaException_when_it_is_initialized() {
 
         // GIVEN
@@ -66,6 +70,7 @@ class RandomUniqueGeneratorTest {
     }
 
     @Test
+    @DisplayName("generate should init type")
     void generate_should_init_type() {
 
         // GIVEN
@@ -80,6 +85,7 @@ class RandomUniqueGeneratorTest {
     }
 
     @Test
+    @DisplayName("generate should return generated object by type")
     void generate_should_return_generated_object_by_type() {
 
         // GIVEN
@@ -96,6 +102,7 @@ class RandomUniqueGeneratorTest {
     }
 
     @Test
+    @DisplayName("generate should call generate object with all 10 indices randomly when generate is called 10 times")
     void generate_should_call_generate_object_with_all_10_indices_randomly_when_generate_is_called_10_times() {
 
         // GIVEN
@@ -121,6 +128,7 @@ class RandomUniqueGeneratorTest {
     }
 
     @Test
+    @DisplayName("generate should call generate object with all 10 indices randomly when generate is called 20 times")
     void generate_should_call_generate_object_with_all_10_indices_randomly_when_generate_is_called_20_times() {
 
         // GIVEN

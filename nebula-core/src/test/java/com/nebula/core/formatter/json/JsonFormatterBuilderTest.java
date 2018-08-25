@@ -1,10 +1,12 @@
 package com.nebula.core.formatter.json;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class JsonFormatterBuilderTest {
 
     @Test
+    @DisplayName("JsonFormatterBuilder should have method withNumberThousandSeparator")
     void JsonFormatterBuilder_should_have_method_withNumberThousandSeparator() {
 
         // GIVEN
@@ -17,6 +19,7 @@ class JsonFormatterBuilderTest {
     }
 
     @Test
+    @DisplayName("JsonFormatterBuilder should have method withDateFormat")
     void JsonFormatterBuilder_should_have_method_withDateFormat() {
 
         // GIVEN
@@ -29,6 +32,7 @@ class JsonFormatterBuilderTest {
     }
 
     @Test
+    @DisplayName("JsonFormatterBuilder should have method withNumberDecimalSeparator")
     void JsonFormatterBuilder_should_have_method_withNumberDecimalSeparator() {
 
         // GIVEN

@@ -7,6 +7,7 @@ import com.nebula.core.NebulaException;
 import com.nebula.core.formatter.NebulaFormatters;
 import com.nebula.core.generationrule.GenerationRule;
 import com.nebula.core.output.NebulaOutputs;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.googlecode.catchexception.CatchException.catchException;
@@ -16,6 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class GenerationRuleBuilderTest {
 
     @Test
+    @DisplayName("build should throw exception when entity is not specified")
     void build_should_throw_exception_when_entity_is_not_specified() {
 
         // GIVEN
@@ -31,6 +33,7 @@ class GenerationRuleBuilderTest {
     }
 
     @Test
+    @DisplayName("build should throw exception when formatter is not specified")
     void build_should_throw_exception_when_formatter_is_not_specified() {
 
         // GIVEN
@@ -48,6 +51,7 @@ class GenerationRuleBuilderTest {
     }
 
     @Test
+    @DisplayName("build should throw exception when any outputs are specified")
     void build_should_throw_exception_when_any_outputs_are_specified() {
 
         // GIVEN
@@ -66,6 +70,7 @@ class GenerationRuleBuilderTest {
     }
 
     @Test
+    @DisplayName("build should throw exception when entity non exists in model")
     void build_should_throw_exception_when_entity_non_exists_in_model() {
 
         // GIVEN
@@ -84,6 +89,7 @@ class GenerationRuleBuilderTest {
     }
 
     @Test
+    @DisplayName("build should not throw exception when any generation constraints are specified")
     void build_should_not_throw_exception_when_any_generation_constraints_are_specified() {
 
         // GIVEN

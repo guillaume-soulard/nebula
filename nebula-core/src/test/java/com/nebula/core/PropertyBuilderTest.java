@@ -4,6 +4,7 @@ import com.nebula.core.generators.GeneratorBuilder;
 import com.nebula.core.generators.NebulaGenerators;
 import com.nebula.core.types.NebulaTypes;
 import com.nebula.core.types.TypeBuilder;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.googlecode.catchexception.CatchException.catchException;
@@ -13,6 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class PropertyBuilderTest {
 
 	@Test
+    @DisplayName("newProperty should throw NebulaException when property name is null")
 	void newProperty_should_throw_NebulaException_when_property_name_is_null() {
 		// GIVEN
 		PropertyBuilder propertyBuilder = new PropertyBuilder();
@@ -28,6 +30,7 @@ class PropertyBuilderTest {
 	}
 
 	@Test
+    @DisplayName("newProperty should throw NebulaException when property type is null")
 	void newProperty_should_throw_NebulaException_when_property_type_is_null() {
 		// GIVEN
 		PropertyBuilder propertyBuilder = new PropertyBuilder();
@@ -43,6 +46,7 @@ class PropertyBuilderTest {
 	}
 
 	@Test
+    @DisplayName("newProperty should throw NebulaException when property generator is null")
 	void newProperty_should_throw_NebulaException_when_property_generator_is_null() {
 		// GIVEN
 		PropertyBuilder propertyBuilder = new PropertyBuilder();

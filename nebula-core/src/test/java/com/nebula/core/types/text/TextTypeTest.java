@@ -7,6 +7,7 @@ import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.JavaType;
 import com.nebula.core.types.text.dictionary.NebulaDictionary;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -36,6 +37,7 @@ class TextTypeTest {
     }
 
     @Test
+    @DisplayName("generateObject should return a non null string")
     void generateObject_should_return_a_non_null_string() {
 
         // GIVEN
@@ -48,6 +50,7 @@ class TextTypeTest {
     }
 
     @Test
+    @DisplayName("getMinRange should return 0")
     void getMinRange_should_return_0() {
 
         // GIVEN
@@ -60,6 +63,7 @@ class TextTypeTest {
     }
 
     @Test
+    @DisplayName("getMaxRange should return 0")
     void getMaxRange_should_return_0() {
 
         // GIVEN
@@ -72,6 +76,7 @@ class TextTypeTest {
     }
 
     @Test
+    @DisplayName("getJavaType should return STRING")
     void getJavaType_should_return_STRING() {
 
         // GIVEN

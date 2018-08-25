@@ -6,6 +6,7 @@ import com.nebula.core.ModelBuilder;
 import com.nebula.core.formatter.ValueFormatter;
 import com.nebula.core.types.NebulaTypes;
 import org.joda.time.DateTime;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -17,6 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class JsonFormatterTest {
 
     @Test
+    @DisplayName("formatHeader should return empty string")
     void formatHeader_should_return_empty_string() {
 
         // GIVEN
@@ -30,6 +32,7 @@ class JsonFormatterTest {
     }
 
     @Test
+    @DisplayName("formatGeneratedObject should return empty string")
     void formatGeneratedObject_should_return_empty_string() {
 
         // GIVEN
@@ -43,6 +46,7 @@ class JsonFormatterTest {
     }
 
     @Test
+    @DisplayName("formatGeneratedObject should return test")
     void formatGeneratedObject_should_return_test() {
 
         // GIVEN
@@ -57,6 +61,7 @@ class JsonFormatterTest {
     }
 
     @Test
+    @DisplayName("formatGeneratedObject should return 0")
     void formatGeneratedObject_should_return_0() {
 
         // GIVEN
@@ -71,6 +76,7 @@ class JsonFormatterTest {
     }
 
     @Test
+    @DisplayName("formatGeneratedObject should return 1 comma 000 dot 25")
     void formatGeneratedObject_should_return_1_comma_000_dot_25() {
 
         // GIVEN
@@ -85,6 +91,7 @@ class JsonFormatterTest {
     }
 
     @Test
+    @DisplayName("formatGeneratedObject should return 02 slash 01 slash 2017")
     void formatGeneratedObject_should_return_02_slash_01_slash_2017() {
 
         // GIVEN
@@ -99,6 +106,7 @@ class JsonFormatterTest {
     }
 
     @Test
+    @DisplayName("formatGeneratedObject should return another text")
     void formatGeneratedObject_should_return_another_text() {
 
         // GIVEN
@@ -113,6 +121,7 @@ class JsonFormatterTest {
     }
 
     @Test
+    @DisplayName("formatGeneratedObject should return json object with one property")
     void formatGeneratedObject_should_return_json_object_with_one_property() {
 
         // GIVEN
@@ -129,6 +138,7 @@ class JsonFormatterTest {
     }
 
     @Test
+    @DisplayName("formatGeneratedObject should return json object with field quoted")
     void formatGeneratedObject_should_return_json_object_with_field_quoted() {
 
         // GIVEN
@@ -145,6 +155,7 @@ class JsonFormatterTest {
     }
 
     @Test
+    @DisplayName("formatGeneratedObject should return json object with two property")
     void formatGeneratedObject_should_return_json_object_with_two_property() {
 
         // GIVEN
@@ -162,6 +173,7 @@ class JsonFormatterTest {
     }
 
     @Test
+    @DisplayName("formatGeneratedObject should return json object sub object")
     void formatGeneratedObject_should_return_json_object_sub_object() {
 
         // GIVEN
@@ -180,6 +192,7 @@ class JsonFormatterTest {
     }
 
     @Test
+    @DisplayName("formatGeneratedObject should return empty array")
     void formatGeneratedObject_should_return_empty_array() {
 
         // GIVEN
@@ -195,6 +208,7 @@ class JsonFormatterTest {
     }
 
     @Test
+    @DisplayName("formatGeneratedObject should return array with two items")
     void formatGeneratedObject_should_return_array_with_two_items() {
 
         // GIVEN
@@ -212,6 +226,7 @@ class JsonFormatterTest {
     }
 
     @Test
+    @DisplayName("formatGeneratedObject should return array with one object")
     void formatGeneratedObject_should_return_array_with_one_object() {
 
         // GIVEN
@@ -230,6 +245,7 @@ class JsonFormatterTest {
     }
 
     @Test
+    @DisplayName("formatGeneratedObject should return json object with pretty format")
     void formatGeneratedObject_should_return_json_object_with_pretty_format() {
 
         // GIVEN

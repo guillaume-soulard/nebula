@@ -3,6 +3,7 @@ package com.nebula.core.formatter.csv;
 import com.nebula.core.*;
 import com.nebula.core.formatter.ValueFormatter;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -24,6 +25,7 @@ class CsvFormatterTest {
     }
 
     @Test
+    @DisplayName("formatGeneratedObject should return durant")
     void formatGeneratedObject_should_return_durant() {
 
         // GIVEN
@@ -44,6 +46,7 @@ class CsvFormatterTest {
     }
 
     @Test
+    @DisplayName("formatGeneratedObject should return jean durant")
     void formatGeneratedObject_should_return_jean_durant() {
 
         // GIVEN
@@ -65,6 +68,7 @@ class CsvFormatterTest {
     }
 
     @Test
+    @DisplayName("formatGeneratedObject should return jean durant if no coluns are specified")
     void formatGeneratedObject_should_return_jean_durant_if_no_coluns_are_specified() {
 
         // GIVEN
@@ -87,6 +91,7 @@ class CsvFormatterTest {
     }
 
     @Test
+    @DisplayName("formatGeneratedObject should return quotted values")
     void formatGeneratedObject_should_return_quotted_values() {
 
         // GIVEN
@@ -108,6 +113,7 @@ class CsvFormatterTest {
     }
 
     @Test
+    @DisplayName("formatGeneratedObject should return only value of col1")
     void formatGeneratedObject_should_return_only_value_of_col1() {
 
         // GIVEN
@@ -129,6 +135,7 @@ class CsvFormatterTest {
     }
 
     @Test
+    @DisplayName("formatGeneratedObject should return all columns when empty column list is passed")
     void formatGeneratedObject_should_return_all_columns_when_empty_column_list_is_passed() {
 
         // GIVEN
@@ -156,6 +163,7 @@ class CsvFormatterTest {
     }
 
     @Test
+    @DisplayName("formatHeader should return firstName lastName")
     void formatHeader_should_return_firstName_lastName() {
 
         // GIVEN
@@ -176,6 +184,7 @@ class CsvFormatterTest {
     }
 
     @Test
+    @DisplayName("formatHeader should return col1 col2")
     void formatHeader_should_return_col1_col2() {
 
         // GIVEN
@@ -196,6 +205,7 @@ class CsvFormatterTest {
     }
 
     @Test
+    @DisplayName("formatHeader should return empty string")
     void formatHeader_should_return_empty_string() {
 
         // GIVEN
@@ -216,6 +226,7 @@ class CsvFormatterTest {
     }
 
     @Test
+    @DisplayName("formatHeader should return quoted strings")
     void formatHeader_should_return_quoted_strings() {
 
         // GIVEN
@@ -236,6 +247,7 @@ class CsvFormatterTest {
     }
 
     @Test
+    @DisplayName("formatFooter should return empty string")
     void formatFooter_should_return_empty_string() {
 
         // GIVEN

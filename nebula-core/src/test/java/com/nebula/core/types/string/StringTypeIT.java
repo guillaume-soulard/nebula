@@ -8,6 +8,7 @@ import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.NebulaTypes;
 import org.joda.time.DateTime;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
@@ -19,6 +20,7 @@ class StringTypeIT {
 	private static final long ONE_SECOND = 1000;
 
 	@Test
+    @DisplayName("generateEntityObject_should_take_less_than_1_second_to_generate_100000_strings")
 	void generateEntityObject_should_take_less_than_1_second_to_generate_100000_strings() {
 
 		// GIVEN
@@ -36,6 +38,7 @@ class StringTypeIT {
 	}
 
 	@Test
+    @DisplayName("generateObject_should_take_less_than_1_second_to_generate_100000_strings")
 	void generateObject_should_take_less_than_1_second_to_generate_100000_strings() {
 
 		// GIVEN

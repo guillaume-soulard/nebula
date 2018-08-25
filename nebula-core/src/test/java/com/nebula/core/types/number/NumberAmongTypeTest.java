@@ -2,6 +2,7 @@ package com.nebula.core.types.number;
 
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaException;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -16,6 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class NumberAmongTypeTest {
 
 	@Test
+    @DisplayName("newNumberAmongType should set items in fields")
 	void newNumberAmongType_should_set_items_in_fields() {
 
 		// GIVEN
@@ -30,6 +32,7 @@ class NumberAmongTypeTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should return 0")
 	void generateObject_should_return_0() {
 
 		// GIVEN
@@ -44,6 +47,7 @@ class NumberAmongTypeTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should return 1")
 	void generateObject_should_return_1() {
 
 		// GIVEN
@@ -58,6 +62,7 @@ class NumberAmongTypeTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should throw exception when object index is out of range")
 	void generateObject_should_throw_exception_when_object_index_is_out_of_range() {
 
 		// GIVEN
@@ -73,6 +78,7 @@ class NumberAmongTypeTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should throw exception when object index is last index plus one")
 	void generateObject_should_throw_exception_when_object_index_is_last_index_plus_one() {
 
 		// GIVEN
@@ -88,6 +94,7 @@ class NumberAmongTypeTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should throw exception when object index negative")
 	void generateObject_should_throw_exception_when_object_index_negative() {
 
 		// GIVEN
@@ -103,6 +110,7 @@ class NumberAmongTypeTest {
 	}
 
 	@Test
+    @DisplayName("getMinRange should return 0")
 	void getMinRange_should_return_0() {
 
 		// GIVEN
@@ -117,6 +125,7 @@ class NumberAmongTypeTest {
 	}
 
 	@Test
+    @DisplayName("getMaxRange should return 0")
 	void getMaxRange_should_return_0() {
 
 		// GIVEN
@@ -131,6 +140,7 @@ class NumberAmongTypeTest {
 	}
 
 	@Test
+    @DisplayName("getMaxRange should return 1")
 	void getMaxRange_should_return_1() {
 
 		// GIVEN

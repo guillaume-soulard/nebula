@@ -10,6 +10,7 @@ import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.NebulaTypes;
 import com.nebula.core.types.Type;
 import com.nebula.core.types.constant.ConstantTypeBuilder;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -28,6 +29,7 @@ class ListTypeAmongItemsTest {
 	private static final BigDecimal BIG_DECIMAL_TWO = BigDecimal.ONE.add(BigDecimal.ONE);
 
 	@Test
+    @DisplayName("new ListType should set passed values in fields")
 	void new_ListType_should_set_passed_values_in_fields() {
 
 		// GIVEN
@@ -47,6 +49,7 @@ class ListTypeAmongItemsTest {
 	}
 
 	@Test
+    @DisplayName("getMinRange should return 0")
 	void getMinRange_should_return_0() {
 
 		// GIVEN
@@ -64,6 +67,7 @@ class ListTypeAmongItemsTest {
 	}
 
 	@Test
+    @DisplayName("getMaxRange should return 0")
 	void getMaxRange_should_return_0() {
 
 		// GIVEN
@@ -81,6 +85,7 @@ class ListTypeAmongItemsTest {
 	}
 
 	@Test
+    @DisplayName("getMaxRange should return 1")
 	void getMaxRange_should_return_1() {
 
 		// GIVEN
@@ -98,6 +103,7 @@ class ListTypeAmongItemsTest {
 	}
 
 	@Test
+    @DisplayName("getMaxRange should return 4")
 	void getMaxRange_should_return_4() {
 
 		// GIVEN
@@ -116,6 +122,7 @@ class ListTypeAmongItemsTest {
 	}
 
 	@Test
+    @DisplayName("init should set nebulaRandom")
 	void init_should_set_nebulaRandom() {
 
 		// GIVEN
@@ -134,6 +141,7 @@ class ListTypeAmongItemsTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should return a non null object")
 	void generateObject_should_return_a_non_null_object() {
 
 		// GIVEN
@@ -156,6 +164,7 @@ class ListTypeAmongItemsTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should return an ArrayList")
 	void generateObject_should_return_an_ArrayList() {
 
 		// GIVEN
@@ -178,6 +187,7 @@ class ListTypeAmongItemsTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should return an empty list")
 	void generateObject_should_return_an_empty_list() {
 
 		// GIVEN
@@ -200,6 +210,7 @@ class ListTypeAmongItemsTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should return a list with size 1")
 	void generateObject_should_return_a_list_with_size_1() {
 
 		// GIVEN
@@ -223,6 +234,7 @@ class ListTypeAmongItemsTest {
 
 	@SuppressWarnings("unchecked")
 	@Test
+    @DisplayName("generateObject should return a list with different size at index 0 and 1")
 	void generateObject_should_return_a_list_with_different_size_at_index_0_and_1() {
 
 		// GIVEN
@@ -246,6 +258,7 @@ class ListTypeAmongItemsTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should return a the same list size with same index")
 	void generateObject_should_return_a_the_same_list_size_with_same_index() {
 
 		// GIVEN
@@ -269,6 +282,7 @@ class ListTypeAmongItemsTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should return a list contening only items in gien items list")
 	void generateObject_should_return_a_list_contening_only_items_in_gien_items_list() {
 
 		// GIVEN
@@ -292,6 +306,7 @@ class ListTypeAmongItemsTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should return an empty list with minSize set to 1")
 	void generateObject_should_return_an_empty_list_with_minSize_set_to_1() {
 
 		// GIVEN
@@ -314,6 +329,7 @@ class ListTypeAmongItemsTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should return list that contains items gives by the generator")
 	void generateObject_should_return_list_that_contains_items_gives_by_the_generator() {
 
 		// GIVEN

@@ -3,6 +3,7 @@ package com.nebula.core.types.number;
 import com.nebula.core.ModelBuilder;
 import com.nebula.core.NebulaException;
 import com.nebula.core.types.Type;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -16,6 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class NumberAmongTypeBuilderTest {
 
 	@Test
+    @DisplayName("build should return a new instance of NumberAmongType with defaults")
 	void build_should_return_a_new_instance_of_NumberAmongType_with_defaults() {
 
 		// GIVEN
@@ -29,6 +31,7 @@ class NumberAmongTypeBuilderTest {
 	}
 
 	@Test
+    @DisplayName("items should return the builder with given item as collection")
 	void items_should_return_the_builder_with_given_item_as_collection() {
 
 		// GIVEN
@@ -43,6 +46,7 @@ class NumberAmongTypeBuilderTest {
 	}
 
 	@Test
+    @DisplayName("items should return the builder with given items as collection")
 	void items_should_return_the_builder_with_given_items_as_collection() {
 
 		// GIVEN
@@ -58,6 +62,7 @@ class NumberAmongTypeBuilderTest {
 	}
 
 	@Test
+    @DisplayName("items should return the builder with null as collection")
 	void items_should_return_the_builder_with_null_as_collection() {
 
 		// GIVEN
@@ -71,6 +76,7 @@ class NumberAmongTypeBuilderTest {
 	}
 
 	@Test
+    @DisplayName("items should throw exception when null items is passed for big decimal")
 	void items_should_throw_exception_when_null_items_is_passed_for_big_decimal() {
 
 		// GIVEN
@@ -89,6 +95,7 @@ class NumberAmongTypeBuilderTest {
 	}
 
 	@Test
+    @DisplayName("items should throw exception when null items is passed for string")
 	void items_should_throw_exception_when_null_items_is_passed_for_string() {
 
 		// GIVEN
@@ -102,6 +109,7 @@ class NumberAmongTypeBuilderTest {
 	}
 
 	@Test
+    @DisplayName("items should throw exception when empty items is passed")
 	void items_should_throw_exception_when_empty_items_is_passed() {
 
 		// GIVEN
@@ -120,6 +128,7 @@ class NumberAmongTypeBuilderTest {
 	}
 
 	@Test
+    @DisplayName("build should NumberAmongType with items")
 	void build_should_NumberAmongType_with_items() {
 
 		// GIVEN

@@ -3,6 +3,7 @@ package com.nebula.core.generators;
 import com.nebula.core.ModelBuilder;
 import com.nebula.core.types.NebulaTypes;
 import com.nebula.core.types.Type;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -17,6 +18,7 @@ import static org.mockito.Mockito.when;
 class NebulaRandomTest {
 
 	@Test
+    @DisplayName("nextIndex should return 0 with integer range 0 0")
 	void nextIndex_should_return_0_with_integer_range_0_0() {
 
 		// GIVEN
@@ -31,6 +33,7 @@ class NebulaRandomTest {
 	}
 
 	@Test
+    @DisplayName("nextIndex should return 0 with integer range 10 10")
 	void nextIndex_should_return_0_with_integer_range_10_10() {
 
 		// GIVEN
@@ -45,6 +48,7 @@ class NebulaRandomTest {
 	}
 
 	@Test
+    @DisplayName("nextIndex should return index between 0 and 10 with integer range minus 1000 and minus 990")
 	void nextIndex_should_return_index_between_0_and_10_with_integer_range_minus_1000_and_minus_990() {
 
 		// GIVEN
@@ -63,6 +67,7 @@ class NebulaRandomTest {
 	}
 
 	@Test
+    @DisplayName("nextIndex should not throw exception when max bound is integer max and min bound is integer min")
 	void nextIndex_should_not_throw_exception_when_max_bound_is_integer_max_and_min_bound_is_integer_min() {
 
 		// GIVEN
@@ -81,6 +86,7 @@ class NebulaRandomTest {
 	}
 
 	@Test
+    @DisplayName("randomBetween should return 0")
 	void randomBetween_should_return_0() {
 
 		// GIVEN
@@ -94,6 +100,7 @@ class NebulaRandomTest {
 	}
 
 	@Test
+    @DisplayName("randomBetween should return 1")
 	void randomBetween_should_return_1() {
 
 		// GIVEN

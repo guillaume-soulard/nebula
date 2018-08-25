@@ -2,6 +2,7 @@ package com.nebula.core.output.stdout;
 
 import com.nebula.core.output.OutputParameter;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.InOrder;
 
@@ -20,6 +21,7 @@ class StandardOutputOutputTest {
     }
 
     @Test
+    @DisplayName("write should write test in stdout")
     void write_should_write_test_in_stdout() {
 
         // GIVEN
@@ -34,6 +36,7 @@ class StandardOutputOutputTest {
     }
 
     @Test
+    @DisplayName("write should flush stdout after writing object")
     void write_should_flush_stdout_after_writing_object() {
 
         // GIVEN

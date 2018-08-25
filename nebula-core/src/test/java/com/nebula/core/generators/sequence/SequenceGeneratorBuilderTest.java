@@ -1,6 +1,7 @@
 package com.nebula.core.generators.sequence;
 
 import com.nebula.core.generators.Generator;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -8,6 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class SequenceGeneratorBuilderTest {
 
 	@Test
+    @DisplayName("new SequenceGeneratorBuilder should set allowCycle to true by default")
 	void new_SequenceGeneratorBuilder_should_set_allowCycle_to_true_by_default() {
 
 		// GIVEN
@@ -21,6 +23,7 @@ class SequenceGeneratorBuilderTest {
 	}
 
 	@Test
+    @DisplayName("build should return a new instance of SequanceGenerator")
 	void build_should_return_a_new_instance_of_SequanceGenerator() {
 
 		// GIVEN
@@ -34,6 +37,7 @@ class SequenceGeneratorBuilderTest {
 	}
 
 	@Test
+    @DisplayName("noCycle should set allowCycle to false")
 	void noCycle_should_set_allowCycle_to_false() {
 
 		// GIVEN

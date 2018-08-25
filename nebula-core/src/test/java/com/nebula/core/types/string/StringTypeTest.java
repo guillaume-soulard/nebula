@@ -5,6 +5,7 @@ import com.nebula.core.Model;
 import com.nebula.core.ModelBuilder;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
@@ -15,6 +16,7 @@ import static org.mockito.Mockito.*;
 class StringTypeTest {
 
 	@Test
+    @DisplayName("generateObject should return a non null GeneratedObject")
 	void generateObject_should_return_a_non_null_GeneratedObject() {
 
 		// GIVEN
@@ -31,6 +33,7 @@ class StringTypeTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should return GeneratedObject with non null value")
 	void generateObject_should_return_GeneratedObject_with_non_null_value() {
 
 		// GIVEN
@@ -47,6 +50,7 @@ class StringTypeTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should return GeneratedObject with value matching pattern")
 	void generateObject_should_return_GeneratedObject_with_value_matching_pattern() {
 
 		// GIVEN
@@ -62,6 +66,7 @@ class StringTypeTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should generate different strings with index 0 and 1")
 	void generateObject_should_generate_different_strings_with_index_0_and_1() {
 
 		// GIVEN
@@ -78,6 +83,7 @@ class StringTypeTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should call stringGenerator generateString")
 	void generateObject_should_call_stringGenerator_generateString() {
 
 		// GIVEN
@@ -92,6 +98,7 @@ class StringTypeTest {
 	}
 
 	@Test
+    @DisplayName("newStringType should set pattern")
 	void newStringType_should_set_pattern() {
 
 		// GIVEN
@@ -106,11 +113,12 @@ class StringTypeTest {
 	}
 
 	@Test
+    @DisplayName("newStringType should set default pattern when null is passed")
 	void newStringType_should_set_default_pattern_when_null_is_passed() {
 
 		// GIVEN
 		StringType stringType;
-		String expectedPattern = "[a-zA-Z_0-9]{10}";
+        String expectedPattern = "[a-zA-Z 0-9]{10}";
 
 		// WHEN
 		stringType = new StringType(newStringGenerator(null));
@@ -120,6 +128,7 @@ class StringTypeTest {
 	}
 
 	@Test
+    @DisplayName("getMinRange should return 0")
 	void getMinRange_should_return_0() {
 
 		// GIVEN
@@ -133,6 +142,7 @@ class StringTypeTest {
 	}
 
 	@Test
+    @DisplayName("getMaxRange should return 0")
 	void getMaxRange_should_return_0() {
 
 		// GIVEN
@@ -146,6 +156,7 @@ class StringTypeTest {
 	}
 
 	@Test
+    @DisplayName("init should set new generex")
 	void init_should_set_new_generex() {
 
 		// GIVEN

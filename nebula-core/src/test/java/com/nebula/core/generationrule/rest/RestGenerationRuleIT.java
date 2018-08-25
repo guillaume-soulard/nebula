@@ -14,6 +14,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.joda.time.DateTime;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import sun.misc.IOUtils;
 
@@ -56,6 +57,7 @@ class RestGenerationRuleIT {
     }
 
     @Test
+    @DisplayName("execute_should_return_first_item_in_resource")
     void execute_should_return_first_item_in_resource() throws Exception {
 
         // GIVEN
@@ -70,6 +72,7 @@ class RestGenerationRuleIT {
     }
 
     @Test
+    @DisplayName("execute_should_return_result_when_negative_index_is_passed")
     void execute_should_return_result_when_negative_index_is_passed() throws Exception {
 
         // GIVEN
@@ -84,6 +87,7 @@ class RestGenerationRuleIT {
     }
 
     @Test
+    @DisplayName("execute_should_return_first_10_items")
     void execute_should_return_first_10_items() throws Exception {
 
         // GIVEN
@@ -98,6 +102,7 @@ class RestGenerationRuleIT {
     }
 
     @Test
+    @DisplayName("execute_should_return_first_2_items")
     void execute_should_return_first_2_items() throws Exception {
 
         // GIVEN
@@ -112,6 +117,7 @@ class RestGenerationRuleIT {
     }
 
     @Test
+    @DisplayName("execute_should_return_first_10_items_skipping_the_2_first")
     void execute_should_return_first_10_items_skipping_the_2_first() throws Exception {
 
         // GIVEN
@@ -126,6 +132,7 @@ class RestGenerationRuleIT {
     }
 
     @Test
+    @DisplayName("execute_should_return_items_at_index_0_5_7")
     void execute_should_return_items_at_index_0_5_7() throws Exception {
 
         // GIVEN
@@ -140,6 +147,7 @@ class RestGenerationRuleIT {
     }
 
     @Test
+    @DisplayName("execute_should_return_not_found_when_resource_not_exists")
     void execute_should_return_not_found_when_resource_not_exists() throws Exception {
 
         // GIVEN
@@ -154,6 +162,7 @@ class RestGenerationRuleIT {
     }
 
     @Test
+    @DisplayName("execute_should_return_entity_as_csv_format")
     void execute_should_return_entity_as_csv_format() throws Exception {
 
         // GIVEN

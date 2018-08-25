@@ -3,6 +3,7 @@ package com.nebula.core.types.entity;
 import com.nebula.core.*;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
@@ -18,6 +19,7 @@ class EntityTypeTest {
 	private static final String ENTITY_NAME = "test";
 
 	@Test
+    @DisplayName("new EntityType should throw exception when entity is null")
 	void new_EntityType_should_throw_exception_when_entity_is_null() {
 
 		// GIVEN
@@ -35,6 +37,7 @@ class EntityTypeTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should return a non null object")
 	void generateObject_should_return_a_non_null_object() {
 
 		// GIVEN
@@ -49,6 +52,7 @@ class EntityTypeTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should return a GeneratedObject with a list of properties")
 	void generateObject_should_return_a_GeneratedObject_with_a_list_of_properties() {
 
 		EntityType type = new EntityType(ENTITY_NAME);
@@ -62,6 +66,7 @@ class EntityTypeTest {
 	}
 
 	@Test
+    @DisplayName("init should set context")
 	void init_should_set_context() {
 
 		EntityType type = new EntityType(ENTITY_NAME);
@@ -72,6 +77,7 @@ class EntityTypeTest {
 	}
 
 	@Test
+    @DisplayName("getMinRange should return 0l")
 	void getMinRange_should_return_0l() {
 
 		EntityType entityType = new EntityType(ENTITY_NAME);
@@ -84,6 +90,7 @@ class EntityTypeTest {
 	}
 
 	@Test
+    @DisplayName("getMaxRange should return 0l")
 	void getMaxRange_should_return_0l() {
 
 		EntityType entityType = new EntityType(ENTITY_NAME);
@@ -101,6 +108,7 @@ class EntityTypeTest {
 	}
 
 	@Test
+    @DisplayName("getMaxRange should return 1l")
 	void getMaxRange_should_return_1l() {
 
 		EntityType entityType = new EntityType(ENTITY_NAME);
@@ -114,6 +122,7 @@ class EntityTypeTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should generate same entity for same index")
 	void generateObject_should_generate_same_entity_for_same_index() {
 
 		EntityType entityType = new EntityType(ENTITY_NAME);
@@ -129,6 +138,7 @@ class EntityTypeTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should generate different entities for two different indexes")
 	void generateObject_should_generate_different_entities_for_two_different_indexes() {
 
 		EntityType entityType = new EntityType(ENTITY_NAME);
@@ -143,6 +153,7 @@ class EntityTypeTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should throw exception when index is negative")
 	void generateObject_should_throw_exception_when_index_is_negative() {
 
 		EntityType entityType = new EntityType(ENTITY_NAME);
@@ -157,6 +168,7 @@ class EntityTypeTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should throw exception when index is greater than the maximum index")
 	void generateObject_should_throw_exception_when_index_is_greater_than_the_maximum_index() {
 
 		EntityType entityType = new EntityType(ENTITY_NAME);
@@ -171,6 +183,7 @@ class EntityTypeTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should throw exception when entity name is unknown")
 	void generateObject_should_throw_exception_when_entity_name_is_unknown() {
 
 		EntityType entityType = new EntityType("unknown entity");
@@ -185,6 +198,7 @@ class EntityTypeTest {
 	}
 
 	@Test
+    @DisplayName("getMaxRange should throw exception when entity name is unknown")
 	void getMaxRange_should_throw_exception_when_entity_name_is_unknown() {
 
 		EntityType entityType = new EntityType("unknown entity");

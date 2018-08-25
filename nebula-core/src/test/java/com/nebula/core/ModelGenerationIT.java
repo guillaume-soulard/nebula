@@ -2,6 +2,7 @@ package com.nebula.core;
 
 import com.nebula.core.types.date.DateTimeTypeIntervals;
 import org.joda.time.DateTime;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -34,6 +35,7 @@ class ModelGenerationIT {
 	private static final String ID_PROPERTY_NAME = "_id";
 
 	@Test
+    @DisplayName("generate_should_generate_1000_entities_with_correct_properties_values")
 	void generate_should_generate_1000_entities_with_correct_properties_values() {
 
 		// GIVEN
@@ -53,6 +55,7 @@ class ModelGenerationIT {
 	}
 
 	@Test
+    @DisplayName("generateEntityObject_should_generate_two_properties_with_different_values_with_same_type")
 	void generateEntityObject_should_generate_two_properties_with_different_values_with_same_type() {
 
 		// GIVEN

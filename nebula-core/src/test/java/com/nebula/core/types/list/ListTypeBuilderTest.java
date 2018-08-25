@@ -4,6 +4,7 @@ import com.nebula.core.generators.GeneratorBuilder;
 import com.nebula.core.generators.NebulaGenerators;
 import com.nebula.core.types.NebulaTypes;
 import com.nebula.core.types.TypeBuilder;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -11,6 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ListTypeBuilderTest {
 
 	@Test
+    @DisplayName("of should return ListTypeOfTypeBuilder with generator and type builder sets")
 	void of_should_return_ListTypeOfTypeBuilder_with_generator_and_type_builder_sets() {
 
 		// GIVEN
@@ -27,6 +29,7 @@ class ListTypeBuilderTest {
 	}
 
 	@Test
+    @DisplayName("of should return ListTypeAmongItems Builder with generator sets")
 	void of_should_return_ListTypeAmongItems_Builder_with_generator_sets() {
 
 		// GIVEN

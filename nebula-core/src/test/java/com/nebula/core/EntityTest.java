@@ -8,6 +8,7 @@ import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.NebulaTypes;
 import com.nebula.core.types.RandomTypeBuilder;
 import com.nebula.core.types.Type;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -21,6 +22,7 @@ import static org.mockito.Mockito.*;
 class EntityTest {
 
 	@Test
+    @DisplayName("addProperty should add new property in entity properties")
 	void addProperty_should_add_new_property_in_entity_properties() {
 		// GIVEN
 		Entity entity = ModelBuilder.newEmptyModel().build().newEntity("test", 1);
@@ -39,6 +41,7 @@ class EntityTest {
 	}
 
 	@Test
+    @DisplayName("addProperty should throw exception when duplicate property name is added")
 	void addProperty_should_throw_exception_when_duplicate_property_name_is_added() {
 
 		// GIVEN
@@ -57,6 +60,7 @@ class EntityTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should generate a non null object")
 	void generateObject_should_generate_a_non_null_object() {
 
 		// GIVEN
@@ -70,6 +74,7 @@ class EntityTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should return the correct amount of properties")
 	void generateObject_should_return_the_correct_amount_of_properties() {
 
 		Entity entity = ModelBuilder.newEmptyModel().build().newEntity("test", 1);
@@ -86,6 +91,7 @@ class EntityTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should return a generated object with one generated property equal to 1")
 	void generateObject_should_return_a_generated_object_with_one_generated_property_equal_to_1() {
 
 		// GIVEN
@@ -106,6 +112,7 @@ class EntityTest {
 	}
 
 	@Test
+    @DisplayName("generateObject should return a generated object with two properties first equal to 1 and second equal to 5")
 	void generateObject_should_return_a_generated_object_with_two_properties_first_equal_to_1_and_second_equal_to_5() {
 
 		// GIVEN
@@ -132,6 +139,7 @@ class EntityTest {
 	}
 
 	@Test
+    @DisplayName("init should init property generators")
 	void init_should_init_property_generators() {
 
 		// GIVEN
@@ -158,6 +166,7 @@ class EntityTest {
 	}
 
 	@Test
+    @DisplayName("init should init property type")
 	void init_should_init_property_type() {
 
 		// GIVEN
@@ -183,6 +192,7 @@ class EntityTest {
 	}
 
 	@Test
+    @DisplayName("setPropertyBuilder should set propertyBuilder filed in given entity")
 	void setPropertyBuilder_should_set_propertyBuilder_filed_in_given_entity() {
 
 		// GIVEN

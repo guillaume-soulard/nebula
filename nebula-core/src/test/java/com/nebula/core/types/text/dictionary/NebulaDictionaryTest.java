@@ -3,6 +3,7 @@ package com.nebula.core.types.text.dictionary;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.text.TextGenerationConfiguration;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
@@ -23,6 +24,7 @@ class NebulaDictionaryTest {
     }
 
     @Test
+    @DisplayName("getText should return non null text")
     void getText_should_return_non_null_text() {
 
         // GIVEN
@@ -35,6 +37,7 @@ class NebulaDictionaryTest {
     }
 
     @Test
+    @DisplayName("getText should return string with test inside")
     void getText_should_return_string_with_test_inside() {
 
         // GIVEN
@@ -47,6 +50,7 @@ class NebulaDictionaryTest {
     }
 
     @Test
+    @DisplayName("getText should return string only one word and one sentence")
     void getText_should_return_string_only_one_word_and_one_sentence() {
 
         // GIVEN
@@ -63,6 +67,7 @@ class NebulaDictionaryTest {
     }
 
     @Test
+    @DisplayName("getText should return string with two words in two sentences")
     void getText_should_return_string_with_two_words_in_two_sentences() {
 
         // GIVEN
@@ -79,6 +84,7 @@ class NebulaDictionaryTest {
     }
 
     @Test
+    @DisplayName("getText should return a sentence with a number of words between 5 and 10")
     void getText_should_return_a_sentence_with_a_number_of_words_between_5_and_10() {
 
         // GIVEN

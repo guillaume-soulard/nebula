@@ -3,6 +3,7 @@ package com.nebula.object.junit;
 import com.nebula.core.Model;
 import com.nebula.core.ModelBuilder;
 import com.nebula.object.User;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
@@ -23,6 +24,7 @@ public class NebulaJunitRunnerTest {
     private User user;
 
     @Test
+    @DisplayName("should pass")
     void should_pass() {
 
         assertThat(users).hasSize(10);

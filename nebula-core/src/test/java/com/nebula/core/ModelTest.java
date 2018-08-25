@@ -3,6 +3,7 @@ package com.nebula.core;
 import com.nebula.core.generators.NebulaGenerators;
 import com.nebula.core.types.NebulaTypes;
 import org.joda.time.DateTime;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -18,6 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ModelTest {
 
 	@Test
+    @DisplayName("newEntity should add given type in model")
 	void newEntity_should_add_given_type_in_model() {
 		// GIVEN
 		Model model = ModelBuilder.newEmptyModel().build();
@@ -30,6 +32,7 @@ class ModelTest {
 	}
 
 	@Test
+    @DisplayName("newEntity with no amount should add given type in model")
 	void newEntity_with_no_amount_should_add_given_type_in_model() {
 		// GIVEN
 		Model model = ModelBuilder.newEmptyModel().build();
@@ -42,6 +45,7 @@ class ModelTest {
 	}
 
 	@Test
+    @DisplayName("generateAll should generate 10 objects")
 	void generateAll_should_generate_10_objects() {
 
 		// GIVEN
@@ -59,6 +63,7 @@ class ModelTest {
 	}
 
 	@Test
+    @DisplayName("generateEntity should generate 10 objects")
 	void generateEntity_should_generate_10_objects() {
 
 		// GIVEN
@@ -75,6 +80,7 @@ class ModelTest {
 	}
 
 	@Test
+    @DisplayName("generateAll should return only numbers between minus2 and 2 over 100 generated entities")
 	void generateAll_should_return_only_numbers_between_minus2_and_2_over_100_generated_entities() {
 
 		// GIVEN
@@ -96,6 +102,7 @@ class ModelTest {
 	}
 
 	@Test
+    @DisplayName("iterator should return a new iterator")
 	void iterator_should_return_a_new_iterator() {
 
 		// GIVEN
@@ -114,6 +121,7 @@ class ModelTest {
 	}
 
 	@Test
+    @DisplayName("iterator should get same objects than all entities")
 	void iterator_should_get_same_objects_than_all_entities() {
 
 		// GIVEN
@@ -133,6 +141,7 @@ class ModelTest {
 	}
 
 	@Test
+    @DisplayName("getEntityByName should return entity")
 	void getEntityByName_should_return_entity() {
 
 		// GIVEN
@@ -149,6 +158,7 @@ class ModelTest {
 	}
 
 	@Test
+    @DisplayName("getEntityByName should throw exception when unexisting entity is passed")
 	void getEntityByName_should_throw_exception_when_unexisting_entity_is_passed() {
 
 		// GIVEN
@@ -165,6 +175,7 @@ class ModelTest {
 	}
 
 	@Test
+    @DisplayName("generateEntity should generate entity for index 0")
 	void generateEntity_should_generate_entity_for_index_0() {
 
 		// GIVEN
@@ -182,6 +193,7 @@ class ModelTest {
 	}
 
 	@Test
+    @DisplayName("generateEntity should generate 10 different objects")
 	void generateEntity_should_generate_10_different_objects() {
 
 		// GIVEN
@@ -198,6 +210,7 @@ class ModelTest {
 	}
 
 	@Test
+    @DisplayName("generateEntity should generate the same entity for index 0")
 	void generateEntity_should_generate_the_same_entity_for_index_0() {
 
 		// GIVEN
@@ -216,6 +229,7 @@ class ModelTest {
 	}
 
 	@Test
+    @DisplayName("generateEntity should generate the same entity for index 0 comparing to generate all entities")
 	void generateEntity_should_generate_the_same_entity_for_index_0_comparing_to_generate_all_entities() {
 
 		// GIVEN
@@ -234,6 +248,7 @@ class ModelTest {
 	}
 
 	@Test
+    @DisplayName("removeEntity should remove all entity from list")
 	void removeEntity_should_remove_all_entity_from_list() {
 
 		// GIVEN
@@ -249,6 +264,7 @@ class ModelTest {
 	}
 
 	@Test
+    @DisplayName("removeEntity should remove entity from list")
 	void removeEntity_should_remove_entity_from_list() {
 
 		// GIVEN
@@ -266,6 +282,7 @@ class ModelTest {
 	}
 
 	@Test
+    @DisplayName("removeEntity should throw exception when entity to remove not exists")
 	void removeEntity_should_throw_exception_when_entity_to_remove_not_exists() {
 
 		// GIVEN
@@ -281,6 +298,7 @@ class ModelTest {
 	}
 
 	@Test
+    @DisplayName("newStaticEntity should create a new static entity in model")
 	void newStaticEntity_should_create_a_new_static_entity_in_model() {
 
 		// GIVEN
@@ -307,6 +325,7 @@ class ModelTest {
 	}
 
 	@Test
+    @DisplayName("generateEntityObjects should return 2 generated objects with same property value as static entity")
 	void generateEntityObjects_should_return_2_generated_objects_with_same_property_value_as_static_entity() {
 
 		// GIVEN

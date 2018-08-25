@@ -1,6 +1,7 @@
 package com.nebula.core.generationconstraint.every;
 
 import com.nebula.core.generationconstraint.AcceptationResult;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -10,6 +11,7 @@ class EveryGenerationConstraintTest {
     private static final long ONE_SECOND = 1000L;
 
     @Test
+    @DisplayName("accept should not return ACCEPTABLE")
     void accept_should_not_return_ACCEPTABLE() {
 
         // GIVEN
@@ -23,6 +25,7 @@ class EveryGenerationConstraintTest {
     }
 
     @Test
+    @DisplayName("accept should wait 1 second")
     void accept_should_wait_1_second() {
 
         // GIVEN

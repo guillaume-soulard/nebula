@@ -1,6 +1,7 @@
 package com.nebula.core.formatter;
 
 import org.joda.time.DateTime;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -10,6 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ValueFormatterTest {
 
     @Test
+    @DisplayName("formatValue should return date with given format")
     void formatValue_should_return_date_with_given_format() {
 
         // GIVEN
@@ -24,6 +26,7 @@ class ValueFormatterTest {
     }
 
     @Test
+    @DisplayName("formatValue should return number with correct separators")
     void formatValue_should_return_number_with_correct_separators() {
 
         // GIVEN

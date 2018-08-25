@@ -1,6 +1,7 @@
 package com.nebula.core.types.date.strategy;
 
 import org.joda.time.DateTime;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -8,6 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class DateTimeHourStrategyTest {
 
 	@Test
+    @DisplayName("getByDateAndIndexAndInterval should return the initial date for index 0")
 	void getByDateAndIndexAndInterval_should_return_the_initial_date_for_index_0() {
 
 		// GIVEN
@@ -23,6 +25,7 @@ class DateTimeHourStrategyTest {
 	}
 
 	@Test
+    @DisplayName("getByDateAndIndexAndInterval should return the initial plus 1 milisecond date for index 1")
 	void getByDateAndIndexAndInterval_should_return_the_initial_plus_1_milisecond_date_for_index_1() {
 
 		// GIVEN
@@ -38,6 +41,7 @@ class DateTimeHourStrategyTest {
 	}
 
 	@Test
+    @DisplayName("getMaxIndex should return 10")
 	void getMaxIndex_should_return_10() {
 
 		// GIVEN
@@ -53,6 +57,7 @@ class DateTimeHourStrategyTest {
 	}
 
 	@Test
+    @DisplayName("getMaxIndex should return 1")
 	void getMaxIndex_should_return_1() {
 
 		// GIVEN

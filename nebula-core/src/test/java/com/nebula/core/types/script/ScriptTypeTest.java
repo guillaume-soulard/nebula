@@ -3,6 +3,7 @@ package com.nebula.core.types.script;
 import com.nebula.core.*;
 import com.nebula.core.types.GenerationContext;
 import org.joda.time.DateTime;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -13,6 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ScriptTypeTest {
 
     @Test
+    @DisplayName("generateObject should return 0")
     void generateObject_should_return_0() {
 
         // GIVEN
@@ -30,6 +32,7 @@ class ScriptTypeTest {
     }
 
     @Test
+    @DisplayName("generateObject should return 10")
     void generateObject_should_return_10() {
 
         // GIVEN
@@ -47,6 +50,7 @@ class ScriptTypeTest {
     }
 
     @Test
+    @DisplayName("generateObject should return test string")
     void generateObject_should_return_test_string() {
 
         // GIVEN
@@ -64,6 +68,7 @@ class ScriptTypeTest {
     }
 
     @Test
+    @DisplayName("generateObject should return true string")
     void generateObject_should_return_true_string() {
 
         // GIVEN
@@ -81,6 +86,7 @@ class ScriptTypeTest {
     }
 
     @Test
+    @DisplayName("generateObject should return a date")
     void generateObject_should_return_a_date() {
 
         // GIVEN
@@ -98,6 +104,7 @@ class ScriptTypeTest {
     }
 
     @Test
+    @DisplayName("generateObject should return null")
     void generateObject_should_return_null() {
 
         // GIVEN
@@ -115,6 +122,7 @@ class ScriptTypeTest {
     }
 
     @Test
+    @DisplayName("generateObject should throw exception when raw type is returned")
     void generateObject_should_throw_exception_when_raw_type_is_returned() {
 
         // GIVEN
@@ -139,6 +147,7 @@ class ScriptTypeTest {
     }
 
     @Test
+    @DisplayName("generateObject should return One with condition")
     void generateObject_should_return_One_with_condition() {
 
         // GIVEN

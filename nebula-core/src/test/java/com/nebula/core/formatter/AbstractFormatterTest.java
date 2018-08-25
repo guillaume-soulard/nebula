@@ -4,6 +4,7 @@ import com.nebula.core.Entity;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.GeneratedProperty;
 import com.nebula.core.types.Type;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -16,12 +17,13 @@ import static org.mockito.Mockito.mock;
 class AbstractFormatterTest {
 
     @Test
+    @DisplayName("excludeFieldsOn should return all given properties")
     void excludeFieldsOn_should_return_all_given_properties() {
 
         // GIVEN
         List<String> excludedFields = new ArrayList<>();
         AbstractFormatter abstractFormatter = newFormatter(excludedFields);
-        GeneratedObject generatedObject = new GeneratedObject(getProperties("_id"));
+        GeneratedObject generatedObject = new GeneratedObject(getProperties(" id"));
 
         // WHEN
         GeneratedObject result = abstractFormatter.excludeFieldsOn(generatedObject);
@@ -31,12 +33,13 @@ class AbstractFormatterTest {
     }
 
     @Test
+    @DisplayName("excludeFieldsOn should return no properties")
     void excludeFieldsOn_should_return_no_properties() {
 
         // GIVEN
-        List<String> excludedFields = Collections.singletonList("_id");
+        List<String> excludedFields = Collections.singletonList(" id");
         AbstractFormatter abstractFormatter = newFormatter(excludedFields);
-        GeneratedObject generatedObject = new GeneratedObject(getProperties("_id"));
+        GeneratedObject generatedObject = new GeneratedObject(getProperties(" id"));
 
         // WHEN
         GeneratedObject result = abstractFormatter.excludeFieldsOn(generatedObject);
@@ -46,12 +49,13 @@ class AbstractFormatterTest {
     }
 
     @Test
+    @DisplayName("excludeFieldsOn should return one property")
     void excludeFieldsOn_should_return_one_property() {
 
         // GIVEN
-        List<String> excludedFields = Collections.singletonList("_id");
+        List<String> excludedFields = Collections.singletonList(" id");
         AbstractFormatter abstractFormatter = newFormatter(excludedFields);
-        GeneratedObject generatedObject = new GeneratedObject(getProperties("_id", "field"));
+        GeneratedObject generatedObject = new GeneratedObject(getProperties(" id", "field"));
 
         // WHEN
         GeneratedObject result = abstractFormatter.excludeFieldsOn(generatedObject);

@@ -6,6 +6,7 @@ import com.nebula.core.NebulaException;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.Type;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ import static org.mockito.Mockito.mock;
 class AmongItemsTypeTest {
 
     @Test
+    @DisplayName("generateObject should return item1")
     void generateObject_should_return_item1() {
 
         // GIVEN
@@ -39,6 +41,7 @@ class AmongItemsTypeTest {
     }
 
     @Test
+    @DisplayName("getMinRange should return 0 when list is empty")
     void getMinRange_should_return_0_when_list_is_empty() {
 
         // GIVEN
@@ -53,6 +56,7 @@ class AmongItemsTypeTest {
     }
 
     @Test
+    @DisplayName("getMinRange should return 0 when list is not empty")
     void getMinRange_should_return_0_when_list_is_not_empty() {
 
         // GIVEN
@@ -69,6 +73,7 @@ class AmongItemsTypeTest {
     }
 
     @Test
+    @DisplayName("getMaxRange should return 0 when list is not empty")
     void getMaxRange_should_return_0_when_list_is_not_empty() {
 
         // GIVEN
@@ -84,6 +89,7 @@ class AmongItemsTypeTest {
     }
 
     @Test
+    @DisplayName("getMaxRange should return 1 when list size is 1")
     void getMaxRange_should_return_1_when_list_size_is_1() {
 
         // GIVEN
@@ -100,6 +106,7 @@ class AmongItemsTypeTest {
     }
 
     @Test
+    @DisplayName("newPickerType should throw exception when null list is passed")
     void newPickerType_should_throw_exception_when_null_list_is_passed() {
 
         // GIVEN;

@@ -1,5 +1,6 @@
 package com.nebula.core.types.string;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -7,6 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class StringGeneratorTest {
 
 	@Test
+    @DisplayName("newStringGenerator should return a new instance of StringGenerator")
 	void newStringGenerator_should_return_a_new_instance_of_StringGenerator() {
 
 		// GIVEN
@@ -20,10 +22,11 @@ class StringGeneratorTest {
 	}
 
 	@Test
+    @DisplayName("newStringGenerator should set default pattern when null is passed")
 	void newStringGenerator_should_set_default_pattern_when_null_is_passed() {
 
 		// GIVEN
-		String expectedDefaultPattern = "[a-zA-Z_0-9]{10}";
+        String expectedDefaultPattern = "[a-zA-Z 0-9]{10}";
 
 		// WHEN
 		StringGenerator result = StringGenerator.newStringGenerator(null);
@@ -33,6 +36,7 @@ class StringGeneratorTest {
 	}
 
 	@Test
+    @DisplayName("generateString should return test")
 	void generateString_should_return_test() {
 
 		// GIVEN
@@ -47,6 +51,7 @@ class StringGeneratorTest {
 	}
 
 	@Test
+    @DisplayName("generateString should return a string matching pattern")
 	void generateString_should_return_a_string_matching_pattern() {
 
 		// GIVEN

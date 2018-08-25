@@ -3,6 +3,7 @@ package com.nebula.core.generationrule.graphql;
 import com.nebula.core.Model;
 import com.nebula.core.ModelBuilder;
 import graphql.GraphQL;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.nebula.core.generators.NebulaGenerators.random;
@@ -12,6 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class GraphQlSchemaBuilderTest {
 
     @Test
+    @DisplayName("buildSchemaFrom should not return null")
     void buildSchemaFrom_should_not_return_null() {
 
         // GIVEN

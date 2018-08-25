@@ -9,6 +9,7 @@ import com.nebula.core.types.list.ListTypeBuilder;
 import com.nebula.core.types.number.NumberTypeBuilderChooser;
 import com.nebula.core.types.string.StringTypeBuilder;
 import org.joda.time.DateTime;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -18,6 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class NebulaGenerationTypesTest {
 
 	@Test
+    @DisplayName("integer should return a new instance of NumberTypeBuilderChooser")
 	void integer_should_return_a_new_instance_of_NumberTypeBuilderChooser() {
 
 		// GIVEN
@@ -30,6 +32,7 @@ class NebulaGenerationTypesTest {
 	}
 
 	@Test
+    @DisplayName("dateTime should return a new instance of DateTimeTypeBuilderChooser")
 	void dateTime_should_return_a_new_instance_of_DateTimeTypeBuilderChooser() {
 
 		// GIVEN
@@ -42,6 +45,7 @@ class NebulaGenerationTypesTest {
 	}
 
 	@Test
+    @DisplayName("string should return a new instance of StringTypeBuilder")
 	void string_should_return_a_new_instance_of_StringTypeBuilder() {
 
 		// GIVEN
@@ -54,6 +58,7 @@ class NebulaGenerationTypesTest {
 	}
 
 	@Test
+    @DisplayName("bool should return a new instance of BooleanTypeBuilder")
 	void bool_should_return_a_new_instance_of_BooleanTypeBuilder() {
 
 		// GIVEN
@@ -66,6 +71,7 @@ class NebulaGenerationTypesTest {
 	}
 
 	@Test
+    @DisplayName("list should return a new instance of ListTypeBuilder")
 	void list_should_return_a_new_instance_of_ListTypeBuilder() {
 
 		// GIVEN
@@ -78,6 +84,7 @@ class NebulaGenerationTypesTest {
 	}
 
 	@Test
+    @DisplayName("constant should return a new instance of ConstantTypeBuilder with String")
 	void constant_should_return_a_new_instance_of_ConstantTypeBuilder_with_String() {
 
 		// GIVEN
@@ -91,6 +98,7 @@ class NebulaGenerationTypesTest {
 	}
 
 	@Test
+    @DisplayName("constant should return a new instance of ConstantTypeBuilder with Date")
 	void constant_should_return_a_new_instance_of_ConstantTypeBuilder_with_Date() {
 
 		// GIVEN
@@ -104,6 +112,7 @@ class NebulaGenerationTypesTest {
 	}
 
 	@Test
+    @DisplayName("constant should return a new instance of ConstantTypeBuilder with BigDecimal")
 	void constant_should_return_a_new_instance_of_ConstantTypeBuilder_with_BigDecimal() {
 
 		// GIVEN
@@ -117,6 +126,7 @@ class NebulaGenerationTypesTest {
 	}
 
 	@Test
+    @DisplayName("constant should return a new instance of ConstantTypeBuilder with Boolean")
 	void constant_should_return_a_new_instance_of_ConstantTypeBuilder_with_Boolean() {
 
 		// GIVEN
@@ -129,6 +139,7 @@ class NebulaGenerationTypesTest {
 	}
 
 	@Test
+    @DisplayName("entity should return a new instance of EntityTypeBuilder")
 	void entity_should_return_a_new_instance_of_EntityTypeBuilder() {
 
 		// GIVEN

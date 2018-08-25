@@ -3,6 +3,7 @@ package com.nebula.object.generator;
 import com.nebula.object.ObjectGenerator;
 import com.nebula.object.User;
 import com.nebula.object.generator.model.ClassModelBuilder;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -14,6 +15,7 @@ import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 class LazyListTest {
 
     @Test
+    @DisplayName("generateLazyListOf should return a list with 1000000 items")
     void generateLazyListOf_should_return_a_list_with_1000000_items() {
 
         // GIVEN
@@ -28,6 +30,7 @@ class LazyListTest {
     }
 
     @Test
+    @DisplayName("get should return non null user")
     void get_should_return_non_null_user() {
 
         // GIVEN
@@ -43,6 +46,7 @@ class LazyListTest {
     }
 
     @Test
+    @DisplayName("get should throw an exception")
     void get_should_throw_an_exception() {
 
         // GIVEN
@@ -58,6 +62,7 @@ class LazyListTest {
     }
 
     @Test
+    @DisplayName("for should iterate over list")
     void for_should_iterate_over_list() {
 
         // GIVEN
@@ -75,6 +80,7 @@ class LazyListTest {
     }
 
     @Test
+    @DisplayName("contains should return false")
     void contains_should_return_false() {
 
         // GIVEN

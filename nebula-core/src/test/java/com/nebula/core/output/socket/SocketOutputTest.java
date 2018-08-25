@@ -2,10 +2,7 @@ package com.nebula.core.output.socket;
 
 import com.nebula.core.NebulaException;
 import com.nebula.core.output.OutputParameter;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
@@ -28,6 +25,7 @@ class SocketOutputTest {
     }
 
     @Test
+    @DisplayName("open should open socket")
     void open_should_open_socket() {
 
         // GIVEN
@@ -43,6 +41,7 @@ class SocketOutputTest {
     }
 
     @Test
+    @DisplayName("open should throw exception when unknown host not listen the given port")
     void open_should_throw_exception_when_unknown_host_not_listen_the_given_port() {
 
         // GIVEN
@@ -58,6 +57,7 @@ class SocketOutputTest {
     }
 
     @Test
+    @DisplayName("open should throw exception when right listen the given another port")
     void open_should_throw_exception_when_right_listen_the_given_another_port() {
 
         // GIVEN
@@ -73,6 +73,7 @@ class SocketOutputTest {
     }
 
     @Test
+    @DisplayName("close should close socket")
     void close_should_close_socket() {
 
         // GIVEN
@@ -89,6 +90,7 @@ class SocketOutputTest {
     }
 
     @Test
+    @DisplayName("close should throw exception when socket is not open")
     void close_should_throw_exception_when_socket_is_not_open() {
 
         // GIVEN
@@ -104,6 +106,7 @@ class SocketOutputTest {
     }
 
     @Test
+    @DisplayName("write should send test")
     void write_should_send_test() throws Exception {
 
         // GIVEN
@@ -122,6 +125,7 @@ class SocketOutputTest {
     }
 
     @Test
+    @DisplayName("write should send null")
     void write_should_send_null() {
 
         // GIVEN

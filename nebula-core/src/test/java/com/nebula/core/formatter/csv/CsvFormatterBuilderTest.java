@@ -1,10 +1,12 @@
 package com.nebula.core.formatter.csv;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class CsvFormatterBuilderTest {
 
     @Test
+    @DisplayName("CsvFormatterBuilder should have method withNumberThousandSeparator")
     void CsvFormatterBuilder_should_have_method_withNumberThousandSeparator() {
 
         // GIVEN
@@ -17,6 +19,7 @@ class CsvFormatterBuilderTest {
     }
 
     @Test
+    @DisplayName("CsvFormatterBuilder should have method withDateFormat")
     void CsvFormatterBuilder_should_have_method_withDateFormat() {
 
         // GIVEN
@@ -29,6 +32,7 @@ class CsvFormatterBuilderTest {
     }
 
     @Test
+    @DisplayName("CsvFormatterBuilder should have method withNumberDecimalSeparator")
     void CsvFormatterBuilder_should_have_method_withNumberDecimalSeparator() {
 
         // GIVEN

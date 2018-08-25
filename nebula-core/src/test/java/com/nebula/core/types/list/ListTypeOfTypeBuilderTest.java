@@ -7,6 +7,7 @@ import com.nebula.core.generators.NebulaGenerators;
 import com.nebula.core.types.NebulaTypes;
 import com.nebula.core.types.Type;
 import com.nebula.core.types.TypeBuilder;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.googlecode.catchexception.CatchException.catchException;
@@ -16,6 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ListTypeOfTypeBuilderTest {
 
 	@Test
+    @DisplayName("new ListTypeOfTypeBuilder should set generator and type")
 	void new_ListTypeOfTypeBuilder_should_set_generator_and_type() {
 
 		// GIVEN
@@ -32,6 +34,7 @@ class ListTypeOfTypeBuilderTest {
 	}
 
 	@Test
+    @DisplayName("new ListTypeOfTypeBuilder should throw exception when generator is null")
 	void new_ListTypeOfTypeBuilder_should_throw_exception_when_generator_is_null() {
 
 		// GIVEN
@@ -50,6 +53,7 @@ class ListTypeOfTypeBuilderTest {
 	}
 
 	@Test
+    @DisplayName("new ListTypeOfTypeBuilder should throw exception when type is null")
 	void new_ListTypeOfTypeBuilder_should_throw_exception_when_type_is_null() {
 
 		// GIVEN
@@ -68,6 +72,7 @@ class ListTypeOfTypeBuilderTest {
 	}
 
 	@Test
+    @DisplayName("withMinSize should set 0 as min size")
 	void withMinSize_should_set_0_as_min_size() {
 
 		// GIVEN
@@ -83,6 +88,7 @@ class ListTypeOfTypeBuilderTest {
 	}
 
 	@Test
+    @DisplayName("withMinSize should set 15 as min size")
 	void withMinSize_should_set_15_as_min_size() {
 
 		// GIVEN
@@ -98,6 +104,7 @@ class ListTypeOfTypeBuilderTest {
 	}
 
 	@Test
+    @DisplayName("withMaxSize should set 0 as max size")
 	void withMaxSize_should_set_0_as_max_size() {
 
 		// GIVEN
@@ -113,6 +120,7 @@ class ListTypeOfTypeBuilderTest {
 	}
 
 	@Test
+    @DisplayName("withMaxSize should set 15 as max size")
 	void withMaxSize_should_set_15_as_max_size() {
 
 		// GIVEN
@@ -128,6 +136,7 @@ class ListTypeOfTypeBuilderTest {
 	}
 
 	@Test
+    @DisplayName("build should return a new instance of ListType with minSize and maxSize with defauls value")
 	void build_should_return_a_new_instance_of_ListType_with_minSize_and_maxSize_with_defauls_value() {
 
 		// GIVEN
@@ -143,6 +152,7 @@ class ListTypeOfTypeBuilderTest {
 	}
 
 	@Test
+    @DisplayName("build should throw exception when min is greater than max")
 	void build_should_throw_exception_when_min_is_greater_than_max() {
 
 		// GIVEN

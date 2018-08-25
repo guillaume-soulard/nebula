@@ -7,6 +7,7 @@ import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.NebulaTypes;
 import com.nebula.core.types.Type;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -23,6 +24,7 @@ import static org.mockito.Mockito.mock;
 class RandomGeneratorTest {
 
 	@Test
+    @DisplayName("random should return a new instance of RandomGenerator")
 	void random_should_return_a_new_instance_of_RandomGenerator() {
 
 		// GIVEN
@@ -35,6 +37,7 @@ class RandomGeneratorTest {
 	}
 
 	@Test
+    @DisplayName("generate should return one")
 	void generate_should_return_one() {
 
 		// GIVEN
@@ -51,6 +54,7 @@ class RandomGeneratorTest {
 	}
 
 	@Test
+    @DisplayName("generate should return ten")
 	void generate_should_return_ten() {
 
 		// GIVEN
@@ -67,6 +71,7 @@ class RandomGeneratorTest {
 	}
 
 	@Test
+    @DisplayName("generate should return a number between 0 and 10")
 	void generate_should_return_a_number_between_0_and_10() {
 
 		// GIVEN
@@ -90,6 +95,7 @@ class RandomGeneratorTest {
 	}
 
 	@Test
+    @DisplayName("init should throw exception when nebulaRandom is null")
 	void init_should_throw_exception_when_nebulaRandom_is_null() {
 
 		// GIVEN
@@ -104,6 +110,7 @@ class RandomGeneratorTest {
 	}
 
 	@Test
+    @DisplayName("generate should throw exception when nebula random is null")
 	void generate_should_throw_exception_when_nebula_random_is_null() {
 
 		// GIVEN

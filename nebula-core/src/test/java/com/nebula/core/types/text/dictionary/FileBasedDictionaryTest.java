@@ -1,5 +1,6 @@
 package com.nebula.core.types.text.dictionary;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -10,6 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class FileBasedDictionaryTest {
 
     @Test
+    @DisplayName("normalizePath should not normalize linux like path")
     void normalizePath_should_not_normalize_linux_like_path() {
 
         // GIVEN
@@ -23,6 +25,7 @@ class FileBasedDictionaryTest {
     }
 
     @Test
+    @DisplayName("normalizePath should normalize windows like path")
     void normalizePath_should_normalize_windows_like_path() {
 
         // GIVEN
@@ -36,6 +39,7 @@ class FileBasedDictionaryTest {
     }
 
     @Test
+    @DisplayName("normalizePath should normalize windows like path with backslash")
     void normalizePath_should_normalize_windows_like_path_with_backslash() {
 
         // GIVEN

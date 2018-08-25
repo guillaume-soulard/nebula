@@ -1,5 +1,6 @@
 package com.nebula.core;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.NoSuchElementException;
@@ -12,6 +13,7 @@ import static org.mockito.Mockito.*;
 class GeneratedObjectIteratorTest {
 
 	@Test
+    @DisplayName("new GeneratedObjectIterator should set model and entity and seed in fields")
 	void new_GeneratedObjectIterator_should_set_model_and_entity_and_seed_in_fields() {
 
 		// GIVEN
@@ -29,6 +31,7 @@ class GeneratedObjectIteratorTest {
 	}
 
 	@Test
+    @DisplayName("hasNext should return true when entity amount is 1")
 	void hasNext_should_return_true_when_entity_amount_is_1() {
 
 		// GIVEN
@@ -45,6 +48,7 @@ class GeneratedObjectIteratorTest {
 	}
 
 	@Test
+    @DisplayName("hasNext should return true when entity amount is strictly positive")
 	void hasNext_should_return_true_when_entity_amount_is_strictly_positive() {
 
 		// GIVEN
@@ -61,6 +65,7 @@ class GeneratedObjectIteratorTest {
 	}
 
 	@Test
+    @DisplayName("hasNext should return false when entity amount is 0")
 	void hasNext_should_return_false_when_entity_amount_is_0() {
 
 		// GIVEN
@@ -77,6 +82,7 @@ class GeneratedObjectIteratorTest {
 	}
 
 	@Test
+    @DisplayName("hasNext should return true when next calls not exceed total amount of entity")
 	void hasNext_should_return_true_when_next_calls_not_exceed_total_amount_of_entity() {
 
 		// GIVEN
@@ -94,6 +100,7 @@ class GeneratedObjectIteratorTest {
 	}
 
 	@Test
+    @DisplayName("hasNext should return false when next calls equal total amount of entity")
 	void hasNext_should_return_false_when_next_calls_equal_total_amount_of_entity() {
 
 		// GIVEN
@@ -112,6 +119,7 @@ class GeneratedObjectIteratorTest {
 	}
 
 	@Test
+    @DisplayName("next should return the first entity")
 	void next_should_return_the_first_entity() {
 
 		// GIVEN
@@ -133,6 +141,7 @@ class GeneratedObjectIteratorTest {
 	}
 
 	@Test
+    @DisplayName("next should throw NoSuchElementException when iterator has no more generated objects")
 	void next_should_throw_NoSuchElementException_when_iterator_has_no_more_generated_objects() {
 
 		// GIVEN
@@ -153,6 +162,7 @@ class GeneratedObjectIteratorTest {
 
 	@SuppressWarnings("unchecked")
 	@Test
+    @DisplayName("next should throw NebulaException when model throw exception")
 	void next_should_throw_NebulaException_when_model_throw_exception() {
 
 		// GIVEN

@@ -9,6 +9,7 @@ import com.nebula.core.formatter.ValueFormatter;
 import com.nebula.core.types.Type;
 import org.joda.time.DateTime;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -31,6 +32,7 @@ class SqlFormatterTest {
     }
 
     @Test
+    @DisplayName("formatGeneratedObject should format given generated object as sql insert")
     void formatGeneratedObject_should_format_given_generated_object_as_sql_insert() {
 
         // GIVEN
@@ -53,6 +55,7 @@ class SqlFormatterTest {
     }
 
     @Test
+    @DisplayName("formatHeader should return delete from")
     void formatHeader_should_return_delete_from() {
 
         // GIVEN
@@ -69,6 +72,7 @@ class SqlFormatterTest {
     }
 
     @Test
+    @DisplayName("formatFooter should return commit")
     void formatFooter_should_return_commit() {
 
         // GIVEN

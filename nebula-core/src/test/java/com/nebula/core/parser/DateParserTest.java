@@ -4,6 +4,7 @@ import com.nebula.core.Model;
 import com.nebula.core.ModelBuilder;
 import org.joda.time.DateTime;
 import org.joda.time.ReadableInstant;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -11,6 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class DateParserTest {
 
     @Test
+    @DisplayName("parse should return 01 01 2017")
     void parse_should_return_01_01_2017() {
 
         // GIVEN
@@ -26,6 +28,7 @@ class DateParserTest {
     }
 
     @Test
+    @DisplayName("parse should return 12 31 2017")
     void parse_should_return_12_31_2017() {
 
         // GIVEN
@@ -41,6 +44,7 @@ class DateParserTest {
     }
 
     @Test
+    @DisplayName("parse should return 12 31 2017 with custom format")
     void parse_should_return_12_31_2017_with_custom_format() {
 
         // GIVEN

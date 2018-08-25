@@ -7,6 +7,7 @@ import com.nebula.core.NebulaException;
 import com.nebula.core.formatter.Formatter;
 import com.nebula.core.output.Output;
 import com.nebula.core.output.OutputParameter;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.InOrder;
 
@@ -20,6 +21,7 @@ import static org.mockito.Mockito.*;
 class OneShootGenerationRuleTest {
 
     @Test
+    @DisplayName("new GenerationRule should set correctly properties")
     void new_GenerationRule_should_set_correctly_properties() {
 
         // GIVEN
@@ -42,6 +44,7 @@ class OneShootGenerationRuleTest {
     }
 
     @Test
+    @DisplayName("new GenerationRule should throw exception when entity is null")
     void new_GenerationRule_should_throw_exception_when_entity_is_null() {
 
         // GIVEN
@@ -64,6 +67,7 @@ class OneShootGenerationRuleTest {
     }
 
     @Test
+    @DisplayName("new GenerationRule should throw exception when outputs is null")
     void new_GenerationRule_should_throw_exception_when_outputs_is_null() {
 
         // GIVEN
@@ -85,6 +89,7 @@ class OneShootGenerationRuleTest {
     }
 
     @Test
+    @DisplayName("new GenerationRule should throw exception when outputs contains a null")
     void new_GenerationRule_should_throw_exception_when_outputs_contains_a_null() {
 
         // GIVEN
@@ -107,6 +112,7 @@ class OneShootGenerationRuleTest {
     }
 
     @Test
+    @DisplayName("new GenerationRule should throw exception when formatter null")
     void new_GenerationRule_should_throw_exception_when_formatter_null() {
 
         // GIVEN
@@ -129,6 +135,7 @@ class OneShootGenerationRuleTest {
     }
 
     @Test
+    @DisplayName("new GenerationRule should throw exception when generatedObjectIterator null")
     void new_GenerationRule_should_throw_exception_when_generatedObjectIterator_null() {
 
         // GIVEN
@@ -149,6 +156,7 @@ class OneShootGenerationRuleTest {
     }
 
     @Test
+    @DisplayName("generate should call objects in right order")
     void generate_should_call_objects_in_right_order() {
 
         // GIVEN
