@@ -9,9 +9,8 @@ import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
 import java.util.Collections;
 
-import static com.googlecode.catchexception.CatchException.catchException;
-import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class NumberRangeTypeTest {
 
@@ -57,10 +56,10 @@ class NumberRangeTypeTest {
 		NumberRangeType doubleType = new NumberRangeType(range, precision);
 
 		// WHEN
-        catchException(doubleType).generateObject(Collections.emptyList(), 100L);
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
+        assertThatThrownBy(() -> doubleType.generateObject(Collections.emptyList(), 100L))
+                .isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
 
@@ -154,10 +153,10 @@ class NumberRangeTypeTest {
 		NumberRangeType doubleType = new NumberRangeType(range, precision);
 
 		// WHEN
-        catchException(doubleType).generateObject(Collections.emptyList(), -1L);
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
+        assertThatThrownBy(() -> doubleType.generateObject(Collections.emptyList(), -1L))
+                .isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
 }

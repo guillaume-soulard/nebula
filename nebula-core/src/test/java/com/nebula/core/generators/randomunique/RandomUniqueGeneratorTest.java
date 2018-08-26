@@ -8,6 +8,7 @@ import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.NebulaTypes;
 import com.nebula.core.types.Type;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -15,9 +16,8 @@ import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.stream.IntStream;
 
-import static com.googlecode.catchexception.CatchException.catchException;
-import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.*;
 
 class RandomUniqueGeneratorTest {
@@ -47,10 +47,10 @@ class RandomUniqueGeneratorTest {
         Generator generator = buildGenerator();
 
         // WHEN
-        catchException(generator).generate(Collections.emptyList(), type);
 
         // THEN
-        assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
+        assertThatThrownBy(() -> generator.generate(Collections.emptyList(), type))
+                .isInstanceOf(NebulaException.class)
                 .hasMessage("generator is not initialized");
     }
 
@@ -63,10 +63,11 @@ class RandomUniqueGeneratorTest {
         Generator generator = buildAndInitGenerator(buildGenerationContext());
 
         // WHEN
-        catchException(generator).generate(Collections.emptyList(), type);
 
         // THEN
-        assertThat((Exception) caughtException()).isNull();
+        Assertions.assertDoesNotThrow(() -> {
+            generator.generate(Collections.emptyList(), type);
+        });
     }
 
     @Test

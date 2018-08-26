@@ -26,7 +26,7 @@ class StringGeneratorTest {
 	void newStringGenerator_should_set_default_pattern_when_null_is_passed() {
 
 		// GIVEN
-        String expectedDefaultPattern = "[a-zA-Z 0-9]{10}";
+		String expectedDefaultPattern = "[a-zA-Z_0-9]{10}";
 
 		// WHEN
 		StringGenerator result = StringGenerator.newStringGenerator(null);

@@ -19,9 +19,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.googlecode.catchexception.CatchException.catchException;
-import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.*;
 
 class HttpOutputTest {
@@ -81,10 +80,11 @@ class HttpOutputTest {
         doThrow(new IOException("test")).when(client).close();
 
         // WHEN
-        catchException(output).close();
 
         // THEN
-        assertThat((Throwable) caughtException()).isInstanceOf(NebulaException.class).hasMessage("test");
+        assertThatThrownBy(output::close)
+                .isInstanceOf(NebulaException.class)
+                .hasMessage("test");
     }
 
     @Test

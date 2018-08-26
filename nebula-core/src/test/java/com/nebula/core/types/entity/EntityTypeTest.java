@@ -8,9 +8,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 
-import static com.googlecode.catchexception.CatchException.catchException;
-import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -160,10 +159,10 @@ class EntityTypeTest {
 		initEntityTypeWithEntityAmount(entityType, 1L);
 
 		// WHEN
-        catchException(entityType).generateObject(Collections.emptyList(), -1L);
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
+        assertThatThrownBy(() -> entityType.generateObject(Collections.emptyList(), -1L))
+                .isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
 
@@ -175,10 +174,10 @@ class EntityTypeTest {
 		initEntityTypeWithEntityAmount(entityType, 1L);
 
 		// WHEN
-        catchException(entityType).generateObject(Collections.emptyList(), 1L);
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
+        assertThatThrownBy(() -> entityType.generateObject(Collections.emptyList(), 1L))
+                .isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
 
@@ -190,10 +189,10 @@ class EntityTypeTest {
 		initEntityTypeWithEntityAmount(entityType, 1L);
 
 		// WHEN
-        catchException(entityType).generateObject(Collections.emptyList(), 1L);
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
+        assertThatThrownBy(() -> entityType.generateObject(Collections.emptyList(), 1L))
+                .isInstanceOf(NebulaException.class)
 				.hasMessage("entity 'unknown entity' is not defined in model");
 	}
 
@@ -205,10 +204,10 @@ class EntityTypeTest {
 		initEntityTypeWithEntityAmount(entityType, 1L);
 
 		// WHEN
-		catchException(entityType).getMaxRange();
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
+        assertThatThrownBy(entityType::getMaxRange)
+                .isInstanceOf(NebulaException.class)
 				.hasMessage("entity 'unknown entity' is not defined in model");
 	}
 

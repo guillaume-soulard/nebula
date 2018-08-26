@@ -10,9 +10,8 @@ import com.nebula.core.types.constant.ConstantTypeBuilder;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static com.googlecode.catchexception.CatchException.catchException;
-import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class ListTypeAmongItemsBuilderTest {
 
@@ -137,10 +136,10 @@ class ListTypeAmongItemsBuilderTest {
 		builder.withMinSize(10).withMaxSize(0);
 
 		// WHEN
-		catchException(builder).build(ModelBuilder.newEmptyModel().build());
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
+        assertThatThrownBy(() -> builder.build(ModelBuilder.newEmptyModel().build()))
+                .isInstanceOf(NebulaException.class)
 				.hasMessage("maxSize must be greater than minSize");
 	}
 

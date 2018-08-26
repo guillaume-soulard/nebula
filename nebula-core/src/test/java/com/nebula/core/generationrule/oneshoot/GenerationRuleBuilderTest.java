@@ -10,9 +10,8 @@ import com.nebula.core.output.NebulaOutputs;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static com.googlecode.catchexception.CatchException.catchException;
-import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class GenerationRuleBuilderTest {
 
@@ -25,10 +24,10 @@ class GenerationRuleBuilderTest {
         Model model = ModelBuilder.newEmptyModel().build();
 
         // WHEN
-        catchException(generationRuleBuilder).build(model);
 
         // THEN
-        assertThat((Throwable) caughtException()).isInstanceOf(NebulaException.class)
+        assertThatThrownBy(() -> generationRuleBuilder.build(model))
+                .isInstanceOf(NebulaException.class)
                 .hasMessage("entity is not specified");
     }
 
@@ -43,10 +42,10 @@ class GenerationRuleBuilderTest {
         generationRuleBuilder.withEntity(entity);
 
         // WHEN
-        catchException(generationRuleBuilder).build(model);
 
         // THEN
-        assertThat((Throwable) caughtException()).isInstanceOf(NebulaException.class)
+        assertThatThrownBy(() -> generationRuleBuilder.build(model))
+                .isInstanceOf(NebulaException.class)
                 .hasMessage("formatter is not specified");
     }
 
@@ -62,10 +61,10 @@ class GenerationRuleBuilderTest {
         generationRuleBuilder.withFormatter(NebulaFormatters.csv());
 
         // WHEN
-        catchException(generationRuleBuilder).build(model);
 
         // THEN
-        assertThat((Throwable) caughtException()).isInstanceOf(NebulaException.class)
+        assertThatThrownBy(() -> generationRuleBuilder.build(model))
+                .isInstanceOf(NebulaException.class)
                 .hasMessage("any outputs specified");
     }
 
@@ -81,10 +80,10 @@ class GenerationRuleBuilderTest {
         generationRuleBuilder.addOutput(NebulaOutputs.stdout());
 
         // WHEN
-        catchException(generationRuleBuilder).build(model);
 
         // THEN
-        assertThat((Throwable) caughtException()).isInstanceOf(NebulaException.class)
+        assertThatThrownBy(() -> generationRuleBuilder.build(model))
+                .isInstanceOf(NebulaException.class)
                 .hasMessage("entity 'test' not exists in model");
     }
 

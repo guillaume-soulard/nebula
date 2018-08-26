@@ -8,9 +8,8 @@ import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 
-import static com.googlecode.catchexception.CatchException.catchException;
-import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class NumberRangeTypeBuilderTest {
 
@@ -137,10 +136,11 @@ class NumberRangeTypeBuilderTest {
 		BigDecimal max = BigDecimal.ZERO;
 
 		// WHEN
-		catchException(builder.withMin(min).withMax(max)).build(ModelBuilder.newEmptyModel().build());
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("max must be greater than min");
+        assertThatThrownBy(() -> builder.withMin(min).withMax(max).build(ModelBuilder.newEmptyModel().build()))
+                .isInstanceOf(NebulaException.class)
+                .hasMessage("max must be greater than min");
 	}
 
 	@Test
@@ -151,10 +151,11 @@ class NumberRangeTypeBuilderTest {
 		NumberRangeTypeBuilder builder = new NumberRangeTypeBuilder();
 
 		// WHEN
-		catchException(builder).withPrecision(-1);
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("precision is negative");
+        assertThatThrownBy(() -> builder.withPrecision(-1))
+                .isInstanceOf(NebulaException.class)
+                .hasMessage("precision is negative");
 	}
 
 	@Test

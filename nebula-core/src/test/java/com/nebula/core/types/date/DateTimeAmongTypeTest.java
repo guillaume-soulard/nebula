@@ -12,9 +12,8 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-import static com.googlecode.catchexception.CatchException.catchException;
-import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class DateTimeAmongTypeTest {
 
@@ -56,10 +55,10 @@ class DateTimeAmongTypeTest {
 		DateTimeAmongType dateType = new DateTimeAmongType(oneDay());
 
 		// WHEN
-        catchException(dateType).generateObject(Collections.emptyList(), 10L);
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
+        assertThatThrownBy(() -> dateType.generateObject(Collections.emptyList(), 10L))
+                .isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
 

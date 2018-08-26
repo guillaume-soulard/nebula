@@ -3,14 +3,13 @@ package com.nebula.core.generators.sequence;
 import com.nebula.core.NebulaException;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.Type;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 
-import static com.googlecode.catchexception.CatchException.catchException;
-import static com.googlecode.catchexception.CatchException.caughtException;
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.*;
 
 class SequenceGeneratorTest {
@@ -90,10 +89,9 @@ class SequenceGeneratorTest {
         when(context.getEntityIndex()).thenReturn(index);
 
         // WHEN
-        catchException(generator).generate(Collections.emptyList(), type);
 
         // THEN
-        assertThat((Exception) caughtException())
+        assertThatThrownBy(() -> generator.generate(Collections.emptyList(), type))
                 .isInstanceOf(NebulaException.class)
                 .hasMessage("sequence reach the maximum index of type (11). Use cycle() to allow sequence to restart");
     }
@@ -112,9 +110,10 @@ class SequenceGeneratorTest {
         when(context.getEntityIndex()).thenReturn(index);
 
         // WHEN
-        catchException(generator).generate(Collections.emptyList(), type);
 
         // THEN
-        assertThat((Exception) caughtException()).isNull();
+        Assertions.assertDoesNotThrow(() -> {
+            generator.generate(Collections.emptyList(), type);
+        });
     }
 }

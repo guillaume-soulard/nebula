@@ -7,9 +7,8 @@ import com.nebula.core.types.TypeBuilder;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static com.googlecode.catchexception.CatchException.catchException;
-import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class StringTypeBuilderTest {
 
@@ -64,9 +63,8 @@ class StringTypeBuilderTest {
 		StringTypeBuilder builder = new StringTypeBuilder();
 
 		// WHEN
-		catchException(builder).withPattern(null);
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("pattern is null");
+		assertThatThrownBy(() -> builder.withPattern(null)).isInstanceOf(NebulaException.class).hasMessage("pattern is null");
 	}
 }

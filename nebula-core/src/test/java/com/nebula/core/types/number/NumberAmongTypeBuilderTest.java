@@ -10,9 +10,8 @@ import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Collections;
 
-import static com.googlecode.catchexception.CatchException.catchException;
-import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class NumberAmongTypeBuilderTest {
 
@@ -102,10 +101,11 @@ class NumberAmongTypeBuilderTest {
 		NumberAmongTypeBuilder builder = new NumberAmongTypeBuilder();
 
 		// WHEN
-		catchException(builder).items((String[]) null);
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("items is null");
+        assertThatThrownBy(() -> builder.items((String[]) null))
+                .isInstanceOf(NebulaException.class)
+                .hasMessage("items is null");
 	}
 
 	@Test
@@ -114,17 +114,13 @@ class NumberAmongTypeBuilderTest {
 
 		// GIVEN
 		NumberAmongTypeBuilder builder = new NumberAmongTypeBuilder();
-		Exception exception = null;
 
 		// WHEN
-		try {
-			catchException(builder).items(new BigDecimal[] {});
-		} catch (Exception e) {
-			exception = e;
-		}
 
 		// THEN
-		assertThat(exception).isInstanceOf(NebulaException.class).hasMessage("items is empty");
+        assertThatThrownBy(() -> builder.items(new BigDecimal[]{}))
+                .isInstanceOf(NebulaException.class)
+                .hasMessage("items is empty");
 	}
 
 	@Test

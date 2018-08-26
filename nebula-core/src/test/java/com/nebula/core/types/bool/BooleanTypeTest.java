@@ -7,9 +7,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 
-import static com.googlecode.catchexception.CatchException.catchException;
-import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class BooleanTypeTest {
 
@@ -91,10 +90,10 @@ class BooleanTypeTest {
 		BooleanType booleanType = new BooleanType();
 
 		// WHEN
-        catchException(booleanType).generateObject(Collections.emptyList(), -1L);
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
+        assertThatThrownBy(() -> booleanType.generateObject(Collections.emptyList(), -1L))
+                .isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
 
@@ -106,10 +105,10 @@ class BooleanTypeTest {
 		BooleanType booleanType = new BooleanType();
 
 		// WHEN
-        catchException(booleanType).generateObject(Collections.emptyList(), 2L);
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
+        assertThatThrownBy(() -> booleanType.generateObject(Collections.emptyList(), 2L))
+                .isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
 
@@ -121,10 +120,10 @@ class BooleanTypeTest {
 		BooleanType booleanType = new BooleanType();
 
 		// WHEN
-        catchException(booleanType).generateObject(Collections.emptyList(), null);
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
+        assertThatThrownBy(() -> booleanType.generateObject(Collections.emptyList(), null))
+                .isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
 }

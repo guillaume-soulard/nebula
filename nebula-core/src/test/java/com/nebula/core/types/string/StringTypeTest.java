@@ -118,7 +118,7 @@ class StringTypeTest {
 
 		// GIVEN
 		StringType stringType;
-        String expectedPattern = "[a-zA-Z 0-9]{10}";
+		String expectedPattern = "[a-zA-Z_0-9]{10}";
 
 		// WHEN
 		stringType = new StringType(newStringGenerator(null));

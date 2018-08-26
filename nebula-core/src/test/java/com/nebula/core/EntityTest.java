@@ -2,7 +2,6 @@ package com.nebula.core;
 
 import com.nebula.core.generators.Generator;
 import com.nebula.core.generators.GeneratorBuilder;
-import com.nebula.core.generators.NebulaGenerators;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.NebulaTypes;
@@ -14,9 +13,10 @@ import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
 import java.util.Collections;
 
-import static com.googlecode.catchexception.CatchException.catchException;
-import static com.googlecode.catchexception.CatchException.caughtException;
+import static com.nebula.core.generators.NebulaGenerators.random;
+import static com.nebula.core.types.NebulaTypes.bool;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.*;
 
 class EntityTest {
@@ -28,7 +28,7 @@ class EntityTest {
 		Entity entity = ModelBuilder.newEmptyModel().build().newEntity("test", 1);
 		String propertyName = "name";
 		RandomTypeBuilder propertyType = NebulaTypes.number().range();
-		GeneratorBuilder propertyGenerator = NebulaGenerators.random();
+		GeneratorBuilder propertyGenerator = random();
 
 		// WHEN
 		entity.addProperty(propertyName, propertyGenerator, propertyType);
@@ -46,16 +46,16 @@ class EntityTest {
 
 		// GIVEN
 		Entity entity = ModelBuilder.newEmptyModel().build().newEntity("test", 1);
-		GeneratorBuilder propertyGenerator = NebulaGenerators.random();
+		GeneratorBuilder propertyGenerator = random();
 		RandomTypeBuilder propertyType = NebulaTypes.number().range();
 		String propertyName = "property name test";
 		entity.addProperty(propertyName, propertyGenerator, propertyType);
 
 		// WHEN
-		catchException(entity).addProperty(propertyName, propertyGenerator, propertyType);
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
+		assertThatThrownBy(() -> entity.addProperty(propertyName, propertyGenerator, propertyType))
+				.isInstanceOf(NebulaException.class)
 				.hasMessage("duplicate property 'property name test' in entity 'test'");
 	}
 
@@ -79,7 +79,7 @@ class EntityTest {
 
 		Entity entity = ModelBuilder.newEmptyModel().build().newEntity("test", 1);
 		String propertyName = "property";
-		entity.addProperty(propertyName, NebulaGenerators.random(), NebulaTypes.number().range());
+		entity.addProperty(propertyName, random(), NebulaTypes.number().range());
 		long entityIndex = 0L;
 		entity.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex, 1, 10));
 
@@ -97,7 +97,7 @@ class EntityTest {
 		// GIVEN
 		Entity entity = ModelBuilder.newEmptyModel().build().newEntity("test", 1);
 		String propertyName = "property";
-		entity.addProperty(propertyName, NebulaGenerators.random(),
+		entity.addProperty(propertyName, random(),
 				NebulaTypes.number().range().withMin(BigDecimal.ONE).withMax(BigDecimal.ONE));
 		long entityIndex = 0L;
 		entity.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex, 1, 10));
@@ -119,9 +119,9 @@ class EntityTest {
 		Entity entity = ModelBuilder.newEmptyModel().build().newEntity("test", 1);
 		String property1Name = "property1";
 		String property2Name = "property2";
-		entity.addProperty(property1Name, NebulaGenerators.random(),
+		entity.addProperty(property1Name, random(),
 				NebulaTypes.number().range().withMin(BigDecimal.ONE).withMax(BigDecimal.ONE));
-		entity.addProperty(property2Name, NebulaGenerators.random(),
+		entity.addProperty(property2Name, random(),
 				NebulaTypes.number().range().withMin(BigDecimal.valueOf(5)).withMax(BigDecimal.valueOf(5)));
 		long entityIndex = 0L;
 		entity.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex, 1, 10));
@@ -154,7 +154,7 @@ class EntityTest {
 		Entity entity = new Entity(ModelBuilder.newEmptyModel().build(), "test", 1L, propertyBuilder);
 		NebulaRandom nebulaRandom = mock(NebulaRandom.class);
 		when(nebulaRandom.getSeed()).thenReturn(0L);
-		entity.addProperty("name", null, null);
+		entity.addProperty("name", random(), bool());
 		long entityIndex = 0L;
 		GenerationContext context = new GenerationContext(nebulaRandom, null, entityIndex, 1, 10);
 
@@ -180,7 +180,7 @@ class EntityTest {
 				.thenReturn(property);
 		Entity entity = new Entity(ModelBuilder.newEmptyModel().build(), "test", 1L, propertyBuilder);
 		NebulaRandom nebulaRandom = mock(NebulaRandom.class);
-		entity.addProperty(null, null, null);
+		entity.addProperty("test", random(), bool());
 		long entityIndex = 0L;
 		GenerationContext context = new GenerationContext(nebulaRandom, null, entityIndex, 1, 10);
 

@@ -16,9 +16,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static com.googlecode.catchexception.CatchException.catchException;
-import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.mock;
 
 class RandomGeneratorTest {
@@ -102,10 +101,10 @@ class RandomGeneratorTest {
 		RandomGenerator generator = new RandomGenerator();
 
 		// WHEN
-		catchException(generator).init(null);
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
+        assertThatThrownBy(() -> generator.init(null))
+                .isInstanceOf(NebulaException.class)
 				.hasMessage("generationContext is null");
 	}
 
@@ -118,10 +117,10 @@ class RandomGeneratorTest {
 		Type type = NebulaTypes.number().range().build(ModelBuilder.newEmptyModel().build());
 
 		// WHEN
-        catchException(generator).generate(Collections.emptyList(), type);
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
+        assertThatThrownBy(() -> generator.generate(Collections.emptyList(), type))
+                .isInstanceOf(NebulaException.class)
 				.hasMessage("generationContext is null");
 	}
 }

@@ -11,10 +11,9 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 
-import static com.googlecode.catchexception.CatchException.catchException;
-import static com.googlecode.catchexception.CatchException.caughtException;
 import static com.nebula.core.types.date.DateTimeAdderConsumer.isInstanceOf;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class DateTimeRangeTypeTest {
 
@@ -144,10 +143,10 @@ class DateTimeRangeTypeTest {
 		DateTimeRangeType dateType = new DateTimeRangeType(range, interval);
 
 		// WHEN
-        catchException(dateType).generateObject(Collections.emptyList(), 1000L);
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
+        assertThatThrownBy(() -> dateType.generateObject(Collections.emptyList(), 1000L))
+                .isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
 
@@ -163,10 +162,10 @@ class DateTimeRangeTypeTest {
 		DateTimeRangeType dateType = new DateTimeRangeType(range, interval);
 
 		// WHEN
-        catchException(dateType).generateObject(Collections.emptyList(), -1L);
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
+        assertThatThrownBy(() -> dateType.generateObject(Collections.emptyList(), -1L))
+                .isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
 

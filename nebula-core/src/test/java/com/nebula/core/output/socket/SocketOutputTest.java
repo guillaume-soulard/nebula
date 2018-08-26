@@ -4,9 +4,8 @@ import com.nebula.core.NebulaException;
 import com.nebula.core.output.OutputParameter;
 import org.junit.jupiter.api.*;
 
-import static com.googlecode.catchexception.CatchException.catchException;
-import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 @Disabled("Sometime this test class fail on maven build")
 class SocketOutputTest {
@@ -50,10 +49,11 @@ class SocketOutputTest {
         SocketOutput socketOutput = new SocketOutput(host, port);
 
         // WHEN
-        catchException(socketOutput).open();
 
         // THEN
-        assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage(host);
+        assertThatThrownBy(socketOutput::open)
+                .isInstanceOf(NebulaException.class)
+                .hasMessage(host);
     }
 
     @Test
@@ -66,10 +66,11 @@ class SocketOutputTest {
         SocketOutput socketOutput = new SocketOutput(host, port);
 
         // WHEN
-        catchException(socketOutput).open();
 
         // THEN
-        assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("Connection refused (Connection refused)");
+        assertThatThrownBy(socketOutput::open)
+                .isInstanceOf(NebulaException.class)
+                .hasMessage("Connection refused (Connection refused)");
     }
 
     @Test
@@ -99,10 +100,11 @@ class SocketOutputTest {
         SocketOutput socketOutput = new SocketOutput(host, port);
 
         // WHEN
-        catchException(socketOutput).close();
 
         // THEN
-        assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("socket is closed");
+        assertThatThrownBy(socketOutput::close)
+                .isInstanceOf(NebulaException.class)
+                .hasMessage("socket is closed");
     }
 
     @Test

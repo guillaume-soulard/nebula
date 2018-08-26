@@ -10,9 +10,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static com.googlecode.catchexception.CatchException.catchException;
-import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class NumberAmongTypeTest {
 
@@ -70,10 +69,10 @@ class NumberAmongTypeTest {
 		NumberAmongType numberAmongType = new NumberAmongType(items);
 
 		// WHEN
-        catchException(numberAmongType).generateObject(Collections.emptyList(), 10L);
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
+        assertThatThrownBy(() -> numberAmongType.generateObject(Collections.emptyList(), 10L))
+                .isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
 
@@ -86,10 +85,10 @@ class NumberAmongTypeTest {
 		NumberAmongType numberAmongType = new NumberAmongType(items);
 
 		// WHEN
-        catchException(numberAmongType).generateObject(Collections.emptyList(), 3L);
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
+        assertThatThrownBy(() -> numberAmongType.generateObject(Collections.emptyList(), 3L))
+                .isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
 
@@ -102,10 +101,10 @@ class NumberAmongTypeTest {
 		NumberAmongType numberAmongType = new NumberAmongType(items);
 
 		// WHEN
-        catchException(numberAmongType).generateObject(Collections.emptyList(), -1L);
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
+        assertThatThrownBy(() -> numberAmongType.generateObject(Collections.emptyList(), -1L))
+                .isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
 

@@ -9,9 +9,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static com.googlecode.catchexception.CatchException.catchException;
-import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class GeneratedObjectTest {
 
@@ -171,10 +170,11 @@ class GeneratedObjectTest {
 		GeneratedObject generatedObject = new GeneratedObject(properties);
 
 		// WHEN
-		catchException(generatedObject).getGeneratedPropertyValue("unexisting");
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("Property 'unexisting' is undefined");
+        assertThatThrownBy(() -> generatedObject.getGeneratedPropertyValue("unexisting"))
+                .isInstanceOf(NebulaException.class)
+                .hasMessage("Property 'unexisting' is undefined");
 	}
 
 	@Test
@@ -307,11 +307,11 @@ class GeneratedObjectTest {
 		GeneratedObject generatedObject = new GeneratedObject(properties);
 
 		// WHEN
-		catchException(generatedObject).getValueByPath("nonExisting");
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
-			.hasMessage("Property 'nonExisting' not exists");
+        assertThatThrownBy(() -> generatedObject.getValueByPath("nonExisting"))
+                .isInstanceOf(NebulaException.class)
+                .hasMessage("Property 'nonExisting' not exists");
 	}
 
 	@Test

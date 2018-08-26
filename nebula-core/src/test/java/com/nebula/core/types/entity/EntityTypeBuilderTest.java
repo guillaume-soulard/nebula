@@ -6,9 +6,8 @@ import com.nebula.core.types.Type;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static com.googlecode.catchexception.CatchException.catchException;
-import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class EntityTypeBuilderTest {
 
@@ -49,9 +48,10 @@ class EntityTypeBuilderTest {
 		EntityTypeBuilder builder = new EntityTypeBuilder();
 
 		// WHEN
-		catchException(builder).withName(null);
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("entityName is null");
+        assertThatThrownBy(() -> builder.withName(null))
+                .isInstanceOf(NebulaException.class)
+                .hasMessage("entityName is null");
 	}
 }

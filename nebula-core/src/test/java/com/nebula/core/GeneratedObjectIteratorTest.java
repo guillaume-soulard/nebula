@@ -5,9 +5,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.NoSuchElementException;
 
-import static com.googlecode.catchexception.CatchException.catchException;
-import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.*;
 
 class GeneratedObjectIteratorTest {
@@ -153,10 +152,10 @@ class GeneratedObjectIteratorTest {
 		iterator.next();
 
 		// WHEN
-		catchException(iterator).next();
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NoSuchElementException.class)
+        assertThatThrownBy(iterator::next)
+                .isInstanceOf(NoSuchElementException.class)
 				.hasMessage("Iteration has no more elements");
 	}
 
@@ -174,9 +173,9 @@ class GeneratedObjectIteratorTest {
 		when(model.generateEntityObject(any(Entity.class), anyLong(), anyLong())).thenThrow(NebulaException.class);
 
 		// WHEN
-		catchException(iterator).next();
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class);
+        assertThatThrownBy(iterator::next)
+                .isInstanceOf(NebulaException.class);
 	}
 }

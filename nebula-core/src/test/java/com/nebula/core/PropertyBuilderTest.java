@@ -7,9 +7,7 @@ import com.nebula.core.types.TypeBuilder;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static com.googlecode.catchexception.CatchException.catchException;
-import static com.googlecode.catchexception.CatchException.caughtException;
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class PropertyBuilderTest {
 
@@ -23,10 +21,11 @@ class PropertyBuilderTest {
 		Model model = ModelBuilder.newEmptyModel().build();
 
 		// WHEN
-		catchException(propertyBuilder).newProperty(model, null, propertyType, propertyGenerator);
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("property name is null");
+        assertThatThrownBy(() -> propertyBuilder.newProperty(model, null, propertyType, propertyGenerator))
+                .isInstanceOf(NebulaException.class)
+                .hasMessage("property name is null");
 	}
 
 	@Test
@@ -39,10 +38,11 @@ class PropertyBuilderTest {
 		Model model = ModelBuilder.newEmptyModel().build();
 
 		// WHEN
-		catchException(propertyBuilder).newProperty(model, propertyName, null, propertyGenerator);
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("property type is null");
+        assertThatThrownBy(() -> propertyBuilder.newProperty(model, propertyName, null, propertyGenerator))
+                .isInstanceOf(NebulaException.class)
+                .hasMessage("property type is null");
 	}
 
 	@Test
@@ -55,9 +55,10 @@ class PropertyBuilderTest {
 		Model model = ModelBuilder.newEmptyModel().build();
 
 		// WHEN
-		catchException(propertyBuilder).newProperty(model, propertyName, propertyType, null);
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class).hasMessage("property generator is null");
+        assertThatThrownBy(() -> propertyBuilder.newProperty(model, propertyName, propertyType, null))
+                .isInstanceOf(NebulaException.class)
+                .hasMessage("property generator is null");
 	}
 }

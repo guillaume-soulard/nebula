@@ -12,9 +12,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import static com.googlecode.catchexception.CatchException.catchException;
-import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class ModelTest {
 
@@ -167,10 +166,10 @@ class ModelTest {
 		model.newEntity("test", amount);
 
 		// WHEN
-		catchException(model).getEntityByName("unexisting");
 
 		// THEN
-		assertThat((Throwable) caughtException()).isInstanceOf(NebulaException.class)
+        assertThatThrownBy(() -> model.getEntityByName("unexisting"))
+                .isInstanceOf(NebulaException.class)
 				.hasMessage("entity 'unexisting' not exists in model");
 	}
 
@@ -290,10 +289,10 @@ class ModelTest {
 		model.newEntity("entity");
 
 		// WHEN
-		catchException(model).removeEntity("un existing entity");
 
 		// THEN
-		assertThat((Exception) caughtException()).isInstanceOf(NebulaException.class)
+        assertThatThrownBy(() -> model.removeEntity("un existing entity"))
+                .isInstanceOf(NebulaException.class)
 				.hasMessage("entity 'un existing entity' not exists in model");
 	}
 
