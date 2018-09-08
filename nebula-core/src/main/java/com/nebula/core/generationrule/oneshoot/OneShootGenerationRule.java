@@ -92,15 +92,13 @@ class OneShootGenerationRule implements GenerationRule {
             GeneratedObject generatedObject = generatedObjectSource.next();
             acceptationResult = getAcceptationResult(generatedObject);
             if (AcceptationResult.ACCEPT.equals(acceptationResult)) {
-                writeToOutputs(generatedObject, formatterToUse.formatGeneratedObject(generatedObject));
-                writeToOutputs(null, System.lineSeparator());
+                writeToOutputs(generatedObject, formatterToUse.formatGeneratedObject(generatedObject) + System.lineSeparator());
             }
         }
     }
 
     private void generateHeader() {
-        writeToOutputs(null, formatterToUse.formatHeader(entity));
-        writeToOutputs(null, System.lineSeparator());
+        writeToOutputs(null, formatterToUse.formatHeader(entity) + System.lineSeparator());
     }
 
     private void writeToOutputs(GeneratedObject originalObject, String formattedGeneratedObject) {

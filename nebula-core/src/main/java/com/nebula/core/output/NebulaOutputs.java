@@ -2,6 +2,7 @@ package com.nebula.core.output;
 
 import com.nebula.core.output.custom.CustomOutputBuilder;
 import com.nebula.core.output.file.FileOutputBuilder;
+import com.nebula.core.output.file.SlicedFileOutputBuilder;
 import com.nebula.core.output.http.HttpOutputBuilder;
 import com.nebula.core.output.jdbc.JdbcOutputBuilder;
 import com.nebula.core.output.socket.SocketOutputBuilder;
@@ -24,4 +25,8 @@ public final class NebulaOutputs {
     public static SocketOutputBuilder socket() { return new SocketOutputBuilder(); }
 
     public static CustomOutputBuilder custom(Output output) { return new CustomOutputBuilder(output); }
+
+    public static SlicedFileOutputBuilder multipleFiles(String outputDirectory) {
+        return new SlicedFileOutputBuilder(outputDirectory);
+    }
 }

@@ -178,11 +178,11 @@ class OneShootGenerationRuleTest {
         InOrder inOrder = inOrder(formatter, output, generatedObjectSource);
 
         inOrder.verify(formatter).formatHeader(entity);
-        inOrder.verify(output, times(2)).write(any(OutputParameter.class));
+        inOrder.verify(output, times(1)).write(any(OutputParameter.class));
         inOrder.verify(generatedObjectSource).hasNext();
         inOrder.verify(generatedObjectSource).next();
         inOrder.verify(formatter).formatGeneratedObject(generatedObject);
-        inOrder.verify(output, times(2)).write(any(OutputParameter.class));
+        inOrder.verify(output, times(1)).write(any(OutputParameter.class));
         inOrder.verify(formatter).formatFooter(entity);
     }
 }
