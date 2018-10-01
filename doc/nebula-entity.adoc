@@ -1,0 +1,39 @@
+= Entity
+
+Entity describe a data structure or a piece of data structure and how it's properties will be generated.
+
+== How to declare an entity
+
+[source,java]
+--
+Entity userEntity = model.newEntity("users");
+--
+
+After creating the new entity, you can add some properties to it :
+
+[source,java]
+--
+userEntity.addProperty("firstName", NebulaGenerators.random(), NebulaTypes.string().withPattern("[A-Z]{1}[a-z]{3,25}"));
+userEntity.addProperty("lastName", NebulaGenerators.random(), NebulaTypes.string().withPattern("[A-Z]{1}[a-z]{3,25}"));
+userEntity.addProperty("dayOfBirth", NebulaGenerators.random(), NebulaTypes.dateTime().range().withMin("01/01/1950").withMax("01/01/2000"));
+--
+
+== Static entities
+
+A static entity does not have any generation rules.
+It's only a kind of a list of fix and `static` generated object.
+
+
+[source,java]
+--
+model.newStaticEntity("departments")
+    .newRecord()
+        .addProperty("id", new BigDecimal("1"))
+        .addProperty("name", "tech")
+    .newRecord()
+        .addProperty("id", new BigDecimal("2"))
+        .addProperty("name", "customer")
+    .buildEntity();
+--
+
+This entity will generate only 2 objects.

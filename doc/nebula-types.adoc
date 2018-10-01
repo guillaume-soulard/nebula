@@ -1,0 +1,16 @@
+== Types
+
+Types are accessible in NebulaTypes class
+
+|===
+|Type|Description|Default behavior
+|amongItems()|Provide a list of items and pick one of these|
+|bool()|Generate a boolean (true or false)|
+|constant()|Always generate the same thing|
+|custom()|A custom type implementation can be specify with this type|
+|datetime()|Generate a date time according rule|
+|entity()|Generate an another entity|
+|list()|Generate à list|
+|number()|Generate a number|
+|string()|Generate a string|
+|===

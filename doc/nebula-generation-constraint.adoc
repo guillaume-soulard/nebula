@@ -1,0 +1,6 @@
+== Generation constraints
+
+[NOTE]
+--
+TODO
+--

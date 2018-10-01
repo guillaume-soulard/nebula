@@ -1,0 +1,6 @@
+== Generation rule
+
+[NOTE]
+--
+TODO
+--

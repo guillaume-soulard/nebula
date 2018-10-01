@@ -1,0 +1,11 @@
+== Generators
+
+All generators are accessible in NebulaGenerators
+
+|===
+|Generator|Description| Default behavior
+|custom()|A custom implementation can be specify with this generator|
+|random()|Generate a random type|
+|randomUnique()|Generate a random type uniquely. After all types are generated, the generator cycle again|
+|sequence()|Generate sequentially the type|By default, the sequence cycle if reach the maximum
+|===

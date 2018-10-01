@@ -1,0 +1,53 @@
+== Formaters
+
+Formaters allows you to transform raw generated objects to a specific format.
+
+== CSV
+
+[options="header"]
+|===
+|Options|Description|Default value
+|withSeparator(String)|Set the column separator to use|","
+|withQuote(String)|Set the field quote to use|""
+|with(out)Header()|Tell if the first line contains header definition|withHeader()
+|withColumns()|Set the columns to write and the order. Empty mean all columns of the entity|All columns with the same order of the properties in the entity declaration
+|withDateFormat(<String>)|Set the date format to use. See https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html[java date formats] for more details|The model date format (by default : `"MM/dd/yyyy"`)
+|withNumberDecimalSeparator(<char>)|Specify the decimal separator for number format|"."
+|withNumberThousandSeparator(<char>)|Specify the thousand separator for number format|","
+|addPropertyToIgnore(<String>)|Add a property to ignore during the format process|N/A
+|===
+
+== JSON
+
+[options="header"]
+|===
+|Options|Description|Default value
+|quotedFields()|If use, fields will be enclose between "|No
+|pretty()|If use, the json will be beautify and well indented|No
+|withDateFormat(<String>)|Set the date format to use. See https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html[java date formats] for more details|The model date format (by default : `"MM/dd/yyyy"`)
+|withNumberDecimalSeparator(<char>)|Specify the decimal separator for number format|"."
+|withNumberThousandSeparator(<char>)|Specify the thousand separator for number format|","
+|addPropertyToIgnore(<String>)|Add a property to ignore during the format process|N/A
+|===
+
+== SQL
+
+[options="header"]
+|===
+|Options|Description|Default value
+|withDateFormat(<String>)|Set the date format to use. See https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html[java date formats] for more details|The model date format (by default : `"MM/dd/yyyy"`)
+|withNumberDecimalSeparator(<char>)|Specify the decimal separator for number format|"."
+|withNumberThousandSeparator(<char>)|Specify the thousand separator for number format|","
+|addPropertyToIgnore(<String>)|Add a property to ignore during the format process|N/A
+|===
+
+== XML
+
+[options="header"]
+|===
+|Options|Description|Default value
+|withDateFormat(<String>)|Set the date format to use. See https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html[java date formats] for more details|The model date format (by default : `"MM/dd/yyyy"`)
+|withNumberDecimalSeparator(<char>)|Specify the decimal separator for number format|"."
+|withNumberThousandSeparator(<char>)|Specify the thousand separator for number format|","
+|addPropertyToIgnore(<String>)|Add a property to ignore during the format process|N/A
+|===

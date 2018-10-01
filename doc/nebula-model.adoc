@@ -1,0 +1,18 @@
+= Model
+
+The model store the data definition and the generation behavior.
+
+Two models are isolated and can't interact with each others.
+
+== Model settings
+
+Model settings are apply on all operations that use these setting in the model.
+
+[width="100%",options="header,footer"]
+|===
+|Parameter|Usage|Description|Default Value
+|seed|`model.setSeed(<Long>)` or `model.setSeed(<String>)`|Sepcify the seed to use for all random operations in the model. If you sepecify a `String`, the seed will be a hash value of this string.|A random Long
+|date format|`model.setDateFormat(<String>)`|Specify the date format to use for all date format operations in the model. See https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html[java formats] for all possibls formats|"MM/dd/yyyy"
+|decimal separator|model.setNumberDecimalSeparator(<char>)|Specify the decimal separator for number format|"."
+|thousand separator|model.setNumberThousandSeparator(<char>)|Specify the thousand separator for number format|","
+|===
