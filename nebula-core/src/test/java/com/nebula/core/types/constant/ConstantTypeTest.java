@@ -1,6 +1,7 @@
 package com.nebula.core.types.constant;
 
 import com.nebula.core.GeneratedObject;
+import com.nebula.core.GeneratedProperties;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -62,7 +63,7 @@ class ConstantTypeTest {
 		ConstantType constantType = new ConstantType(null);
 
 		// WHEN
-        GeneratedObject result = constantType.generateObject(Collections.emptyList(), 0L);
+        GeneratedObject result = constantType.generateObject(new GeneratedProperties(Collections.emptyList()), 0L);
 
 		// THEN
 		assertThat(result).isNotNull();
@@ -77,7 +78,7 @@ class ConstantTypeTest {
 		ConstantType constantType = new ConstantType(value);
 
 		// WHEN
-        GeneratedObject result = constantType.generateObject(Collections.emptyList(), 0L);
+        GeneratedObject result = constantType.generateObject(new GeneratedProperties(Collections.emptyList()), 0L);
 
 		// THEN
 		assertThat(result.getObject()).isEqualTo(value);
@@ -92,7 +93,7 @@ class ConstantTypeTest {
 		ConstantType constantType = new ConstantType(value);
 
 		// WHEN
-        GeneratedObject result = constantType.generateObject(Collections.emptyList(), 0L);
+        GeneratedObject result = constantType.generateObject(new GeneratedProperties(Collections.emptyList()), 0L);
 
 		// THEN
 		assertThat(result.getObject()).isEqualTo(value);
@@ -105,10 +106,10 @@ class ConstantTypeTest {
 		// GIVEN
 		String value = "test";
 		ConstantType constantType = new ConstantType(value);
-        GeneratedObject resultAtIndex0 = constantType.generateObject(Collections.emptyList(), 0L);
+        GeneratedObject resultAtIndex0 = constantType.generateObject(new GeneratedProperties(Collections.emptyList()), 0L);
 
 		// WHEN
-        GeneratedObject result = constantType.generateObject(Collections.emptyList(), 1L);
+        GeneratedObject result = constantType.generateObject(new GeneratedProperties(Collections.emptyList()), 1L);
 
 		// THEN
 		assertThat(result.getObject()).isEqualTo(resultAtIndex0.getObject());

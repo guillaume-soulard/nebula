@@ -1,6 +1,7 @@
 package com.nebula.core.types.script;
 
 import com.nebula.core.*;
+import com.nebula.core.GeneratedProperties;
 import com.nebula.core.types.GenerationContext;
 import org.joda.time.DateTime;
 import org.junit.jupiter.api.DisplayName;
@@ -25,7 +26,7 @@ class ScriptTypeTest {
         scriptType.init(context);
 
         // WHEN
-        GeneratedObject result = scriptType.generateObject(Collections.emptyList(), 0L);
+        GeneratedObject result = scriptType.generateObject(new GeneratedProperties(Collections.emptyList()), 0L);
 
         // THEN
         assertThat(result.getObject()).isEqualTo(BigDecimal.ZERO);
@@ -43,7 +44,7 @@ class ScriptTypeTest {
         scriptType.init(context);
 
         // WHEN
-        GeneratedObject result = scriptType.generateObject(Collections.emptyList(), 0L);
+        GeneratedObject result = scriptType.generateObject(new GeneratedProperties(Collections.emptyList()), 0L);
 
         // THEN
         assertThat(result.getObject()).isEqualTo(BigDecimal.TEN);
@@ -61,7 +62,7 @@ class ScriptTypeTest {
         scriptType.init(context);
 
         // WHEN
-        GeneratedObject result = scriptType.generateObject(Collections.emptyList(), 0L);
+        GeneratedObject result = scriptType.generateObject(new GeneratedProperties(Collections.emptyList()), 0L);
 
         // THEN
         assertThat(result.getObject()).isEqualTo("test");
@@ -79,7 +80,7 @@ class ScriptTypeTest {
         scriptType.init(context);
 
         // WHEN
-        GeneratedObject result = scriptType.generateObject(Collections.emptyList(), 0L);
+        GeneratedObject result = scriptType.generateObject(new GeneratedProperties(Collections.emptyList()), 0L);
 
         // THEN
         assertThat(result.getObject()).isEqualTo(true);
@@ -97,7 +98,7 @@ class ScriptTypeTest {
         scriptType.init(context);
 
         // WHEN
-        GeneratedObject result = scriptType.generateObject(Collections.emptyList(), 0L);
+        GeneratedObject result = scriptType.generateObject(new GeneratedProperties(Collections.emptyList()), 0L);
 
         // THEN
         assertThat(result.getObject()).isEqualTo(new DateTime(2018, 2, 1, 3, 5, 6));
@@ -115,7 +116,7 @@ class ScriptTypeTest {
         scriptType.init(context);
 
         // WHEN
-        GeneratedObject result = scriptType.generateObject(Collections.emptyList(), 0L);
+        GeneratedObject result = scriptType.generateObject(new GeneratedProperties(Collections.emptyList()), 0L);
 
         // THEN
         assertThat(result.getObject()).isNull();
@@ -135,7 +136,7 @@ class ScriptTypeTest {
 
         // WHEN
         try {
-            scriptType.generateObject(Collections.emptyList(), 0L);
+            scriptType.generateObject(new GeneratedProperties(Collections.emptyList()), 0L);
         } catch (Exception e) {
             exception = e;
         }
@@ -158,7 +159,7 @@ class ScriptTypeTest {
         scriptType.init(context);
 
         // WHEN
-        GeneratedObject result = scriptType.generateObject(Collections.singletonList(new GeneratedProperty("amount", new GeneratedObject(BigDecimal.ONE), null)), 0L);
+        GeneratedObject result = scriptType.generateObject(new GeneratedProperties(Collections.singletonList(new GeneratedProperty("amount", new GeneratedObject(BigDecimal.ONE), null))), 0L);
 
         // THEN
         assertThat(result.getObject()).isEqualTo("One");

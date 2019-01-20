@@ -1,7 +1,7 @@
 package com.nebula.core.types.constant;
 
 import com.nebula.core.GeneratedObject;
-import com.nebula.core.GeneratedProperty;
+import com.nebula.core.GeneratedProperties;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.JavaType;
 import com.nebula.core.types.JavaTypeName;
@@ -9,7 +9,6 @@ import com.nebula.core.types.Type;
 import org.joda.time.DateTime;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 class ConstantType implements Type {
 
@@ -25,7 +24,7 @@ class ConstantType implements Type {
 	}
 
 	@Override
-    public GeneratedObject generateObject(List<GeneratedProperty> generatedProperties, Long objectIndex) {
+    public GeneratedObject generateObject(GeneratedProperties generatedProperties, Long objectIndex) {
 		return new GeneratedObject(value);
 	}
 

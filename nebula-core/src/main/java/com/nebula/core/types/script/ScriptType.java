@@ -3,12 +3,11 @@ package com.nebula.core.types.script;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.GeneratedProperty;
 import com.nebula.core.NebulaException;
+import com.nebula.core.GeneratedProperties;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.JavaType;
 import com.nebula.core.types.Type;
 import org.apache.commons.jexl3.*;
-
-import java.util.List;
 
 public class ScriptType implements Type {
 
@@ -28,12 +27,12 @@ public class ScriptType implements Type {
     }
 
     @Override
-    public GeneratedObject generateObject(List<GeneratedProperty> generatedProperties, Long objectIndex) {
+    public GeneratedObject generateObject(GeneratedProperties generatedProperties, Long objectIndex) {
 
         JexlContext context = new MapContext();
         ObservableMap<String, Object> map = new ObservableMap<>();
 
-        for (GeneratedProperty generatedProperty : generatedProperties) {
+        for (GeneratedProperty generatedProperty : generatedProperties.getGeneratedProperties()) {
             map.put(generatedProperty.getPropertyName(), generatedProperty.getPropertyValue().getObject());
         }
 

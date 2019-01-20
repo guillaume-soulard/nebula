@@ -72,11 +72,11 @@ public class Entity implements Type {
 		return seed + propertyHashCode;
 	}
 
-    public GeneratedObject generateObject(List<GeneratedProperty> generatedProps, Long objectIndex) {
+	public GeneratedObject generateObject(GeneratedProperties generatedProps, Long objectIndex) {
         List<GeneratedProperty> generatedProperties = new ArrayList<>();
         for (Property property : properties) {
             GeneratedProperty generatedProperty = new GeneratedProperty(property.getName(),
-                    property.getGenerator().generate(generatedProperties, property.getType()),
+					property.getGenerator().generate(new GeneratedProperties(generatedProperties), property.getType()),
                     property.getType());
             generatedProperties.add(generatedProperty);
         }

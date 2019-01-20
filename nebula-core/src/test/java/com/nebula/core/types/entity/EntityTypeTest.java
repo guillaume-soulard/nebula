@@ -1,6 +1,7 @@
 package com.nebula.core.types.entity;
 
 import com.nebula.core.*;
+import com.nebula.core.GeneratedProperties;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
 import org.junit.jupiter.api.DisplayName;
@@ -44,7 +45,7 @@ class EntityTypeTest {
 		initEntityTypeWithEntityAmount(type, 1L);
 
 		// WHEN
-        GeneratedObject result = type.generateObject(Collections.emptyList(), 0L);
+        GeneratedObject result = type.generateObject(new GeneratedProperties(Collections.emptyList()), 0L);
 
 		// THEN
 		assertThat(result).isNotNull();
@@ -58,7 +59,7 @@ class EntityTypeTest {
 		initEntityTypeWithEntityAmount(type, 1L);
 
 		// WHEN
-        GeneratedObject result = type.generateObject(Collections.emptyList(), 0L);
+        GeneratedObject result = type.generateObject(new GeneratedProperties(Collections.emptyList()), 0L);
 
 		// THEN
 		assertThat(result).hasFieldOrPropertyWithValue("object", null).hasNoNullFieldsOrPropertiesExcept("object");
@@ -127,10 +128,10 @@ class EntityTypeTest {
 		EntityType entityType = new EntityType(ENTITY_NAME);
 		long index = 0L;
 		initEntityTypeWithEntityAmount(entityType, 1L);
-        GeneratedObject firstResult = entityType.generateObject(Collections.emptyList(), index);
+        GeneratedObject firstResult = entityType.generateObject(new GeneratedProperties(Collections.emptyList()), index);
 
 		// WHEN
-        GeneratedObject result = entityType.generateObject(Collections.emptyList(), index);
+        GeneratedObject result = entityType.generateObject(new GeneratedProperties(Collections.emptyList()), index);
 
 		// THEN
 		assertThat(result).isEqualTo(firstResult);
@@ -142,10 +143,10 @@ class EntityTypeTest {
 
 		EntityType entityType = new EntityType(ENTITY_NAME);
 		initEntityTypeWithEntityAmount(entityType, 2L);
-        GeneratedObject firstResult = entityType.generateObject(Collections.emptyList(), 0L);
+        GeneratedObject firstResult = entityType.generateObject(new GeneratedProperties(Collections.emptyList()), 0L);
 
 		// WHEN
-        GeneratedObject result = entityType.generateObject(Collections.emptyList(), 1L);
+        GeneratedObject result = entityType.generateObject(new GeneratedProperties(Collections.emptyList()), 1L);
 
 		// THEN
 		assertThat(result).isNotEqualTo(firstResult);
@@ -161,7 +162,7 @@ class EntityTypeTest {
 		// WHEN
 
 		// THEN
-        assertThatThrownBy(() -> entityType.generateObject(Collections.emptyList(), -1L))
+        assertThatThrownBy(() -> entityType.generateObject(new GeneratedProperties(Collections.emptyList()), -1L))
                 .isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
@@ -176,7 +177,7 @@ class EntityTypeTest {
 		// WHEN
 
 		// THEN
-        assertThatThrownBy(() -> entityType.generateObject(Collections.emptyList(), 1L))
+        assertThatThrownBy(() -> entityType.generateObject(new GeneratedProperties(Collections.emptyList()), 1L))
                 .isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
@@ -191,7 +192,7 @@ class EntityTypeTest {
 		// WHEN
 
 		// THEN
-        assertThatThrownBy(() -> entityType.generateObject(Collections.emptyList(), 1L))
+        assertThatThrownBy(() -> entityType.generateObject(new GeneratedProperties(Collections.emptyList()), 1L))
                 .isInstanceOf(NebulaException.class)
 				.hasMessage("entity 'unknown entity' is not defined in model");
 	}

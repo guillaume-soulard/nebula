@@ -1,15 +1,13 @@
 package com.nebula.core.types;
 
 import com.nebula.core.GeneratedObject;
-import com.nebula.core.GeneratedProperty;
-
-import java.util.List;
+import com.nebula.core.GeneratedProperties;
 
 public interface Type {
 
 	void init(GenerationContext context);
 
-    GeneratedObject generateObject(List<GeneratedProperty> generatedProperties, Long objectIndex);
+	GeneratedObject generateObject(GeneratedProperties generatedProperties, Long objectIndex);
 
 	Long getMinRange();
 

@@ -1,13 +1,11 @@
 package com.nebula.core.generators.sequence;
 
 import com.nebula.core.GeneratedObject;
-import com.nebula.core.GeneratedProperty;
 import com.nebula.core.NebulaException;
+import com.nebula.core.GeneratedProperties;
 import com.nebula.core.generators.Generator;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.Type;
-
-import java.util.List;
 
 class SequenceGenerator implements Generator {
 
@@ -24,7 +22,7 @@ class SequenceGenerator implements Generator {
 	}
 
 	@Override
-    public GeneratedObject generate(List<GeneratedProperty> generatedProperties, Type type) {
+    public GeneratedObject generate(GeneratedProperties generatedProperties, Type type) {
 		type.init(context);
 		throwExceptionWhenIndexReachMaxIndexIfNeeded(type);
         return type.generateObject(generatedProperties, getEntityIndex(type));

@@ -3,6 +3,7 @@ package com.nebula.core.types.amongitems;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.Model;
 import com.nebula.core.NebulaException;
+import com.nebula.core.GeneratedProperties;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.Type;
@@ -34,7 +35,7 @@ class AmongItemsTypeTest {
         picker.init(getContext());
 
         // WHEN
-        GeneratedObject result = picker.generateObject(Collections.emptyList(), 0L);
+        GeneratedObject result = picker.generateObject(new GeneratedProperties(Collections.emptyList()), 0L);
 
         // THEN
         assertThat(result).isEqualTo(item1);

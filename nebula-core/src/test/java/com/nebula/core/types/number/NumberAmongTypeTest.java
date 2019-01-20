@@ -2,6 +2,7 @@ package com.nebula.core.types.number;
 
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaException;
+import com.nebula.core.GeneratedProperties;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -39,7 +40,7 @@ class NumberAmongTypeTest {
 		NumberAmongType numberAmongType = new NumberAmongType(items);
 
 		// WHEN
-        GeneratedObject result = numberAmongType.generateObject(Collections.emptyList(), 0L);
+        GeneratedObject result = numberAmongType.generateObject(new GeneratedProperties(Collections.emptyList()), 0L);
 
 		// THEN
 		assertThat(result.getObject()).isEqualTo(BigDecimal.ZERO);
@@ -54,7 +55,7 @@ class NumberAmongTypeTest {
 		NumberAmongType numberAmongType = new NumberAmongType(items);
 
 		// WHEN
-        GeneratedObject result = numberAmongType.generateObject(Collections.emptyList(), 1L);
+        GeneratedObject result = numberAmongType.generateObject(new GeneratedProperties(Collections.emptyList()), 1L);
 
 		// THEN
 		assertThat(result.getObject()).isEqualTo(BigDecimal.ONE);
@@ -71,7 +72,7 @@ class NumberAmongTypeTest {
 		// WHEN
 
 		// THEN
-        assertThatThrownBy(() -> numberAmongType.generateObject(Collections.emptyList(), 10L))
+        assertThatThrownBy(() -> numberAmongType.generateObject(new GeneratedProperties(Collections.emptyList()), 10L))
                 .isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
@@ -87,7 +88,7 @@ class NumberAmongTypeTest {
 		// WHEN
 
 		// THEN
-        assertThatThrownBy(() -> numberAmongType.generateObject(Collections.emptyList(), 3L))
+        assertThatThrownBy(() -> numberAmongType.generateObject(new GeneratedProperties(Collections.emptyList()), 3L))
                 .isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
@@ -103,7 +104,7 @@ class NumberAmongTypeTest {
 		// WHEN
 
 		// THEN
-        assertThatThrownBy(() -> numberAmongType.generateObject(Collections.emptyList(), -1L))
+        assertThatThrownBy(() -> numberAmongType.generateObject(new GeneratedProperties(Collections.emptyList()), -1L))
                 .isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}

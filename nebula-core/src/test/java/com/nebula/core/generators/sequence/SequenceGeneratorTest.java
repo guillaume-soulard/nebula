@@ -1,6 +1,7 @@
 package com.nebula.core.generators.sequence;
 
 import com.nebula.core.NebulaException;
+import com.nebula.core.GeneratedProperties;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.Type;
 import org.junit.jupiter.api.Assertions;
@@ -27,10 +28,10 @@ class SequenceGeneratorTest {
         when(context.getEntityIndex()).thenReturn(index);
 
         // WHEN
-        generator.generate(Collections.emptyList(), type);
+        generator.generate(new GeneratedProperties(Collections.emptyList()), type);
 
         // THEN
-        verify(type).generateObject(Collections.emptyList(), index);
+        verify(type).generateObject(new GeneratedProperties(Collections.emptyList()), index);
     }
 
     @Test
@@ -46,11 +47,11 @@ class SequenceGeneratorTest {
         when(context.getEntityIndex()).thenReturn(index);
 
         // WHEN
-        generator.generate(Collections.emptyList(), type);
-        generator.generate(Collections.emptyList(), type);
+        generator.generate(new GeneratedProperties(Collections.emptyList()), type);
+        generator.generate(new GeneratedProperties(Collections.emptyList()), type);
 
         // THEN
-        verify(type, times(2)).generateObject(Collections.emptyList(), index);
+        verify(type, times(2)).generateObject(new GeneratedProperties(Collections.emptyList()), index);
     }
 
     @Test
@@ -67,11 +68,11 @@ class SequenceGeneratorTest {
         when(context.getEntityIndex()).thenReturn(index);
 
         // WHEN
-        generator.generate(Collections.emptyList(), type);
-        generator.generate(Collections.emptyList(), type);
+        generator.generate(new GeneratedProperties(Collections.emptyList()), type);
+        generator.generate(new GeneratedProperties(Collections.emptyList()), type);
 
         // THEN
-        verify(type, times(2)).generateObject(Collections.emptyList(), index);
+        verify(type, times(2)).generateObject(new GeneratedProperties(Collections.emptyList()), index);
     }
 
     @Test
@@ -91,7 +92,7 @@ class SequenceGeneratorTest {
         // WHEN
 
         // THEN
-        assertThatThrownBy(() -> generator.generate(Collections.emptyList(), type))
+        assertThatThrownBy(() -> generator.generate(new GeneratedProperties(Collections.emptyList()), type))
                 .isInstanceOf(NebulaException.class)
                 .hasMessage("sequence reach the maximum index of type (11). Use cycle() to allow sequence to restart");
     }
@@ -113,7 +114,7 @@ class SequenceGeneratorTest {
 
         // THEN
         Assertions.assertDoesNotThrow(() -> {
-            generator.generate(Collections.emptyList(), type);
+            generator.generate(new GeneratedProperties(Collections.emptyList()), type);
         });
     }
 }

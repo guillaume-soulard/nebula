@@ -2,6 +2,7 @@ package com.nebula.core.types.date;
 
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaException;
+import com.nebula.core.GeneratedProperties;
 import com.nebula.core.types.Range;
 import com.nebula.core.types.date.strategy.*;
 import org.joda.time.DateTime;
@@ -27,7 +28,7 @@ class DateTimeRangeTypeTest {
 		DateTimeRangeType dateType = new DateTimeRangeType(range, DateTimeTypeIntervals.DAY);
 
 		// WHEN
-        GeneratedObject result = dateType.generateObject(Collections.emptyList(), 0L);
+        GeneratedObject result = dateType.generateObject(new GeneratedProperties(Collections.emptyList()), 0L);
 
 		// THEN
 		assertThat(result).isNotNull();
@@ -43,7 +44,7 @@ class DateTimeRangeTypeTest {
 		DateTimeRangeType dateType = new DateTimeRangeType(range, DateTimeTypeIntervals.DAY);
 
 		// WHEN
-        GeneratedObject generatedObject = dateType.generateObject(Collections.emptyList(), 0L);
+        GeneratedObject generatedObject = dateType.generateObject(new GeneratedProperties(Collections.emptyList()), 0L);
 
 		// THEN
 		assertThat(generatedObject).hasFieldOrPropertyWithValue("object", dateTime);
@@ -60,7 +61,7 @@ class DateTimeRangeTypeTest {
 		DateTimeRangeType dateType = new DateTimeRangeType(range, DateTimeTypeIntervals.DAY);
 
 		// WHEN
-        GeneratedObject generatedObject = dateType.generateObject(Collections.emptyList(), 1L);
+        GeneratedObject generatedObject = dateType.generateObject(new GeneratedProperties(Collections.emptyList()), 1L);
 
 		// THEN
 		DateTime expectedDateTime = new DateTime(2017, 1, 2, 0, 0);
@@ -96,7 +97,7 @@ class DateTimeRangeTypeTest {
 		DateTimeRangeType dateType = new DateTimeRangeType(range, interval);
 
 		// WHEN
-        GeneratedObject generatedObject = dateType.generateObject(Collections.emptyList(), 9L);
+        GeneratedObject generatedObject = dateType.generateObject(new GeneratedProperties(Collections.emptyList()), 9L);
 
 		// THEN
 		DateTime expectedDateTime = new DateTime(2017, 1, 1, 9, 0);
@@ -145,7 +146,7 @@ class DateTimeRangeTypeTest {
 		// WHEN
 
 		// THEN
-        assertThatThrownBy(() -> dateType.generateObject(Collections.emptyList(), 1000L))
+        assertThatThrownBy(() -> dateType.generateObject(new GeneratedProperties(Collections.emptyList()), 1000L))
                 .isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
@@ -164,7 +165,7 @@ class DateTimeRangeTypeTest {
 		// WHEN
 
 		// THEN
-        assertThatThrownBy(() -> dateType.generateObject(Collections.emptyList(), -1L))
+        assertThatThrownBy(() -> dateType.generateObject(new GeneratedProperties(Collections.emptyList()), -1L))
                 .isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}

@@ -3,6 +3,7 @@ package com.nebula.core.generators.randomunique;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.Model;
 import com.nebula.core.NebulaException;
+import com.nebula.core.GeneratedProperties;
 import com.nebula.core.generators.Generator;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
@@ -29,10 +30,10 @@ class RandomUniqueGeneratorTest {
         // GIVEN
         Type type = buildType();
         Generator generator = buildAndInitGenerator(buildGenerationContext());
-        when(type.generateObject(eq(Collections.emptyList()), anyLong())).thenReturn(mock(GeneratedObject.class));
+        when(type.generateObject(any(), anyLong())).thenReturn(mock(GeneratedObject.class));
 
         // WHEN
-        GeneratedObject result = generator.generate(Collections.emptyList(), type);
+        GeneratedObject result = generator.generate(new GeneratedProperties(Collections.emptyList()), type);
 
         // THEN
         assertThat(result).isNotNull();
@@ -49,7 +50,7 @@ class RandomUniqueGeneratorTest {
         // WHEN
 
         // THEN
-        assertThatThrownBy(() -> generator.generate(Collections.emptyList(), type))
+        assertThatThrownBy(() -> generator.generate(new GeneratedProperties(Collections.emptyList()), type))
                 .isInstanceOf(NebulaException.class)
                 .hasMessage("generator is not initialized");
     }
@@ -66,7 +67,7 @@ class RandomUniqueGeneratorTest {
 
         // THEN
         Assertions.assertDoesNotThrow(() -> {
-            generator.generate(Collections.emptyList(), type);
+            generator.generate(new GeneratedProperties(Collections.emptyList()), type);
         });
     }
 
@@ -79,7 +80,7 @@ class RandomUniqueGeneratorTest {
         Generator generator = buildAndInitGenerator(buildGenerationContext());
 
         // WHEN
-        generator.generate(Collections.emptyList(), type);
+        generator.generate(new GeneratedProperties(Collections.emptyList()), type);
 
         // THEN
         verify(type).init(any(GenerationContext.class));
@@ -93,10 +94,10 @@ class RandomUniqueGeneratorTest {
         Type type = buildType();
         Generator generator = buildAndInitGenerator(buildGenerationContext());
         GeneratedObject generatedObject = mock(GeneratedObject.class);
-        when(type.generateObject(eq(Collections.emptyList()), anyLong())).thenReturn(generatedObject);
+        when(type.generateObject(any(), anyLong())).thenReturn(generatedObject);
 
         // WHEN
-        GeneratedObject generate = generator.generate(Collections.emptyList(), type);
+        GeneratedObject generate = generator.generate(new GeneratedProperties(Collections.emptyList()), type);
 
         // THEN
         assertThat(generate).isEqualTo(generatedObject);
@@ -114,18 +115,17 @@ class RandomUniqueGeneratorTest {
         callGenerateNTimes(type, generator, 10);
 
         // THEN
-        verify(type
-        ).generateObject(Collections.emptyList(), 0L);
-        verify(type).generateObject(Collections.emptyList(), 1L);
-        verify(type).generateObject(Collections.emptyList(), 2L);
-        verify(type).generateObject(Collections.emptyList(), 3L);
-        verify(type).generateObject(Collections.emptyList(), 4L);
-        verify(type).generateObject(Collections.emptyList(), 5L);
-        verify(type).generateObject(Collections.emptyList(), 6L);
-        verify(type).generateObject(Collections.emptyList(), 7L);
-        verify(type).generateObject(Collections.emptyList(), 8L);
-        verify(type).generateObject(Collections.emptyList(), 9L);
-        verify(type).generateObject(Collections.emptyList(), 10L);
+        verify(type).generateObject(new GeneratedProperties(Collections.emptyList()), 0L);
+        verify(type).generateObject(new GeneratedProperties(Collections.emptyList()), 1L);
+        verify(type).generateObject(new GeneratedProperties(Collections.emptyList()), 2L);
+        verify(type).generateObject(new GeneratedProperties(Collections.emptyList()), 3L);
+        verify(type).generateObject(new GeneratedProperties(Collections.emptyList()), 4L);
+        verify(type).generateObject(new GeneratedProperties(Collections.emptyList()), 5L);
+        verify(type).generateObject(new GeneratedProperties(Collections.emptyList()), 6L);
+        verify(type).generateObject(new GeneratedProperties(Collections.emptyList()), 7L);
+        verify(type).generateObject(new GeneratedProperties(Collections.emptyList()), 8L);
+        verify(type).generateObject(new GeneratedProperties(Collections.emptyList()), 9L);
+        verify(type).generateObject(new GeneratedProperties(Collections.emptyList()), 10L);
     }
 
     @Test
@@ -140,17 +140,17 @@ class RandomUniqueGeneratorTest {
         callGenerateNTimes(type, generator, 21);
 
         // THEN
-        verify(type, times(2)).generateObject(Collections.emptyList(), 0L);
-        verify(type, times(2)).generateObject(Collections.emptyList(), 1L);
-        verify(type, times(2)).generateObject(Collections.emptyList(), 2L);
-        verify(type, times(2)).generateObject(Collections.emptyList(), 3L);
-        verify(type, times(2)).generateObject(Collections.emptyList(), 4L);
-        verify(type, times(2)).generateObject(Collections.emptyList(), 5L);
-        verify(type, times(2)).generateObject(Collections.emptyList(), 6L);
-        verify(type, times(2)).generateObject(Collections.emptyList(), 7L);
-        verify(type, times(2)).generateObject(Collections.emptyList(), 8L);
-        verify(type, times(2)).generateObject(Collections.emptyList(), 9L);
-        verify(type, times(2)).generateObject(Collections.emptyList(), 10L);
+        verify(type, times(2)).generateObject(new GeneratedProperties(Collections.emptyList()), 0L);
+        verify(type, times(2)).generateObject(new GeneratedProperties(Collections.emptyList()), 1L);
+        verify(type, times(2)).generateObject(new GeneratedProperties(Collections.emptyList()), 2L);
+        verify(type, times(2)).generateObject(new GeneratedProperties(Collections.emptyList()), 3L);
+        verify(type, times(2)).generateObject(new GeneratedProperties(Collections.emptyList()), 4L);
+        verify(type, times(2)).generateObject(new GeneratedProperties(Collections.emptyList()), 5L);
+        verify(type, times(2)).generateObject(new GeneratedProperties(Collections.emptyList()), 6L);
+        verify(type, times(2)).generateObject(new GeneratedProperties(Collections.emptyList()), 7L);
+        verify(type, times(2)).generateObject(new GeneratedProperties(Collections.emptyList()), 8L);
+        verify(type, times(2)).generateObject(new GeneratedProperties(Collections.emptyList()), 9L);
+        verify(type, times(2)).generateObject(new GeneratedProperties(Collections.emptyList()), 10L);
     }
 
     private GenerationContext buildGenerationContext() {
@@ -158,7 +158,7 @@ class RandomUniqueGeneratorTest {
     }
 
     private void callGenerateNTimes(Type type, Generator generator, int numberOfGenerateCallToProcess) {
-        IntStream.rangeClosed(0, numberOfGenerateCallToProcess).forEach((int i) -> generator.generate(Collections.emptyList(), type));
+        IntStream.rangeClosed(0, numberOfGenerateCallToProcess).forEach((int i) -> generator.generate(new GeneratedProperties(Collections.emptyList()), type));
     }
 
     private Type buildType() {

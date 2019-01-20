@@ -67,7 +67,7 @@ class EntityTest {
 		Entity entity = ModelBuilder.newEmptyModel().build().newEntity("test", 1);
 
 		// WHEN
-        GeneratedObject result = entity.generateObject(Collections.emptyList(), 1L);
+		GeneratedObject result = entity.generateObject(new GeneratedProperties(Collections.emptyList()), 1L);
 
 		// THEN
 		assertThat(result).isNotNull();
@@ -84,7 +84,7 @@ class EntityTest {
 		entity.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex, 1, 10));
 
 		// WHEN
-        GeneratedObject result = entity.generateObject(Collections.emptyList(), 1L);
+		GeneratedObject result = entity.generateObject(new GeneratedProperties(Collections.emptyList()), 1L);
 
 		// THEN
 		assertThat(result.getGeneratedProperties()).hasSize(1);
@@ -103,7 +103,7 @@ class EntityTest {
 		entity.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex, 1, 10));
 
 		// WHEN
-        GeneratedObject result = entity.generateObject(Collections.emptyList(), 1L);
+		GeneratedObject result = entity.generateObject(new GeneratedProperties(Collections.emptyList()), 1L);
 
 		// THEN
 		assertThat(result.getGeneratedProperties()).hasSize(1);
@@ -127,7 +127,7 @@ class EntityTest {
 		entity.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex, 1, 10));
 
 		// WHEN
-        GeneratedObject result = entity.generateObject(Collections.emptyList(), 1L);
+		GeneratedObject result = entity.generateObject(new GeneratedProperties(Collections.emptyList()), 1L);
 
 		// THEN
 		assertThat(result.getGeneratedProperties()).hasSize(2);

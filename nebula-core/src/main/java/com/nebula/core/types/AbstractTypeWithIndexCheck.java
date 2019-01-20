@@ -1,10 +1,8 @@
 package com.nebula.core.types;
 
 import com.nebula.core.GeneratedObject;
-import com.nebula.core.GeneratedProperty;
 import com.nebula.core.NebulaException;
-
-import java.util.List;
+import com.nebula.core.GeneratedProperties;
 
 public abstract class AbstractTypeWithIndexCheck implements Type {
 
@@ -16,7 +14,7 @@ public abstract class AbstractTypeWithIndexCheck implements Type {
 	}
 
 	@Override
-    public GeneratedObject generateObject(List<GeneratedProperty> generatedProperties, Long objectIndex) {
+    public GeneratedObject generateObject(GeneratedProperties generatedProperties, Long objectIndex) {
 		if (objectIndex == null || objectIndex < getMinRange() || objectIndex > getMaxRange()) {
 			throw new NebulaException("requested object is out of range");
 		}

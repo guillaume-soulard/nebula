@@ -13,7 +13,7 @@ public class EntityGenerator {
 
 			NebulaRandom nebulaRandom = new NebulaRandom(seed + entityIndex);
 			entity.init(new GenerationContext(nebulaRandom, model, entityIndex, depth, maxDepth));
-            GeneratedObject generateObject = entity.generateObject(new ArrayList<>(), nebulaRandom.nextIndex(entity));
+            GeneratedObject generateObject = entity.generateObject(new GeneratedProperties(new ArrayList<>()), nebulaRandom.nextIndex(entity));
 			generateObject.getGeneratedProperties().add(new GeneratedProperty("_id", new GeneratedObject(entityIndex), null));
 			return generateObject;
 		}

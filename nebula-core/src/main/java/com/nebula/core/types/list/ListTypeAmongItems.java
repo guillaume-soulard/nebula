@@ -1,8 +1,8 @@
 package com.nebula.core.types.list;
 
 import com.nebula.core.GeneratedObject;
-import com.nebula.core.GeneratedProperty;
 import com.nebula.core.Model;
+import com.nebula.core.GeneratedProperties;
 import com.nebula.core.generators.Generator;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.JavaType;
@@ -29,12 +29,12 @@ public class ListTypeAmongItems extends AbstractListType {
 		this.model = model;
 
 		for (int i = 0; i < builders.length; i++) {
-            items[i] = builders[i].build(model).generateObject(new ArrayList<>(), 0L);
+            items[i] = builders[i].build(model).generateObject(new GeneratedProperties(new ArrayList<>()), 0L);
 		}
 	}
 
 	@Override
-    protected List<Object> generateList(List<GeneratedProperty> generatedProperties, int listSize, NebulaRandom nebulaRandom) {
+    protected List<Object> generateList(GeneratedProperties generatedProperties, int listSize, NebulaRandom nebulaRandom) {
 		List<Object> list = new ArrayList<>(listSize);
 		if (canFillListWithItems()) {
 			initNumberRange();
@@ -53,11 +53,11 @@ public class ListTypeAmongItems extends AbstractListType {
 		return items.length > 0;
 	}
 
-    protected Object getItem(List<GeneratedProperty> generatedProperties, NebulaRandom localNebulaRandom) {
+    protected Object getItem(GeneratedProperties generatedProperties, NebulaRandom localNebulaRandom) {
         return items[getItemIndex(generatedProperties)];
     }
 
-    private Integer getItemIndex(List<GeneratedProperty> generatedProperties) {
+    private Integer getItemIndex(GeneratedProperties generatedProperties) {
         BigDecimal index = (BigDecimal) generator.generate(generatedProperties, numberRange).getObject();
 		return index.intValue();
 	}

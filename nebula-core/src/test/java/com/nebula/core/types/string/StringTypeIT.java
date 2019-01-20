@@ -3,6 +3,7 @@ package com.nebula.core.types.string;
 import com.nebula.core.Entity;
 import com.nebula.core.Model;
 import com.nebula.core.ModelBuilder;
+import com.nebula.core.GeneratedProperties;
 import com.nebula.core.generators.NebulaGenerators;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
@@ -50,7 +51,7 @@ class StringTypeIT {
 
 		// WHEN
 		for (int i = 1; i <= 1000; i++) {
-            stringType.generateObject(Collections.emptyList(), 0L);
+            stringType.generateObject(new GeneratedProperties(Collections.emptyList()), 0L);
 		}
 
 		// THEN

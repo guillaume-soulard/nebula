@@ -1,6 +1,6 @@
 package com.nebula.core.types.list;
 
-import com.nebula.core.GeneratedProperty;
+import com.nebula.core.GeneratedProperties;
 import com.nebula.core.generators.Generator;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
@@ -26,14 +26,14 @@ class ListTypeOfType extends AbstractListType {
 	}
 
 	@Override
-    protected List<Object> generateList(List<GeneratedProperty> generatedProperties, int listSize, NebulaRandom nebulaRandom) {
+    protected List<Object> generateList(GeneratedProperties generatedProperties, int listSize, NebulaRandom nebulaRandom) {
 		List<Object> list = new ArrayList<>(listSize);
         fillList(generatedProperties, listSize, nebulaRandom, list);
 		return list;
 	}
 
 	@Override
-    protected Object getItem(List<GeneratedProperty> generatedProperties, NebulaRandom nebulaRandom) {
+    protected Object getItem(GeneratedProperties generatedProperties, NebulaRandom nebulaRandom) {
         return generator.generate(generatedProperties, type);
 	}
 

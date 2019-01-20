@@ -2,6 +2,7 @@ package com.nebula.core.types.number;
 
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaException;
+import com.nebula.core.GeneratedProperties;
 import com.nebula.core.types.Range;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -24,7 +25,7 @@ class NumberRangeTypeTest {
 		NumberRangeType doubleType = new NumberRangeType(range, precision);
 
 		// WHEN
-        GeneratedObject result = doubleType.generateObject(Collections.emptyList(), 5L);
+        GeneratedObject result = doubleType.generateObject(new GeneratedProperties(Collections.emptyList()), 5L);
 
 		// THEN
 		assertThat(result.getObject()).isEqualTo(BigDecimal.valueOf(0.5));
@@ -40,7 +41,7 @@ class NumberRangeTypeTest {
 		NumberRangeType doubleType = new NumberRangeType(range, precision);
 
 		// WHEN
-        GeneratedObject result = doubleType.generateObject(Collections.emptyList(), 5L);
+        GeneratedObject result = doubleType.generateObject(new GeneratedProperties(Collections.emptyList()), 5L);
 
 		// THEN
 		assertThat(result.getObject()).isEqualTo(BigDecimal.valueOf(0.05));
@@ -58,7 +59,7 @@ class NumberRangeTypeTest {
 		// WHEN
 
 		// THEN
-        assertThatThrownBy(() -> doubleType.generateObject(Collections.emptyList(), 100L))
+        assertThatThrownBy(() -> doubleType.generateObject(new GeneratedProperties(Collections.emptyList()), 100L))
                 .isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
@@ -155,7 +156,7 @@ class NumberRangeTypeTest {
 		// WHEN
 
 		// THEN
-        assertThatThrownBy(() -> doubleType.generateObject(Collections.emptyList(), -1L))
+        assertThatThrownBy(() -> doubleType.generateObject(new GeneratedProperties(Collections.emptyList()), -1L))
                 .isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}

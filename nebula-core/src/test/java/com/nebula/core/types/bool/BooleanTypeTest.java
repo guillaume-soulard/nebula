@@ -2,6 +2,7 @@ package com.nebula.core.types.bool;
 
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaException;
+import com.nebula.core.GeneratedProperties;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -48,7 +49,7 @@ class BooleanTypeTest {
 		BooleanType booleanType = new BooleanType();
 
 		// WHEN
-        GeneratedObject result = booleanType.generateObject(Collections.emptyList(), 0L);
+        GeneratedObject result = booleanType.generateObject(new GeneratedProperties(Collections.emptyList()), 0L);
 
 		// THEN
 		assertThat(result).isNotNull();
@@ -62,7 +63,7 @@ class BooleanTypeTest {
 		BooleanType booleanType = new BooleanType();
 
 		// WHEN
-        GeneratedObject result = booleanType.generateObject(Collections.emptyList(), 0L);
+        GeneratedObject result = booleanType.generateObject(new GeneratedProperties(Collections.emptyList()), 0L);
 
 		// THEN
 		assertThat(result.getObject()).isEqualTo(Boolean.FALSE);
@@ -76,7 +77,7 @@ class BooleanTypeTest {
 		BooleanType booleanType = new BooleanType();
 
 		// WHEN
-        GeneratedObject result = booleanType.generateObject(Collections.emptyList(), 1L);
+        GeneratedObject result = booleanType.generateObject(new GeneratedProperties(Collections.emptyList()), 1L);
 
 		// THEN
 		assertThat(result.getObject()).isEqualTo(Boolean.TRUE);
@@ -92,7 +93,7 @@ class BooleanTypeTest {
 		// WHEN
 
 		// THEN
-        assertThatThrownBy(() -> booleanType.generateObject(Collections.emptyList(), -1L))
+        assertThatThrownBy(() -> booleanType.generateObject(new GeneratedProperties(Collections.emptyList()), -1L))
                 .isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
@@ -107,7 +108,7 @@ class BooleanTypeTest {
 		// WHEN
 
 		// THEN
-        assertThatThrownBy(() -> booleanType.generateObject(Collections.emptyList(), 2L))
+        assertThatThrownBy(() -> booleanType.generateObject(new GeneratedProperties(Collections.emptyList()), 2L))
                 .isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}
@@ -122,7 +123,7 @@ class BooleanTypeTest {
 		// WHEN
 
 		// THEN
-        assertThatThrownBy(() -> booleanType.generateObject(Collections.emptyList(), null))
+        assertThatThrownBy(() -> booleanType.generateObject(new GeneratedProperties(Collections.emptyList()), null))
                 .isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}

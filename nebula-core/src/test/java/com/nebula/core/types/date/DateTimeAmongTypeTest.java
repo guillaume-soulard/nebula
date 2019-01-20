@@ -2,6 +2,7 @@ package com.nebula.core.types.date;
 
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.NebulaException;
+import com.nebula.core.GeneratedProperties;
 import org.joda.time.DateTime;
 import org.joda.time.ReadableInstant;
 import org.junit.jupiter.api.DisplayName;
@@ -27,7 +28,7 @@ class DateTimeAmongTypeTest {
 		DateTimeAmongType dateType = new DateTimeAmongType(oneDay());
 
 		// WHEN
-        GeneratedObject result = dateType.generateObject(Collections.emptyList(), 0L);
+        GeneratedObject result = dateType.generateObject(new GeneratedProperties(Collections.emptyList()), 0L);
 
 		// THEN
 		assertThat(result).isNotNull();
@@ -41,7 +42,7 @@ class DateTimeAmongTypeTest {
 		DateTimeAmongType dateType = new DateTimeAmongType(oneDay());
 
 		// WHEN
-        GeneratedObject result = dateType.generateObject(Collections.emptyList(), 0L);
+        GeneratedObject result = dateType.generateObject(new GeneratedProperties(Collections.emptyList()), 0L);
 
 		// THEN
 		assertThat(result.getObject()).isEqualTo(day1);
@@ -57,7 +58,7 @@ class DateTimeAmongTypeTest {
 		// WHEN
 
 		// THEN
-        assertThatThrownBy(() -> dateType.generateObject(Collections.emptyList(), 10L))
+        assertThatThrownBy(() -> dateType.generateObject(new GeneratedProperties(Collections.emptyList()), 10L))
                 .isInstanceOf(NebulaException.class)
 				.hasMessage("requested object is out of range");
 	}

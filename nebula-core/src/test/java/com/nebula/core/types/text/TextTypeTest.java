@@ -2,6 +2,7 @@ package com.nebula.core.types.text;
 
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.Model;
+import com.nebula.core.GeneratedProperties;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.JavaType;
@@ -43,7 +44,7 @@ class TextTypeTest {
         // GIVEN
 
         // WHEN
-        GeneratedObject result = textType.generateObject(Collections.emptyList(), 0L);
+        GeneratedObject result = textType.generateObject(new GeneratedProperties(Collections.emptyList()), 0L);
 
         // THEN
         assertThat(result).isNotNull();

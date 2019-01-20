@@ -3,6 +3,7 @@ package com.nebula.core.generators.random;
 import com.nebula.core.GeneratedObject;
 import com.nebula.core.ModelBuilder;
 import com.nebula.core.NebulaException;
+import com.nebula.core.GeneratedProperties;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.NebulaTypes;
@@ -46,7 +47,7 @@ class RandomGeneratorTest {
 		Type type = NebulaTypes.number().range().withMin(BigDecimal.ONE).withMax(BigDecimal.ONE).build(ModelBuilder.newEmptyModel().build());
 
 		// WHEN
-        GeneratedObject result = generator.generate(Collections.emptyList(), type);
+		GeneratedObject result = generator.generate(new GeneratedProperties(Collections.emptyList()), type);
 
 		// THEN
 		assertThat(result.getObject()).isInstanceOf(BigDecimal.class).isEqualTo(BigDecimal.ONE);
@@ -63,7 +64,7 @@ class RandomGeneratorTest {
 		Type type = NebulaTypes.number().range().withMin(BigDecimal.TEN).withMax(BigDecimal.TEN).build(ModelBuilder.newEmptyModel().build());
 
 		// WHEN
-        GeneratedObject result = generator.generate(Collections.emptyList(), type);
+		GeneratedObject result = generator.generate(new GeneratedProperties(Collections.emptyList()), type);
 
 		// THEN
 		assertThat(result.getObject()).isInstanceOf(BigDecimal.class).isEqualTo(BigDecimal.TEN);
@@ -83,7 +84,7 @@ class RandomGeneratorTest {
 		List<GeneratedObject> result = new ArrayList<>();
 
 		for (int i = 1; i <= 10000; i++) {
-            result.add(generator.generate(Collections.emptyList(), type));
+			result.add(generator.generate(new GeneratedProperties(Collections.emptyList()), type));
 		}
 
 		// THEN
@@ -119,7 +120,7 @@ class RandomGeneratorTest {
 		// WHEN
 
 		// THEN
-        assertThatThrownBy(() -> generator.generate(Collections.emptyList(), type))
+		assertThatThrownBy(() -> generator.generate(new GeneratedProperties(Collections.emptyList()), type))
                 .isInstanceOf(NebulaException.class)
 				.hasMessage("generationContext is null");
 	}
