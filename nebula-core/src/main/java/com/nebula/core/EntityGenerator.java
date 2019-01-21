@@ -12,9 +12,9 @@ public class EntityGenerator {
 		if (depth <= maxDepth) {
 
 			NebulaRandom nebulaRandom = new NebulaRandom(seed + entityIndex);
-			entity.init(new GenerationContext(nebulaRandom, model, entityIndex, depth, maxDepth));
+            entity.init(GenerationContext.of(nebulaRandom, model, entityIndex, depth, maxDepth));
             GeneratedObject generateObject = entity.generateObject(new GeneratedProperties(new ArrayList<>()), nebulaRandom.nextIndex(entity));
-			generateObject.getGeneratedProperties().add(new GeneratedProperty("_id", new GeneratedObject(entityIndex), null));
+            generateObject.getGeneratedProperties().add(new GeneratedProperty("_id", GeneratedObject.of(entityIndex), null));
 			return generateObject;
 		}
 

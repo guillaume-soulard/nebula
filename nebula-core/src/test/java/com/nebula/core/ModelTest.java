@@ -347,16 +347,16 @@ class ModelTest {
 
 		// THEN
 		assertThat(result).hasSize(2);
-		assertThat(result.get(0).getGeneratedPropertyValue("field 1")).isEqualTo(new GeneratedObject("value"));
-		assertThat(result.get(0).getGeneratedPropertyValue("field 2")).isEqualTo(new GeneratedObject(false));
-		assertThat(result.get(0).getGeneratedPropertyValue("field 3")).isEqualTo(new GeneratedObject(BigDecimal.ONE));
-		assertThat(result.get(0).getGeneratedPropertyValue("field 4")).isEqualTo(new GeneratedObject(new DateTime(0L)));
+        assertThat(result.get(0).getGeneratedPropertyValue("field 1")).isEqualTo(GeneratedObject.of("value"));
+        assertThat(result.get(0).getGeneratedPropertyValue("field 2")).isEqualTo(GeneratedObject.of(false));
+        assertThat(result.get(0).getGeneratedPropertyValue("field 3")).isEqualTo(GeneratedObject.of(BigDecimal.ONE));
+        assertThat(result.get(0).getGeneratedPropertyValue("field 4")).isEqualTo(GeneratedObject.of(new DateTime(0L)));
 
 
-		assertThat(result.get(1).getGeneratedPropertyValue("field 1")).isEqualTo(new GeneratedObject("value 2"));
-		assertThat(result.get(1).getGeneratedPropertyValue("field 2")).isEqualTo(new GeneratedObject(true));
-		assertThat(result.get(1).getGeneratedPropertyValue("field 3")).isEqualTo(new GeneratedObject(BigDecimal.TEN));
-		assertThat(result.get(1).getGeneratedPropertyValue("field 4")).isEqualTo(new GeneratedObject(new DateTime(10L)));
+        assertThat(result.get(1).getGeneratedPropertyValue("field 1")).isEqualTo(GeneratedObject.of("value 2"));
+        assertThat(result.get(1).getGeneratedPropertyValue("field 2")).isEqualTo(GeneratedObject.of(true));
+        assertThat(result.get(1).getGeneratedPropertyValue("field 3")).isEqualTo(GeneratedObject.of(BigDecimal.TEN));
+        assertThat(result.get(1).getGeneratedPropertyValue("field 4")).isEqualTo(GeneratedObject.of(new DateTime(10L)));
 	}
 
 	private List<Object> extractValuesForProperty(String propertyName, List<GeneratedObject> generatedObjects) {

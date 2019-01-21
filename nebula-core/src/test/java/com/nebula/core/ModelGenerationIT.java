@@ -99,8 +99,8 @@ class ModelGenerationIT {
 						.getPropertyValue().getObject()).isEqualTo(ENTITY_TEST_NAME);
 
 				assertThat((List<GeneratedObject>) getPropertyByName(t.getGeneratedProperties(), LIST_PROPERTY_NAME)
-						.getPropertyValue().getObject()).contains(new GeneratedObject(Boolean.TRUE),
-								new GeneratedObject(Boolean.FALSE));
+                        .getPropertyValue().getObject()).contains(GeneratedObject.of(Boolean.TRUE),
+                        GeneratedObject.of(Boolean.FALSE));
 
 				assertThat(getPropertyByName(t.getGeneratedProperties(), STRING_PROPERTY_NAME).getPropertyValue()
 						.getObject()).asString().matches(STRING_PATTERN);

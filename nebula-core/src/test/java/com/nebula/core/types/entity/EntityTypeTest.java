@@ -1,7 +1,6 @@
 package com.nebula.core.types.entity;
 
 import com.nebula.core.*;
-import com.nebula.core.GeneratedProperties;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
 import org.junit.jupiter.api.DisplayName;
@@ -98,7 +97,7 @@ class EntityTypeTest {
 		Model model = mock(Model.class);
 		when(model.getEntityByName(ENTITY_NAME)).thenReturn(entityWithAmount(1L));
 		long entityIndex = 0L;
-		entityType.init(new GenerationContext(nebulaRandom, model, entityIndex, 1, 10));
+        entityType.init(GenerationContext.of(nebulaRandom, model, entityIndex, 1, 10));
 
 		// WHEN
 		Long result = entityType.getMaxRange();
@@ -221,7 +220,7 @@ class EntityTypeTest {
 		when(model.getEntityByName(ENTITY_NAME)).thenReturn(entityWithAmount(entityAmount));
 		NebulaRandom nebulaRandom = new NebulaRandom(1L);
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex, 1, 10);
+        GenerationContext context = GenerationContext.of(nebulaRandom, model, entityIndex, 1, 10);
 		type.init(context);
 		return context;
 	}

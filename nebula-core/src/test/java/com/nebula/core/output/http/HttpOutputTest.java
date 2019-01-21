@@ -180,12 +180,12 @@ class HttpOutputTest {
         String httpVerb = HttpOutputBuilder.POST_VERB;
         HttpOutput output = new HttpOutput(url, staticHeaders, dynamicHeaders, dynamicPathVariable, httpVerb, client);
         List<GeneratedProperty> userGeneratedProperties = new ArrayList<>();
-        userGeneratedProperties.add(new GeneratedProperty("name", new GeneratedObject("John"), null));
+        userGeneratedProperties.add(new GeneratedProperty("name", GeneratedObject.of("John"), null));
         List<GeneratedProperty> deptGeneratedProperties = new ArrayList<>();
-        deptGeneratedProperties.add(new GeneratedProperty("name", new GeneratedObject("test"), null));
-        GeneratedObject dept = new GeneratedObject(deptGeneratedProperties);
+        deptGeneratedProperties.add(new GeneratedProperty("name", GeneratedObject.of("test"), null));
+        GeneratedObject dept = GeneratedObject.of(deptGeneratedProperties);
         userGeneratedProperties.add(new GeneratedProperty("dept", dept, null));
-        GeneratedObject generatedObject = new GeneratedObject(userGeneratedProperties);
+        GeneratedObject generatedObject = GeneratedObject.of(userGeneratedProperties);
         String objectToWrite = "{ name }";
         OutputParameter formattedObject = new OutputParameter(objectToWrite, generatedObject);
 
@@ -244,12 +244,12 @@ class HttpOutputTest {
         String httpVerb = HttpOutputBuilder.POST_VERB;
         HttpOutput output = new HttpOutput(url, staticHeaders, dynamicHeaders, dynamicPathVariable, httpVerb, client);
         List<GeneratedProperty> userGeneratedProperties = new ArrayList<>();
-        userGeneratedProperties.add(new GeneratedProperty("name", new GeneratedObject("John"), null));
+        userGeneratedProperties.add(new GeneratedProperty("name", GeneratedObject.of("John"), null));
         List<GeneratedProperty> deptGeneratedProperties = new ArrayList<>();
-        deptGeneratedProperties.add(new GeneratedProperty("name", new GeneratedObject("test"), null));
-        GeneratedObject dept = new GeneratedObject(deptGeneratedProperties);
+        deptGeneratedProperties.add(new GeneratedProperty("name", GeneratedObject.of("test"), null));
+        GeneratedObject dept = GeneratedObject.of(deptGeneratedProperties);
         userGeneratedProperties.add(new GeneratedProperty("dept", dept, null));
-        GeneratedObject generatedObject = new GeneratedObject(userGeneratedProperties);
+        GeneratedObject generatedObject = GeneratedObject.of(userGeneratedProperties);
         OutputParameter formattedObject = new OutputParameter("", generatedObject);
 
         // WHEN

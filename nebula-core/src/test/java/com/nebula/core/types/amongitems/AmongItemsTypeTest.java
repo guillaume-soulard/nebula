@@ -1,9 +1,9 @@
 package com.nebula.core.types.amongitems;
 
 import com.nebula.core.GeneratedObject;
+import com.nebula.core.GeneratedProperties;
 import com.nebula.core.Model;
 import com.nebula.core.NebulaException;
-import com.nebula.core.GeneratedProperties;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.Type;
@@ -25,11 +25,11 @@ class AmongItemsTypeTest {
 
         // GIVEN
         List<GeneratedObject> generatedObjects = new ArrayList<>();
-        GeneratedObject item1 = new GeneratedObject("Item 1");
+        GeneratedObject item1 = GeneratedObject.of("Item 1");
         generatedObjects.add(item1);
-        GeneratedObject item2 = new GeneratedObject("Item 2");
+        GeneratedObject item2 = GeneratedObject.of("Item 2");
         generatedObjects.add(item2);
-        GeneratedObject item3 = new GeneratedObject("Item 3");
+        GeneratedObject item3 = GeneratedObject.of("Item 3");
         generatedObjects.add(item3);
         Type picker  = new AmongItemsType(generatedObjects);
         picker.init(getContext());
@@ -62,7 +62,7 @@ class AmongItemsTypeTest {
 
         // GIVEN
         List<GeneratedObject> generatedObjects = new ArrayList<>();
-        generatedObjects.add(new GeneratedObject("Item 1"));
+        generatedObjects.add(GeneratedObject.of("Item 1"));
         Type picker  = new AmongItemsType(generatedObjects);
         picker.init(getContext());
 
@@ -95,7 +95,7 @@ class AmongItemsTypeTest {
 
         // GIVEN
         List<GeneratedObject> generatedObjects = new ArrayList<>();
-        generatedObjects.add(new GeneratedObject("Item 1"));
+        generatedObjects.add(GeneratedObject.of("Item 1"));
         Type picker  = new AmongItemsType(generatedObjects);
         picker.init(getContext());
 
@@ -128,6 +128,6 @@ class AmongItemsTypeTest {
 
     private GenerationContext getContext() {
         NebulaRandom nebulaRandom = new NebulaRandom(0L);
-        return new GenerationContext(nebulaRandom, mock(Model.class), 0L, 1, 10);
+        return GenerationContext.of(nebulaRandom, mock(Model.class), 0L, 1, 10);
     }
 }

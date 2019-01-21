@@ -81,7 +81,7 @@ class EntityTest {
 		String propertyName = "property";
 		entity.addProperty(propertyName, random(), NebulaTypes.number().range());
 		long entityIndex = 0L;
-		entity.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex, 1, 10));
+        entity.init(GenerationContext.of(new NebulaRandom(1L), null, entityIndex, 1, 10));
 
 		// WHEN
 		GeneratedObject result = entity.generateObject(new GeneratedProperties(Collections.emptyList()), 1L);
@@ -100,7 +100,7 @@ class EntityTest {
 		entity.addProperty(propertyName, random(),
 				NebulaTypes.number().range().withMin(BigDecimal.ONE).withMax(BigDecimal.ONE));
 		long entityIndex = 0L;
-		entity.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex, 1, 10));
+        entity.init(GenerationContext.of(new NebulaRandom(1L), null, entityIndex, 1, 10));
 
 		// WHEN
 		GeneratedObject result = entity.generateObject(new GeneratedProperties(Collections.emptyList()), 1L);
@@ -124,7 +124,7 @@ class EntityTest {
 		entity.addProperty(property2Name, random(),
 				NebulaTypes.number().range().withMin(BigDecimal.valueOf(5)).withMax(BigDecimal.valueOf(5)));
 		long entityIndex = 0L;
-		entity.init(new GenerationContext(new NebulaRandom(1L), null, entityIndex, 1, 10));
+        entity.init(GenerationContext.of(new NebulaRandom(1L), null, entityIndex, 1, 10));
 
 		// WHEN
 		GeneratedObject result = entity.generateObject(new GeneratedProperties(Collections.emptyList()), 1L);
@@ -156,7 +156,7 @@ class EntityTest {
 		when(nebulaRandom.getSeed()).thenReturn(0L);
 		entity.addProperty("name", random(), bool());
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(nebulaRandom, null, entityIndex, 1, 10);
+        GenerationContext context = GenerationContext.of(nebulaRandom, null, entityIndex, 1, 10);
 
 		// WHEN
 		entity.init(context);
@@ -182,7 +182,7 @@ class EntityTest {
 		NebulaRandom nebulaRandom = mock(NebulaRandom.class);
 		entity.addProperty("test", random(), bool());
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(nebulaRandom, null, entityIndex, 1, 10);
+        GenerationContext context = GenerationContext.of(nebulaRandom, null, entityIndex, 1, 10);
 
 		// WHEN
 		entity.init(context);

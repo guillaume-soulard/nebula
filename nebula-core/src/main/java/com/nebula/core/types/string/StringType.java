@@ -21,7 +21,7 @@ class StringType implements Type {
 
 	@Override
     public GeneratedObject generateObject(GeneratedProperties generatedProperties, Long objectIndex) {
-		return new GeneratedObject(stringGenerator.generateString());
+        return GeneratedObject.of(stringGenerator.generateString());
 	}
 
 	@Override

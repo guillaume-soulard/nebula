@@ -1,8 +1,8 @@
 package com.nebula.core.types.number;
 
 import com.nebula.core.GeneratedObject;
-import com.nebula.core.NebulaException;
 import com.nebula.core.GeneratedProperties;
+import com.nebula.core.NebulaException;
 import com.nebula.core.types.Range;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -20,7 +20,7 @@ class NumberRangeTypeTest {
 	void generateObject_should_return_0_dot_5_when_min_0_and_max_1_and_precision_1_for_index_5() {
 
 		// GIVEN
-		Range<BigDecimal> range = new Range<>(BigDecimal.valueOf(0d), BigDecimal.valueOf(1d));
+        Range<BigDecimal> range = Range.withMinAndMax(BigDecimal.valueOf(0d), BigDecimal.valueOf(1d));
 		int precision = 1;
 		NumberRangeType doubleType = new NumberRangeType(range, precision);
 
@@ -36,7 +36,7 @@ class NumberRangeTypeTest {
 	void generateObject_should_return_0_dot_05_when_min_0_and_max_10_and_precision_2_for_index_5() {
 
 		// GIVEN
-		Range<BigDecimal> range = new Range<>(BigDecimal.valueOf(0d), BigDecimal.valueOf(10d));
+        Range<BigDecimal> range = Range.withMinAndMax(BigDecimal.valueOf(0d), BigDecimal.valueOf(10d));
 		int precision = 2;
 		NumberRangeType doubleType = new NumberRangeType(range, precision);
 
@@ -52,7 +52,7 @@ class NumberRangeTypeTest {
 	void generateObject_should_throw_exception_when_index_is_out_of_range() {
 
 		// GIVEN
-		Range<BigDecimal> range = new Range<>(BigDecimal.valueOf(0), BigDecimal.valueOf(1));
+        Range<BigDecimal> range = Range.withMinAndMax(BigDecimal.valueOf(0), BigDecimal.valueOf(1));
 		int precision = 1;
 		NumberRangeType doubleType = new NumberRangeType(range, precision);
 
@@ -69,7 +69,7 @@ class NumberRangeTypeTest {
 	void getMinRange_should_return_0() {
 
 		// GIVEN
-		Range<BigDecimal> range = new Range<>(BigDecimal.valueOf(0d), BigDecimal.valueOf(1d));
+        Range<BigDecimal> range = Range.withMinAndMax(BigDecimal.valueOf(0d), BigDecimal.valueOf(1d));
 		int precision = 1;
 		NumberRangeType doubleType = new NumberRangeType(range, precision);
 
@@ -85,7 +85,7 @@ class NumberRangeTypeTest {
 	void getMaxRange_should_return_0() {
 
 		// GIVEN
-		Range<BigDecimal> range = new Range<>(BigDecimal.valueOf(0), BigDecimal.valueOf(0));
+        Range<BigDecimal> range = Range.withMinAndMax(BigDecimal.valueOf(0), BigDecimal.valueOf(0));
 		int precision = 0;
 		NumberRangeType doubleType = new NumberRangeType(range, precision);
 
@@ -101,7 +101,7 @@ class NumberRangeTypeTest {
 	void getMaxRange_should_return_1() {
 
 		// GIVEN
-		Range<BigDecimal> range = new Range<>(BigDecimal.valueOf(0d), BigDecimal.valueOf(1d));
+        Range<BigDecimal> range = Range.withMinAndMax(BigDecimal.valueOf(0d), BigDecimal.valueOf(1d));
 		int precision = 0;
 		NumberRangeType doubleType = new NumberRangeType(range, precision);
 
@@ -117,7 +117,7 @@ class NumberRangeTypeTest {
 	void getMaxRange_should_return_1000000() {
 
 		// GIVEN
-		Range<BigDecimal> range = new Range<>(BigDecimal.valueOf(10), BigDecimal.valueOf(20d));
+        Range<BigDecimal> range = Range.withMinAndMax(BigDecimal.valueOf(10), BigDecimal.valueOf(20d));
 		int precision = 5;
 		NumberRangeType doubleType = new NumberRangeType(range, precision);
 
@@ -133,7 +133,7 @@ class NumberRangeTypeTest {
 	void getMaxRange_should_return_5000() {
 
 		// GIVEN
-		Range<BigDecimal> range = new Range<>(BigDecimal.valueOf(12), BigDecimal.valueOf(17d));
+        Range<BigDecimal> range = Range.withMinAndMax(BigDecimal.valueOf(12), BigDecimal.valueOf(17d));
 		int precision = 3;
 		NumberRangeType doubleType = new NumberRangeType(range, precision);
 
@@ -149,7 +149,7 @@ class NumberRangeTypeTest {
 	void generateObject_should_throw_exception_when_negative_index_is_passed() {
 
 		// GIVEN
-		Range<BigDecimal> range = new Range<>(BigDecimal.valueOf(0d), BigDecimal.valueOf(10d));
+        Range<BigDecimal> range = Range.withMinAndMax(BigDecimal.valueOf(0d), BigDecimal.valueOf(10d));
 		int precision = 1;
 		NumberRangeType doubleType = new NumberRangeType(range, precision);
 

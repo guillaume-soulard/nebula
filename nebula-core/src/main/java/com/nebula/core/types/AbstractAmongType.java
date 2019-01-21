@@ -33,6 +33,6 @@ public abstract class AbstractAmongType<T extends Comparable<T>> extends Abstrac
 
 	@Override
 	protected GeneratedObject generatedObjectAtIndex(Long index) {
-		return new GeneratedObject(items.get(Integer.valueOf(Long.toString(index))));
+        return GeneratedObject.of(items.get(Integer.valueOf(Long.toString(index))));
 	}
 }

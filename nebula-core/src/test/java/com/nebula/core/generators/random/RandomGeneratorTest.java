@@ -1,9 +1,9 @@
 package com.nebula.core.generators.random;
 
 import com.nebula.core.GeneratedObject;
+import com.nebula.core.GeneratedProperties;
 import com.nebula.core.ModelBuilder;
 import com.nebula.core.NebulaException;
-import com.nebula.core.GeneratedProperties;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.NebulaTypes;
@@ -43,7 +43,7 @@ class RandomGeneratorTest {
 		// GIVEN
 		RandomGenerator generator = new RandomGenerator();
 		long entityIndex = 0L;
-		generator.init(new GenerationContext(mock(NebulaRandom.class), null, entityIndex, 1, 10));
+        generator.init(GenerationContext.of(mock(NebulaRandom.class), null, entityIndex, 1, 10));
 		Type type = NebulaTypes.number().range().withMin(BigDecimal.ONE).withMax(BigDecimal.ONE).build(ModelBuilder.newEmptyModel().build());
 
 		// WHEN
@@ -60,7 +60,7 @@ class RandomGeneratorTest {
 		// GIVEN
 		RandomGenerator generator = new RandomGenerator();
 		long entityIndex = 0L;
-		generator.init(new GenerationContext(mock(NebulaRandom.class), null, entityIndex, 1, 10));
+        generator.init(GenerationContext.of(mock(NebulaRandom.class), null, entityIndex, 1, 10));
 		Type type = NebulaTypes.number().range().withMin(BigDecimal.TEN).withMax(BigDecimal.TEN).build(ModelBuilder.newEmptyModel().build());
 
 		// WHEN
@@ -77,7 +77,7 @@ class RandomGeneratorTest {
 		// GIVEN
 		RandomGenerator generator = new RandomGenerator();
 		long entityIndex = 0L;
-		generator.init(new GenerationContext(new NebulaRandom(0L), null, entityIndex, 1, 10));
+        generator.init(GenerationContext.of(new NebulaRandom(0L), null, entityIndex, 1, 10));
 		Type type = NebulaTypes.number().range().withMin(BigDecimal.ZERO).withMax(BigDecimal.TEN).build(ModelBuilder.newEmptyModel().build());
 
 		// WHEN

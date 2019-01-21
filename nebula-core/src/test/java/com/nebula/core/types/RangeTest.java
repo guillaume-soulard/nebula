@@ -16,7 +16,7 @@ class RangeTest {
 		Range<Integer> range;
 
 		// WHEN
-		range = new Range<>(10, 20);
+		range = Range.withMinAndMax(10, 20);
 
 		// THEN
 		assertThat(range).hasFieldOrPropertyWithValue("min", 10);
@@ -30,7 +30,7 @@ class RangeTest {
 
 		// WHEN
 		try {
-            new Range<>(20, 10);
+			Range.withMinAndMax(20, 10);
 			fail("Should throw an exception");
 		} catch (Throwable e) {
 
@@ -47,7 +47,7 @@ class RangeTest {
 
 		// WHEN
 		try {
-            new Range<>(null, 20);
+			Range.withMinAndMax(null, 20);
 		} catch (Throwable e) {
 
 			// THEN
@@ -63,7 +63,7 @@ class RangeTest {
 
 		// WHEN
 		try {
-            new Range<>(10, null);
+			Range.withMinAndMax(10, null);
 		} catch (Throwable e) {
 
 			// THEN

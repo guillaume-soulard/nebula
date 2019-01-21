@@ -15,7 +15,7 @@ public class AmongItemsTypeBuilder implements RandomTypeBuilder {
 
     public AmongItemsTypeBuilder(Collection<Object> objects) {
         for (Object object : objects) {
-            generatedObjects.add(new GeneratedObject(object));
+            generatedObjects.add(GeneratedObject.of(object));
         }
     }
 

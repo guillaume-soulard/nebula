@@ -1,12 +1,11 @@
 package com.nebula.core.generationrule.rest;
 
-import com.nebula.core.Model;
-import com.nebula.core.Entity;
-import com.nebula.core.GeneratedObject;
-import com.nebula.core.GeneratedProperty;
-import com.nebula.core.NebulaException;
+import com.nebula.core.*;
 import com.nebula.core.formatter.Formatter;
-import org.apache.http.*;
+import org.apache.http.Header;
+import org.apache.http.HttpHeaders;
+import org.apache.http.HttpRequest;
+import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
@@ -62,9 +61,9 @@ class RequestHandler implements HttpRequestHandler {
 
     private String getFormattedError(HttpRequest httpRequest, String message, String detail) {
         List<GeneratedProperty> generatedProperties = new ArrayList<>();
-        generatedProperties.add(new GeneratedProperty("error", new GeneratedObject(message), string().build(model)));
-        generatedProperties.add(new GeneratedProperty("detail", new GeneratedObject(detail), string().build(model)));
-        return getFormatter(httpRequest).formatGeneratedObject(new GeneratedObject(generatedProperties));
+        generatedProperties.add(new GeneratedProperty("error", GeneratedObject.of(message), string().build(model)));
+        generatedProperties.add(new GeneratedProperty("detail", GeneratedObject.of(detail), string().build(model)));
+        return getFormatter(httpRequest).formatGeneratedObject(GeneratedObject.of(generatedProperties));
     }
 
     private Formatter getFormatter(HttpRequest httpRequest) {
@@ -142,7 +141,7 @@ class RequestHandler implements HttpRequestHandler {
                     generatedObjects.add(model.generateEntityObject(request.getResource(), i));
                 }
             }
-            String formattedObject = getFormatter(httpRequest).formatGeneratedObject(new GeneratedObject(generatedObjects));
+            String formattedObject = getFormatter(httpRequest).formatGeneratedObject(GeneratedObject.of(generatedObjects));
             httpResponse.setStatusCode(200);
             httpResponse.setHeader("Accept", "text/javascript");
             httpResponse.setEntity(new StringEntity(formattedObject));

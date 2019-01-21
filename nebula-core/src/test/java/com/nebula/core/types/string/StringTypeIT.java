@@ -1,9 +1,9 @@
 package com.nebula.core.types.string;
 
 import com.nebula.core.Entity;
+import com.nebula.core.GeneratedProperties;
 import com.nebula.core.Model;
 import com.nebula.core.ModelBuilder;
-import com.nebula.core.GeneratedProperties;
 import com.nebula.core.generators.NebulaGenerators;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
@@ -45,7 +45,7 @@ class StringTypeIT {
 		// GIVEN
 		StringType stringType = new StringType(StringGenerator.newStringGenerator("[A-Z]{1}[a-z]{10,25}"));
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(new NebulaRandom(0L), ModelBuilder.newEmptyModel().build(), entityIndex, 1, 10);
+        GenerationContext context = GenerationContext.of(new NebulaRandom(0L), ModelBuilder.newEmptyModel().build(), entityIndex, 1, 10);
 		stringType.init(context);
 		DateTime start = DateTime.now();
 

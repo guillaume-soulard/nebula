@@ -25,10 +25,10 @@ abstract class AbstractListType implements Type {
 	@Override
     public GeneratedObject generateObject(GeneratedProperties generatedProperties, Long objectIndex) {
 		NebulaRandom localNebulaRandom = new NebulaRandom(context.getNebulaRandom().getSeed() + objectIndex);
-		GenerationContext localContext = new GenerationContext(localNebulaRandom, context.getModel(), objectIndex, context.getDepth() + 1, context.getMaxDepth());
+		GenerationContext localContext = GenerationContext.of(localNebulaRandom, context.getModel(), objectIndex, context.getDepth() + 1, context.getMaxDepth());
 		generator.init(localContext);
 		int listSize = Integer.valueOf(Long.toString(localNebulaRandom.randomBetween(minSize, maxSize)));
-        return new GeneratedObject(generateList(generatedProperties, listSize, localNebulaRandom));
+		return GeneratedObject.of(generateList(generatedProperties, listSize, localNebulaRandom));
     }
 
     protected abstract List<Object> generateList(GeneratedProperties generatedProperties, int listSize, NebulaRandom nebulaRandom);
@@ -36,7 +36,7 @@ abstract class AbstractListType implements Type {
     void fillList(GeneratedProperties generatedProperties, int listSize, NebulaRandom nebulaRandom, List<Object> list) {
 		for (int elementIndex = 0; elementIndex < listSize; elementIndex++) {
 			NebulaRandom nebulaRandomForItem = new NebulaRandom(nebulaRandom.getSeed() + elementIndex);
-			GenerationContext generationContextForItem = new GenerationContext(nebulaRandomForItem, context.getModel(), elementIndex, context.getDepth() + 1, context.getMaxDepth());
+			GenerationContext generationContextForItem = GenerationContext.of(nebulaRandomForItem, context.getModel(), elementIndex, context.getDepth() + 1, context.getMaxDepth());
 			generator.init(generationContextForItem);
             list.add(getItem(generatedProperties, nebulaRandomForItem));
 		}

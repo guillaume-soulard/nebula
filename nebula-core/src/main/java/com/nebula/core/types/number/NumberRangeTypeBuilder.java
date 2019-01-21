@@ -2,10 +2,10 @@ package com.nebula.core.types.number;
 
 import com.nebula.core.Model;
 import com.nebula.core.NebulaException;
+import com.nebula.core.parser.NumberParser;
 import com.nebula.core.types.Range;
 import com.nebula.core.types.RangeTypeBuilder;
 import com.nebula.core.types.Type;
-import com.nebula.core.parser.NumberParser;
 
 import java.math.BigDecimal;
 
@@ -19,7 +19,7 @@ public class NumberRangeTypeBuilder extends RangeTypeBuilder<NumberRangeTypeBuil
 		if (min.compareTo(max) > 0) {
 			throw new NebulaException("max must be greater than min");
 		}
-		return new NumberRangeType(new Range<>(min, max), precision);
+		return new NumberRangeType(Range.withMinAndMax(min, max), precision);
 	}
 
 	@Override

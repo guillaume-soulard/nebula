@@ -5,15 +5,26 @@ import com.nebula.core.NebulaException;
 public class Range<T extends Comparable<T>> {
 
 	private final T min;
-
 	private final T max;
 
-	public Range(T min, T max) {
+	private Range(T min, T max) {
 		checkMin(min);
 		checkMax(max);
 		checkInterval(min, max);
 		this.min = min;
 		this.max = max;
+	}
+
+	public static <T extends Comparable<T>> Range<T> withMinAndMax(T min, T max) {
+		return new Range<>(min, max);
+	}
+
+	public T getMin() {
+		return min;
+	}
+
+	public T getMax() {
+		return max;
 	}
 
 	private void checkInterval(T min, T max) {
@@ -35,13 +46,5 @@ public class Range<T extends Comparable<T>> {
 
 			throw new NebulaException("min is null");
 		}
-	}
-
-	public T getMin() {
-		return min;
-	}
-
-	public T getMax() {
-		return max;
 	}
 }

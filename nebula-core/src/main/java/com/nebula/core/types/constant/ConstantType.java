@@ -25,7 +25,7 @@ class ConstantType implements Type {
 
 	@Override
     public GeneratedObject generateObject(GeneratedProperties generatedProperties, Long objectIndex) {
-		return new GeneratedObject(value);
+        return GeneratedObject.of(value);
 	}
 
 	@Override

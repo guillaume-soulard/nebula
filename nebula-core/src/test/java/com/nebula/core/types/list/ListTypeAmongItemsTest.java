@@ -1,9 +1,9 @@
 package com.nebula.core.types.list;
 
 import com.nebula.core.GeneratedObject;
+import com.nebula.core.GeneratedProperties;
 import com.nebula.core.Model;
 import com.nebula.core.ModelBuilder;
-import com.nebula.core.GeneratedProperties;
 import com.nebula.core.generators.Generator;
 import com.nebula.core.generators.NebulaGenerators;
 import com.nebula.core.generators.NebulaRandom;
@@ -46,7 +46,7 @@ class ListTypeAmongItemsTest {
 		// THEN
 		assertThat(listType).hasFieldOrPropertyWithValue("minSize", minSize)
 				.hasFieldOrPropertyWithValue("maxSize", maxSize).hasFieldOrPropertyWithValue("generator", generator)
-				.hasFieldOrPropertyWithValue("items", new GeneratedObject[] { new GeneratedObject("test") });
+                .hasFieldOrPropertyWithValue("items", new GeneratedObject[]{GeneratedObject.of("test")});
 	}
 
 	@Test
@@ -154,7 +154,7 @@ class ListTypeAmongItemsTest {
 		NebulaRandom nebulaRandom = new NebulaRandom(0L);
 		Model model = ModelBuilder.newEmptyModel().build();
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex, 1, 10);
+        GenerationContext context = GenerationContext.of(nebulaRandom, model, entityIndex, 1, 10);
 		listType.init(context);
 
 		// WHEN
@@ -177,7 +177,7 @@ class ListTypeAmongItemsTest {
 		NebulaRandom nebulaRandom = new NebulaRandom(0L);
 		Model model = ModelBuilder.newEmptyModel().build();
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex, 1, 10);
+        GenerationContext context = GenerationContext.of(nebulaRandom, model, entityIndex, 1, 10);
 		listType.init(context);
 
 		// WHEN
@@ -200,7 +200,7 @@ class ListTypeAmongItemsTest {
 		NebulaRandom nebulaRandom = new NebulaRandom(0L);
 		Model model = ModelBuilder.newEmptyModel().build();
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex, 1, 10);
+        GenerationContext context = GenerationContext.of(nebulaRandom, model, entityIndex, 1, 10);
 		listType.init(context);
 
 		// WHEN
@@ -223,7 +223,7 @@ class ListTypeAmongItemsTest {
 		NebulaRandom nebulaRandom = new NebulaRandom(0L);
 		Model model = ModelBuilder.newEmptyModel().build();
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex, 1, 10);
+        GenerationContext context = GenerationContext.of(nebulaRandom, model, entityIndex, 1, 10);
 		listType.init(context);
 
 		// WHEN
@@ -247,7 +247,7 @@ class ListTypeAmongItemsTest {
 		NebulaRandom nebulaRandom = new NebulaRandom(0L);
 		Model model = ModelBuilder.newEmptyModel().build();
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex, 1, 10);
+        GenerationContext context = GenerationContext.of(nebulaRandom, model, entityIndex, 1, 10);
 		listType.init(context);
         GeneratedObject resultAtindex0 = listType.generateObject(new GeneratedProperties(Collections.emptyList()), 0L);
 
@@ -271,7 +271,7 @@ class ListTypeAmongItemsTest {
 		NebulaRandom nebulaRandom = new NebulaRandom(0L);
 		Model model = ModelBuilder.newEmptyModel().build();
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex, 1, 10);
+        GenerationContext context = GenerationContext.of(nebulaRandom, model, entityIndex, 1, 10);
 		listType.init(context);
         GeneratedObject resultAtindex0 = listType.generateObject(new GeneratedProperties(Collections.emptyList()), 0L);
 
@@ -296,14 +296,14 @@ class ListTypeAmongItemsTest {
 		NebulaRandom nebulaRandom = new NebulaRandom(0L);
 		Model model = ModelBuilder.newEmptyModel().build();
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex, 1, 10);
+        GenerationContext context = GenerationContext.of(nebulaRandom, model, entityIndex, 1, 10);
 		listType.init(context);
 
 		// WHEN
         GeneratedObject result = listType.generateObject(new GeneratedProperties(Collections.emptyList()), 0L);
 
 		// THEN
-		assertThat(result.getObject()).asList().hasSize(1).containsOnly(new GeneratedObject("test"));
+        assertThat(result.getObject()).asList().hasSize(1).containsOnly(GeneratedObject.of("test"));
 	}
 
 	@Test
@@ -319,7 +319,7 @@ class ListTypeAmongItemsTest {
 		NebulaRandom nebulaRandom = new NebulaRandom(0L);
 		Model model = ModelBuilder.newEmptyModel().build();
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex, 1, 10);
+        GenerationContext context = GenerationContext.of(nebulaRandom, model, entityIndex, 1, 10);
 		listType.init(context);
 
 		// WHEN
@@ -345,23 +345,23 @@ class ListTypeAmongItemsTest {
 		NebulaRandom nebulaRandom = new NebulaRandom(0L);
 		Model model = ModelBuilder.newEmptyModel().build();
 		long entityIndex = 0L;
-		GenerationContext context = new GenerationContext(nebulaRandom, model, entityIndex, 1, 10);
+        GenerationContext context = GenerationContext.of(nebulaRandom, model, entityIndex, 1, 10);
 		listType.init(context);
-		GeneratedObject index0 = new GeneratedObject(BigDecimal.ZERO);
-		GeneratedObject index1 = new GeneratedObject(BigDecimal.ONE);
-		GeneratedObject index2 = new GeneratedObject(BIG_DECIMAL_TWO);
+        GeneratedObject index0 = GeneratedObject.of(BigDecimal.ZERO);
+        GeneratedObject index1 = GeneratedObject.of(BigDecimal.ONE);
+        GeneratedObject index2 = GeneratedObject.of(BIG_DECIMAL_TWO);
         when(generator.generate(eq(new GeneratedProperties(Collections.emptyList())), any(Type.class))).thenReturn(index0, index1, index2, index2, index1, index0);
 
 		// WHEN
         GeneratedObject result = listType.generateObject(new GeneratedProperties(Collections.emptyList()), 0L);
 
 		// THEN
-		assertThat(result.getObject()).asList().containsExactly(new GeneratedObject("test"),
-				new GeneratedObject("test"),
-				new GeneratedObject("test"),
-				new GeneratedObject("test"),
-				new GeneratedObject("test"),
-				new GeneratedObject("test"));
+        assertThat(result.getObject()).asList().containsExactly(GeneratedObject.of("test"),
+                GeneratedObject.of("test"),
+                GeneratedObject.of("test"),
+                GeneratedObject.of("test"),
+                GeneratedObject.of("test"),
+                GeneratedObject.of("test"));
 	}
 
 	private ConstantTypeBuilder newConstant() {

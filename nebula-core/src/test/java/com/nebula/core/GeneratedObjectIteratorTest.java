@@ -122,7 +122,7 @@ class GeneratedObjectIteratorTest {
 	void next_should_return_the_first_entity() {
 
 		// GIVEN
-		GeneratedObject expectedGeneratedObject = new GeneratedObject(null);
+        GeneratedObject expectedGeneratedObject = GeneratedObject.of(null);
 		Model model = mock(Model.class);
 		String entityName = "test";
 		Entity entity = new Entity(model, entityName, 2L, new PropertyBuilder());

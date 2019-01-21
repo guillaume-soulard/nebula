@@ -1,8 +1,8 @@
 package com.nebula.core.types.text;
 
 import com.nebula.core.GeneratedObject;
-import com.nebula.core.Model;
 import com.nebula.core.GeneratedProperties;
+import com.nebula.core.Model;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.JavaType;
@@ -33,7 +33,7 @@ class TextTypeTest {
     @BeforeEach
     void setUp() {
         textType = new TextType(dictionary, textGenerationConfiguration);
-        GenerationContext context = new GenerationContext(new NebulaRandom(1L), mock(Model.class), 0L, 1, 10);
+        GenerationContext context = GenerationContext.of(new NebulaRandom(1L), mock(Model.class), 0L, 1, 10);
         textType.init(context);
     }
 

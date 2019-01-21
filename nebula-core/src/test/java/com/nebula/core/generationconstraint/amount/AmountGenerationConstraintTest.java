@@ -36,7 +36,7 @@ class AmountGenerationConstraintTest {
         // GIVEN
         int maxAmountOfObjectsToGenerate = 1;
         AmountGenerationConstraint constraint = new AmountGenerationConstraint(maxAmountOfObjectsToGenerate);
-        GeneratedObject generatedObject = new GeneratedObject("");
+        GeneratedObject generatedObject = GeneratedObject.of("");
 
         // WHEN
         AcceptationResult result = constraint.accept(generatedObject);
@@ -52,7 +52,7 @@ class AmountGenerationConstraintTest {
         // GIVEN
         int maxAmountOfObjectsToGenerate = 0;
         AmountGenerationConstraint constraint = new AmountGenerationConstraint(maxAmountOfObjectsToGenerate);
-        GeneratedObject generatedObject = new GeneratedObject("");
+        GeneratedObject generatedObject = GeneratedObject.of("");
 
         // WHEN
         AcceptationResult result = constraint.accept(generatedObject);
@@ -68,7 +68,7 @@ class AmountGenerationConstraintTest {
         // GIVEN
         int maxAmountOfObjectsToGenerate = 1;
         AmountGenerationConstraint constraint = new AmountGenerationConstraint(maxAmountOfObjectsToGenerate);
-        GeneratedObject generatedObject = new GeneratedObject("");
+        GeneratedObject generatedObject = GeneratedObject.of("");
         constraint.accept(generatedObject); // one generation before
 
         // WHEN
@@ -85,7 +85,7 @@ class AmountGenerationConstraintTest {
         // GIVEN
         int maxAmountOfObjectsToGenerate = 10;
         AmountGenerationConstraint constraint = new AmountGenerationConstraint(maxAmountOfObjectsToGenerate);
-        GeneratedObject generatedObject = new GeneratedObject("");
+        GeneratedObject generatedObject = GeneratedObject.of("");
         constraint.accept(generatedObject); // one generation before
 
         // WHEN
@@ -102,7 +102,7 @@ class AmountGenerationConstraintTest {
         // GIVEN
         int maxAmountOfObjectsToGenerate = 3;
         AmountGenerationConstraint constraint = new AmountGenerationConstraint(maxAmountOfObjectsToGenerate);
-        GeneratedObject generatedObject = new GeneratedObject("");
+        GeneratedObject generatedObject = GeneratedObject.of("");
         constraint.accept(generatedObject); // one generation before
         constraint.accept(generatedObject); // one generation before
 
@@ -120,7 +120,7 @@ class AmountGenerationConstraintTest {
         // GIVEN
         int maxAmountOfObjectsToGenerate = 3;
         AmountGenerationConstraint constraint = new AmountGenerationConstraint(maxAmountOfObjectsToGenerate);
-        GeneratedObject generatedObject = new GeneratedObject("");
+        GeneratedObject generatedObject = GeneratedObject.of("");
         constraint.accept(generatedObject); // one generation before
         constraint.accept(generatedObject); // one generation before
         constraint.accept(generatedObject); // one generation before

@@ -1,8 +1,8 @@
 package com.nebula.core.types.date;
 
 import com.nebula.core.GeneratedObject;
-import com.nebula.core.NebulaException;
 import com.nebula.core.GeneratedProperties;
+import com.nebula.core.NebulaException;
 import com.nebula.core.types.Range;
 import com.nebula.core.types.date.strategy.*;
 import org.joda.time.DateTime;
@@ -24,7 +24,7 @@ class DateTimeRangeTypeTest {
 
 		// GIVEN
 		DateTime dateTime = new DateTime(2017, 1, 1, 0, 0);
-		Range<ReadableInstant> range = new Range<>(dateTime, dateTime);
+        Range<ReadableInstant> range = Range.withMinAndMax(dateTime, dateTime);
 		DateTimeRangeType dateType = new DateTimeRangeType(range, DateTimeTypeIntervals.DAY);
 
 		// WHEN
@@ -40,7 +40,7 @@ class DateTimeRangeTypeTest {
 
 		// GIVEN
 		DateTime dateTime = new DateTime(2017, 1, 1, 0, 0);
-		Range<ReadableInstant> range = new Range<>(dateTime, dateTime);
+        Range<ReadableInstant> range = Range.withMinAndMax(dateTime, dateTime);
 		DateTimeRangeType dateType = new DateTimeRangeType(range, DateTimeTypeIntervals.DAY);
 
 		// WHEN
@@ -57,7 +57,7 @@ class DateTimeRangeTypeTest {
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0);
 		DateTime endDateTime = new DateTime(2017, 1, 31, 0, 0);
-		Range<ReadableInstant> range = new Range<>(startDateTime, endDateTime);
+        Range<ReadableInstant> range = Range.withMinAndMax(startDateTime, endDateTime);
 		DateTimeRangeType dateType = new DateTimeRangeType(range, DateTimeTypeIntervals.DAY);
 
 		// WHEN
@@ -75,7 +75,7 @@ class DateTimeRangeTypeTest {
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0);
 		DateTime endDateTime = new DateTime(2017, 1, 31, 0, 0);
-		Range<ReadableInstant> range = new Range<>(startDateTime, endDateTime);
+        Range<ReadableInstant> range = Range.withMinAndMax(startDateTime, endDateTime);
 		DateTimeRangeType dateType;
 
 		// WHEN
@@ -92,7 +92,7 @@ class DateTimeRangeTypeTest {
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0);
 		DateTime endDateTime = new DateTime(2017, 1, 31, 0, 0);
-		Range<ReadableInstant> range = new Range<>(startDateTime, endDateTime);
+        Range<ReadableInstant> range = Range.withMinAndMax(startDateTime, endDateTime);
 		DateTimeTypeIntervals interval = DateTimeTypeIntervals.HOUR;
 		DateTimeRangeType dateType = new DateTimeRangeType(range, interval);
 
@@ -111,7 +111,7 @@ class DateTimeRangeTypeTest {
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0);
 		DateTime endDateTime = new DateTime(2017, 1, 31, 0, 0);
-		Range<ReadableInstant> range = new Range<>(startDateTime, endDateTime);
+        Range<ReadableInstant> range = Range.withMinAndMax(startDateTime, endDateTime);
 		DateTimeTypeIntervals interval = DateTimeTypeIntervals.DAY;
 		DateTimeRangeType dateType;
 
@@ -139,7 +139,7 @@ class DateTimeRangeTypeTest {
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0);
 		DateTime endDateTime = new DateTime(2017, 1, 31, 0, 0);
-		Range<ReadableInstant> range = new Range<>(startDateTime, endDateTime);
+        Range<ReadableInstant> range = Range.withMinAndMax(startDateTime, endDateTime);
 		DateTimeTypeIntervals interval = DateTimeTypeIntervals.DAY;
 		DateTimeRangeType dateType = new DateTimeRangeType(range, interval);
 
@@ -158,7 +158,7 @@ class DateTimeRangeTypeTest {
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0);
 		DateTime endDateTime = new DateTime(2017, 1, 31, 0, 0);
-		Range<ReadableInstant> range = new Range<>(startDateTime, endDateTime);
+        Range<ReadableInstant> range = Range.withMinAndMax(startDateTime, endDateTime);
 		DateTimeTypeIntervals interval = DateTimeTypeIntervals.DAY;
 		DateTimeRangeType dateType = new DateTimeRangeType(range, interval);
 
@@ -177,7 +177,7 @@ class DateTimeRangeTypeTest {
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0);
 		DateTime endDateTime = new DateTime(2017, 1, 31, 0, 0);
-		Range<ReadableInstant> range = new Range<>(startDateTime, endDateTime);
+        Range<ReadableInstant> range = Range.withMinAndMax(startDateTime, endDateTime);
 		DateTimeTypeIntervals interval = DateTimeTypeIntervals.DAY;
 		DateTimeRangeType dateType = new DateTimeRangeType(range, interval);
 
@@ -195,7 +195,7 @@ class DateTimeRangeTypeTest {
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0, 0, 0);
 		DateTime endDateTime = new DateTime(2017, 1, 1, 0, 0, 1, 0);
-		Range<ReadableInstant> range = new Range<>(startDateTime, endDateTime);
+        Range<ReadableInstant> range = Range.withMinAndMax(startDateTime, endDateTime);
 		DateTimeTypeIntervals interval = DateTimeTypeIntervals.MILLISECOND;
 		DateTimeRangeType dateType = new DateTimeRangeType(range, interval);
 
@@ -213,7 +213,7 @@ class DateTimeRangeTypeTest {
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0, 0, 0);
 		DateTime endDateTime = new DateTime(2017, 1, 1, 0, 0, 10, 0);
-		Range<ReadableInstant> range = new Range<>(startDateTime, endDateTime);
+        Range<ReadableInstant> range = Range.withMinAndMax(startDateTime, endDateTime);
 		DateTimeTypeIntervals interval = DateTimeTypeIntervals.SECOND;
 		DateTimeRangeType dateType = new DateTimeRangeType(range, interval);
 
@@ -231,7 +231,7 @@ class DateTimeRangeTypeTest {
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0, 0, 0);
 		DateTime endDateTime = new DateTime(2017, 1, 1, 0, 36, 0, 0);
-		Range<ReadableInstant> range = new Range<>(startDateTime, endDateTime);
+        Range<ReadableInstant> range = Range.withMinAndMax(startDateTime, endDateTime);
 		DateTimeTypeIntervals interval = DateTimeTypeIntervals.MINUTE;
 		DateTimeRangeType dateType = new DateTimeRangeType(range, interval);
 
@@ -249,7 +249,7 @@ class DateTimeRangeTypeTest {
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0, 0, 0);
 		DateTime endDateTime = new DateTime(2017, 1, 2, 0, 0, 0, 0);
-		Range<ReadableInstant> range = new Range<>(startDateTime, endDateTime);
+        Range<ReadableInstant> range = Range.withMinAndMax(startDateTime, endDateTime);
 		DateTimeTypeIntervals interval = DateTimeTypeIntervals.HOUR;
 		DateTimeRangeType dateType = new DateTimeRangeType(range, interval);
 
@@ -267,7 +267,7 @@ class DateTimeRangeTypeTest {
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0, 0, 0);
 		DateTime endDateTime = new DateTime(2017, 1, 31, 0, 0, 0, 0);
-		Range<ReadableInstant> range = new Range<>(startDateTime, endDateTime);
+        Range<ReadableInstant> range = Range.withMinAndMax(startDateTime, endDateTime);
 		DateTimeTypeIntervals interval = DateTimeTypeIntervals.DAY;
 		DateTimeRangeType dateType = new DateTimeRangeType(range, interval);
 
@@ -285,7 +285,7 @@ class DateTimeRangeTypeTest {
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0, 0, 0);
 		DateTime endDateTime = new DateTime(2017, 3, 1, 0, 0, 0, 0);
-		Range<ReadableInstant> range = new Range<>(startDateTime, endDateTime);
+        Range<ReadableInstant> range = Range.withMinAndMax(startDateTime, endDateTime);
 		DateTimeTypeIntervals interval = DateTimeTypeIntervals.MONTH;
 		DateTimeRangeType dateType = new DateTimeRangeType(range, interval);
 
@@ -303,7 +303,7 @@ class DateTimeRangeTypeTest {
 		// GIVEN
 		DateTime startDateTime = new DateTime(2000, 1, 1, 0, 0, 0, 0);
 		DateTime endDateTime = new DateTime(2006, 1, 1, 0, 0, 0, 0);
-		Range<ReadableInstant> range = new Range<>(startDateTime, endDateTime);
+        Range<ReadableInstant> range = Range.withMinAndMax(startDateTime, endDateTime);
 		DateTimeTypeIntervals interval = DateTimeTypeIntervals.YEAR;
 		DateTimeRangeType dateType = new DateTimeRangeType(range, interval);
 
@@ -321,7 +321,7 @@ class DateTimeRangeTypeTest {
 		// GIVEN
 		DateTime startDateTime = new DateTime(2017, 1, 1, 0, 0, 0, 0);
 		DateTime endDateTime = new DateTime(2017, 1, 1, 0, 2, 30, 0);
-		Range<ReadableInstant> range = new Range<>(startDateTime, endDateTime);
+        Range<ReadableInstant> range = Range.withMinAndMax(startDateTime, endDateTime);
 		DateTimeTypeIntervals interval = DateTimeTypeIntervals.MINUTE;
 		DateTimeRangeType dateType = new DateTimeRangeType(range, interval);
 

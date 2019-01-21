@@ -1,9 +1,9 @@
 package com.nebula.core.generators.randomunique;
 
 import com.nebula.core.GeneratedObject;
+import com.nebula.core.GeneratedProperties;
 import com.nebula.core.Model;
 import com.nebula.core.NebulaException;
-import com.nebula.core.GeneratedProperties;
 import com.nebula.core.generators.Generator;
 import com.nebula.core.generators.NebulaRandom;
 import com.nebula.core.types.GenerationContext;
@@ -154,7 +154,7 @@ class RandomUniqueGeneratorTest {
     }
 
     private GenerationContext buildGenerationContext() {
-        return new GenerationContext(new NebulaRandom(1L), mock(Model.class), 0L, 1, 10);
+        return GenerationContext.of(new NebulaRandom(1L), mock(Model.class), 0L, 1, 10);
     }
 
     private void callGenerateNTimes(Type type, Generator generator, int numberOfGenerateCallToProcess) {

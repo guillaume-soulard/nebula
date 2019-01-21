@@ -12,8 +12,8 @@ class GeneratedPropertyTest {
 	void equals_should_assert_properties_are_equals() {
 
 		// GIVEN
-		GeneratedProperty generatedProperty1 = new GeneratedProperty("property", new GeneratedObject("value"), null);
-		GeneratedProperty generatedProperty2 = new GeneratedProperty("property", new GeneratedObject("value"), null);
+        GeneratedProperty generatedProperty1 = new GeneratedProperty("property", GeneratedObject.of("value"), null);
+        GeneratedProperty generatedProperty2 = new GeneratedProperty("property", GeneratedObject.of("value"), null);
 
 		// WHEN
 		boolean result = generatedProperty1.equals(generatedProperty2);
@@ -27,8 +27,8 @@ class GeneratedPropertyTest {
 	void equals_should_assert_properties_are_not_equals_because_property_names_are_differents() {
 
 		// GIVEN
-		GeneratedProperty generatedProperty1 = new GeneratedProperty("property1", new GeneratedObject("value"), null);
-		GeneratedProperty generatedProperty2 = new GeneratedProperty("property2", new GeneratedObject("value"), null);
+        GeneratedProperty generatedProperty1 = new GeneratedProperty("property1", GeneratedObject.of("value"), null);
+        GeneratedProperty generatedProperty2 = new GeneratedProperty("property2", GeneratedObject.of("value"), null);
 
 		// WHEN
 		boolean result = generatedProperty1.equals(generatedProperty2);
@@ -42,8 +42,8 @@ class GeneratedPropertyTest {
 	void equals_should_assert_properties_are_not_equals_because_property_values_are_differents() {
 
 		// GIVEN
-		GeneratedProperty generatedProperty1 = new GeneratedProperty("property", new GeneratedObject("value1"), null);
-		GeneratedProperty generatedProperty2 = new GeneratedProperty("property", new GeneratedObject("value2"), null);
+        GeneratedProperty generatedProperty1 = new GeneratedProperty("property", GeneratedObject.of("value1"), null);
+        GeneratedProperty generatedProperty2 = new GeneratedProperty("property", GeneratedObject.of("value2"), null);
 
 		// WHEN
 		boolean result = generatedProperty1.equals(generatedProperty2);
@@ -57,7 +57,7 @@ class GeneratedPropertyTest {
 	void equals_should_assert_properties_are_not_equals_because_one_is_null() {
 
 		// GIVEN
-		GeneratedProperty generatedProperty = new GeneratedProperty("property", new GeneratedObject("value1"), null);
+        GeneratedProperty generatedProperty = new GeneratedProperty("property", GeneratedObject.of("value1"), null);
 
 		// WHEN
 		boolean result = generatedProperty.equals(null);
@@ -75,7 +75,7 @@ class GeneratedPropertyTest {
 
 		// WHEN
 		try {
-			new GeneratedProperty("property.name", new GeneratedObject("value1"), null);
+            new GeneratedProperty("property.name", GeneratedObject.of("value1"), null);
 		} catch (Exception e) {
 			exception = e;
 		}

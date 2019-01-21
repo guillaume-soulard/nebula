@@ -35,7 +35,7 @@ class NumberRangeType extends AbstractTypeWithIndexCheck {
 
 	@Override
 	protected GeneratedObject generatedObjectAtIndex(Long index) {
-		return new GeneratedObject(calculateRequestedNumber(index));
+        return GeneratedObject.of(calculateRequestedNumber(index));
 	}
 
 	private BigDecimal calculateRequestedNumber(Long index) {

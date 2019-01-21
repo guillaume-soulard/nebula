@@ -85,9 +85,9 @@ class GraphQlRequestHandler implements HttpRequestHandler {
 
     private String getFormattedError(HttpRequest httpRequest, String message, String detail) {
         List<GeneratedProperty> generatedProperties = new ArrayList<>();
-        generatedProperties.add(new GeneratedProperty("error", new GeneratedObject(message), string().build(model)));
-        generatedProperties.add(new GeneratedProperty("detail", new GeneratedObject(detail), string().build(model)));
-        return jsonFormatter.formatGeneratedObject(new GeneratedObject(generatedProperties));
+        generatedProperties.add(new GeneratedProperty("error", GeneratedObject.of(message), string().build(model)));
+        generatedProperties.add(new GeneratedProperty("detail", GeneratedObject.of(detail), string().build(model)));
+        return jsonFormatter.formatGeneratedObject(GeneratedObject.of(generatedProperties));
     }
 
     private void sendNotSupportedMethod(HttpResponse httpResponse) {

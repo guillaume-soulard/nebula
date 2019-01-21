@@ -13,7 +13,11 @@ public class GeneratedObject {
 	private List<GeneratedProperty> generatedProperties;
 	private Object object;
 
-	public GeneratedObject(Object object) {
+	public static GeneratedObject of(Object obj) {
+		return new GeneratedObject(obj);
+	}
+
+	private GeneratedObject(Object object) {
 		this.object = object;
 	}
 

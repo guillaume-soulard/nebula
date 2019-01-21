@@ -23,7 +23,7 @@ class AbstractFormatterTest {
         // GIVEN
         List<String> excludedFields = new ArrayList<>();
         AbstractFormatter abstractFormatter = newFormatter(excludedFields);
-        GeneratedObject generatedObject = new GeneratedObject(getProperties(" id"));
+        GeneratedObject generatedObject = GeneratedObject.of(getProperties(" id"));
 
         // WHEN
         GeneratedObject result = abstractFormatter.excludeFieldsOn(generatedObject);
@@ -39,7 +39,7 @@ class AbstractFormatterTest {
         // GIVEN
         List<String> excludedFields = Collections.singletonList(" id");
         AbstractFormatter abstractFormatter = newFormatter(excludedFields);
-        GeneratedObject generatedObject = new GeneratedObject(getProperties(" id"));
+        GeneratedObject generatedObject = GeneratedObject.of(getProperties(" id"));
 
         // WHEN
         GeneratedObject result = abstractFormatter.excludeFieldsOn(generatedObject);
@@ -55,7 +55,7 @@ class AbstractFormatterTest {
         // GIVEN
         List<String> excludedFields = Collections.singletonList(" id");
         AbstractFormatter abstractFormatter = newFormatter(excludedFields);
-        GeneratedObject generatedObject = new GeneratedObject(getProperties(" id", "field"));
+        GeneratedObject generatedObject = GeneratedObject.of(getProperties(" id", "field"));
 
         // WHEN
         GeneratedObject result = abstractFormatter.excludeFieldsOn(generatedObject);

@@ -25,10 +25,10 @@ class XmlFormatterTest {
         // GIVEN
         XmlFormatter formatter = new XmlFormatter(new ValueFormatter("dd/MM/yyyy", '.', ','));
         List<GeneratedProperty> properties = new ArrayList<>();
-        properties.add(new GeneratedProperty("id", new GeneratedObject(1), mock(Type.class)));
-        properties.add(new GeneratedProperty("firstName", new GeneratedObject("Durant"), mock(Type.class)));
-        properties.add(new GeneratedProperty("lastName", new GeneratedObject("Jean"), mock(Type.class)));
-        GeneratedObject generatedObject = new GeneratedObject(properties);
+        properties.add(new GeneratedProperty("id", GeneratedObject.of(1), mock(Type.class)));
+        properties.add(new GeneratedProperty("firstName", GeneratedObject.of("Durant"), mock(Type.class)));
+        properties.add(new GeneratedProperty("lastName", GeneratedObject.of("Jean"), mock(Type.class)));
+        GeneratedObject generatedObject = GeneratedObject.of(properties);
         Entity entity = mock(Entity.class);
         when(entity.getName()).thenReturn("user");
         formatter.formatHeader(entity);
@@ -52,11 +52,11 @@ class XmlFormatterTest {
         // GIVEN
         XmlFormatter formatter = new XmlFormatter(new ValueFormatter("dd/MM/yyyy", '.', ','));
         List<GeneratedProperty> properties = new ArrayList<>();
-        properties.add(new GeneratedProperty("id", new GeneratedObject(1), mock(Type.class)));
-        properties.add(new GeneratedProperty("firstName", new GeneratedObject("Durant"), mock(Type.class)));
-        properties.add(new GeneratedProperty("lastName", new GeneratedObject("Jean"), mock(Type.class)));
+        properties.add(new GeneratedProperty("id", GeneratedObject.of(1), mock(Type.class)));
+        properties.add(new GeneratedProperty("firstName", GeneratedObject.of("Durant"), mock(Type.class)));
+        properties.add(new GeneratedProperty("lastName", GeneratedObject.of("Jean"), mock(Type.class)));
         properties.add(new GeneratedProperty("address", generateAddress(), mock(Type.class)));
-        GeneratedObject generatedObject = new GeneratedObject(properties);
+        GeneratedObject generatedObject = GeneratedObject.of(properties);
         Entity entity = mock(Entity.class);
         when(entity.getName()).thenReturn("user");
         formatter.formatHeader(entity);
@@ -84,11 +84,11 @@ class XmlFormatterTest {
         // GIVEN
         XmlFormatter formatter = new XmlFormatter(new ValueFormatter("dd/MM/yyyy", '.', ','));
         List<GeneratedProperty> properties = new ArrayList<>();
-        properties.add(new GeneratedProperty("id", new GeneratedObject(1), mock(Type.class)));
-        properties.add(new GeneratedProperty("firstName", new GeneratedObject("Durant"), mock(Type.class)));
-        properties.add(new GeneratedProperty("lastName", new GeneratedObject("Jean"), mock(Type.class)));
-        properties.add(new GeneratedProperty("addresses", new GeneratedObject(Arrays.asList(generateAddress(), generateAddress())), mock(Type.class)));
-        GeneratedObject generatedObject = new GeneratedObject(properties);
+        properties.add(new GeneratedProperty("id", GeneratedObject.of(1), mock(Type.class)));
+        properties.add(new GeneratedProperty("firstName", GeneratedObject.of("Durant"), mock(Type.class)));
+        properties.add(new GeneratedProperty("lastName", GeneratedObject.of("Jean"), mock(Type.class)));
+        properties.add(new GeneratedProperty("addresses", GeneratedObject.of(Arrays.asList(generateAddress(), generateAddress())), mock(Type.class)));
+        GeneratedObject generatedObject = GeneratedObject.of(properties);
         Entity entity = mock(Entity.class);
         when(entity.getName()).thenReturn("user");
         formatter.formatHeader(entity);
@@ -117,8 +117,8 @@ class XmlFormatterTest {
 
     private GeneratedObject generateAddress() {
         List<GeneratedProperty> addressProperties = new ArrayList<>();
-        addressProperties.add(new GeneratedProperty("street", new GeneratedObject("1 rue des champs elysees"), mock(Type.class)));
-        addressProperties.add(new GeneratedProperty("city", new GeneratedObject("Paris"), mock(Type.class)));
-        return new GeneratedObject(addressProperties);
+        addressProperties.add(new GeneratedProperty("street", GeneratedObject.of("1 rue des champs elysees"), mock(Type.class)));
+        addressProperties.add(new GeneratedProperty("city", GeneratedObject.of("Paris"), mock(Type.class)));
+        return GeneratedObject.of(addressProperties);
     }
 }

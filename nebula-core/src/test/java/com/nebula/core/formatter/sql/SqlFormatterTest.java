@@ -40,11 +40,11 @@ class SqlFormatterTest {
         List<String> propertiesToExclude = new ArrayList<>();
         Formatter formatter = new SqlFormatter(valueFormatter, propertiesToExclude);
         List<GeneratedProperty> properties = new ArrayList<>();
-        properties.add(new GeneratedProperty("id", new GeneratedObject(BigDecimal.ONE), mock(Type.class)));
-        properties.add(new GeneratedProperty("firstName", new GeneratedObject("durant"), mock(Type.class)));
-        properties.add(new GeneratedProperty("lastName", new GeneratedObject("jean"), mock(Type.class)));
-        properties.add(new GeneratedProperty("dayOfBirth", new GeneratedObject(new DateTime(2017, 1, 1, 0, 0)), mock(Type.class)));
-        GeneratedObject generatedObject = new GeneratedObject(properties);
+        properties.add(new GeneratedProperty("id", GeneratedObject.of(BigDecimal.ONE), mock(Type.class)));
+        properties.add(new GeneratedProperty("firstName", GeneratedObject.of("durant"), mock(Type.class)));
+        properties.add(new GeneratedProperty("lastName", GeneratedObject.of("jean"), mock(Type.class)));
+        properties.add(new GeneratedProperty("dayOfBirth", GeneratedObject.of(new DateTime(2017, 1, 1, 0, 0)), mock(Type.class)));
+        GeneratedObject generatedObject = GeneratedObject.of(properties);
         formatter.formatHeader(entity);
 
         // WHEN

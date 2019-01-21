@@ -1,7 +1,6 @@
 package com.nebula.core.types.script;
 
 import com.nebula.core.*;
-import com.nebula.core.GeneratedProperties;
 import com.nebula.core.types.GenerationContext;
 import org.joda.time.DateTime;
 import org.junit.jupiter.api.DisplayName;
@@ -22,7 +21,7 @@ class ScriptTypeTest {
         ScriptType scriptType = new ScriptType("return nebula.number(0)");
         Model model = ModelBuilder.newEmptyModel()
                 .build();
-        GenerationContext context = new GenerationContext(null, model, 0L, 1, 10);
+        GenerationContext context = GenerationContext.of(null, model, 0L, 1, 10);
         scriptType.init(context);
 
         // WHEN
@@ -40,7 +39,7 @@ class ScriptTypeTest {
         ScriptType scriptType = new ScriptType("return nebula.number(10)");
         Model model = ModelBuilder.newEmptyModel()
                 .build();
-        GenerationContext context = new GenerationContext(null, model, 0L, 1, 10);
+        GenerationContext context = GenerationContext.of(null, model, 0L, 1, 10);
         scriptType.init(context);
 
         // WHEN
@@ -58,7 +57,7 @@ class ScriptTypeTest {
         ScriptType scriptType = new ScriptType("return nebula.string('test')");
         Model model = ModelBuilder.newEmptyModel()
                 .build();
-        GenerationContext context = new GenerationContext(null, model, 0L, 1, 10);
+        GenerationContext context = GenerationContext.of(null, model, 0L, 1, 10);
         scriptType.init(context);
 
         // WHEN
@@ -76,7 +75,7 @@ class ScriptTypeTest {
         ScriptType scriptType = new ScriptType("return nebula.boolTrue()");
         Model model = ModelBuilder.newEmptyModel()
                 .build();
-        GenerationContext context = new GenerationContext(null, model, 0L, 1, 10);
+        GenerationContext context = GenerationContext.of(null, model, 0L, 1, 10);
         scriptType.init(context);
 
         // WHEN
@@ -94,7 +93,7 @@ class ScriptTypeTest {
         ScriptType scriptType = new ScriptType("return nebula.date('01/02/2018 03:05:06', 'dd/MM/yyyy hh:mm:ss')");
         Model model = ModelBuilder.newEmptyModel()
                 .build();
-        GenerationContext context = new GenerationContext(null, model, 0L, 1, 10);
+        GenerationContext context = GenerationContext.of(null, model, 0L, 1, 10);
         scriptType.init(context);
 
         // WHEN
@@ -112,7 +111,7 @@ class ScriptTypeTest {
         ScriptType scriptType = new ScriptType("return nebula.nil()");
         Model model = ModelBuilder.newEmptyModel()
                 .build();
-        GenerationContext context = new GenerationContext(null, model, 0L, 1, 10);
+        GenerationContext context = GenerationContext.of(null, model, 0L, 1, 10);
         scriptType.init(context);
 
         // WHEN
@@ -130,7 +129,7 @@ class ScriptTypeTest {
         ScriptType scriptType = new ScriptType("return 0");
         Model model = ModelBuilder.newEmptyModel()
                 .build();
-        GenerationContext context = new GenerationContext(null, model, 0L, 1, 10);
+        GenerationContext context = GenerationContext.of(null, model, 0L, 1, 10);
         scriptType.init(context);
         Exception exception = null;
 
@@ -155,11 +154,11 @@ class ScriptTypeTest {
         ScriptType scriptType = new ScriptType("return self.amount == 1 ? nebula.string('One') : nebula.string('Other')");
         Model model = ModelBuilder.newEmptyModel()
                 .build();
-        GenerationContext context = new GenerationContext(null, model, 0L, 1, 10);
+        GenerationContext context = GenerationContext.of(null, model, 0L, 1, 10);
         scriptType.init(context);
 
         // WHEN
-        GeneratedObject result = scriptType.generateObject(new GeneratedProperties(Collections.singletonList(new GeneratedProperty("amount", new GeneratedObject(BigDecimal.ONE), null))), 0L);
+        GeneratedObject result = scriptType.generateObject(new GeneratedProperties(Collections.singletonList(new GeneratedProperty("amount", GeneratedObject.of(BigDecimal.ONE), null))), 0L);
 
         // THEN
         assertThat(result.getObject()).isEqualTo("One");

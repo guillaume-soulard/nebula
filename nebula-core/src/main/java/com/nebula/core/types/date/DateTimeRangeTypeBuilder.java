@@ -1,10 +1,10 @@
 package com.nebula.core.types.date;
 
 import com.nebula.core.Model;
+import com.nebula.core.parser.DateParser;
 import com.nebula.core.types.Range;
 import com.nebula.core.types.RangeTypeBuilder;
 import com.nebula.core.types.Type;
-import com.nebula.core.parser.DateParser;
 import org.joda.time.DateTime;
 import org.joda.time.ReadableInstant;
 
@@ -22,7 +22,7 @@ public class DateTimeRangeTypeBuilder extends RangeTypeBuilder<DateTimeRangeType
 
 	@Override
 	public Type buildImpl(Model model) {
-		return new DateTimeRangeType(new Range<>(min, max), interval);
+		return new DateTimeRangeType(Range.withMinAndMax(min, max), interval);
 	}
 
 	@Override

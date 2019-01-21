@@ -58,7 +58,7 @@ class DateTimeRangeType extends AbstractTypeWithIndexCheck {
 
 	@Override
 	protected GeneratedObject generatedObjectAtIndex(Long index) {
-		return new GeneratedObject(calculateRequestedDate(index));
+        return GeneratedObject.of(calculateRequestedDate(index));
 	}
 
 	private DateTime calculateRequestedDate(Long index) {

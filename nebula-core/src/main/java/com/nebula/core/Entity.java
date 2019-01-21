@@ -63,7 +63,7 @@ public class Entity implements Type {
 	}
 
 	private GenerationContext buildPropertyGenerationContext(GenerationContext context, Property property) {
-		return new GenerationContext(new NebulaRandom(getPropertySeed(context, property)), context.getModel(), context.getEntityIndex(), context.getDepth(), context.getMaxDepth());
+		return GenerationContext.of(new NebulaRandom(getPropertySeed(context, property)), context.getModel(), context.getEntityIndex(), context.getDepth(), context.getMaxDepth());
 	}
 
 	private long getPropertySeed(GenerationContext context, Property property) {
@@ -81,7 +81,7 @@ public class Entity implements Type {
             generatedProperties.add(generatedProperty);
         }
 
-        return new GeneratedObject(generatedProperties);
+		return GeneratedObject.of(generatedProperties);
 	}
 
 	public Long getMaxRange() {

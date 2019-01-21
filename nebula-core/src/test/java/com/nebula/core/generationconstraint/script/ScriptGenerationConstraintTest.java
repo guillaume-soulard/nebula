@@ -16,7 +16,7 @@ class ScriptGenerationConstraintTest {
 
         // GIVEN
         ScriptGenerationConstraint constraint = new ScriptGenerationConstraint("return nebula.accept()");
-        GeneratedObject object = new GeneratedObject(null);
+        GeneratedObject object = GeneratedObject.of(null);
 
         // WHEN
         AcceptationResult result = constraint.accept(object);
@@ -31,7 +31,7 @@ class ScriptGenerationConstraintTest {
 
         // GIVEN
         ScriptGenerationConstraint constraint = new ScriptGenerationConstraint("return nebula.reject()");
-        GeneratedObject object = new GeneratedObject(null);
+        GeneratedObject object = GeneratedObject.of(null);
 
         // WHEN
         AcceptationResult result = constraint.accept(object);
@@ -46,7 +46,7 @@ class ScriptGenerationConstraintTest {
 
         // GIVEN
         ScriptGenerationConstraint constraint = new ScriptGenerationConstraint("return nebula.stopGeneration()");
-        GeneratedObject object = new GeneratedObject(null);
+        GeneratedObject object = GeneratedObject.of(null);
 
         // WHEN
         AcceptationResult result = constraint.accept(object);
@@ -61,7 +61,7 @@ class ScriptGenerationConstraintTest {
 
         // GIVEN
         ScriptGenerationConstraint constraint = new ScriptGenerationConstraint("return null");
-        GeneratedObject object = new GeneratedObject(null);
+        GeneratedObject object = GeneratedObject.of(null);
         Exception exception = null;
 
         // WHEN
@@ -82,7 +82,7 @@ class ScriptGenerationConstraintTest {
 
         // GIVEN
         ScriptGenerationConstraint constraint = new ScriptGenerationConstraint("return true");
-        GeneratedObject object = new GeneratedObject(null);
+        GeneratedObject object = GeneratedObject.of(null);
         Exception exception = null;
 
         // WHEN
@@ -103,7 +103,7 @@ class ScriptGenerationConstraintTest {
 
         // GIVEN
         ScriptGenerationConstraint constraint = new ScriptGenerationConstraint("return obj == 'test' ? nebula.accept() : nebula.reject()");
-        GeneratedObject object = new GeneratedObject("test");
+        GeneratedObject object = GeneratedObject.of("test");
 
         // WHEN
         AcceptationResult result = constraint.accept(object);

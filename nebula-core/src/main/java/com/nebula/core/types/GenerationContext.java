@@ -11,12 +11,16 @@ public class GenerationContext {
 	private final int depth;
 	private final int maxDepth;
 
-	public GenerationContext(NebulaRandom nebulaRandom, Model model, long entityIndex, int depth, int maxDepth) {
+	private GenerationContext(NebulaRandom nebulaRandom, Model model, long entityIndex, int depth, int maxDepth) {
 		this.nebulaRandom = nebulaRandom;
 		this.model = model;
 		this.entityIndex = entityIndex;
 		this.depth = depth;
 		this.maxDepth = maxDepth;
+	}
+
+	public static GenerationContext of(NebulaRandom nebulaRandom, Model model, long entityIndex, int depth, int maxDepth) {
+		return new GenerationContext(nebulaRandom, model, entityIndex, depth, maxDepth);
 	}
 
 	public NebulaRandom getNebulaRandom() {

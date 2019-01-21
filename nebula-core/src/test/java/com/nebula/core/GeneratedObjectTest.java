@@ -19,7 +19,7 @@ class GeneratedObjectTest {
 	void getObject_should_return_object_passed_in_constructor() {
 		// GIVEN
 		Object object = "test";
-		GeneratedObject generatedObject = new GeneratedObject(object);
+        GeneratedObject generatedObject = GeneratedObject.of(object);
 
 		// WHEN
 		Object result = generatedObject.getObject();
@@ -34,7 +34,7 @@ class GeneratedObjectTest {
 
 		// GIVEN
 		List<GeneratedProperty> generatedProperties = new ArrayList<>();
-		GeneratedObject generatedObject = new GeneratedObject(generatedProperties);
+        GeneratedObject generatedObject = GeneratedObject.of(generatedProperties);
 
 		// WHEN
 		List<GeneratedProperty> result = generatedObject.getGeneratedProperties();
@@ -48,8 +48,8 @@ class GeneratedObjectTest {
 	void equals_should_assert_objects_are_equals_comparing_object() {
 
 		// GIVEN
-		GeneratedObject object1 = new GeneratedObject("test");
-		GeneratedObject object2 = new GeneratedObject("test");
+        GeneratedObject object1 = GeneratedObject.of("test");
+        GeneratedObject object2 = GeneratedObject.of("test");
 
 		// WHEN
 		boolean result = object1.equals(object2);
@@ -63,8 +63,8 @@ class GeneratedObjectTest {
 	void equals_should_assert_objects_are_not_equals_comparing_object() {
 
 		// GIVEN
-		GeneratedObject object1 = new GeneratedObject("qwerty");
-		GeneratedObject object2 = new GeneratedObject("azerty");
+        GeneratedObject object1 = GeneratedObject.of("qwerty");
+        GeneratedObject object2 = GeneratedObject.of("azerty");
 
 		// WHEN
 		boolean result = object1.equals(object2);
@@ -78,10 +78,10 @@ class GeneratedObjectTest {
 	void equals_should_assert_objects_are_equals_comparing_properties() {
 
 		// GIVEN
-		List<GeneratedProperty> propertiesOfObject1 = Collections.singletonList(new GeneratedProperty("test", new GeneratedObject("value"), null));
-		List<GeneratedProperty> propertiesOfObject2 = Collections.singletonList(new GeneratedProperty("test", new GeneratedObject("value"), null));
-		GeneratedObject object1 = new GeneratedObject(propertiesOfObject1);
-		GeneratedObject object2 = new GeneratedObject(propertiesOfObject2);
+        List<GeneratedProperty> propertiesOfObject1 = Collections.singletonList(new GeneratedProperty("test", GeneratedObject.of("value"), null));
+        List<GeneratedProperty> propertiesOfObject2 = Collections.singletonList(new GeneratedProperty("test", GeneratedObject.of("value"), null));
+        GeneratedObject object1 = GeneratedObject.of(propertiesOfObject1);
+        GeneratedObject object2 = GeneratedObject.of(propertiesOfObject2);
 
 		// WHEN
 		boolean result = object1.equals(object2);
@@ -95,10 +95,10 @@ class GeneratedObjectTest {
 	void equals_should_assert_objects_are_not_equals_comparing_properties_names() {
 
 		// GIVEN
-		List<GeneratedProperty> propertiesOfObject1 = Collections.singletonList(new GeneratedProperty("property1", new GeneratedObject("value"), null));
-		List<GeneratedProperty> propertiesOfObject2 = Collections.singletonList(new GeneratedProperty("property2", new GeneratedObject("value"), null));
-		GeneratedObject object1 = new GeneratedObject(propertiesOfObject1);
-		GeneratedObject object2 = new GeneratedObject(propertiesOfObject2);
+        List<GeneratedProperty> propertiesOfObject1 = Collections.singletonList(new GeneratedProperty("property1", GeneratedObject.of("value"), null));
+        List<GeneratedProperty> propertiesOfObject2 = Collections.singletonList(new GeneratedProperty("property2", GeneratedObject.of("value"), null));
+        GeneratedObject object1 = GeneratedObject.of(propertiesOfObject1);
+        GeneratedObject object2 = GeneratedObject.of(propertiesOfObject2);
 
 		// WHEN
 		boolean result = object1.equals(object2);
@@ -112,10 +112,10 @@ class GeneratedObjectTest {
 	void equals_should_assert_objects_are_not_equals_comparing_properties_values() {
 
 		// GIVEN
-		List<GeneratedProperty> propertiesOfObject1 = Collections.singletonList(new GeneratedProperty("property", new GeneratedObject("value1"), null));
-		List<GeneratedProperty> propertiesOfObject2 = Collections.singletonList(new GeneratedProperty("property", new GeneratedObject("value2"), null));
-		GeneratedObject object1 = new GeneratedObject(propertiesOfObject1);
-		GeneratedObject object2 = new GeneratedObject(propertiesOfObject2);
+        List<GeneratedProperty> propertiesOfObject1 = Collections.singletonList(new GeneratedProperty("property", GeneratedObject.of("value1"), null));
+        List<GeneratedProperty> propertiesOfObject2 = Collections.singletonList(new GeneratedProperty("property", GeneratedObject.of("value2"), null));
+        GeneratedObject object1 = GeneratedObject.of(propertiesOfObject1);
+        GeneratedObject object2 = GeneratedObject.of(propertiesOfObject2);
 
 		// WHEN
 		boolean result = object1.equals(object2);
@@ -129,8 +129,8 @@ class GeneratedObjectTest {
 	void equals_should_assert_objects_are_not_equals_to_null() {
 
 		// GIVEN
-		List<GeneratedProperty> propertiesOfObject1 = Collections.singletonList(new GeneratedProperty("property", new GeneratedObject("value1"), null));
-		GeneratedObject object1 = new GeneratedObject(propertiesOfObject1);
+        List<GeneratedProperty> propertiesOfObject1 = Collections.singletonList(new GeneratedProperty("property", GeneratedObject.of("value1"), null));
+        GeneratedObject object1 = GeneratedObject.of(propertiesOfObject1);
 
 		// WHEN
 		boolean result = object1.equals(null);
@@ -145,11 +145,11 @@ class GeneratedObjectTest {
 
 		// GIVEN
 		List<GeneratedProperty> properties = new ArrayList<>();
-		GeneratedObject value = new GeneratedObject("value");
+        GeneratedObject value = GeneratedObject.of("value");
 		String propertyName = "test";
 		GeneratedProperty generatedProperty = new GeneratedProperty(propertyName, value, null);
 		properties.add(generatedProperty);
-		GeneratedObject generatedObject = new GeneratedObject(properties);
+        GeneratedObject generatedObject = GeneratedObject.of(properties);
 
 		// WHEN
 		GeneratedObject result = generatedObject.getGeneratedPropertyValue(propertyName);
@@ -164,10 +164,10 @@ class GeneratedObjectTest {
 
 		// GIVEN
 		List<GeneratedProperty> properties = new ArrayList<>();
-		GeneratedObject value = new GeneratedObject("value");
+        GeneratedObject value = GeneratedObject.of("value");
 		GeneratedProperty generatedProperty = new GeneratedProperty("test", value, null);
 		properties.add(generatedProperty);
-		GeneratedObject generatedObject = new GeneratedObject(properties);
+        GeneratedObject generatedObject = GeneratedObject.of(properties);
 
 		// WHEN
 
@@ -185,7 +185,7 @@ class GeneratedObjectTest {
 		GeneratedObject generatedObject;
 
 		// WHEN
-		generatedObject = new GeneratedObject("value");
+        generatedObject = GeneratedObject.of("value");
 
 		// THEN
 		assertThat(generatedObject).hasToString("\"value\"");
@@ -199,7 +199,7 @@ class GeneratedObjectTest {
 		GeneratedObject generatedObject;
 
 		// WHEN
-		generatedObject = new GeneratedObject(BigDecimal.TEN);
+        generatedObject = GeneratedObject.of(BigDecimal.TEN);
 
 		// THEN
 		assertThat(generatedObject).hasToString("10");
@@ -214,7 +214,7 @@ class GeneratedObjectTest {
 		List<String> list = new ArrayList<>();
 
 		// WHEN
-		generatedObject = new GeneratedObject(list);
+        generatedObject = GeneratedObject.of(list);
 
 		// THEN
 		assertThat(generatedObject).hasToString("[]");
@@ -229,7 +229,7 @@ class GeneratedObjectTest {
 		List<String> list = Arrays.asList("a", "b", "c");
 
 		// WHEN
-		generatedObject = new GeneratedObject(list);
+        generatedObject = GeneratedObject.of(list);
 
 		// THEN
 		assertThat(generatedObject).hasToString("[\"a\",\"b\",\"c\"]");
@@ -244,7 +244,7 @@ class GeneratedObjectTest {
 		List<BigDecimal> list = Arrays.asList(BigDecimal.ZERO, BigDecimal.ONE, BigDecimal.TEN);
 
 		// WHEN
-		generatedObject = new GeneratedObject(list);
+        generatedObject = GeneratedObject.of(list);
 
 		// THEN
 		assertThat(generatedObject).hasToString("[0,1,10]");
@@ -257,11 +257,11 @@ class GeneratedObjectTest {
 		// GIVEN
 		GeneratedObject generatedObject;
 		List<GeneratedProperty> list = new ArrayList<>();
-		list.add(new GeneratedProperty("property 1", new GeneratedObject("value"), null));
-        list.add(new GeneratedProperty("property 2", new GeneratedObject(BigDecimal.TEN), null));
+        list.add(new GeneratedProperty("property 1", GeneratedObject.of("value"), null));
+        list.add(new GeneratedProperty("property 2", GeneratedObject.of(BigDecimal.TEN), null));
 
 		// WHEN
-		generatedObject = new GeneratedObject(list);
+        generatedObject = GeneratedObject.of(list);
 
 		// THEN
 		assertThat(generatedObject).hasToString("{\"property 1\":\"value\",\"property 2\":10}");
@@ -272,7 +272,7 @@ class GeneratedObjectTest {
 	void getValueByPath_should_return_the_value_when_object_is_final() {
 
 		// GIVEN
-		GeneratedObject generatedObject = new GeneratedObject("test");
+        GeneratedObject generatedObject = GeneratedObject.of("test");
 
 		// WHEN
 		Object result = generatedObject.getValueByPath("");
@@ -287,8 +287,8 @@ class GeneratedObjectTest {
 
 		// GIVEN
 		List<GeneratedProperty> properties = new ArrayList<>();
-		properties.add(new GeneratedProperty("customProperty", new GeneratedObject("value"), null));
-		GeneratedObject generatedObject = new GeneratedObject(properties);
+        properties.add(new GeneratedProperty("customProperty", GeneratedObject.of("value"), null));
+        GeneratedObject generatedObject = GeneratedObject.of(properties);
 
 		// WHEN
 		Object result = generatedObject.getValueByPath("customProperty");
@@ -303,8 +303,8 @@ class GeneratedObjectTest {
 
 		// GIVEN
 		List<GeneratedProperty> properties = new ArrayList<>();
-		properties.add(new GeneratedProperty("customProperty", new GeneratedObject("value"), null));
-		GeneratedObject generatedObject = new GeneratedObject(properties);
+        properties.add(new GeneratedProperty("customProperty", GeneratedObject.of("value"), null));
+        GeneratedObject generatedObject = GeneratedObject.of(properties);
 
 		// WHEN
 
@@ -321,9 +321,9 @@ class GeneratedObjectTest {
 		// GIVEN
 		List<GeneratedProperty> properties = new ArrayList<>();
 		List<GeneratedProperty> level2 = new ArrayList<>();
-		level2.add(new GeneratedProperty("level2", new GeneratedObject("level2 value"), null));
-		properties.add(new GeneratedProperty("customProperty", new GeneratedObject(level2), null));
-		GeneratedObject generatedObject = new GeneratedObject(properties);
+        level2.add(new GeneratedProperty("level2", GeneratedObject.of("level2 value"), null));
+        properties.add(new GeneratedProperty("customProperty", GeneratedObject.of(level2), null));
+        GeneratedObject generatedObject = GeneratedObject.of(properties);
 
 		// WHEN
 		Object result = generatedObject.getValueByPath("customProperty.level2");
@@ -338,8 +338,8 @@ class GeneratedObjectTest {
 
 		// GIVEN
 		List<GeneratedProperty> properties = new ArrayList<>();
-		properties.add(new GeneratedProperty("custom property\"name\"",new GeneratedObject("test"), null));
-		GeneratedObject generatedObject = new GeneratedObject(properties);
+        properties.add(new GeneratedProperty("custom property\"name\"", GeneratedObject.of("test"), null));
+        GeneratedObject generatedObject = GeneratedObject.of(properties);
 
 		// WHEN
 		Object result = generatedObject.getValueByPath("custom property\"name\"");
@@ -355,9 +355,9 @@ class GeneratedObjectTest {
 		// GIVEN
 		List<GeneratedProperty> properties = new ArrayList<>();
 		List<GeneratedProperty> level2 = new ArrayList<>();
-		level2.add(new GeneratedProperty("at level 2", new GeneratedObject("level2 value"), null));
-		properties.add(new GeneratedProperty("custom property \"name\"", new GeneratedObject(level2), null));
-		GeneratedObject generatedObject = new GeneratedObject(properties);
+        level2.add(new GeneratedProperty("at level 2", GeneratedObject.of("level2 value"), null));
+        properties.add(new GeneratedProperty("custom property \"name\"", GeneratedObject.of(level2), null));
+        GeneratedObject generatedObject = GeneratedObject.of(properties);
 
 		// WHEN
 		Object result = generatedObject.getValueByPath("custom property \"name\".at level 2");

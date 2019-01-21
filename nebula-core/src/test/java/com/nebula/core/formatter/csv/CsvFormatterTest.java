@@ -35,8 +35,8 @@ class CsvFormatterTest {
         List<String> propertiesToExclude = new ArrayList<>();
         CsvFormatter formatter = new CsvFormatter(separator, quote, false, Collections.singletonList("lastName"), valueFormatter, propertiesToExclude);
         List<GeneratedProperty> generatedProperties = new ArrayList<>();
-        generatedProperties.add(new GeneratedProperty("lastName", new GeneratedObject("durant"), string().build(model)));
-        GeneratedObject generatedObject = new GeneratedObject(generatedProperties);
+        generatedProperties.add(new GeneratedProperty("lastName", GeneratedObject.of("durant"), string().build(model)));
+        GeneratedObject generatedObject = GeneratedObject.of(generatedProperties);
 
         // WHEN
         String formattedObject = formatter.formatGeneratedObject(generatedObject);
@@ -56,9 +56,9 @@ class CsvFormatterTest {
         List<String> propertiesToExclude = new ArrayList<>();
         CsvFormatter formatter = new CsvFormatter(separator, quote, false, Arrays.asList("firstName", "lastName"), valueFormatter, propertiesToExclude);
         List<GeneratedProperty> generatedProperties = new ArrayList<>();
-        generatedProperties.add(new GeneratedProperty("firstName", new GeneratedObject("jean"), string().build(model)));
-        generatedProperties.add(new GeneratedProperty("lastName", new GeneratedObject("durant"), string().build(model)));
-        GeneratedObject generatedObject = new GeneratedObject(generatedProperties);
+        generatedProperties.add(new GeneratedProperty("firstName", GeneratedObject.of("jean"), string().build(model)));
+        generatedProperties.add(new GeneratedProperty("lastName", GeneratedObject.of("durant"), string().build(model)));
+        GeneratedObject generatedObject = GeneratedObject.of(generatedProperties);
 
         // WHEN
         String formattedObject = formatter.formatGeneratedObject(generatedObject);
@@ -79,9 +79,9 @@ class CsvFormatterTest {
         List<String> columnNames = new ArrayList<>();
         CsvFormatter formatter = new CsvFormatter(separator, quote, false, columnNames, valueFormatter, propertiesToExclude);
         List<GeneratedProperty> generatedProperties = new ArrayList<>();
-        generatedProperties.add(new GeneratedProperty("firstName", new GeneratedObject("jean"), string().build(model)));
-        generatedProperties.add(new GeneratedProperty("lastName", new GeneratedObject("durant"), string().build(model)));
-        GeneratedObject generatedObject = new GeneratedObject(generatedProperties);
+        generatedProperties.add(new GeneratedProperty("firstName", GeneratedObject.of("jean"), string().build(model)));
+        generatedProperties.add(new GeneratedProperty("lastName", GeneratedObject.of("durant"), string().build(model)));
+        GeneratedObject generatedObject = GeneratedObject.of(generatedProperties);
 
         // WHEN
         String formattedObject = formatter.formatGeneratedObject(generatedObject);
@@ -101,9 +101,9 @@ class CsvFormatterTest {
         List<String> propertiesToExclude = new ArrayList<>();
         CsvFormatter formatter = new CsvFormatter(separator, quote, false, Arrays.asList("firstName", "lastName"), valueFormatter, propertiesToExclude);
         List<GeneratedProperty> generatedProperties = new ArrayList<>();
-        generatedProperties.add(new GeneratedProperty("firstName", new GeneratedObject("jean"), string().build(model)));
-        generatedProperties.add(new GeneratedProperty("lastName", new GeneratedObject("durant"), string().build(model)));
-        GeneratedObject generatedObject = new GeneratedObject(generatedProperties);
+        generatedProperties.add(new GeneratedProperty("firstName", GeneratedObject.of("jean"), string().build(model)));
+        generatedProperties.add(new GeneratedProperty("lastName", GeneratedObject.of("durant"), string().build(model)));
+        GeneratedObject generatedObject = GeneratedObject.of(generatedProperties);
 
         // WHEN
         String formattedObject = formatter.formatGeneratedObject(generatedObject);
@@ -123,9 +123,9 @@ class CsvFormatterTest {
         List<String> propertiesToExclude = new ArrayList<>();
         CsvFormatter formatter = new CsvFormatter(separator, quote, false, Collections.singletonList("col1"), valueFormatter, propertiesToExclude);
         List<GeneratedProperty> generatedProperties = new ArrayList<>();
-        generatedProperties.add(new GeneratedProperty("col1", new GeneratedObject("jean"), string().build(model)));
-        generatedProperties.add(new GeneratedProperty("col2", new GeneratedObject("durant"), string().build(model)));
-        GeneratedObject generatedObject = new GeneratedObject(generatedProperties);
+        generatedProperties.add(new GeneratedProperty("col1", GeneratedObject.of("jean"), string().build(model)));
+        generatedProperties.add(new GeneratedProperty("col2", GeneratedObject.of("durant"), string().build(model)));
+        GeneratedObject generatedObject = GeneratedObject.of(generatedProperties);
 
         // WHEN
         String formattedObject = formatter.formatGeneratedObject(generatedObject);
@@ -150,9 +150,9 @@ class CsvFormatterTest {
         entity.addProperty("col1", random(), string());
         entity.addProperty("col2", random(), string());
 
-        generatedProperties.add(new GeneratedProperty("col1", new GeneratedObject("jean"), string().build(model)));
-        generatedProperties.add(new GeneratedProperty("col2", new GeneratedObject("durant"), string().build(model)));
-        GeneratedObject generatedObject = new GeneratedObject(generatedProperties);
+        generatedProperties.add(new GeneratedProperty("col1", GeneratedObject.of("jean"), string().build(model)));
+        generatedProperties.add(new GeneratedProperty("col2", GeneratedObject.of("durant"), string().build(model)));
+        GeneratedObject generatedObject = GeneratedObject.of(generatedProperties);
         formatter.formatHeader(entity);
 
         // WHEN

@@ -1,9 +1,9 @@
 package com.nebula.core.types.script;
 
 import com.nebula.core.GeneratedObject;
+import com.nebula.core.GeneratedProperties;
 import com.nebula.core.GeneratedProperty;
 import com.nebula.core.NebulaException;
-import com.nebula.core.GeneratedProperties;
 import com.nebula.core.types.GenerationContext;
 import com.nebula.core.types.JavaType;
 import com.nebula.core.types.Type;
@@ -41,7 +41,7 @@ public class ScriptType implements Type {
         Object result = script.execute(context);
 
         if (result != null && ScriptObjectProxy.class.equals(result.getClass())) {
-            return new GeneratedObject(((ScriptObjectProxy) result).getObject());
+            return GeneratedObject.of(((ScriptObjectProxy) result).getObject());
         } else {
             throw new NebulaException("Wrong return type for script. Use nebula.number(<number>), nebula.date(<dateString>, <format>) nebula.boolTrue() nebula.boolFalse() nebula.string(<string>) nebula.nil() instead");
         }
